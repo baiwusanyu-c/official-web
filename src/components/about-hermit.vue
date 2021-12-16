@@ -1,0 +1,38 @@
+/*
+* @about-hermit.vue
+* @deprecated
+* @author czh
+* @update (czh 2021/12/15)
+*/
+<template>
+    <div class="about-hermit-container flex bg-infoh  x-full justify-center items-center">
+        <div class="w-1/2">
+            <h1 class="text-mainG text-4xl text-center mb-14">{{$t('lang.aboutHerMit.title')}}</h1>
+            <p class="text-default mb-10">{{$t('lang.aboutHerMit.info1')}}</p>
+            <p class="text-default">{{$t('lang.aboutHerMit.info2')}}</p>
+        </div>
+    </div>
+</template>
+
+<script>
+import {defineComponent} from "vue";
+export default defineComponent({
+    name: "about-hermit",
+    data() {
+        return {}
+    },
+    mounted() {
+    },
+    methods: {},
+})
+</script>
+
+<style scoped>
+.bg-header{
+    width: 1400px
+}
+.about-hermit-container{
+    height: 532px;
+    background-image: url("../assets/img/aboute-me.png");
+}
+</style>

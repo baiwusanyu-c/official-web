@@ -1,0 +1,25 @@
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+.scrollDiy::-webkit-scrollbar
+{
+    margin: 5px;
+    width: 8px;
+    height: 8px;
+}
+
+/*定义滑块*/
+.scrollDiy::-webkit-scrollbar-thumb
+{
+
+    background-color: #c1c1c1;
+    border-radius:  5px;
+}
+.linear-l-r{
+    background: linear-gradient(-73deg, #19BDFB, #02FBBB);
+}
+.linear-xie{
+    background: linear-gradient(-32deg, #19BCFC, #00FFBA);
+}
+#hermit_app .h-btn-txt-black .be-button-body .be-button-slot{
+
+    color: black;
+}
