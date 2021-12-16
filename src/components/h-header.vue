@@ -1,12 +1,12 @@
 <template>
     <!--  左侧  -->
     <div class="hermit-header flex flex-1 items-center">
-        <div class="flex items-center justify-end md:w-64 sm:w-12 ">
+        <div class="flex items-center justify-end cursor-pointer md:w-64 sm:w-12 " @click="routerPush('/index/home')">
             <img src="../assets/img/LOGO.png" alt=""/>
         </div>
 
         <div class="h-10 flex items-center justify-between ml-10">
-            <div class="w-28 cursor-pointer md:flex sm:hidden" @click="routerPush('/home')">
+            <div class="w-28 cursor-pointer md:flex sm:hidden" @click="routerPush('/index/home')">
                 {{ $t('lang.header.research') }}
             </div>
             <div class="w-28 cursor-pointer md:flex sm:hidden">

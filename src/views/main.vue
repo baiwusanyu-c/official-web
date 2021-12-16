@@ -9,11 +9,9 @@
             <be-main class="relative left-0 top-14 pb-0">
                 <router-view></router-view>
             </be-main>
-            <be-container class="relative">
-                <be-footer class="hermit-footer px-0">
-                    <h-footer-bigger></h-footer-bigger>
-                </be-footer>
-            </be-container>
+            <be-footer class="hermit-footer px-0">
+                <h-footer-bigger></h-footer-bigger>
+            </be-footer>
         </be-container>
     </n-config-provider>
 </template>
