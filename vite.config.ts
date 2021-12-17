@@ -45,7 +45,7 @@ export default defineConfig({
     resolve: {
         // 导入文件夹别名
         alias: {
-            '@': path.resolve(__dirname, './src'),
+            '@': path.resolve(__dirname, 'src'),
             /* views: path.resolve(__dirname, './src/views'),
              components: path.resolve(__dirname, './src/components'),
              utils: path.resolve(__dirname, './src/utils'),

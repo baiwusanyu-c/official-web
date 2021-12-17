@@ -1,7 +1,7 @@
 import {createRouter, createWebHashHistory} from 'vue-router'
 import main from '../views/main.vue'
-import introduction from '../views/doc/introduction.vue'
 import security from '../views/service/service-security.vue'
+import productVass from '../views/product/product-vass.vue'
 import home from '../views/home/home.vue'
 const routes = [
     {
@@ -17,6 +17,16 @@ const routes = [
                 path: '/index/service/security',
                 component: security,
                 name: 'security',
+            },
+            {
+                path: '/index/product/product-vass',
+                component: productVass,
+                name: 'productVass',
+            },
+            {
+                path: '/index/product/product-Eagle',
+                component: productVass,
+                name: 'productEagle',
             },
         ],
     },

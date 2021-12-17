@@ -9,6 +9,7 @@ export default {
     contactBtn:'CONTACT US',
     tryoutBtn:'TRY OUT',
     LearnMoreBtn:'LEARN MORE',
+    ReservationBtn:'RESERVATION NOW',
     header:{
         research:"Research",
         service:"Service",
@@ -21,12 +22,12 @@ export default {
             quite:'quite',
         },
         serviceStr:{
-            service1:'oservice2 ducPducProservice2duc',
+            service1:'The Security Audit ServiceFor Smart Contracts',
             service2:'The Security Testing Service For Blockchain Platforms',
         },
         productStr:{
-            product1:'Proservice2 ducProducProservice2duc',
-            product2:'service2service2service2 Produservice2service2c',
+            product1:'VasS',
+            product2:'Eagle Eye',
         },
         language:{
             EN:'EN',
@@ -82,5 +83,78 @@ export default {
         productFeature8:'Public opinion sentiment monitoring',
         GlobalTitle:'Serving Global Customers',
 
+    },
+    serviceSecurity:{
+        pageHead:{
+            textBig:'The Security Testing Service For Blockchain Platforms',
+            textSmall:'Multi-dimensional, multi-round and multi-way detection of blockchain security'
+        },
+        search:{
+            text:'HERMIT can provide multi-dimensional code security testing for Blockchain platforms. Through the different security audit methods of black-box, gray-box and white-box, BEOSIN can effectively guarantee the security of Blockchain platforms at all levels such as node communication, storage, consensus, authority management, etc.',
+            totalCustomers:'Total customers served',
+            audited:'Audited contracts',
+            totalAudited:'Total audited funds',
+            inputTitle:'Security Audit Report Search',
+            input:'Please enter the report number'
+        },
+        content:{
+            title:'Service Content',
+            cardCoding:'Language Coding Security Audit',
+            cardBlock:'Block Production And Governance Audit',
+            cardSystem:'Accounts System Security Audit',
+            cardAudit:'Assets Security Audit',
+            cardLayer:'Application Layer Security Audit',
+        },
+        process:{
+            title:'Service Process',
+            textEvaluation:'Project Evaluation',
+            textImplementation:'Project Implementation',
+        },
+        reports:{
+            title:'What’s in the audit report?',
+            middleTitle:'Security Audit Reports',
+            answer:'Our audit reports adopt several methods to offer you a comprehensive and customized service, including formal verification, static analysis, case testing and manual review. The report will list detailed information about the identified vulnerabilities and categorize them by severity (critical, high, medium, low and informational). Charts and graphs are included to provide a visual insight into your project, and fix recommendations will also be given.',
+            middleText:'Listed are some of the Blockchain and DeFi audit reports we published'
+        }
+    },
+    // djd h-footer-bigger
+    HFooterBigger: {
+        contact:{
+            contactTitle:'CONTACT US',
+            locationRoad:'120 ROBINSON ROAD',
+            locationSingapore:'#13-01 SINGAPORE 068913',
+        },
+        group:'GROUP',
+        policy:{
+            policyTitle:'POLICY',
+            terms:'Terms and Conditions',
+            privacy:'Privacy Policy',
+        },
+    },
+    product:{
+        vass:{
+            title:'HERMIT-VaaS',
+            subTitle:'Provide contract developers and test auditors with automated and complete formal verification for smart contracts.',
+            desc:'VaaS is the world\'s first "one-click" smart contract formal verification platform. It provides industry-leading security detection and verification for smart contract, with a detection accuracy rate of over 97%, also gives modification suggestions. Now with 100,000+ users, it supports public and consortium blockchains such as ETH, EOS, ONT, TRON, FISCO-BCOS, Fabric, Antchain, Tencent Blockchain,etc. at the same time. It can greatly improve the efficiency of smart contracts audit, and reduce the security risk potential caused by incomplete manual audit.',
+            funcTitle:'Main Functions Of Product',
+            funcSubTitle1:'One-Click DETECTION',
+            funcDesc1:'Just upload the contract code and the platform will automatically perform configuration, compilation, deployment, and verification, with reports coming out in minutes',
+            funcSubTitle2:'SYMBOLIC BYTECODE VERIFICATION',
+            funcDesc2:'Powerful integration of contract editing, testing and debugging',
+            funcSubTitle3:'VISUAL DEBUGGING',
+            funcDesc3:'Penetrate into source/bytecode and verify the security of your business logic with symbols',
+            funcSubTitle4:'VULNERABILITY REPORTS',
+            funcDesc4:'Fisually present the distribution of vulnerabilities in the contract and give related fix recommendations',
+
+            advantTitle:'Core Advantages Of Product',
+            advantSubTitle1:'Multiple invention patents guarantee',
+            advantDesc1:'We are one of the first companies in the world to apply formal verification technology to the blockchain industry. We currently have more than 10 patents on formal verification and have tested thousands of smart contracts.',
+            advantSubTitle2:'High Accuracyt',
+            advantDesc2:'VaaS can "One-Click" accurately and automatically locate the vulnerabilities of code. After the real evaluation by Security Laboratory of , the detection accuracy of BEOSIN-VaaS is up to 97%, ranking first in the world, enabling effective verification from source-code to byte-code.',
+            advantSubTitle3:'Multi-Blockchain Platforms Support',
+            advantDesc3:'VaaS supports multiple Blockchain platforms simultaneously (including ETH, EOS, ONT, TRON, FISCO-BCOS, Fabric, etc.). VaaS is highly customizable, and have already customized and developed the dedicated version of VaaS for ANTCHAIN and Tencent Blockchain at present.',
+            advantSubTitle4:'Various Access Methods',
+            advantDesc4:'The platform of VaaS supports SaaS access mode, local deployment mode and development tool plug-in installation mode. Firstly, the SaaS access mode can directly access the system through the public cloud platform, which is convenient and fast. Secondly, the local deployment mode can be directly deployed on the private development environment server to provide security detection functions of smart contracts for enterprise developers. Thirdly, the development tool plug-in installation mode can be directly installed into the development tool through the VS Code plug-in mode to achieve integrated development and security testing of smart contracts.',
+        }
     }
 }

@@ -5,7 +5,7 @@
 * @update (czh 2021/12/15)
 */
 <template>
-    <div class="about-hermit-container flex bg-infoh  x-full justify-center items-center">
+    <div class="about-hermit-container flex bg-infoh  w-full justify-center items-center">
         <div class="w-1/2">
             <h1 class="text-mainG text-4xl text-center mb-14">{{$t('lang.aboutHerMit.title')}}</h1>
             <p class="text-default mb-10">{{$t('lang.aboutHerMit.info1')}}</p>

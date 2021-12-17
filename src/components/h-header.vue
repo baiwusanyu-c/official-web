@@ -52,7 +52,7 @@
     </div>
     <!--  右侧  -->
     <div class="hermit-header-l flex justify-end items-center flex-1 text-right md:block sm:hidden">
-        <be-button customClass="request-btn">{{ $t('lang.header.requestUs') }}</be-button>
+        <be-button customClass="request-btn text-bold">{{ $t('lang.header.requestUs') }}</be-button>
         <be-popover trigger="click"
                     ref="popoverLogin"
                     customClass="header-popover" placement="bottom">
@@ -180,19 +180,19 @@ export default defineComponent({
             },
             {
                 label:t('lang.header.serviceStr.service2'),
-                value: '/service/security',
+                value: '/index/service/security',
                 active:false,
             }
         ])
         const productList = ref<Array<ISelect>>([
             {
                 label: t('lang.header.productStr.product1'),
-                value: '/product/1',
+                value: '/index/product/product-vass',
                 active:false,
             },
             {
                 label: t('lang.header.productStr.product2'),
-                value: '/product/2',
+                value: '/index/product/product-Eagle',
                 active:false,
             }
         ])

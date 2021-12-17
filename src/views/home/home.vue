@@ -21,7 +21,7 @@
                         <p>{{item.label}}</p>
                     </div>
                 </div>
-                <be-button customClass="contact-btn h-btn-txt-black linear-l-r text-black mr-auto ml-auto">{{$t('lang.contactBtn') }}</be-button>
+                <be-button customClass="contact-btn h-btn-txt-black linear-l-r text-black mr-auto ml-auto text-2xl">{{$t('lang.contactBtn') }}</be-button>
                 <div class="mt-30 flex title-card-container">
                     <div v-for="(item) in titleCardList"
                          class="title-card text-black mr-3 bg-default z-10 flex flex-col p-6 box-border"
@@ -47,7 +47,7 @@
                     <div class="bar mb-8"></div>
                     <h3 class="font-bold text-3xl mb-8">{{$t('lang.home.serviceTitle1')}}</h3>
                     <p class="mb-16">{{$t('lang.home.serviceInfo1')}}</p>
-                    <be-button customClass="learn-more-btn h-btn-txt-black linear-l-r text-black ">{{$t('lang.LearnMoreBtn') }}</be-button>
+                    <be-button customClass="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl">{{$t('lang.LearnMoreBtn') }}</be-button>
                 </div>
                 <div class="w-1/2 flex flex-wrap relative">
                     <hexagon class='absolute hexagon1' :index="0"></hexagon>
@@ -71,7 +71,7 @@
                     <div class="bar mb-8"></div>
                     <h3 class="font-bold text-3xl mb-8">{{$t('lang.home.serviceTitle1')}}</h3>
                     <p class="mb-16">{{$t('lang.home.serviceInfo1')}}</p>
-                    <be-button customClass="learn-more-btn h-btn-txt-black linear-l-r text-black ">{{$t('lang.LearnMoreBtn') }}</be-button>
+                    <be-button customClass="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl">{{$t('lang.LearnMoreBtn') }}</be-button>
                 </div>
             </div>
         </div>
@@ -99,7 +99,7 @@
                         <p class="font-bold text-center" style="width: 10em;">{{$t('lang.home.productFeature4')}}</p>
                     </div>
                 </div>
-                <be-button customClass="try-out-btn h-btn-txt-black linear-l-r text-black ">{{$t('lang.tryoutBtn') }}</be-button>
+                <be-button customClass="try-out-btn h-btn-txt-black linear-l-r text-black text-xl">{{$t('lang.tryoutBtn') }}</be-button>
             </div>
             <div class="flex-1 flex-col flex justify-center items-center w-full">
                 <div class="bar mb-8"></div>
@@ -123,7 +123,7 @@
                         <p class="font-bold text-center" style="width: 10em;">{{$t('lang.home.productFeature8')}}</p>
                     </div>
                 </div>
-                <be-button customClass="try-out-btn h-btn-txt-black linear-l-r text-black ">{{$t('lang.tryoutBtn') }}</be-button>
+                <be-button customClass="try-out-btn h-btn-txt-black linear-l-r text-black text-xl">{{$t('lang.tryoutBtn') }}</be-button>
             </div>
         </div>
 
@@ -131,7 +131,7 @@
         <div class="slogan-customer bg-default flex flex-col justify-center items-center w-full">
             <div class="bar mb-8 mt-20"></div>
             <h3 class="text-2xl font-bold mb-8">{{$t('lang.home.GlobalTitle')}}</h3>
-            <div class="slogan-customer-logo flex flex-wrap px-36 h-3/5 justify-around mb-12">
+            <div class="slogan-customer-logo flex flex-wrap px-36 h-3/5 justify-around mb-12 box-border">
                 <div v-for="(item) in customerImgList"
                      :key = 'item.img'
                      class="shadow-lg mb-14 mr-6 hover:shadow-2xl">
@@ -229,7 +229,7 @@ export default defineComponent({
     height: 58%;
 }
 .hermit-main .slogan-news .contact-btn{
-    margin-bottom: 30em;
+    margin-bottom: 20em;
     @apply h-12 w-80 font-bold;
 }
 
@@ -300,23 +300,23 @@ export default defineComponent({
     top:-10%
 }
 .slogan-service .hexagon3{
-    top:35%;
+    top:38%;
     left: 5%;
 }
 .slogan-service .hexagon4{
-    top:35%;
+    top:38%;
     left: 35%;
 }
 .slogan-service .hexagon5{
-    top:35%;
+    top:38%;
     left: 65%;
 }
 .slogan-service .hexagon6{
-    top:80%;
+    top:86%;
     left: 20%;
 }
 .slogan-service .hexagon7{
-    top:80%;
+    top:86%;
     left: 50%;
 }
 
@@ -333,11 +333,11 @@ export default defineComponent({
     left: 55%;
 }
 .slogan-service .hexagon11{
-    top: 22%;
+    top: 25%;
     left: 10%;
 }
 .slogan-service .hexagon12{
-    top: 22%;
+    top: 25%;
     left: 40%;
 }
 .bar{

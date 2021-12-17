@@ -9,7 +9,7 @@
             <be-main class="relative left-0 top-14 pb-0">
                 <router-view></router-view>
             </be-main>
-            <be-footer class="hermit-footer px-0">
+            <be-footer class="hermit-footer px-0 box-border">
                 <h-footer-bigger></h-footer-bigger>
             </be-footer>
         </be-container>

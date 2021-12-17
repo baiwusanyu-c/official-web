@@ -12,6 +12,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vicons/fa": "^0.11.0",
+    "@vicons/ionicons5": "^0.11.0",
     "@vueuse/core": "^7.3.0",
     "axios": "^0.24.0",
     "naive-ui": "^2.22.0",
