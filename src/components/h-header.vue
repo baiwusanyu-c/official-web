@@ -6,17 +6,19 @@
         </div>
 
         <div class="h-10 flex items-center justify-between ml-10">
+            <!--    报表    -->
 <!--            <div class="w-28 cursor-pointer text-base md:flex sm:hidden" @click="routerPush('/index/home')">
                 {{ $t('lang.header.research') }}
             </div>-->
+            <!--    服务    -->
             <div class="w-28 cursor-pointer md:flex sm:hidden">
                 <be-popover trigger="click"
                             ref="popoverService"
                             customClass="header-popover" placement="bottom">
                     <template #trigger>
-                        <div class="y-full flex items-center text-base">
+                        <div class="trigger-item y-full flex items-center text-base hover:text-mainG">
                             {{ $t('lang.header.service') }}
-                            <be-icon icon="under" color="white"></be-icon>
+                            <be-icon icon="under"></be-icon>
                         </div>
                     </template>
                     <div
@@ -28,12 +30,13 @@
                     </div>
                 </be-popover>
             </div>
+            <!--   产品    -->
             <div class="w-28 cursor-pointer md:flex sm:hidden">
                 <be-popover trigger="click" customClass="header-popover" placement="bottom" ref="popoverProduct">
                     <template #trigger>
-                        <div class="y-full flex items-center text-base" >
+                        <div class="trigger-item y-full flex items-center text-base hover:text-mainG" >
                             {{ $t('lang.header.product') }}
-                            <be-icon icon="under" color="white"></be-icon>
+                            <be-icon icon="under" ></be-icon>
                         </div>
                     </template>
                     <div
@@ -45,21 +48,27 @@
                     </div>
                 </be-popover>
             </div>
-            <div class="w-28 cursor-pointer text-base md:flex sm:hidden" @click="routerPush('/index/aboutUs')">
+            <div class="w-28 cursor-pointer text-base hover:text-mainG md:flex sm:hidden" @click="routerPush('/index/aboutUs')">
                 {{ $t('lang.header.aboutUs') }}
             </div>
         </div>
     </div>
     <!--  右侧  -->
     <div class="hermit-header-l flex justify-end items-center flex-1 text-right md:block sm:hidden">
+        <!--    联系    -->
         <be-button customClass="request-btn text-bold" @click="openDialog">{{ $t('lang.header.requestUs') }}</be-button>
+        <!--    登录前    -->
+<!--        <div class="y-full flex items-center cursor-pointer mr-12 text-base hover:text-mainG">
+            {{ $t('lang.header.login') }}
+        </div>-->
+        <!--    登录后    -->
         <be-popover trigger="click"
                     ref="popoverLogin"
                     customClass="header-popover" placement="bottom">
             <template #trigger>
-                <div class="y-full flex items-center cursor-pointer mr-12 text-base">
+                <div class="trigger-item y-full flex items-center cursor-pointer mr-12 text-base hover:text-mainG">
                     {{ $t('lang.header.login') }}
-                    <be-icon icon="under" color="white"></be-icon>
+                    <be-icon icon="under" ></be-icon>
                 </div>
             </template>
             <div
@@ -70,13 +79,15 @@
                 <p class="ml-2 text-base">{{item.label}}</p>
             </div>
         </be-popover>
+
+        <!--    语言    -->
         <be-popover trigger="click"
                     ref="popoverLang"
                     customClass="header-popover" placement="bottom">
             <template #trigger>
-                <div class="y-full flex items-center cursor-pointer text-base">
+                <div class="trigger-item y-full flex items-center cursor-pointer text-base hover:text-mainG">
                     {{ $t('lang.header.language.EN') }}
-                    <be-icon icon="under" color="white"></be-icon>
+                    <be-icon icon="under" ></be-icon>
                 </div>
             </template>
             <div
@@ -126,7 +137,9 @@ export default defineComponent({
          */
         const router: Router = useRouter()
         const routerPush = (path: string,index:number): void => {
+
             closePopover(path,index)
+            if(/quite/.test(path)) return
             router.push(path)
         }
         /**
@@ -135,11 +148,13 @@ export default defineComponent({
          * @param index 索引
          */
         const closePopover = (path: string,index:number):void => {
+            // 服务介绍
             if(/service/.test(path)){
                 serviceList.value.map((val:ISelect)=>val.active = false)
                 serviceList.value[index].active = true;
                 (internalInstance?.refs?.popoverService as IPopover).close()
             }
+            // 产品介绍
             if(/product/.test(path)){
                 productList.value.map((val:ISelect)=>val.active = false)
                 productList.value[index].active = true;
@@ -200,7 +215,7 @@ export default defineComponent({
         const loginList = ref<Array<ISelect>>([
             {
                 label: t('lang.header.loginStr.center'),
-                value: '/user/center',
+                value: '/index/user/personal',
                 active:false,
             },
             {
@@ -275,5 +290,11 @@ export default defineComponent({
 }
 .hermit-header-l .request-btn{
     @apply bg-mainG text-black mr-12;
+}
+.trigger-item .be-icon-container .be-icon{
+    fill:#fff;
+}
+.trigger-item:hover .be-icon-container .be-icon{
+    fill:#02fbbb;
 }
 </style>

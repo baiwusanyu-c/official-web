@@ -4,6 +4,7 @@ import security from '../views/service/service-security.vue'
 import contracts from '../views/service/service-contract.vue'
 import productVass from '../views/product/product-vass.vue'
 import productEagle from '../views/product/product-eagle-eye.vue'
+import personal from '../views/personal/user-center.vue'
 import aboutUs from '../views/about-us/about-us.vue'
 import home from '../views/home/home.vue'
 const routes = [
@@ -38,7 +39,7 @@ const routes = [
             },
             {
                 path: '/index/user/personal',
-                component: productEagle,
+                component: personal,
                 name: 'personal',
             },
             {

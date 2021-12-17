@@ -251,5 +251,19 @@ export default {
         email:'EMAIL ADDRESS',
         phone:'MOBILE PHONE NUMBER',
         message:'MESSAGE'
+    },
+    userCenter:{
+        titleBig:'Personal Center',
+        titleSmall:'Hermit，always guard your blockchain security',
+        searchTitle:'Security Audit Report Search',
+        searchInput:'Please enter the report number',
+        download:'Download all',
+        tableAudit:'Audit Report Preparation',
+        tableName:'Report Name',
+        tableType:'Report Type',
+        tableTime:'Upload Time',
+        tableSetting:'Permission Setting',
+        tableCertificate:'Certificate',
+        tableAction:'Action',
     }
 }
