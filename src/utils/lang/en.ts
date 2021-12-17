@@ -11,6 +11,10 @@ export default {
     tryoutBtn:'TRY OUT',
     LearnMoreBtn:'LEARN MORE',
     ReservationBtn:'RESERVATION NOW',
+    connect:'connect',
+    community:'Community',
+    phone:'phone',
+    mail:'mail',
     header:{
         research:"Research",
         service:"Service",
@@ -188,6 +192,17 @@ export default {
     },
     aboutUsPage:{
         title:'ABOUT Hermit',
-        titleDesc:'Securing the blockchain ecosystem is our only mission'
+        titleDesc:'Securing the blockchain ecosystem is our only mission',
+        descInfo1:'Hermit is the world\'s first company specializing in blockchain security, The core team members are also professors, postdocs and PhDs from Yale University, Tsinghua University and other world-renowned universities and labs, as well as elites from world-renowned Internet companies, with more than 20 years of research in formal verification technology, trusted computing, mobile security and kernel security. ',
+        descInfo2:'Through the security audit and defense deployment of more than 2,000 smart contracts, over 50 public chains and wallets, and nearly 100 exchanges around the world, we have accumulated rich experience in security attack and defense in the blockchain field, and developed several security products specifically for blockchain.\n',
+        descIcon1:'20+',
+        descIconInfo1:'Years of scientific research',
+        descIcon2:'2000+',
+        descIconInfo2:'Smart contract audits',
+        descIcon3:'50+',
+        descIconInfo3:'Public chain and wallet defense deployments',
+        descIcon4:'100+',
+        descIconInfo4:'ExchangePartnerships',
+        securityBlock:'SECURING THE BLOCKCHAIN ECOLOGY'
     }
 }

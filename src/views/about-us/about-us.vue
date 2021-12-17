@@ -17,6 +17,85 @@
                 </div>
             </div>
         </div>
+       <!--    一大段文字描述   -->
+        <div class="flex flex-col py-16 items-center justify-center box-border desc-info">
+            <div class="flex items-center justify-between w-4/6">
+                <img src="../../assets/img/ab-us-desc.png" alt="" />
+                 <p class="ml-16 leading-loose text-lg">
+                     <span>{{$t('lang.aboutUsPage.descInfo1')}}</span>
+                     <br>
+                     <span>{{$t('lang.aboutUsPage.descInfo2')}}</span>
+                 </p>
+            </div>
+            <div class="ml-16 mt-32 flex items-center justify-between w-4/6">
+                <div class="flex items-center justify-between ">
+                    <img src="../../assets/img/ab-us-ic1.png" alt="" />
+                    <div class="w-32 ml-2">
+                        <h2 class="text-mainG text-4xl font-bold">
+                            {{$t('lang.aboutUsPage.descIcon1')}}
+                        </h2>
+                        <span>{{$t('lang.aboutUsPage.descIconInfo1')}}</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between ">
+                    <img src="../../assets/img/ab-us-ic2.png" alt="" />
+                    <div class="w-32 ml-2">
+                        <h2 class="text-mainG text-4xl font-bold">
+                            {{$t('lang.aboutUsPage.descIcon2')}}
+                        </h2>
+                        <span>{{$t('lang.aboutUsPage.descIconInfo2')}}</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between ">
+                    <img src="../../assets/img/ab-us-ic3.png" alt="" />
+                    <div class="w-32 ml-2">
+                        <h2 class="text-mainG text-4xl font-bold">
+                            {{$t('lang.aboutUsPage.descIcon3')}}
+                        </h2>
+                        <span>{{$t('lang.aboutUsPage.descIconInfo3')}}</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center ">
+                    <img src="../../assets/img/ab-us-ic4.png" alt="" />
+                    <div class="w-32 ml-2">
+                        <h2 class="text-mainG text-4xl font-bold">
+                            {{$t('lang.aboutUsPage.descIcon4')}}
+                        </h2>
+                        <span>{{$t('lang.aboutUsPage.descIconInfo4')}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--    securing the blockchain ecology    -->
+        <div class="securing-the-blockchain flex items-center justify-center w-full h-auto">
+            <p class="text-4xl font-bold w-1/3 text-center">{{$t('lang.aboutUsPage.securityBlock')}}</p>
+        </div>
+        <!--    connect    -->
+        <div class="flex flex-col py-16 items-center justify-center box-border w-full">
+            <p class="text-3xl font-bold w-1/3 text-center mb-16">{{$t('lang.connect')}}</p>
+            <div class="flex items-center">
+                <div class="flex items-center justify-center text-xl mr-36">
+                    <img class="mr-4" src="../../assets/img/phone.png" alt="" />
+                    {{$t('lang.phone')}}:86-028-8326-2585
+                </div>
+                <div class="flex items-center justify-center text-xl">
+                    <img class="mr-4" src="../../assets/img/mail.png" alt="" />
+                    {{$t('lang.mail')}}:market@lianantech.com
+                </div>
+            </div>
+        </div>
+        <!--    Community    -->
+        <div class="flex flex-col py-16 items-center justify-center box-border w-full bg-mainBlueGary">
+            <p class="text-3xl font-bold w-1/3 text-center mb-24">{{$t('lang.community')}}</p>
+            <div class="flex items-center mb-20">
+                <img  class="mr-16 cursor-pointer" src="../../assets/img/community1.png" alt="" />
+                <img  class="mx-16 cursor-pointer" src="../../assets/img/community2.png" alt="" />
+                <img  class="mx-16 cursor-pointer" src="../../assets/img/community3.png" alt="" />
+                <img  class="mx-16 cursor-pointer" src="../../assets/img/community4.png" alt="" />
+                <img  class="mx-16 cursor-pointer" src="../../assets/img/community5.png" alt="" />
+                <img  class="ml-16 cursor-pointer" src="../../assets/img/community6.png" alt="" />
+            </div>
+        </div>
     </div>
     <contact-us></contact-us>
 </template>
@@ -62,6 +141,13 @@ export default defineComponent({
     line-height: 30px;
     font-family: SourceHanSansCN-Regular sans-serif;
 }
-
+.about-us-page .desc-info{
+    background-image: url("../../assets/img/customer-earth.png");
+    background-repeat: no-repeat;
+}
+.about-us-page .securing-the-blockchain{
+    height: 360px;
+    background-image: url("../../assets/img/securing-the-blockchain.png");
+}
 
 </style>
