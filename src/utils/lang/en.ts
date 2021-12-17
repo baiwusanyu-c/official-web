@@ -89,6 +89,7 @@ export default {
         GlobalTitle:'Serving Global Customers',
 
     },
+    // djd service-security
     serviceSecurity:{
         pageHead:{
             textBig:'The Security Testing Service For Blockchain Platforms',
@@ -117,6 +118,44 @@ export default {
         },
         reports:{
             title:'What’s in the audit report?',
+            text:'Our audit reports adopt several methods to offer you a comprehensive and customized service, including formal verification, static analysis, case testing and manual review. The report will list detailed information about the identified vulnerabilities and categorize them by severity (critical, high, medium, low and informational). Charts and graphs are included to provide a visual insight into your project, and fix recommendations will also be given.',
+            middleTitle:'Security Audit Reports',
+            middleText:'Listed are some of the Blockchain and DeFi audit reports we published'
+        }
+    },
+    serviceContract:{
+        pageHead:{
+            textBig:'The Security Audit Service For Smart Contracts',
+            textSmall:'Co-audited by more than 20 top blockchain security engineers worldwide',
+            button:'Reservation Now'
+        },
+        search:{
+            text:'Based on formal verification technology, hermit can conduct the security audit services for smart contracts on multiple Blockchain platforms, make a comprehensive security verification on conventional security vulnerabilities of smart contracts’ code and security vulnerabilities of business logic, ensure the consistency of smart contracts’ code and business logic, and issue authoritative security audit report',
+            totalCustomers:'Total customers served',
+            audited:'Audited contracts',
+            totalAudited:'Total audited funds',
+            inputTitle:'Security Audit Report Search',
+            input:'Audit Report Preparation'
+        },
+        content:{
+            title:'Service Content',
+            cardSecurity:'Asset Security Audit',
+            cardLogic:'Business Logic Audit',
+            cardBackdoor:'Backdoor Audit',
+            cardFlashLoan:'Flash Loan Attack Audit',
+            cardThirdParty:'Third-party Module Security Audit',
+            cardAttack:'Reentrancy Attack Audit',
+            cardCode:'Code Specification Audit',
+            cardFunction:'Function Call Audit',
+        },
+        process:{
+            title:'Service Process',
+            textEvaluation:'Project Evaluation',
+            textImplementation:'Project Implementation',
+        },
+        reports:{
+            title:'What’s in the audit report?',
+            text:'Our audit reports adopt several methods to offer you a comprehensive and customized service, including formal verification, static analysis, case testing and manual review. The report will list detailed information about the identified vulnerabilities and categorize them by severity (critical, high, medium, low and informational). Charts and graphs are included to provide a visual insight into your project, and fix recommendations will also be given.',
             middleTitle:'Security Audit Reports',
             answer:'Our audit reports adopt several methods to offer you a comprehensive and customized service, including formal verification, static analysis, case testing and manual review. The report will list detailed information about the identified vulnerabilities and categorize them by severity (critical, high, medium, low and informational). Charts and graphs are included to provide a visual insight into your project, and fix recommendations will also be given.',
             middleText:'Listed are some of the Blockchain and DeFi audit reports we published'

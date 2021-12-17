@@ -9,7 +9,7 @@
         <!--   slogan & news     -->
         <div class="slogan-news w-full bg-mainBlueGary relative flex justify-center">
             <div class="slogan-news-bg w-full bg-black absolute "></div>
-            <div class="absolute z-10 flex justify-center flex-col w-1/2 h-full">
+                <div class="absolute z-10 flex justify-center flex-col w-1/2  h-full">
                 <h2 class="text-mainG text-6xl text-center font-bold leading-normal">{{$t('lang.home.title1')}}</h2>
                 <h2 class="text-mainG text-6xl text-center font-bold leading-normal mb-20">{{$t('lang.home.title2')}}</h2>
                 <div class="flex flex-wrap w-2/3 justify-between self-center mb-16">
@@ -22,7 +22,8 @@
                     </div>
                 </div>
                 <be-button customClass="contact-btn h-btn-txt-black linear-l-r text-black mr-auto ml-auto text-2xl">{{$t('lang.contactBtn') }}</be-button>
-                <div class="mt-30 flex title-card-container">
+
+<!--                <div class="mt-30 flex title-card-container">
                     <div v-for="(item) in titleCardList"
                          class="title-card text-black mr-3 bg-default z-10 flex flex-col p-6 box-border"
                          :key="item.label">
@@ -35,7 +36,7 @@
                         </div>
                     </div>
                 </div>
-                <p class="text-right relative -right-40">{{ $t('lang.home.more') }} >></p>
+                <p class="text-right relative -right-40">{{ $t('lang.home.more') }} >></p>-->
 
             </div>
 
@@ -223,14 +224,17 @@ export default defineComponent({
 
 }
 .hermit-main .slogan-news{
-    height: 134vh;
+   /* height: 134vh;*/
+    height: 80vh
 }
 .hermit-main .slogan-news .slogan-news-bg{
-    height: 58%;
+   /* height: 58%;*/
+    height: 100%
 }
 .hermit-main .slogan-news .contact-btn{
-    margin-bottom: 20em;
+   /* margin-bottom: 20em;*/
     @apply h-12 w-80 font-bold;
+
 }
 
 .hermit-main .slogan-news .title-card-container{

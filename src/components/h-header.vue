@@ -6,46 +6,46 @@
         </div>
 
         <div class="h-10 flex items-center justify-between ml-10">
-            <div class="w-28 cursor-pointer md:flex sm:hidden" @click="routerPush('/index/home')">
+<!--            <div class="w-28 cursor-pointer text-base md:flex sm:hidden" @click="routerPush('/index/home')">
                 {{ $t('lang.header.research') }}
-            </div>
+            </div>-->
             <div class="w-28 cursor-pointer md:flex sm:hidden">
                 <be-popover trigger="click"
                             ref="popoverService"
                             customClass="header-popover" placement="bottom">
                     <template #trigger>
-                        <div class="y-full flex items-center">
+                        <div class="y-full flex items-center text-base">
                             {{ $t('lang.header.service') }}
                             <be-icon icon="under" color="white"></be-icon>
                         </div>
                     </template>
                     <div
-                        class="popover-list bg-footer h-14 text-default flex cursor-pointer items-center hover:text-black"
+                        class="popover-list bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
                         :class="item.active ? 'linear-l-r active-popover' : ''"
                         @click="routerPush(item.value,index)"
                         v-for="(item,index) in serviceList">
-                        {{item.label}}
+                        <p class="ml-2 text-base">{{item.label}}</p>
                     </div>
                 </be-popover>
             </div>
             <div class="w-28 cursor-pointer md:flex sm:hidden">
                 <be-popover trigger="click" customClass="header-popover" placement="bottom" ref="popoverProduct">
                     <template #trigger>
-                        <div class="y-full flex items-center" >
+                        <div class="y-full flex items-center text-base" >
                             {{ $t('lang.header.product') }}
                             <be-icon icon="under" color="white"></be-icon>
                         </div>
                     </template>
                     <div
-                        class="popover-list bg-footer h-14 text-default flex items-center cursor-pointer hover:text-black"
+                        class="popover-list bg-footer h-10 text-default flex items-center cursor-pointer hover:text-black"
                         :class="item.active ? 'linear-l-r active-popover' : ''"
                         @click="routerPush(item.value,index)"
                         v-for="(item,index) in productList">
-                        {{item.label}}
+                        <p class="ml-2 text-base">{{item.label}}</p>
                     </div>
                 </be-popover>
             </div>
-            <div class="w-28 cursor-pointer md:flex sm:hidden" @click="routerPush('/index/aboutUs')">
+            <div class="w-28 cursor-pointer text-base md:flex sm:hidden" @click="routerPush('/index/aboutUs')">
                 {{ $t('lang.header.aboutUs') }}
             </div>
         </div>
@@ -57,34 +57,34 @@
                     ref="popoverLogin"
                     customClass="header-popover" placement="bottom">
             <template #trigger>
-                <div class="y-full flex items-center cursor-pointer mr-12">
+                <div class="y-full flex items-center cursor-pointer mr-12 text-base">
                     {{ $t('lang.header.login') }}
                     <be-icon icon="under" color="white"></be-icon>
                 </div>
             </template>
             <div
-                class="popover-list bg-footer h-14 text-default flex cursor-pointer items-center hover:text-black"
+                class="popover-list bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
                 :class="item.active ? 'linear-l-r active-popover' : ''"
                 @click="routerPush(item.value,index)"
                 v-for="(item,index) in loginList">
-                {{item.label}}
+                <p class="ml-2 text-base">{{item.label}}</p>
             </div>
         </be-popover>
         <be-popover trigger="click"
                     ref="popoverLang"
                     customClass="header-popover" placement="bottom">
             <template #trigger>
-                <div class="y-full flex items-center cursor-pointer">
+                <div class="y-full flex items-center cursor-pointer text-base">
                     {{ $t('lang.header.language.EN') }}
                     <be-icon icon="under" color="white"></be-icon>
                 </div>
             </template>
             <div
-                class="popover-list bg-footer h-14 text-default flex cursor-pointer items-center hover:text-black"
+                class="popover-list bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
                 :class="item.active ? 'linear-l-r active-popover' : ''"
                 @click="changeLanguage(item.value,index)"
                 v-for="(item,index) in langList">
-                {{item.label}}
+                <p class="ml-2 text-base">{{item.label}}</p>
             </div>
         </be-popover>
         <!--        <be-button customClass="animated-l-r animated-dom">测试按钮</be-button>-->
@@ -175,7 +175,7 @@ export default defineComponent({
         const serviceList = ref<Array<ISelect>>([
             {
                 label: t('lang.header.serviceStr.service1'),
-                value: '/service/1',
+                value: '/index/service/contracts',
                 active:false,
             },
             {
@@ -241,8 +241,12 @@ export default defineComponent({
     @apply bg-footer
 }
 .header-popover .be-popover-body{
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+    padding:5px 0 0 0 !important;
+
+}
+.popover-list{
+    position: relative;
+    min-width: 100px;
 
 }
 .popover-list:hover{
@@ -252,6 +256,13 @@ export default defineComponent({
     background: -o-linear-gradient(left, rgba(93,232,176,1) 0%, rgba(37,180,232,1) 100%);
     background: -ms-linear-gradient(left, rgba(93,232,176,1) 0%, rgba(37,180,232,1) 100%);
     background: linear-gradient(to right, rgba(93,232,176,1) 0%, rgba(37,180,232,1) 100%);
+}
+.popover-list:before{
+    content: '';
+    width: 3px;
+    height: 100%;
+    position: absolute;
+    background: rgba(93,232,176,1);
 }
 .linear-l-r.active-popover{
     @apply text-black

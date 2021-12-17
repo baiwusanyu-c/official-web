@@ -1,6 +1,7 @@
 import {createRouter, createWebHashHistory} from 'vue-router'
 import main from '../views/main.vue'
 import security from '../views/service/service-security.vue'
+import contracts from '../views/service/service-contract.vue'
 import productVass from '../views/product/product-vass.vue'
 import productEagle from '../views/product/product-eagle-eye.vue'
 import aboutUs from '../views/about-us/about-us.vue'
@@ -14,6 +15,11 @@ const routes = [
                 path: '/index/home',
                 component: home,
                 name: 'home',
+            },
+            {
+                path: '/index/service/contracts',
+                component: contracts,
+                name: 'contracts',
             },
             {
                 path: '/index/service/security',

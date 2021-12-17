@@ -100,6 +100,9 @@
                 <div class="reports-middle-title">{{$t('lang.serviceSecurity.reports.middleTitle')}}</div>
                 <div class="reports-middle-text">{{$t('lang.serviceSecurity.reports.middleText')}}</div>
             </div>
+            <div style="margin-top: 76px">
+                <hServiceSwiper/>
+            </div>
         </div>
         <contact-us></contact-us>
         <about-hermit></about-hermit>
@@ -108,16 +111,19 @@
 
 <script lang="ts">
 
+import hServiceSwiper from '../../components/h-service-swiper.vue'
 import {defineComponent, getCurrentInstance} from "vue";
 import {NInput} from "naive-ui";
 import {useI18n} from "vue-i18n";
 import AboutHermit from "../../components/about-hermit.vue";
 import ContactUs from "../../components/contact-us.vue";
 
+
 export default defineComponent({
     name: "service-security",
     components:{
         AboutHermit, ContactUs,
+        hServiceSwiper,
         NInput
     },
 
