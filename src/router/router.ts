@@ -2,6 +2,8 @@ import {createRouter, createWebHashHistory} from 'vue-router'
 import main from '../views/main.vue'
 import security from '../views/service/service-security.vue'
 import productVass from '../views/product/product-vass.vue'
+import productEagle from '../views/product/product-eagle-eye.vue'
+import aboutUs from '../views/about-us/about-us.vue'
 import home from '../views/home/home.vue'
 const routes = [
     {
@@ -19,14 +21,19 @@ const routes = [
                 name: 'security',
             },
             {
-                path: '/index/product/product-vass',
+                path: '/index/product/productVass',
                 component: productVass,
                 name: 'productVass',
             },
             {
-                path: '/index/product/product-Eagle',
-                component: productVass,
+                path: '/index/product/productEagle',
+                component: productEagle,
                 name: 'productEagle',
+            },
+            {
+                path: '/index/aboutUs',
+                component: aboutUs,
+                name: 'aboutUs',
             },
         ],
     },

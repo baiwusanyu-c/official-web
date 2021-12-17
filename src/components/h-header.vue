@@ -45,7 +45,7 @@
                     </div>
                 </be-popover>
             </div>
-            <div class="w-28 cursor-pointer md:flex sm:hidden" @click="routerPush('/doc/introduction')">
+            <div class="w-28 cursor-pointer md:flex sm:hidden" @click="routerPush('/index/aboutUs')">
                 {{ $t('lang.header.aboutUs') }}
             </div>
         </div>
@@ -187,12 +187,12 @@ export default defineComponent({
         const productList = ref<Array<ISelect>>([
             {
                 label: t('lang.header.productStr.product1'),
-                value: '/index/product/product-vass',
+                value: '/index/product/productVass',
                 active:false,
             },
             {
                 label: t('lang.header.productStr.product2'),
-                value: '/index/product/product-Eagle',
+                value: '/index/product/productEagle',
                 active:false,
             }
         ])

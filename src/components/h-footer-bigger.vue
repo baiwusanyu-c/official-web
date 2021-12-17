@@ -55,7 +55,7 @@
             </div>
         </div>
     </div>
-    <div class="h-6"></div>
+    <div class="h-6 flex justify-center items-center">©2021 by Hermit. All Rights Reserved.</div>
 </template>
 
 <script lang="ts">

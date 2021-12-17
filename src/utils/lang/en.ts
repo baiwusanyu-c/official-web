@@ -7,6 +7,7 @@
 export default {
     app:'app',
     contactBtn:'CONTACT US',
+    contactBtnMore:'Contact us to learn more',
     tryoutBtn:'TRY OUT',
     LearnMoreBtn:'LEARN MORE',
     ReservationBtn:'RESERVATION NOW',
@@ -155,6 +156,38 @@ export default {
             advantDesc3:'VaaS supports multiple Blockchain platforms simultaneously (including ETH, EOS, ONT, TRON, FISCO-BCOS, Fabric, etc.). VaaS is highly customizable, and have already customized and developed the dedicated version of VaaS for ANTCHAIN and Tencent Blockchain at present.',
             advantSubTitle4:'Various Access Methods',
             advantDesc4:'The platform of VaaS supports SaaS access mode, local deployment mode and development tool plug-in installation mode. Firstly, the SaaS access mode can directly access the system through the public cloud platform, which is convenient and fast. Secondly, the local deployment mode can be directly deployed on the private development environment server to provide security detection functions of smart contracts for enterprise developers. Thirdly, the development tool plug-in installation mode can be directly installed into the development tool through the VS Code plug-in mode to achieve integrated development and security testing of smart contracts.',
+        },
+        eagle:{
+            title:'HERMIT-Eagle Eye',
+            subTitle:'Provide Dapp operators with project situational information and real-time transaction risk warning.',
+            desc:'VaaS is the world\'s first "one-click" smart contract formal verification platform. It provides industry-leading security detection and verification for smart contract, with a detection accuracy rate of over 97%, also gives modification suggestions. Now with 100,000+ users, it supports public and consortium blockchains such as ETH, EOS, ONT, TRON, FISCO-BCOS, Fabric, Antchain, Tencent Blockchain,etc. at the same time. It can greatly improve the efficiency of smart contracts audit, and reduce the security risk potential caused by incomplete manual audit.',
+            funcTitle:'Main Functions Of Product',
+            funcSubTitle1:'PROJECT SITUATION',
+            funcDesc1:'Assess the overall project security level through multiple dimensions and provide a security score for each dimension',
+            funcSubTitle2:'CONTRACT SITUATION',
+            funcDesc2:'Evaluate the contract\'s own code security, transaction security, and transaction volatility to visualize the overall security lifecycle of the contract',
+            funcSubTitle3:'RISK WARNING',
+            funcDesc3:'Real-time risk identification of transactions on the blockchain platforms and assessment of security risks',
+            funcSubTitle4:'ON-CHAIN PANORAMA',
+            funcDesc4:'Real-time monitoring of the blockchain platform risk transaction trends, security public opinion situation, risk transactions, etc., presenting a full range of on-chain security status',
+
+            advantTitle:'Core Advantages Of Product',
+            advantSubTitle1:'Leading security risk analysis capability',
+            advantDesc1:'Based on artificial intelligence and big data analysis technology,Eagle Eye can analyse and model the transaction behaviors on Blockchain, also has realized dozens of efficient and accurate threat analysis models, continuously monitor security threat in the real-time transaction behaviors on Blockchain, and assist users to discover security risk and attack behavior of transaction on Blockchain at the first time.',
+            advantSubTitle2:'High automation detection capability',
+            advantDesc2:'Relying on the self-developed smart contract formal verification engine, the contract can be automatically tested to achieve rapid exposure to the contract risks and ensure the project security. Compared to the traditional manual audit method, our detection is more time-sensitive.',
+            advantSubTitle3:'Wide coverage of security models',
+            advantDesc3:'Our self-developed security assessment model can score the static security, operational security, business fluctuation and public opinion risks of projects and contracts through a four-dimensional security assessment model, and visualize abstract security risks into intuitive and reliable scoring results, allowing users to quickly perceive risk points.',
+            advantSubTitle4:'Multiple support of blockchain platforms',
+            advantDesc4:'Covering ETH, BSC, HECO, Polygon, Tron and other mainstream blockchain platforms, the on-chain transaction dynamics are synchronized in real time and can support all the on-chain applications of the project parties. It supports a wider range of platforms compared to other similar products.',
+
+            supportTitle:'Supported blockchain platforms',
+            supportDesc:'Customized features to meet your specific requirements',
+
         }
+    },
+    aboutUsPage:{
+        title:'ABOUT Hermit',
+        titleDesc:'Securing the blockchain ecosystem is our only mission'
     }
 }
