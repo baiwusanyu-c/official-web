@@ -18,3 +18,7 @@ export declare type VNodeNormalizedRefAtom = {
     f?: boolean;
 };
 export declare type VNodeRef = string | Ref | ((ref: object | null, refs: Record<string, any>) => void);
+
+export interface IDialog {
+    isShow:boolean
+}

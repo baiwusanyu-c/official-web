@@ -15,6 +15,7 @@ export default {
     community:'Community',
     phone:'phone',
     mail:'mail',
+    sure:'SURE',
     header:{
         research:"Research",
         service:"Service",
@@ -243,5 +244,12 @@ export default {
         descIcon4:'100+',
         descIconInfo4:'ExchangePartnerships',
         securityBlock:'SECURING THE BLOCKCHAIN ECOLOGY'
+    },
+    quoteDialog:{
+        projectName:'PROJECT NAME',
+        yourName:'YOU NAME',
+        email:'EMAIL ADDRESS',
+        phone:'MOBILE PHONE NUMBER',
+        message:'MESSAGE'
     }
 }

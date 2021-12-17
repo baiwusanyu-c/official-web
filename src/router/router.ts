@@ -37,6 +37,11 @@ const routes = [
                 name: 'productEagle',
             },
             {
+                path: '/index/user/personal',
+                component: productEagle,
+                name: 'personal',
+            },
+            {
                 path: '/index/aboutUs',
                 component: aboutUs,
                 name: 'aboutUs',

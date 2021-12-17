@@ -14,10 +14,11 @@
             </be-footer>
         </be-container>
     </n-config-provider>
+    <request-quote-dialog ref="requestQuoteDialog"></request-quote-dialog>
 </template>
 
 <script lang="ts">
-import {defineComponent, onMounted, ref} from "vue";
+import {defineComponent, getCurrentInstance, onMounted, ref} from "vue";
 import {NConfigProvider, NDatePicker} from 'naive-ui'
 import {zhCN, dateZhCN} from 'naive-ui'
 import HHeader from "../components/h-header.vue";
@@ -27,10 +28,14 @@ import {NDateLocale} from "naive-ui/lib/locales/date/enUS";
 import {NLocale} from "naive-ui/lib/locales/common/enUS";
 import {updatePwdOn} from "../api/login";
 import HFooterBigger from "../components/h-footer-bigger.vue";
+import RequestQuoteDialog from "../components/request-quote-dialog.vue";
+import {useEventBus} from "@vueuse/core";
+import {IDialog} from "../utils/types";
 
 export default defineComponent({
-    components: {HFooterBigger, HHeader, NConfigProvider, NDatePicker},
+    components: {RequestQuoteDialog, HFooterBigger, HHeader, NConfigProvider, NDatePicker},
     setup() {
+        const curInst = getCurrentInstance()
         /**
          * 初始化语言
          */
@@ -65,6 +70,16 @@ export default defineComponent({
                 dateLang.value = dateZhCN
             }
         }
+        const bus = useEventBus<string>('openQuote')
+        /**
+         * 彈窗開啓
+         */
+        const openQuoteDialog = (isShow:string):void =>{
+            if(isShow === 'true'){
+                (curInst?.refs.requestQuoteDialog as IDialog).isShow = true
+            }
+        }
+        bus.on(openQuoteDialog)
         onMounted(() => {
             initLang()
             updatePwdOn(1).then(res=>{

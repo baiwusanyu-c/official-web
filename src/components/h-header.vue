@@ -52,7 +52,7 @@
     </div>
     <!--  右侧  -->
     <div class="hermit-header-l flex justify-end items-center flex-1 text-right md:block sm:hidden">
-        <be-button customClass="request-btn text-bold">{{ $t('lang.header.requestUs') }}</be-button>
+        <be-button customClass="request-btn text-bold" @click="openDialog">{{ $t('lang.header.requestUs') }}</be-button>
         <be-popover trigger="click"
                     ref="popoverLogin"
                     customClass="header-popover" placement="bottom">
@@ -100,6 +100,7 @@ import {Router, useRouter} from "vue-router";
 import {NDatePicker, NInput, NPopselect,NConfigProvider} from 'naive-ui'
 import {defineComponent, ref,getCurrentInstance,ComponentInternalInstance} from "vue";
 import {useI18n} from "vue-i18n";
+import {useEventBus} from "@vueuse/core";
 
 interface ISelect {
     label: string,
@@ -220,7 +221,12 @@ export default defineComponent({
                 active:false,
             }
         ])
+        const bus = useEventBus<string>('openQuote')
+        const openDialog = ():void =>{
+            bus.emit('true')
+        }
         return {
+            openDialog,
             loginList,
             langList,
             serviceList,

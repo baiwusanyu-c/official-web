@@ -17,7 +17,7 @@
                          style="line-height: 1rem"
                          class="text-default text-left w-1/2 mb-4 leading-6 flex items-center"
                          :key="item.label">
-                        <be-icon icon="deleteIc" color="white" customClass="ml-4 mr-4"></be-icon>
+                        <img alt="" src="../../assets/img/mogu.png" class="ml-4 mr-4"/>
                         <p>{{item.label}}</p>
                     </div>
                 </div>
