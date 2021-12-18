@@ -16,6 +16,12 @@ export default {
     phone:'phone',
     mail:'mail',
     sure:'SURE',
+    opSuccess:'option success！',
+    opFailed:'option failed！',
+    loginSuccess:'login success！',
+    loginFailed:'login failed！',
+    sendSuccess:'send success！',
+    sendFailed:'send failed！',
     header:{
         research:"Research",
         service:"Service",
@@ -265,5 +271,19 @@ export default {
         tableSetting:'Permission Setting',
         tableCertificate:'Certificate',
         tableAction:'Action',
+    },
+    login:{
+        registerTxt:' Register Your Account',
+        account:'Account',
+        password:'Password',
+        tip:'Please enter the code we sent to your email',
+        verCode:'verification code',
+        login:'Login',
+        register:'Register',
+        forget:'Forgot your password',
+        tipPassword:'Please enter your password',
+        tipAccount:'Please enter your email',
+        tipPasswordConfirm:'Please enter the code again',
     }
+
 }

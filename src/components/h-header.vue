@@ -58,11 +58,11 @@
         <!--    联系    -->
         <be-button customClass="request-btn text-bold" @click="openDialog">{{ $t('lang.header.requestUs') }}</be-button>
         <!--    登录前    -->
-<!--        <div class="y-full flex items-center cursor-pointer mr-12 text-base hover:text-mainG">
+        <div class="y-full flex items-center cursor-pointer mr-12 text-base hover:text-mainG" @click="routerPush('/login')">
             {{ $t('lang.header.login') }}
-        </div>-->
+        </div>
         <!--    登录后    -->
-        <be-popover trigger="click"
+<!--        <be-popover trigger="click"
                     ref="popoverLogin"
                     customClass="header-popover" placement="bottom">
             <template #trigger>
@@ -78,7 +78,7 @@
                 v-for="(item,index) in loginList">
                 <p class="ml-2 text-base">{{item.label}}</p>
             </div>
-        </be-popover>
+        </be-popover>-->
 
         <!--    语言    -->
         <be-popover trigger="click"

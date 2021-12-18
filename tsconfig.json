@@ -19,6 +19,7 @@
       "node",
       "vite/client",
       "jest",
+      "/public/**/*.es.js"
     ]
   },
   "include": [
@@ -32,6 +33,5 @@
   "exclude": [
     "node_modules",
     "**/__tests__/",
-    "**/*.es.js"
   ]
 }

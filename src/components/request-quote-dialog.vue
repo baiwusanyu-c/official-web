@@ -108,7 +108,7 @@ export default defineComponent({
     cursor: initial;
 }
 #request_quote_dialog .request-quote-dialog{
-    border-top:4px solid #02fbbb;
+    border-top:5px solid #02fbbb;
 }
 #request_quote_dialog .sure-btn{
 

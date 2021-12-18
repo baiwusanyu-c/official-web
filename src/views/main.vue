@@ -26,7 +26,6 @@ import {useI18n} from 'vue-i18n'
 import {getStore, setStore} from "../utils/common";
 import {NDateLocale} from "naive-ui/lib/locales/date/enUS";
 import {NLocale} from "naive-ui/lib/locales/common/enUS";
-import {updatePwdOn} from "../api/login";
 import HFooterBigger from "../components/h-footer-bigger.vue";
 import RequestQuoteDialog from "../components/request-quote-dialog.vue";
 import {useEventBus} from "@vueuse/core";
@@ -82,9 +81,7 @@ export default defineComponent({
         bus.on(openQuoteDialog)
         onMounted(() => {
             initLang()
-            updatePwdOn(1).then(res=>{
-                debugger
-            })
+
         })
         return {
             uiLang,
