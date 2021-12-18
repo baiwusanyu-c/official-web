@@ -16,7 +16,7 @@ export function getBackCode(){
 }
 export interface IReportCode {
     num?:number | undefined,
-    code?:number | null,
+    code?:number | '',
     uuid?:string
 }
 export function getReportByCode(params:IReportCode){

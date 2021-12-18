@@ -23,7 +23,9 @@
                 <div slot="body" class="plus-dialog-body flex flex-col justify-center items-center w-full">
                     <div class="flex w-full mb-12">
                         <div class="flex-1 mr-6">
-                            <n-input  v-model:value="formData.code" size="large"/>
+                            <n-input  v-model:value="formData.code"
+                                      :onInput = "formData.code = formData.code.replace(/[^\d]/g,'')"
+                                      size="large"/>
                         </div>
                         <div class="flex-1" @click="getCode">
                             <img :src="codeUrl" alt=""/>
@@ -105,7 +107,7 @@ export default defineComponent({
         watch(isShow,(nVal:boolean)=>{
             if(nVal){
                 formData.value.num = props.num && parseInt(props.num) || undefined
-                formData.value.code = null
+                formData.value.code = ""
                 getCode()
             }
         })
