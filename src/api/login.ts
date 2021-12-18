@@ -6,7 +6,7 @@
 */
 
 import request from '../utils/request'
-
+import qs from 'qs'
 
 // 邮箱验证码
 export interface IMailCode {
@@ -34,7 +34,7 @@ export interface IForgetPassword {
     account?:string,
     password?:string,
     re_password?:string,
-    verification_code?:string
+    verification_code?:string,
 }
 export function forgetPassword(params:IForgetPassword){
     return request({
@@ -54,7 +54,7 @@ export interface IRegister {
 }
 export function registerAccount(params:IRegister){
     return request({
-        url: '/system/user/register',
+        url: '/system/user/new_official_website/email/register',
         method: 'post',
         params,
     })
@@ -65,13 +65,25 @@ export function registerAccount(params:IRegister){
 
 // 登录
 export interface ILogin {
-    account?:string,
+    username?:string,
     password?:string,
+    client_id?:string,
+    client_secret?:string,
+    grant_type?:string,
+    scope?:string,
+    uuid?:string,
+    code?: string | number,
+    login_type?:string
 }
 export function loginAccount(params:ILogin){
     return request({
-        url: '/system/user/register',
+        url: '/auth/oauth/login?' + qs.stringify(params),
         method: 'post',
-        params,
+    })
+}
+export function getCodeImg(){
+    return request({
+        url:  '/code',
+        method: 'get'
     })
 }

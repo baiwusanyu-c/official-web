@@ -15,7 +15,7 @@
                 <div class="header-text-small">
                     {{$t('lang.product.eagle.subTitle')}}
                 </div>
-                <be-button customClass="try-out-btn h-btn-txt-black linear-l-r text-black text-xl">{{$t('lang.tryoutBtn') }}</be-button>
+<!--                <be-button customClass="try-out-btn h-btn-txt-black linear-l-r text-black text-xl">{{$t('lang.tryoutBtn') }}</be-button>-->
             </div>
         </div>
         <!--    文字介绍 & 走马灯   -->
@@ -90,7 +90,7 @@
             </div>
         </div>
         <!--    支持币种    -->
-        <div class="support-c-container flex bg-mainBlueGary w-full py-16 px-80 flex-col justify-center items-center">
+        <div class="support-c-container flex bg-mainBlueGary w-full py-32 px-80 flex-col justify-center items-center">
             <h2 class="text-4xl font-bold mb-16 text-black text-center"> {{$t('lang.product.eagle.supportTitle')}}</h2>
             <div class="flex justify-center">
                 <div class="rounded flex flex-col justify-center items-center bg-default w-52 pt-6 pb-4 mx-6 border-b">
@@ -124,8 +124,8 @@
                     <span>HECO</span>
                 </div>
             </div>
-            <h3 class="text-xl mb-6 mt-16 text-black text-center"> {{$t('lang.product.eagle.supportDesc')}}</h3>
-            <be-button customClass="h-btn-txt-black linear-l-r text-black text-xl w-1/4" size="large">{{$t('lang.contactBtnMore') }}</be-button>
+<!--            <h3 class="text-xl mb-6 mt-16 text-black text-center"> {{$t('lang.product.eagle.supportDesc')}}</h3>-->
+<!--            <be-button customClass="h-btn-txt-black linear-l-r text-black text-xl w-1/4" size="large">{{$t('lang.contactBtnMore') }}</be-button>-->
         </div>
         <contact-us></contact-us>
         <about-hermit></about-hermit>

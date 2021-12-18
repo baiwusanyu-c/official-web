@@ -84,6 +84,7 @@ export default defineComponent({
                 titles: tipStr,
                 msgType: 'warning',
                 duration: 1500,
+                offsetTop:80,
                 close: true,
             })
         }
@@ -128,6 +129,7 @@ export default defineComponent({
                     titles: t('lang.tipAccount'),
                     msgType: 'warning',
                     duration: 1500,
+                    offsetTop:80,
                     close: true,
                 })
                 return
@@ -135,19 +137,23 @@ export default defineComponent({
             const params:IMailCode = {
                 userName:String(form.value.account)
             }
-            verifyCode(params).then((res:unknown)=>{
-                debugger
-                message({
-                    titles: t('lang.sendSuccess'),
-                    msgType: 'success',
-                    duration: 1500,
-                    close: true,
-                })
+            verifyCode(params).then((res:any)=>{
+                if(res.code === 200){
+                    message({
+                        titles: t('lang.sendSuccess'),
+                        msgType: 'success',
+                        duration: 1500,
+                        offsetTop:80,
+                        close: true,
+                    })
+                }
+
             }).catch(err=>{
                 message({
                     titles: t('lang.sendFailed'),
                     msgType: 'warning',
                     duration: 1500,
+                    offsetTop:80,
                     close: true,
                 })
                 console.error(err)
@@ -158,19 +164,24 @@ export default defineComponent({
          */
         const register = ():void =>{
             if(!verifyCodeForm()) return
-            registerAccount(form.value).then((res:unknown)=>{
-                debugger
-                message({
-                    titles: t('lang.opSuccess'),
-                    msgType: 'success',
-                    duration: 1500,
-                    close: true,
-                })
+            registerAccount(form.value).then((res:any)=>{
+                if(res.code === 200){
+                    message({
+                        titles: t('lang.opSuccess'),
+                        msgType: 'success',
+                        duration: 1500,
+                        offsetTop:80,
+                        close: true,
+                    })
+                    changeShow('login')
+                }
+
             }).catch(err=>{
                 message({
                     titles: t('lang.opFailed'),
                     msgType: 'warning',
                     duration: 1500,
+                    offsetTop:80,
                     close: true,
                 })
                 console.error(err)

@@ -21,7 +21,9 @@
                         <p>{{item.label}}</p>
                     </div>
                 </div>
-                <be-button customClass="contact-btn h-btn-txt-black linear-l-r text-black mr-auto ml-auto text-2xl">{{$t('lang.contactBtn') }}</be-button>
+                <be-button
+                    @click="openDialog"
+                    customClass="contact-btn h-btn-txt-black linear-l-r text-black mr-auto ml-auto text-2xl">{{$t('lang.contactBtn') }}</be-button>
 
 <!--                <div class="mt-30 flex title-card-container">
                     <div v-for="(item) in titleCardList"
@@ -48,7 +50,9 @@
                     <div class="bar mb-8"></div>
                     <h3 class="font-bold text-3xl mb-8">{{$t('lang.home.serviceTitle1')}}</h3>
                     <p class="mb-16">{{$t('lang.home.serviceInfo1')}}</p>
-                    <be-button customClass="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl">{{$t('lang.LearnMoreBtn') }}</be-button>
+                    <be-button
+                        @click="routerPush('/index/service/contracts')"
+                        customClass="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl">{{$t('lang.LearnMoreBtn') }}</be-button>
                 </div>
                 <div class="w-1/2 flex flex-wrap relative">
                     <hexagon class='absolute hexagon1' :index="0"></hexagon>
@@ -72,7 +76,9 @@
                     <div class="bar mb-8"></div>
                     <h3 class="font-bold text-3xl mb-8">{{$t('lang.home.serviceTitle1')}}</h3>
                     <p class="mb-16">{{$t('lang.home.serviceInfo1')}}</p>
-                    <be-button customClass="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl">{{$t('lang.LearnMoreBtn') }}</be-button>
+                    <be-button
+                        @click="routerPush('/index/service/security')"
+                        customClass="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl">{{$t('lang.LearnMoreBtn') }}</be-button>
                 </div>
             </div>
         </div>
@@ -100,7 +106,9 @@
                         <p class="font-bold text-center" style="width: 10em;">{{$t('lang.home.productFeature4')}}</p>
                     </div>
                 </div>
-                <be-button customClass="try-out-btn h-btn-txt-black linear-l-r text-black text-xl">{{$t('lang.tryoutBtn') }}</be-button>
+                <be-button
+                    @click="routerPush('/index/product/productVass')"
+                    customClass="try-out-btn h-btn-txt-black linear-l-r text-black text-xl">{{$t('lang.LearnMoreBtn') }}</be-button>
             </div>
             <div class="flex-1 flex-col flex justify-center items-center w-full">
                 <div class="bar mb-8"></div>
@@ -124,7 +132,9 @@
                         <p class="font-bold text-center" style="width: 10em;">{{$t('lang.home.productFeature8')}}</p>
                     </div>
                 </div>
-                <be-button customClass="try-out-btn h-btn-txt-black linear-l-r text-black text-xl">{{$t('lang.tryoutBtn') }}</be-button>
+                <be-button
+                    @click="routerPush('/index/product/productEagle')"
+                    customClass="try-out-btn h-btn-txt-black linear-l-r text-black text-xl">{{$t('lang.LearnMoreBtn') }}</be-button>
             </div>
         </div>
 
@@ -155,6 +165,8 @@ import AboutHermit from "../../components/about-hermit.vue";
 import {useI18n} from "vue-i18n";
  import Hexagon from "../../components/hexagon.vue";
 import HHomeSwiper from "../../components/h-home-swiper.vue";
+import {useEventBus} from "@vueuse/core";
+import {Router, useRouter} from "vue-router";
 interface ISelect {
     label: string,
     value: string,
@@ -207,10 +219,24 @@ export default defineComponent({
                 })
             })
         }
+        const bus = useEventBus<string>('openQuote')
+        const openDialog = ():void =>{
+            bus.emit('true')
+        }
+        /**
+         * 跳转方法
+         * @param path 路由地址
+         */
+        const router: Router = useRouter()
+        const routerPush = (path: string): void => {
+            router.push(path)
+        }
         onMounted(()=>{
             getImage()
         })
         return {
+            routerPush,
+            openDialog,
             muguList,
             titleCardList,
             customerImgList

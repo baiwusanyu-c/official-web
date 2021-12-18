@@ -5,3 +5,4 @@
 * @update (czh 2021/12/18)
 */
 declare module '*.es.js'
+declare module 'qs';

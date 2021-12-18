@@ -6,13 +6,52 @@
 */
 <template>
     <div id="request_quote_dialog">
-        <be-dialog
+        <n-modal v-model:show="isShow" preset="dialog" :title="$t('lang.header.requestUs')" to="#request_quote_dialog">
+            <div slot="body" class="plus-dialog-body flex flex-col justify-center items-center w-full">
+                <div class="flex w-full mb-12">
+                    <div class="flex-1 mr-6">
+                        <p class="label">{{$t('lang.quoteDialog.projectName')}}</p>
+                        <n-select v-model:value="formData.type"  placeholder="Select" size="large" :options="selectList" />
+                    </div>
+                    <div class="flex-1">
+                        <p class="label">{{$t('lang.quoteDialog.yourName')}}</p>
+                        <n-input  v-model:value="formData.name" size="large"/>
+                    </div>
+                </div>
+
+                <div class="flex flex-col w-full mb-12">
+                    <p class="label">
+                        {{$t('lang.quoteDialog.email')}}
+                        <span style="color:red">*</span>
+                    </p>
+                    <n-input  v-model:value="formData.email" size="large"/>
+                </div>
+                <div class="flex flex-col w-full mb-12">
+                    <p class="label">{{$t('lang.quoteDialog.phone')}}</p>
+                    <n-input  v-model:value="formData.mobile" size="large"/>
+                </div>
+                <div class="flex flex-col w-full mb-12">
+                    <p class="label">{{$t('lang.quoteDialog.message')}}</p>
+                    <n-input
+                        v-model:value="formData.message"
+                        type="textarea"
+                        :autosize="{  minRows: 4, maxRows: 6 }"/>
+                </div>
+            </div>
+            <template #action>
+                <be-button  customClass="sure-btn" round="3" @click="submit">
+                    {{$t('lang.sure')}}
+                </be-button>
+            </template>
+        </n-modal>
+<!--        <be-dialog
             :titles="$t('lang.header.requestUs')"
             ref='moreNodeDialog'
             v-model:is-show="isShow"
             layout="right"
             customClass="request-quote-dialog"
             escExit
+            :isDrage="false"
             @close="test"
             :is-open-modal="true">
             <template #headerIcon>
@@ -23,7 +62,7 @@
                    <div class="flex w-full mb-12">
                        <div class="flex-1 mr-6">
                            <p class="label">{{$t('lang.quoteDialog.projectName')}}</p>
-                           <n-input  v-model:value="formData.mail" />
+                           <n-select v-if="isShow" v-model:value="formData.type"  placeholder="Select" size="large" :options="selectList" />
                        </div>
                        <div class="flex-1">
                            <p class="label">{{$t('lang.quoteDialog.yourName')}}</p>
@@ -36,16 +75,16 @@
                             {{$t('lang.quoteDialog.email')}}
                             <span style="color:red">*</span>
                         </p>
-                        <n-input  v-model:value="formData.mail" size="large"/>
+                        <n-input  v-model:value="formData.email" size="large"/>
                     </div>
                     <div class="flex flex-col w-full mb-12">
                         <p class="label">{{$t('lang.quoteDialog.phone')}}</p>
-                        <n-input  v-model:value="formData.phone" size="large"/>
+                        <n-input  v-model:value="formData.mobile" size="large"/>
                     </div>
                     <div class="flex flex-col w-full mb-12">
                         <p class="label">{{$t('lang.quoteDialog.message')}}</p>
                         <n-input
-                            v-model:value="formData.msg"
+                            v-model:value="formData.message"
                             type="textarea"
                             :autosize="{  minRows: 4, maxRows: 6 }"/>
                     </div>
@@ -56,57 +95,95 @@
                     {{$t('lang.sure')}}
                 </be-button>
             </template>
-        </be-dialog>
+        </be-dialog>-->
     </div>
 
 </template>
 
 <script lang="ts">
 import {defineComponent, ref} from "vue";
-import {NForm,NFormItem,NInput} from "naive-ui";
+import {NForm,NFormItem,NInput,NSelect,NModal} from "naive-ui";
+import {IOption} from "../utils/types";
+import {useI18n} from "vue-i18n";
+import {createQuote, IQuote} from "../api/quote";
+import {BeMessage} from "../../public/be-ui/be-ui.es";
 
 export default defineComponent({
     name: "request-quote-dialog",
     components:{
         NForm,
         NFormItem,
+        NSelect,
+        NModal,
         NInput
     },
     setup() {
+        const message = BeMessage.service
         const isShow = ref<boolean>(false)
         const handleClose = ():void =>{
             isShow.value = false;
         }
         const submit = ():void =>{
-            handleClose()
+            const params:IQuote = {
+                name:formData.value.name,
+                email:formData.value.email,
+                type:formData.value.type,
+                mobile:formData.value.mobile,
+                message:formData.value.message,
+            }
+            createQuote(params).then((res: any) => {
+                if (res.code === 200) {
+                    message({
+                        titles: t('lang.opSuccess'),
+                        msgType: 'success',
+                        duration: 1500,
+                        offsetTop:80,
+                        close: true,
+                    })
+                    handleClose()
+                    //paginationReactive.itemCount = 1
+                }
+            }).catch(err => {
+                message({
+                    titles: t('lang.opFailed'),
+                    msgType: 'warning',
+                    duration: 1500,
+                    offsetTop:80,
+                    close: true,
+                })
+                console.error(err)
+            })
         }
-        const formData = ref({
+        const formData = ref<IQuote>({
             name:'',
-            mail:'',
-            phone:'',
-            msg:''
+            email:'',
+            type:2,
+            mobile:'',
+            message:''
         })
+        const {t} = useI18n()
+        let selectList:IOption  = ref([
+              {label:t('lang.projectList.project1'), value:1},
+              {label:t('lang.projectList.project2'), value:2},
+              {label:t('lang.projectList.project3'), value:3},
+              {label:t('lang.projectList.project4'), value:4}
+            ])
         return {
+
             formData,
             submit,
-            isShow
+            selectList,
+            isShow,
         }
     }
 })
 </script>
 
 <style>
-#request_quote_dialog .be-dialog .be-dialog-container,
-#request_quote_dialog .be-dialog .be-dialog-container .be-dialog-title{
-   border-radius: 2px;
-   @apply bg-mainBlueGary;
- }
-#request_quote_dialog .be-dialog .be-dialog-container{
+#request_quote_dialog .n-dialog{
     @apply w-1/3;
 }
-#request_quote_dialog .be-dialog-container-head{
-    cursor: initial;
-}
+
 #request_quote_dialog .request-quote-dialog{
     border-top:5px solid #02fbbb;
 }
@@ -120,8 +197,11 @@ export default defineComponent({
 #request_quote_dialog .plus-dialog-body .label{
     @apply text-black text-lg mb-2 font-light;
 }
-/*.request-quote-dialog .be-dialog-footer,
-.request-quote-dialog .be-dialog-title{
-     border-radius: 2px;
- }*/
+#request_quote_dialog .n-dialog{
+    border-top:5px solid #02fbbb;
+    background: #EFF2F7 !important;
+}
+#request_quote_dialog .n-dialog.n-dialog--icon-left .n-dialog__icon{
+    display: none;
+}
 </style>

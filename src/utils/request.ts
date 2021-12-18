@@ -6,16 +6,27 @@
 */
 import axios from 'axios'
 import config from '../enums/config'
+import {getStore} from "./common";
+import qs from 'qs'
 // create an axios instance
 const service = axios.create({
-    baseURL: config.baseURL + '/api/', // url = base url + request url
+    baseURL: config.baseURL, //+ '/api/', // url = base url + request url
     timeout: 50000 // request timeout
 })
 
 // request interceptor
 service.interceptors.request.use(
-    config => {
-       // config.headers['Authorization'] = getToken('token') ? 'Bearer ' + getToken('token') : '';
+    (config:any) => {
+        config.headers['Authorization'] = getStore('token') ? 'Bearer ' + getStore('token') : '';
+        if (config.method === 'post' && config.url!=='/auth/oauth/login') {
+            config.data = config.params
+            config.headers['Content-Type'] = 'application/json;charset=UTF-8'
+            config.headers.post['Content-Type'] = 'application/json;charset=UTF-8'
+            delete config.params
+            if (config.otherParams) {
+                config.data = qs.stringify(config.data)
+            }
+        }
         return config
     },
     error => {

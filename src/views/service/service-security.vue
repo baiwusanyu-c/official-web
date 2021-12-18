@@ -15,7 +15,7 @@
                     {{$t('lang.serviceSecurity.pageHead.textSmall')}}
                 </div>
             </div>
-            <be-button customClass="reservation-btn h-btn-txt-black linear-l-r text-black text-xl">{{$t('lang.ReservationBtn') }}</be-button>
+<!--            <be-button customClass="reservation-btn h-btn-txt-black linear-l-r text-black text-xl">{{$t('lang.ReservationBtn') }}</be-button>-->
             <img src="../../assets/img/header-img.png" class="header-img"/>
         </div>
         <div class="page-body-search">

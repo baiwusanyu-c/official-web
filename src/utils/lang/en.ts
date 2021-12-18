@@ -22,6 +22,12 @@ export default {
     loginFailed:'login failed！',
     sendSuccess:'send success！',
     sendFailed:'send failed！',
+    projectList:{
+        project1:'智能合约审计',
+        project2:'链平台检测',
+        project3:'VAAS',
+        project4:'态势感知',
+    },
     header:{
         research:"Research",
         service:"Service",

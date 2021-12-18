@@ -11,7 +11,7 @@
         :centeredSlides="true"
         :initialSlide="3"
         :loop="true"
-        :autoplay='{ "delay": 1000, "disableOnInteraction": false }'
+        :autoplay='{ "delay": 5000, "disableOnInteraction": false }'
         :pagination='{ "clickable": true }'
         class="mySwiper">
         <swiper-slide v-for="item in list" :key="item.name + item.info">

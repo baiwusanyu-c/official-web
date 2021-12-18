@@ -82,16 +82,16 @@ export default defineComponent({
          * 密码显示
          */
         const changeShowPWord = (type:string):void =>{
-            if(isShowPassword.value === 'password' && type === 'unConfirm'){
+            if(isShowPassword.value === 'password' && type === 'confirm'){
                 isShowPassword.value = 'text'
             }
-            if(isShowPassword.value === 'text' && type === 'unConfirm'){
+            if(isShowPassword.value === 'text' && type === 'confirm'){
                 isShowPassword.value = 'password'
             }
-            if(isShowPasswordConfirm.value === 'password' && type === 'confirm'){
+            if(isShowPasswordConfirm.value === 'password' && type === 'unConfirm'){
                 isShowPasswordConfirm.value = 'text'
             }
-            if(isShowPasswordConfirm.value === 'text' && type === 'confirm'){
+            if(isShowPasswordConfirm.value === 'text' && type === 'unConfirm'){
                 isShowPasswordConfirm.value = 'password'
             }
         }
@@ -103,6 +103,7 @@ export default defineComponent({
                 titles: tipStr,
                 msgType: 'warning',
                 duration: 1500,
+                offsetTop:80,
                 close: true,
             })
         }
@@ -152,6 +153,7 @@ export default defineComponent({
                     titles: t('lang.tipAccount'),
                     msgType: 'warning',
                     duration: 1500,
+                    offsetTop:80,
                     close: true,
                 })
                 return
@@ -159,40 +161,49 @@ export default defineComponent({
             const params:IMailCode = {
                 userName:String(form.value.account)
             }
-            verifyCodePassword(params).then((res:unknown)=>{
-                message({
-                    titles: t('lang.sendSuccess'),
-                    msgType: 'success',
-                    duration: 1500,
-                    close: true,
-                })
+            verifyCodePassword(params).then((res:any)=>{
+                if(res.code === 200) {
+                    message({
+                        titles: t('lang.sendSuccess'),
+                        msgType: 'success',
+                        duration: 1500,
+                        offsetTop:80,
+                        close: true,
+                    })
+                }
             }).catch(err=>{
                 message({
                     titles: t('lang.sendFailed'),
                     msgType: 'warning',
                     duration: 1500,
+                    offsetTop:80,
                     close: true,
                 })
                 console.error(err)
             })
         }
         /**
-         * 注册方法
+         * 修改密碼方法
          */
         const register = ():void =>{
             if(!verifyCodeForm()) return
-            forgetPassword(form.value).then((res:unknown)=>{
-                message({
-                    titles: t('lang.opSuccess'),
-                    msgType: 'success',
-                    duration: 1500,
-                    close: true,
-                })
+            forgetPassword(form.value).then((res:any)=>{
+                if(res.code === 200) {
+                    message({
+                        titles: t('lang.opSuccess'),
+                        msgType: 'success',
+                        duration: 1500,
+                        offsetTop:80,
+                        close: true,
+                    })
+                    changeShow('login')
+                }
             }).catch(err=>{
                 message({
                     titles: t('lang.opFailed'),
                     msgType: 'warning',
                     duration: 1500,
+                    offsetTop:80,
                     close: true,
                 })
                 console.error(err)

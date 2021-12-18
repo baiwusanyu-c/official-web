@@ -15,7 +15,7 @@
                 <div class="header-text-small">
                     {{$t('lang.product.vass.subTitle')}}
                 </div>
-                <be-button customClass="try-out-btn h-btn-txt-black linear-l-r text-black text-xl">{{$t('lang.tryoutBtn') }}</be-button>
+<!--                <be-button customClass="try-out-btn h-btn-txt-black linear-l-r text-black text-xl">{{$t('lang.tryoutBtn') }}</be-button>-->
             </div>
         </div>
         <!--    文字介绍 & 走马灯   -->

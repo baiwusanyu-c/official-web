@@ -14,12 +14,13 @@
             </be-footer>
         </be-container>
     </n-config-provider>
+
     <request-quote-dialog ref="requestQuoteDialog"></request-quote-dialog>
 </template>
 
 <script lang="ts">
 import {defineComponent, getCurrentInstance, onMounted, ref} from "vue";
-import {NConfigProvider, NDatePicker} from 'naive-ui'
+import {NConfigProvider, NDatePicker, NSelect} from 'naive-ui'
 import {zhCN, dateZhCN} from 'naive-ui'
 import HHeader from "../components/h-header.vue";
 import {useI18n} from 'vue-i18n'
@@ -32,7 +33,7 @@ import {useEventBus} from "@vueuse/core";
 import {IDialog} from "../utils/types";
 
 export default defineComponent({
-    components: {RequestQuoteDialog, HFooterBigger, HHeader, NConfigProvider, NDatePicker},
+    components: {RequestQuoteDialog, HFooterBigger, HHeader, NConfigProvider, NDatePicker,NSelect},
     setup() {
         const curInst = getCurrentInstance()
         /**
@@ -83,7 +84,10 @@ export default defineComponent({
             initLang()
 
         })
+
+
         return {
+
             uiLang,
             dateLang,
             changeLanguage

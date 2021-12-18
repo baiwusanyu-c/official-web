@@ -168,3 +168,48 @@ export const isFunction = (val: unknown) => Object.prototype.toString.call(val) 
 export const verEmail = (val:string) => {
     return /^(\w)+((\.\w+)|(\-\w+))*@(\w|\-)+((\.\w+)+)$/.test(val)
 }
+export const formatDate = (timestamp:Date, formats:string) => {
+    // formats格式包括
+    // 1. Y-m-d
+    // 2. Y-m-d H:i:s
+    // 3. Y年m月d日
+    // 4. Y年m月d日 H时i分
+    formats = formats || 'Y-m-d H:i:s';
+
+    let zero = function(value:any) {
+        if (value < 10) {
+            return '0' + value;
+        }
+        return value;
+    };
+
+    // console.log(timestamp)
+
+    // var myDate = timestamp ? new Date(timestamp): '';
+    let myDate = timestamp ? new Date(timestamp) : null;
+
+    let date = '';
+    if (myDate) {
+        let year = myDate.getFullYear();
+        let month = zero(myDate.getMonth() + 1);
+        let day = zero(myDate.getDate());
+
+        let hour = zero(myDate.getHours());
+        let minite = zero(myDate.getMinutes());
+        let second = zero(myDate.getSeconds());
+        date = formats.replace(/Y|m|d|H|i|s/ig, function(matches) {
+            return ({
+                Y: year,
+                m: month,
+                d: day,
+                H: hour,
+                i: minite,
+                s: second
+            })[matches];
+        });
+    } else {
+        date = '--';
+    }
+
+    return date;
+};

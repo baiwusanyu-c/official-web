@@ -17,22 +17,26 @@
                     </p>
                 </div>
                 <div class="flex flex-1">
-                    <be-button customClass="h-btn-txt-black text-black font-bold w-40 mt-28 ml-20" size="large">  {{$t('lang.contactBtn') }}</be-button>
+                    <be-button @click ='openDialog' customClass="h-btn-txt-black text-black font-bold w-40 mt-28 ml-20" size="large">  {{$t('lang.contactBtn') }}</be-button>
                 </div>
             </div>
         </div>
 </template>
 
-<script>
+<script lang="ts">
 import {defineComponent} from "vue";
+import {useEventBus} from "@vueuse/core";
 export default defineComponent({
     name: "contact-us",
-    data() {
-        return {}
-    },
-    mounted() {
-    },
-    methods: {},
+    setup(){
+        const bus = useEventBus<string>('openQuote')
+        const openDialog = ():void =>{
+            bus.emit('true')
+        }
+        return{
+            openDialog
+        }
+    }
 })
 </script>
 
