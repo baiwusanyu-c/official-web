@@ -279,11 +279,15 @@ export default {
         tip:'Please enter the code we sent to your email',
         verCode:'verification code',
         login:'Login',
+        confirm:'Confirm',
         register:'Register',
         forget:'Forgot your password',
         tipPassword:'Please enter your password',
         tipAccount:'Please enter your email',
         tipPasswordConfirm:'Please enter the code again',
+        tipVerCode:'Please enter the verification code',
+        tipTwicePassword:' The two passwords are inconsistent',
+        tipErrEmail:'Mailbox format error',
     }
 
 }

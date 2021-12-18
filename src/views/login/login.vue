@@ -7,15 +7,15 @@
 <template>
     <div class="login flex justify-center items-center">
         <div class="login-form px-12 py-10 box-border flex animate__animated animate__fadeInDown animate__faster" id="login_form">
-<!--            <register-account></register-account>-->
-<!--            <login-password></login-password>-->
-            <forget-password></forget-password>
+            <register-account @showChange = 'changeType' v-if="showType === 'register'"></register-account>
+            <login-password  @showChange = 'changeType' v-if="showType === 'login'"></login-password>
+            <forget-password @showChange = 'changeType' v-if="showType === 'forget'"></forget-password>
         </div>
     </div>
 </template>
 
 <script lang="ts">
-import {defineComponent} from "vue";
+import {defineComponent, ref} from "vue";
 import RegisterAccount from "./register-account.vue";
 import LoginPassword from "./login-password.vue";
 import ForgetPassword from "./forget-password.vue";
@@ -24,7 +24,18 @@ export default defineComponent({
     name: "login",
     components: {ForgetPassword, LoginPassword, RegisterAccount},
     setup() {
-        return {}
+        const showType = ref<string>('login')
+        /**
+         * 切換顯示
+         * @param type
+         */
+        const changeType = (type:string):void =>{
+            showType.value = type
+        }
+        return {
+            showType,
+            changeType
+        }
     }
 })
 </script>

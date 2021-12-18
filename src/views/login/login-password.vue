@@ -36,8 +36,8 @@
             {{$t('lang.login.login')}}
         </be-button>
         <div class="flex items-center justify-between w-full">
-            <p class="text-gray-500 cursor-pointer " style="text-decoration:underline">{{$t('lang.login.forget')}} </p>
-            <p class="text-gray-500 cursor-pointer " style="text-decoration:underline"> {{$t('lang.login.register')}}</p>
+            <p class="text-gray-500 cursor-pointer " style="text-decoration:underline" @click="changeShow('forget')">{{$t('lang.login.forget')}} </p>
+            <p class="text-gray-500 cursor-pointer " style="text-decoration:underline" @click="changeShow('register')"> {{$t('lang.login.register')}}</p>
         </div>
     </div>
 </template>
@@ -47,13 +47,21 @@ import {defineComponent, ref} from "vue";
 import {loginAccount,ILogin} from "../../api/login";
 import {BeMessage} from '../../../public/be-ui/be-ui.es.js'
 import {useI18n} from "vue-i18n";
+import {verEmail} from "../../utils/common";
+import {Router, useRouter} from "vue-router";
 export default defineComponent({
     name: "LoginPassword",
-    setup() {
+    emits: [
+        'showChange',
+    ],
+    setup(props,ctx) {
         const message = BeMessage.service
         const form = ref<ILogin>({})
         const isShowPassword = ref<string>('password')
         const {t} = useI18n()
+        /**
+         * 密碼顯示
+         */
         const changeShowPWord = ():void =>{
             if(isShowPassword.value === 'password'){
                 isShowPassword.value = 'text'
@@ -61,7 +69,45 @@ export default defineComponent({
                 isShowPassword.value = 'password'
             }
         }
+        /**
+         * 校验提示
+         */
+        const verMsg = (tipStr:string):void =>{
+            message({
+                titles: tipStr,
+                msgType: 'warning',
+                duration: 1500,
+                close: true,
+            })
+        }
+        /**
+         * 表单校验
+         */
+        const verifyCodeForm = ():boolean =>{
+            let tipStr = ''
+            if(!form.value.account){
+                tipStr = t('lang.login.tipAccount')
+                verMsg(tipStr)
+                return false
+            }
+            if(!verEmail(String(form.value.account))){
+                tipStr = t('lang.login.tipErrEmail')
+                verMsg(tipStr)
+                return false
+            }
+            if(!form.value.password){
+                tipStr = t('lang.login.tipPassword')
+                verMsg(tipStr)
+                return false
+            }
+            return true
+        }
+        /**
+         * 登錄方法
+         */
+        const router: Router = useRouter()
         const login = ():void =>{
+            if(!verifyCodeForm()) return
             const params:ILogin = {
                 account:String(form.value.account),
                 password:String(form.value.password)
@@ -73,6 +119,7 @@ export default defineComponent({
                     duration: 1500,
                     close: true,
                 })
+                router.push('/index/home')
             }).catch(err=>{
                 message({
                     titles: t('lang.loginFailed'),
@@ -83,7 +130,14 @@ export default defineComponent({
                 console.error(err)
             })
         }
+        /**
+         * 切換顯示
+         */
+        const  changeShow = (type:string):void=>{
+            ctx.emit('showChange',type)
+        }
         return {
+            changeShow,
             isShowPassword,
             form,
             changeShowPWord,

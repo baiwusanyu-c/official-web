@@ -9,7 +9,7 @@
     <div class="flex flex-col items-start w-full">
         <img src="src/assets/img/logo-black.png" class='mb-4 w-1/2' alt=""/>
         <!--  账户      -->
-        <h3 class="text-2xl font-bold mb-2">{{$t('lang.login.registerTxt')}}</h3>
+        <h3 class="text-2xl font-bold mb-2">{{$t('lang.login.forget')}}</h3>
         <div class='mb-2 h-24 border-b w-full'>
             <span class="text-gray-500 mr-4">{{$t('lang.login.account')}}</span>
             <input type="text" class='h-16'  :placeholder="$t('lang.login.tipAccount')" v-model="form.account"/>
@@ -50,10 +50,11 @@
         <be-button @click="register"
                    size="large"
                    customClass="login-btn linear-l-r text-black font-bold text-lg w-full mb-4 mx-auto">
-            {{$t('lang.login.register')}}
+            {{$t('lang.login.confirm')}}
         </be-button>
         <be-button size="large"
                    bordered
+                   @click="changeShow('login')"
                    customClass="login-btn text-black font-bold text-lg w-80 mb-6 w-full mx-auto border-mainG">
             {{$t('lang.login.login')}}
         </be-button>
@@ -65,9 +66,13 @@ import {defineComponent, ref} from "vue";
 import {forgetPassword, verifyCodePassword,IMailCode,IForgetPassword} from "../../api/login";
 import {BeMessage} from '../../../public/be-ui/be-ui.es.js'
 import {useI18n} from "vue-i18n";
+import {verEmail} from "../../utils/common";
 export default defineComponent({
     name: "ForgetPassword",
-    setup() {
+    emits: [
+        'showChange',
+    ],
+    setup(props,ctx) {
         const message = BeMessage.service
         const form = ref<IForgetPassword>({})
         const isShowPassword = ref<string>('password')
@@ -91,20 +96,70 @@ export default defineComponent({
             }
         }
         /**
+         * 校验提示
+         */
+        const verMsg = (tipStr:string):void =>{
+            message({
+                titles: tipStr,
+                msgType: 'warning',
+                duration: 1500,
+                close: true,
+            })
+        }
+        /**
          * 表单校验
          */
-        const verifyCodeForm = ():void =>{
-
+        const verifyCodeForm = ():boolean =>{
+            let tipStr = ''
+            if(!form.value.account){
+                tipStr = t('lang.login.tipAccount')
+                verMsg(tipStr)
+                return false
+            }
+            if(!verEmail(String(form.value.account))){
+                tipStr = t('lang.login.tipErrEmail')
+                verMsg(tipStr)
+                return false
+            }
+            if(!form.value.password){
+                tipStr = t('lang.login.tipPassword')
+                verMsg(tipStr)
+                return false
+            }
+            if(!form.value.re_password){
+                tipStr = t('lang.login.tipPasswordConfirm')
+                verMsg(tipStr)
+                return false
+            }
+            if(form.value.re_password !== form.value.password){
+                tipStr = t('lang.login.tipTwicePassword')
+                verMsg(tipStr)
+                return false
+            }
+            if(!form.value.verification_code){
+                tipStr = t('lang.login.tipVerCode')
+                verMsg(tipStr)
+                return false
+            }
+            return true
         }
         /**
          * 邮箱验证码发送
          */
         const verifyCodeMail = ():void =>{
+            if(!form.value.account){
+                message({
+                    titles: t('lang.tipAccount'),
+                    msgType: 'warning',
+                    duration: 1500,
+                    close: true,
+                })
+                return
+            }
             const params:IMailCode = {
                 userName:String(form.value.account)
             }
             verifyCodePassword(params).then((res:unknown)=>{
-                debugger
                 message({
                     titles: t('lang.sendSuccess'),
                     msgType: 'success',
@@ -125,7 +180,7 @@ export default defineComponent({
          * 注册方法
          */
         const register = ():void =>{
-            verifyCodeForm()
+            if(!verifyCodeForm()) return
             forgetPassword(form.value).then((res:unknown)=>{
                 message({
                     titles: t('lang.opSuccess'),
@@ -143,7 +198,14 @@ export default defineComponent({
                 console.error(err)
             })
         }
+        /**
+         * 切換顯示
+         */
+        const  changeShow = (type:string):void=>{
+            ctx.emit('showChange',type)
+        }
         return {
+            changeShow,
             isShowPassword,
             isShowPasswordConfirm,
             form,

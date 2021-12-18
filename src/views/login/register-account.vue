@@ -43,6 +43,7 @@
         </be-button>
         <be-button size="large"
                    bordered
+                   @click="changeShow('login')"
                    customClass="login-btn text-black font-bold text-lg w-80 mb-6 w-full mx-auto border-mainG">
             {{$t('lang.login.login')}}
         </be-button>
@@ -54,9 +55,13 @@ import {defineComponent, ref} from "vue";
 import {registerAccount, verifyCode,IMailCode,IRegister} from "../../api/login";
 import {BeMessage} from '../../../public/be-ui/be-ui.es.js'
 import {useI18n} from "vue-i18n";
+import {verEmail} from "../../utils/common";
 export default defineComponent({
     name: "RegisterAccount",
-    setup() {
+    emits: [
+        'showChange',
+    ],
+    setup(props,ctx) {
         const message = BeMessage.service
         const form = ref<IRegister>({})
         const isShowPassword = ref<string>('password')
@@ -72,15 +77,61 @@ export default defineComponent({
             }
         }
         /**
+         * 校验提示
+         */
+        const verMsg = (tipStr:string):void =>{
+            message({
+                titles: tipStr,
+                msgType: 'warning',
+                duration: 1500,
+                close: true,
+            })
+        }
+        /**
          * 表单校验
          */
-        const verifyCodeForm = ():void =>{
-
+        const verifyCodeForm = ():boolean =>{
+            let tipStr = ''
+            if(!form.value.account){
+                tipStr = t('lang.login.tipAccount')
+                verMsg(tipStr)
+                return false
+            }
+            if(!verEmail(String(form.value.account))){
+                tipStr = t('lang.login.tipErrEmail')
+                verMsg(tipStr)
+                return false
+            }
+            if(!form.value.account){
+                tipStr = t('lang.login.tipAccount')
+                verMsg(tipStr)
+                return false
+            }
+            if(!form.value.password){
+                tipStr = t('lang.login.tipPassword')
+                verMsg(tipStr)
+                return false
+            }
+            if(!form.value.verification_code){
+                tipStr = t('lang.login.tipVerCode')
+                verMsg(tipStr)
+                return false
+            }
+            return true
         }
         /**
          * 邮箱验证码发送
          */
         const verifyCodeMail = ():void =>{
+            if(!form.value.account){
+                message({
+                    titles: t('lang.tipAccount'),
+                    msgType: 'warning',
+                    duration: 1500,
+                    close: true,
+                })
+                return
+            }
             const params:IMailCode = {
                 userName:String(form.value.account)
             }
@@ -106,7 +157,7 @@ export default defineComponent({
          * 注册方法
          */
         const register = ():void =>{
-            verifyCodeForm()
+            if(!verifyCodeForm()) return
             registerAccount(form.value).then((res:unknown)=>{
                 debugger
                 message({
@@ -125,7 +176,14 @@ export default defineComponent({
                 console.error(err)
             })
         }
+        /**
+         * 切換顯示
+         */
+        const  changeShow = (type:string):void=>{
+            ctx.emit('showChange',type)
+        }
         return {
+            changeShow,
             isShowPassword,
             form,
             changeShowPWord,

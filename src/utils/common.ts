@@ -164,3 +164,7 @@ export const isNumber = (val: unknown) => typeof val === 'number'
 export const isHTMLElement = (val: unknown) => toRawType(val).startsWith('HTML')
 // 判定 是否是方法
 export const isFunction = (val: unknown) => Object.prototype.toString.call(val) === '[object Function]'
+// 邮箱校验
+export const verEmail = (val:string) => {
+    return /^(\w)+((\.\w+)|(\-\w+))*@(\w|\-)+((\.\w+)+)$/.test(val)
+}
