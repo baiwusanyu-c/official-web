@@ -44,8 +44,9 @@
             </div>
             <div class="search-input">
                 <n-input size="large"
-                         :placeholder="$t('lang.serviceSecurity.search.input')"
-                >
+                         v-model:value="searchPrams"
+                         :onInput = "searchPrams=searchPrams.replace(/[^\d]/g,'')"
+                         :placeholder="$t('lang.serviceSecurity.search.input')">
                     <template #suffix>
                         <be-icon class="search-input-icon" @click="search" icon="search"></be-icon>
                     </template>
@@ -107,36 +108,52 @@
         <contact-us></contact-us>
         <about-hermit></about-hermit>
     </div>
+    <ver-code-dialog ref="verCodeDialog" :num="searchPrams"></ver-code-dialog>
 </template>
 
 <script lang="ts">
 
 import hServiceSwiper from '../../components/h-service-swiper.vue'
-import {defineComponent, getCurrentInstance} from "vue";
+import {defineComponent, getCurrentInstance, ref} from "vue";
 import {NInput} from "naive-ui";
 import {useI18n} from "vue-i18n";
 import AboutHermit from "../../components/about-hermit.vue";
 import ContactUs from "../../components/contact-us.vue";
-
+import VerCodeDialog from "../../components/ver-code-dialog.vue";
+import {BeMessage} from "../../../public/be-ui/be-ui.es";
+import {IDialog} from "../../utils/types";
 
 export default defineComponent({
     name: "service-security",
     components:{
         AboutHermit, ContactUs,
         hServiceSwiper,
+        VerCodeDialog,
         NInput
     },
 
     setup(){
         const {t} = useI18n()
+        const message = BeMessage.service
         const curInst = getCurrentInstance()
-        return {
+        const searchPrams = ref<string>('')
+        const search = ():void =>{
+            if(!searchPrams.value){
+                message({
+                    titles: t('lang.opFailed'),
+                    msgType: 'warning',
+                    duration: 1500,
+                    offsetTop:80,
+                    close: true,
+                })
+                return
+            }
+            (curInst?.refs.requestQuoteDialog as IDialog).isShow = true
         }
-    },
-    methods:{
-        search(){
-            console.log('搜索触发')
-        },
+        return {
+            search,
+            searchPrams,
+        }
     },
 })
 </script>

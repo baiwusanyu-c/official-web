@@ -119,7 +119,7 @@ export default defineComponent({
             if(!verifyCodeForm()) return
             const params:ILogin = {
                 username: String(form.value.username),
-                password:Base64.encode(form.value.password),
+                password:Base64.encode(form.value.password as string),
                 client_id: 'official_site_sg_system',
                 client_secret: 'uZtik#Iu8D',
                 grant_type: 'password',

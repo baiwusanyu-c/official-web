@@ -152,6 +152,10 @@ export const getStore = (name:string) =>{
     if (!name) return;
     return window.localStorage.getItem(name);
 }
+export const removeStore = (name:string) =>{
+    if (!name) return;
+    window.localStorage.removeItem(name);
+}
 // 简单克隆
 export const jsonClone = <T>(val: T):T => JSON.parse(JSON.stringify(val))
 // 判定布尔

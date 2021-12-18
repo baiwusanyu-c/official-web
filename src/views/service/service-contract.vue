@@ -38,8 +38,9 @@
             </div>
             <div class="search-input">
                 <n-input size="large"
-                         :placeholder="$t('lang.serviceContract.search.input')"
-                >
+                         v-model:value="searchPrams"
+                         :onInput = "searchPrams=searchPrams.replace(/[^\d]/g,'')"
+                         :placeholder="$t('lang.serviceContract.search.input')">
                     <template #suffix>
                         <be-icon class="search-input-icon" @click="search" icon="search"></be-icon>
                     </template>
@@ -114,32 +115,49 @@
             </div>
         </div>
     </div>
+    <ver-code-dialog ref="verCodeDialog" :num="searchPrams"></ver-code-dialog>
 </template>
 
 <script lang="ts">
     import hServiceSwiper from '../../components/h-service-swiper.vue'
-    import {defineComponent, getCurrentInstance} from "vue";
+    import {defineComponent, getCurrentInstance, ref} from "vue";
     import {NInput,NButton} from "naive-ui";
     import {useI18n} from "vue-i18n";
+    import {BeMessage} from '../../../public/be-ui/be-ui.es.js'
+    import VerCodeDialog from "../../components/ver-code-dialog.vue";
+    import {IDialog} from "../../utils/types";
 
     export default defineComponent({
         name: "service-contract",
         components:{
+            VerCodeDialog,
             NInput,
             NButton,
             hServiceSwiper,
         },
 
         setup(){
+            const message = BeMessage.service
             const {t} = useI18n()
             const curInst = getCurrentInstance()
-            return {
+            const searchPrams = ref<string>('')
+            const search = ():void =>{
+                if(!searchPrams.value){
+                    message({
+                        titles: t('lang.opFailed'),
+                        msgType: 'warning',
+                        duration: 1500,
+                        offsetTop:80,
+                        close: true,
+                    })
+                    return
+                }
+                (curInst?.refs.verCodeDialog as IDialog).isShow = true
             }
-        },
-        methods:{
-            search(){
-                console.log('搜索触发')
-            },
+            return {
+                search,
+                searchPrams
+            }
         },
     })
 </script>

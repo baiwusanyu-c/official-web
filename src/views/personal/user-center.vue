@@ -31,13 +31,13 @@
             </div>
         </div>
         <div class="page-table">
-            <be-button @click="paginationReactive.page = 2;getList()">test</be-button>
             <div class="table-body">
-                <n-data-table :theme-overrides="builtinThemeOverrides" :columns="columns" :data="auditReport" />
+                <n-data-table :theme-overrides="builtinThemeOverrides" :columns="columns" :data="auditReport"/>
                 <div class="flex justify-center mt-6">
                     <n-pagination
                         :onUpdatePage="updatePage"
-                        v-model:page="paginationReactive.page" :item-count="paginationReactive.total" :page-size="paginationReactive.pageSize" />
+                        v-model:page="paginationReactive.page" :item-count="paginationReactive.total"
+                        :page-size="paginationReactive.pageSize"/>
                 </div>
             </div>
         </div>
@@ -46,21 +46,18 @@
 
 <script lang="ts">
 import {useI18n} from "vue-i18n";
-import {Search, DownloadOutline,Refresh} from '@vicons/ionicons5'
+import {Search, DownloadOutline, Refresh} from '@vicons/ionicons5'
 import {h, defineComponent, getCurrentInstance, ref, onMounted, reactive} from "vue";
 import {NInput, NButton, NIcon, NDataTable, DataTableProps, NPagination} from "naive-ui";
 import {
-    exportReport,
-    exportReportAll,
-    IExpReport,
-    IExpReportAll,
     IReportList,
     IReportListRes, ISearchReport, searchReport,
     verifyCode
 } from "../../api/personal";
 import {BeMessage} from '../../../public/be-ui/be-ui.es.js'
-import { downLoadZip } from "../../utils/zipdownload.js";
+import {downLoadZip} from "../../utils/zipdownload.js";
 import {formatDate, getStore} from "../../utils/common";
+
 type BuiltinThemeOverrides = NonNullable<DataTableProps['builtinThemeOverrides']>
 const builtinThemeOverrides: BuiltinThemeOverrides = {
     thColor: '#02fbbb',
@@ -80,6 +77,8 @@ export default defineComponent({
     },
     setup() {
         const message = BeMessage.service
+        const {t} = useI18n()
+        // 創建表格配置
         const createColumns = (download: Function) => {
             return [
                 {
@@ -126,22 +125,31 @@ export default defineComponent({
                 }
             ]
         }
+        // 分頁參數
         const paginationReactive = reactive({
             page: 1,
             pageSize: 5,
-            total:0
+            total: 0
         })
-        const updatePage = (page:number):void =>{
-            debugger
+        // 更新分頁
+        const updatePage = (page: number): void => {
             paginationReactive.page = page
             getList()
         }
-        const {t} = useI18n()
-        const auditReport = ref<Array<IReportListRes>>([])
         // 搜索參數
         const searchParams = ref<string>('')
         // 搜索方法
         const searchData = (): void => {
+            if (!searchParams.value) {
+                message({
+                    titles: t('lang.userCenter.searchInput'),
+                    msgType: 'warning',
+                    duration: 1500,
+                    offsetTop: 80,
+                    close: true,
+                })
+                return
+            }
             const params: ISearchReport = {
                 num: Number(searchParams.value)
             }
@@ -151,18 +159,18 @@ export default defineComponent({
                         titles: t('lang.opSuccess'),
                         msgType: 'success',
                         duration: 1500,
-                        offsetTop:80,
+                        offsetTop: 80,
                         close: true,
                     })
                     auditReport.value = [res.data]
                     paginationReactive.total = res.total
-                }else{
+                } else {
                     auditReport.value = []
                     message({
                         titles: t('lang.opFailed'),
                         msgType: 'warning',
                         duration: 1500,
-                        offsetTop:80,
+                        offsetTop: 80,
                         close: true,
                     })
                 }
@@ -171,7 +179,7 @@ export default defineComponent({
                     titles: t('lang.opFailed'),
                     msgType: 'warning',
                     duration: 1500,
-                    offsetTop:80,
+                    offsetTop: 80,
                     close: true,
                 })
                 console.error(err)
@@ -181,22 +189,26 @@ export default defineComponent({
         const downloadSingle = async (row: any) => {
             await downLoadZip(`/website/common/download/single?fileUuid=${row.uuid}&reportNum=${row.reportNum}`, row.reportNum + '.pdf');
         }
-
         // 下載全部
         const downloadAll = async () => {
-            let userInfo:string = getStore('userInfo') as string
+            let userInfo: string = getStore('userInfo') as string
             let fileName = JSON.parse(userInfo).userName + '_' + formatDate(new Date(), 'YmdHis') + '.zip';
-            await downLoadZip(`/website/common/download/batch?belongUser=true`, fileName );
+            await downLoadZip(`/website/common/download/batch?belongUser=true`, fileName);
 
         }
-        const reset = ():void =>{
+        /**
+         * 參數重置
+         */
+        const reset = (): void => {
             paginationReactive.page = 1
             paginationReactive.pageSize = 5
         }
+        // 表格數據
+        const auditReport = ref<Array<IReportListRes>>([])
         // 獲取列表數據
-        const getList = (type?:string): void => {
+        const getList = (type?: string): void => {
             auditReport.value = []
-            if(type === 'reset'){
+            if (type === 'reset') {
                 reset()
             }
             const params: IReportList = {
@@ -213,7 +225,7 @@ export default defineComponent({
                     titles: t('lang.sendFailed'),
                     msgType: 'warning',
                     duration: 1500,
-                    offsetTop:80,
+                    offsetTop: 80,
                     close: true,
                 })
                 console.error(err)

@@ -58,11 +58,12 @@
         <!--    联系    -->
         <be-button customClass="request-btn text-bold" @click="openDialog">{{ $t('lang.header.requestUs') }}</be-button>
         <!--    登录前    -->
-<!--        <div class="y-full flex items-center cursor-pointer mr-12 text-base hover:text-mainG" @click="routerPush('/login')">
+        <div class="y-full flex items-center cursor-pointer mr-12 text-base hover:text-mainG" @click="routerPush('/login')"    v-if="!isLogin">
             {{ $t('lang.header.login') }}
-        </div>-->
+        </div>
         <!--    登录后    -->
         <be-popover trigger="click"
+                    v-if="isLogin"
                     ref="popoverLogin"
                     customClass="header-popover" placement="bottom">
             <template #trigger>
@@ -109,9 +110,10 @@
 <script lang="ts">
 import {Router, useRouter} from "vue-router";
 import {NDatePicker, NInput, NPopselect,NConfigProvider} from 'naive-ui'
-import {defineComponent, ref,getCurrentInstance,ComponentInternalInstance} from "vue";
+import {defineComponent, ref, getCurrentInstance, ComponentInternalInstance, onMounted} from "vue";
 import {useI18n} from "vue-i18n";
 import {useEventBus} from "@vueuse/core";
+import {getStore, removeStore, setStore} from "../utils/common";
 
 interface ISelect {
     label: string,
@@ -130,6 +132,7 @@ export default defineComponent({
     ],
     setup(props, ctx) {
         const internalInstance = getCurrentInstance()
+        const isLogin = ref<boolean>(false)
         /**
          * 跳转方法
          * @param path 路由地址
@@ -169,6 +172,9 @@ export default defineComponent({
             if(/quite/.test(path)){
                 loginList.value.map((val:ISelect)=>val.active = false);
                 (internalInstance?.refs?.popoverLogin as IPopover).close()
+                removeStore('token')
+                removeStore('userInfo')
+                isLogin.value = false
             }
             if(/lang/.test(path)){
                 langList.value.map((val:ISelect)=>val.active = false);
@@ -239,7 +245,13 @@ export default defineComponent({
         const openDialog = ():void =>{
             bus.emit('true')
         }
+        onMounted(()=>{
+            if(getStore('token')){
+                isLogin.value = true
+            }
+        })
         return {
+            isLogin,
             openDialog,
             loginList,
             langList,

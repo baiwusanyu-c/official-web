@@ -44,58 +44,7 @@
                 </be-button>
             </template>
         </n-modal>
-<!--        <be-dialog
-            :titles="$t('lang.header.requestUs')"
-            ref='moreNodeDialog'
-            v-model:is-show="isShow"
-            layout="right"
-            customClass="request-quote-dialog"
-            escExit
-            :isDrage="false"
-            @close="test"
-            :is-open-modal="true">
-            <template #headerIcon>
-                <be-icon icon="deleteIc" @click="isShow = false"></be-icon>
-            </template>
-            <template #body>
-                <div slot="body" class="plus-dialog-body flex flex-col justify-center items-center w-full">
-                   <div class="flex w-full mb-12">
-                       <div class="flex-1 mr-6">
-                           <p class="label">{{$t('lang.quoteDialog.projectName')}}</p>
-                           <n-select v-if="isShow" v-model:value="formData.type"  placeholder="Select" size="large" :options="selectList" />
-                       </div>
-                       <div class="flex-1">
-                           <p class="label">{{$t('lang.quoteDialog.yourName')}}</p>
-                           <n-input  v-model:value="formData.name" size="large"/>
-                       </div>
-                   </div>
 
-                    <div class="flex flex-col w-full mb-12">
-                        <p class="label">
-                            {{$t('lang.quoteDialog.email')}}
-                            <span style="color:red">*</span>
-                        </p>
-                        <n-input  v-model:value="formData.email" size="large"/>
-                    </div>
-                    <div class="flex flex-col w-full mb-12">
-                        <p class="label">{{$t('lang.quoteDialog.phone')}}</p>
-                        <n-input  v-model:value="formData.mobile" size="large"/>
-                    </div>
-                    <div class="flex flex-col w-full mb-12">
-                        <p class="label">{{$t('lang.quoteDialog.message')}}</p>
-                        <n-input
-                            v-model:value="formData.message"
-                            type="textarea"
-                            :autosize="{  minRows: 4, maxRows: 6 }"/>
-                    </div>
-                </div>
-            </template>
-            <template #footer>
-                <be-button  customClass="sure-btn" round="3" @click="submit">
-                    {{$t('lang.sure')}}
-                </be-button>
-            </template>
-        </be-dialog>-->
     </div>
 
 </template>
