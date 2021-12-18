@@ -32,6 +32,6 @@
   // ts 排除的文件
   "exclude": [
     "node_modules",
-    "**/__tests__/",
+    "**/__tests__/"
   ]
 }
