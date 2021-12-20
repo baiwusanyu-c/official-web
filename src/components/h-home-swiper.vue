@@ -24,7 +24,7 @@
                     <n-avatar
                         round
                         :size="48"
-                        :src="item.imgUrl || `https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg`"/>
+                        :src="item.imgUrl || `../assets/img/avatar.png`"/>
                     <p class="ml-8">{{ item.name }}</p>
                 </div>
             </div>

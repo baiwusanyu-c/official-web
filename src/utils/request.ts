@@ -6,7 +6,7 @@
 */
 import axios from 'axios'
 import config from '../enums/config'
-import {getStore} from "./common";
+import {getStore, removeSession, removeStore} from "./common";
 import qs from 'qs'
 // create an axios instance
 const service = axios.create({
@@ -20,7 +20,7 @@ service.interceptors.request.use(
         config.headers['Authorization'] = getStore('token') ? 'Bearer ' + getStore('token') : '';
         if (config.method === 'post' && config.url!=='/auth/oauth/login') {
             config.data = config.params
-            config.headers['Content-Type'] = 'application/json;charset=UTF-8'
+            config.headers['Content-Type'] = 'application/json;charlang.report.cet.=UTF-8'
             config.headers.post['Content-Type'] = 'application/json;charset=UTF-8'
             delete config.params
             if (config.otherParams) {
@@ -47,7 +47,9 @@ service.interceptors.response.use(
 
             }
             if (res.code === 401 || res.code === 920000003) {
-
+                removeSession('CETInfo')
+                removeStore('token')
+                removeStore('userInfo')
                 return Promise.reject(new Error('登录过期' || 'Error'))
             }
             return Promise.reject(new Error(res.msg || 'Error'))

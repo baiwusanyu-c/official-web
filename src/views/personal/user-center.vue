@@ -46,7 +46,7 @@
 
 <script lang="ts">
 import {useI18n} from "vue-i18n";
-import {Search, DownloadOutline, Refresh} from '@vicons/ionicons5'
+import {Search, DownloadOutline, Refresh,DocumentOutline} from '@vicons/ionicons5'
 import {h, defineComponent, getCurrentInstance, ref, onMounted, reactive} from "vue";
 import {NInput, NButton, NIcon, NDataTable, DataTableProps, NPagination} from "naive-ui";
 import {
@@ -56,7 +56,7 @@ import {
 } from "../../api/personal";
 import {BeMessage} from '../../../public/be-ui/be-ui.es.js'
 import {downLoadZip} from "../../utils/zipdownload";
-import {formatDate, getStore} from "../../utils/common";
+import {formatDate, getStore, setSession} from "../../utils/common";
 
 type BuiltinThemeOverrides = NonNullable<DataTableProps['builtinThemeOverrides']>
 const builtinThemeOverrides: BuiltinThemeOverrides = {
@@ -78,8 +78,20 @@ export default defineComponent({
     setup() {
         const message = BeMessage.service
         const {t} = useI18n()
+        const reportTypeDict  = ref<Array<string>>([
+            t('lang.report.reportName.reportName1'),
+            t('lang.report.reportName.reportName2'),
+            t('lang.report.reportName.reportName3'),
+            t('lang.report.reportName.reportName4'),
+            t('lang.report.reportName.reportName5'),
+        ])
+        const openFlagDict  = ref<Array<string>>([
+            t('lang.private'),
+            t('lang.public')
+        ])
+
         // 創建表格配置
-        const createColumns = (download: Function) => {
+        const createColumns = (download: Function,openWin:Function) => {
             return [
                 {
                     title: t('lang.userCenter.tableAudit'),
@@ -92,7 +104,7 @@ export default defineComponent({
                 },
                 {
                     title: t('lang.userCenter.tableType'),
-                    key: 'reportType'
+                    key: 'reportTypeName'
                 },
                 {
                     title: t('lang.userCenter.tableTime'),
@@ -100,12 +112,31 @@ export default defineComponent({
                 },
                 {
                     title: t('lang.userCenter.tableSetting'),
-                    key: 'openFlag'
+                    key: 'permission'
                 },
-                /* {
+                 {
                      title: t('lang.userCenter.tableCertificate'),
-                     key: ''
-                 },*/
+                     key: 'viewCET',
+                     render(row: any) {
+                         if(row.viewCET === 'true'){
+                             return h(
+                                 NIcon,
+                                 {
+                                     style: {cursor: 'pointer'},
+                                     onClick: openWin.bind(this, row),
+                                     size: '20px'
+                                 },
+                                 [h(
+                                     DocumentOutline,
+                                 )]
+                             )
+                         }
+                         return h(
+                             'span',
+                             [row.viewCET]
+                         )
+                     }
+                 },
                 {
                     title: t('lang.userCenter.tableAction'),
                     key: 'actions',
@@ -162,7 +193,7 @@ export default defineComponent({
                         offsetTop: 80,
                         close: true,
                     })
-                    auditReport.value = [res.data]
+                    auditReport.value = handleList([res.data])
                     paginationReactive.total = res.total
                 } else {
                     auditReport.value = []
@@ -174,7 +205,8 @@ export default defineComponent({
                         close: true,
                     })
                 }
-            }).catch(err => {
+            })
+                .catch(err => {
                 message({
                     titles: t('lang.opFailed'),
                     msgType: 'warning',
@@ -217,7 +249,7 @@ export default defineComponent({
             }
             verifyCode(params).then((res: any) => {
                 if (res.code === 200) {
-                    auditReport.value = res.rows
+                    auditReport.value = handleList(res.rows)
                     paginationReactive.total = res.total
                 }
             }).catch(err => {
@@ -231,9 +263,33 @@ export default defineComponent({
                 console.error(err)
             })
         }
+        /**
+         * 处理表格数据，将报告类型转化为文字
+         * @param data
+         */
+        const handleList = <T>(data:T[]):T[] =>{
+            data.forEach((val:any)=>{
+                if(val.reportType == 0 || val.reportType == 1){
+                    val.viewCET = 'true'
+                }else{
+                    val.viewCET = '-'
+                }
+                val.reportTypeName = reportTypeDict.value[val.reportType]
+                val.permission  = openFlagDict.value[val.openFlag]
+            })
+
+            return data
+        }
         onMounted(() => {
             getList()
         })
+        /**
+         * 打開窗口
+         */
+        const openWin = (row:any)=>{
+            setSession('CETInfo',JSON.stringify(row))
+            window.open('#/report', 'view_window')
+        }
         return {
             getList,
             downloadAll,
@@ -242,7 +298,7 @@ export default defineComponent({
             builtinThemeOverrides,
             auditReport,
             updatePage,
-            columns: createColumns(downloadSingle),
+            columns: createColumns(downloadSingle,openWin),
             paginationReactive
         }
     },

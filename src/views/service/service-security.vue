@@ -148,7 +148,7 @@ export default defineComponent({
                 })
                 return
             }
-            (curInst?.refs.requestQuoteDialog as IDialog).isShow = true
+            (curInst?.refs.verCodeDialog as IDialog).isShow = true
         }
         return {
             search,

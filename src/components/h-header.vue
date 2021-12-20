@@ -22,7 +22,7 @@
                         </div>
                     </template>
                     <div
-                        class="popover-list bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
+                        class="linear-l-r-s popover-list bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
                         :class="item.active ? 'linear-l-r active-popover' : ''"
                         @click="routerPush(item.value,index)"
                         v-for="(item,index) in serviceList">
@@ -40,7 +40,7 @@
                         </div>
                     </template>
                     <div
-                        class="popover-list bg-footer h-10 text-default flex items-center cursor-pointer hover:text-black"
+                        class="linear-l-r-s popover-list bg-footer h-10 text-default flex items-center cursor-pointer hover:text-black"
                         :class="item.active ? 'linear-l-r active-popover' : ''"
                         @click="routerPush(item.value,index)"
                         v-for="(item,index) in productList">
@@ -70,12 +70,12 @@
                     customClass="header-popover" placement="bottom">
             <template #trigger>
                 <div class="trigger-item y-full flex items-center cursor-pointer mr-12 text-base hover:text-mainG">
-                    {{ $t('lang.header.login') }}
+                    <img style="height: 30px;width: 30px;" class='mr-2' src="../assets/img/avatar.png"/>
                     <be-icon icon="under" ></be-icon>
                 </div>
             </template>
             <div
-                class="popover-list bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
+                class="linear-l-r-s popover-list bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
                 :class="item.active ? 'linear-l-r active-popover' : ''"
                 @click="routerPush(item.value,index)"
                 v-for="(item,index) in loginList">
@@ -94,7 +94,7 @@
                 </div>
             </template>
             <div
-                class="popover-list bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
+                class="linear-l-r-s popover-list bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
                 :class="item.active ? 'linear-l-r active-popover' : ''"
                 @click="changeLanguage(item.value,index)"
                 v-for="(item,index) in langList">
@@ -111,7 +111,7 @@
 
 <script lang="ts">
 import {Router, useRouter, useRoute, RouteLocationNormalizedLoaded} from "vue-router";
-import {NDatePicker, NInput, NPopselect,NConfigProvider} from 'naive-ui'
+import {NDatePicker, NInput, NPopselect,NConfigProvider,NAvatar} from 'naive-ui'
 import {defineComponent, ref, getCurrentInstance, ComponentInternalInstance, onMounted} from "vue";
 import {useI18n} from "vue-i18n";
 import {useEventBus} from "@vueuse/core";
@@ -128,7 +128,7 @@ interface IPopover extends ComponentInternalInstance {
 }
 export default defineComponent({
     name: "HHeader",
-    components: {NDatePicker, NInput, NPopselect,NConfigProvider},
+    components: {NDatePicker, NInput, NPopselect,NConfigProvider,NAvatar},
     emits: [
         'changeLang',
     ],
@@ -304,7 +304,6 @@ export default defineComponent({
 
 }
 .popover-list{
-    position: relative;
     min-width: 100px;
 
 }
@@ -316,13 +315,7 @@ export default defineComponent({
     background: -ms-linear-gradient(left, rgba(93,232,176,1) 0%, rgba(37,180,232,1) 100%);
     background: linear-gradient(to right, rgba(93,232,176,1) 0%, rgba(37,180,232,1) 100%);
 }
-.popover-list:before{
-    content: '';
-    width: 3px;
-    height: 100%;
-    position: absolute;
-    background: rgba(93,232,176,1);
-}
+
 .linear-l-r.active-popover{
     @apply text-black
 }

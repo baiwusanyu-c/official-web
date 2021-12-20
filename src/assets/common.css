@@ -20,9 +20,48 @@
     background: linear-gradient(-32deg, #19BCFC, #00FFBA);
 }
 #hermit_app .h-btn-txt-black .be-button-body .be-button-slot{
-
     color: black;
 }
 .be-message{
     z-index: 9999 !important;
 }
+.linear-l-r-s{
+    position: relative;
+
+}
+.linear-l-r-s:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    z-index:-2;
+}
+.linear-l-r-s:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    z-index:0;
+}
+
+.linear-l-r-s:hover{
+    z-index:1;
+    background:transparent;
+}
+
+.linear-l-r-s:before {
+    transition: .5s;
+    background: linear-gradient(-73deg, #19BDFB, #02FBBB);
+}
+
+.linear-l-r-s:hover:after {
+    width: 100%;
+}
+.linear-l-r-s:hover:before {
+    width: 100%;
+    z-index:-1;
+ }

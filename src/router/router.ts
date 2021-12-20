@@ -9,6 +9,7 @@ import login from '../views/login/login.vue'
 import aboutUs from '../views/about-us/about-us.vue'
 import report from '../views/report/report.vue'
 import home from '../views/home/home.vue'
+import page404 from '../views/404/404.vue'
 const routes = [
     {
         path: '/index',
@@ -62,8 +63,17 @@ const routes = [
         name: 'report',
     },
     {
+        path: '/404',
+        component: page404,
+        name: '404',
+    },
+    {
         path: '/',
         redirect: '/index/home'
+    },
+    {
+        path: '/:w+',
+        redirect: '/404'
     }
 
 ]

@@ -165,11 +165,15 @@ export const setSession = (name:string, content:string) => {
 }
 
 /**
- * 获取localStorage
+ * 获取SessionStorage
  */
 export const getSession = (name:string) =>{
     if (!name) return;
     return window.sessionStorage.getItem(name);
+}
+export const removeSession = (name:string) =>{
+    if (!name) return;
+    window.sessionStorage.removeItem(name);
 }
 // 简单克隆
 export const jsonClone = <T>(val: T):T => JSON.parse(JSON.stringify(val))
