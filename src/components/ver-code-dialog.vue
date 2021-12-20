@@ -66,6 +66,11 @@ export default defineComponent({
         const handleClose = ():void =>{
             isShow.value = false;
         }
+        watch(isShow,(nVal)=>{
+            if(!nVal){
+                formData.value = {}
+            }
+        })
         const submit = ():void =>{
             const params:IReportCode = {
                 num: formData.value.num,

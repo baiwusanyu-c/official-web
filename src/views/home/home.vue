@@ -8,7 +8,7 @@
     <div class="hermit-main w-full bg-green-100">
         <!--   slogan & news     -->
         <div class="slogan-news w-full bg-mainBlueGary relative flex justify-center">
-            <div class="slogan-news-bg w-full bg-black absolute "></div>
+            <div class="slogan-news-bg w-full  absolute "></div>
                 <div class="absolute z-10 flex justify-center flex-col w-1/2  h-full">
                 <h2 class="text-mainG text-6xl text-center font-bold leading-normal">{{$t('lang.home.title1')}}</h2>
                 <h2 class="text-mainG text-6xl text-center font-bold leading-normal mb-20">{{$t('lang.home.title2')}}</h2>
@@ -150,7 +150,7 @@
                 </div>
             </div>
             <div class="mb-10 home-swiper">
-                <h-home-swiper></h-home-swiper>
+                <h-home-swiper :list="swiperList"></h-home-swiper>
             </div>
         </div>
         <contact-us></contact-us>
@@ -231,10 +231,20 @@ export default defineComponent({
         const routerPush = (path: string): void => {
             router.push(path)
         }
+        const swiperList = ref(
+            [
+                {imgUrl: 'https://avatars.githubusercontent.com/u/32354856?v=4', info: t('lang.home.swiperInfo1') ,name: t('lang.home.swiperUser1')},
+                {imgUrl: 'https://avatars.githubusercontent.com/u/664177?s=60&v=4', info: t('lang.home.swiperInfo2'), name: t('lang.home.swiperUser2')},
+                {imgUrl: 'https://avatars.githubusercontent.com/u/8298849?s=60&v=4', info: t('lang.home.swiperInfo3'), name: t('lang.home.swiperUser3')},
+                {imgUrl: 'https://avatars.githubusercontent.com/u/46116414?s=60&v=4', info: t('lang.home.swiperInfo4'), name: t('lang.home.swiperUser4')},
+                {imgUrl: 'https://avatars.githubusercontent.com/u/2259688?s=60&v=4', info: t('lang.home.swiperInfo5'), name: t('lang.home.swiperInfo5')},
+            ]
+        )
         onMounted(()=>{
             getImage()
         })
         return {
+            swiperList,
             routerPush,
             openDialog,
             muguList,

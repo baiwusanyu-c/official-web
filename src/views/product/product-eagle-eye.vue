@@ -197,6 +197,9 @@ export default defineComponent({
     box-shadow: 0 25px 50px -12px #02fbbb;
     border-top: 5px solid #02fbbb;
 }
+.product-eagle .advant-container{
+    background-image:  url("../../assets/img/wave.jpg");
+}
 .product-eagle .advant-container .advant-circle{
     width: 200px;
     height: 200px;

@@ -4,16 +4,7 @@ import App from './App.vue'
 import BeUI from '../public/be-ui/be-ui.es.js'
 import '../public/be-ui/style.css'
 import {i18n} from "./utils/i18n";
-import {SvgDom} from "./utils/create-svg";
 import '../node_modules/animate.css/animate.css'
-
-/**
- * 初始化图标，生成svgDom
- */
-const initIcon = ():void =>{
-    new SvgDom()
-}
-initIcon()
 const app = createApp(App)
 app.use(BeUI)
 app.use(router)

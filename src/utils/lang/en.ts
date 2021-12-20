@@ -23,10 +23,10 @@ export default {
     sendSuccess:'send success！',
     sendFailed:'send failed！',
     projectList:{
-        project1:'智能合约审计',
-        project2:'链平台检测',
+        project1:'Smart contract audit',
+        project2:'Blockchain platform detection',
         project3:'VAAS',
-        project4:'态势感知',
+        project4:'Situational awareness',
     },
     header:{
         research:"Research",
@@ -100,6 +100,16 @@ export default {
         productFeature7:'Project operation awareness',
         productFeature8:'Public opinion sentiment monitoring',
         GlobalTitle:'Serving Global Customers',
+        swiperInfo1:"Beosin has a professional audit technical team, which is really to our surprise.",
+        swiperUser1:"Ted Johnston",
+        swiperInfo2:"Compared to other security audit teams, Beosin is an exciting team, not only provides professional technical audit services, but also empowered by security audit products.",
+        swiperUser2:"Gerry Cooper",
+        swiperInfo3:"They are highly efficient, and can work well with the project launch schedule. We will also actively work with them to fix every issue they raise in a timely manner.",
+        swiperUser3:"Robert Parsons",
+        swiperInfo4:"Attitude. Yes, that's the word. Beosin has a professional service attitude and leading technology. They take every project very seriously. The business consultant is nice and professional. Always available to us, which is very reassuring.",
+        swiperUser4:"Sophie Dennis",
+        swiperInfo5:"",
+        swiperUser5:"",
 
     },
     // djd service-security
@@ -259,7 +269,7 @@ export default {
     },
     quoteDialog:{
         projectName:'PROJECT NAME',
-        yourName:'YOU NAME',
+        yourName:'YOUR NAME',
         email:'EMAIL ADDRESS',
         phone:'MOBILE PHONE NUMBER',
         message:'MESSAGE'
@@ -279,7 +289,7 @@ export default {
         tableAction:'Action',
     },
     login:{
-        registerTxt:' Register Your Account',
+        registerTxt:'Register Your Account',
         account:'Account',
         password:'Password',
         tip:'Please enter the code we sent to your email',

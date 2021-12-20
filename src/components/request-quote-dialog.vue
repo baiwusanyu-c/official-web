@@ -50,12 +50,13 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, ref} from "vue";
+import {defineComponent, ref,watch} from "vue";
 import {NForm,NFormItem,NInput,NSelect,NModal} from "naive-ui";
 import {IOption} from "../utils/types";
 import {useI18n} from "vue-i18n";
 import {createQuote, IQuote} from "../api/quote";
 import {BeMessage} from "../../public/be-ui/be-ui.es";
+import {verEmail} from "../utils/common";
 
 export default defineComponent({
     name: "request-quote-dialog",
@@ -72,7 +73,48 @@ export default defineComponent({
         const handleClose = ():void =>{
             isShow.value = false;
         }
+        watch(isShow,(nVal)=>{
+            if(!nVal){
+                formData.value = {
+                    name:'',
+                    email:'',
+                    type:1,
+                    mobile:'',
+                    message:''
+                }
+            }
+        })
+        /**
+         * 校验提示
+         */
+        const verMsg = (tipStr:string):void =>{
+            message({
+                titles: tipStr,
+                msgType: 'warning',
+                duration: 1500,
+                offsetTop:80,
+                close: true,
+            })
+        }
+        /**
+         * 表单校验
+         */
+        const verifyCodeForm = ():boolean =>{
+            let tipStr = ''
+            if(!formData.value.email){
+                tipStr = t('lang.login.tipAccount')
+                verMsg(tipStr)
+                return false
+            }
+            if(!verEmail(String(formData.value.email))){
+                tipStr = t('lang.login.tipErrEmail')
+                verMsg(tipStr)
+                return false
+            }
+            return true
+        }
         const submit = ():void =>{
+            if(!verifyCodeForm()) return
             const params:IQuote = {
                 name:formData.value.name,
                 email:formData.value.email,
@@ -106,7 +148,7 @@ export default defineComponent({
         const formData = ref<IQuote>({
             name:'',
             email:'',
-            type:2,
+            type:1,
             mobile:'',
             message:''
         })

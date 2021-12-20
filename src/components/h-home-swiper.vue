@@ -127,6 +127,9 @@ export default defineComponent({
 }
 
 .home-swiper .swiper-item h2 {
-    @apply text-8xl;
+    font-size: 65px;
+}
+.home-swiper .swiper-item p {
+    font-size: 16px;
 }
 </style>
