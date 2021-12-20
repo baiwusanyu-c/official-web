@@ -17,3 +17,4 @@ declare module '*.vue' {
     const component: DefineComponent<{}, {}, Vue, any>
     export default component
 }
+

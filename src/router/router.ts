@@ -75,3 +75,6 @@ export const router = createRouter({
     history: createWebHashHistory(),
     routes,
 })
+router.afterEach((to, from) => {
+    window.scrollTo(0,0);
+})

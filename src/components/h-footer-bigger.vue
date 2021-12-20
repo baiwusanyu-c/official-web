@@ -32,10 +32,11 @@
         <div class="footer-class">
             <p>{{$t('lang.HFooterBigger.group')}}</p>
             <div>
-                <n-icon size="30px" class="group" @click="openWin('https://twitter.com/HermitTech')"><logo-twitter/></n-icon>
-                <n-icon size="30px" class="group" @click="openWin('https://t.me/+Y6Y_fgWbnPFhZTI1')"><telegram/></n-icon>
-                <n-icon size="30px" class="group" @click="openWin('https://github.com/HermitTech')"><logo-github/></n-icon>
-                <n-popover trigger="click" color="#00FFBA" class="asdasd" raw placement="bottom" :builtinThemeOverrides="popoverThemeOverrides">
+                <n-icon size="30px" class="group" @click="openWin(linkConfig['twitter'])"><logo-twitter/></n-icon>
+                <n-icon size="30px" class="group" @click="openWin(linkConfig['telegram'])"><telegram/></n-icon>
+                <n-icon size="30px" class="group" @click="openWin(linkConfig['github'])"><logo-github/></n-icon>
+                <n-popover trigger="click"
+                           color="#00FFBA" :arrow-style="{background:'#02fbbb'}" raw placement="bottom" :builtinThemeOverrides="popoverThemeOverrides">
                     <template #trigger>
                         <n-icon size="30px" class="group"><logo-wechat/></n-icon>
                     </template>
@@ -63,8 +64,7 @@ import {LocationSharp,PhonePortraitOutline,MailSharp,LogoWechat,LogoTwitter,Logo
 import {Telegram} from '@vicons/fa'
 import {NIcon,NPopover} from "naive-ui"
 import {  PopoverProps } from 'naive-ui'
-import {Router, useRouter} from "vue-router";
-
+import {linkConfig} from '../enums/link'
 type PopoverThemeOverrides = NonNullable<PopoverProps['builtinThemeOverrides']>
 
 const popoverThemeOverrides: PopoverThemeOverrides = {
@@ -92,6 +92,7 @@ export default defineComponent({
         }
         return{
             popoverThemeOverrides,
+            linkConfig,
             openWin,
         }
     }

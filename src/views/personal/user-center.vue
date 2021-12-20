@@ -55,7 +55,7 @@ import {
     verifyCode
 } from "../../api/personal";
 import {BeMessage} from '../../../public/be-ui/be-ui.es.js'
-import {downLoadZip} from "../../utils/zipdownload.js";
+import {downLoadZip} from "../../utils/zipdownload";
 import {formatDate, getStore} from "../../utils/common";
 
 type BuiltinThemeOverrides = NonNullable<DataTableProps['builtinThemeOverrides']>

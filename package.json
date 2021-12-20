@@ -12,6 +12,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@types/qs": "^6.9.7",
     "@vicons/fa": "^0.11.0",
     "@vicons/ionicons5": "^0.11.0",
     "@vueuse/core": "^7.3.0",

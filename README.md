@@ -96,7 +96,7 @@ export default {
 √ 5.联系我们校验  
 √ 6.首页swiper文案  
 7.产品截图
-√ 8.group 连接 
-9.about-us Community 连接   缺github\facebook\?
+√ 8.group 连接
+√ 9.about-us Community 连接  
 √ 10.首頁蘑菇跳轉 - djd  
 11.合约报告 swiper  

@@ -18,6 +18,7 @@
     "types": [
       "node",
       "vite/client",
+      "@types/qs",
       "jest",
       "/public/**/*.d.ts"
     ]

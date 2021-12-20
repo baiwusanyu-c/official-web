@@ -2,11 +2,11 @@
 import {IOption} from "../utils/types";
 
 enum productionUrl {
-    baseURL = 'https://www.pronhub.com',
+    baseURL = 'https://www.github.com',
     authBaseURL = '',
-    imgURL = 'https://www.pronhub.com',
-    codeURL = 'https://www.pronhub.com',
-    helpURL = 'https://www.pronhub.com',
+    imgURL = 'https://www.github.com',
+    codeURL = 'https://www.github.com',
+    helpURL = 'https://www.github.com',
 }
 // 开发环境
 enum developmentUrl {

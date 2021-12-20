@@ -88,12 +88,16 @@
         <div class="flex flex-col py-16 items-center justify-center box-border w-full bg-mainBlueGary">
             <p class="text-3xl font-bold w-1/3 text-center mb-24">{{$t('lang.community')}}</p>
             <div class="flex items-center mb-20">
-                <img  @click="openWin('https://twitter.com/HermitTech')" class="mr-16 cursor-pointer" src="../../assets/img/community1.png" alt="" />
-                <img  @click="openWin('https://t.me/+Y6Y_fgWbnPFhZTI1')" class="mx-16 cursor-pointer " src="../../assets/img/community2.png" alt="" />
-                <img  @click="openWin()" class="mx-16 cursor-pointer " src="../../assets/img/community4.png" alt="" />
-                <img  @click="openWin('https://github.com/HermitTech')" class="mx-16 cursor-pointer " src="../../assets/img/community5.png" alt="" />
-                <img  @click="openWin('https://www.facebook.com/profile.php?id=100076153480334')" class="mx-16 cursor-pointer " src="../../assets/img/community6.png" alt="" />
-                <n-popover trigger="click" color="#00FFBA" raw placement="bottom" :builtinThemeOverrides="popoverThemeOverrides">
+                <img  @click="openWin(linkConfig['twitter'])"  class="mr-16 cursor-pointer" src="../../assets/img/community1.png" alt="" />
+                <img  @click="openWin(linkConfig['telegram'])" class="mx-16 cursor-pointer" src="../../assets/img/community2.png" alt="" />
+                <img  @click="openWin(linkConfig['medium'])"   class="mx-16 cursor-pointer" src="../../assets/img/community7.png" alt="" />
+                <img  @click="openWin(linkConfig['github'])"   class="mx-16 cursor-pointer" src="../../assets/img/community5.png" alt="" />
+                <img  @click="openWin(linkConfig['facebook'])" class="mx-16 cursor-pointer" src="../../assets/img/community6.png" alt="" />
+                <n-popover trigger="click"
+                           :arrow-style="{background:'#02fbbb'}"
+                           color="#00FFBA"
+                           raw
+                           placement="bottom">
                     <template #trigger>
                         <img  class="ml-16 cursor-pointer " src="../../assets/img/community3.png" alt="" />
                     </template>
@@ -109,11 +113,9 @@
 import {defineComponent} from "vue";
 import ContactUs from "../../components/contact-us.vue";
 import {PopoverProps,NPopover} from "naive-ui";
-type PopoverThemeOverrides = NonNullable<PopoverProps['builtinThemeOverrides']>
 
-const popoverThemeOverrides: PopoverThemeOverrides = {
-    color:'#02fbbb'
-}
+import {linkConfig} from '../../enums/link'
+
 export default defineComponent({
     name: "about-us",
     components: {ContactUs,NPopover},
@@ -126,7 +128,7 @@ export default defineComponent({
         }
         return{
             openWin,
-            popoverThemeOverrides
+            linkConfig,
         }
     }
 
