@@ -15,7 +15,7 @@
                 <div class="flex flex-wrap w-2/3 justify-between self-center mb-16">
                     <div v-for="(item) in muguList"
                          @click="headerRouterPush(item.value)"
-                         style="line-height: 1rem"
+                         style="line-height: 1rem;cursor:pointer;"
                          class="text-default text-left w-1/2 mb-4 leading-6 flex items-center"
                          :key="item.label">
                         <img alt="" src="../../assets/img/mogu.png" class="ml-4 mr-4"/>
@@ -268,7 +268,6 @@ export default defineComponent({
 .hermit-main .slogan-news{
     background: url("../../assets/img/home-header-img.PNG");
     background-size: 100% 100%;
-    cursor:pointer;
    /* height: 134vh;*/
     height: 80vh
 }
