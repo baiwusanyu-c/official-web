@@ -152,7 +152,7 @@ export default defineComponent({
     width: 1382px;
     height: 1958px;
     margin: 0 auto;
-    background: url(../../assets/img/cet.png) no-repeat center;
+    background: url(../../assets/img/cet.jpg) no-repeat center;
     padding: 336px 150px 290px;
     box-sizing: border-box;
     font-family: Microsoft YaHei sans-serif;
