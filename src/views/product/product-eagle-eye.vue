@@ -54,7 +54,16 @@
 
         </div>
         <!--    核心特色    -->
-        <div class="advant-container flex bg-black w-full py-16 px-80 flex-col justify-center">
+        <div class="advant-container flex w-full py-16 px-80 flex-col justify-center relative">
+            <video class='absolute left-0 top-0 bottom-0 top-0'
+                   style="z-index: -1"
+                   key="product-eagle-video1"
+                   src="../../assets/video/wave.webm" muted="muted" autoplay="autoplay" loop="loop" width="1920" height="1080"></video>
+            <video class='absolute left-0 bottom-0 top-1/2' style="z-index: -1"
+                   src="../../assets/video/wave.webm"
+                   muted="muted"
+                   key="product-eagle-video2"
+                   autoplay="autoplay" loop="loop" width="1920" height="1080"></video>
             <h2 class="text-4xl font-bold mb-16 text-default text-center"> {{$t('lang.product.eagle.advantTitle')}}</h2>
             <div class="flex justify-center items-center w-full  mb-48">
                 <div class="advant-circle flex justify-center items-center font-bold p-6 text-center text-lg">
@@ -198,7 +207,7 @@ export default defineComponent({
     border-top: 5px solid #02fbbb;
 }
 .product-eagle .advant-container{
-    background-image:  url("../../assets/img/wave.jpg");
+    /*background-image:  url("../../assets/img/wave.jpg");*/
 }
 .product-eagle .advant-container .advant-circle{
     width: 200px;

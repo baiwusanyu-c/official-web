@@ -89,7 +89,7 @@ export default defineComponent({
                         close: true,
                     })
                     setSession('CETInfo',JSON.stringify(res.data))
-
+                    window.open('#/report', 'view_window')
                     handleClose()
                 }
             }).catch(err => {

@@ -16,12 +16,12 @@
                     {{$t('lang.HFooterBigger.contact.locationSingapore')}}
                 </div>
             </div>
-            <div class="contact-us">
+<!--            <div class="contact-us">
                 <n-icon size="30px">
                     <phone-portrait-outline/>
                 </n-icon>
                 <div class="contact-us-text">+86-028-8326-2585</div>
-            </div>
+            </div>-->
             <div class="contact-us">
                 <n-icon size="30px">
                     <mail-sharp/>
@@ -32,9 +32,9 @@
         <div class="footer-class">
             <p>{{$t('lang.HFooterBigger.group')}}</p>
             <div>
-                <n-icon size="30px" class="group" @click="toTwitter"><logo-twitter/></n-icon>
-                <n-icon size="30px" class="group" @click="toTelegram"><telegram/></n-icon>
-                <n-icon size="30px" class="group"><logo-github/></n-icon>
+                <n-icon size="30px" class="group" @click="openWin('https://twitter.com/HermitTech')"><logo-twitter/></n-icon>
+                <n-icon size="30px" class="group" @click="openWin('https://t.me/+Y6Y_fgWbnPFhZTI1')"><telegram/></n-icon>
+                <n-icon size="30px" class="group" @click="openWin('https://github.com/HermitTech')"><logo-github/></n-icon>
                 <n-popover trigger="click" color="#00FFBA" class="asdasd" raw placement="bottom" :builtinThemeOverrides="popoverThemeOverrides">
                     <template #trigger>
                         <n-icon size="30px" class="group"><logo-wechat/></n-icon>
@@ -84,16 +84,15 @@ export default defineComponent({
         Telegram,
     },
     setup(){
-        const toTwitter = ():void =>{
-            window.open('https://twitter.com/HermitTech')
-        }
-        const toTelegram = ():void =>{
-            window.open('https://t.me/+Y6Y_fgWbnPFhZTI1')
+        /**
+         * 打開窗口
+         */
+        const openWin = (url:string)=>{
+            window.open(url, url)
         }
         return{
             popoverThemeOverrides,
-            toTwitter,
-            toTelegram,
+            openWin,
         }
     }
 })

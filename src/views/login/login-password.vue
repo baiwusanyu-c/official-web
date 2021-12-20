@@ -6,7 +6,7 @@
 */
 <template>
     <div class="flex flex-col items-start w-full">
-        <img src="src/assets/img/logo-black.png" class='mb-8 w-1/2' alt=""/>
+        <img src="../../assets/img/logo-black.png" class='mb-8 w-1/2' alt=""/>
         <div class="flex flex-col items-start w-full flex-grow">
             <!--  账户      -->
             <div class='mb-2 h-14 border-b w-full'>

@@ -5,7 +5,7 @@
 * @update (czh 2021/12/15)
 */
 <template>
-    <div class="hermit-main w-full bg-green-100">
+    <div class="hermit-main w-full bg-black-100">
         <!--   slogan & news     -->
         <div class="slogan-news w-full bg-mainBlueGary relative flex justify-center">
             <div class="slogan-news-bg w-full absolute "></div>
@@ -238,10 +238,10 @@ export default defineComponent({
         }
         const swiperList = ref(
             [
-                {imgUrl: 'https://avatars.githubusercontent.com/u/32354856?v=4', info: t('lang.home.swiperInfo1') ,name: t('lang.home.swiperUser1')},
-                {imgUrl: 'https://avatars.githubusercontent.com/u/664177?s=60&v=4', info: t('lang.home.swiperInfo2'), name: t('lang.home.swiperUser2')},
-                {imgUrl: 'https://avatars.githubusercontent.com/u/8298849?s=60&v=4', info: t('lang.home.swiperInfo3'), name: t('lang.home.swiperUser3')},
-                {imgUrl: 'https://avatars.githubusercontent.com/u/46116414?s=60&v=4', info: t('lang.home.swiperInfo4'), name: t('lang.home.swiperUser4')},
+                {imgUrl: 'https://avatars.githubusercontent.com/u/29225966?v=4', info: t('lang.home.swiperInfo1') ,name: t('lang.home.swiperUser1')},
+                {imgUrl: 'https://avatars.githubusercontent.com/u/2194624?s=60&v=4', info: t('lang.home.swiperInfo2'), name: t('lang.home.swiperUser2')},
+                {imgUrl: 'https://avatars.githubusercontent.com/u/1357791?s=60&v=4', info: t('lang.home.swiperInfo3'), name: t('lang.home.swiperUser3')},
+                {imgUrl: 'https://avatars.githubusercontent.com/u/74358?s=60&v=4', info: t('lang.home.swiperInfo4'), name: t('lang.home.swiperUser4')},
                 {imgUrl: 'https://avatars.githubusercontent.com/u/2259688?s=60&v=4', info: t('lang.home.swiperInfo5'), name: t('lang.home.swiperUser5')},
             ]
         )
@@ -267,9 +267,9 @@ export default defineComponent({
 }
 .hermit-main .slogan-news{
     background: url("../../assets/img/home-header-img.PNG");
-    background-size: 100% 100%;
-   /* height: 134vh;*/
-    height: 80vh
+    background-size: 101% 100%;
+    height: 80vh;
+    background-position-x: -2px;
 }
 .hermit-main .slogan-news .slogan-news-bg{
    /* height: 58%;*/

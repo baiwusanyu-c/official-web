@@ -7,7 +7,7 @@
 
 <template>
     <div class="flex flex-col items-start w-full">
-        <img src="src/assets/img/logo-black.png" class='mb-4 w-1/2' alt=""/>
+        <img src="../../assets/img/logo-black.png" class='mb-4 w-1/2' alt=""/>
         <!--  账户      -->
         <h3 class="text-2xl font-bold mb-2">{{$t('lang.login.forget')}}</h3>
         <div class='mb-2 h-24 border-b w-full'>
@@ -44,7 +44,7 @@
         <div class='mb-4 flex w-full'>
             <input type="text" v-model="form.verification_code" class="border h-12 flex-1"/>
             <div class="bg-mainG cursor-pointer flex items-center justify-center w-32" @click="verifyCodeMail">
-                <img src="src/assets/img/send-vr-code.png" alt=""/>
+                <img src="../../assets/img/send-vr-code.png" alt=""/>
             </div>
         </div>
         <be-button @click="register"

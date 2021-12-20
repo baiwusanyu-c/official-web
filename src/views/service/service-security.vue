@@ -140,7 +140,7 @@ export default defineComponent({
         const search = ():void =>{
             if(!searchPrams.value){
                 message({
-                    titles: t('lang.opFailed'),
+                    titles: t('lang.serviceSecurity.search.input'),
                     msgType: 'warning',
                     duration: 1500,
                     offsetTop:80,

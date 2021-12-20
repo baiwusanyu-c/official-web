@@ -12,11 +12,11 @@
         </div>
         <div class="report-body" ref="CET" :class="$root.language == 'en_US' ? 'CET-area-en' : 'CET-area-ch'">
             <div class="CET-header">
-                <img class="logo" src="../../../assets/image/logo.png"/>
+<!--                <img class="logo" src="../../../assets/image/logo.png"/>-->
                 <div class="name">{{ CETInfo.projectName }}</div>
                 <div class="desc">{{ $t("lang.report.cet.resultTitle") }}:</div>
-                <img v-if="$root.language == 'en_US'" class="result" src="../../../assets/image/pass_en.png"/>
-                <img v-else class="result" src="../../../assets/image/pass.png"/>
+<!--                <img v-if="$root.language == 'en_US'" class="result" src="../../../assets/image/pass_en.png"/>
+                <img v-else class="result" src="../../../assets/image/pass.png"/>-->
             </div>
             <div class="CET-content">
                 <div class="content-item"><span class="label" :class="$root.language == 'en_US' ? 'en' : ''">{{
@@ -46,7 +46,7 @@
                 </div>
             </div>
             <div class="CET-other" :style="{'bottom': '700px' }">
-                <img class="code" src="../../../assets/image/code.png"/>
+<!--                <img class="code" src="../../../assets/image/code.png"/>-->
                 <div class="other-company">
                     <div>{{ $t("lang.report.cet.company") }}</div>
                     <div>{{ CETInfo.time }}</div>
@@ -87,7 +87,8 @@ export default defineComponent({
         const {locale} = useI18n()
         const curInst = getCurrentInstance()
         const initData = ()=>{
-            const safeAuditItem = (locale.value === 'en_US' && CETInfoSession.value.safeAuditItemEn) ? CETInfoSession.value.safeAuditItemEn.split(",") : CETInfoSession.value.safeAuditItem.split(",")
+            const safeAuditItem = (locale.value === 'en_US' && CETInfoSession.value.safeAuditItemEn)
+                ? CETInfoSession.value.safeAuditItemEn.split(",") : CETInfoSession.value.safeAuditItem.split(",")
             CETInfo.value = {
                 projectName: CETInfoSession.value.projectName,
                 num: CETInfoSession.value.reportNum,
@@ -109,16 +110,16 @@ export default defineComponent({
             );
         }
         const downloadCET = ():void => {
-            html2canvas(curInst?.refs.CET).then(function (canvas) {
+            html2canvas(curInst?.refs.CET as HTMLElement).then(function (canvas) {
                 if (navigator.msSaveBlob) {
                     // IE10+
                     let blob = canvas.msToBlob();
                     return navigator.msSaveBlob(blob, CETInfo.value.num + ".jpg");
                 } else {
-                    let imgUrl = canvas
+                    let imgUrl:string= canvas
                         .toDataURL("image/png")
                         .replace("image/png", "image/octet-stream"); // 获取生成的图片的url
-                    let eleLink = document.createElement("a");
+                    let eleLink:HTMLAnchorElement = document.createElement("a");
                     eleLink.href = imgUrl; // 转换后的图片地址
                     eleLink.download = CETInfo.value.num + ".jpg";
                     document.body.appendChild(eleLink);

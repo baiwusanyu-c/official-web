@@ -19,7 +19,7 @@
       "node",
       "vite/client",
       "jest",
-      "public/**/*.d.ts"
+      "/public/**/*.d.ts"
     ]
   },
   "include": [

@@ -16,7 +16,7 @@
                             ref="popoverService"
                             customClass="header-popover" placement="bottom">
                     <template #trigger>
-                        <div class="trigger-item y-full flex items-center text-base hover:text-mainG">
+                        <div class="trigger-item y-full flex items-center text-base hover:text-mainG" :class="route.path.indexOf('service') > 0 ? 'item-active' : ''">
                             {{ $t('lang.header.service') }}
                             <be-icon icon="under"></be-icon>
                         </div>
@@ -34,7 +34,7 @@
             <div class="w-28 cursor-pointer md:flex sm:hidden">
                 <be-popover trigger="click" customClass="header-popover" placement="bottom" ref="popoverProduct">
                     <template #trigger>
-                        <div class="trigger-item y-full flex items-center text-base hover:text-mainG" >
+                        <div class="trigger-item y-full flex items-center text-base hover:text-mainG" :class="route.path.indexOf('product') > 0 ? 'item-active' : ''">
                             {{ $t('lang.header.product') }}
                             <be-icon icon="under" ></be-icon>
                         </div>
@@ -48,7 +48,9 @@
                     </div>
                 </be-popover>
             </div>
-            <div class="w-28 cursor-pointer text-base hover:text-mainG md:flex sm:hidden" @click="routerPush('/index/aboutUs')">
+            <div class="w-28 cursor-pointer text-base hover:text-mainG md:flex sm:hidden"
+                 :class="route.path.indexOf('aboutUs') > 0 ? 'item-active' : ''"
+                 @click="routerPush('/index/aboutUs')">
                 {{ $t('lang.header.aboutUs') }}
             </div>
         </div>
@@ -108,12 +110,12 @@
 </template>
 
 <script lang="ts">
-import {Router, useRouter} from "vue-router";
+import {Router, useRouter, useRoute, RouteLocationNormalizedLoaded} from "vue-router";
 import {NDatePicker, NInput, NPopselect,NConfigProvider} from 'naive-ui'
 import {defineComponent, ref, getCurrentInstance, ComponentInternalInstance, onMounted} from "vue";
 import {useI18n} from "vue-i18n";
 import {useEventBus} from "@vueuse/core";
-import {getStore, removeStore, setStore} from "../utils/common";
+import {getStore, removeStore, setSession,getSession} from "../utils/common";
 import {BeMessage} from "../../public/be-ui/be-ui.es";
 interface ISelect {
     label: string,
@@ -140,6 +142,7 @@ export default defineComponent({
          * @param index 索引
          */
         const router: Router = useRouter()
+        const route: RouteLocationNormalizedLoaded = useRoute()
         const routerPush = (path: string,index:number): void => {
             closePopover(path,index)
             if(/quite/.test(path)) return
@@ -151,23 +154,26 @@ export default defineComponent({
          * @param index 索引
          */
         const closePopover = (path: string,index:number):void => {
+            serviceList.value.map((val:ISelect)=>val.active = false)
+            productList.value.map((val:ISelect)=>val.active = false)
             // 服务介绍
             if(/service/.test(path)){
-                serviceList.value.map((val:ISelect)=>val.active = false)
                 serviceList.value[index].active = true;
                 (internalInstance?.refs?.popoverService as IPopover).close()
+                setSession('activeItem',JSON.stringify({value:index,key:'service'}))
             }
             // 产品介绍
             if(/product/.test(path)){
-                productList.value.map((val:ISelect)=>val.active = false)
                 productList.value[index].active = true;
                 (internalInstance?.refs?.popoverProduct as IPopover).close()
+                setSession('activeItem',JSON.stringify({value:index,key:'product'}))
             }
             //用户中心
             if(/user/.test(path)){
                 loginList.value.map((val:ISelect)=>val.active = false)
                 loginList.value[index].active = true;
                 (internalInstance?.refs?.popoverLogin as IPopover).close()
+                setSession('activeItem',JSON.stringify({value:index,key:'user'}))
             }
             // 退出登录
             if(/quite/.test(path)){
@@ -257,6 +263,18 @@ export default defineComponent({
             if(getStore('token')){
                 isLogin.value = true
             }
+            const activeItem:string = getSession('activeItem') as string
+            if(!activeItem) return
+            const activeIndex:number = parseInt(JSON.parse(activeItem).value )
+            if(JSON.parse(activeItem).key === 'user'){
+                loginList.value[activeIndex].active = true;
+            }
+            if(JSON.parse(activeItem).key === 'product'){
+                productList.value[activeIndex].active = true;
+            }
+            if(JSON.parse(activeItem).key === 'service'){
+                serviceList.value[activeIndex].active = true;
+            }
         })
         return {
             isLogin,
@@ -267,6 +285,7 @@ export default defineComponent({
             productList,
             changeLanguage,
             routerPush,
+            route,
         }
     }
 })
@@ -315,5 +334,10 @@ export default defineComponent({
 }
 .trigger-item:hover .be-icon-container .be-icon{
     fill:#02fbbb;
+}
+.item-active,
+.item-active .be-icon-container .be-icon{
+    fill:#02fbbb;
+    color: #02fbbb;;
 }
 </style>
