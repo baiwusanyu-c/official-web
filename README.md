@@ -94,7 +94,7 @@ export default {
 3.首页背景图 - djd
 √ 4.波纹背景图 
 √ 5.联系我们校验  
-6.首页swiper文案  
+√ 6.首页swiper文案  
 7.产品截图 
 8.group 连接   
 9.about-us Community 连接  

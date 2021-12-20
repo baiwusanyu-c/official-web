@@ -6,3 +6,4 @@
 */
 declare module '*.es.js'
 declare module 'be-ui.es.js';
+declare module 'zipdownload.js';

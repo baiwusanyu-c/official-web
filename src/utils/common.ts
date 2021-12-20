@@ -156,6 +156,21 @@ export const removeStore = (name:string) =>{
     if (!name) return;
     window.localStorage.removeItem(name);
 }
+/**
+ * 存储
+ */
+export const setSession = (name:string, content:string) => {
+    if (!name) return;
+    window.sessionStorage.setItem(name, content);
+}
+
+/**
+ * 获取localStorage
+ */
+export const getSession = (name:string) =>{
+    if (!name) return;
+    return window.sessionStorage.getItem(name);
+}
 // 简单克隆
 export const jsonClone = <T>(val: T):T => JSON.parse(JSON.stringify(val))
 // 判定布尔

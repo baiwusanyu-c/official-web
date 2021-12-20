@@ -28,7 +28,7 @@
                                       size="large"/>
                         </div>
                         <div class="flex-1" @click="getCode">
-                            <img :src="codeUrl" alt=""/>
+                            <img :src="codeUrl" alt="" style="height: 40px"/>
                         </div>
                     </div>
 
@@ -50,6 +50,8 @@ import {useI18n} from "vue-i18n";
 import {BeMessage} from "../../public/be-ui/be-ui.es";
 import {NInput} from "naive-ui";
 import {getBackCode, getReportByCode, IReportCode} from "../api/service";
+import {setSession} from "../utils/common";
+import {getCodeImg} from "../api/login";
 export default defineComponent({
     name: "ver-code-dialog",
     components:{NInput},
@@ -86,6 +88,8 @@ export default defineComponent({
                         offsetTop:80,
                         close: true,
                     })
+                    setSession('CETInfo',JSON.stringify(res.data))
+
                     handleClose()
                 }
             }).catch(err => {
@@ -104,7 +108,7 @@ export default defineComponent({
          */
         const codeUrl = ref<string>('')
         const  getCode = ():void=>{
-            getBackCode().then((res:any) => {
+            getCodeImg().then((res:any) => {
                 formData.value.uuid = res.uuid;
                 codeUrl.value = "data:image/gif;base64," + res.img;
             });
@@ -121,6 +125,7 @@ export default defineComponent({
             formData,
             submit,
             isShow,
+            codeUrl,
         }
     }
 })

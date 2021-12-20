@@ -7,6 +7,7 @@ import productEagle from '../views/product/product-eagle-eye.vue'
 import personal from '../views/personal/user-center.vue'
 import login from '../views/login/login.vue'
 import aboutUs from '../views/about-us/about-us.vue'
+import report from '../views/report/report.vue'
 import home from '../views/home/home.vue'
 const routes = [
     {
@@ -54,6 +55,11 @@ const routes = [
         path: '/login',
         component: login,
         name: 'login',
+    },
+    {
+        path: '/report',
+        component: report,
+        name: 'report',
     },
     {
         path: '/',

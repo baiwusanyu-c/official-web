@@ -114,7 +114,7 @@ import {defineComponent, ref, getCurrentInstance, ComponentInternalInstance, onM
 import {useI18n} from "vue-i18n";
 import {useEventBus} from "@vueuse/core";
 import {getStore, removeStore, setStore} from "../utils/common";
-
+import {BeMessage} from "../../public/be-ui/be-ui.es";
 interface ISelect {
     label: string,
     value: string,
@@ -131,6 +131,7 @@ export default defineComponent({
         'changeLang',
     ],
     setup(props, ctx) {
+        const message = BeMessage.service
         const internalInstance = getCurrentInstance()
         const isLogin = ref<boolean>(false)
         /**
@@ -175,6 +176,13 @@ export default defineComponent({
                 removeStore('token')
                 removeStore('userInfo')
                 isLogin.value = false
+                message({
+                    titles: t('lang.opSuccess'),
+                    msgType: 'success',
+                    duration: 1500,
+                    offsetTop:80,
+                    close: true,
+                })
             }
             if(/lang/.test(path)){
                 langList.value.map((val:ISelect)=>val.active = false);

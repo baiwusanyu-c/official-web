@@ -185,10 +185,10 @@ export default defineComponent({
             {label:t('lang.home.mgtitle4'),value:'/index/product/productEagle'},
         ])
         const titleCardList = ref<Array<any>>([
-            {label:t('lang.home.mgtitle1'),value:'On November 30, BEOSIN detected that MonoX, an automatic market maker protocol, suffered a flash loan attack',date:"12/06/2021"},
-            {label:t('lang.home.mgtitle2'),value:'On November 30, BEOSIN detected that MonoX, an automatic market maker protocol, suffered a flash loan attack',date:"12/06/2021"},
-            {label:t('lang.home.mgtitle3'),value:'On November 30, BEOSIN detected that MonoX, an automatic market maker protocol, suffered a flash loan attack',date:"12/06/2021"},
-            {label:t('lang.home.mgtitle4'),value:'On November 30, BEOSIN detected that MonoX, an automatic market maker protocol, suffered a flash loan attack',date:"12/06/2021"},
+            {label:t('lang.home.mgtitle1'),value:'On November 30, Hermit detected that MonoX, an automatic market maker protocol, suffered a flash loan attack',date:"12/06/2021"},
+            {label:t('lang.home.mgtitle2'),value:'On November 30, Hermit detected that MonoX, an automatic market maker protocol, suffered a flash loan attack',date:"12/06/2021"},
+            {label:t('lang.home.mgtitle3'),value:'On November 30, Hermit detected that MonoX, an automatic market maker protocol, suffered a flash loan attack',date:"12/06/2021"},
+            {label:t('lang.home.mgtitle4'),value:'On November 30, Hermit detected that MonoX, an automatic market maker protocol, suffered a flash loan attack',date:"12/06/2021"},
         ])
         const customerList = [
             'polygon',
@@ -242,7 +242,7 @@ export default defineComponent({
                 {imgUrl: 'https://avatars.githubusercontent.com/u/664177?s=60&v=4', info: t('lang.home.swiperInfo2'), name: t('lang.home.swiperUser2')},
                 {imgUrl: 'https://avatars.githubusercontent.com/u/8298849?s=60&v=4', info: t('lang.home.swiperInfo3'), name: t('lang.home.swiperUser3')},
                 {imgUrl: 'https://avatars.githubusercontent.com/u/46116414?s=60&v=4', info: t('lang.home.swiperInfo4'), name: t('lang.home.swiperUser4')},
-                {imgUrl: 'https://avatars.githubusercontent.com/u/2259688?s=60&v=4', info: t('lang.home.swiperInfo5'), name: t('lang.home.swiperInfo5')},
+                {imgUrl: 'https://avatars.githubusercontent.com/u/2259688?s=60&v=4', info: t('lang.home.swiperInfo5'), name: t('lang.home.swiperUser5')},
             ]
         )
         onMounted(()=>{

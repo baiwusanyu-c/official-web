@@ -69,7 +69,7 @@ export default {
         mgtitle3:'Formal verification products',
         mgtitle4:'Blockchain situational awareness',
         titleCard1:'A Full Analysis of the MonoX Attack',
-        titleCardInfo1:'On November 30, BEOSIN detected that MonoX, an automatic market maker protocol,suffered a flash loan ',
+        titleCardInfo1:'On November 30, Hermit detected that MonoX, an automatic market maker protocol,suffered a flash loan ',
         more:'LEARN MORE',
         serviceTitle1:'The Security Audit Service For Smart Contracts',
         serviceInfo1:'We perform a 360-degree security verification of smart contracts. By identifying and eliminating the security risks of codes, we ensure the consistency of the contract codes and business logic, and provide authoritative security audit reports. ',
@@ -100,17 +100,16 @@ export default {
         productFeature7:'Project operation awareness',
         productFeature8:'Public opinion sentiment monitoring',
         GlobalTitle:'Serving Global Customers',
-        swiperInfo1:"Beosin has a professional audit technical team, which is really to our surprise.",
+        swiperInfo1:"Hermit has a professional audit technical team, which is really to our surprise.",
         swiperUser1:"Ted Johnston",
-        swiperInfo2:"Compared to other security audit teams, Beosin is an exciting team, not only provides professional technical audit services, but also empowered by security audit products.",
+        swiperInfo2:"Compared to other security audit teams, Hermit is an exciting team, not only provides professional technical audit services, but also empowered by security audit products.",
         swiperUser2:"Gerry Cooper",
         swiperInfo3:"They are highly efficient, and can work well with the project launch schedule. We will also actively work with them to fix every issue they raise in a timely manner.",
         swiperUser3:"Robert Parsons",
-        swiperInfo4:"Attitude. Yes, that's the word. Beosin has a professional service attitude and leading technology. They take every project very seriously. The business consultant is nice and professional. Always available to us, which is very reassuring.",
+        swiperInfo4:"Attitude. Yes, that's the word. Hermit has a professional service attitude and leading technology. They take every project very seriously. The business consultant is nice and professional. Always available to us, which is very reassuring.",
         swiperUser4:"Sophie Dennis",
-        swiperInfo5:"",
-        swiperUser5:"",
-
+        swiperInfo5:"Hermit focuses on blockchain ecosystem security, and their products and services are just fantastic. They are able to provide security audits and defense deployments for global exchanges, wallets and smart contracts.",
+        swiperUser5:"Anthony Davis",
     },
     // djd service-security
     serviceSecurity:{
@@ -119,7 +118,7 @@ export default {
             textSmall:'Multi-dimensional, multi-round and multi-way detection of blockchain security'
         },
         search:{
-            text:'HERMIT can provide multi-dimensional code security testing for Blockchain platforms. Through the different security audit methods of black-box, gray-box and white-box, BEOSIN can effectively guarantee the security of Blockchain platforms at all levels such as node communication, storage, consensus, authority management, etc.',
+            text:'HERMIT can provide multi-dimensional code security testing for Blockchain platforms. Through the different security audit methods of black-box, gray-box and white-box, Hermit can effectively guarantee the security of Blockchain platforms at all levels such as node communication, storage, consensus, authority management, etc.',
             totalCustomers:'Total customers served',
             audited:'Audited contracts',
             totalAudited:'Total audited funds',
@@ -217,7 +216,7 @@ export default {
             advantSubTitle1:'Multiple invention patents guarantee',
             advantDesc1:'We are one of the first companies in the world to apply formal verification technology to the blockchain industry. We currently have more than 10 patents on formal verification and have tested thousands of smart contracts.',
             advantSubTitle2:'High Accuracyt',
-            advantDesc2:'VaaS can "One-Click" accurately and automatically locate the vulnerabilities of code. After the real evaluation by Security Laboratory of , the detection accuracy of BEOSIN-VaaS is up to 97%, ranking first in the world, enabling effective verification from source-code to byte-code.',
+            advantDesc2:'VaaS can "One-Click" accurately and automatically locate the vulnerabilities of code. After the real evaluation by Security Laboratory of , the detection accuracy of Hermit-VaaS is up to 97%, ranking first in the world, enabling effective verification from source-code to byte-code.',
             advantSubTitle3:'Multi-Blockchain Platforms Support',
             advantDesc3:'VaaS supports multiple Blockchain platforms simultaneously (including ETH, EOS, ONT, TRON, FISCO-BCOS, Fabric, etc.). VaaS is highly customizable, and have already customized and developed the dedicated version of VaaS for ANTCHAIN and Tencent Blockchain at present.',
             advantSubTitle4:'Various Access Methods',
@@ -304,6 +303,39 @@ export default {
         tipVerCode:'Please enter the verification code',
         tipTwicePassword:' The two passwords are inconsistent',
         tipErrEmail:'Mailbox format error',
+    },
+    report:{
+        cet:{
+            downloadReport: 'Download the full report',
+            downloadCET: 'Download this audit certificate',
+            downloadAll: 'Download all',
+            resultTitle: `The result from Hermit’s audit is`,
+            reportNum: 'Audit report number',
+            addr: 'Audit address',
+            linkAddr: 'Project deployment platform',
+            items: 'Security audit items',
+            tip1: 'Long press to identify the QR code, jump to the official query platform or',
+            tip2: 'log in',
+            tip3: 'to query',
+            company: 'Chengdu LianAn Technology Co.Ltd.',
+            agreementName:'Disclaimer:',
+            agreement: `This report is made in response to the project code. No description, 
+          expression or wording in this report shall be construed as an endorsement, 
+          affirmation or confirmation of the project. This audit is only applied to the type of auditing specified in this report and the scope of given in the results table. 
+          Other unknown security vulnerabilities are beyond auditing responsibility. 
+          Hermit (Chengdu LianAn) Technology only issues this report based on the attacks or vulnerabilities that already existed or occurred before the issuance of this report. 
+          For the emergence of new attacks or vulnerabilities that exist or occur in the future, 
+          Hermit (Chengdu LianAn) Technology lacks the capability to judge its possible impact on the security status of smart contracts, thus taking no responsibility for them. 
+          The security audit analysis and other contents of this report are based solely on the documents and materials that the contract provider has provided to Hermit (Chengdu LianAn) Technology before the issuance of this report, 
+          and the contract provider warrants that there are no missing, tampered, deleted; 
+          if the documents and materials provided by the contract provider are missing, tampered, deleted, 
+          concealed or reflected in a situation that is inconsistent with the actual situation, 
+          or if the documents and materials provided are changed after the issuance of this report, Hermit (Chengdu LianAn) Technology assumes no responsibility for the resulting loss or adverse effects. The audit report issued by Hermit (Chengdu LianAn) Technology is based on the documents and materials provided by the contract provider, 
+          and relies on the technology currently possessed by Hermit (Chengdu LianAn). 
+          Due to the technical limitations of any organization, 
+          this report conducted by Hermit (Chengdu LianAn) still has the possibility that the entire risk cannot be completely detected. Hermit (Chengdu LianAn) disclaims any liability for the resulting losses. 
+          The final interpretation of this statement belongs to Hermit (Chengdu LianAn).`
+        }
     }
 
 }
