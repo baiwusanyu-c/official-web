@@ -26,14 +26,14 @@
                 <n-icon size="30px">
                     <mail-sharp/>
                 </n-icon>
-                <div class="contact-us-text">market@lianantech.com</div>
+                <div class="contact-us-text">hermitmarket@gmail.com</div>
             </div>
         </div>
         <div class="footer-class">
             <p>{{$t('lang.HFooterBigger.group')}}</p>
             <div>
-                <n-icon size="30px" class="group"><logo-twitter/></n-icon>
-                <n-icon size="30px" class="group"><telegram/></n-icon>
+                <n-icon size="30px" class="group" @click="toTwitter"><logo-twitter/></n-icon>
+                <n-icon size="30px" class="group" @click="toTelegram"><telegram/></n-icon>
                 <n-icon size="30px" class="group"><logo-github/></n-icon>
                 <n-popover trigger="click" color="#00FFBA" class="asdasd" raw placement="bottom" :builtinThemeOverrides="popoverThemeOverrides">
                     <template #trigger>
@@ -62,8 +62,8 @@ import {defineComponent} from "vue";
 import {LocationSharp,PhonePortraitOutline,MailSharp,LogoWechat,LogoTwitter,LogoGithub} from '@vicons/ionicons5'
 import {Telegram} from '@vicons/fa'
 import {NIcon,NPopover} from "naive-ui"
-
 import {  PopoverProps } from 'naive-ui'
+import {Router, useRouter} from "vue-router";
 
 type PopoverThemeOverrides = NonNullable<PopoverProps['builtinThemeOverrides']>
 
@@ -84,8 +84,16 @@ export default defineComponent({
         Telegram,
     },
     setup(){
+        const toTwitter = ():void =>{
+            window.open('https://twitter.com/HermitTech')
+        }
+        const toTelegram = ():void =>{
+            window.open('https://t.me/+Y6Y_fgWbnPFhZTI1')
+        }
         return{
-            popoverThemeOverrides
+            popoverThemeOverrides,
+            toTwitter,
+            toTelegram,
         }
     }
 })
