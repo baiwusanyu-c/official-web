@@ -35,7 +35,6 @@
                 <n-icon size="30px" class="group"><logo-twitter/></n-icon>
                 <n-icon size="30px" class="group"><telegram/></n-icon>
                 <n-icon size="30px" class="group"><logo-github/></n-icon>
-
                 <n-popover trigger="click" color="#00FFBA" class="asdasd" raw placement="bottom" :builtinThemeOverrides="popoverThemeOverrides">
                     <template #trigger>
                         <n-icon size="30px" class="group"><logo-wechat/></n-icon>
@@ -122,6 +121,7 @@ p{
     padding-left: 5px;
 }
 .group{
+    cursor:pointer;
     margin-right: 32px;
     transition: all 0.5s ease;
 }
@@ -135,9 +135,12 @@ p{
     background: linear-gradient(236deg, #00FFBA, #0ED9E0);
 }
 .policy-class{
+    cursor:pointer;
     display: flex;
+    width: 200px;
     flex-direction: row;
     align-items: center;
+    margin-top: 15px;
 }
 .text-point{
     width: 4px;
@@ -145,9 +148,6 @@ p{
     background: #CEC7C1;
     border-radius: 50%;
     transition: all 0.5s ease;
-}
-.policy-class{
-    margin-top: 15px;
 }
 .policy-text{
     padding-left: 4px;

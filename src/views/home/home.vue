@@ -8,12 +8,13 @@
     <div class="hermit-main w-full bg-green-100">
         <!--   slogan & news     -->
         <div class="slogan-news w-full bg-mainBlueGary relative flex justify-center">
-            <div class="slogan-news-bg w-full  absolute "></div>
+            <div class="slogan-news-bg w-full absolute "></div>
                 <div class="absolute z-10 flex justify-center flex-col w-1/2  h-full">
                 <h2 class="text-mainG text-6xl text-center font-bold leading-normal">{{$t('lang.home.title1')}}</h2>
                 <h2 class="text-mainG text-6xl text-center font-bold leading-normal mb-20">{{$t('lang.home.title2')}}</h2>
                 <div class="flex flex-wrap w-2/3 justify-between self-center mb-16">
                     <div v-for="(item) in muguList"
+                         @click="headerRouterPush(item.value)"
                          style="line-height: 1rem"
                          class="text-default text-left w-1/2 mb-4 leading-6 flex items-center"
                          :key="item.label">
@@ -178,10 +179,10 @@ export default defineComponent({
     setup(){
         const {t} = useI18n()
         const muguList = ref<Array<ISelect>>([
-            {label:t('lang.home.mgtitle1'),value:'url1'},
-            {label:t('lang.home.mgtitle2'),value:'url1'},
-            {label:t('lang.home.mgtitle3'),value:'url1'},
-            {label:t('lang.home.mgtitle4'),value:'url1'},
+            {label:t('lang.home.mgtitle1'),value:'/index/service/contracts'},
+            {label:t('lang.home.mgtitle2'),value:'/index/service/security'},
+            {label:t('lang.home.mgtitle3'),value:'/index/product/productVass'},
+            {label:t('lang.home.mgtitle4'),value:'/index/product/productEagle'},
         ])
         const titleCardList = ref<Array<any>>([
             {label:t('lang.home.mgtitle1'),value:'On November 30, BEOSIN detected that MonoX, an automatic market maker protocol, suffered a flash loan attack',date:"12/06/2021"},
@@ -223,6 +224,10 @@ export default defineComponent({
         const openDialog = ():void =>{
             bus.emit('true')
         }
+        const headerRouterPush = (value: string):void =>{
+            console.log(value)
+            routerPush(value)
+        }
         /**
          * 跳转方法
          * @param path 路由地址
@@ -249,7 +254,8 @@ export default defineComponent({
             openDialog,
             muguList,
             titleCardList,
-            customerImgList
+            customerImgList,
+            headerRouterPush,
         }
     }
 })
@@ -260,6 +266,9 @@ export default defineComponent({
 
 }
 .hermit-main .slogan-news{
+    background: url("../../assets/img/home-header-img.PNG");
+    background-size: 100% 100%;
+    cursor:pointer;
    /* height: 134vh;*/
     height: 80vh
 }
