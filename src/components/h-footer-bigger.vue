@@ -46,25 +46,25 @@
         </div>
         <div class="footer-class">
             <p class="font-format">{{$t('lang.HFooterBigger.policy.policyTitle')}}</p>
-            <div class="policy-class">
+            <div class="policy-class" @click="openPdf(linkConfigPolicy['conditions'])">
                 <div class="text-point"></div>
                 <div class="policy-text font-format">{{$t('lang.HFooterBigger.policy.terms')}}</div>
             </div>
-            <div class="policy-class">
-                <div class="text-point"></div><div class="policy-text font-format">{{$t('lang.HFooterBigger.policy.privacy')}}</div>
+            <div class="policy-class" @click="openPdf(linkConfigPolicy['privacy'])">
+                <div class="text-point" ></div>
+                <div class="policy-text font-format">{{$t('lang.HFooterBigger.policy.privacy')}}</div>
             </div>
         </div>
     </div>
     <div class="h-6 flex justify-center items-center font-format">©2021 by Hermit. All Rights Reserved.</div>
 </template>
-
 <script lang="ts">
 import {defineComponent} from "vue";
 import {LocationSharp,PhonePortraitOutline,MailSharp,LogoWechat,LogoTwitter,LogoGithub} from '@vicons/ionicons5'
 import {Telegram} from '@vicons/fa'
 import {NIcon,NPopover} from "naive-ui"
 import {  PopoverProps } from 'naive-ui'
-import {linkConfig} from '../enums/link'
+import {linkConfig,linkConfigPolicy} from '../enums/link'
 type PopoverThemeOverrides = NonNullable<PopoverProps['builtinThemeOverrides']>
 
 const popoverThemeOverrides: PopoverThemeOverrides = {
@@ -90,10 +90,15 @@ export default defineComponent({
         const openWin = (url:string)=>{
             window.open(url, url)
         }
+        const openPdf = (url:string)=>{
+            window.open(url, url)
+        }
         return{
             popoverThemeOverrides,
             linkConfig,
+            linkConfigPolicy,
             openWin,
+            openPdf,
         }
     }
 })
