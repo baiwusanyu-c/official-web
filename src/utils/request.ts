@@ -17,7 +17,11 @@ const service = axios.create({
 // request interceptor
 service.interceptors.request.use(
     (config:any) => {
-        config.headers['Authorization'] = getStore('token') ? 'Bearer ' + getStore('token') : '';
+        const tokenCache = getStore('token')
+        if(tokenCache){
+            config.headers['Authorization'] = 'Bearer ' + getStore('token');
+        }
+        config.headers['Accept-Language'] = getStore('lang') ? getStore('lang') : 'en_US';
         if (config.method === 'post' && config.url!=='/auth/oauth/login') {
             config.data = config.params
             config.headers['Content-Type'] = 'application/json;charlang.report.cet.=UTF-8'

@@ -5,6 +5,10 @@ import BeUI from '../public/be-ui/be-ui.es.js'
 import '../public/be-ui/style.css'
 import {i18n} from "./utils/i18n";
 import '../node_modules/animate.css/animate.css'
+import {getStore,setStore} from "./utils/common";
+if(!getStore('lang')){
+    setStore('lang','en_US')
+}
 const app = createApp(App)
 app.use(BeUI)
 app.use(router)

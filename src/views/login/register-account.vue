@@ -126,7 +126,7 @@ export default defineComponent({
         const verifyCodeMail = ():void =>{
             if(!form.value.account){
                 message({
-                    titles: t('lang.tipAccount'),
+                    titles: t('lang.login.tipAccount'),
                     msgType: 'warning',
                     duration: 1500,
                     offsetTop:80,
