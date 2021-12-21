@@ -19,7 +19,7 @@
         </div>
        <!--    一大段文字描述   -->
         <div class="flex flex-col py-16 items-center justify-center box-border desc-info">
-            <div class="flex items-center justify-between w-4/6">
+            <div class="flex items-center justify-between w-4/6 introduction">
                 <img src="../../assets/img/ab-us-desc.png" alt="" />
                  <p class="ml-16 leading-loose text-lg">
                      <span>{{$t('lang.aboutUsPage.descInfo1')}}</span>
@@ -27,7 +27,7 @@
                      <span>{{$t('lang.aboutUsPage.descInfo2')}}</span>
                  </p>
             </div>
-            <div class="ml-16 mt-32 flex items-center justify-between w-4/6">
+            <div class="ml-16 mt-32 flex items-center justify-between w-4/6 introduction introduction-logo">
                 <div class="flex items-center justify-between ">
                     <img src="../../assets/img/ab-us-ic1.png" alt="" />
                     <div class="w-32 ml-2">
@@ -68,7 +68,7 @@
         </div>
         <!--    securing the blockchain ecology    -->
         <div class="securing-the-blockchain flex items-center justify-center w-full h-auto">
-            <p class="text-4xl font-bold w-1/3 text-center">{{$t('lang.aboutUsPage.securityBlock')}}</p>
+            <p class="text-4xl font-bold w-1/3 text-center slogan">{{$t('lang.aboutUsPage.securityBlock')}}</p>
         </div>
         <!--    connect    -->
         <div class="flex flex-col py-16 items-center justify-center box-border w-full">
@@ -143,6 +143,8 @@ export default defineComponent({
     justify-content: flex-start;
     align-items: center;
     background-image:  url("../../assets/img/about-us-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .about-us-page .header-text{
     display: flex;
@@ -169,10 +171,33 @@ export default defineComponent({
 .about-us-page .desc-info{
     background-image: url("../../assets/img/customer-earth.png");
     background-repeat: no-repeat;
+    background-size: 100%;
 }
 .about-us-page .securing-the-blockchain{
     height: 360px;
     background-image: url("../../assets/img/securing-the-blockchain.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+@media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
+    .about-us-page .page-head {
+        padding: 0 100px 50px 100px;
+    }
+    .desc-info .introduction{
+        width: 80%;
+    }
+    .desc-info .introduction span{
+        font-size: 12px;
+    }
+    .desc-info .introduction.introduction-logo{
+        margin-top: 2rem;
+    }
+    .securing-the-blockchain .slogan{
+        font-size: 25px;
+    }
+    .about-us-page .securing-the-blockchain{
+        height: 238px;
+    }
 }
 
 </style>

@@ -311,6 +311,8 @@ export default defineComponent({
     margin-top: -80px;
     height: 400px;
     background: url("../../assets/img/user-center.png");
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     flex-direction: column;
 }
@@ -401,7 +403,7 @@ export default defineComponent({
 }
 
 .page-table {
-    margin-top: 0px;
+    margin-top: 0;
     height: 548px;
     width: 100%;
 }
@@ -411,5 +413,11 @@ export default defineComponent({
     padding-top: 36px;
     width: 1200px;
     height: 360px;
+}
+
+@media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
+
+
+
 }
 </style>

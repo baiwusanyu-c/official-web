@@ -11,7 +11,7 @@ export default defineConfig({
      * 在生产中服务时的基本公共路径。
      * @default '/'
      */
-    base: '/',
+    base: './',
     /**
      * 与“根”相关的目录，构建输出将放在其中。如果目录存在，它将在构建之前被删除。
      * @default 'dist'
@@ -20,7 +20,7 @@ export default defineConfig({
     server: {
         // hostname: '0.0.0.0',
         host: "localhost",
-        port: 3010,
+        port: 3000,
         // // 是否自动在浏览器打开
         // open: true,
         // // 是否开启 https
@@ -56,10 +56,10 @@ export default defineConfig({
              mixins: path.resolve(__dirname, "./src/mixins")*/
         },
     },
-    build: {
+  /*  build: {
         rollupOptions: {
             // 确保外部化处理那些你不想打包进库的依赖
-            external: ['be-ui.es.js'],
+            external: ['vue','be-ui.es.js'],
             output: {
                 // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
                 globals: {
@@ -67,7 +67,7 @@ export default defineConfig({
                 }
             }
         }
-    },
+    },*/
     esbuild: {
         jsxFactory: 'h',
         jsxFragment: 'Fragment'

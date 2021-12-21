@@ -9,7 +9,7 @@
          @mouseenter="isHover = true"
          @mouseleave="isHover = false"
          :style="{
-             width: `${!isHover && 200}px`,
+             width: `${!isHover && 35}%`,
              height: `${!isHover && 230}px `,
              zIndex:`${!isHover ? 10 : 20}`,
              backgroundImage: `url(${img})`
@@ -61,15 +61,7 @@ export default defineComponent({
                 const objHover:IImge = {img:''}
                 objHover.img = imgImport['../assets/img/hexagon' + (index + 1) + '-hover.png'].default
                 imgListHover.push(objHover)
-                /*import('../assets/img/hexagon' + (index + 1) + '.png').then(res=>{
-                    obj.img = res.default
-                    imgList.push(obj)
-                })*/
-               /* const objHover:IImge = {img:''}
-                import('../assets/img/hexagon' + (index + 1) + '-hover.png').then(res=>{
-                    objHover.img = res.default
-                    imgListHover.push(objHover)
-                })*/
+
             })
         }
         const img = computed(()=>{

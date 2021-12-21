@@ -17,16 +17,16 @@
             </div>
             <div class="absolute z-10 flex justify-center flex-col w-1/2  h-full animate__animated animate__fadeInDown">
                 <h2 class="text-mainG text-6xl text-center font-bold leading-normal">{{ $t('lang.home.title1') }}</h2>
-                <h2 class="text-mainG text-6xl text-center font-bold leading-normal mb-20">
+                <h2 class="text-mainG text-6xl text-center font-bold leading-normal mb-20 slogan ">
                     {{ $t('lang.home.title2') }}</h2>
-                <div class="flex flex-wrap w-2/3 justify-between self-center mb-16">
+                <div class="flex flex-wrap w-2/3 justify-between self-center mb-16 slogan">
                     <div v-for="(item) in muguList"
                          @click="headerRouterPush(item.value)"
                          style="line-height: 1rem;cursor:pointer;"
                          class="text-default text-left w-1/2 mb-4 leading-6 flex items-center mogu-text"
                          :key="item.label">
                         <img alt="" src="../../assets/img/mogu.png" class="ml-4 mr-4"/>
-                        <p >{{ item.label }}</p>
+                        <p>{{ item.label }}</p>
                     </div>
                 </div>
                 <be-button
@@ -492,6 +492,7 @@ export default defineComponent({
 .slogan-product-circle1 {
     background-image: url("../../assets/img/product-bg1.png");
     background-repeat: no-repeat;
+    background-size: 100%;
 
 }
 
@@ -518,6 +519,7 @@ export default defineComponent({
 .slogan-product-circle2 {
     background-image: url("../../assets/img/product-bg2.png");
     background-repeat: no-repeat;
+    background-size: 100%;
 }
 
 .slogan-product-circle2 .circle5 {
@@ -542,6 +544,8 @@ export default defineComponent({
 
 .slogan-customer {
     background-image: url("../../assets/img/customer-earth.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
 .slogan-customer-logo div {
@@ -557,7 +561,19 @@ export default defineComponent({
     height: 460px;
     width: 99vw;
 }
-.mogu-text p:hover{
-   text-decoration: underline;
+
+.mogu-text p:hover {
+    text-decoration: underline;
+}
+
+@media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
+    .hermit-main .slogan-service {
+        padding: 150px 80px;
+        box-sizing: border-box;
+    }
+    .slogan-news .slogan{
+        @apply mb-4
+    }
+
 }
 </style>

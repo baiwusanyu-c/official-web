@@ -2,13 +2,13 @@
   "name": "be-ui3-doc",
   "version": "1.0.0",
   "scripts": {
-    "serve:dev": "cross-env NODE_ENV=development vite --mode development",
-    "serve:stage": "cross-env NODE_ENV=staging vite --mode staging",
-    "serve:pretest": "cross-env NODE_ENV=pretest vite --mode pretest",
-    "build:dev": "cross-env NODE_ENV=development vite --mode development",
-    "build:stage": "cross-env NODE_ENV=staging vite build --mode staging",
-    "build:prod": "cross-env NODE_ENV=production vite build --mode production",
-    "build:pretest": "cross-env NODE_ENV=pretest vite build --mode pretest",
+    "serve:dev": "vite --host --mode development",
+    "serve:stage": "vite --host --mode staging",
+    "serve:pretest": "vite --host --mode pretest",
+    "build:dev": "vite build --mode development",
+    "build:stage": "vite build --mode staging",
+    "build:prod": "vite build --mode production",
+    "build:pretest": "vite build --mode pretest",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -45,7 +45,6 @@
     "@vue/test-utils": "^2.0.0-rc.16",
     "autoprefixer": "^9.8.8",
     "babel-jest": "26.0.0",
-    "cross-env": "^7.0.3",
     "jest": "26.0.0",
     "postcss": "^7.0.39",
     "svg-sprite-loader": "^6.0.9",

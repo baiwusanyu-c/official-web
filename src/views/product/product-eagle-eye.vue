@@ -171,6 +171,8 @@ export default defineComponent({
     justify-content: flex-start;
     align-items: center;
     background-image:  url("../../assets/img/eagle-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .product-eagle .header-text{
     display: flex;

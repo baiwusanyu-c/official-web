@@ -196,6 +196,8 @@
         padding-bottom: 110px;
         justify-content: space-evenly;
         background: url("../../assets/img/service-contract/contract-header.png");
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 
     .header-button-box{
