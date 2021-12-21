@@ -9,11 +9,11 @@
         <!--   slogan & news     -->
         <div class="slogan-news w-full bg-mainBlueGary relative flex justify-center">
             <div class="slogan-news-bg w-full absolute ">
-                <video class='absolute left-0 bottom-0 ' style="z-index: 0"
+                <video class='absolute left-0 bottom-0 top-0 right-0' style="z-index: 0;height: 100%;object-fit: fill"
                        src="../../assets/video/home.mp4"
                        muted="muted"
-                       key="product-eagle-video2"
-                       autoplay="autoplay" loop="loop" width="1920" height="1080"></video>
+                       autoplay="autoplay" loop="loop" width="1920"></video>
+
             </div>
             <div class="absolute z-10 flex justify-center flex-col w-1/2  h-full animate__animated animate__fadeInDown">
                 <h2 class="text-mainG text-6xl text-center font-bold leading-normal">{{ $t('lang.home.title1') }}</h2>

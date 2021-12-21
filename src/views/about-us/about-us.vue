@@ -74,13 +74,13 @@
         <div class="flex flex-col py-16 items-center justify-center box-border w-full">
             <p class="text-3xl font-bold w-1/3 text-center mb-16">{{$t('lang.connect')}}</p>
             <div class="flex items-center">
-                <div class="flex items-center justify-center text-xl mr-36">
+<!--                <div class="flex items-center justify-center text-xl mr-36">
                     <img class="mr-4" src="../../assets/img/phone.png" alt="" />
                     {{$t('lang.phone')}}:86-028-8326-2585
-                </div>
+                </div>-->
                 <div class="flex items-center justify-center text-xl">
                     <img class="mr-4" src="../../assets/img/mail.png" alt="" />
-                    {{$t('lang.mail')}}:market@lianantech.com
+                    {{$t('lang.mail')}}:hermitmarket@gmail.com
                 </div>
             </div>
         </div>
