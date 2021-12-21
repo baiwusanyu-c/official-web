@@ -10,7 +10,7 @@ import {getStore, removeSession, removeStore} from "./common";
 import qs from 'qs'
 // create an axios instance
 const service = axios.create({
-    baseURL: config.baseURL, //+ '/api/', // url = base url + request url
+    baseURL:  config.baseURL + '/hermit/back/', //+ '/api/', // url = base url + request url
     timeout: 50000 // request timeout
 })
 

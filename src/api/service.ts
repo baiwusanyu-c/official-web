@@ -9,7 +9,7 @@ import request from "../utils/request";
 // 搜索 拿 code碼
 export function getBackCode(){
     return request({
-        url: '/back/code',
+        url: '/code',
         method: 'get',
 
     })

@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full absolute inset-0" id="hermit_app">
+  <div class="w-full h-full absolute inset-0" id="hermit_app" style="min-width: 1220px">
     <router-view></router-view>
   </div>
 </template>

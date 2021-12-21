@@ -66,7 +66,7 @@
                         <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
                     </be-button>
                 </div>
-                <div class="w-1/2 flex flex-wrap relative">
+                <div class="flex flex-wrap relative" style="width: 60%">
                     <hexagon class='absolute hexagon1 font-format' :index="0"></hexagon>
                     <hexagon class='absolute hexagon2 font-format' :index="1"></hexagon>
                     <hexagon class='absolute hexagon3 font-format' :index="2"></hexagon>
@@ -76,8 +76,8 @@
                     <hexagon class='absolute hexagon7 font-format' :index="6"></hexagon>
                 </div>
             </div>
-            <div class="slogan-service-item flex mt-20">
-                <div class="w-1/2 flex flex-wrap relative">
+            <div class="slogan-service-item flex mt-20"  style="width: 60%">
+                <div class="flex flex-wrap relative">
                     <hexagon class='absolute font-format hexagon8' :index="7"></hexagon>
                     <hexagon class='absolute font-format hexagon9' :index="8"></hexagon>
                     <hexagon class='absolute font-format hexagon10' :index="9"></hexagon>
@@ -404,8 +404,14 @@ export default defineComponent({
 }
 
 .hermit-main .slogan-service {
-    padding: 150px 400px;
+    justify-content: center;
+    align-items: center;
+    padding: 150px 0;
     box-sizing: border-box;
+}
+.slogan-service-item{
+    min-width: 1000px;
+    width: 600px;
 }
 
 .slogan-service .hexagon1 {
@@ -475,7 +481,7 @@ export default defineComponent({
 }
 
 .hermit-main .slogan-service .learn-more-btn {
-    @apply h-10 w-80 font-bold;;
+    @apply h-10 w-80 font-bold;
 }
 
 .hermit-main .slogan-product {

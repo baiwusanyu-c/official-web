@@ -80,7 +80,7 @@ export default defineComponent({
                 uuid: formData.value.uuid
             }
             getReportByCode(params).then((res: any) => {
-                if (res.code === 200) {
+                if (res.code === 200 && res.data) {
                     message({
                         titles: t('lang.opSuccess'),
                         msgType: 'success',
@@ -91,6 +91,14 @@ export default defineComponent({
                     setSession('CETInfo',JSON.stringify(res.data))
                     window.open('#/report', 'view_window')
                     handleClose()
+                }else{
+                    message({
+                        titles:t('lang.noResults'),
+                        msgType: 'warning',
+                        duration: 1500,
+                        offsetTop:80,
+                        close: true,
+                    })
                 }
             }).catch(err => {
                 message({

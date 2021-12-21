@@ -87,6 +87,7 @@ export default defineComponent({
 .home-swiper .swiper-slide {
     width: 360px;
     height: 355px;
+    min-width: 300px;
     text-align: center;
     font-size: 18px;
     /* Center slide text vertically */

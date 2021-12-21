@@ -49,7 +49,8 @@ export default defineComponent({
 }
 .login-form{
     border-top: 5px solid #02fbbb;
-    @apply rounded w-1/4 h-4/6 bg-default
-
+    min-width:480px;
+    min-height: 558px;
+    @apply rounded w-1/4 h-4/6 bg-default;
 }
 </style>

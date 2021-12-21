@@ -5,6 +5,7 @@
 * @update (czh 2021/12/15)
 */
 export default {
+    noResults:'Query no results',
     app: 'app',
     public:'public',
     private:'private',
