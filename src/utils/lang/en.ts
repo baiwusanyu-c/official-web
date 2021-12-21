@@ -13,11 +13,11 @@ export default {
     tryoutBtn: 'TRY OUT',
     LearnMoreBtn: 'LEARN MORE',
     ReservationBtn: 'RESERVATION NOW',
-    connect: 'connect',
+    connect: 'Contact',
     community: 'Community',
     phone: 'phone',
     mail: 'mail',
-    sure: 'SURE',
+    sure: 'CONFIRM',
     opSuccess: 'option success！',
     opFailed: 'option failed！',
     loginSuccess: 'login success！',
@@ -39,10 +39,10 @@ export default {
         login: 'login',
         loginStr: {
             center: 'Personal Center',
-            quit: 'quit',
+            quit: 'Log Out',
         },
         serviceStr: {
-            service1: 'The Security Audit ServiceFor Smart Contracts',
+            service1: 'The Security Audit Service For Smart Contracts',
             service2: 'The Security Testing Service For Blockchain Platforms',
         },
         productStr: {
@@ -55,8 +55,8 @@ export default {
         }
     },
     contactUs: {
-        info1: 'Hermit, your blockchain security expert used by10,000 practitioners worldwide',
-        info2: 'Contract audit reports provided by more than 20 world-leading blockchainsecurity engineers based on formal verification technology.'
+        info1: 'Hermit, your blockchain security expert used by 10,000 practitioners worldwide',
+        info2: 'Smart Contract audit reports provided by more than 20 world-leading blockchain security engineers based on formal verification technology.'
     },
     aboutHerMit: {
         title: 'ABOUT HERMIT',
@@ -66,8 +66,8 @@ export default {
     home: {
         title1: 'SECURING THE',
         title2: 'BLOCKCHAIN ECOLOGY',
-        mgtitle1: 'Smart contract detection',
-        mgtitle2: 'Chain platform detection',
+        mgtitle1: 'Smart contract audit',
+        mgtitle2: 'Blockchain platform detection',
         mgtitle3: 'Formal verification products',
         mgtitle4: 'Blockchain situational awareness',
         titleCard1: 'A Full Analysis of the MonoX Attack',
@@ -82,13 +82,13 @@ export default {
         serviceIc5: 'DApp',
         serviceIc6: 'Blockchain Protocols',
         serviceIc7: 'Other customized smart contracts',
-        serviceTitle2: 'The Security Audit Service For Smart Contracts',
-        serviceInfo2: 'We perform a 360-degree security verification of smart contracts. By identifying and eliminating the security risks of codes, we ensure the consistency of the contract codes and business logic, and provide authoritative security audit reports. ',
+        serviceTitle2: 'Blockchain platform security testing services',
+        serviceInfo2: 'Through different security testing of black box, gray box and white box, we effectively guarantee the security of blockchain platforms at all levels of node communication, storage, consensus and authority management, and provide authoritative security audit report.',
         serviceIc8: 'Ledger Technology',
         serviceIc9: 'Consensus protocols',
         serviceIc10: 'Node communication',
         serviceIc11: 'System performance',
-        serviceIc12: 'Private key algori- thm security, etc.',
+        serviceIc12: 'Private key algori- thm security',
         productName1: 'VASS',
         productDesc1: 'The world\'s first "one-click" smart contract formal verification platform. Using formal verification models to automatically detect security vulnerabilities and functional logic flaws in smart contracts to achieve "zero" code vulnerabilities, with a detection accuracy rate above 97%.',
         productFeature1: 'One-click detection',
@@ -120,7 +120,7 @@ export default {
             textSmall: 'Multi-dimensional, multi-round and multi-way detection of blockchain security'
         },
         search: {
-            text: 'HERMIT can provide multi-dimensional code security testing for Blockchain platforms. Through the different security audit methods of black-box, gray-box and white-box, Hermit can effectively guarantee the security of Blockchain platforms at all levels such as node communication, storage, consensus, authority management, etc.',
+            text: 'HERMIT can provide multi-dimensional code security testing for Blockchain platforms. Through the different security audit methods of black-box, gray-box and white-box, Hermit can effectively guarantee the security of Blockchain platforms at all levels such as node communication, storage, consensus, authority management.',
             totalCustomers: 'Total customers served',
             audited: 'Audited contracts',
             totalAudited: 'Total audited funds',
@@ -159,7 +159,7 @@ export default {
             audited: 'Audited contracts',
             totalAudited: 'Total audited funds',
             inputTitle: 'Security Audit Report Search',
-            input: 'Audit Report Preparation'
+            input: 'Please enter the report number'
         },
         content: {
             title: 'Service Content',
@@ -192,7 +192,7 @@ export default {
             locationRoad: '120 ROBINSON ROAD',
             locationSingapore: '#13-01 SINGAPORE 068913',
         },
-        group: 'GROUP',
+        group: 'COMMUNITY',
         policy: {
             policyTitle: 'POLICY',
             terms: 'Terms and Conditions',
@@ -203,7 +203,7 @@ export default {
         vass: {
             title: 'HERMIT-VaaS',
             subTitle: 'Provide contract developers and test auditors with automated and complete formal verification for smart contracts.',
-            desc: 'VaaS is the world\'s first "one-click" smart contract formal verification platform. It provides industry-leading security detection and verification for smart contract, with a detection accuracy rate of over 97%, also gives modification suggestions. Now with 100,000+ users, it supports public and consortium blockchains such as ETH, EOS, ONT, TRON, FISCO-BCOS, Fabric, Antchain, Tencent Blockchain,etc. at the same time. It can greatly improve the efficiency of smart contracts audit, and reduce the security risk potential caused by incomplete manual audit.',
+            desc: 'VaaS is the world\'s first "one-click" smart contract formal verification platform. It provides industry-leading security detection and verification for smart contract, with a detection accuracy rate of over 97%, also gives modification suggestions. Now with 100,000+ users, it supports public and consortium blockchains such as ETH, EOS, ONT, TRON, FISCO-BCOS, Fabric, Antchain, Tencent Blockchain at the same time. It can greatly improve the efficiency of smart contracts audit, and reduce the security risk potential caused by incomplete manual audit.',
             funcTitle: 'Main Functions Of Product',
             funcSubTitle1: 'One-Click DETECTION',
             funcDesc1: 'Just upload the contract code and the platform will automatically perform configuration, compilation, deployment, and verification, with reports coming out in minutes',
@@ -212,22 +212,22 @@ export default {
             funcSubTitle3: 'VISUAL DEBUGGING',
             funcDesc3: 'Penetrate into source/bytecode and verify the security of your business logic with symbols',
             funcSubTitle4: 'VULNERABILITY REPORTS',
-            funcDesc4: 'Fisually present the distribution of vulnerabilities in the contract and give related fix recommendations',
+            funcDesc4: 'Visually present the distribution of vulnerabilities in the contract and give related fix recommendations',
 
             advantTitle: 'Core Advantages Of Product',
             advantSubTitle1: 'Multiple invention patents guarantee',
             advantDesc1: 'We are one of the first companies in the world to apply formal verification technology to the blockchain industry. We currently have more than 10 patents on formal verification and have tested thousands of smart contracts.',
-            advantSubTitle2: 'High Accuracyt',
+            advantSubTitle2: 'High Accuracy',
             advantDesc2: 'VaaS can "One-Click" accurately and automatically locate the vulnerabilities of code. After the real evaluation by Security Laboratory of , the detection accuracy of Hermit-VaaS is up to 97%, ranking first in the world, enabling effective verification from source-code to byte-code.',
             advantSubTitle3: 'Multi-Blockchain Platforms Support',
-            advantDesc3: 'VaaS supports multiple Blockchain platforms simultaneously (including ETH, EOS, ONT, TRON, FISCO-BCOS, Fabric, etc.). VaaS is highly customizable, and have already customized and developed the dedicated version of VaaS for ANTCHAIN and Tencent Blockchain at present.',
+            advantDesc3: 'VaaS supports multiple Blockchain platforms simultaneously (including ETH, EOS, ONT, TRON, FISCO-BCOS, Fabric). VaaS is highly customizable, and have already customized and developed the dedicated version of VaaS for ANTCHAIN and Tencent Blockchain at present.',
             advantSubTitle4: 'Various Access Methods',
             advantDesc4: 'The platform of VaaS supports SaaS access mode, local deployment mode and development tool plug-in installation mode. Firstly, the SaaS access mode can directly access the system through the public cloud platform, which is convenient and fast. Secondly, the local deployment mode can be directly deployed on the private development environment server to provide security detection functions of smart contracts for enterprise developers. Thirdly, the development tool plug-in installation mode can be directly installed into the development tool through the VS Code plug-in mode to achieve integrated development and security testing of smart contracts.',
         },
         eagle: {
             title: 'HERMIT-Eagle Eye',
             subTitle: 'Provide Dapp operators with project situational information and real-time transaction risk warning.',
-            desc: 'VaaS is the world\'s first "one-click" smart contract formal verification platform. It provides industry-leading security detection and verification for smart contract, with a detection accuracy rate of over 97%, also gives modification suggestions. Now with 100,000+ users, it supports public and consortium blockchains such as ETH, EOS, ONT, TRON, FISCO-BCOS, Fabric, Antchain, Tencent Blockchain,etc. at the same time. It can greatly improve the efficiency of smart contracts audit, and reduce the security risk potential caused by incomplete manual audit.',
+            desc: 'Eagle Eye provides 24/7 blockchain security monitoring and analytics services for application project owners. It’s applicable to all blockchains platforms by monitoring real-time transactions and asset movement, running of smart contract, on assessing the security situation of project. With Beosin‘s intelligence source，Eagle Eye help user to find out vulnerabilities  of smart contract, malicious transactions and potential threats to the project, get disposal suggestions and finally setup security shield for project operation and asset protection.',
             funcTitle: 'Main Functions Of Product',
             funcSubTitle1: 'PROJECT SITUATION',
             funcDesc1: 'Assess the overall project security level through multiple dimensions and provide a security score for each dimension',
@@ -236,7 +236,7 @@ export default {
             funcSubTitle3: 'RISK WARNING',
             funcDesc3: 'Real-time risk identification of transactions on the blockchain platforms and assessment of security risks',
             funcSubTitle4: 'ON-CHAIN PANORAMA',
-            funcDesc4: 'Real-time monitoring of the blockchain platform risk transaction trends, security public opinion situation, risk transactions, etc., presenting a full range of on-chain security status',
+            funcDesc4: 'Real-time monitoring of the blockchain platform risk transaction trends, security public opinion situation, risk transactions, presenting a full range of on-chain security status',
 
             advantTitle: 'Core Advantages Of Product',
             advantSubTitle1: 'Leading security risk analysis capability',
@@ -272,7 +272,7 @@ export default {
         projectName: 'PROJECT NAME',
         yourName: 'YOUR NAME',
         email: 'EMAIL ADDRESS',
-        phone: 'MOBILE PHONE NUMBER',
+        phone: 'YOU CONTACT',
         message: 'MESSAGE'
     },
     userCenter: {

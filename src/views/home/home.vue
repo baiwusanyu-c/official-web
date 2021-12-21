@@ -86,8 +86,8 @@
                 </div>
                 <div class="w-1/2">
                     <div class="bar mb-8"></div>
-                    <h3 class="font-bold text-3xl mb-8 font-format">{{ $t('lang.home.serviceTitle1') }}</h3>
-                    <p class="mb-16 font-format">{{ $t('lang.home.serviceInfo1') }}</p>
+                    <h3 class="font-bold text-3xl mb-8 font-format">{{ $t('lang.home.serviceTitle2') }}</h3>
+                    <p class="mb-16 font-format">{{ $t('lang.home.serviceInfo2') }}</p>
                     <be-button
                         @click="routerPush('/index/service/security')"
                         customClass="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl">

@@ -106,7 +106,7 @@ export default defineComponent({
     height: 23px;
     font-size: 30px;
     font-weight: 400;
-    color: #FBFAFA;
+    color: black;
     line-height: 35px;
 }
 .swiper-footer{
