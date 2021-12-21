@@ -12,14 +12,14 @@
         :autoplay='{ "delay": 2000, "disableOnInteraction": false }'
         :pagination='{ "clickable": true }'
         class="mySwiper">
-        <swiper-slide v-for="item in list" :key="item.name + item.info">
-            <img :src="item.imgUrl" alt=""/>
+        <swiper-slide v-for="(item,index) in imgList" :key="index">
+            <img :src="item.img" alt=""/>
         </swiper-slide>
     </swiper>
 </template>
 
 <script lang="ts">
-import {defineComponent} from "vue";
+    import {defineComponent, onMounted, reactive, ref} from "vue";
 import {Swiper, SwiperSlide} from 'swiper/vue';
 import 'swiper/css';
 import "swiper/css/pagination"
@@ -28,6 +28,11 @@ import SwiperCore, {Pagination,Autoplay} from 'swiper';
 SwiperCore.use([Pagination,Autoplay]);
 import {SwiperEvents} from "swiper/types/swiper-events";
 import {NAvatar} from 'naive-ui'
+    import {router} from "../router/router";
+    import {RouteLocationNormalizedLoaded, useRoute} from "vue-router";
+interface IImge  {
+    img:string
+}
 export default defineComponent({
     name: "h-product-swiper",
     components: {
@@ -36,7 +41,7 @@ export default defineComponent({
         NAvatar,
     },
     props: {
-        list: {
+        /*list: {
             type: Array,
             default: () => {
                 return [
@@ -47,18 +52,42 @@ export default defineComponent({
                     {imgUrl: 'https://swiperjs.com/demos/images/nature-3.jpg', info: 'wqdddddddddcsdddddddddddddddddddddddddddd', name: 'chen chen chen'},
                 ]
             }
-        }
+        }*/
     },
     setup() {
+        const list = ref<Array<string>>([
+            'first',
+        ])
+        const route: RouteLocationNormalizedLoaded = useRoute()
+        const imgList = reactive<object[]>([])
+        const imgImport = import.meta.globEager("../assets/img/*.png");
+        const getImage = ():void =>{
+            list.value.map((val:string,index:number)=>{
+                const objImg = {img:''}
+                if(route.path === '/index/product/productVass'){
+                    objImg.img = imgImport['../assets/img/beosin-vaas' + (index + 1) + '.png'].default
+                    imgList.push(objImg)
+                }else if(route.path === '/index/product/productEagle'){
+                    objImg.img = imgImport['../assets/img/eagle-eye' + (index + 1) + '.png'].default
+                    imgList.push(objImg)
+                }
+            })
+        }
         const onSwiper = (swiper: SwiperEvents): void => {
             console.log(swiper);
         }
         const onSlideChange = (): void => {
             console.log('slide change');
         }
+        onMounted(()=>{
+            getImage()
+        })
         return {
             onSwiper,
             onSlideChange,
+            getImage,
+            imgList,
+            route,
         };
     }
 })
