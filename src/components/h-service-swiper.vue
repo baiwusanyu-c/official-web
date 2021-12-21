@@ -20,10 +20,10 @@
         <swiper-slide v-for="item in list" :key="item.name + item.info">
             <div style="margin-left: 56px">
                 <div class="swiper-header">
-                    <p class="swiper-header-title">{{item.name}}</p>
+                    <p class="swiper-header-title font-format">{{item.name}}</p>
                 </div>
                 <div class="swiper-footer">
-                    <p class="break-words text-left">{{ item.info }}</p>
+                    <p class="break-words text-left font-format">{{ item.info }}</p>
                 </div>
 
             </div>

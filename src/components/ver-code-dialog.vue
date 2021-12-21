@@ -36,7 +36,7 @@
             </template>
             <template #footer>
                 <be-button  customClass="sure-btn" round="3" @click="submit">
-                    {{$t('lang.sure')}}
+                    <span class="font-format">{{$t('lang.sure')}}</span>
                 </be-button>
             </template>
         </be-dialog>

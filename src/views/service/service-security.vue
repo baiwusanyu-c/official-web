@@ -93,7 +93,7 @@
             <div class="reports-header">
                 <div class="reports-title-class">
                     <div class="reports-title-question">{{$t('lang.serviceSecurity.reports.title')}}</div>
-                    <div class="reports-title-answer">{{$t('lang.serviceSecurity.reports.answer')}}</div>
+                    <div class="reports-title-answer">{{$t('lang.serviceSecurity.reports.text')}}</div>
                 </div>
                 <img src="../../assets/img/pad.png" height="345" width="339"/>
             </div>

@@ -7,38 +7,41 @@
 <template>
     <div class="report-detail-container p-6">
         <div class="flex  justify-end">
-            <be-button :round="3" bordered class="mr-6 downloadReport" @click="downloadReport" size="large">{{$t('lang.report.cet.downloadReport')}}</be-button>
-            <be-button :round="3" type='primary' bordered class="downloadCET" @click="downloadCET" size="large">{{$t('lang.report.cet.downloadCET')}}</be-button>
+            <be-button :round="3" bordered class="mr-6 downloadReport" @click="downloadReport" size="large">
+                <span class="font-format">{{$t('lang.report.cet.downloadReport')}}</span></be-button>
+            <be-button :round="3" type='primary' bordered class="downloadCET" @click="downloadCET" size="large">
+                <span class="font-format"> {{$t('lang.report.cet.downloadCET')}}</span>
+            </be-button>
         </div>
         <div class="report-body" ref="CET" :class="locale === 'en_US' ? 'CET-area-en' : 'CET-area-ch'">
             <div class="CET-header">
                 <img class="logo" src="../../assets/img/logo-black.png"/>
                 <div class="name">{{ CETInfo.projectName }}</div>
-                <div class="desc">{{ $t("lang.report.cet.resultTitle") }}:</div>
+                <div class="desc font-format">{{ $t("lang.report.cet.resultTitle") }}:</div>
                 <img v-if="locale === 'en_US'" class="result" src="../../assets/img/pass_en.png"/>
                 <img v-else class="result" src="../../assets/img/pass.png"/>
             </div>
             <div class="CET-content">
-                <div class="content-item"><span class="label" :class="locale === 'en_US' ? 'en' : ''">{{
+                <div class="content-item"><span class="label font-format" :class="locale === 'en_US' ? 'en' : ''">{{
                         $t("lang.report.cet.reportNum")
                     }}：</span>
-                    <span class="num">{{ CETInfo.num }}</span>
+                    <span class="num font-format">{{ CETInfo.num }}</span>
                 </div>
                 <div class="content-item">
-                    <span class="label" :class="locale === 'en_US' ? 'en' : ''">{{ $t("lang.report.cet.addr") }}：</span>
-                    <span>{{ CETInfo.addr }}</span>
+                    <span class="label font-format" :class="locale === 'en_US' ? 'en' : ''">{{ $t("lang.report.cet.addr") }}：</span>
+                    <span class="font-format">{{ CETInfo.addr }}</span>
                 </div>
                 <div class="content-item">
-                    <span class="label" :class="locale === 'en_US' ? 'en' : ''">{{
+                    <span class="label font-format" :class="locale === 'en_US' ? 'en' : ''">{{
                             $t("lang.report.cet.linkAddr")
                         }}：</span>
-                    <span>{{ CETInfo.link }}</span>
+                    <span class="font-format">{{ CETInfo.link }}</span>
                 </div>
                 <div class="content-item">
-                    <span class="label" :class="locale === 'en_US' ? 'en' : ''" >{{ $t("lang.report.cet.items") }}：</span >
+                    <span class="label font-format" :class="locale === 'en_US' ? 'en' : ''" >{{ $t("lang.report.cet.items") }}：</span >
                     <div class="audit-item">
                         <ul class="item-list">
-                            <li v-for="(item, index) in CETInfo.items" :key="index">
+                            <li v-for="(item, index) in CETInfo.items" :key="index" class="font-format">
                                 {{ item }}
                             </li>
                         </ul>
@@ -48,13 +51,13 @@
             <div class="CET-other" :style="{'bottom': '700px' }">
 <!--                <img class="code" src="../../../assets/image/code.png"/>-->
                 <div class="other-company">
-                    <div>{{ $t("lang.report.cet.company") }}</div>
-                    <div>{{ CETInfo.time }}</div>
+                    <div class="font-format">{{ $t("lang.report.cet.company") }}</div>
+                    <div class="font-format">{{ CETInfo.time }}</div>
                 </div>
             </div>
             <div class="CET-footer" :style="{'bottom': '320px'}">
-                <div class="footer-title">{{ $t("lang.report.cet.agreementName") }}</div>
-                <div class="footer-content">
+                <div class="footer-title font-format">{{ $t("lang.report.cet.agreementName") }}</div>
+                <div class="footer-content font-format">
                     {{ $t("lang.report.cet.agreement") }}
                 </div>
             </div>

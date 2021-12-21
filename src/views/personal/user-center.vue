@@ -2,16 +2,16 @@
     <div>
         <div class="page-header">
             <!--{{$t('lang.HFooterBigger.contact.locationRoad')}}-->
-            <div class="title-big">{{ $t('lang.userCenter.titleBig') }}</div>
-            <div class="title-small">{{ $t('lang.userCenter.titleSmall') }}</div>
+            <div class="title-big font-format">{{ $t('lang.userCenter.titleBig') }}</div>
+            <div class="title-small font-format">{{ $t('lang.userCenter.titleSmall') }}</div>
         </div>
         <div class="search">
             <div class="search-up">
-                <span>{{ $t('lang.userCenter.searchTitle') }}</span>
+                <span class="font-format">{{ $t('lang.userCenter.searchTitle') }}</span>
             </div>
             <div class="search-down">
                 <div class="search-class">
-                    <n-input class="search-input" v-model:value='searchParams'
+                    <n-input class="search-input font-format" v-model:value='searchParams'
                              :placeholder="$t('lang.userCenter.searchInput')"/>
                     <n-button class="search-btn" @click="searchData">
                         <n-icon size="20px">
@@ -26,7 +26,7 @@
                 </div>
                 <div>
                     <n-button class="download-btn" @click="downloadAll">
-                        <span>{{ $t('lang.userCenter.download') }}</span></n-button>
+                        <span class="font-format">{{ $t('lang.userCenter.download') }}</span></n-button>
                 </div>
             </div>
         </div>

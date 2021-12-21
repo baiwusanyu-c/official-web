@@ -31,24 +31,24 @@
             <h2 class="text-4xl font-bold mb-16 font-format"> {{$t('lang.product.vass.funcTitle')}}</h2>
             <div class="flex w-full items-center justify-center">
                 <div class="func-card  bg-default flex flex-col items-center justify-start shadow-2xl mx-8 p-8 box-border rounded">
-                    <h3 class="text-lg font-bold mb-8 text-center h-12"> {{$t('lang.product.vass.funcSubTitle1')}}</h3>
+                    <h3 class="text-lg font-bold mb-8 text-center h-12 font-format"> {{$t('lang.product.vass.funcSubTitle1')}}</h3>
                     <img class='mb-8' src="../../assets/img/func1.png" alt="">
-                    <p> {{$t('lang.product.vass.funcDesc1')}}</p>
+                    <p class="font-format"> {{$t('lang.product.vass.funcDesc1')}}</p>
                 </div>
                 <div class="func-card  bg-default flex flex-col items-center justify-start shadow-2xl mx-8 p-8 box-border rounded">
-                    <h3 class="text-lg font-bold mb-8 text-center h-12"> {{$t('lang.product.vass.funcSubTitle2')}}</h3>
+                    <h3 class="text-lg font-bold mb-8 text-center h-12 font-format"> {{$t('lang.product.vass.funcSubTitle2')}}</h3>
                     <img class='mb-8' src="../../assets/img/func2.png" alt="">
-                    <p> {{$t('lang.product.vass.funcDesc2')}}</p>
+                    <p class="font-format"> {{$t('lang.product.vass.funcDesc2')}}</p>
                 </div>
                 <div class="func-card  bg-default flex flex-col items-center justify-start shadow-2xl mx-8 p-8 box-border rounded">
-                    <h3 class="text-lg font-bold mb-8 text-center h-12"> {{$t('lang.product.vass.funcSubTitle3')}}</h3>
+                    <h3 class="text-lg font-bold mb-8 text-center h-12 font-format"> {{$t('lang.product.vass.funcSubTitle3')}}</h3>
                     <img class='mb-8' src="../../assets/img/func3.png" alt="">
-                    <p> {{$t('lang.product.vass.funcDesc3')}}</p>
+                    <p class="font-format"> {{$t('lang.product.vass.funcDesc3')}}</p>
                 </div>
                 <div class="func-card  bg-default flex flex-col items-center justify-start shadow-2xl mx-8 p-8 box-border rounded">
-                    <h3 class="text-lg font-bold mb-8 text-center h-12"> {{$t('lang.product.vass.funcSubTitle4')}}</h3>
+                    <h3 class="text-lg font-bold mb-8 text-center h-12 font-format"> {{$t('lang.product.vass.funcSubTitle4')}}</h3>
                     <img class='mb-8' src="../../assets/img/func4.png" alt="">
-                    <p> {{$t('lang.product.vass.funcDesc4')}}</p>
+                    <p class="font-format"> {{$t('lang.product.vass.funcDesc4')}}</p>
                 </div>
             </div>
 
@@ -64,36 +64,36 @@
                    muted="muted"
                    key="product-vass-video2"
                    autoplay="autoplay" loop="loop" width="1920" height="1080"></video>
-            <h2 class="text-4xl font-bold mb-16 text-default text-center"> {{$t('lang.product.vass.advantTitle')}}</h2>
+            <h2 class="text-4xl font-bold mb-16 text-default text-center font-format"> {{$t('lang.product.vass.advantTitle')}}</h2>
             <div class="flex justify-center items-center w-full  mb-48">
-                <div class="advant-circle flex justify-center items-center font-bold p-6 text-center text-lg">
+                <div class="advant-circle flex justify-center items-center font-bold p-6 text-center text-lg font-format">
                     {{$t('lang.product.vass.advantSubTitle1')}}
                 </div>
-                <div class="flex-1 bg-mainG ml-6 justify-center items-center font-bold p-12"  style="height: min-content">
+                <div class="flex-1 bg-mainG ml-6 justify-center items-center font-bold p-12 font-format"  style="height: min-content">
                     {{$t('lang.product.vass.advantDesc1')}}
                 </div>
             </div>
             <div class="flex justify-center items-center w-full  mb-48">
-                <div class="flex-1 bg-mainG mr-6 justify-center items-center font-bold p-12" style="height: min-content">
+                <div class="flex-1 bg-mainG mr-6 justify-center items-center font-bold p-12 font-format" style="height: min-content">
                     {{$t('lang.product.vass.advantDesc2')}}
                 </div>
-                <div class="advant-circle flex justify-center items-center font-bold p-6 text-center text-lg">
+                <div class="advant-circle flex justify-center items-center font-bold p-6 text-center text-lg font-format">
                     {{$t('lang.product.vass.advantSubTitle2')}}
                 </div>
             </div>
             <div class="flex justify-center items-center w-full mb-48">
-                <div class="advant-circle flex justify-center items-center font-bold p-6 text-center text-lg">
+                <div class="advant-circle flex justify-center items-center font-bold p-6 text-center text-lg font-format">
                     {{$t('lang.product.vass.advantSubTitle3')}}
                 </div>
-                <div class="flex-1 bg-mainG ml-6 justify-center items-center font-bold p-12"  style="height: min-content">
+                <div class="flex-1 bg-mainG ml-6 justify-center items-center font-bold p-12 font-format"  style="height: min-content">
                     {{$t('lang.product.vass.advantDesc3')}}
                 </div>
             </div>
             <div class="flex justify-center items-center w-full ">
-                <div class="flex-1 bg-mainG mr-6 justify-center items-center font-bold p-12"  style="height: min-content">
+                <div class="flex-1 bg-mainG mr-6 justify-center items-center font-bold p-12 font-format"  style="height: min-content">
                     {{$t('lang.product.vass.advantDesc4')}}
                 </div>
-                <div class="advant-circle flex justify-center items-center font-bold p-6 text-center text-lg">
+                <div class="advant-circle flex justify-center items-center font-bold p-6 text-center text-lg font-format">
                     {{$t('lang.product.vass.advantSubTitle4')}}
                 </div>
             </div>

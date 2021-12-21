@@ -2,10 +2,10 @@
     <div>
         <div class="page-head relative">
             <div class="header-text">
-                <div class="header-text-big">
+                <div class="header-text-big font-format">
                     {{$t('lang.serviceContract.pageHead.textBig')}}
                 </div>
-                <div class="header-text-small">
+                <div class="header-text-small font-format">
                     {{$t('lang.serviceContract.pageHead.textSmall')}}
                 </div>
             </div>
@@ -14,27 +14,27 @@
         </div>
         <div class="page-body-search">
             <div class="body-search-text">
-                <span>{{$t('lang.serviceContract.search.text')}}</span>
+                <span class="font-format">{{$t('lang.serviceContract.search.text')}}</span>
             </div>
             <div class="body-search-num">
                 <div class="search-num-box">
-                    <div class="num-header">{{$t('lang.serviceContract.search.totalCustomers')}}</div>
+                    <div class="num-header font-format">{{$t('lang.serviceContract.search.totalCustomers')}}</div>
                     <div class="num-main">{{'1000+'}}</div>
                     <div class="num-footer"></div>
                 </div>
                 <div class="search-num-box">
-                    <div class="num-header">{{$t('lang.serviceContract.search.audited')}}</div>
+                    <div class="num-header font-format">{{$t('lang.serviceContract.search.audited')}}</div>
                     <div class="num-main">{{'5000+'}}</div>
                     <div class="num-footer"></div>
                 </div>
                 <div class="search-num-box">
-                    <div class="num-header">{{$t('lang.serviceContract.search.totalAudited')}}</div>
+                    <div class="num-header font-format">{{$t('lang.serviceContract.search.totalAudited')}}</div>
                     <div class="num-main">{{'$100B+'}}</div>
                     <div class="num-footer"></div>
                 </div>
             </div>
             <div class="body-search-input">
-                <div class="input-title">{{$t('lang.serviceContract.search.inputTitle')}}</div>
+                <div class="input-title font-format">{{$t('lang.serviceContract.search.inputTitle')}}</div>
             </div>
             <div class="search-input">
                 <n-input size="large"
@@ -51,46 +51,46 @@
             <div class="body-title">{{$t('lang.serviceContract.content.title')}}</div>
             <div class="content-card-up">
                 <div class="card">
-                    <div class="card-title">{{$t('lang.serviceContract.content.cardSecurity')}}</div>
+                    <div class="card-title font-format">{{$t('lang.serviceContract.content.cardSecurity')}}</div>
                     <img src="../../assets/img/service-contract/asset.png" height="120" width="212"/>
                 </div>
                 <div class="card">
-                    <div class="card-title">{{$t('lang.serviceContract.content.cardLogic')}}</div>
+                    <div class="card-title font-format">{{$t('lang.serviceContract.content.cardLogic')}}</div>
                     <img src="../../assets/img/service-contract/logic.png" height="120" width="212"/>
                 </div>
                 <div class="card">
-                    <div class="card-title">{{$t('lang.serviceContract.content.cardBackdoor')}}</div>
+                    <div class="card-title font-format">{{$t('lang.serviceContract.content.cardBackdoor')}}</div>
                     <img src="../../assets/img/service-contract/backdoor.png" height="120" width="212"/>
                 </div>
                 <div class="card">
-                    <div class="card-title">{{$t('lang.serviceContract.content.cardFlashLoan')}}</div>
+                    <div class="card-title font-format">{{$t('lang.serviceContract.content.cardFlashLoan')}}</div>
                     <img src="../../assets/img/service-contract/flash-loan.png" height="120" width="212"/>
                 </div>
             </div>
             <div class="content-card-down">
                 <div class="card">
-                    <div class="card-title">{{$t('lang.serviceContract.content.cardThirdParty')}}</div>
+                    <div class="card-title font-format">{{$t('lang.serviceContract.content.cardThirdParty')}}</div>
                     <img src="../../assets/img/service-contract/third-party.png" height="120" width="212"/>
                 </div>
                 <div class="card">
-                    <div class="card-title">{{$t('lang.serviceContract.content.cardAttack')}}</div>
+                    <div class="card-title font-format">{{$t('lang.serviceContract.content.cardAttack')}}</div>
                     <img src="../../assets/img/service-contract/attack.png" height="120" width="212"/>
                 </div>
                 <div class="card">
-                    <div class="card-title">{{$t('lang.serviceContract.content.cardCode')}}</div>
+                    <div class="card-title font-format">{{$t('lang.serviceContract.content.cardCode')}}</div>
                     <img src="../../assets/img/service-contract/code-specification.png" height="120" width="212"/>
                 </div>
                 <div class="card">
-                    <div class="card-title">{{$t('lang.serviceContract.content.cardFunction')}}</div>
+                    <div class="card-title font-format">{{$t('lang.serviceContract.content.cardFunction')}}</div>
                     <img src="../../assets/img/service-contract/call-audit.png" height="120" width="212"/>
                 </div>
             </div>
         </div>
         <div class="page-body-process">
-            <div class="body-title">{{$t('lang.serviceContract.process.title')}}</div>
+            <div class="body-title font-format">{{$t('lang.serviceContract.process.title')}}</div>
             <div class="process-text">
-                <div>{{$t('lang.serviceContract.process.textEvaluation')}}</div>
-                <div>{{$t('lang.serviceContract.process.textImplementation')}}</div>
+                <div class="font-format">{{$t('lang.serviceContract.process.textEvaluation')}}</div>
+                <div class="font-format">{{$t('lang.serviceContract.process.textImplementation')}}</div>
             </div>
             <img src="../../assets/img/process-small.png" style="margin-bottom: 19px" height="342" width="1200"/>
             <img src="../../assets/img/process-big.png" style="z-index: 1" height="1429" width="1200"/>
@@ -99,14 +99,14 @@
             <div  class="page-body-reports-head">
                 <div class="reports-header">
                     <div class="reports-title-class">
-                        <div class="reports-title-question">{{$t('lang.serviceContract.reports.title')}}</div>
-                        <div class="reports-title-answer">{{$t('lang.serviceContract.reports.text')}}</div>
+                        <div class="reports-title-question font-format">{{$t('lang.serviceContract.reports.title')}}</div>
+                        <div class="reports-title-answer font-format">{{$t('lang.serviceContract.reports.text')}}</div>
                     </div>
                     <img src="../../assets/img/pad.png" height="345" width="339"/>
                 </div>
                 <div class="reports-middle">
-                    <div class="reports-middle-title">{{$t('lang.serviceContract.reports.middleTitle')}}</div>
-                    <div class="reports-middle-text">{{$t('lang.serviceContract.reports.middleText')}}</div>
+                    <div class="reports-middle-title font-format">{{$t('lang.serviceContract.reports.middleTitle')}}</div>
+                    <div class="reports-middle-text font-format">{{$t('lang.serviceContract.reports.middleText')}}</div>
                 </div>
             </div>
 
