@@ -136,7 +136,7 @@ export default defineComponent({
                 }
             }).catch(err => {
                 message({
-                    titles: t('lang.opFailed'),
+                    titles: err.message,
                     msgType: 'warning',
                     duration: 1500,
                     offsetTop:80,

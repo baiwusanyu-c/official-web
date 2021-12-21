@@ -177,7 +177,7 @@
     font-size: 60px;
     font-weight: bold;
     color: #FFFFFF;
-    font-family: SourceHanSansCN-Bold sans-serif;
+    font-family: SourceHanSansBold sans-serif;
 }
 .header-text-small{
     padding-top: 39px;
@@ -186,7 +186,7 @@
     font-size: 30px;
     color: #FFFFFF;
     line-height: 30px;
-    font-family: SourceHanSansCN-Regular sans-serif;
+    font-family: SourceHanSansRegular sans-serif;
 }
     .page-head{
         height: 570px;
@@ -362,7 +362,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        font-family: SourceHanSansCN;
+        font-family: SourceHanSansNormal sans-serif;
         color: #FFFFFF;
     }
     .reports-title-question{

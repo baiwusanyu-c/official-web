@@ -10,8 +10,8 @@
         <div class="flex flex-col items-start w-full flex-grow">
             <!--  账户      -->
             <div class='mb-2 h-14 border-b w-full'>
-                <span class="text-gray-500 mr-4 ">{{$t('lang.login.account')}}</span>
-                <input type="text"
+                <span class="text-gray-500 mr-4 font-format">{{$t('lang.login.account')}}</span>
+                <input type="text font-format"
                        class='w-9/12'
                        :placeholder="$t('lang.login.tipAccount')"
                        v-model="form.username"/>
@@ -19,8 +19,8 @@
 
             <!--  密码      -->
             <div class='login-password mb-2 h-24 border-b w-full flex items-center '>
-                <span class="text-gray-500 mr-4 flex-grow-0">{{$t('lang.login.password')}}</span>
-                <input class='flex-grow'
+                <span class="text-gray-500 mr-4 flex-grow-0 font-format">{{$t('lang.login.password')}}</span>
+                <input class='flex-grow font-format'
                        :type="isShowPassword"
                        :placeholder="$t('lang.login.tipPassword')"
                        v-model="form.password"/>
@@ -31,19 +31,19 @@
             </div>
             <!--  數字驗證碼      -->
             <div class='mt-8 flex w-full'>
-                <input type="text" v-model="form.code" class="border h-12 flex-1"/>
-                <div class="bg-mainG cursor-pointer flex items-center justify-center w-32" @click="verifyCodeMail">
+                <input type="text" v-model="form.code" class="border h-12 flex-1 font-format"/>
+                <div class="bg-mainG cursor-pointer flex items-center justify-center w-32" @click="getCode">
                     <img :src="codeUrl" alt=""/>
                 </div>
             </div>
         </div>
         <be-button @click="login" size="large"
                    customClass="login-btn linear-l-r text-black font-bold text-lg w-full mb-8 mx-auto">
-            {{$t('lang.login.login')}}
+           <span class="font-format">{{$t('lang.login.login')}}</span>
         </be-button>
         <div class="flex items-center justify-between w-full">
-            <p class="text-gray-500 cursor-pointer " style="text-decoration:underline" @click="changeShow('forget')">{{$t('lang.login.forget')}} </p>
-            <p class="text-gray-500 cursor-pointer " style="text-decoration:underline" @click="changeShow('register')"> {{$t('lang.login.register')}}</p>
+            <p class="text-gray-500 cursor-pointer font-format" style="text-decoration:underline" @click="changeShow('forget')">{{$t('lang.login.forget')}} </p>
+            <p class="text-gray-500 cursor-pointer font-format" style="text-decoration:underline" @click="changeShow('register')"> {{$t('lang.login.register')}}</p>
         </div>
     </div>
 </template>
@@ -143,7 +143,7 @@ export default defineComponent({
                 router.push('/index/home')
             }).catch(err=>{
                 message({
-                    titles: t('lang.loginFailed'),
+                    titles:err.message,
                     msgType: 'warning',
                     duration: 1500,
                     offsetTop:80,
@@ -177,7 +177,8 @@ export default defineComponent({
             isShowPassword,
             form,
             changeShowPWord,
-            login
+            login,
+            getCode
         }
     }
 })

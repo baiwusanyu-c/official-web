@@ -1,3 +1,40 @@
+
+@font-face
+{
+    font-family: SourceHanSansNormal;
+    src: url('../assets/font/SourceHanSansNormal.otf');
+}
+@font-face
+{
+    font-family: SourceHanSansExtraLight;
+    src: url('../assets/font/SourceHanSansExtraLight.otf');
+}
+@font-face
+{
+    font-family: SourceHanSansLight;
+    src: url('../assets/font/SourceHanSansLight.otf');
+}
+@font-face
+{
+    font-family: SourceHanSansMedium;
+    src: url('../assets/font/SourceHanSansMedium.otf');
+}
+@font-face
+{
+    font-family: SourceHanSansRegular;
+    src: url('../assets/font/SourceHanSansRegular.otf');
+}
+@font-face
+{
+    font-family: SourceHanSansHeavy;
+    src: url('../assets/font/SourceHanSansHeavy.otf');
+}
+
+@font-face
+{
+    font-family: SourceHanSansBold;
+    src: url('../assets/font/SourceHanSansBold.otf');
+}
 /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
 .scrollDiy::-webkit-scrollbar
 {
@@ -25,43 +62,7 @@
 .be-message{
     z-index: 9999 !important;
 }
-.linear-l-r-s{
-    position: relative;
 
+.font-format{
+    font-family: SourceHanSansNormal sans-serif !important;
 }
-.linear-l-r-s:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 0;
-    height: 100%;
-    z-index:-2;
-}
-.linear-l-r-s:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 3px;
-    height: 100%;
-    z-index:0;
-}
-
-.linear-l-r-s:hover{
-    z-index:1;
-    background:transparent;
-}
-
-.linear-l-r-s:before {
-    transition: .5s;
-    background: linear-gradient(-73deg, #19BDFB, #02FBBB);
-}
-
-.linear-l-r-s:hover:after {
-    width: 100%;
-}
-.linear-l-r-s:hover:before {
-    width: 100%;
-    z-index:-1;
- }

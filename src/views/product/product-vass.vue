@@ -9,10 +9,10 @@
         <!--    头部介绍    -->
         <div class="page-head">
             <div class="header-text mr-1/2">
-                <div class="header-text-big">
+                <div class="header-text-big font-format">
                    {{$t('lang.product.vass.title')}}
                 </div>
-                <div class="header-text-small">
+                <div class="header-text-small font-format">
                     {{$t('lang.product.vass.subTitle')}}
                 </div>
 <!--                <be-button customClass="try-out-btn h-btn-txt-black linear-l-r text-black text-xl">{{$t('lang.tryoutBtn') }}</be-button>-->
@@ -20,7 +20,7 @@
         </div>
         <!--    文字介绍 & 走马灯   -->
         <div class="flex items-center justify-center bg-default text-center py-16 box-border w-full flex-col">
-            <p class="w-1/2 text-lg"> {{$t('lang.product.vass.desc')}}</p>
+            <p class="w-1/2 text-lg font-format"> {{$t('lang.product.vass.desc')}}</p>
             <!--     走馬燈      -->
             <div class="mt-10 product-swiper w-1/2">
                 <h-product-swiper></h-product-swiper>
@@ -28,7 +28,7 @@
         </div>
         <!--    主要功能   -->
         <div class="func-container flex flex-col py-16 items-center justify-center bg-mainBlueGary box-border">
-            <h2 class="text-4xl font-bold mb-16"> {{$t('lang.product.vass.funcTitle')}}</h2>
+            <h2 class="text-4xl font-bold mb-16 font-format"> {{$t('lang.product.vass.funcTitle')}}</h2>
             <div class="flex w-full items-center justify-center">
                 <div class="func-card  bg-default flex flex-col items-center justify-start shadow-2xl mx-8 p-8 box-border rounded">
                     <h3 class="text-lg font-bold mb-8 text-center h-12"> {{$t('lang.product.vass.funcSubTitle1')}}</h3>
@@ -148,7 +148,7 @@ export default defineComponent({
     font-size: 60px;
     font-weight: bold;
     color: #FFFFFF;
-    font-family: SourceHanSansCN-Bold sans-serif;
+    font-family: SourceHanSansBold sans-serif;
 }
 .product-vass .header-text-small{
     padding-top: 39px;
@@ -156,7 +156,7 @@ export default defineComponent({
     font-size: 30px;
     color: #FFFFFF;
     line-height: 30px;
-    font-family: SourceHanSansCN-Regular sans-serif;
+    font-family: SourceHanSansRegular sans-serif;
 }
 .product-vass .try-out-btn{
     @apply h-12 w-80 font-bold mt-32;

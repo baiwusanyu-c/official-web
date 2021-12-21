@@ -9,15 +9,15 @@
     <div class="flex flex-col items-start w-full">
         <img src="../../assets/img/logo-black.png" class='mb-4 w-1/2' alt=""/>
         <!--  账户      -->
-        <h3 class="text-2xl font-bold mb-2">{{$t('lang.login.forget')}}</h3>
+        <h3 class="text-2xl font-bold mb-2 font-format">{{$t('lang.login.forget')}}</h3>
         <div class='mb-2 h-24 border-b w-full'>
-            <span class="text-gray-500 mr-4">{{$t('lang.login.account')}}</span>
-            <input type="text" class='h-16'  :placeholder="$t('lang.login.tipAccount')" v-model="form.account"/>
+            <span class="text-gray-500 mr-4 font-format">{{$t('lang.login.account')}}</span>
+            <input type="text" class='h-16 font-format'  :placeholder="$t('lang.login.tipAccount')" v-model="form.account"/>
         </div>
         <!--  密码      -->
         <div class='login-password mb-2 h-24 border-b w-full flex items-center '>
-            <span class="text-gray-500 mr-4 flex-grow-0">{{$t('lang.login.password')}}</span>
-            <input class='flex-grow h-16'
+            <span class="text-gray-500 mr-4 flex-grow-0 font-format">{{$t('lang.login.password')}}</span>
+            <input class='flex-grow h-16 font-format'
                    :placeholder="$t('lang.login.tipPassword')"
                    :type="isShowPassword" v-model="form.password"/>
             <be-icon :icon="isShowPassword === 'password' ? 'noEye' : 'eye'"
@@ -26,8 +26,8 @@
         </div>
         <!--  确认密码      -->
         <div class='login-password mb-2 h-24 border-b w-full flex items-center '>
-            <span class="text-gray-500 mr-4 flex-grow-0">{{$t('lang.login.password')}}</span>
-            <input class='flex-grow h-16'
+            <span class="text-gray-500 mr-4 flex-grow-0 font-format">{{$t('lang.login.password')}}</span>
+            <input class='flex-grow h-16 font-format'
                    :type="isShowPassword"
                    :placeholder="$t('lang.login.tipPasswordConfirm')"
                    v-model="form.re_password"/>
@@ -42,21 +42,21 @@
         </p>
         <!--  邮箱验证      -->
         <div class='mb-4 flex w-full'>
-            <input type="text" v-model="form.verification_code" class="border h-12 flex-1"/>
+            <input type="text" v-model="form.verification_code" class="border h-12 flex-1 font-format"/>
             <div class="bg-mainG cursor-pointer flex items-center justify-center w-32" @click="verifyCodeMail">
                 <img src="../../assets/img/send-vr-code.png" alt=""/>
             </div>
         </div>
         <be-button @click="register"
                    size="large"
-                   customClass="login-btn linear-l-r text-black font-bold text-lg w-full mb-4 mx-auto">
-            {{$t('lang.login.confirm')}}
+                   customClass="login-btn linear-l-r text-black font-bold text-lg w-full mb-4 mx-auto ">
+            <span class="font-format">{{$t('lang.login.confirm')}}</span>
         </be-button>
         <be-button size="large"
                    bordered
                    @click="changeShow('login')"
                    customClass="login-btn text-black font-bold text-lg w-80 mb-6 w-full mx-auto border-mainG">
-            {{$t('lang.login.login')}}
+            <span class="font-format">{{$t('lang.login.login')}}</span>
         </be-button>
     </div>
 </template>
@@ -173,7 +173,7 @@ export default defineComponent({
                 }
             }).catch(err=>{
                 message({
-                    titles: t('lang.sendFailed'),
+                    titles: err.message,
                     msgType: 'warning',
                     duration: 1500,
                     offsetTop:80,
@@ -200,7 +200,7 @@ export default defineComponent({
                 }
             }).catch(err=>{
                 message({
-                    titles: t('lang.opFailed'),
+                    titles: err.message,
                     msgType: 'warning',
                     duration: 1500,
                     offsetTop:80,

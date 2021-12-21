@@ -15,7 +15,7 @@ export default {
         login:'登录',
         loginStr:{
             center:'Personal Center',
-            quite:'quite',
+            quit:'quit',
         },
         serviceStr:{
             service1:'oservice2 ducPducProservice2duc',

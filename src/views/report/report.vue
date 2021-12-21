@@ -155,7 +155,7 @@ export default defineComponent({
     background: url(../../assets/img/cet.jpg) no-repeat center;
     padding: 336px 150px 290px;
     box-sizing: border-box;
-    font-family: Microsoft YaHei sans-serif;
+    font-family: SourceHanSansNormal sans-serif;
     position: relative;
     margin-bottom: 80px;
 }

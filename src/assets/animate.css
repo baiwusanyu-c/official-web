@@ -1,35 +1,40 @@
-.animated-l-r{
+.linear-l-r-s{
     position: relative;
+
 }
-.animated-l-r.animated-dom:hover {
-    color: #000 !important;
-    background-color: transparent;
-}
-.animated-l-r.animated-dom:hover:before {
+.linear-l-r-s:after {
+    content: '';
+    position: absolute;
     left: 0;
-    right: auto;
+    top: 0;
+    width: 0;
+    height: 100%;
+    z-index:-2;
+}
+.linear-l-r-s:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    z-index:0;
+}
+
+.linear-l-r-s:hover{
+    z-index:1;
+    background:transparent;
+}
+
+.linear-l-r-s:before {
+    transition: .5s;
+    background: linear-gradient(-73deg, #19BDFB, #02FBBB);
+}
+
+.linear-l-r-s:hover:after {
     width: 100%;
 }
-.animated-l-r.animated-dom:before {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 0;
-    z-index: -1;
-    content: '';
-    color: #000 !important;
-
-    background: rgba(93,232,176,1);
-    background: -moz-linear-gradient(left, rgba(93,232,176,1) 0%, rgba(37,180,232,1) 100%);
-    background: -webkit-linear-gradient(left, rgba(93,232,176,1) 0%, rgba(37,180,232,1) 100%);
-    background: -o-linear-gradient(left, rgba(93,232,176,1) 0%, rgba(37,180,232,1) 100%);
-    background: -ms-linear-gradient(left, rgba(93,232,176,1) 0%, rgba(37,180,232,1) 100%);
-    background: linear-gradient(to right, rgba(93,232,176,1) 0%, rgba(37,180,232,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5de8b0', endColorstr='#25b4e8', GradientType=1 );
-
-
-    transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
-
+.linear-l-r-s:hover:before {
+    width: 100%;
+    z-index:-1;
 }

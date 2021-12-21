@@ -39,7 +39,7 @@ export default {
         login: 'login',
         loginStr: {
             center: 'Personal Center',
-            quite: 'quite',
+            quite: 'quit',
         },
         serviceStr: {
             service1: 'The Security Audit ServiceFor Smart Contracts',

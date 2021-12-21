@@ -9,15 +9,20 @@
             <div class="flex items-center justify-center">
                 <div class="flex flex-1 flex-col">
                     <div class="bg-black mb-4" style="height: 5px;width: 300px"></div>
-                    <h2 class="text-3xl mb-8 font-bold title">
+                    <h2 class="text-3xl mb-8 font-bold title font-format">
                         {{$t('lang.contactUs.info1') }}
                     </h2>
-                    <p class="mb-8">
+                    <p class="mb-8 font-format">
                         {{$t('lang.contactUs.info2') }}
                     </p>
                 </div>
                 <div class="flex flex-1">
-                    <be-button @click ='openDialog' customClass="h-btn-txt-black text-black font-bold w-40 mt-28 ml-20" size="large">  {{$t('lang.contactBtn') }}</be-button>
+                    <be-button @click ='openDialog' customClass="h-btn-txt-black text-black font-bold w-40 mt-28 ml-20" size="large">
+                        <span class="font-format">
+                                {{$t('lang.contactBtn') }}
+                        </span>
+
+                    </be-button>
                 </div>
             </div>
         </div>

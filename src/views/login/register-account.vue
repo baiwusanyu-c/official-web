@@ -8,9 +8,9 @@
     <div class="flex flex-col items-start w-full">
         <img src="../../assets/img/logo-black.png" class='mb-2 w-1/2' alt=""/>
         <!--  账户      -->
-        <h3 class="text-2xl font-bold mb-2">{{$t('lang.login.registerTxt')}}</h3>
+        <h3 class="text-2xl font-bold mb-2 font-format">{{$t('lang.login.registerTxt')}}</h3>
         <div class='mb-8 h-24 border-b w-full'>
-            <span class="text-gray-500 mr-4">{{$t('lang.login.account')}}</span>
+            <span class="text-gray-500 mr-4 font-format">{{$t('lang.login.account')}}</span>
             <input type="text" class='h-16'
                    :placeholder="$t('lang.login.tipAccount')"
                    v-model="form.account"/>
@@ -18,20 +18,20 @@
 
         <!--  密码      -->
         <div class='login-password mb-2 h-24 border-b w-full flex items-center '>
-            <span class="text-gray-500 mr-4 flex-grow-0">{{$t('lang.login.password')}}</span>
-            <input class='flex-grow h-16' :type="isShowPassword" :placeholder="$t('lang.login.tipPassword')" v-model="form.password"/>
+            <span class="text-gray-500 mr-4 flex-grow-0 font-format">{{$t('lang.login.password')}}</span>
+            <input class='flex-grow h-16 font-format' :type="isShowPassword" :placeholder="$t('lang.login.tipPassword')" v-model="form.password"/>
             <be-icon :icon="isShowPassword === 'password' ? 'noEye' : 'eye'"
                      customClass="flex-grow-0"
                      @click="changeShowPWord"></be-icon>
         </div>
 
-        <p class="mb-8 text-gray-500">
+        <p class="mb-8 text-gray-500 font-format">
             <span style="color: red">*</span>
             {{$t('lang.login.tip')}}
         </p>
         <!--  邮箱验证      -->
         <div class='mb-8 flex w-full'>
-            <input type="text" v-model="form.verification_code" class="border h-12 flex-1"/>
+            <input type="text" v-model="form.verification_code" class="border h-12 flex-1 font-format"/>
             <div class="bg-mainG cursor-pointer flex items-center justify-center w-32" @click="verifyCodeMail">
                 <img src="../../assets/img/send-vr-code.png" alt=""/>
             </div>
@@ -39,13 +39,13 @@
         <be-button @click="register"
                    size="large"
                    customClass="login-btn linear-l-r text-black font-bold text-lg w-full mb-8 mx-auto">
-            {{$t('lang.login.register')}}
+           <span class="font-format">{{$t('lang.login.register')}}</span>
         </be-button>
         <be-button size="large"
                    bordered
                    @click="changeShow('login')"
                    customClass="login-btn text-black font-bold text-lg w-80 mb-6 w-full mx-auto border-mainG">
-            {{$t('lang.login.login')}}
+            <span class="font-format">{{$t('lang.login.login')}}</span>
         </be-button>
     </div>
 </template>
@@ -150,7 +150,7 @@ export default defineComponent({
 
             }).catch(err=>{
                 message({
-                    titles: t('lang.sendFailed'),
+                    titles: err.message,
                     msgType: 'warning',
                     duration: 1500,
                     offsetTop:80,
@@ -178,7 +178,7 @@ export default defineComponent({
 
             }).catch(err=>{
                 message({
-                    titles: t('lang.opFailed'),
+                    titles: err.message,
                     msgType: 'warning',
                     duration: 1500,
                     offsetTop:80,

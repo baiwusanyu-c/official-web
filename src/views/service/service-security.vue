@@ -180,7 +180,7 @@ export default defineComponent({
     font-size: 60px;
     font-weight: bold;
     color: #FFFFFF;
-    font-family: SourceHanSansCN-Bold sans-serif;
+    font-family: SourceHanSansBold sans-serif;
 }
 .header-text-small{
     padding-top: 39px;
@@ -189,7 +189,7 @@ export default defineComponent({
     font-size: 30px;
     color: #FFFFFF;
     line-height: 30px;
-    font-family: SourceHanSansCN-Regular sans-serif;
+    font-family: SourceHanSansRegular sans-serif;
 }
 .page-body-search{
     height: 744px;
@@ -333,7 +333,7 @@ export default defineComponent({
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    font-family: SourceHanSansCN sans-serif;
+    font-family: SourceHanSansNormal sans-serif;
     color: #FFFFFF;
 }
 .reports-title-question{

@@ -16,7 +16,7 @@
                             ref="popoverService"
                             customClass="header-popover" placement="bottom">
                     <template #trigger>
-                        <div class="trigger-item y-full flex items-center text-base hover:text-mainG" :class="route.path.indexOf('service') > 0 ? 'item-active' : ''">
+                        <div class="font-format trigger-item y-full flex items-center text-base hover:text-mainG" :class="route.path.indexOf('service') > 0 ? 'item-active' : ''">
                             {{ $t('lang.header.service') }}
                             <be-icon icon="under"></be-icon>
                         </div>
@@ -26,7 +26,7 @@
                         :class="item.active ? 'linear-l-r active-popover' : ''"
                         @click="routerPush(item.value,index)"
                         v-for="(item,index) in serviceList">
-                        <p class="ml-2 text-base">{{item.label}}</p>
+                        <p class="ml-2 text-base font-format">{{item.label}}</p>
                     </div>
                 </be-popover>
             </div>
@@ -34,7 +34,7 @@
             <div class="w-28 cursor-pointer md:flex sm:hidden">
                 <be-popover trigger="click" customClass="header-popover" placement="bottom" ref="popoverProduct">
                     <template #trigger>
-                        <div class="trigger-item y-full flex items-center text-base hover:text-mainG" :class="route.path.indexOf('product') > 0 ? 'item-active' : ''">
+                        <div class="trigger-item y-full flex items-center font-format text-base hover:text-mainG" :class="route.path.indexOf('product') > 0 ? 'item-active' : ''">
                             {{ $t('lang.header.product') }}
                             <be-icon icon="under" ></be-icon>
                         </div>
@@ -44,11 +44,11 @@
                         :class="item.active ? 'linear-l-r active-popover' : ''"
                         @click="routerPush(item.value,index)"
                         v-for="(item,index) in productList">
-                        <p class="ml-2 text-base">{{item.label}}</p>
+                        <p class="ml-2 text-base font-format">{{item.label}}</p>
                     </div>
                 </be-popover>
             </div>
-            <div class="w-28 cursor-pointer text-base hover:text-mainG md:flex sm:hidden"
+            <div class="font-format w-28 cursor-pointer text-base hover:text-mainG md:flex sm:hidden"
                  :class="route.path.indexOf('aboutUs') > 0 ? 'item-active' : ''"
                  @click="routerPush('/index/aboutUs')">
                 {{ $t('lang.header.aboutUs') }}
@@ -58,9 +58,11 @@
     <!--  右侧  -->
     <div class="hermit-header-l flex justify-end items-center flex-1 text-right md:block sm:hidden">
         <!--    联系    -->
-        <be-button customClass="request-btn text-bold" @click="openDialog">{{ $t('lang.header.requestUs') }}</be-button>
+        <be-button customClass="request-btn text-bold" @click="openDialog">
+            <span class="font-format">{{ $t('lang.header.requestUs') }}</span>
+        </be-button>
         <!--    登录前    -->
-        <div class="y-full flex items-center cursor-pointer mr-12 text-base hover:text-mainG" @click="routerPush('/login')"    v-if="!isLogin">
+        <div class="font-format y-full flex items-center cursor-pointer mr-12 text-base hover:text-mainG" @click="routerPush('/login')"    v-if="!isLogin">
             {{ $t('lang.header.login') }}
         </div>
         <!--    登录后    -->
@@ -79,12 +81,12 @@
                 :class="item.active ? 'linear-l-r active-popover' : ''"
                 @click="routerPush(item.value,index)"
                 v-for="(item,index) in loginList">
-                <p class="ml-2 text-base">{{item.label}}</p>
+                <p class="ml-2 text-base font-format">{{item.label}}</p>
             </div>
         </be-popover>
 
         <!--    语言    -->
-        <be-popover trigger="click"
+<!--        <be-popover trigger="click"
                     ref="popoverLang"
                     customClass="header-popover" placement="bottom">
             <template #trigger>
@@ -100,8 +102,7 @@
                 v-for="(item,index) in langList">
                 <p class="ml-2 text-base">{{item.label}}</p>
             </div>
-        </be-popover>
-        <!--        <be-button customClass="animated-l-r animated-dom">测试按钮</be-button>-->
+        </be-popover>-->
     </div>
     <!--  移动端显示的菜单按钮  -->
     <div class="text-right md:hidden sm:flex">
@@ -145,7 +146,7 @@ export default defineComponent({
         const route: RouteLocationNormalizedLoaded = useRoute()
         const routerPush = (path: string,index:number): void => {
             closePopover(path,index)
-            if(/quite/.test(path)) return
+            if(/quit/.test(path)) return
             router.push(path)
         }
         /**
@@ -176,7 +177,7 @@ export default defineComponent({
                 setSession('activeItem',JSON.stringify({value:index,key:'user'}))
             }
             // 退出登录
-            if(/quite/.test(path)){
+            if(/quit/.test(path)){
                 loginList.value.map((val:ISelect)=>val.active = false);
                 (internalInstance?.refs?.popoverLogin as IPopover).close()
                 removeStore('token')
@@ -238,8 +239,8 @@ export default defineComponent({
                 active:false,
             },
             {
-                label: t('lang.header.loginStr.quite'),
-                value: 'quite',
+                label: t('lang.header.loginStr.quit'),
+                value: 'quit',
                 active:false,
             }
         ])

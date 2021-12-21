@@ -7,12 +7,12 @@
 <template>
     <div class="bg-footer-container h-60 bg-footer">
         <div class="footer-class">
-            <p>{{$t('lang.HFooterBigger.contact.contactTitle')}}</p>
+            <p class="font-format">{{$t('lang.HFooterBigger.contact.contactTitle')}}</p>
             <div class="contact-us">
                 <n-icon size="30px">
                     <location-sharp/>
                 </n-icon>
-                <div class="contact-us-text">{{$t('lang.HFooterBigger.contact.locationRoad')}}<br/>
+                <div class="contact-us-text font-format">{{$t('lang.HFooterBigger.contact.locationRoad')}}<br/>
                     {{$t('lang.HFooterBigger.contact.locationSingapore')}}
                 </div>
             </div>
@@ -26,11 +26,11 @@
                 <n-icon size="30px">
                     <mail-sharp/>
                 </n-icon>
-                <div class="contact-us-text">hermitmarket@gmail.com</div>
+                <div class="contact-us-text font-format">hermitmarket@gmail.com</div>
             </div>
         </div>
         <div class="footer-class">
-            <p>{{$t('lang.HFooterBigger.group')}}</p>
+            <p class="font-format">{{$t('lang.HFooterBigger.group')}}</p>
             <div>
                 <n-icon size="30px" class="group" @click="openWin(linkConfig['twitter'])"><logo-twitter/></n-icon>
                 <n-icon size="30px" class="group" @click="openWin(linkConfig['telegram'])"><telegram/></n-icon>
@@ -45,17 +45,17 @@
             </div>
         </div>
         <div class="footer-class">
-            <p>{{$t('lang.HFooterBigger.policy.policyTitle')}}</p>
+            <p class="font-format">{{$t('lang.HFooterBigger.policy.policyTitle')}}</p>
             <div class="policy-class">
                 <div class="text-point"></div>
-                <div class="policy-text">{{$t('lang.HFooterBigger.policy.terms')}}</div>
+                <div class="policy-text font-format">{{$t('lang.HFooterBigger.policy.terms')}}</div>
             </div>
             <div class="policy-class">
-                <div class="text-point"></div><div class="policy-text">{{$t('lang.HFooterBigger.policy.privacy')}}</div>
+                <div class="text-point"></div><div class="policy-text font-format">{{$t('lang.HFooterBigger.policy.privacy')}}</div>
             </div>
         </div>
     </div>
-    <div class="h-6 flex justify-center items-center">©2021 by Hermit. All Rights Reserved.</div>
+    <div class="h-6 flex justify-center items-center font-format">©2021 by Hermit. All Rights Reserved.</div>
 </template>
 
 <script lang="ts">

@@ -9,10 +9,10 @@
         <!--    头部介绍    -->
         <div class="page-head">
             <div class="header-text mr-1/2">
-                <div class="header-text-big">
+                <div class="header-text-big font-format">
                     {{$t('lang.aboutUsPage.title')}}
                 </div>
-                <div class="header-text-small">
+                <div class="header-text-small font-format">
                     {{$t('lang.aboutUsPage.titleDesc')}}
                 </div>
             </div>
@@ -22,63 +22,63 @@
             <div class="flex items-center justify-between w-4/6 introduction">
                 <img src="../../assets/img/ab-us-desc.png" alt="" />
                  <p class="ml-16 leading-loose text-lg">
-                     <span>{{$t('lang.aboutUsPage.descInfo1')}}</span>
+                     <span class="font-format">{{$t('lang.aboutUsPage.descInfo1')}}</span>
                      <br>
-                     <span>{{$t('lang.aboutUsPage.descInfo2')}}</span>
+                     <span class="font-format">{{$t('lang.aboutUsPage.descInfo2')}}</span>
                  </p>
             </div>
             <div class="ml-16 mt-32 flex items-center justify-between w-4/6 introduction introduction-logo">
                 <div class="flex items-center justify-between ">
                     <img src="../../assets/img/ab-us-ic1.png" alt="" />
                     <div class="w-32 ml-2">
-                        <h2 class="text-mainG text-4xl font-bold">
+                        <h2 class="text-mainG text-4xl font-bold font-format">
                             {{$t('lang.aboutUsPage.descIcon1')}}
                         </h2>
-                        <span>{{$t('lang.aboutUsPage.descIconInfo1')}}</span>
+                        <span class="font-format">{{$t('lang.aboutUsPage.descIconInfo1')}}</span>
                     </div>
                 </div>
                 <div class="flex items-center justify-between ">
                     <img src="../../assets/img/ab-us-ic2.png" alt="" />
                     <div class="w-32 ml-2">
-                        <h2 class="text-mainG text-4xl font-bold">
+                        <h2 class="text-mainG text-4xl font-bold font-format">
                             {{$t('lang.aboutUsPage.descIcon2')}}
                         </h2>
-                        <span>{{$t('lang.aboutUsPage.descIconInfo2')}}</span>
+                        <span class="font-format">{{$t('lang.aboutUsPage.descIconInfo2')}}</span>
                     </div>
                 </div>
                 <div class="flex items-center justify-between ">
                     <img src="../../assets/img/ab-us-ic3.png" alt="" />
                     <div class="w-32 ml-2">
-                        <h2 class="text-mainG text-4xl font-bold">
+                        <h2 class="text-mainG text-4xl font-bold font-format">
                             {{$t('lang.aboutUsPage.descIcon3')}}
                         </h2>
-                        <span>{{$t('lang.aboutUsPage.descIconInfo3')}}</span>
+                        <span class="font-format">{{$t('lang.aboutUsPage.descIconInfo3')}}</span>
                     </div>
                 </div>
                 <div class="flex items-center justify-center ">
                     <img src="../../assets/img/ab-us-ic4.png" alt="" />
                     <div class="w-32 ml-2">
-                        <h2 class="text-mainG text-4xl font-bold">
+                        <h2 class="text-mainG text-4xl font-bold font-format">
                             {{$t('lang.aboutUsPage.descIcon4')}}
                         </h2>
-                        <span>{{$t('lang.aboutUsPage.descIconInfo4')}}</span>
+                        <span class="font-format">{{$t('lang.aboutUsPage.descIconInfo4')}}</span>
                     </div>
                 </div>
             </div>
         </div>
         <!--    securing the blockchain ecology    -->
         <div class="securing-the-blockchain flex items-center justify-center w-full h-auto">
-            <p class="text-4xl font-bold w-1/3 text-center slogan">{{$t('lang.aboutUsPage.securityBlock')}}</p>
+            <p class="text-4xl font-bold w-1/3 text-center slogan font-format">{{$t('lang.aboutUsPage.securityBlock')}}</p>
         </div>
         <!--    connect    -->
         <div class="flex flex-col py-16 items-center justify-center box-border w-full">
-            <p class="text-3xl font-bold w-1/3 text-center mb-16">{{$t('lang.connect')}}</p>
+            <p class="text-3xl font-bold w-1/3 text-center mb-16 font-format">{{$t('lang.connect')}}</p>
             <div class="flex items-center">
 <!--                <div class="flex items-center justify-center text-xl mr-36">
                     <img class="mr-4" src="../../assets/img/phone.png" alt="" />
                     {{$t('lang.phone')}}:86-028-8326-2585
                 </div>-->
-                <div class="flex items-center justify-center text-xl">
+                <div class="flex items-center justify-center text-xl font-format">
                     <img class="mr-4" src="../../assets/img/mail.png" alt="" />
                     {{$t('lang.mail')}}:hermitmarket@gmail.com
                 </div>
@@ -86,7 +86,7 @@
         </div>
         <!--    Community    -->
         <div class="flex flex-col py-16 items-center justify-center box-border w-full bg-mainBlueGary">
-            <p class="text-3xl font-bold w-1/3 text-center mb-24">{{$t('lang.community')}}</p>
+            <p class="text-3xl font-bold w-1/3 text-center mb-24 font-format">{{$t('lang.community')}}</p>
             <div class="flex items-center mb-20">
                 <img  @click="openWin(linkConfig['twitter'])"  class="mr-16 cursor-pointer" src="../../assets/img/community1.png" alt="" />
                 <img  @click="openWin(linkConfig['telegram'])" class="mx-16 cursor-pointer" src="../../assets/img/community2.png" alt="" />
@@ -158,7 +158,7 @@ export default defineComponent({
     font-size: 60px;
     font-weight: bold;
     color: #FFFFFF;
-    font-family: SourceHanSansCN-Bold sans-serif;
+    font-family: SourceHanSansBold sans-serif;
 }
 .about-us-page .header-text-small{
     padding-top: 39px;
@@ -166,7 +166,7 @@ export default defineComponent({
     font-size: 30px;
     color: #FFFFFF;
     line-height: 30px;
-    font-family: SourceHanSansCN-Regular sans-serif;
+    font-family: SourceHanSansRegular sans-serif;
 }
 .about-us-page .desc-info{
     background-image: url("../../assets/img/customer-earth.png");

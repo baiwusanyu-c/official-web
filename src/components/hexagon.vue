@@ -14,7 +14,7 @@
              zIndex:`${!isHover ? 10 : 20}`,
              backgroundImage: `url(${img})`
          }">
-        <p class="mt-4">{{list[index]}}</p>
+        <p class="mt-4 font-format">{{list[index]}}</p>
     </div>
 </template>
 

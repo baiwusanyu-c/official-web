@@ -16,8 +16,8 @@
 
             </div>
             <div class="absolute z-10 flex justify-center flex-col w-1/2  h-full animate__animated animate__fadeInDown">
-                <h2 class="text-mainG text-6xl text-center font-bold leading-normal">{{ $t('lang.home.title1') }}</h2>
-                <h2 class="text-mainG text-6xl text-center font-bold leading-normal mb-20 slogan ">
+                <h2 class="text-mainG text-6xl text-center font-bold leading-normal font-format">{{ $t('lang.home.title1') }}</h2>
+                <h2 class="text-mainG text-6xl text-center font-bold leading-normal mb-20 slogan font-format">
                     {{ $t('lang.home.title2') }}</h2>
                 <div class="flex flex-wrap w-2/3 justify-between self-center mb-16 slogan">
                     <div v-for="(item) in muguList"
@@ -26,13 +26,13 @@
                          class="text-default text-left w-1/2 mb-4 leading-6 flex items-center mogu-text"
                          :key="item.label">
                         <img alt="" src="../../assets/img/mogu.png" class="ml-4 mr-4"/>
-                        <p>{{ item.label }}</p>
+                        <p class="font-format">{{ item.label }}</p>
                     </div>
                 </div>
                 <be-button
                     @click="openDialog"
                     customClass="contact-btn h-btn-txt-black linear-l-r text-black mr-auto ml-auto text-2xl">
-                    {{ $t('lang.contactBtn') }}
+                    <span class="font-format">{{ $t('lang.contactBtn') }}</span>
                 </be-button>
 
                 <!--                <div class="mt-30 flex title-card-container">
@@ -58,40 +58,40 @@
             <div class="slogan-service-item flex mb-44">
                 <div class="w-1/2">
                     <div class="bar mb-8"></div>
-                    <h3 class="font-bold text-3xl mb-8">{{ $t('lang.home.serviceTitle1') }}</h3>
-                    <p class="mb-16">{{ $t('lang.home.serviceInfo1') }}</p>
+                    <h3 class="font-bold text-3xl mb-8 font-format">{{ $t('lang.home.serviceTitle1') }}</h3>
+                    <p class="mb-16 font-format">{{ $t('lang.home.serviceInfo1') }}</p>
                     <be-button
                         @click="routerPush('/index/service/contracts')"
-                        customClass="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl">
-                        {{ $t('lang.LearnMoreBtn') }}
+                        customClass="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl ">
+                        <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
                     </be-button>
                 </div>
                 <div class="w-1/2 flex flex-wrap relative">
-                    <hexagon class='absolute hexagon1' :index="0"></hexagon>
-                    <hexagon class='absolute hexagon2' :index="1"></hexagon>
-                    <hexagon class='absolute hexagon3' :index="2"></hexagon>
-                    <hexagon class='absolute hexagon4' :index="3"></hexagon>
-                    <hexagon class='absolute hexagon5' :index="4"></hexagon>
-                    <hexagon class='absolute hexagon6' :index="5"></hexagon>
-                    <hexagon class='absolute hexagon7' :index="6"></hexagon>
+                    <hexagon class='absolute hexagon1 font-format' :index="0"></hexagon>
+                    <hexagon class='absolute hexagon2 font-format' :index="1"></hexagon>
+                    <hexagon class='absolute hexagon3 font-format' :index="2"></hexagon>
+                    <hexagon class='absolute hexagon4 font-format' :index="3"></hexagon>
+                    <hexagon class='absolute hexagon5 font-format' :index="4"></hexagon>
+                    <hexagon class='absolute hexagon6 font-format' :index="5"></hexagon>
+                    <hexagon class='absolute hexagon7 font-format' :index="6"></hexagon>
                 </div>
             </div>
             <div class="slogan-service-item flex mt-20">
                 <div class="w-1/2 flex flex-wrap relative">
-                    <hexagon class='absolute hexagon8' :index="7"></hexagon>
-                    <hexagon class='absolute hexagon9' :index="8"></hexagon>
-                    <hexagon class='absolute hexagon10' :index="9"></hexagon>
-                    <hexagon class='absolute hexagon11' :index="10"></hexagon>
-                    <hexagon class='absolute hexagon12' :index="11"></hexagon>
+                    <hexagon class='absolute font-format hexagon8' :index="7"></hexagon>
+                    <hexagon class='absolute font-format hexagon9' :index="8"></hexagon>
+                    <hexagon class='absolute font-format hexagon10' :index="9"></hexagon>
+                    <hexagon class='absolute font-format hexagon11' :index="10"></hexagon>
+                    <hexagon class='absolute font-format hexagon12' :index="11"></hexagon>
                 </div>
                 <div class="w-1/2">
                     <div class="bar mb-8"></div>
-                    <h3 class="font-bold text-3xl mb-8">{{ $t('lang.home.serviceTitle1') }}</h3>
-                    <p class="mb-16">{{ $t('lang.home.serviceInfo1') }}</p>
+                    <h3 class="font-bold text-3xl mb-8 font-format">{{ $t('lang.home.serviceTitle1') }}</h3>
+                    <p class="mb-16 font-format">{{ $t('lang.home.serviceInfo1') }}</p>
                     <be-button
                         @click="routerPush('/index/service/security')"
                         customClass="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl">
-                        {{ $t('lang.LearnMoreBtn') }}
+                        <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
                     </be-button>
                 </div>
             </div>
@@ -100,60 +100,58 @@
         <div class="slogan-product  bg-mainBlueGary flex flex-col justify-center items-center w-full">
             <div class="flex-1 flex-col flex justify-center items-center w-full mb-14">
                 <div class="bar mb-8"></div>
-                <h3 class="text-2xl font-bold mb-8">{{ $t('lang.home.productName1') }}</h3>
-                <p class="w-1/2 mb-8">{{ $t('lang.home.productDesc1') }}</p>
+                <h3 class="text-2xl font-bold mb-8 font-format">{{ $t('lang.home.productName1') }}</h3>
+                <p class="w-1/2 mb-8 font-format">{{ $t('lang.home.productDesc1') }}</p>
                 <div class="slogan-product-circle1 w-full my-24 relative" style="height: 200px">
                     <div class="w-30 absolute circle1 flex justify-center flex-col items-center">
                         <img class='w-28' src="../../assets/img/prod-f1.png" alt="">
-                        <p class="font-bold text-center" style="width: 10em;">{{ $t('lang.home.productFeature1') }}</p>
+                        <p class="font-format font-bold text-center" style="width: 10em;">{{ $t('lang.home.productFeature1') }}</p>
                     </div>
                     <div class="absolute circle2 flex justify-center flex-col items-center">
                         <img class='w-28' src="../../assets/img/prod-f2.png" alt="">
-                        <p class="font-bold text-center" style="width: 10em;">{{ $t('lang.home.productFeature2') }}</p>
+                        <p class="font-format font-bold text-center" style="width: 10em;">{{ $t('lang.home.productFeature2') }}</p>
                     </div>
                     <div class="w-30 absolute circle3 flex justify-center flex-col items-center">
                         <img class='w-28' src="../../assets/img/prod-f3.png" alt="">
-                        <p class="font-bold text-center" style="width: 10em;">{{ $t('lang.home.productFeature3') }}</p>
+                        <p class="font-format font-bold text-center" style="width: 10em;">{{ $t('lang.home.productFeature3') }}</p>
                     </div>
                     <div class="w-30 absolute circle4 flex justify-center flex-col items-center">
                         <img class='w-28' src="../../assets/img/prod-f4.png" alt="">
-                        <p class="font-bold text-center" style="width: 10em;">{{ $t('lang.home.productFeature4') }}</p>
+                        <p class="font-format font-bold text-center" style="width: 10em;">{{ $t('lang.home.productFeature4') }}</p>
                     </div>
                 </div>
                 <be-button
                     @click="routerPush('/index/product/productVass')"
-                    customClass="try-out-btn h-btn-txt-black linear-l-r text-black text-xl">{{
-                        $t('lang.LearnMoreBtn')
-                    }}
+                    customClass="try-out-btn h-btn-txt-black linear-l-r text-black text-xl">
+                    <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
                 </be-button>
             </div>
             <div class="flex-1 flex-col flex justify-center items-center w-full">
                 <div class="bar mb-8"></div>
-                <h3 class="text-2xl font-bold mb-8">{{ $t('lang.home.productName2') }}</h3>
-                <p class="w-1/2 mb-8">{{ $t('lang.home.productDesc2') }}</p>
+                <h3 class="text-2xl font-bold mb-8 font-format">{{ $t('lang.home.productName2') }}</h3>
+                <p class="w-1/2 mb-8 font-format">{{ $t('lang.home.productDesc2') }}</p>
                 <div class="slogan-product-circle2 w-full my-24 relative" style="height: 200px">
                     <div class="w-30 absolute circle5 flex justify-center flex-col items-center">
                         <img class='w-28' src="../../assets/img/prod-f5.png" alt="">
-                        <p class="font-bold text-center" style="width: 10em;">{{ $t('lang.home.productFeature5') }}</p>
+                        <p class="font-format font-bold text-center" style="width: 10em;">{{ $t('lang.home.productFeature5') }}</p>
                     </div>
                     <div class="w-30 absolute circle6 flex justify-center flex-col items-center">
                         <img class='w-28' src="../../assets/img/prod-f6.png" alt="">
-                        <p class="font-bold text-center" style="width: 10em;">{{ $t('lang.home.productFeature6') }}</p>
+                        <p class="font-format font-bold text-center" style="width: 10em;">{{ $t('lang.home.productFeature6') }}</p>
                     </div>
                     <div class="w-30 absolute circle7 flex justify-center flex-col items-center">
                         <img class='w-28' src="../../assets/img/prod-f7.png" alt="">
-                        <p class="font-bold text-center" style="width: 10em;">{{ $t('lang.home.productFeature7') }}</p>
+                        <p class="font-format font-bold text-center" style="width: 10em;">{{ $t('lang.home.productFeature7') }}</p>
                     </div>
                     <div class="w-30 absolute circle8 flex justify-center flex-col items-center">
                         <img class='w-28' src="../../assets/img/prod-f8.png" alt="">
-                        <p class="font-bold text-center" style="width: 10em;">{{ $t('lang.home.productFeature8') }}</p>
+                        <p class="font-format font-bold text-center" style="width: 10em;">{{ $t('lang.home.productFeature8') }}</p>
                     </div>
                 </div>
                 <be-button
                     @click="routerPush('/index/product/productEagle')"
-                    customClass="try-out-btn h-btn-txt-black linear-l-r text-black text-xl">{{
-                        $t('lang.LearnMoreBtn')
-                    }}
+                    customClass="try-out-btn h-btn-txt-black linear-l-r text-black text-xl">
+                    <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
                 </be-button>
             </div>
         </div>
@@ -161,7 +159,7 @@
         <!--   serving global customer     -->
         <div class="slogan-customer bg-default flex flex-col justify-center items-center w-full">
             <div class="bar mb-8 mt-20"></div>
-            <h3 class="text-2xl font-bold mb-8">{{ $t('lang.home.GlobalTitle') }}</h3>
+            <h3 class="text-2xl font-bold mb-8 font-format">{{ $t('lang.home.GlobalTitle') }}</h3>
             <div class="slogan-customer-logo flex flex-wrap px-36 h-3/5 justify-around mb-12 box-border">
                 <div v-for="(item) in customerImgList"
                      :key='item.img'
@@ -286,12 +284,12 @@ export default defineComponent({
                     name: t('lang.home.swiperUser2')
                 },
                 {
-                    imgUrl: 'https://avatars.githubusercontent.com/u/1357791?s=60&v=4',
+                    imgUrl: 'https://avatars.githubusercontent.com/u/74358?s=60&v=4',
                     info: t('lang.home.swiperInfo3'),
                     name: t('lang.home.swiperUser3')
                 },
                 {
-                    imgUrl: 'https://avatars.githubusercontent.com/u/74358?s=60&v=4',
+                    imgUrl: 'https://avatars.githubusercontent.com/u/1357791?s=60&v=4',
                     info: t('lang.home.swiperInfo4'),
                     name: t('lang.home.swiperUser4')
                 },
