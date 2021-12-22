@@ -98,7 +98,7 @@
         </div>
         <!--   product     -->
         <div class="slogan-product  bg-mainBlueGary flex flex-col justify-center items-center w-full">
-            <div class="flex-1 flex-col flex justify-center items-center w-full mb-14">
+            <div class="flex-1 flex-col flex justify-center items-center w-full mb-36">
                 <div class="bar mb-8"></div>
                 <h3 class="text-2xl font-bold mb-8 font-format">{{ $t('lang.home.productName1') }}</h3>
                 <p class="w-1/2 mb-8 font-format">{{ $t('lang.home.productDesc1') }}</p>

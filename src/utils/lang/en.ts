@@ -117,7 +117,7 @@ export default {
     // djd service-security
     serviceSecurity: {
         pageHead: {
-            textBig: 'Blockchian Plaform Testing Service',
+            textBig: 'Beosin Blockchian Plaform Testing Service',
             textSmall: 'Multi-dimensional, multi-round and multi-way detection of blockchain security'
         },
         search: {
@@ -150,7 +150,7 @@ export default {
     },
     serviceContract: {
         pageHead: {
-            textBig: 'Smart Contract Audit Service',
+            textBig: 'Beosin Smart Contract Audit Service',
             textSmall: 'Co-audited by more than 20 top blockchain security engineers worldwide',
             button: 'Reservation Now'
         },
@@ -202,16 +202,16 @@ export default {
     },
     product: {
         vass: {
-            title: 'HERMIT-Formal Verification',
+            title: 'Beosin-Formal Verification',
             subTitle: 'Provide contract developers and test auditors with automated and complete formal verification for smart contracts.',
             desc: 'Formal Verification is the world\'s first "one-click" smart contract formal verification platform. It provides industry-leading security detection and verification for smart contract, with a detection accuracy rate of over 97%, also gives modification suggestions. Now with 100,000+ users, it supports public and consortium blockchains such as ETH, EOS, ONT, TRON, FISCO-BCOS, Fabric, Antchain, Tencent Blockchain at the same time. It can greatly improve the efficiency of smart contracts audit, and reduce the security risk potential caused by incomplete manual audit.',
             funcTitle: 'Main Functions Of Product',
             funcSubTitle1: 'One-Click DETECTION',
             funcDesc1: 'Just upload the contract code and the platform will automatically perform configuration, compilation, deployment, and verification, with reports coming out in minutes',
             funcSubTitle2: 'SYMBOLIC BYTECODE VERIFICATION',
-            funcDesc2: 'Powerful integration of contract editing, testing and debugging',
+            funcDesc2: 'Penetrate into source/bytecode and verify the security of your business logic with symbols',
             funcSubTitle3: 'VISUAL DEBUGGING',
-            funcDesc3: 'Penetrate into source/bytecode and verify the security of your business logic with symbols',
+            funcDesc3: 'Powerful integration of contract editing, testing and debugging',
             funcSubTitle4: 'VULNERABILITY REPORTS',
             funcDesc4: 'Visually present the distribution of vulnerabilities in the contract and give related fix recommendations',
 
@@ -219,14 +219,14 @@ export default {
             advantSubTitle1: 'Multiple invention patents guarantee',
             advantDesc1: 'We are one of the first companies in the world to apply formal verification technology to the blockchain industry. We currently have more than 10 patents on formal verification and have tested thousands of smart contracts.',
             advantSubTitle2: 'High Accuracy',
-            advantDesc2: 'Formal Verification can "One-Click" accurately and automatically locate the vulnerabilities of code. After the real evaluation by Security Laboratory of , the detection accuracy of Hermit-Formal Verification is up to 97%, ranking first in the world, enabling effective verification from source-code to byte-code.',
+            advantDesc2: 'Formal Verification can "One-Click" accurately and automatically locate the vulnerabilities of code. After the real evaluation by Security Laboratory of , the detection accuracy of Beosin-Formal Verification is up to 97%, ranking first in the world, enabling effective verification from source-code to byte-code.',
             advantSubTitle3: 'Multi-Blockchain Platforms Support',
             advantDesc3: 'Formal Verification supports multiple Blockchain platforms simultaneously (including ETH, EOS, ONT, TRON, FISCO-BCOS, Fabric). Formal Verification is highly customizable, and have already customized and developed the dedicated version of Formal Verification for ANTCHAIN and Tencent Blockchain at present.',
             advantSubTitle4: 'Various Access Methods',
             advantDesc4: 'The platform of Formal Verification supports SaaS access mode, local deployment mode and development tool plug-in installation mode. Firstly, the SaaS access mode can directly access the system through the public cloud platform, which is convenient and fast. Secondly, the local deployment mode can be directly deployed on the private development environment server to provide security detection functions of smart contracts for enterprise developers. Thirdly, the development tool plug-in installation mode can be directly installed into the development tool through the VS Code plug-in mode to achieve integrated development and security testing of smart contracts.',
         },
         eagle: {
-            title: 'HERMIT-Situation Awareness',
+            title: 'Beosin-Situation Awareness',
             subTitle: 'Provide Dapp operators with project situational information and real-time transaction risk warning.',
             desc: 'Situation Awareness provides 24/7 blockchain security monitoring and analytics services for application project owners. It’s applicable to all blockchains platforms by monitoring real-time transactions and asset movement, running of smart contract, on assessing the security situation of project. With Beosin‘s intelligence source，Situation Awareness help user to find out vulnerabilities  of smart contract, malicious transactions and potential threats to the project, get disposal suggestions and finally setup security shield for project operation and asset protection.',
             funcTitle: 'Main Functions Of Product',

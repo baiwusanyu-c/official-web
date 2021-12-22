@@ -81,6 +81,7 @@ export default defineComponent({
          */
         const verMsg = (tipStr:string):void =>{
             message({
+                customClass:'hermit-msg',
                 titles: tipStr,
                 msgType: 'warning',
                 duration: 1500,
@@ -126,6 +127,7 @@ export default defineComponent({
         const verifyCodeMail = ():void =>{
             if(!form.value.account){
                 message({
+                    customClass:'hermit-msg',
                     titles: t('lang.login.tipAccount'),
                     msgType: 'warning',
                     duration: 1500,
@@ -140,6 +142,7 @@ export default defineComponent({
             verifyCode(params).then((res:any)=>{
                 if(res.code === 200){
                     message({
+                        customClass:'hermit-msg',
                         titles: t('lang.sendSuccess'),
                         msgType: 'success',
                         duration: 1500,
@@ -150,6 +153,7 @@ export default defineComponent({
 
             }).catch(err=>{
                 message({
+                    customClass:'hermit-msg',
                     titles: err.message,
                     msgType: 'warning',
                     duration: 1500,
@@ -167,6 +171,7 @@ export default defineComponent({
             registerAccount(form.value).then((res:any)=>{
                 if(res.code === 200){
                     message({
+                        customClass:'hermit-msg',
                         titles: t('lang.opSuccess'),
                         msgType: 'success',
                         duration: 1500,
@@ -178,6 +183,7 @@ export default defineComponent({
 
             }).catch(err=>{
                 message({
+                    customClass:'hermit-msg',
                     titles: err.message,
                     msgType: 'warning',
                     duration: 1500,

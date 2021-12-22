@@ -82,6 +82,7 @@ export default defineComponent({
          */
         const verMsg = (tipStr:string):void =>{
             message({
+                customClass:'hermit-msg',
                 titles: tipStr,
                 msgType: 'warning',
                 duration: 1500,
@@ -131,6 +132,7 @@ export default defineComponent({
             }
             loginAccount(params).then((res:any)=>{
                 message({
+                    customClass:'hermit-msg',
                     titles: t('lang.loginSuccess'),
                     msgType: 'success',
                     duration: 1500,
@@ -143,6 +145,7 @@ export default defineComponent({
                 router.push('/index/home')
             }).catch(err=>{
                 message({
+                    customClass:'hermit-msg',
                     titles:err.message,
                     msgType: 'warning',
                     duration: 1500,

@@ -2,7 +2,7 @@
     <n-config-provider :locale="uiLang" :date-locale="dateLang">
         <be-container class="hermit-container-container h-full overscroll-auto pb-0">
             <!-- 头部   -->
-            <be-header class="flex items-center justify-between fixed w-full bg-default z-30 bg-header text-default">
+            <be-header class="flex items-center justify-between fixed w-full z-30 text-default" style="background: #141720;opacity:0.8;height: 4em;">
                 <h-header @changeLang="changeLanguage"></h-header>
             </be-header>
             <!--  主体    -->

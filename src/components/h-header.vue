@@ -184,6 +184,7 @@ export default defineComponent({
                 removeStore('userInfo')
                 isLogin.value = false
                 message({
+                    customClass:'hermit-msg',
                     titles: t('lang.opSuccess'),
                     msgType: 'success',
                     duration: 1500,

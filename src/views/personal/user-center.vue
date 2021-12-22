@@ -173,6 +173,7 @@ export default defineComponent({
         const searchData = (): void => {
             if (!searchParams.value) {
                 message({
+                    customClass:'hermit-msg',
                     titles: t('lang.userCenter.searchInput'),
                     msgType: 'warning',
                     duration: 1500,
@@ -187,6 +188,7 @@ export default defineComponent({
             searchReport(params).then((res: any) => {
                 if (res.code === 200 && res.data) {
                     message({
+                        customClass:'hermit-msg',
                         titles: t('lang.opSuccess'),
                         msgType: 'success',
                         duration: 1500,
@@ -198,6 +200,7 @@ export default defineComponent({
                 } else {
                     auditReport.value = []
                     message({
+                        customClass:'hermit-msg',
                         titles: t('lang.opFailed'),
                         msgType: 'warning',
                         duration: 1500,
@@ -208,6 +211,7 @@ export default defineComponent({
             })
                 .catch(err => {
                 message({
+                    customClass:'hermit-msg',
                     titles: err.message,
                     msgType: 'warning',
                     duration: 1500,
@@ -254,6 +258,7 @@ export default defineComponent({
                 }
             }).catch(err => {
                 message({
+                    customClass:'hermit-msg',
                     titles: err.message,
                     msgType: 'warning',
                     duration: 1500,

@@ -82,6 +82,7 @@ export default defineComponent({
             getReportByCode(params).then((res: any) => {
                 if (res.code === 200 && res.data) {
                     message({
+                        customClass:'hermit-msg',
                         titles: t('lang.opSuccess'),
                         msgType: 'success',
                         duration: 1500,
@@ -93,6 +94,7 @@ export default defineComponent({
                     handleClose()
                 }else{
                     message({
+                        customClass:'hermit-msg',
                         titles:t('lang.noResults'),
                         msgType: 'warning',
                         duration: 1500,
@@ -102,6 +104,7 @@ export default defineComponent({
                 }
             }).catch(err => {
                 message({
+                    customClass:'hermit-msg',
                     titles:err.message,
                     msgType: 'warning',
                     duration: 1500,

@@ -72,3 +72,7 @@
 .font-format{
   font-family: SourceHanSansNormal,sans-serif !important;
 }
+.hermit-msg .txt-warning,
+.hermit-msg .txt-success{
+  color: black !important;
+}

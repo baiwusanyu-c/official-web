@@ -5,11 +5,12 @@
 * @update (czh 2021/12/17)
 */
 <template>
-    <div class="login flex justify-center items-center">
+    <div class="login flex justify-center items-center relative">
         <div class="login-form px-12 py-10 box-border flex animate__animated animate__fadeInDown animate__faster" id="login_form">
             <register-account @showChange = 'changeType' v-if="showType === 'register'"></register-account>
             <login-password  @showChange = 'changeType' v-if="showType === 'login'"></login-password>
             <forget-password @showChange = 'changeType' v-if="showType === 'forget'"></forget-password>
+            <be-icon icon="deleteIc" customClass="back absolute" @click="routerPush('/index/home')"></be-icon>
         </div>
     </div>
 </template>
@@ -19,6 +20,7 @@ import {defineComponent, ref} from "vue";
 import RegisterAccount from "./register-account.vue";
 import LoginPassword from "./login-password.vue";
 import ForgetPassword from "./forget-password.vue";
+import {Router, useRouter} from "vue-router";
 
 export default defineComponent({
     name: "login",
@@ -32,8 +34,17 @@ export default defineComponent({
         const changeType = (type:string):void =>{
             showType.value = type
         }
+        /**
+         * 跳转方法
+         * @param path 路由地址
+         */
+        const router: Router = useRouter()
+        const routerPush = (path: string): void => {
+            router.push(path)
+        }
         return {
             showType,
+            routerPush,
             changeType
         }
     }
@@ -49,9 +60,20 @@ export default defineComponent({
 }
 
 .login-form{
+  background-image: url("../../assets/img/hat-bg.png");
+  background-repeat: no-repeat;
+  background-size: 28%;
+  background-position-x: 95%;
+  background-position-y: 5%;
+
   min-width:480px;
   min-height: 558px;
   border-top: 5px solid #02fbbb;
   @apply rounded w-1/4 h-4/6 bg-default;
+}
+.back{
+    right:30px;
+    top: 30px;
+    cursor: pointer;
 }
 </style>

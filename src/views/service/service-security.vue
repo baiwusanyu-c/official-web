@@ -140,6 +140,7 @@ export default defineComponent({
         const search = ():void =>{
             if(!searchPrams.value){
                 message({
+                    customClass:'hermit-msg',
                     titles: t('lang.serviceSecurity.search.input'),
                     msgType: 'warning',
                     duration: 1500,
@@ -174,8 +175,7 @@ export default defineComponent({
 }
 
 .header-text-big{
-  width: 670px;
-  height: 210px;
+   max-width: 1000px;
   padding-top: 0;
   margin-top: 77px;
   font-family: SourceHanSansBold, sans-serif;
@@ -191,7 +191,7 @@ export default defineComponent({
   padding-top: 39px;
   font-family: SourceHanSansRegular ,sans-serif;
   font-size: 30px;
-  line-height: 30px;
+  line-height: 40px;
   color: #FFF;
 }
 
@@ -220,7 +220,7 @@ export default defineComponent({
 }
 
 .search-input{
-  width: 656px;
+    width: 834px;
   height: 84px;
   margin-top: 39px;
 }

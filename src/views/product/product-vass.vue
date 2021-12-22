@@ -56,11 +56,11 @@
         <!--    核心特色    -->
         <div class="advant-container flex  w-full py-16 px-80 flex-col justify-center relative" >
             <video class='absolute left-0 top-0 bottom-0 top-0'
-                   style="z-index: -1;object-fit: fill;height: 100%;"
+                   style="z-index: -1;object-fit: fill;height: 100%;width: 100%"
                    key="product-vass-video1"
                    src="../../assets/video/wave.webm" muted="muted" autoplay="autoplay" loop="loop" ></video>
-            <h2 class="text-4xl font-bold mb-16 text-default text-center font-format"> {{$t('lang.product.vass.advantTitle')}}</h2>
-            <div class="flex justify-center items-center w-full  mb-48">
+            <h2 class="text-4xl font-bold mb-12 text-default text-center font-format"> {{$t('lang.product.vass.advantTitle')}}</h2>
+            <div class="flex justify-center items-center w-full  mb-2">
                 <div class="advant-circle flex justify-center items-center font-bold p-6 text-center text-lg font-format">
                     {{$t('lang.product.vass.advantSubTitle1')}}
                 </div>
@@ -68,7 +68,7 @@
                     {{$t('lang.product.vass.advantDesc1')}}
                 </div>
             </div>
-            <div class="flex justify-center items-center w-full  mb-48">
+            <div class="flex justify-center items-center w-full  mb-2">
                 <div class="flex-1 bg-mainG mr-6 justify-center items-center font-bold p-12 font-format" style="height: min-content">
                     {{$t('lang.product.vass.advantDesc2')}}
                 </div>
@@ -76,7 +76,7 @@
                     {{$t('lang.product.vass.advantSubTitle2')}}
                 </div>
             </div>
-            <div class="flex justify-center items-center w-full mb-48">
+            <div class="flex justify-center items-center w-full mb-6">
                 <div class="advant-circle flex justify-center items-center font-bold p-6 text-center text-lg font-format">
                     {{$t('lang.product.vass.advantSubTitle3')}}
                 </div>

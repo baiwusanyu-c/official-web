@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="footer-class">
-            <p class="font-format">{{$t('lang.HFooterBigger.group')}}</p>
+            <p class="font-format mb-2">{{$t('lang.HFooterBigger.group')}}</p>
             <div>
                 <n-icon size="30px" class="group" @click="openWin(linkConfig['twitter'])"><logo-twitter/></n-icon>
                 <n-icon size="30px" class="group" @click="openWin(linkConfig['telegram'])"><telegram/></n-icon>
