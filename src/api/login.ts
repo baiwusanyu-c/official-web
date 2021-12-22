@@ -8,22 +8,36 @@
 import request from '../utils/request'
 import qs from 'qs'
 
-// 邮箱验证码
+// 注册 -获取邮箱验证码
 export interface IMailCode {
     userName:string
 }
 export function verifyCode(params:IMailCode){
     return request({
-        url: '/system/user/verifyCode',
+        url: '/user/official_site_sg_system/verify_code/register',
         method: 'get',
         params,
     })
 }
+// 注册
+export interface IRegister {
+    account?:string,
+    password?:string,
+    verification_code?:string
+}
+export function registerAccount(params:IRegister){
+    return request({
+        url: '/user/official_site_sg_system/email/register',
+        method: 'post',
+        params,
+    })
+}
+
 
 // 忘记密码 邮箱验证码
 export function verifyCodePassword(params:IMailCode){
     return request({
-        url: '/system/user/password/code',
+        url: '/user/official_site_sg_system/verify_code/reset',
         method: 'get',
         params,
     })
@@ -38,27 +52,12 @@ export interface IForgetPassword {
 }
 export function forgetPassword(params:IForgetPassword){
     return request({
-        url: '/system/user/new_official_website/email/password/forget',
+        url: '/user/new_official_website/email/password/forget',
         method: 'post',
         params,
     })
 }
 
-
-
-// 邮箱注册
-export interface IRegister {
-    account?:string,
-    password?:string,
-    verification_code?:string
-}
-export function registerAccount(params:IRegister){
-    return request({
-        url: '/system/user/new_official_website/email/register',
-        method: 'post',
-        params,
-    })
-}
 
 
 
@@ -81,6 +80,7 @@ export function loginAccount(params:ILogin){
         method: 'post',
     })
 }
+// 登录 - 获取数字验证码
 export function getCodeImg(){
     return request({
         url:  '/code',

@@ -38,5 +38,4 @@ const configUrl:IOption = {
     staging:stagingnUrl,
     pretest:pretestnUrl
 }
-console.log(import.meta.env.VITE_PROJECT_ENV)
 export default configUrl[String(import.meta.env.VITE_PROJECT_ENV)]
