@@ -16,7 +16,7 @@
 
 <style scoped >
 .notfound .content-area{
-    width: 100vw;
-    height: calc(100vh - 200px);
+  width: 100vw;
+  height: calc(100vh - 200px);
 }
 </style>

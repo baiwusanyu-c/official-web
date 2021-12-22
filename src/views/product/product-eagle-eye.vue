@@ -159,58 +159,67 @@ export default defineComponent({
 
 <style>
 .product-eagle .page-head{
-    height: 570px;
-    background-color: black;
-    padding: 0 300px 110px 300px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    background-image:  url("../../assets/img/eagle-bg.png");
-    background-repeat: no-repeat;
-    background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 570px;
+  padding: 0 300px 110px 300px;
+  background-color: black;
+  background-image:  url("../../assets/img/eagle-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
 .product-eagle .header-text{
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
+
 .product-eagle .header-text-big{
-    padding-top: 0;
-    margin-top: 112px;
-    width: 670px;
-    line-height: 80px;
-    font-size: 60px;
-    font-weight: bold;
-    color: #FFFFFF;
-    font-family: SourceHanSansBold sans-serif;
+  width: 670px;
+  padding-top: 0;
+  margin-top: 112px;
+  font-family: 'SourceHanSansBold', sans-serif;
+  font-size: 60px;
+  font-weight: bold;
+  line-height: 80px;
+  color: #FFF;
 }
+
 .product-eagle .header-text-small{
-    padding-top: 39px;
-    width: 900px;
-    font-size: 30px;
-    color: #FFFFFF;
-    line-height: 30px;
-    font-family: SourceHanSansRegular sans-serif;
+  width: 900px;
+  padding-top: 39px;
+  font-family: 'SourceHanSansRegular', sans-serif;
+  font-size: 30px;
+  line-height: 30px;
+  color: #FFF;
 }
+
 .product-eagle .try-out-btn{
-    @apply h-12 w-80 font-bold mt-32;
+  @apply h-12 w-80 font-bold mt-32;
 }
+
 .product-eagle .func-container .func-card{
-    border-top: 5px solid transparent;
-    width: 285px;
-    height: 470px;
+  width: 285px;
+  height: 470px;
+  border-top: 5px solid transparent;
 }
+
 .product-eagle .func-container .func-card:hover {
-    box-shadow: 0 25px 50px -12px #02fbbb;
-    border-top: 5px solid #02fbbb;
+  border-top: 5px solid #02fbbb;
+  box-shadow: 0 25px 50px -12px #02fbbb;
 }
+
 .product-eagle .advant-container{
-    /*background-image:  url("../../assets/img/wave.jpg");*/
+
+  /* background-image:  url("../../assets/img/wave.jpg"); */
 }
+
 .product-eagle .advant-container .advant-circle{
-    width: 200px;
-    height: 200px;
-    background-image:  url("../../assets/img/advant-circle.png");
-    background-repeat: no-repeat;
-    background-size: cover;
+  width: 200px;
+  height: 200px;
+  background-image:  url("../../assets/img/advant-circle.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 </style>

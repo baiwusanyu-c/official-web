@@ -42,15 +42,16 @@ export default defineComponent({
 
 <style scoped>
 .login{
-    width: 100vw;
-    height: 100vh;
-    background-image: url("../../assets/img/login-bg.png");
-    background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../../assets/img/login-bg.png");
+  background-size: cover;
 }
+
 .login-form{
-    border-top: 5px solid #02fbbb;
-    min-width:480px;
-    min-height: 558px;
-    @apply rounded w-1/4 h-4/6 bg-default;
+  min-width:480px;
+  min-height: 558px;
+  border-top: 5px solid #02fbbb;
+  @apply rounded w-1/4 h-4/6 bg-default;
 }
 </style>

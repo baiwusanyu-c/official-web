@@ -172,27 +172,30 @@ export default defineComponent({
 
 <style>
 #request_quote_dialog .n-dialog{
-    @apply w-1/3;
+  background: #EFF2F7 !important;
+  border-top:5px solid #02fbbb;
+  @apply w-1/3;
 }
 
 #request_quote_dialog .request-quote-dialog{
-    border-top:5px solid #02fbbb;
+  border-top:5px solid #02fbbb;
 }
+
 #request_quote_dialog .sure-btn{
 
-    @apply bg-mainG text-black w-28;
+  @apply bg-mainG text-black w-28;
 }
+
 #request_quote_dialog .plus-dialog-body{
-    @apply bg-mainBlueGary;
+  @apply bg-mainBlueGary;
 }
+
 #request_quote_dialog .plus-dialog-body .label{
-    @apply text-black text-lg mb-2 font-light;
+  @apply text-black text-lg mb-2 font-light;
 }
-#request_quote_dialog .n-dialog{
-    border-top:5px solid #02fbbb;
-    background: #EFF2F7 !important;
-}
+
+
 #request_quote_dialog .n-dialog.n-dialog--icon-left .n-dialog__icon{
-    display: none;
+  display: none;
 }
 </style>

@@ -29,17 +29,19 @@ export default defineComponent({
 
 <style scoped>
 .bg-header{
-    width: 1400px
+  width: 1400px
 }
+
 .about-hermit-container{
-    height: 532px;
-    background-image: url("../assets/img/aboute-me.png");
-    background-size: cover;
-    background-repeat: no-repeat;
+  height: 532px;
+  background-image: url("../assets/img/aboute-me.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
-    .about-hermit-container{
-        height: 354px;
-    }
+
+  .about-hermit-container{
+    height: 354px;
+  }
 }
 </style>

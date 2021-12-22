@@ -80,65 +80,69 @@ export default defineComponent({
 
 <style>
 .home-swiper .swiper {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .home-swiper .swiper-slide {
-    width: 360px;
-    height: 355px;
-    min-width: 300px;
-    text-align: center;
-    font-size: 18px;
-    /* Center slide text vertically */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-    @apply shadow-xl;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: 360px;
+  min-width: 300px;
+  height: 355px;
+  font-size: 18px;
+  text-align: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  @apply shadow-xl;
 }
 
 .home-swiper .swiper-slide-active {
-    width: 380px;
-    height: 386px;
-    @apply shadow-2xl;
+  width: 380px;
+  height: 386px;
+  @apply shadow-2xl;
 }
 
 .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .home-swiper .swiper-item {
-    width: 300px;
+  width: 300px;
 }
 
 .home-swiper .swiper-slide-active .swiper-item h2 {
-    @apply text-mainG;
+  @apply text-mainG;
 }
 
 .home-swiper .swiper-item h2 {
-    font-size: 65px;
+  font-size: 65px;
 }
+
 .home-swiper .swiper-item p {
-    font-size: 16px;
+  font-size: 16px;
 }
 @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
-    .home-swiper .swiper-item p {
-        font-size: 12px;
-    }
-    .home-swiper .text-container {
-        @apply p-4
+
+  .home-swiper .swiper-item p {
+    font-size: 12px;
+  }
+
+  .home-swiper .text-container {
+    @apply p-4
     }
 }
 </style>

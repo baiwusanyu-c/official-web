@@ -87,21 +87,23 @@ export default defineComponent({
 
 <style scoped>
 .hexagon-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 178px;
-    height: 206px;
-    background-repeat: no-repeat;
-    text-align: center;
-    padding: 0 30px 0 20px;
-    transition: all .1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 178px;
+  height: 206px;
+  padding: 0 30px 0 20px;
+  text-align: center;
+  background-repeat: no-repeat;
+  transition: all .1s;
 }
+
 .hexagon-container:hover p{
-    margin-top: 40px;
+  margin-top: 40px;
 }
+
 .hexagon-container:hover{
-    padding: 0 30px;
+  padding: 0 30px;
 }
 
 </style>

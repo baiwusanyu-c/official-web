@@ -8,7 +8,7 @@
         <div class="contact-us w-full bg-mainG text-black h-64 flex items-center justify-center">
             <div class="flex items-center justify-center">
                 <div class="flex flex-1 flex-col">
-                    <div class="bg-black mb-4" style="height: 5px;width: 300px"></div>
+                    <div class="bg-black mb-4" style="width: 300px;height: 5px"></div>
                     <h2 class="text-3xl mb-8 font-bold title font-format">
                         {{$t('lang.contactUs.info1') }}
                     </h2>
@@ -47,9 +47,10 @@ export default defineComponent({
 
 <style scoped>
 @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
-    .contact-us .title{
-        @apply text-2xl;
-    }
+
+  .contact-us .title{
+    @apply text-2xl;
+  }
 }
 
 </style>

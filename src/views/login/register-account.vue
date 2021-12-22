@@ -206,18 +206,20 @@ export default defineComponent({
 </script>
 
 <style>
-    #login_form .login-btn,
-    #login_form .login-btn .be-button-body{
-        height: 50px;
-        line-height: 50px;
-        color:black
-    }
-    .login-btn:hover{
-        border-color:#02fbbb;
-        color:#02fbbb;
-    }
-    .login-password .be-icon{
-        width: 60px;
-        height: 30px;
-    }
+  #login_form .login-btn,
+  #login_form .login-btn .be-button-body{
+    height: 50px;
+    line-height: 50px;
+    color:black
+  }
+
+  .login-btn:hover{
+    color:#02fbbb;
+    border-color:#02fbbb;
+  }
+
+  .login-password .be-icon{
+    width: 60px;
+    height: 30px;
+  }
 </style>

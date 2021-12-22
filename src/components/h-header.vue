@@ -72,7 +72,7 @@
                     customClass="header-popover" placement="bottom">
             <template #trigger>
                 <div class="trigger-item y-full flex items-center cursor-pointer mr-12 text-base hover:text-mainG">
-                    <img style="height: 30px;width: 30px;" class='mr-2' src="../assets/img/avatar.png"/>
+                    <img style="width: 30px;height: 30px;" class='mr-2' src="../assets/img/avatar.png"/>
                     <be-icon icon="under" ></be-icon>
                 </div>
             </template>
@@ -294,50 +294,59 @@ export default defineComponent({
 
 <style>
 .menu-icon .be-icon {
-    @apply w-6 h-6
+  @apply w-6 h-6
 }
+
 .header-popover .be-popover{
-    z-index: 998;
-    @apply bg-footer
+  z-index: 998;
+  @apply bg-footer
 }
+
 .header-popover .be-popover-body{
-    padding:5px 0 0 0 !important;
+  padding:5px 0 0 0 !important;
 
 }
+
 .popover-list{
-    min-width: 100px;
+  min-width: 100px;
 
 }
+
 .popover-list:hover{
-    background: rgba(93,232,176,1);
-    background: -moz-linear-gradient(left, rgba(93,232,176,1) 0%, rgba(37,180,232,1) 100%);
-    background: -webkit-linear-gradient(left, rgba(93,232,176,1) 0%, rgba(37,180,232,1) 100%);
-    background: -o-linear-gradient(left, rgba(93,232,176,1) 0%, rgba(37,180,232,1) 100%);
-    background: -ms-linear-gradient(left, rgba(93,232,176,1) 0%, rgba(37,180,232,1) 100%);
-    background: linear-gradient(to right, rgba(93,232,176,1) 0%, rgba(37,180,232,1) 100%);
+  background: rgba(93,232,176,1);
+  background: -moz-linear-gradient(left, rgba(93,232,176,1) 0%, rgba(37,180,232,1) 100%);
+  background: -webkit-linear-gradient(left, rgba(93,232,176,1) 0%, rgba(37,180,232,1) 100%);
+  background: -o-linear-gradient(left, rgba(93,232,176,1) 0%, rgba(37,180,232,1) 100%);
+  background: -ms-linear-gradient(left, rgba(93,232,176,1) 0%, rgba(37,180,232,1) 100%);
+  background: linear-gradient(to right, rgba(93,232,176,1) 0%, rgba(37,180,232,1) 100%);
 }
 
 .linear-l-r.active-popover{
-    @apply text-black
+  @apply text-black
 }
+
 .hermit-header-l .request-btn{
-    height: 34px;
-    width:  145px;
-    @apply bg-mainG text-black mr-12;
+  width:  145px;
+  height: 34px;
+  @apply bg-mainG text-black mr-12;
 }
+
 .hermit-header-l .request-btn:hover{
-    color: black;
-    background: #01e099;
+  color: black;
+  background: #01e099;
 }
+
 .trigger-item .be-icon-container .be-icon{
-    fill:#fff;
+  fill:#fff;
 }
+
 .trigger-item:hover .be-icon-container .be-icon{
-    fill:#02fbbb;
+  fill:#02fbbb;
 }
+
 .item-active,
 .item-active .be-icon-container .be-icon{
-    fill:#02fbbb;
-    color: #02fbbb;;
+  color: #02fbbb;
+  fill:#02fbbb;;
 }
 </style>

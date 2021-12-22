@@ -308,116 +308,116 @@ export default defineComponent({
 
 <style scoped>
 .page-header {
-    margin-top: -80px;
-    height: 400px;
-    background: url("../../assets/img/user-center.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  margin-top: -80px;
+  background: url("../../assets/img/user-center.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .title-big {
-    margin-top: 223px;
-    margin-left: 361px;
-    margin-bottom: 42px;
-    width: 480px;
-    height: 49px;
-    font-size: 60px;
-    font-weight: bold;
-    color: #FFFFFF;
-    line-height: 66px;
+  width: 480px;
+  height: 49px;
+  margin-top: 223px;
+  margin-bottom: 42px;
+  margin-left: 361px;
+  font-size: 60px;
+  font-weight: bold;
+  line-height: 66px;
+  color: #FFF;
 }
 
 .title-small {
-    margin-left: 361px;
-    width: 500px;
-    height: 21px;
-    font-size: 20px;
-    font-weight: 400;
-    color: #FFFFFF;
-    line-height: 66px;
+  width: 500px;
+  height: 21px;
+  margin-left: 361px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 66px;
+  color: #FFF;
 }
 
 .search {
-    height: 400px;
-    background: #EFF2F7;
+  height: 400px;
+  background: #EFF2F7;
 
 }
 
 .search-up {
-    margin: auto;
-    padding-top: 148px;
-    width: 1200px;
-    height: 37px;
-    font-size: 36px;
-    font-weight: bold;
-    color: #121214;
-    line-height: 42px;
+  width: 1200px;
+  height: 37px;
+  padding-top: 148px;
+  margin: auto;
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 42px;
+  color: #121214;
 }
 
 .search-class {
-    width: 547px;
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  width: 547px;
 }
 
 .search-input {
-    width: 465px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    font-size: 20px;
+  display: flex;
+  align-items: center;
+  width: 465px;
+  height: 60px;
+  font-size: 20px;
 }
 
 .search-btn {
-    width: 66px;
-    height: 60px;
-    background: linear-gradient(144deg, #00FFC4, #02A1F9);
-    box-shadow: 0px 5px 8px 0px rgba(132, 141, 134, 0.55);
-    border-radius: 5px;
+  width: 66px;
+  height: 60px;
+  background: linear-gradient(144deg, #00FFC4, #02A1F9);
+  border-radius: 5px;
+  box-shadow: 0 5px 8px 0 rgba(132, 141, 134, .55);
 }
 
 .download-btn {
-    width: 160px;
-    height: 60px;
-    background: #FFFFFF;
-    border: 1px solid #00FFC4;
-    border-radius: 5px;
+  width: 160px;
+  height: 60px;
+  background: #FFF;
+  border: 1px solid #00FFC4;
+  border-radius: 5px;
 }
 
 .download-btn span {
-    width: 120px;
-    height: 16px;
-    font-size: 20px;
-    font-weight: 400;
-    color: #000000;
+  width: 120px;
+  height: 16px;
+  font-size: 20px;
+  font-weight: 400;
+  color: #000;
 }
 
 .search-down {
-    margin: 80px auto;
-    width: 1200px;
-    height: 60px;
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  width: 1200px;
+  height: 60px;
+  margin: 80px auto;
 }
 
 .page-table {
-    margin-top: 0;
-    height: 548px;
-    width: 100%;
+  width: 100%;
+  height: 548px;
+  margin-top: 0;
 }
 
 .table-body {
-    margin: auto;
-    padding-top: 36px;
-    width: 1200px;
-    height: 360px;
+  width: 1200px;
+  height: 360px;
+  padding-top: 36px;
+  margin: auto;
 }
 
-@media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
+/* @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
 
 
 
-}
+} */
 </style>

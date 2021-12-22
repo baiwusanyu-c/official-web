@@ -317,266 +317,267 @@ export default defineComponent({
 </script>
 
 <style>
-.hermit-main {
-
-}
 
 .hermit-main .slogan-news {
-
-    background-size: 101% 100%;
-    height: 100vh;
-    background-position-x: -2px;
+  height: 100vh;
+  background-position-x: -2px;
+  background-size: 101% 100%;
 }
 
 .hermit-main .slogan-news .slogan-news-bg {
-    /* height: 58%;*/
-    height: 100%
+
+  /* height: 58%; */
+  height: 100%
 }
 
 .hermit-main .slogan-news .contact-btn {
-    /* margin-bottom: 20em;*/
-    @apply h-12 w-80 font-bold;
+
+  /* margin-bottom: 20em; */
+  @apply h-12 w-80 font-bold;
 
 }
 
 .hermit-main .slogan-news .title-card-container {
-    position: relative;
-    left: 0;
-    top: -32%;
+  position: relative;
+  top: -32%;
+  left: 0;
 }
 
 .hermit-main .slogan-news .title-card-container .title-card {
-    width: 291px;
-    height: 378px;
-    transition: all .3s;
-    position: absolute;
-    top: 0;
+  position: absolute;
+  top: 0;
+  width: 291px;
+  height: 378px;
+  transition: all .3s;
 
 }
 
 .hermit-main .slogan-news .title-card-container .title-card:nth-child(1) {
-    left: -150px
+  left: -150px
 }
 
 .hermit-main .slogan-news .title-card-container .title-card:nth-child(2) {
-    left: 180px
+  left: 180px
 }
 
 .hermit-main .slogan-news .title-card-container .title-card:nth-child(3) {
-    left: 510px
+  left: 510px
 }
 
 .hermit-main .slogan-news .title-card-container .title-card:nth-child(4) {
-    left: 840px
+  left: 840px
 }
 
 .hermit-main .slogan-news .title-card-container .title-card:hover {
-    height: 450px;
-    background: linear-gradient(-32deg, #19BCFC, #00FFBA);
+  height: 450px;
+  background: linear-gradient(-32deg, #19BCFC, #00FFBA);
 
 }
 
 .hermit-main .slogan-news .title-card-container .title-card .be-icon {
-    height: 50px;
-    width: 50px;
-    transition: all .3s;
+  width: 50px;
+  height: 50px;
+  transition: all .3s;
 }
 
 .hermit-main .slogan-news .title-card-container .title-card:hover .be-icon {
-    height: 64px;
-    width: 64px;
+  width: 64px;
+  height: 64px;
 }
 
 .hermit-main .slogan-news .title-card-container .title-card .icon-up2 {
-    display: none;
+  display: none;
 
 }
 
 .hermit-main .slogan-news .title-card-container .title-card:hover .icon-up2 {
-    display: initial;
-    transform: rotate(90deg);
+  display: initial;
+  transform: rotate(90deg);
 }
 
 .hermit-main .slogan-news .title-card-container .title-card:hover .icon-up2 .be-icon {
-    height: 30px !important;
-    width: 30px !important;
+  width: 30px !important;
+  height: 30px !important;
 
 }
 
 .hermit-main .slogan-service {
-    justify-content: center;
-    align-items: center;
-    padding: 150px 0;
-    box-sizing: border-box;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  padding: 150px 0;
 }
+
 .slogan-service-item{
-    min-width: 1000px;
-    width: 600px;
+  width: 600px;
+  min-width: 1000px;
 }
 
 .slogan-service .hexagon1 {
-    left: 20%;
-    top: -10%
+  top: -10%;
+  left: 20%
 }
 
 .slogan-service .hexagon2 {
-    left: 50%;
-    top: -10%
+  top: -10%;
+  left: 50%
 }
 
 .slogan-service .hexagon3 {
-    top: 38%;
-    left: 5%;
+  top: 38%;
+  left: 5%;
 }
 
 .slogan-service .hexagon4 {
-    top: 38%;
-    left: 35%;
+  top: 38%;
+  left: 35%;
 }
 
 .slogan-service .hexagon5 {
-    top: 38%;
-    left: 65%;
+  top: 38%;
+  left: 65%;
 }
 
 .slogan-service .hexagon6 {
-    top: 86%;
-    left: 20%;
+  top: 86%;
+  left: 20%;
 }
 
 .slogan-service .hexagon7 {
-    top: 86%;
-    left: 50%;
+  top: 86%;
+  left: 50%;
 }
 
 .slogan-service .hexagon8 {
-    top: -22%;
-    left: -5%;
+  top: -22%;
+  left: -5%;
 }
 
 .slogan-service .hexagon9 {
-    top: -22%;
-    left: 25%;
+  top: -22%;
+  left: 25%;
 }
 
 .slogan-service .hexagon10 {
-    top: -22%;
-    left: 55%;
+  top: -22%;
+  left: 55%;
 }
 
 .slogan-service .hexagon11 {
-    top: 25%;
-    left: 10%;
+  top: 25%;
+  left: 10%;
 }
 
 .slogan-service .hexagon12 {
-    top: 25%;
-    left: 40%;
+  top: 25%;
+  left: 40%;
 }
 
 .bar {
-    height: 5px;
-    width: 360px;
-    @apply bg-mainG rounded;
+  width: 360px;
+  height: 5px;
+  @apply bg-mainG rounded;
 }
 
 .hermit-main .slogan-service .learn-more-btn {
-    @apply h-10 w-80 font-bold;
+  @apply h-10 w-80 font-bold;
 }
 
 .hermit-main .slogan-product {
-    padding: 86px 0;
+  padding: 86px 0;
 }
 
 .hermit-main .slogan-product .try-out-btn {
-    width: 320px;
-    @apply h-10 font-bold;
+  width: 320px;
+  @apply h-10 font-bold;
 }
 
 .slogan-product-circle1 {
-    background-image: url("../../assets/img/product-bg1.png");
-    background-repeat: no-repeat;
-    background-size: 100%;
+  background-image: url("../../assets/img/product-bg1.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
 
 }
 
 .slogan-product-circle1 .circle1 {
-    left: 24%;
-    top: 44%;
+  top: 44%;
+  left: 24%;
 }
 
 .slogan-product-circle1 .circle2 {
-    left: 44%;
-    top: -8%;
+  top: -8%;
+  left: 44%;
 }
 
 .slogan-product-circle1 .circle3 {
-    left: 60%;
-    top: 44%;
+  top: 44%;
+  left: 60%;
 }
 
 .slogan-product-circle1 .circle4 {
-    right: 14%;
-    top: -8%;
+  top: -8%;
+  right: 14%;
 }
 
 .slogan-product-circle2 {
-    background-image: url("../../assets/img/product-bg2.png");
-    background-repeat: no-repeat;
-    background-size: 100%;
+  background-image: url("../../assets/img/product-bg2.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 .slogan-product-circle2 .circle5 {
-    left: 24%;
-    top: 0;
+  top: 0;
+  left: 24%;
 }
 
 .slogan-product-circle2 .circle6 {
-    left: 44%;
-    top: 46%;
+  top: 46%;
+  left: 44%;
 }
 
 .slogan-product-circle2 .circle7 {
-    left: 60%;
-    top: 0;
+  top: 0;
+  left: 60%;
 }
 
 .slogan-product-circle2 .circle8 {
-    right: 14%;
-    top: 46%;
+  top: 46%;
+  right: 14%;
 }
 
 .slogan-customer {
-    background-image: url("../../assets/img/customer-earth.png");
-    background-repeat: no-repeat;
-    background-size: 100%;
+  background-image: url("../../assets/img/customer-earth.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 .slogan-customer-logo div {
-    border: 1px solid transparent;
+  border: 1px solid transparent;
 }
 
 .slogan-customer-logo div:hover {
-    border-width: 1px;
-    @apply border-mainG;
+  border-width: 1px;
+  @apply border-mainG;
 }
 
 .home-swiper {
-    height: 460px;
-    width: 99vw;
+  width: 99vw;
+  height: 460px;
 }
 
 .mogu-text p:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
-    .hermit-main .slogan-service {
-        padding: 150px 80px;
-        box-sizing: border-box;
-    }
-    .slogan-news .slogan{
-        @apply mb-4
+
+  .hermit-main .slogan-service {
+    box-sizing: border-box;
+    padding: 150px 80px;
+  }
+
+  .slogan-news .slogan{
+    @apply mb-4
     }
 
 }

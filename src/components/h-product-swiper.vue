@@ -95,27 +95,31 @@ export default defineComponent({
 
 <style>
 .product-swiper{
-    height: 600px;
+  height: 600px;
 }
+
 .product-swiper .swiper {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
+
 .product-swiper .swiper-wrapper{
-    height: 90%;
+  height: 90%;
 }
+
 .product-swiper .swiper-slide {
-    background-position: center;
-    background-size: cover;
+  background-position: center;
+  background-size: cover;
 }
 
 .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
+
 .swiper-pagination-bullet-active{
-    @apply bg-mainG;
+  @apply bg-mainG;
 }
 </style>

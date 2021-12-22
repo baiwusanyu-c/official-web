@@ -147,142 +147,163 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.report-detail-container {
 
-}
 
 .report-detail-container .report-body {
-    width: 1382px;
-    height: 1958px;
-    margin: 0 auto;
-    background: url(../../assets/img/cet.jpg) no-repeat center;
-    padding: 336px 150px 290px;
-    box-sizing: border-box;
-    font-family: SourceHanSansNormal sans-serif;
-    position: relative;
-    margin-bottom: 80px;
+  position: relative;
+  box-sizing: border-box;
+  width: 1382px;
+  height: 1958px;
+  padding: 336px 150px 290px;
+  margin: 0 auto;
+  margin-bottom: 80px;
+  font-family: 'SourceHanSansNormal', sans-serif;
+  background: url(../../assets/img/cet.jpg) no-repeat center;
 }
+
 .report-detail-container .report-body .CET-header {
-    text-align: center;
-    position: relative;
-    font-size: 28px;
-    font-weight: bold;
-    line-height: 36px;
+  position: relative;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 36px;
+  text-align: center;
 }
+
 .report-detail-container .report-body .CET-header .logo {
-    width: 200px;
-    height: 70px;
-    margin: 0 auto;
+  width: 200px;
+  height: 70px;
+  margin: 0 auto;
 }
+
 .report-detail-container .report-body .CET-header  .name {
-    color: #2563bc;
-    word-break: break-all;
+  color: #2563bc;
+  word-break: break-all;
 }
+
 .report-detail-container .report-body .CET-header  .desc {
-    color: #43425b;
-    margin-top: 10px;
+  margin-top: 10px;
+  color: #43425b;
 }
+
 .report-detail-container .report-body .CET-header  .result {
-    position: absolute;
-    right: 130px;
-    bottom: -100px;
+  position: absolute;
+  right: 130px;
+  bottom: -100px;
 }
+
 .report-detail-container .report-body .CET-content {
-    color: #5a5a5a;
-    margin-top: 50px;
+  margin-top: 50px;
+  color: #5a5a5a;
 }
+
 .report-detail-container .report-body .CET-content .content-item {
-    font-size: 16px;
-    margin-bottom: 40px;
-    display: flex;
-    line-height: 30px;
+  display: flex;
+  margin-bottom: 40px;
+  font-size: 16px;
+  line-height: 30px;
 }
+
 .report-detail-container .report-body .CET-content .content-item .label {
-    font-size: 16px;
-    color: #43425b;
-    font-weight: bold;
-    width: 180px;
-    min-width: 180px;
-    max-width: 180px;
-    text-align: right;
-    display: block;
+  display: block;
+  width: 180px;
+  min-width: 180px;
+  max-width: 180px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #43425b;
+  text-align: right;
 }
+
 .report-detail-container .report-body .CET-content .content-item .label.en {
-     width: 300px;
-     min-width: 300px;
-     max-width: 300px;
- }
+  width: 300px;
+  min-width: 300px;
+  max-width: 300px;
+}
 
 .report-detail-container .report-body .CET-content .content-item  span {
-    word-break: break-all;
+  word-break: break-all;
 }
+
 .report-detail-container .report-body .CET-content .content-item  .num {
-    color: #2563bc;
+  color: #2563bc;
 }
+
 .report-detail-container .report-body .CET-content .content-item  .audit-item {
-    width: calc(100% - 200px);
+  width: calc(100% - 200px);
 }
+
 .report-detail-container .report-body .CET-content .content-item .item-list {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
+
 .report-detail-container .report-body .CET-content .content-item .item-list li {
-    margin-right: 10px;
-    padding: 2px 15px;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
-    margin-bottom: 10px;
+  padding: 2px 15px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
+
 .report-detail-container .report-body .CET-other {
-    text-align: right;
-    line-height: 36px;
-    font-size: 20px;
-    width: calc(100% - 300px);
-    position: absolute;
-    bottom: 510px;
+  position: absolute;
+  bottom: 510px;
+  width: calc(100% - 300px);
+  font-size: 20px;
+  line-height: 36px;
+  text-align: right;
 }
+
 .report-detail-container .report-body .CET-other .code {
-    width: 110px;
-    height: 110px;
+  width: 110px;
+  height: 110px;
 }
+
 .report-detail-container .report-body .CET-other .other-desc {
-    width: 610px;
-    margin: 10px auto 40px;
+  width: 610px;
+  margin: 10px auto 40px;
 }
+
 .report-detail-container .report-body .CET-other .other-desc a {
-    color: #2563bc;
+  color: #2563bc;
 }
+
 .report-detail-container .report-body .CET-other .other-company {
-    float: none;
+  float: none;
 }
+
 .report-detail-container .report-body .CET-footer {
-    width: calc(100% - 300px);
-    position: absolute;
-    bottom: 290px;}
+  position: absolute;
+  bottom: 290px;
+  width: calc(100% - 300px);}
+
 .report-detail-container .report-body .CET-footer .footer-title {
-    font-size: 24px;
-    color: #808080;
-    margin-bottom: 15px;
-    font-weight: bold;
+  margin-bottom: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #808080;
 }
+
 .report-detail-container .report-body .CET-footer .footer-content {
-    font-size: 16px;
-    color: #b5b5b5;
-    line-height: 22px;
+  font-size: 16px;
+  line-height: 22px;
+  color: #b5b5b5;
 }
+
 .report-detail-container .report-body .CET-area-ch .CET-content .content-item .label{
-    text-align-last: justify;
-    -moz-text-align-last: justify;
-    -webkit-text-align-last: justify;
-    text-justify: inter-ideograph; /*ie中必须有这个*/
-    text-align-last: justify;
+  -moz-text-align-last: justify;
+  -webkit-text-align-last: justify;
+  text-align-last: justify;
+  text-justify: inter-ideograph; /* ie中必须有这个 */
 }
+
 .downloadCET{
-    background: #2563BC;
-    color: #FFF;
+  color: #FFF;
+  background: #2563BC;
 }
+
 .downloadReport{
-    border: 1px solid #2563BC;
-    color: #2563BC;
+  color: #2563BC;
+  border: 1px solid #2563BC;
 }
 </style>

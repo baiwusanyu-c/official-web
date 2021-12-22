@@ -98,17 +98,20 @@ export default defineComponent({
 
 <style>
 .hermit-container-container .be-header {
-    height: 4.5em;
-    @apply px-8;
+  height: 4.5em;
+  @apply px-8;
 }
+
 .hermit-container-container .hermit-footer{
-    height: 20em;
+  height: 20em;
 }
+
 .be-main.pb-0{
-    padding: 0;
+  padding: 0;
 }
+
 .hermit-footer.px-0{
-    padding-left: 0;
-    padding-right: 0;
+  padding-right: 0;
+  padding-left: 0;
 }
 </style>

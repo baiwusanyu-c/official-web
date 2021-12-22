@@ -1,12 +1,11 @@
 # 其他类型文件
 *.js
 *.jsx
-*.vue
 *.ts
 *.tsx
 *.jpg
 *.woff
-
+tailwind.css
 # 依赖和打包目录
 /dist/
 /node_modules/

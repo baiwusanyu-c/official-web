@@ -84,96 +84,105 @@ export default defineComponent({
 
 <style>
 .home-swiper .swiper {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
+
 .swiper-main{
-    width: 1200px;
+  width: 1200px;
 }
+
 .mySwiper{
-    width: 1500px;
+  width: 1500px;
 }
+
 .swiper-header{
-    height:193px;
-    width:258px;
-    background: url('../assets/img/service-contract/swiper-img.png');
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:258px;
+  height:193px;
+  background: url('../assets/img/service-contract/swiper-img.png');
 }
+
 .swiper-header p{
-    width: 120px;
-    height: 23px;
-    font-size: 30px;
-    font-weight: 400;
-    color: black;
-    line-height: 35px;
+  width: 120px;
+  height: 23px;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 35px;
+  color: black;
 }
+
 .swiper-footer{
-    width: 257px;
-    height: 138px;
-    background: linear-gradient(-32deg, #19BCFC, #00FFBA);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 257px;
+  height: 138px;
+  text-align: center;
+  background: linear-gradient(-32deg, #19BCFC, #00FFBA);
 }
+
 .swiper-footer p{
-    width: 150px;
-    height: 45px;
-    font-size: 16px;
-    font-weight: 400;
-    color: #0A0A0A;
-    line-height: 32px;
+  width: 150px;
+  height: 45px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 32px;
+  color: #0A0A0A;
 }
+
 .home-swiper .swiper-slide {
-    width: 360px;
-    height: 355px;
-    text-align: center;
-    font-size: 18px;
-    /* Center slide text vertically */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-    @apply shadow-xl;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: 360px;
+  height: 355px;
+  font-size: 18px;
+  text-align: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  @apply shadow-xl;
 }
 
 .home-swiper .swiper-slide-active {
-    width: 380px;
-    height: 386px;
-    @apply shadow-2xl;
+  width: 380px;
+  height: 386px;
+  @apply shadow-2xl;
 }
 
 .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .home-swiper .swiper-item {
-    width: 300px;
+  width: 300px;
 }
 
 .home-swiper .swiper-slide-active .swiper-item h2 {
-    @apply text-mainG;
+  @apply text-mainG;
 }
 
 .home-swiper .swiper-item h2 {
-    @apply text-8xl;
+  @apply text-8xl;
 }
-    .swiper{
-        --swiper-navigation-color: #DFDFDF;/* 单独设置按钮颜色 */
-        --swiper-navigation-size: 30px;/* 设置按钮大小 */
-    }
+
+.swiper{
+  --swiper-navigation-color: #DFDFDF;/* 单独设置按钮颜色 */
+  --swiper-navigation-size: 30px;/* 设置按钮大小 */
+}
 
 </style>

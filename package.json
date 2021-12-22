@@ -9,8 +9,8 @@
     "build:stage": "vite build --mode staging",
     "build:prod": "vite build --mode production",
     "build:pretest": "vite build --mode pretest",
-    "lint:style": "stylelint src/**/*.css",
-    "lint:style-fix": "stylelint --fix src/**/*.css",
+    "lint:style": "stylelint src/**/*.{html,vue,css}",
+    "lint:style-fix": "stylelint --fix src/**/*.{html,vue,css}",
     "preview": "vite preview"
   },
   "dependencies": {

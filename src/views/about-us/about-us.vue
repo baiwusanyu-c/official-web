@@ -137,67 +137,78 @@ export default defineComponent({
 
 <style>
 .about-us-page .page-head{
-    background-color: black;
-    padding: 0 300px 110px 300px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    background-image:  url("../../assets/img/about-us-bg.png");
-    background-repeat: no-repeat;
-    background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 300px 110px 300px;
+  background-color: black;
+  background-image:  url("../../assets/img/about-us-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
 .about-us-page .header-text{
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
+
 .about-us-page .header-text-big{
-    padding-top: 0;
-    margin-top: 112px;
-    width: 670px;
-    line-height: 80px;
-    font-size: 60px;
-    font-weight: bold;
-    color: #FFFFFF;
-    font-family: SourceHanSansBold sans-serif;
+  width: 670px;
+  padding-top: 0;
+  margin-top: 112px;
+  font-family: 'SourceHanSansBold',sans-serif;
+  font-size: 60px;
+  font-weight: bold;
+  line-height: 80px;
+  color: #FFF;
 }
+
 .about-us-page .header-text-small{
-    padding-top: 39px;
-    width: 900px;
-    font-size: 30px;
-    color: #FFFFFF;
-    line-height: 30px;
-    font-family: SourceHanSansRegular sans-serif;
+  width: 900px;
+  padding-top: 39px;
+  font-family: 'SourceHanSansRegular', sans-serif;
+  font-size: 30px;
+  line-height: 30px;
+  color: #FFF;
 }
+
 .about-us-page .desc-info{
-    background-image: url("../../assets/img/customer-earth.png");
-    background-repeat: no-repeat;
-    background-size: 100%;
+  background-image: url("../../assets/img/customer-earth.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
+
 .about-us-page .securing-the-blockchain{
-    height: 360px;
-    background-image: url("../../assets/img/securing-the-blockchain.png");
-    background-repeat: no-repeat;
-    background-size: 100%;
+  height: 360px;
+  background-image: url("../../assets/img/securing-the-blockchain.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
-    .about-us-page .page-head {
-        padding: 0 100px 50px 100px;
-    }
-    .desc-info .introduction{
-        width: 80%;
-    }
-    .desc-info .introduction span{
-        font-size: 12px;
-    }
-    .desc-info .introduction.introduction-logo{
-        margin-top: 2rem;
-    }
-    .securing-the-blockchain .slogan{
-        font-size: 25px;
-    }
-    .about-us-page .securing-the-blockchain{
-        height: 238px;
-    }
+
+  .about-us-page .page-head {
+    padding: 0 100px 50px 100px;
+  }
+
+  .desc-info .introduction{
+    width: 80%;
+  }
+
+  .desc-info .introduction span{
+    font-size: 12px;
+  }
+
+  .desc-info .introduction.introduction-logo{
+    margin-top: 2rem;
+  }
+
+  .securing-the-blockchain .slogan{
+    font-size: 25px;
+  }
+
+  .about-us-page .securing-the-blockchain{
+    height: 238px;
+  }
 }
 
 </style>

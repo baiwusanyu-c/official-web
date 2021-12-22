@@ -100,74 +100,87 @@ export default defineComponent({
 
 <style scoped >
 .h-60{
-    height: 21rem;
+  height: 21rem;
 }
+
 p{
-    font-size: 18px;
-    font-weight: 500;
-    color: #ECECEC;
-    line-height: 50px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 50px;
+  color: #ECECEC;
 }
+
 .bg-footer-container{
-    color: #ECECEC;
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  color: #ECECEC;
 }
+
 .footer-class{
-    margin-top: 60px;
-    width: 345px;
-    height: 200px;
+  width: 345px;
+  height: 200px;
+  margin-top: 60px;
 }
+
 .contact-us{
-    margin-top: 15px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 15px;
 }
+
 .contact-us-text{
-    padding-left: 5px;
+  padding-left: 5px;
 }
+
 .group{
-    cursor:pointer;
-    margin-right: 32px;
-    transition: all 0.5s ease;
+  margin-right: 32px;
+  cursor:pointer;
+  transition: all .5s ease;
 }
+
 .group:hover{
-    transition: all 0.5s ease;
-    color: #02FBBB;
+  color: #02FBBB;
+  transition: all .5s ease;
 }
+
 .wechatCode{
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(236deg, #00FFBA, #0ED9E0);
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(236deg, #00FFBA, #0ED9E0);
 }
+
 .policy-class{
-    cursor:pointer;
-    display: flex;
-    width: 200px;
-    flex-direction: row;
-    align-items: center;
-    margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 200px;
+  margin-top: 15px;
+  cursor:pointer;
 }
+
 .text-point{
-    width: 4px;
-    height: 4px;
-    background: #CEC7C1;
-    border-radius: 50%;
-    transition: all 0.5s ease;
+  width: 4px;
+  height: 4px;
+  background: #CEC7C1;
+  border-radius: 50%;
+  transition: all .5s ease;
 }
+
 .policy-text{
-    padding-left: 4px;
+  padding-left: 4px;
 }
+
 .policy-class:hover  .text-point {
-    width: 8px;
-    height: 8px;
-    background: #02FBBB;
-    border-radius: 50%;
-    transition: all 0.5s ease;
+  width: 8px;
+  height: 8px;
+  background: #02FBBB;
+  border-radius: 50%;
+  transition: all .5s ease;
 }
+
 .policy-class:hover  .policy-text {
-    color: #02FBBB;
-    transition: all 0.5s ease;
+  color: #02FBBB;
+  transition: all .5s ease;
 }
 </style>

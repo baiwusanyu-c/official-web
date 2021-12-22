@@ -21,6 +21,8 @@
   width: 3px;
   height: 100%;
   content: '';
+  background: linear-gradient(-73deg, #19BDFB, #02FBBB);
+  transition: .5s;
 }
 
 .linear-l-r-s:hover{
@@ -28,10 +30,7 @@
   background:transparent;
 }
 
-.linear-l-r-s::before {
-  background: linear-gradient(-73deg, #19BDFB, #02FBBB);
-  transition: .5s;
-}
+
 
 .linear-l-r-s:hover::after {
   width: 100%;
