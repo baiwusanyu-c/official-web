@@ -1,68 +1,74 @@
 
 @font-face
 {
-    font-family: SourceHanSansNormal;
-    src: url('../assets/font/SourceHanSansNormal.otf');
+  font-family: SourceHanSansNormal;
+  src: url('../assets/font/SourceHanSansNormal.otf');
 }
 @font-face
 {
-    font-family: SourceHanSansExtraLight;
-    src: url('../assets/font/SourceHanSansExtraLight.otf');
+  font-family: SourceHanSansExtraLight;
+  src: url('../assets/font/SourceHanSansExtraLight.otf');
 }
 @font-face
 {
-    font-family: SourceHanSansLight;
-    src: url('../assets/font/SourceHanSansLight.otf');
+  font-family: SourceHanSansLight;
+  src: url('../assets/font/SourceHanSansLight.otf');
 }
 @font-face
 {
-    font-family: SourceHanSansMedium;
-    src: url('../assets/font/SourceHanSansMedium.otf');
+  font-family: SourceHanSansMedium;
+  src: url('../assets/font/SourceHanSansMedium.otf');
 }
 @font-face
 {
-    font-family: SourceHanSansRegular;
-    src: url('../assets/font/SourceHanSansRegular.otf');
+  font-family: SourceHanSansRegular;
+  src: url('../assets/font/SourceHanSansRegular.otf');
 }
 @font-face
 {
-    font-family: SourceHanSansHeavy;
-    src: url('../assets/font/SourceHanSansHeavy.otf');
+  font-family: SourceHanSansHeavy;
+  src: url('../assets/font/SourceHanSansHeavy.otf');
 }
 
 @font-face
 {
-    font-family: SourceHanSansBold;
-    src: url('../assets/font/SourceHanSansBold.otf');
+  font-family: SourceHanSansBold;
+  src: url('../assets/font/SourceHanSansBold.otf');
 }
-/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+
+/* 定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸 */
+
 .scrollDiy::-webkit-scrollbar
 {
-    margin: 5px;
-    width: 8px;
-    height: 8px;
+  width: 8px;
+  height: 8px;
+  margin: 5px;
 }
 
-/*定义滑块*/
+/* 定义滑块 */
+
 .scrollDiy::-webkit-scrollbar-thumb
 {
+  background-color: #c1c1c1;
+  border-radius:  5px;
+}
 
-    background-color: #c1c1c1;
-    border-radius:  5px;
-}
 .linear-l-r{
-    background: linear-gradient(-73deg, #19BDFB, #02FBBB);
+  background: linear-gradient(-73deg, #19BDFB, #02FBBB);
 }
+
 .linear-xie{
-    background: linear-gradient(-32deg, #19BCFC, #00FFBA);
+  background: linear-gradient(-32deg, #19BCFC, #00FFBA);
 }
+
 #hermit_app .h-btn-txt-black .be-button-body .be-button-slot{
-    color: black;
+  color: black;
 }
+
 .be-message{
-    z-index: 9999 !important;
+  z-index: 9999 !important;
 }
 
 .font-format{
-    font-family: SourceHanSansNormal sans-serif !important;
+  font-family: SourceHanSansNormal sans-serif !important;
 }

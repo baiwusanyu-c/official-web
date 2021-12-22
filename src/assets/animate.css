@@ -1,40 +1,43 @@
 .linear-l-r-s{
-    position: relative;
+  position: relative;
 
 }
-.linear-l-r-s:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 0;
-    height: 100%;
-    z-index:-2;
+
+.linear-l-r-s::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index:-2;
+  width: 0;
+  height: 100%;
+  content: '';
 }
-.linear-l-r-s:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 3px;
-    height: 100%;
-    z-index:0;
+
+.linear-l-r-s::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index:0;
+  width: 3px;
+  height: 100%;
+  content: '';
 }
 
 .linear-l-r-s:hover{
-    z-index:1;
-    background:transparent;
+  z-index:1;
+  background:transparent;
 }
 
-.linear-l-r-s:before {
-    transition: .5s;
-    background: linear-gradient(-73deg, #19BDFB, #02FBBB);
+.linear-l-r-s::before {
+  background: linear-gradient(-73deg, #19BDFB, #02FBBB);
+  transition: .5s;
 }
 
-.linear-l-r-s:hover:after {
-    width: 100%;
+.linear-l-r-s:hover::after {
+  width: 100%;
 }
-.linear-l-r-s:hover:before {
-    width: 100%;
-    z-index:-1;
+
+.linear-l-r-s:hover::before {
+  z-index:-1;
+  width: 100%;
 }

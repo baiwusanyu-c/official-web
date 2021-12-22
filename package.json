@@ -9,6 +9,8 @@
     "build:stage": "vite build --mode staging",
     "build:prod": "vite build --mode production",
     "build:pretest": "vite build --mode pretest",
+    "lint:style": "stylelint src/**/*.css",
+    "lint:style-fix": "stylelint --fix src/**/*.css",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -29,6 +31,10 @@
     "vue-router": "4"
   },
   "devDependencies": {
+    "stylelint": "^13.13.1",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-recess-order": "^3.0.0",
+    "stylelint-config-standard": "^22.0.0",
     "@babel/core": "^7.16.0",
     "@babel/plugin-proposal-class-properties": "^7.16.0",
     "@babel/preset-env": "^7.16.0",

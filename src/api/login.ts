@@ -14,7 +14,7 @@ export interface IMailCode {
 }
 export function verifyCode(params:IMailCode){
     return request({
-        url: '/user/official_site_sg_system/verify_code/register',
+        url: '/system/user/official_site_sg_system/verify_code/register',
         method: 'get',
         params,
     })
@@ -27,7 +27,7 @@ export interface IRegister {
 }
 export function registerAccount(params:IRegister){
     return request({
-        url: '/user/official_site_sg_system/email/register',
+        url: '/system/user/official_site_sg_system/email/register',
         method: 'post',
         params,
     })
@@ -37,7 +37,7 @@ export function registerAccount(params:IRegister){
 // 忘记密码 邮箱验证码
 export function verifyCodePassword(params:IMailCode){
     return request({
-        url: '/user/official_site_sg_system/verify_code/reset',
+        url: '/system/user/official_site_sg_system/verify_code/reset',
         method: 'get',
         params,
     })
@@ -52,7 +52,7 @@ export interface IForgetPassword {
 }
 export function forgetPassword(params:IForgetPassword){
     return request({
-        url: '/user/new_official_website/email/password/forget',
+        url: '/system/user/new_official_website/email/password/forget',
         method: 'post',
         params,
     })
