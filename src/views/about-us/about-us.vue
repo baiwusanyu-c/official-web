@@ -93,15 +93,15 @@
                 <img  @click="openWin(linkConfig['medium'])"   class="mx-16 cursor-pointer" src="../../assets/img/community7.png" alt="" />
                 <img  @click="openWin(linkConfig['github'])"   class="mx-16 cursor-pointer" src="../../assets/img/community5.png" alt="" />
                 <img  @click="openWin(linkConfig['facebook'])" class="mx-16 cursor-pointer" src="../../assets/img/community6.png" alt="" />
-                <n-popover trigger="click"
-                           :arrow-style="{background:'#02fbbb'}"
+                <n-popover trigger="hover"
+
                            color="#00FFBA"
                            raw
                            placement="bottom">
                     <template #trigger>
                         <img  class="ml-16 cursor-pointer " src="../../assets/img/community3.png" alt="" />
                     </template>
-                    <div><img src="../../assets/img/wechat-code.png" height="100" width="100"/></div>
+                    <div><img src="../../assets/img/wechat-code.jpg" height="100" width="100"/></div>
                 </n-popover>
             </div>
         </div>

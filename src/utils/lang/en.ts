@@ -28,7 +28,7 @@ export default {
     projectList: {
         project1: 'Smart contract audit',
         project2: 'Blockchain platform detection',
-        project3: 'VAAS',
+        project3: 'Formal Verification',
         project4: 'Situational awareness',
     },
     header: {
@@ -43,12 +43,12 @@ export default {
             quit: 'Log Out',
         },
         serviceStr: {
-            service1: 'The Security Audit Service For Smart Contracts',
-            service2: 'The Security Testing Service For Blockchain Platforms',
+            service1: 'Smart Contract Audit Service',
+            service2: 'Blockchian Plaform Testing Service',
         },
         productStr: {
-            product1: 'VasS',
-            product2: 'Eagle Eye',
+            product1: 'Formal Verification',
+            product2: 'Situation Awareness',
         },
         language: {
             EN: 'EN',
@@ -74,7 +74,7 @@ export default {
         titleCard1: 'A Full Analysis of the MonoX Attack',
         titleCardInfo1: 'On November 30, Hermit detected that MonoX, an automatic market maker protocol,suffered a flash loan ',
         more: 'LEARN MORE',
-        serviceTitle1: 'The Security Audit Service For Smart Contracts',
+        serviceTitle1: 'Smart Contract Audit Service',
         serviceInfo1: 'We perform a 360-degree security verification of smart contracts. By identifying and eliminating the security risks of codes, we ensure the consistency of the contract codes and business logic, and provide authoritative security audit reports. ',
         serviceIc1: 'DeFi contracts',
         serviceIc2: 'Tokens contracts',
@@ -90,13 +90,13 @@ export default {
         serviceIc10: 'Node communication',
         serviceIc11: 'System performance',
         serviceIc12: 'Private key algori- thm security',
-        productName1: 'VASS',
+        productName1: 'Formal Verification',
         productDesc1: 'The world\'s first "one-click" smart contract formal verification platform. Using formal verification models to automatically detect security vulnerabilities and functional logic flaws in smart contracts to achieve "zero" code vulnerabilities, with a detection accuracy rate above 97%.',
         productFeature1: 'One-click detection',
         productFeature2: 'Symbolic bytecode verification',
         productFeature3: 'Visual debugging',
         productFeature4: 'Vulnerability reports',
-        productName2: 'Eagle Eye',
+        productName2: 'Situation Awareness',
         productDesc2: 'With threat intelligence and artificial intelligence as the core, we monitor the the on-chain transactions in real time and provide timely warnings on security issues such as hacking, crypto econnoisseur and scams, effectively protecting users\' virtual assets and maintaining the safe operation of the blockchain platform ecology.',
         productFeature5: 'Transaction behavior identification',
         productFeature6: 'Contract risk identification',
@@ -117,7 +117,7 @@ export default {
     // djd service-security
     serviceSecurity: {
         pageHead: {
-            textBig: 'The Security Testing Service For Blockchain Platforms',
+            textBig: 'Blockchian Plaform Testing Service',
             textSmall: 'Multi-dimensional, multi-round and multi-way detection of blockchain security'
         },
         search: {
@@ -150,7 +150,7 @@ export default {
     },
     serviceContract: {
         pageHead: {
-            textBig: 'The Security Audit Service For Smart Contracts',
+            textBig: 'Smart Contract Audit Service',
             textSmall: 'Co-audited by more than 20 top blockchain security engineers worldwide',
             button: 'Reservation Now'
         },
@@ -202,9 +202,9 @@ export default {
     },
     product: {
         vass: {
-            title: 'HERMIT-VaaS',
+            title: 'HERMIT-Formal Verification',
             subTitle: 'Provide contract developers and test auditors with automated and complete formal verification for smart contracts.',
-            desc: 'VaaS is the world\'s first "one-click" smart contract formal verification platform. It provides industry-leading security detection and verification for smart contract, with a detection accuracy rate of over 97%, also gives modification suggestions. Now with 100,000+ users, it supports public and consortium blockchains such as ETH, EOS, ONT, TRON, FISCO-BCOS, Fabric, Antchain, Tencent Blockchain at the same time. It can greatly improve the efficiency of smart contracts audit, and reduce the security risk potential caused by incomplete manual audit.',
+            desc: 'Formal Verification is the world\'s first "one-click" smart contract formal verification platform. It provides industry-leading security detection and verification for smart contract, with a detection accuracy rate of over 97%, also gives modification suggestions. Now with 100,000+ users, it supports public and consortium blockchains such as ETH, EOS, ONT, TRON, FISCO-BCOS, Fabric, Antchain, Tencent Blockchain at the same time. It can greatly improve the efficiency of smart contracts audit, and reduce the security risk potential caused by incomplete manual audit.',
             funcTitle: 'Main Functions Of Product',
             funcSubTitle1: 'One-Click DETECTION',
             funcDesc1: 'Just upload the contract code and the platform will automatically perform configuration, compilation, deployment, and verification, with reports coming out in minutes',
@@ -219,16 +219,16 @@ export default {
             advantSubTitle1: 'Multiple invention patents guarantee',
             advantDesc1: 'We are one of the first companies in the world to apply formal verification technology to the blockchain industry. We currently have more than 10 patents on formal verification and have tested thousands of smart contracts.',
             advantSubTitle2: 'High Accuracy',
-            advantDesc2: 'VaaS can "One-Click" accurately and automatically locate the vulnerabilities of code. After the real evaluation by Security Laboratory of , the detection accuracy of Hermit-VaaS is up to 97%, ranking first in the world, enabling effective verification from source-code to byte-code.',
+            advantDesc2: 'Formal Verification can "One-Click" accurately and automatically locate the vulnerabilities of code. After the real evaluation by Security Laboratory of , the detection accuracy of Hermit-Formal Verification is up to 97%, ranking first in the world, enabling effective verification from source-code to byte-code.',
             advantSubTitle3: 'Multi-Blockchain Platforms Support',
-            advantDesc3: 'VaaS supports multiple Blockchain platforms simultaneously (including ETH, EOS, ONT, TRON, FISCO-BCOS, Fabric). VaaS is highly customizable, and have already customized and developed the dedicated version of VaaS for ANTCHAIN and Tencent Blockchain at present.',
+            advantDesc3: 'Formal Verification supports multiple Blockchain platforms simultaneously (including ETH, EOS, ONT, TRON, FISCO-BCOS, Fabric). Formal Verification is highly customizable, and have already customized and developed the dedicated version of Formal Verification for ANTCHAIN and Tencent Blockchain at present.',
             advantSubTitle4: 'Various Access Methods',
-            advantDesc4: 'The platform of VaaS supports SaaS access mode, local deployment mode and development tool plug-in installation mode. Firstly, the SaaS access mode can directly access the system through the public cloud platform, which is convenient and fast. Secondly, the local deployment mode can be directly deployed on the private development environment server to provide security detection functions of smart contracts for enterprise developers. Thirdly, the development tool plug-in installation mode can be directly installed into the development tool through the VS Code plug-in mode to achieve integrated development and security testing of smart contracts.',
+            advantDesc4: 'The platform of Formal Verification supports SaaS access mode, local deployment mode and development tool plug-in installation mode. Firstly, the SaaS access mode can directly access the system through the public cloud platform, which is convenient and fast. Secondly, the local deployment mode can be directly deployed on the private development environment server to provide security detection functions of smart contracts for enterprise developers. Thirdly, the development tool plug-in installation mode can be directly installed into the development tool through the VS Code plug-in mode to achieve integrated development and security testing of smart contracts.',
         },
         eagle: {
-            title: 'HERMIT-Eagle Eye',
+            title: 'HERMIT-Situation Awareness',
             subTitle: 'Provide Dapp operators with project situational information and real-time transaction risk warning.',
-            desc: 'Eagle Eye provides 24/7 blockchain security monitoring and analytics services for application project owners. It’s applicable to all blockchains platforms by monitoring real-time transactions and asset movement, running of smart contract, on assessing the security situation of project. With Beosin‘s intelligence source，Eagle Eye help user to find out vulnerabilities  of smart contract, malicious transactions and potential threats to the project, get disposal suggestions and finally setup security shield for project operation and asset protection.',
+            desc: 'Situation Awareness provides 24/7 blockchain security monitoring and analytics services for application project owners. It’s applicable to all blockchains platforms by monitoring real-time transactions and asset movement, running of smart contract, on assessing the security situation of project. With Beosin‘s intelligence source，Situation Awareness help user to find out vulnerabilities  of smart contract, malicious transactions and potential threats to the project, get disposal suggestions and finally setup security shield for project operation and asset protection.',
             funcTitle: 'Main Functions Of Product',
             funcSubTitle1: 'PROJECT SITUATION',
             funcDesc1: 'Assess the overall project security level through multiple dimensions and provide a security score for each dimension',
@@ -241,7 +241,7 @@ export default {
 
             advantTitle: 'Core Advantages Of Product',
             advantSubTitle1: 'Leading security risk analysis capability',
-            advantDesc1: 'Based on artificial intelligence and big data analysis technology,Eagle Eye can analyse and model the transaction behaviors on Blockchain, also has realized dozens of efficient and accurate threat analysis models, continuously monitor security threat in the real-time transaction behaviors on Blockchain, and assist users to discover security risk and attack behavior of transaction on Blockchain at the first time.',
+            advantDesc1: 'Based on artificial intelligence and big data analysis technology,Situation Awareness can analyse and model the transaction behaviors on Blockchain, also has realized dozens of efficient and accurate threat analysis models, continuously monitor security threat in the real-time transaction behaviors on Blockchain, and assist users to discover security risk and attack behavior of transaction on Blockchain at the first time.',
             advantSubTitle2: 'High automation detection capability',
             advantDesc2: 'Relying on the self-developed smart contract formal verification engine, the contract can be automatically tested to achieve rapid exposure to the contract risks and ensure the project security. Compared to the traditional manual audit method, our detection is more time-sensitive.',
             advantSubTitle3: 'Wide coverage of security models',

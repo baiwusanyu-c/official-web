@@ -56,14 +56,9 @@
         <!--    核心特色    -->
         <div class="advant-container flex w-full py-16 px-80 flex-col justify-center relative">
             <video class='absolute left-0 top-0 bottom-0 top-0'
-                   style="z-index: -1"
-                   key="product-eagle-video1"
-                   src="../../assets/video/wave.webm" muted="muted" autoplay="autoplay" loop="loop" width="1920" height="1080"></video>
-            <video class='absolute left-0 bottom-0 top-1/2' style="z-index: -1"
-                   src="../../assets/video/wave.webm"
-                   muted="muted"
-                   key="product-eagle-video2"
-                   autoplay="autoplay" loop="loop" width="1920" height="1080"></video>
+                   style="z-index: -1;object-fit: fill;height: 100%;"
+                   key="product-vass-video1"
+                   src="../../assets/video/wave.webm" muted="muted" autoplay="autoplay" loop="loop" ></video>
             <h2 class="text-4xl font-bold mb-16 text-default text-center font-format"> {{$t('lang.product.eagle.advantTitle')}}</h2>
             <div class="flex justify-center items-center w-full  mb-48">
                 <div class="advant-circle flex justify-center items-center font-bold p-6 text-center text-lg font-format">

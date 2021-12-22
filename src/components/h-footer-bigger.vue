@@ -5,7 +5,7 @@
 * @update (czh 2021/12/15)
 */
 <template>
-    <div class="bg-footer-container h-60 bg-footer">
+    <div class="bg-footer-container bg-footer">
         <div class="footer-class">
             <p class="font-format">{{$t('lang.HFooterBigger.contact.contactTitle')}}</p>
             <div class="contact-us">
@@ -35,12 +35,12 @@
                 <n-icon size="30px" class="group" @click="openWin(linkConfig['twitter'])"><logo-twitter/></n-icon>
                 <n-icon size="30px" class="group" @click="openWin(linkConfig['telegram'])"><telegram/></n-icon>
                 <n-icon size="30px" class="group" @click="openWin(linkConfig['github'])"><logo-github/></n-icon>
-                <n-popover trigger="click"
-                           color="#00FFBA" :arrow-style="{background:'#02fbbb'}" raw placement="bottom" :builtinThemeOverrides="popoverThemeOverrides">
+                <n-popover trigger="hover"
+                           color="#00FFBA" raw placement="bottom">
                     <template #trigger>
                         <n-icon size="30px" class="group"><logo-wechat/></n-icon>
                     </template>
-                    <div><img src="../assets/img/wechat-code.png" height="100" width="100"/></div>
+                    <div><img src="../assets/img/wechat-code.jpg" height="100" width="100"/></div>
                 </n-popover>
             </div>
         </div>
@@ -63,13 +63,8 @@ import {defineComponent} from "vue";
 import {LocationSharp,PhonePortraitOutline,MailSharp,LogoWechat,LogoTwitter,LogoGithub} from '@vicons/ionicons5'
 import {Telegram} from '@vicons/fa'
 import {NIcon,NPopover} from "naive-ui"
-import {  PopoverProps } from 'naive-ui'
 import {linkConfig,linkConfigPolicy} from '../enums/link'
-type PopoverThemeOverrides = NonNullable<PopoverProps['builtinThemeOverrides']>
 
-const popoverThemeOverrides: PopoverThemeOverrides = {
-    color:'#02fbbb'
-}
 export default defineComponent({
     name: "h-footer-bigger",
     components:{
@@ -94,7 +89,6 @@ export default defineComponent({
             window.open(url, url)
         }
         return{
-            popoverThemeOverrides,
             linkConfig,
             linkConfigPolicy,
             openWin,

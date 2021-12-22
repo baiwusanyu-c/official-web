@@ -77,7 +77,7 @@
                 </div>
             </div>
             <div class="slogan-service-item flex mt-20"  style="width: 60%">
-                <div class="flex flex-wrap relative">
+                <div class="w-1/2 flex flex-wrap relative">
                     <hexagon class='absolute font-format hexagon8' :index="7"></hexagon>
                     <hexagon class='absolute font-format hexagon9' :index="8"></hexagon>
                     <hexagon class='absolute font-format hexagon10' :index="9"></hexagon>

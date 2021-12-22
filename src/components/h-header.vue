@@ -321,7 +321,13 @@ export default defineComponent({
     @apply text-black
 }
 .hermit-header-l .request-btn{
+    height: 34px;
+    width:  145px;
     @apply bg-mainG text-black mr-12;
+}
+.hermit-header-l .request-btn:hover{
+    color: black;
+    background: #01e099;
 }
 .trigger-item .be-icon-container .be-icon{
     fill:#fff;
