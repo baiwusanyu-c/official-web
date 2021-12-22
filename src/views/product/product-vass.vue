@@ -141,7 +141,7 @@ export default defineComponent({
   width: 670px;
   padding-top: 0;
   margin-top: 112px;
-  font-family: 'SourceHanSansBold', sans-serif;
+  font-family: SourceHanSansBold, sans-serif;
   font-size: 60px;
   font-weight: bold;
   line-height: 80px;
@@ -151,7 +151,7 @@ export default defineComponent({
 .product-vass .header-text-small{
   width: 900px;
   padding-top: 39px;
-  font-family: 'SourceHanSansRegular', sans-serif;
+  font-family: SourceHanSansRegular, sans-serif;
   font-size: 30px;
   line-height: 30px;
   color: #FFF;

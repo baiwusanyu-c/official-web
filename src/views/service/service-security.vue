@@ -178,7 +178,7 @@ export default defineComponent({
   height: 210px;
   padding-top: 0;
   margin-top: 77px;
-  font-family: 'SourceHanSansBold', sans-serif;
+  font-family: SourceHanSansBold, sans-serif;
   font-size: 60px;
   font-weight: bold;
   line-height: 80px;
@@ -189,7 +189,7 @@ export default defineComponent({
   width: 645px;
   height: 72px;
   padding-top: 39px;
-  font-family: 'SourceHanSansRegular' ,sans-serif;
+  font-family: SourceHanSansRegular ,sans-serif;
   font-size: 30px;
   line-height: 30px;
   color: #FFF;
@@ -359,7 +359,7 @@ export default defineComponent({
   justify-content: space-between;
   width: 710px;
   height: 247px;
-  font-family: 'SourceHanSansNormal', sans-serif;
+  font-family: SourceHanSansNormal, sans-serif;
   color: #FFF;
 }
 

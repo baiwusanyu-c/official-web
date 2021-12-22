@@ -157,7 +157,7 @@ export default defineComponent({
   padding: 336px 150px 290px;
   margin: 0 auto;
   margin-bottom: 80px;
-  font-family: 'SourceHanSansNormal', sans-serif;
+  font-family: SourceHanSansNormal, sans-serif;
   background: url(../../assets/img/cet.jpg) no-repeat center;
 }
 
