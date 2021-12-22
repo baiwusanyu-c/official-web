@@ -117,7 +117,7 @@ import {defineComponent, ref, getCurrentInstance, ComponentInternalInstance, onM
 import {useI18n} from "vue-i18n";
 import {useEventBus} from "@vueuse/core";
 import {getStore, removeStore, setSession,getSession} from "../utils/common";
-import {BeMessage} from "../../public/be-ui/be-ui.es";
+import {BeMessage} from "../../public/be-ui/be-ui.es.js";
 interface ISelect {
     label: string,
     value: string,

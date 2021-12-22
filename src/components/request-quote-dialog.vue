@@ -37,6 +37,15 @@
                         type="textarea"
                         :autosize="{  minRows: 4, maxRows: 6 }"/>
                 </div>
+                <div class="flex w-full mb-12">
+                    <div class="flex-1 mr-6">
+                        <p class="label">{{$t('lang.login.verCode')}}</p>
+                        <n-input  v-model:value="formData.code" size="large"  :onInput = "formData.code=formData.code.replace(/[^\d]/g,'')"/>
+                    </div>
+                    <div class="flex-1 relative" @click="getCode">
+                        <img :src="codeUrl" alt="" class="absolute bottom-0 left-0" style="height: 42px"/>
+                    </div>
+                </div>
             </div>
             <template #action>
                 <be-button  customClass="sure-btn" round="3" @click="submit">
@@ -55,8 +64,9 @@ import {NForm,NFormItem,NInput,NSelect,NModal} from "naive-ui";
 import {IOption} from "../utils/types";
 import {useI18n} from "vue-i18n";
 import {createQuote, IQuote} from "../api/quote";
-import {BeMessage} from "../../public/be-ui/be-ui.es";
+import {BeMessage} from "../../public/be-ui/be-ui.es.js";
 import {verEmail} from "../utils/common";
+import {getCodeImg} from "../api/login";
 
 export default defineComponent({
     name: "request-quote-dialog",
@@ -79,9 +89,13 @@ export default defineComponent({
                     name:'',
                     email:'',
                     type:1,
+                    uuid:0,
+                    code:"",
                     mobile:'',
                     message:''
                 }
+            }else{
+                getCode()
             }
         })
         /**
@@ -111,6 +125,11 @@ export default defineComponent({
                 verMsg(tipStr)
                 return false
             }
+            if(!formData.value.code){
+                tipStr = t('lang.login.tipVerCode')
+                verMsg(tipStr)
+                return false
+            }
             return true
         }
         const submit = ():void =>{
@@ -121,6 +140,8 @@ export default defineComponent({
                 type:formData.value.type,
                 mobile:formData.value.mobile,
                 message:formData.value.message,
+                code:formData.value.code,
+                uuid:formData.value.uuid,
             }
             createQuote(params).then((res: any) => {
                 if (res.code === 200) {
@@ -149,6 +170,8 @@ export default defineComponent({
             name:'',
             email:'',
             type:1,
+            uuid:0,
+            code:"",
             mobile:'',
             message:''
         })
@@ -159,8 +182,19 @@ export default defineComponent({
               {label:t('lang.projectList.project3'), value:3},
               {label:t('lang.projectList.project4'), value:4}
             ])
+        /**
+         * 获取登录验证码
+         */
+        const codeUrl = ref<string>('')
+        const  getCode = ():void=>{
+            getCodeImg().then((res:any) => {
+                formData.value.uuid = res.uuid;
+                codeUrl.value = "data:image/gif;base64," + res.img;
+            });
+        }
         return {
-
+            codeUrl,
+            getCode,
             formData,
             submit,
             selectList,

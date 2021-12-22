@@ -13,6 +13,8 @@ export interface IQuote {
     type?:number,
     mobile?:string
     message?:string
+    code?: string,
+    uuid?:number
 }
 export function createQuote(params:IQuote){
     return request({
