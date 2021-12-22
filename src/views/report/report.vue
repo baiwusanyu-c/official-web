@@ -51,7 +51,7 @@
             <div class="CET-other" :style="{'bottom': '700px' }">
 <!--                <img class="code" src="../../../assets/image/code.png"/>-->
                 <div class="other-company">
-                    <div class="font-format">{{ $t("lang.report.cet.company") }}</div>
+<!--                    <div class="font-format">{{ $t("lang.report.cet.company") }}</div>-->
                     <div class="font-format">{{ CETInfo.time }}</div>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 {
-  "name": "be-ui3-doc",
+  "name": "hermit-front",
   "version": "1.0.0",
   "scripts": {
     "serve:dev": "vite --host --mode development",
