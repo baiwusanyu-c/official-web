@@ -18,7 +18,7 @@
                     <template #trigger>
                         <div class="font-format trigger-item y-full flex items-center text-base hover:text-mainG" :class="route.path.indexOf('service') > 0 ? 'item-active' : ''">
                             {{ $t('lang.header.service') }}
-                            <be-icon icon="under"></be-icon>
+                            <be-icon icon="under" class="ml-2"></be-icon>
                         </div>
                     </template>
                     <div
@@ -36,7 +36,7 @@
                     <template #trigger>
                         <div class="trigger-item y-full flex items-center font-format text-base hover:text-mainG" :class="route.path.indexOf('product') > 0 ? 'item-active' : ''">
                             {{ $t('lang.header.product') }}
-                            <be-icon icon="under" ></be-icon>
+                            <be-icon icon="under" class="ml-2"></be-icon>
                         </div>
                     </template>
                     <div
@@ -338,6 +338,8 @@ export default defineComponent({
 }
 
 .trigger-item .be-icon-container .be-icon{
+    width: 15px;
+    height: 15px;
   fill:#fff;
 }
 

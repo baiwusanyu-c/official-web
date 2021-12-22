@@ -41,7 +41,7 @@
                 </div>
                 <div class="flex w-full mb-8">
                     <div class="flex-1 mr-6">
-                        <p class="label">{{$t('lang.login.verCode')}}</p>
+                        <p class="label">{{$t('lang.login.verCode')}}<span style="color:red">*</span></p>
                         <n-input  v-model:value="formData.code" size="large"  :onInput = "formData.code=formData.code.replace(/[^\d]/g,'')"/>
                     </div>
                     <div class="flex-1 relative" @click="getCode">
