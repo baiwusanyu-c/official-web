@@ -9,15 +9,13 @@
             <div class="flex items-center justify-center md:w-3/4">
                 <div class="flex flex-1 flex-col mr-24 md:mr-0">
                     <div class="bg-black mb-4" style="width: 300px;height: 5px"></div>
-                    <h2 class="text-3xl mb-8 font-bold title font-format">
+                    <h2 class="text-3xl  font-bold title font-format">
                         {{$t('lang.contactUs.info1') }}
                     </h2>
-                    <p class="mb-8 font-format">
-                        {{$t('lang.contactUs.info2') }}
-                    </p>
+
                 </div>
                 <div class="flex flex-1 ">
-                    <be-button @click ='openDialog' customClass="h-btn-txt-black text-black font-bold w-40 mt-28 ml-20" size="large">
+                    <be-button @click ='openDialog' customClass="h-btn-txt-black text-black font-bold w-40 ml-20" size="large">
                         <span class="font-format">
                                 {{$t('lang.contactBtn') }}
                         </span>

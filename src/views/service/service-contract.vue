@@ -30,7 +30,7 @@
                 </div>
                 <div class="search-num-box">
                     <div class="num-header font-format">{{$t('lang.serviceContract.search.audited')}}</div>
-                    <div class="num-main">{{'5000+'}}</div>
+                    <div class="num-main">{{'2000+'}}</div>
                     <div class="num-footer"></div>
                 </div>
                 <div class="search-num-box">
@@ -42,8 +42,9 @@
             <div class="body-search-input">
                 <div class="input-title font-format">{{$t('lang.serviceContract.search.inputTitle')}}</div>
             </div>
-            <div class="search-input">
+            <div class="search-input shadow-2xl">
                 <n-input size="large"
+                         :theme-overrides="inputThemeOverrides"
                          v-model:value="searchPrams"
                          :onInput = "searchPrams=searchPrams.replace(/[^\d]/g,'')"
                          :placeholder="$t('lang.serviceContract.search.input')">
@@ -127,12 +128,15 @@
 <script lang="ts">
     import hServiceSwiper from '../../components/h-service-swiper.vue'
     import {defineComponent, getCurrentInstance, ref} from "vue";
-    import {NInput,NButton} from "naive-ui";
+    import {NInput,NButton,InputProps} from "naive-ui";
     import {useI18n} from "vue-i18n";
     import {BeMessage} from '../../../public/be-ui/be-ui.es.js'
     import VerCodeDialog from "../../components/ver-code-dialog.vue";
     import {IDialog} from "../../utils/types";
-
+    type InputThemeOverrides = NonNullable<InputProps['themeOverrides']>
+    const inputThemeOverrides: InputThemeOverrides = {
+        border:'1px solid black'
+    }
     export default defineComponent({
         name: "service-contract",
         components:{
@@ -163,7 +167,8 @@
             }
             return {
                 search,
-                searchPrams
+                searchPrams,
+                inputThemeOverrides
             }
         },
     })
@@ -202,4 +207,6 @@
   width: 1200px;
   margin-top: 71px;
 }
+
+
 </style>

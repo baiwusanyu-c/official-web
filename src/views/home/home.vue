@@ -26,7 +26,7 @@
                          class="text-default text-left w-1/2 mb-4 leading-6 flex items-center mogu-text"
                          :key="item.label">
                         <img alt="" src="../../assets/img/mogu.png" class="ml-4 mr-4"/>
-                        <p class="font-format">{{ item.label }}</p>
+                        <p class="font-format hover:text-mainG">{{ item.label }}</p>
                     </div>
                 </div>
                 <be-button
@@ -563,10 +563,6 @@ export default defineComponent({
 .home-swiper {
   width: 99vw;
   height: 460px;
-}
-
-.mogu-text p:hover {
-  text-decoration: underline;
 }
 
 @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {

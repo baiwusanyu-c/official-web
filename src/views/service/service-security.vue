@@ -30,7 +30,7 @@
                 </div>
                 <div class="search-num-box">
                     <div class="num-header">{{$t('lang.serviceSecurity.search.audited')}}</div>
-                    <div class="num-main">{{'5000+'}}</div>
+                    <div class="num-main">{{'2000+'}}</div>
                     <div class="num-footer"></div>
                 </div>
                 <div class="search-num-box">
@@ -42,8 +42,9 @@
             <div class="body-search-input">
                 <div class="input-title">{{$t('lang.serviceSecurity.search.inputTitle')}}</div>
             </div>
-            <div class="search-input">
+            <div class="search-input shadow-2xl">
                 <n-input size="large"
+                         :theme-overrides="inputThemeOverrides"
                          v-model:value="searchPrams"
                          :onInput = "searchPrams=searchPrams.replace(/[^\d]/g,'')"
                          :placeholder="$t('lang.serviceSecurity.search.input')">
@@ -115,14 +116,17 @@
 
 import hServiceSwiper from '../../components/h-service-swiper.vue'
 import {defineComponent, getCurrentInstance, ref} from "vue";
-import {NInput} from "naive-ui";
+import {InputProps, NInput} from "naive-ui";
 import {useI18n} from "vue-i18n";
 import AboutHermit from "../../components/about-hermit.vue";
 import ContactUs from "../../components/contact-us.vue";
 import VerCodeDialog from "../../components/ver-code-dialog.vue";
 import {BeMessage} from "../../../public/be-ui/be-ui.es";
 import {IDialog} from "../../utils/types";
-
+type InputThemeOverrides = NonNullable<InputProps['themeOverrides']>
+const inputThemeOverrides: InputThemeOverrides = {
+    border:'1px solid black'
+}
 export default defineComponent({
     name: "service-security",
     components:{
@@ -154,6 +158,7 @@ export default defineComponent({
         return {
             search,
             searchPrams,
+            inputThemeOverrides,
         }
     },
 })

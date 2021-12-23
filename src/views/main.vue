@@ -44,7 +44,7 @@ export default defineComponent({
         const dateLang = ref<NDateLocale | null>(dateZhCN)
         const initLang = (): void => {
             const langCache = getStore('lang')
-            locale.value = (langCache ? langCache : 'zh_CN') as string
+            locale.value = (langCache ? langCache : 'en_US') as string
             // 本地持久化
             setStore('lang', locale.value)
             changeUILang(locale.value)

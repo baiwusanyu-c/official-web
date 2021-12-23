@@ -1,265 +1,279 @@
 
-
-.service-page .header-text{
-  display: flex;
-  flex-direction: column;
+.service-page .header-text {
+    display: flex;
+    flex-direction: column;
 }
 
-.service-page .header-text-big{
-  max-width: 1000px;
-  padding-top: 0;
-  margin-top: 77px;
-  font-family: SourceHanSansBold, sans-serif;
-  font-size: 60px;
-  font-weight: bold;
-  line-height: 80px;
-  color: #FFF;
+.service-page .header-text-big {
+    max-width: 1000px;
+    padding-top: 0;
+    margin-top: 77px;
+    font-family: SourceHanSansBold, sans-serif;
+    font-size: 60px;
+    font-weight: bold;
+    line-height: 80px;
+    color: #FFF;
 }
 
-.service-page .header-button-box{
-  display: flex;
-  flex-direction: column-reverse;
-  width: 360px;
-  height: 300px;
+.service-page .header-button-box {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 360px;
+    height: 300px;
 }
 
-.service-page .header-button-box span{
-  font-size: 24px;
-  font-weight: 400;
+.service-page .header-button-box span {
+    font-size: 24px;
+    font-weight: 400;
 }
 
-.service-page .header-button{
-  width: 360px;
-  height: 60px;
-  background: linear-gradient(-73deg, #19BDFB, #00FFBA);
-  border-radius: 5px;
-}
-
-
-.service-page .page-body-search{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 744px;
-  background-color: #fff;
-}
-
-.service-page .body-search-text{
-  width: 1201px;
-  height: 157px;
-  margin-top: 65px;
-  font-size: 24px;
-  line-height: 44px;
-  text-align: center;
-}
-
-.service-page .body-search-num{
-  display: flex;
-  justify-content: space-between;
-  width: 834px;
-  margin-top: 73px;
-}
-
-.service-page .search-input{
-  width: 834px;
-  height: 84px;
-  margin-top: 39px;
-}
-
-.service-page .search-input-icon{
-  cursor:pointer
-}
-
-.service-page .search-num-box{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  height: 102px;
-}
-
-.service-page .num-header{
-  font-size: 20px;
-}
-
-.service-page .num-main{
-  font-size: 36px;
-  font-weight: bold;
-}
-
-.service-page .num-footer{
-  width: 180px;
-  height: 7px;
-  background: #00FFC4;
-  border-radius: 5px 5px 0 0;
-}
-
-.service-page .body-search-input{
-  margin-top: 94px;
-}
-
-.service-page .input-title{
-  font-size: 30px;
-  font-weight: bold;
-  color: #6D6D6E;
-}
-
-.service-page .page-body-content{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 969px;
-  background-color: #EFF2F7;
-}
-
-.service-page .body-title{
-  margin-top: 101px;
-  font-size: 36px;
-  font-weight: bold;
+.service-page .header-button {
+    width: 360px;
+    height: 60px;
+    background: linear-gradient(-73deg, #19BDFB, #00FFBA);
+    border-radius: 5px;
 }
 
 
-
-.service-page .card{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 255px;
-  height: 282px;
-  background-color: #FFF;
-  border-radius: 5px;
-  box-shadow: 0 6px 5px 0 rgba(0, 0, 0, .16);
-  transition: all .5s ease;
+.service-page .page-body-search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 744px;
+    background-color: #fff;
 }
 
-.service-page .card:hover{
-  box-shadow: 0 16px 30px 0 rgba(0, 255, 196, .16);
-  transition: all .5s ease;
+.service-page .body-search-text {
+    width: 1201px;
+    height: 157px;
+    margin-top: 65px;
+    font-size: 24px;
+    line-height: 44px;
+    text-align: center;
 }
 
-.service-page .card-title{
-  width: 210px;
-  height: 40px;
-  margin-top: 43px;
-  margin-bottom: 47px;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 23px;
-  color: #121214;
-  text-align: center;
+.service-page .body-search-num {
+    display: flex;
+    justify-content: space-between;
+    width: 834px;
+    margin-top: 73px;
+}
+
+.service-page .search-input {
+    width: 834px;
+    height: 40px;
+    margin-top: 39px;
+}
+
+.service-page .search-input-icon {
+    cursor: pointer
+}
+
+.service-page .search-num-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 102px;
+}
+
+.service-page .num-header {
+    font-size: 20px;
+}
+
+.service-page .num-main {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.service-page .num-footer {
+    width: 180px;
+    height: 7px;
+    background: #00FFC4;
+    border-radius: 5px 5px 0 0;
+}
+
+.service-page .body-search-input {
+    margin-top: 94px;
+}
+
+.service-page .input-title {
+    font-size: 30px;
+    font-weight: bold;
+    color: #6D6D6E;
+}
+
+.service-page .page-body-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 969px;
+    background-color: #EFF2F7;
+}
+
+.service-page .body-title {
+    margin-top: 101px;
+    font-size: 36px;
+    font-weight: bold;
 }
 
 
-
-.service-page .page-body-process{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 2009px;
-  background-color: #FFF;
+.service-page .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 255px;
+    height: 282px;
+    background-color: #FFF;
+    border-radius: 5px;
+    box-shadow: 0 6px 5px 0 rgba(0, 0, 0, .16);
+    transition: all .5s ease;
 }
 
-.service-page .process-text{
-  display: flex;
-  justify-content: space-between;
-  width: 616px;
-  margin-top: 88px;
-  margin-bottom: 54px;
-  font-size: 22px;
+.service-page .card:hover {
+    box-shadow: 0 16px 30px 0 rgba(0, 255, 196, .16);
+    transition: all .5s ease;
 }
 
-.service-page .page-body-reports-head{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.service-page .card-title {
+    width: 210px;
+    height: 40px;
+    margin-top: 43px;
+    margin-bottom: 47px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 23px;
+    color: #121214;
+    text-align: center;
 }
 
-.service-page .reports-header{
-  display: flex;
-  justify-content: space-between;
-  width: 1195px;
-  height: 345px;
-  margin-top: 151px;
+
+.service-page .page-body-process {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 2009px;
+    background-color: #FFF;
 }
 
-.service-page .reports-title-class{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 710px;
-  height: 247px;
-  font-family: SourceHanSansNormal, sans-serif;
-  color: #FFF;
+.service-page .process-text {
+    display: flex;
+    justify-content: space-between;
+    width: 616px;
+    margin-top: 88px;
+    margin-bottom: 54px;
+    font-size: 22px;
 }
 
-.service-page .reports-title-question{
-  height: 32px;
-  font-size: 30px;
-  font-weight: bold;
+.service-page .page-body-reports-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.service-page .reports-title-answer{
-  width: 710px;
-  height: 172px;
-  font-size: 20px;
-  line-height: 30px;
+.service-page .reports-header {
+    display: flex;
+    justify-content: space-between;
+    width: 1195px;
+    height: 345px;
+    margin-top: 151px;
 }
 
-.service-page .reports-middle{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  width: 680px;
-  height: 91px;
-  margin-top: 97px;
-  color: #FFF;
+.service-page .reports-title-class {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 710px;
+    height: 247px;
+    font-family: SourceHanSansNormal, sans-serif;
+    color: #FFF;
 }
 
-.service-page .reports-middle-title{
-  width: 410px;
-  height: 37px;
-  font-size: 36px;
-  font-weight: bold;
+.service-page .reports-title-question {
+    height: 32px;
+    font-size: 30px;
+    font-weight: bold;
 }
 
-.service-page .reports-middle-text{
-  width: 680px;
-  height: 21px;
-  font-size: 20px;
+.service-page .reports-title-answer {
+    width: 710px;
+    height: 172px;
+    font-size: 20px;
+    line-height: 30px;
 }
 
-.service-page .reservation-btn{
-  top: 58%;
-  right: 18%;
-  @apply h-12 w-80 font-bold absolute ;
+.service-page .reports-middle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 680px;
+    height: 91px;
+    margin-top: 97px;
+    color: #FFF;
 }
+
+.service-page .reports-middle-title {
+    width: 410px;
+    height: 37px;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.service-page .reports-middle-text {
+    width: 680px;
+    height: 21px;
+    font-size: 20px;
+}
+
+.service-page .header-text-small {
+    width: 645px;
+    height: 72px;
+    padding-top: 39px;
+    font-family: SourceHanSansRegular, sans-serif;
+    font-size: 30px;
+    line-height: 40px;
+    color: #FFF;
+}
+
+.service-page .reservation-btn {
+    top: 58%;
+    right: 18%;
+    @apply h-12 w-80 font-bold absolute ;
+}
+@media screen and (min-width: 1536px) and (max-width: 1750px) {
+    #service_security.service-page .page-head,
+    #service_contract.service-page .page-head {
+        height: 480px;
+        padding: 0 120px 80px 120px;
+    }
+}
+
 @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
 
-  #service_security.service-page .page-body-reports,
-  #service_contract.service-page .page-body-reports
-    {
-    height: 1160px;
-  }
+    #service_security.service-page .page-body-reports,
+    #service_contract.service-page .page-body-reports {
+        height: 1160px;
+    }
 
-  #service_security.service-page .page-head,
-  #service_contract.service-page .page-head{
-    height: 376px;
-    padding: 0 120px 80px 120px;
-  }
+    #service_security.service-page .page-head,
+    #service_contract.service-page .page-head {
+        height: 376px;
+        padding: 0 120px 80px 120px;
+    }
 
-  .service-page .page-head img{
-    width: 320px;
-    height: 320px;
-  }
+    .service-page .page-head img {
+        width: 320px;
+        height: 320px;
+    }
 
-  .service-page .header-text-big{
-    margin-top: 60px;
-  }
+    .service-page .header-text-big {
+        margin-top: 60px;
+    }
 
-  .service-page .header-text-small {
-    width: 768px;
-    font-size: 28px;
-    line-height: 32px;
-  }
+    .service-page .header-text-small {
+        width: 768px;
+        font-size: 28px;
+        line-height: 32px;
+    }
 }

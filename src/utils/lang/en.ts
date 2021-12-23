@@ -117,7 +117,7 @@ export default {
     // djd service-security
     serviceSecurity: {
         pageHead: {
-            textBig: 'Beosin Blockchian Plaform Testing Service',
+            textBig: 'Beosin - Blockchian Plaform Testing Service',
             textSmall: 'Multi-dimensional, multi-round and multi-way detection of blockchain security'
         },
         search: {
@@ -150,7 +150,7 @@ export default {
     },
     serviceContract: {
         pageHead: {
-            textBig: 'Beosin Smart Contract Audit Service',
+            textBig: 'Beosin - Smart Contract Audit Service',
             textSmall: 'Co-audited by more than 20 top blockchain security engineers worldwide',
             button: 'Reservation Now'
         },

@@ -5,6 +5,7 @@
     "serve:dev": "vite --host --mode development",
     "serve:stage": "vite --host --mode staging",
     "serve:pretest": "vite --host --mode pretest",
+    "serve:prod": "vite --host --mode production",
     "build:dev": "vite build --mode development",
     "build:stage": "vite build --mode staging",
     "build:prod": "vite build --mode production",

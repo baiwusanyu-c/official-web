@@ -17,7 +17,7 @@
         <swiper-slide v-for="item in list" :key="item.name + item.info">
             <div class="swiper-item flex flex-col">
                 <div class="h-60 text-container" style="border-bottom: 1px solid #dcdcdc">
-                    <h2 class="text-left font-format">“</h2>
+                    <h2 class="text-left">“</h2>
                     <p class="break-words text-left font-format">{{ item.info }}</p>
                 </div>
                 <div class="flex p-6 items-center">
@@ -129,7 +129,7 @@ export default defineComponent({
 }
 
 .home-swiper .swiper-item h2 {
-  font-size: 65px;
+  font-size: 42px;
 }
 
 .home-swiper .swiper-item p {
