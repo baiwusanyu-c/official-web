@@ -235,10 +235,13 @@
     @apply h-12 w-80 font-bold absolute ;
 }
 @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
-    .service-page .page-body-reports{
+    #service_security.service-page .page-body-reports,
+    #service_contract.service-page .page-body-reports
+    {
         height: 1160px;
     }
-    .service-page .page-head{
+    #service_security.service-page .page-head,
+    #service_contract.service-page .page-head{
         height: 376px;
         padding: 0 120px 80px 120px;
     }

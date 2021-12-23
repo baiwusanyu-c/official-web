@@ -1,0 +1,65 @@
+
+
+.product-page .header-text{
+    display: flex;
+    flex-direction: column;
+}
+
+.product-page .header-text-big{
+    width: 670px;
+    padding-top: 0;
+    margin-top: 112px;
+    font-family: SourceHanSansBold, sans-serif;
+    font-size: 60px;
+    font-weight: bold;
+    line-height: 80px;
+    color: #FFF;
+}
+
+.product-page .header-text-small{
+    width: 900px;
+    padding-top: 39px;
+    font-family: SourceHanSansRegular, sans-serif;
+    font-size: 30px;
+    line-height: 30px;
+    color: #FFF;
+}
+
+.product-page .try-out-btn{
+    @apply h-12 w-80 font-bold mt-32;
+}
+
+.product-page .func-container .func-card{
+    width: 285px;
+    height: 470px;
+    border-top: 5px solid transparent;
+}
+
+.product-page .func-container .func-card:hover {
+    border-top: 5px solid #02fbbb;
+    box-shadow: 0 25px 50px -12px #02fbbb;
+}
+
+.product-page .advant-container{
+
+    /* background-image:  url("../../assets/img/wave.jpg"); */
+}
+
+.product-page .advant-container .advant-circle{
+    width: 200px;
+    height: 200px;
+    background-image:  url("../../assets/img/advant-circle.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+@media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
+    #product_vass.product-page .page-head,
+    #product_eagle.product-page .page-head{
+        height: 376px;
+        padding: 0 120px 80px 120px;
+    }
+    .product-page .header-text-big{
+        margin-top: 60px;
+    }
+
+}

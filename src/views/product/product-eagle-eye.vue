@@ -1,11 +1,11 @@
 /*
 * @product-eagle-eye.vue
-* @deprecated
+* @deprecated 产品介绍页面 - 态势感知
 * @author czh
 * @update (czh 2021/12/17)
 */
 <template>
-    <div class="product-eagle">
+    <div class="product-page" id="product_eagle">
         <!--    头部介绍    -->
         <div class="page-head">
             <div class="header-text mr-1/2">
@@ -158,7 +158,8 @@ export default defineComponent({
 </script>
 
 <style>
-.product-eagle .page-head{
+@import "../../assets/css/product-page.css";
+#product_eagle .page-head{
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -169,68 +170,8 @@ export default defineComponent({
   background-repeat: no-repeat;
   background-size: 100%;
 }
-
-.product-eagle .header-text{
-  display: flex;
-  flex-direction: column;
-}
-
-.product-eagle .header-text-big{
-  width: 670px;
-  padding-top: 0;
-  margin-top: 112px;
-  font-family: SourceHanSansBold, sans-serif;
-  font-size: 60px;
-  font-weight: bold;
-  line-height: 80px;
-  color: #FFF;
-}
-
-.product-eagle .header-text-small{
-  width: 900px;
-  padding-top: 39px;
-  font-family: SourceHanSansRegular, sans-serif;
-  font-size: 30px;
-  line-height: 30px;
-  color: #FFF;
-}
-
-.product-eagle .try-out-btn{
-  @apply h-12 w-80 font-bold mt-32;
-}
-
-.product-eagle .func-container .func-card{
-  width: 285px;
-  height: 470px;
-  border-top: 5px solid transparent;
-}
-
-.product-eagle .func-container .func-card:hover {
-  border-top: 5px solid #02fbbb;
-  box-shadow: 0 25px 50px -12px #02fbbb;
-}
-
-.product-eagle .advant-container{
-
-  /* background-image:  url("../../assets/img/wave.jpg"); */
-}
-
-.product-eagle .advant-container .advant-circle{
-  width: 200px;
-  height: 200px;
-  background-image:  url("../../assets/img/advant-circle.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
-    .product-eagle .page-head{
-        height: 376px;
-        padding: 0 120px 80px 120px;
-    }
-    .product-eagle .header-text-big{
-        margin-top: 60px;
-    }
-    .product-eagle .header-text-small {
+    #product_eagle .header-text-small {
         width: 768px;
         font-size: 28px;
         line-height: 32px;
