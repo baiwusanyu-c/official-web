@@ -56,7 +56,7 @@
         <!--    核心特色    -->
         <div class="advant-container flex  w-full py-16 px-80 flex-col justify-center relative md:px-60" >
             <video class='absolute left-0 top-0 bottom-0 top-0'
-                   style="z-index: -1;object-fit: fill;height: 100%;width: 100%"
+                   style="z-index: -1;width: 100%;height: 100%;object-fit: fill"
                    key="product-vass-video1"
                    src="../../assets/video/wave.webm" muted="muted" autoplay="autoplay" loop="loop" ></video>
             <h2 class="text-4xl font-bold mb-12 text-default text-center font-format"> {{$t('lang.product.vass.advantTitle')}}</h2>
@@ -121,6 +121,7 @@ export default defineComponent({
 
 <style>
 @import "../../assets/css/product-page.css";
+
 #product_vass .page-head{
   display: flex;
   align-items: center;
@@ -135,10 +136,10 @@ export default defineComponent({
 
 @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
 
-    #product_vass .header-text-small {
-        width: 790px;
-        font-size: 28px;
-        line-height: 32px;
-    }
+  #product_vass .header-text-small {
+    width: 790px;
+    font-size: 28px;
+    line-height: 32px;
+  }
 }
 </style>

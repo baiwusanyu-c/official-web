@@ -89,14 +89,3 @@ export default {
 </script>
 
 ````
-√ 1.登录接口  
-√ 2.报告 搜索  （待部署测试）
-√ 3.首页背景图 - djd
-√ 4.波纹背景图 
-√ 5.联系我们校验  
-√ 6.首页swiper文案  
-7.产品截图
-√ 8.group 连接
-√ 9.about-us Community 连接  
-√ 10.首頁蘑菇跳轉 - djd  
-11.合约报告 swiper  

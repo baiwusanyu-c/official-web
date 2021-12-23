@@ -61,20 +61,20 @@ export default defineComponent({
 }
 
 .login-form{
-  background-image: url("../../assets/img/hat-bg.png");
-  background-repeat: no-repeat;
-  background-size: 28%;
-  background-position-x: 95%;
-  background-position-y: 5%;
-
   min-width:480px;
   min-height: 558px;
+  background-image: url("../../assets/img/hat-bg.png");
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-position-y: 5%;
+  background-size: 28%;
   border-top: 5px solid #02fbbb;
   @apply rounded w-1/4 h-4/6 bg-default;
 }
+
 .back{
-    right:30px;
-    top: 30px;
-    cursor: pointer;
+  top: 30px;
+  right:30px;
+  cursor: pointer;
 }
 </style>

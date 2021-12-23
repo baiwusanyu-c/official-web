@@ -5,6 +5,7 @@
             <div class="title-big font-format">{{ $t('lang.userCenter.titleBig') }}</div>
             <div class="title-small font-format">{{ $t('lang.userCenter.titleSmall') }}</div>
         </div>
+
         <div class="search">
             <div class="search-up">
                 <span class="font-format">{{ $t('lang.userCenter.searchTitle') }}</span>
@@ -46,7 +47,7 @@
 
 <script lang="ts">
 import {useI18n} from "vue-i18n";
-import {Search, DownloadOutline, Refresh,DocumentOutline} from '@vicons/ionicons5'
+import {Search, DownloadOutline, Refresh, DocumentOutline} from '@vicons/ionicons5'
 import {h, defineComponent, getCurrentInstance, ref, onMounted, reactive} from "vue";
 import {NInput, NButton, NIcon, NDataTable, DataTableProps, NPagination} from "naive-ui";
 import {
@@ -78,20 +79,20 @@ export default defineComponent({
     setup() {
         const message = BeMessage.service
         const {t} = useI18n()
-        const reportTypeDict  = ref<Array<string>>([
+        const reportTypeDict = ref<Array<string>>([
             t('lang.report.reportName.reportName1'),
             t('lang.report.reportName.reportName2'),
             t('lang.report.reportName.reportName3'),
             t('lang.report.reportName.reportName4'),
             t('lang.report.reportName.reportName5'),
         ])
-        const openFlagDict  = ref<Array<string>>([
+        const openFlagDict = ref<Array<string>>([
             t('lang.private'),
             t('lang.public')
         ])
 
         // 創建表格配置
-        const createColumns = (download: Function,openWin:Function) => {
+        const createColumns = (download: Function, openWin: Function) => {
             return [
                 {
                     title: t('lang.userCenter.tableAudit'),
@@ -114,29 +115,29 @@ export default defineComponent({
                     title: t('lang.userCenter.tableSetting'),
                     key: 'permission'
                 },
-                 {
-                     title: t('lang.userCenter.tableCertificate'),
-                     key: 'viewCET',
-                     render(row: any) {
-                         if(row.viewCET === 'true'){
-                             return h(
-                                 NIcon,
-                                 {
-                                     style: {cursor: 'pointer'},
-                                     onClick: openWin.bind(this, row),
-                                     size: '20px'
-                                 },
-                                 [h(
-                                     DocumentOutline,
-                                 )]
-                             )
-                         }
-                         return h(
-                             'span',
-                             [row.viewCET]
-                         )
-                     }
-                 },
+                {
+                    title: t('lang.userCenter.tableCertificate'),
+                    key: 'viewCET',
+                    render(row: any) {
+                        if (row.viewCET === 'true') {
+                            return h(
+                                NIcon,
+                                {
+                                    style: {cursor: 'pointer'},
+                                    onClick: openWin.bind(this, row),
+                                    size: '20px'
+                                },
+                                [h(
+                                    DocumentOutline,
+                                )]
+                            )
+                        }
+                        return h(
+                            'span',
+                            [row.viewCET]
+                        )
+                    }
+                },
                 {
                     title: t('lang.userCenter.tableAction'),
                     key: 'actions',
@@ -173,7 +174,7 @@ export default defineComponent({
         const searchData = (): void => {
             if (!searchParams.value) {
                 message({
-                    customClass:'hermit-msg',
+                    customClass: 'hermit-msg',
                     titles: t('lang.userCenter.searchInput'),
                     msgType: 'warning',
                     duration: 1500,
@@ -188,7 +189,7 @@ export default defineComponent({
             searchReport(params).then((res: any) => {
                 if (res.code === 200 && res.data) {
                     message({
-                        customClass:'hermit-msg',
+                        customClass: 'hermit-msg',
                         titles: t('lang.opSuccess'),
                         msgType: 'success',
                         duration: 1500,
@@ -200,7 +201,7 @@ export default defineComponent({
                 } else {
                     auditReport.value = []
                     message({
-                        customClass:'hermit-msg',
+                        customClass: 'hermit-msg',
                         titles: t('lang.opFailed'),
                         msgType: 'warning',
                         duration: 1500,
@@ -210,16 +211,16 @@ export default defineComponent({
                 }
             })
                 .catch(err => {
-                message({
-                    customClass:'hermit-msg',
-                    titles: err.message,
-                    msgType: 'warning',
-                    duration: 1500,
-                    offsetTop: 80,
-                    close: true,
+                    message({
+                        customClass: 'hermit-msg',
+                        titles: err.message,
+                        msgType: 'warning',
+                        duration: 1500,
+                        offsetTop: 80,
+                        close: true,
+                    })
+                    console.error(err)
                 })
-                console.error(err)
-            })
         }
         // 下載單個
         const downloadSingle = async (row: any) => {
@@ -258,7 +259,7 @@ export default defineComponent({
                 }
             }).catch(err => {
                 message({
-                    customClass:'hermit-msg',
+                    customClass: 'hermit-msg',
                     titles: err.message,
                     msgType: 'warning',
                     duration: 1500,
@@ -272,15 +273,15 @@ export default defineComponent({
          * 处理表格数据，将报告类型转化为文字
          * @param data
          */
-        const handleList = <T>(data:T[]):T[] =>{
-            data.forEach((val:any)=>{
-                if(val.reportType == 0 || val.reportType == 1){
+        const handleList = <T>(data: T[]): T[] => {
+            data.forEach((val: any) => {
+                if (val.reportType == 0 || val.reportType == 1) {
                     val.viewCET = 'true'
-                }else{
+                } else {
                     val.viewCET = '-'
                 }
                 val.reportTypeName = reportTypeDict.value[val.reportType]
-                val.permission  = openFlagDict.value[val.openFlag]
+                val.permission = openFlagDict.value[val.openFlag]
             })
 
             return data
@@ -291,8 +292,8 @@ export default defineComponent({
         /**
          * 打開窗口
          */
-        const openWin = (row:any)=>{
-            setSession('CETInfo',JSON.stringify(row))
+        const openWin = (row: any) => {
+            setSession('CETInfo', JSON.stringify(row))
             window.open('#/report', 'view_window')
         }
         return {
@@ -303,7 +304,7 @@ export default defineComponent({
             builtinThemeOverrides,
             auditReport,
             updatePage,
-            columns: createColumns(downloadSingle,openWin),
+            columns: createColumns(downloadSingle, openWin),
             paginationReactive
         }
     },
@@ -313,116 +314,120 @@ export default defineComponent({
 
 <style scoped>
 .page-header {
-  display: flex;
-  flex-direction: column;
-  height: 400px;
-  margin-top: -80px;
-  background: url("../../assets/img/user-center.png");
-  background-repeat: no-repeat;
-  background-size: cover;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    background: url("../../assets/img/user-center.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
 }
 
 .title-big {
-  width: 480px;
-  height: 49px;
-  margin-top: 223px;
-  margin-bottom: 42px;
-  margin-left: 361px;
-  font-size: 60px;
-  font-weight: bold;
-  line-height: 66px;
-  color: #FFF;
+    font-size: 60px;
+    font-weight: bold;
+    line-height: 66px;
+    width: 1200px;
+    color: #FFF;
+    margin-top: 180px;
+    margin-bottom: 10px;
 }
 
 .title-small {
-  width: 500px;
-  height: 21px;
-  margin-left: 361px;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 66px;
-  color: #FFF;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 66px;
+    width: 1200px;
+    color: #FFF;
 }
 
 .search {
-  height: 400px;
-  background: #EFF2F7;
+    height: 400px;
+    background: #EFF2F7;
 
 }
 
 .search-up {
-  width: 1200px;
-  height: 37px;
-  padding-top: 148px;
-  margin: auto;
-  font-size: 36px;
-  font-weight: bold;
-  line-height: 42px;
-  color: #121214;
+    width: 1200px;
+    height: 37px;
+    padding-top: 148px;
+    margin: auto;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 42px;
+    color: #121214;
 }
 
 .search-class {
-  display: flex;
-  justify-content: space-between;
-  width: 547px;
+    display: flex;
+    justify-content: space-between;
+    width: 547px;
 }
 
 .search-input {
-  display: flex;
-  align-items: center;
-  width: 465px;
-  height: 60px;
-  font-size: 20px;
+    display: flex;
+    align-items: center;
+    width: 465px;
+    height: 60px;
+    font-size: 20px;
 }
 
 .search-btn {
-  width: 66px;
-  height: 60px;
-  background: linear-gradient(144deg, #00FFC4, #02A1F9);
-  border-radius: 5px;
-  box-shadow: 0 5px 8px 0 rgba(132, 141, 134, .55);
+    width: 66px;
+    height: 60px;
+    background: linear-gradient(144deg, #00FFC4, #02A1F9);
+    border-radius: 5px;
+    box-shadow: 0 5px 8px 0 rgba(132, 141, 134, .55);
 }
 
 .download-btn {
-  width: 160px;
-  height: 60px;
-  background: #FFF;
-  border: 1px solid #00FFC4;
-  border-radius: 5px;
+    width: 160px;
+    height: 60px;
+    background: #FFF;
+    border: 1px solid #00FFC4;
+    border-radius: 5px;
 }
 
 .download-btn span {
-  width: 120px;
-  height: 16px;
-  font-size: 20px;
-  font-weight: 400;
-  color: #000;
+    width: 120px;
+    height: 16px;
+    font-size: 20px;
+    font-weight: 400;
+    color: #000;
 }
 
 .search-down {
-  display: flex;
-  justify-content: space-between;
-  width: 1200px;
-  height: 60px;
-  margin: 80px auto;
+    display: flex;
+    justify-content: space-between;
+    width: 1200px;
+    height: 60px;
+    margin: 80px auto;
 }
 
 .page-table {
-  width: 100%;
-  height: 548px;
-  margin-top: 0;
+    width: 100%;
+    height: 548px;
+    margin-top: 0;
 }
 
 .table-body {
-  width: 1200px;
-  height: 360px;
-  padding-top: 36px;
-  margin: auto;
+    width: 1200px;
+    height: 360px;
+    padding-top: 36px;
+    margin: auto;
 }
 
-/* @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
+ @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
+     .page-header {
+         background-size: 100%;
+         height: 264px;
+     }
+     .title-big {
+         margin-top: 120px;
+     }
 
 
 
-} */
+}
 </style>

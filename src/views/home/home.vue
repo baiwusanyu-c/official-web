@@ -163,7 +163,7 @@
             <div class="slogan-customer-logo flex flex-wrap px-36 h-3/5 justify-around mb-12 box-border">
                 <div v-for="(item) in customerImgList"
                      :key='item.img'
-                     class="shadow-lg mb-14 mr-6 hover:shadow-2xl">
+                     class="shadow-lg mb-14 mr-6 bg-default hover:shadow-2xl">
                     <img :src="item.img" alt=""/>
                 </div>
             </div>
@@ -409,7 +409,7 @@ export default defineComponent({
 }
 
 .slogan-service-item{
-    width: 600px;
+  width: 600px;
   min-width: 1050px;
 }
 

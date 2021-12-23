@@ -338,8 +338,8 @@ export default defineComponent({
 }
 
 .trigger-item .be-icon-container .be-icon{
-    width: 15px;
-    height: 15px;
+  width: 15px;
+  height: 15px;
   fill:#fff;
 }
 

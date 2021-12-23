@@ -104,13 +104,13 @@ export default defineComponent({
 }
 
 .swiper-footer{
+  box-sizing:border-box;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 257px;
   height: 138px;
   padding: 30px;
-  box-sizing:border-box;
   text-align: center;
   background: linear-gradient(-32deg, #19BCFC, #00FFBA);
 }
@@ -128,35 +128,42 @@ export default defineComponent({
   height: 100%;
   object-fit: cover;
 }
+
 .myServiceSwiper .service-swiper-slide{
-    width: 100%;
-    flex-direction: column;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
+
 .swiper{
   --swiper-navigation-color: #DFDFDF;/* 单独设置按钮颜色 */
   --swiper-navigation-size: 30px;/* 设置按钮大小 */
 }
 @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
-    .myServiceSwiper{
-        width: 1100px;
-    }
-    .myServiceSwiper .swiper-header{
-        width:200px;
-        height:150px;
-    }
-    .myServiceSwiper .swiper-header p{
-        font-size: 20px;
-    }
-    .myServiceSwiper .swiper-footer{
-        width:200px;
-        height:150px;
-    }
-    .myServiceSwiper .swiper-footer p{
-        font-size: 12px;
-    }
+
+  .myServiceSwiper{
+    width: 1100px;
+  }
+
+  .myServiceSwiper .swiper-header{
+    width:200px;
+    height:150px;
+  }
+
+  .myServiceSwiper .swiper-header p{
+    font-size: 20px;
+  }
+
+  .myServiceSwiper .swiper-footer{
+    width:200px;
+    height:150px;
+  }
+
+  .myServiceSwiper .swiper-footer p{
+    font-size: 12px;
+  }
 
 }
 </style>

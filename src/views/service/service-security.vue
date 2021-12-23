@@ -161,31 +161,35 @@ export default defineComponent({
 
 <style scoped>
 @import "../../assets/css/service-page.css";
+
 #service_security .content-card-up{
-    display: flex;
-    justify-content: space-between;
-    width: 941px;
-    margin-top: 71px;
+  display: flex;
+  justify-content: space-between;
+  width: 941px;
+  margin-top: 71px;
 }
+
 #service_security .content-card-down{
-    display: flex;
-    justify-content: space-between;
-    width: 608px;
-    margin-top: 79px;
+  display: flex;
+  justify-content: space-between;
+  width: 608px;
+  margin-top: 79px;
 }
+
 #service_security .page-head{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 570px;
-    padding-bottom: 110px;
-    background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 570px;
+  padding-bottom: 110px;
+  background-color: black;
 }
+
 #service_security .page-body-reports{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 1227px;
-    background-color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 1227px;
+  background-color: #000;
 }
 </style>

@@ -8,10 +8,10 @@
     <div id="request_quote_dialog">
         <n-modal v-model:show="isShow" preset="dialog" :title="$t('lang.header.requestUs')" to="#request_quote_dialog">
             <template #header>
-                <p class="pb-6">{{$t('lang.header.requestUs')}}</p>
+                <p class="pb-6 md:pb-4">{{$t('lang.header.requestUs')}}</p>
             </template>
             <div slot="body" class="plus-dialog-body flex flex-col justify-center items-center w-full">
-                <div class="flex w-full mb-8">
+                <div class="flex w-full mb-8 md:mb-4">
                     <div class="flex-1 mr-6">
                         <p class="label">{{$t('lang.quoteDialog.projectName')}}</p>
                         <n-select v-model:value="formData.type"  placeholder="Select" size="large" :options="selectList" />
@@ -21,25 +21,25 @@
                         <n-input  v-model:value="formData.name" size="large"/>
                     </div>
                 </div>
-                <div class="flex flex-col w-full mb-8">
+                <div class="flex flex-col w-full mb-8 md:mb-4">
                     <p class="label">
                         {{$t('lang.quoteDialog.email')}}
                         <span style="color:red">*</span>
                     </p>
                     <n-input  v-model:value="formData.email" size="large"/>
                 </div>
-                <div class="flex flex-col w-full mb-8">
+                <div class="flex flex-col w-full mb-8 md:mb-4">
                     <p class="label">{{$t('lang.quoteDialog.phone')}}</p>
                     <n-input  v-model:value="formData.mobile" size="large"/>
                 </div>
-                <div class="flex flex-col w-full mb-8">
+                <div class="flex flex-col w-full mb-8 md:mb-4">
                     <p class="label">{{$t('lang.quoteDialog.message')}}</p>
                     <n-input
                         v-model:value="formData.message"
                         type="textarea"
                         :autosize="{  minRows: 4, maxRows: 6 }"/>
                 </div>
-                <div class="flex w-full mb-8">
+                <div class="flex w-full mb-8 md:mb-4">
                     <div class="flex-1 mr-6">
                         <p class="label">{{$t('lang.login.verCode').toUpperCase()}}
                             <span style="color:red">*</span>
@@ -213,9 +213,9 @@ export default defineComponent({
 
 <style>
 #request_quote_dialog .n-dialog{
+  width: auto;
   background: #EFF2F7 !important;
   border-top:5px solid #02fbbb;
-  @apply w-1/3;
 }
 
 #request_quote_dialog .request-quote-dialog{
