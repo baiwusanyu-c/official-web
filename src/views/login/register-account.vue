@@ -9,9 +9,9 @@
         <img src="../../assets/img/logo-black.png" class='mb-2 w-1/2' alt=""/>
         <!--  账户      -->
         <h3 class="text-2xl font-bold mb-2 font-format">{{$t('lang.login.registerTxt')}}</h3>
-        <div class='mb-8 h-24 border-b w-full'>
+        <div class='mb-8 h-24 border-b w-full md:mb-4'>
             <span class="text-gray-500 mr-4 font-format">{{$t('lang.login.account')}}</span>
-            <input type="text" class='h-16'
+            <input type="text" class='h-16 md:h-14'
                    :placeholder="$t('lang.login.tipAccount')"
                    v-model="form.account"/>
         </div>
@@ -19,18 +19,18 @@
         <!--  密码      -->
         <div class='login-password mb-2 h-24 border-b w-full flex items-center '>
             <span class="text-gray-500 mr-4 flex-grow-0 font-format">{{$t('lang.login.password')}}</span>
-            <input class='flex-grow h-16 font-format' :type="isShowPassword" :placeholder="$t('lang.login.tipPassword')" v-model="form.password"/>
+            <input class='flex-grow h-16 font-format md:h-14' :type="isShowPassword" :placeholder="$t('lang.login.tipPassword')" v-model="form.password"/>
             <be-icon :icon="isShowPassword === 'password' ? 'noEye' : 'eye'"
                      customClass="flex-grow-0"
                      @click="changeShowPWord"></be-icon>
         </div>
 
-        <p class="mb-8 text-gray-500 font-format">
+        <p class="mb-8 text-gray-500 font-format md:mb-4">
             <span style="color: red">*</span>
             {{$t('lang.login.tip')}}
         </p>
         <!--  邮箱验证      -->
-        <div class='mb-8 flex w-full'>
+        <div class='mb-8 flex w-full md:mb-4'>
             <input type="text" v-model="form.verification_code" class="border h-12 flex-1 font-format"/>
             <div class="bg-mainG cursor-pointer flex items-center justify-center w-32" @click="verifyCodeMail">
                 <img src="../../assets/img/send-vr-code.png" alt=""/>
@@ -38,7 +38,7 @@
         </div>
         <be-button @click="register"
                    size="large"
-                   customClass="login-btn linear-l-r text-black font-bold text-lg w-full mb-8 mx-auto">
+                   customClass="login-btn linear-l-r text-black font-bold text-lg w-full mb-8 mx-auto md:mb-4">
            <span class="font-format">{{$t('lang.login.register')}}</span>
         </be-button>
         <be-button size="large"

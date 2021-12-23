@@ -10,14 +10,14 @@
         <img src="../../assets/img/logo-black.png" class='mb-4 w-1/2' alt=""/>
         <!--  账户      -->
         <h3 class="text-2xl font-bold mb-2 font-format">{{$t('lang.login.forget')}}</h3>
-        <div class='mb-2 h-24 border-b w-full'>
+        <div class='mb-2 h-24 border-b w-full md:h-14'>
             <span class="text-gray-500 mr-4 font-format">{{$t('lang.login.account')}}</span>
-            <input type="text" class='h-16 font-format'  :placeholder="$t('lang.login.tipAccount')" v-model="form.account"/>
+            <input type="text" class='h-16 font-format md:h-12'  :placeholder="$t('lang.login.tipAccount')" v-model="form.account"/>
         </div>
         <!--  密码      -->
-        <div class='login-password mb-2 h-24 border-b w-full flex items-center '>
+        <div class='login-password mb-2 h-24 border-b w-full flex items-center md:h-14'>
             <span class="text-gray-500 mr-4 flex-grow-0 font-format">{{$t('lang.login.password')}}</span>
-            <input class='flex-grow h-16 font-format'
+            <input class='flex-grow h-16 font-format md:h-12'
                    :placeholder="$t('lang.login.tipPassword')"
                    :type="isShowPassword" v-model="form.password"/>
             <be-icon :icon="isShowPassword === 'password' ? 'noEye' : 'eye'"
@@ -27,7 +27,7 @@
         <!--  确认密码      -->
         <div class='login-password mb-2 h-24 border-b w-full flex items-center '>
             <span class="text-gray-500 mr-4 flex-grow-0 font-format">{{$t('lang.login.password')}}</span>
-            <input class='flex-grow h-16 font-format'
+            <input class='flex-grow h-16 font-format md:h-12'
                    :type="isShowPassword"
                    :placeholder="$t('lang.login.tipPasswordConfirm')"
                    v-model="form.re_password"/>
@@ -36,7 +36,7 @@
                      @click="changeShowPWord('unConfirm')"></be-icon>
             <!--       no-eye     -->
         </div>
-        <p class="mb-4 text-gray-500">
+        <p class="mb-4 text-gray-500 md:mb-2">
             <span style="color: red">*</span>
             {{$t('lang.login.tip')}}
         </p>

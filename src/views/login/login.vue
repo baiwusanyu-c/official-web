@@ -6,7 +6,8 @@
 */
 <template>
     <div class="login flex justify-center items-center relative">
-        <div class="login-form px-12 py-10 box-border flex animate__animated animate__fadeInDown animate__faster" id="login_form">
+        <div class="login-form px-12 py-10 box-border flex animate__animated animate__fadeInDown animate__faster md:py-8 md:px-10"
+             id="login_form">
             <register-account @showChange = 'changeType' v-if="showType === 'register'"></register-account>
             <login-password  @showChange = 'changeType' v-if="showType === 'login'"></login-password>
             <forget-password @showChange = 'changeType' v-if="showType === 'forget'"></forget-password>

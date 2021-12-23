@@ -11,8 +11,8 @@
             <!--  账户      -->
             <div class='mb-2 h-14 border-b w-full'>
                 <span class="text-gray-500 mr-4 font-format">{{$t('lang.login.account')}}</span>
-                <input type="text font-format"
-                       class='w-9/12'
+                <input type="text"
+                       class='w-9/12 font-format'
                        :placeholder="$t('lang.login.tipAccount')"
                        v-model="form.username"/>
             </div>
