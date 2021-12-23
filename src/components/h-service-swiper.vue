@@ -1,5 +1,5 @@
 /*
-* @h-home-swiper.vue
+* @h-service-swiper.vue
 * @deprecated
 * @author czh
 * @update (czh 2021/12/15)
@@ -9,24 +9,22 @@
         :slidesPerView="4"
         :spaceBetween="10"
         :centerInsufficientSlides="true"
-        :centeredSlides="false"
         :initialSlide="1"
-        :loop="false"
-        :slidesPerGroup="4"
+        :slidesPerGroup="1"
         :loopFillGroupWithBlank="true"
         :pagination="false"
         :navigation="true"
-        class="mySwiper">
+        class="myServiceSwiper">
         <swiper-slide v-for="item in list" :key="item.name + item.info">
-            <div style="margin-left: 56px">
+            <div class="service-swiper-slide">
                 <div class="swiper-header">
                     <p class="swiper-header-title font-format">{{item.name}}</p>
                 </div>
                 <div class="swiper-footer">
                     <p class="break-words text-left font-format">{{ item.info }}</p>
                 </div>
-
             </div>
+
         </swiper-slide>
     </swiper>
 </template>
@@ -42,7 +40,7 @@ SwiperCore.use([Pagination, Autoplay, Navigation]);
 import {SwiperEvents} from "swiper/types/swiper-events";
 import {NAvatar} from 'naive-ui'
 export default defineComponent({
-    name: "h-home-swiper",
+    name: "h-service-swiper",
     components: {
         Swiper,
         SwiperSlide,
@@ -83,16 +81,9 @@ export default defineComponent({
 </script>
 
 <style>
-.home-swiper .swiper {
-  width: 100%;
-  height: 100%;
-}
 
-.swiper-main{
-  width: 1200px;
-}
 
-.mySwiper{
+.myServiceSwiper{
   width: 1500px;
 }
 
@@ -106,8 +97,6 @@ export default defineComponent({
 }
 
 .swiper-header p{
-  width: 120px;
-  height: 23px;
   font-size: 30px;
   font-weight: 400;
   line-height: 35px;
@@ -120,45 +109,17 @@ export default defineComponent({
   justify-content: center;
   width: 257px;
   height: 138px;
+  padding: 30px;
+  box-sizing:border-box;
   text-align: center;
   background: linear-gradient(-32deg, #19BCFC, #00FFBA);
 }
 
 .swiper-footer p{
-  width: 150px;
-  height: 45px;
   font-size: 16px;
   font-weight: 400;
   line-height: 32px;
   color: #0A0A0A;
-}
-
-.home-swiper .swiper-slide {
-
-  /* Center slide text vertically */
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-align-items: center;
-  align-items: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  width: 360px;
-  height: 355px;
-  font-size: 18px;
-  text-align: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  @apply shadow-xl;
-}
-
-.home-swiper .swiper-slide-active {
-  width: 380px;
-  height: 386px;
-  @apply shadow-2xl;
 }
 
 .swiper-slide img {
@@ -167,22 +128,35 @@ export default defineComponent({
   height: 100%;
   object-fit: cover;
 }
-
-.home-swiper .swiper-item {
-  width: 300px;
+.myServiceSwiper .service-swiper-slide{
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
-.home-swiper .swiper-slide-active .swiper-item h2 {
-  @apply text-mainG;
-}
-
-.home-swiper .swiper-item h2 {
-  @apply text-8xl;
-}
-
 .swiper{
   --swiper-navigation-color: #DFDFDF;/* 单独设置按钮颜色 */
   --swiper-navigation-size: 30px;/* 设置按钮大小 */
 }
+@media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
+    .myServiceSwiper{
+        width: 1100px;
+    }
+    .myServiceSwiper .swiper-header{
+        width:200px;
+        height:150px;
+    }
+    .myServiceSwiper .swiper-header p{
+        font-size: 20px;
+    }
+    .myServiceSwiper .swiper-footer{
+        width:200px;
+        height:150px;
+    }
+    .myServiceSwiper .swiper-footer p{
+        font-size: 12px;
+    }
 
+}
 </style>

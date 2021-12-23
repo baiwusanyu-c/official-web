@@ -8,8 +8,8 @@
   export default defineComponent({})
 </script>
 <style>
-  @import "assets/tailwind.css";
-  @import "assets/animate.css";
-  @import "assets/common.css";
+  @import "assets/css/tailwind.css";
+  @import "assets/css/animate.css";
+  @import "assets/css/common.css";
 </style>
 

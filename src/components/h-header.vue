@@ -1,8 +1,8 @@
 <template>
     <!--  左侧  -->
     <div class="hermit-header flex flex-1 items-center">
-        <div class="flex items-center justify-end cursor-pointer md:w-64 sm:w-12 " @click="routerPush('/index/home')">
-            <img src="../assets/img/LOGO.png" alt=""/>
+        <div class="flex items-center justify-end cursor-pointer w-64" @click="routerPush('/index/home')">
+            <img src="../assets/img/LOGO.png" alt="" style="height: 46px;"/>
         </div>
 
         <div class="h-10 flex items-center justify-between ml-10">
@@ -11,7 +11,7 @@
                 {{ $t('lang.header.research') }}
             </div>-->
             <!--    服务    -->
-            <div class="w-28 cursor-pointer md:flex sm:hidden">
+            <div class="w-28 cursor-pointer">
                 <be-popover trigger="click"
                             ref="popoverService"
                             customClass="header-popover" placement="bottom">
@@ -31,7 +31,7 @@
                 </be-popover>
             </div>
             <!--   产品    -->
-            <div class="w-28 cursor-pointer md:flex sm:hidden">
+            <div class="w-28 cursor-pointer">
                 <be-popover trigger="click" customClass="header-popover" placement="bottom" ref="popoverProduct">
                     <template #trigger>
                         <div class="trigger-item y-full flex items-center font-format text-base hover:text-mainG" :class="route.path.indexOf('product') > 0 ? 'item-active' : ''">
@@ -48,7 +48,7 @@
                     </div>
                 </be-popover>
             </div>
-            <div class="font-format w-28 cursor-pointer text-base hover:text-mainG md:flex sm:hidden"
+            <div class="font-format w-28 cursor-pointer text-base hover:text-mainG"
                  :class="route.path.indexOf('aboutUs') > 0 ? 'item-active' : ''"
                  @click="routerPush('/index/aboutUs')">
                 {{ $t('lang.header.aboutUs') }}
@@ -56,7 +56,7 @@
         </div>
     </div>
     <!--  右侧  -->
-    <div class="hermit-header-l flex justify-end items-center flex-1 text-right md:block sm:hidden">
+    <div class="hermit-header-l flex justify-end items-center flex-1 text-right ">
         <!--    联系    -->
         <be-button customClass="request-btn text-bold" @click="openDialog">
             <span class="font-format">{{ $t('lang.header.requestUs') }}</span>
@@ -105,9 +105,9 @@
         </be-popover>-->
     </div>
     <!--  移动端显示的菜单按钮  -->
-    <div class="text-right md:hidden sm:flex">
+<!--    <div class="text-right md:hidden sm:flex">
         <be-icon icon="type" customClass="menu-icon"></be-icon>
-    </div>
+    </div>-->
 </template>
 
 <script lang="ts">

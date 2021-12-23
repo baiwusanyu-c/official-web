@@ -409,8 +409,8 @@ export default defineComponent({
 }
 
 .slogan-service-item{
-  width: 600px;
-  min-width: 1000px;
+    width: 600px;
+  min-width: 1050px;
 }
 
 .slogan-service .hexagon1 {
@@ -424,27 +424,27 @@ export default defineComponent({
 }
 
 .slogan-service .hexagon3 {
-  top: 38%;
+  top: 42%;
   left: 5%;
 }
 
 .slogan-service .hexagon4 {
-  top: 38%;
+  top: 42%;
   left: 35%;
 }
 
 .slogan-service .hexagon5 {
-  top: 38%;
+  top: 42%;
   left: 65%;
 }
 
 .slogan-service .hexagon6 {
-  top: 86%;
+  top: 94%;
   left: 20%;
 }
 
 .slogan-service .hexagon7 {
-  top: 86%;
+  top: 94%;
   left: 50%;
 }
 

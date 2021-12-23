@@ -1,5 +1,11 @@
+/*
+* @service-contract.vue
+* @deprecated 合约服务页面
+* @author djd
+* @update (czh 2021/12/16)
+*/
 <template>
-    <div>
+    <div class="service-page" id="service_contract">
         <div class="page-head relative">
             <div class="header-text">
                 <div class="header-text-big font-format">
@@ -164,276 +170,32 @@
 </script>
 
 <style scoped>
-
-.header-text{
-  display: flex;
-  flex-direction: column;
+@import "../../assets/css/service-page.css";
+#service_contract .page-head{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 570px;
+    padding-bottom: 110px;
+    background: url("../../assets/img/service-contract/contract-header.png");
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-
-.header-text-big{
-  max-width: 1000px;
-  padding-top: 0;
-  margin-top: 77px;
-  font-family: SourceHanSansBold, sans-serif;
-  font-size: 60px;
-  font-weight: bold;
-  line-height: 80px;
-  color: #FFF;
+#service_contract .content-card-down{
+    display: flex;
+    justify-content: space-between;
+    width: 1200px;
+    margin-top: 79px;
 }
-
-.header-text-small{
-  width: 645px;
-  height: 72px;
-  padding-top: 39px;
-  font-family: SourceHanSansRegular, sans-serif;
-  font-size: 30px;
-  line-height: 30px;
-  color: #FFF;
+#service_contract .page-body-reports{
+    height: 1227px;
+    background-color: #000;
 }
-
-.page-head{
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  height: 570px;
-  padding-bottom: 110px;
-  background: url("../../assets/img/service-contract/contract-header.png");
-  background-color: black;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.header-button-box{
-  display: flex;
-  flex-direction: column-reverse;
-  width: 360px;
-  height: 300px;
-}
-
-.header-button-box span{
-  font-size: 24px;
-  font-weight: 400;
-}
-
-.header-button{
-  width: 360px;
-  height: 60px;
-  background: linear-gradient(-73deg, #19BDFB, #00FFBA);
-  border-radius: 5px;
-}
-
-
-.page-body-search{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 744px;
-  background-color: #fff;
-}
-
-.body-search-text{
-  width: 1201px;
-  height: 157px;
-  margin-top: 65px;
-  font-size: 24px;
-  line-height: 44px;
-  text-align: center;
-}
-
-.body-search-num{
-  display: flex;
-  justify-content: space-between;
-  width: 834px;
-  margin-top: 73px;
-}
-
-.search-input{
-  width: 834px;
-  height: 84px;
-  margin-top: 39px;
-}
-
-.search-input-icon{
-  cursor:pointer
-}
-
-.search-num-box{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  height: 102px;
-}
-
-.num-header{
-  font-size: 20px;
-}
-
-.num-main{
-  font-size: 36px;
-  font-weight: bold;
-}
-
-.num-footer{
-  width: 180px;
-  height: 7px;
-  background: #00FFC4;
-  border-radius: 5px 5px 0 0;
-}
-
-.body-search-input{
-  margin-top: 94px;
-}
-
-.input-title{
-  font-size: 30px;
-  font-weight: bold;
-  color: #6D6D6E;
-}
-
-.page-body-content{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 969px;
-  background-color: #EFF2F7;
-}
-
-.body-title{
-  margin-top: 101px;
-  font-size: 36px;
-  font-weight: bold;
-}
-
-.content-card-up{
-  display: flex;
-  justify-content: space-between;
-  width: 1200px;
-  margin-top: 71px;
-}
-
-.card{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 255px;
-  height: 282px;
-  background-color: #FFF;
-  border-radius: 5px;
-  box-shadow: 0 6px 5px 0 rgba(0, 0, 0, .16);
-  transition: all .5s ease;
-}
-
-.card:hover{
-  box-shadow: 0 16px 30px 0 rgba(0, 255, 196, .16);
-  transition: all .5s ease;
-}
-
-.card-title{
-  width: 210px;
-  height: 40px;
-  margin-top: 43px;
-  margin-bottom: 47px;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 23px;
-  color: #121214;
-  text-align: center;
-}
-
-.content-card-down{
-  display: flex;
-  justify-content: space-between;
-  width: 1200px;
-  margin-top: 79px;
-}
-
-.page-body-process{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 2009px;
-  background-color: #FFF;
-}
-
-.process-text{
-  display: flex;
-  justify-content: space-between;
-  width: 616px;
-  margin-top: 88px;
-  margin-bottom: 54px;
-  font-size: 22px;
-}
-
-.page-body-reports{
-  height: 1227px;
-  background-color: #000;
-}
-
-.page-body-reports-head{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.reports-header{
-  display: flex;
-  justify-content: space-between;
-  width: 1195px;
-  height: 345px;
-  margin-top: 151px;
-}
-
-.reports-title-class{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 710px;
-  height: 247px;
-  font-family: SourceHanSansNormal, sans-serif;
-  color: #FFF;
-}
-
-.reports-title-question{
-  height: 32px;
-  font-size: 30px;
-  font-weight: bold;
-}
-
-.reports-title-answer{
-  width: 710px;
-  height: 172px;
-  font-size: 20px;
-  line-height: 30px;
-}
-
-.reports-middle{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  width: 680px;
-  height: 91px;
-  margin-top: 97px;
-  color: #FFF;
-}
-
-.reports-middle-title{
-  width: 410px;
-  height: 37px;
-  font-size: 36px;
-  font-weight: bold;
-}
-
-.reports-middle-text{
-  width: 680px;
-  height: 21px;
-  font-size: 20px;
-}
-
-.reservation-btn{
-  top: 58%;
-  right: 18%;
-  @apply h-12 w-80 font-bold absolute ;
+#service_contract .content-card-up{
+    display: flex;
+    justify-content: space-between;
+    width: 1200px;
+    margin-top: 71px;
 }
 </style>

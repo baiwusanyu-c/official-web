@@ -24,7 +24,7 @@ service.interceptors.request.use(
         config.headers['Accept-Language'] = getStore('lang') ? getStore('lang') : 'en_US';
         if (config.method === 'post' && config.url!=='/auth/oauth/login') {
             config.data = config.params
-            config.headers['Content-Type'] = 'application/json;charlang.report.cet.=UTF-8'
+            config.headers['Content-Type'] = 'application/json;charset=UTF-8'
             config.headers.post['Content-Type'] = 'application/json;charset=UTF-8'
             delete config.params
             if (config.otherParams) {

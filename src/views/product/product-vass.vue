@@ -20,9 +20,9 @@
         </div>
         <!--    文字介绍 & 走马灯   -->
         <div class="flex items-center justify-center bg-default text-center py-16 box-border w-full flex-col">
-            <p class="w-1/2 text-lg font-format"> {{$t('lang.product.vass.desc')}}</p>
+            <p class="w-1/2 text-lg font-format md:w-3/4"> {{$t('lang.product.vass.desc')}}</p>
             <!--     走馬燈      -->
-            <div class="mt-10 product-swiper w-1/2">
+            <div class="mt-10 product-swiper w-1/2 md:w-3/4">
                 <h-product-swiper></h-product-swiper>
             </div>
         </div>
@@ -54,41 +54,41 @@
 
         </div>
         <!--    核心特色    -->
-        <div class="advant-container flex  w-full py-16 px-80 flex-col justify-center relative" >
+        <div class="advant-container flex  w-full py-16 px-80 flex-col justify-center relative md:px-60" >
             <video class='absolute left-0 top-0 bottom-0 top-0'
                    style="z-index: -1;object-fit: fill;height: 100%;width: 100%"
                    key="product-vass-video1"
                    src="../../assets/video/wave.webm" muted="muted" autoplay="autoplay" loop="loop" ></video>
             <h2 class="text-4xl font-bold mb-12 text-default text-center font-format"> {{$t('lang.product.vass.advantTitle')}}</h2>
             <div class="flex justify-center items-center w-full  mb-2">
-                <div class="advant-circle flex justify-center items-center font-bold p-6 text-center text-lg font-format">
+                <div class="advant-circle flex justify-center items-center font-bold p-6 text-center text-lg font-format md:p-4">
                     {{$t('lang.product.vass.advantSubTitle1')}}
                 </div>
-                <div class="flex-1 bg-mainG ml-6 justify-center items-center font-bold p-12 font-format"  style="height: min-content">
+                <div class="flex-1 bg-mainG ml-6 justify-center items-center font-bold p-12 font-format md:p-6"  style="height: min-content">
                     {{$t('lang.product.vass.advantDesc1')}}
                 </div>
             </div>
             <div class="flex justify-center items-center w-full  mb-2">
-                <div class="flex-1 bg-mainG mr-6 justify-center items-center font-bold p-12 font-format" style="height: min-content">
+                <div class="flex-1 bg-mainG mr-6 justify-center items-center font-bold p-12 font-format md:p-6" style="height: min-content">
                     {{$t('lang.product.vass.advantDesc2')}}
                 </div>
-                <div class="advant-circle flex justify-center items-center font-bold p-6 text-center text-lg font-format">
+                <div class="advant-circle flex justify-center items-center font-bold p-6 text-center text-lg font-format md:p-4">
                     {{$t('lang.product.vass.advantSubTitle2')}}
                 </div>
             </div>
             <div class="flex justify-center items-center w-full mb-6">
-                <div class="advant-circle flex justify-center items-center font-bold p-6 text-center text-lg font-format">
+                <div class="advant-circle flex justify-center items-center font-bold p-6 text-center text-lg font-format md:p-4">
                     {{$t('lang.product.vass.advantSubTitle3')}}
                 </div>
-                <div class="flex-1 bg-mainG ml-6 justify-center items-center font-bold p-12 font-format"  style="height: min-content">
+                <div class="flex-1 bg-mainG ml-6 justify-center items-center font-bold p-12 font-format md:p-6"  style="height: min-content">
                     {{$t('lang.product.vass.advantDesc3')}}
                 </div>
             </div>
             <div class="flex justify-center items-center w-full ">
-                <div class="flex-1 bg-mainG mr-6 justify-center items-center font-bold p-12 font-format"  style="height: min-content">
+                <div class="flex-1 bg-mainG mr-6 justify-center items-center font-bold p-12 font-format md:p-6"  style="height: min-content">
                     {{$t('lang.product.vass.advantDesc4')}}
                 </div>
-                <div class="advant-circle flex justify-center items-center font-bold p-6 text-center text-lg font-format">
+                <div class="advant-circle flex justify-center items-center font-bold p-6 text-center text-lg font-format md:p-4">
                     {{$t('lang.product.vass.advantSubTitle4')}}
                 </div>
             </div>
@@ -129,7 +129,7 @@ export default defineComponent({
   background-color: black;
   background-image:  url("../../assets/img/vass-bg.png");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100%;
 }
 
 .product-vass .header-text{
@@ -183,5 +183,19 @@ export default defineComponent({
   background-image:  url("../../assets/img/advant-circle.png");
   background-repeat: no-repeat;
   background-size: cover;
+}
+@media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
+    .product-vass .page-head{
+        height: 376px;
+        padding: 0 120px 80px 120px;
+    }
+    .product-vass .header-text-big{
+        margin-top: 60px;
+    }
+    .product-vass .header-text-small {
+        width: 790px;
+        font-size: 28px;
+        line-height: 32px;
+    }
 }
 </style>

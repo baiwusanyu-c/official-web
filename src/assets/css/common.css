@@ -2,38 +2,38 @@
 @font-face
 {
   font-family: SourceHanSansNormal;
-  src: url('../assets/font/SourceHanSansNormal.otf');
+  src: url('../font/SourceHanSansNormal.otf');
 }
 @font-face
 {
   font-family: SourceHanSansExtraLight;
-  src: url('../assets/font/SourceHanSansExtraLight.otf');
+  src: url('../font/SourceHanSansExtraLight.otf');
 }
 @font-face
 {
   font-family: SourceHanSansLight;
-  src: url('../assets/font/SourceHanSansLight.otf');
+  src: url('../font/SourceHanSansLight.otf');
 }
 @font-face
 {
   font-family: SourceHanSansMedium;
-  src: url('../assets/font/SourceHanSansMedium.otf');
+  src: url('../font/SourceHanSansMedium.otf');
 }
 @font-face
 {
   font-family: SourceHanSansRegular;
-  src: url('../assets/font/SourceHanSansRegular.otf');
+  src: url('../font/SourceHanSansRegular.otf');
 }
 @font-face
 {
   font-family: SourceHanSansHeavy;
-  src: url('../assets/font/SourceHanSansHeavy.otf');
+  src: url('../font/SourceHanSansHeavy.otf');
 }
 
 @font-face
 {
   font-family: SourceHanSansBold;
-  src: url('../assets/font/SourceHanSansBold.otf');
+  src: url('../font/SourceHanSansBold.otf');
 }
 
 /* 定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸 */
