@@ -7,8 +7,7 @@
 import {Router, useRouter} from "vue-router";
 import {ref} from "vue";
 import {getCodeImg} from "../../api/login";
-import {BeMessage} from "../../../public/be-ui/be-ui.es";
-
+import {BeMessage} from "../../../public/be-ui/be-ui.es.js";
 export default (props: any, ctx: any) => {
     /**
      * 打開窗口

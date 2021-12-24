@@ -53,6 +53,7 @@
   background-size: cover;
 }
 @media screen and (min-width: 1536px) and (max-width: 1750px) {
+
   #product_vass.product-page .page-head,
   #product_eagle.product-page .page-head{
     height: 480px;

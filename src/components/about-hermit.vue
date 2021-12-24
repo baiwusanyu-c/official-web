@@ -37,10 +37,11 @@ export default defineComponent({
 .about-hermit{
   height: 532px;
 }
+
 .about-hermit-container{
-    background-image: url("../assets/img/aboute-me.png");
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-image: url("../assets/img/aboute-me.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
 

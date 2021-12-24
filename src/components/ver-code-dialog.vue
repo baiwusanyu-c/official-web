@@ -13,7 +13,7 @@
             layout="right"
             customClass="request-quote-dialog"
             escExit
-            :isDrage="false"
+            :isDrag="false"
             @close="test"
             :is-open-modal="true">
             <template #headerIcon>

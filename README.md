@@ -1,93 +1,82 @@
-使用CssVar#
-操作 CSS 变量
+<p align="center">
+  <img width="144px" src="https://lianantech.com/commonImg/mail/hermit-logo.png" />
+</p>
 
-用法#
-import { useCssVar } from '@vueuse/core'
+#hermit-front 新加坡官網
+##主要技術依賴  
+**Vue3.2 + Vue-router4 + Vite2.x + typeScript4.5**
 
-const el = ref(null)
-const color = useCssVar('--color', el)
+|  名称   |  版本   | 説明  |
+|  ---- |  ----  | ----  |
+|  Vue |  ^2.2.3  | 前端開發框架  |  
+|  axios |  ^0.24.0  | Ajax封裝庫  |
+|  vite |  ^2.2.3  | 工程化開發打包框架  |
+|  vue-router |  4  | vue3.x 路由  |
+|  vue-i18n |  ^9.2.0-beta.23  | vue3.x 國際化插件  |
+|  @vueuse/core |  ^7.3.0  | vue3.x 的composition Api 方法庫  |
+|  animate.css |  ^4.1.1  | 動畫庫  |
+|  swiper | ^7.3.2  | 走馬燈插件  |
+|  tailwind.css | npm:@tailwindcss/postcss7-compat  | css原子化樣式庫  |
+|  naive-ui |  ^2.22.0  | UI組件庫  |
+|  be-ui |  -  | 内部UI組件庫  |
+##package指令
 
-使用深色#
-具有自动数据持久性的反应暗模式。
+`"serve:dev": "vite --host --mode development",`  
+**以開發環境後臺運行項目**  
 
-基本用法#
-import { useDark, useToggle } from '@vueuse/core'
+`"serve:stage": "vite --host --mode staging",`  
+**以測試環境後臺運行項目**  
 
-const isDark = useDark()
-const toggleDark = useToggle(isDark)
+`"serve:pretest": "vite --host --mode pretest",`  
+**以預發佈環境後臺運行項目**  
 
+`"serve:prod": "vite --host --mode production",`  
+**以正式發佈環境後臺運行項目**  
 
-使用事件监听器#
-轻松使用 EventListener。在挂载时使用addEventListener注册，在卸载时使用removeEventListener自动注册。
+`"build:dev": "vite build --mode development",`  
+**以開發環境後臺打包項目**
 
-用法#
-import { useEventListener } from '@vueuse/core'
+`"build:stage": "vite build --mode staging",`  
+**以測試環境後臺打包項目**
 
-useEventListener(document, 'visibilitychange', (evt) => { console.log(evt) })
+`"build:prod": "vite build --mode production",`  
+**以預發佈環境後臺打包項目**
 
+`"build:pretest": "vite build --mode pretest",`  
+**以正式發佈環境後臺打包項目**  
 
-使用视差#
-轻松创建视差效果。如果不支持方向，它会使用useDeviceOrientation并回退useMouse。
+`"lint:style": "stylelint src/**/*.{html,vue,css}",`  
+**styleLint校驗**  
 
-用法#
-<div ref='container'>
-</div>
-import { useParallax } from '@vueuse/core'
+`"lint:style-fix": "stylelint --fix src/**/*.{html,vue,css}"`  
+**styleLint樣式代碼修復**  
 
-export default {
-setup() {
-const container = ref(null)
-const { tilt, roll, source } = useParallax(container)
+## 目錄結構
+* node_modules  項目依賴
+* public 公共文件
+* src 
+  api  Api封裝
 
-    return {
-      container,
-    }
-},
-}
+  assets  存放静态文件
 
+  components 存放公用组件
 
-使用窗口大小#
-反应窗口大小
+  config  环境配置枚舉，包含後臺幾口，第三方鏈接  
 
-用法#
-import { useWindowSize } from '@vueuse/core'
+  router  路由
 
-const { width, height } = useWindowSize()
+  utils  配置与公共方法  
 
-使用ResizeObserver#
-报告元素内容或边框尺寸的变化
+  views  页面  
 
-用法#
-````
-<template>
-  <div ref="el">
-    {{text}}
-  </div>
-</template>
+  App.vue 入口vue文件
 
-<script>
-import { ref } from 'vue'
-import { useResizeObserver } from '@vueuse/core'
+  main.ts  入口ts
 
-export default {
-  setup() {
-    const el = ref(null)
-    const text = ref('')
+* .gitignore 指定文件无需提交到git上
 
-    useResizeObserver(el, (entries) => {
-      const entry = entries[0]
-      const { width, height } = entry.contentRect
-      text.value = `width: ${width}, height: ${height}`
-    })
+* package.json 项目描述及依赖
 
-    return {
-      el,
-      text,
-    }
-  }
-})
-</script>
+* package-lock.json 版本管理使用的文件
 
-````
-ui bug
-doc button
+* vite.config.ts vite配置文件
