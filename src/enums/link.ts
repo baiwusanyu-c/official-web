@@ -5,11 +5,11 @@
 * @update (czh 2021/12/20)
 */
 export enum linkConfig {
-    facebook = 'https://www.facebook.com/profile.php?id=100076153480334',
-    github = 'https://github.com/HermitTech',
-    twitter = 'https://twitter.com/HermitTech',
-    telegram = 'https://t.me/+Y6Y_fgWbnPFhZTI1',
-    medium = 'https://medium.com/@HermitTech',
+    facebook = 'https://www.facebook.com/profile.php?id=100026616589335',
+    github = 'https://github.com/BeosinBeosin',
+    twitter = 'https://twitter.com/Beosin_com',
+    telegram = 'https://t.me/+dD8Bnqd133RmNWNl',
+    medium = 'https://beosin.medium.com/',
 }
 
 export enum linkConfigPolicy {

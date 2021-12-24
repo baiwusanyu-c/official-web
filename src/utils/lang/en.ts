@@ -60,9 +60,9 @@ export default {
         info2: 'Smart Contract audit reports provided by more than 20 world-leading blockchain security engineers based on formal verification technology.'
     },
     aboutHerMit: {
-        title: 'ABOUT HERMIT',
-        info1: 'HERMIT is the worlds first company specializing in blockchain security, The core team members are also professors,postdocs and PhDs from Yale University, Tsinghua University and other world-renowned universities and labs, as wellas elites from world renawied Internet companies, with more than 20years ofresearch in formạl verification technolo-gy, trusted computing, mobile security and kerne security.',
-        info2: 'Through the security audit and defense deploymentof more than 2,000 smart contracts, over 50 public chains and wal-lets, and nearly 100 exchanges around the world, we have accumulated rich experience in security attack and defensein the blockchain field, and developed several security products specifically for blockchain.'
+        title: 'ABOUT BEOSIN',
+        info1: 'Affiliated to HERMIT Technology Pte. Ltd., BEOSIN is the first institution in the world specializing in the construction of blockchain security ecosystem. The core team members are all professors, postdocs, PhDs, and Internet elites from world-renowned academic institutions.BEOSIN has more than 20 years of research in formal verification technology, trusted computing, mobile security and kernel security, with overseas experience in studying and collaborating in project research at well-known universities. Through the security audit and defense deployment of more than 2,000 smart contracts, over 50 public blockchains and wallets, and nearly 100 exchanges worldwide, BEOSIN has accumulated rich experience in security attack and defense of the blockchain field, and has developed several security products specifically for blockchain.',
+        info2: ''
     },
     home: {
         title1: 'SECURING THE',
@@ -255,10 +255,10 @@ export default {
         }
     },
     aboutUsPage: {
-        title: 'ABOUT Hermit',
+        title: 'ABOUT BEOSIN',
         titleDesc: 'Securing the blockchain ecosystem is our only mission',
-        descInfo1: 'Hermit is the world\'s first company specializing in blockchain security, The core team members are also professors, postdocs and PhDs from Yale University, Tsinghua University and other world-renowned universities and labs, as well as elites from world-renowned Internet companies, with more than 20 years of research in formal verification technology, trusted computing, mobile security and kernel security. ',
-        descInfo2: 'Through the security audit and defense deployment of more than 2,000 smart contracts, over 50 public chains and wallets, and nearly 100 exchanges around the world, we have accumulated rich experience in security attack and defense in the blockchain field, and developed several security products specifically for blockchain.\n',
+        descInfo1: 'Affiliated to HERMIT Technology Pte. Ltd., BEOSIN is the first institution in the world specializing in the construction of blockchain security ecosystem. The core team members are all professors, postdocs, PhDs, and Internet elites from world-renowned academic institutions.BEOSIN has more than 20 years of research in formal verification technology, trusted computing, mobile security and kernel security, with overseas experience in studying and collaborating in project research at well-known universities. Through the security audit and defense deployment of more than 2,000 smart contracts, over 50 public blockchains and wallets, and nearly 100 exchanges worldwide, BEOSIN has accumulated rich experience in security attack and defense of the blockchain field, and has developed several security products specifically for blockchain.',
+        descInfo2: '',
         descIcon1: '20+',
         descIconInfo1: 'Years of scientific research',
         descIcon2: '2000+',
