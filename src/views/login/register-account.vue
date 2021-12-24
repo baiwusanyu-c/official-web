@@ -53,16 +53,16 @@
 <script lang="ts">
 import {defineComponent, ref} from "vue";
 import {registerAccount, verifyCode,IMailCode,IRegister} from "../../api/login";
-import {BeMessage} from '../../../public/be-ui/be-ui.es.js'
 import {useI18n} from "vue-i18n";
 import {verEmail} from "../../utils/common";
+import composition from "../../utils/mixin/common-func";
 export default defineComponent({
     name: "RegisterAccount",
     emits: [
         'showChange',
     ],
     setup(props,ctx) {
-        const message = BeMessage.service
+        const {message} = composition(props, ctx)
         const form = ref<IRegister>({})
         const isShowPassword = ref<string>('password')
         const {t} = useI18n()
@@ -80,14 +80,7 @@ export default defineComponent({
          * 校验提示
          */
         const verMsg = (tipStr:string):void =>{
-            message({
-                customClass:'hermit-msg',
-                titles: tipStr,
-                msgType: 'warning',
-                duration: 1500,
-                offsetTop:80,
-                close: true,
-            })
+            message('warning',tipStr,'hermit-msg')
         }
         /**
          * 表单校验
@@ -126,14 +119,7 @@ export default defineComponent({
          */
         const verifyCodeMail = ():void =>{
             if(!form.value.account){
-                message({
-                    customClass:'hermit-msg',
-                    titles: t('lang.login.tipAccount'),
-                    msgType: 'warning',
-                    duration: 1500,
-                    offsetTop:80,
-                    close: true,
-                })
+                message('warning',t('lang.login.tipAccount'),'hermit-msg')
                 return
             }
             const params:IMailCode = {
@@ -141,25 +127,11 @@ export default defineComponent({
             }
             verifyCode(params).then((res:any)=>{
                 if(res.code === 200){
-                    message({
-                        customClass:'hermit-msg',
-                        titles: t('lang.sendSuccess'),
-                        msgType: 'success',
-                        duration: 1500,
-                        offsetTop:80,
-                        close: true,
-                    })
+                    message('success',t('lang.sendSuccess'),'hermit-msg')
                 }
 
             }).catch(err=>{
-                message({
-                    customClass:'hermit-msg',
-                    titles: err.message,
-                    msgType: 'warning',
-                    duration: 1500,
-                    offsetTop:80,
-                    close: true,
-                })
+                message('warning',err.message,'hermit-msg')
                 console.error(err)
             })
         }
@@ -170,26 +142,12 @@ export default defineComponent({
             if(!verifyCodeForm()) return
             registerAccount(form.value).then((res:any)=>{
                 if(res.code === 200){
-                    message({
-                        customClass:'hermit-msg',
-                        titles: t('lang.opSuccess'),
-                        msgType: 'success',
-                        duration: 1500,
-                        offsetTop:80,
-                        close: true,
-                    })
+                    message('success',t('lang.opSuccess'),'hermit-msg')
                     changeShow('login')
                 }
 
             }).catch(err=>{
-                message({
-                    customClass:'hermit-msg',
-                    titles: err.message,
-                    msgType: 'warning',
-                    duration: 1500,
-                    offsetTop:80,
-                    close: true,
-                })
+                message('warning',err.message,'hermit-msg')
                 console.error(err)
             })
         }

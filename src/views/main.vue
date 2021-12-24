@@ -82,10 +82,7 @@ export default defineComponent({
         bus.on(openQuoteDialog)
         onMounted(() => {
             initLang()
-
         })
-
-
         return {
 
             uiLang,

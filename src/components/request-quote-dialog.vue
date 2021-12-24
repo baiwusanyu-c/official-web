@@ -46,7 +46,7 @@
                         </p>
                         <n-input  v-model:value="formData.code" size="large"  :onInput = "formData.code=formData.code.replace(/[^\d]/g,'')"/>
                     </div>
-                    <div class="flex-1 relative" @click="getCode">
+                    <div class="flex-1 relative" @click="getCode(formData)">
                         <img :src="codeUrl" alt="" class="absolute bottom-0 left-0" style="height: 42px"/>
                     </div>
                 </div>
@@ -68,9 +68,8 @@ import {NForm,NFormItem,NInput,NSelect,NModal} from "naive-ui";
 import {IOption} from "../utils/types";
 import {useI18n} from "vue-i18n";
 import {createQuote, IQuote} from "../api/quote";
-import {BeMessage} from "../../public/be-ui/be-ui.es.js";
 import {verEmail} from "../utils/common";
-import {getCodeImg} from "../api/login";
+import composition from "../utils/mixin/common-func";
 
 export default defineComponent({
     name: "request-quote-dialog",
@@ -81,8 +80,8 @@ export default defineComponent({
         NModal,
         NInput
     },
-    setup() {
-        const message = BeMessage.service
+    setup(props, ctx) {
+        const {message} = composition(props, ctx)
         const isShow = ref<boolean>(false)
         const handleClose = ():void =>{
             isShow.value = false;
@@ -99,21 +98,15 @@ export default defineComponent({
                     message:''
                 }
             }else{
-                getCode()
+                getCode(formData)
             }
         })
         /**
          * 校验提示
          */
         const verMsg = (tipStr:string):void =>{
-            message({
-                customClass:'hermit-msg',
-                titles: tipStr,
-                msgType: 'warning',
-                duration: 1500,
-                offsetTop:80,
-                close: true,
-            })
+            message('warning',tipStr,'hermit-msg')
+
         }
         /**
          * 表单校验
@@ -150,26 +143,13 @@ export default defineComponent({
             }
             createQuote(params).then((res: any) => {
                 if (res.code === 200) {
-                    message({
-                        customClass:'hermit-msg',
-                        titles: t('lang.opSuccess'),
-                        msgType: 'success',
-                        duration: 1500,
-                        offsetTop:80,
-                        close: true,
-                    })
+                    message('success',t('lang.opSuccess'),'hermit-msg')
+
                     handleClose()
                     //paginationReactive.itemCount = 1
                 }
             }).catch(err => {
-                message({
-                    customClass:'hermit-msg',
-                    titles: err.message,
-                    msgType: 'warning',
-                    duration: 1500,
-                    offsetTop:80,
-                    close: true,
-                })
+                message('warning',err.message,'hermit-msg')
                 console.error(err)
             })
         }
@@ -189,16 +169,8 @@ export default defineComponent({
               {label:t('lang.projectList.project3'), value:3},
               {label:t('lang.projectList.project4'), value:4}
             ])
-        /**
-         * 获取登录验证码
-         */
-        const codeUrl = ref<string>('')
-        const  getCode = ():void=>{
-            getCodeImg().then((res:any) => {
-                formData.value.uuid = res.uuid;
-                codeUrl.value = "data:image/gif;base64," + res.img;
-            });
-        }
+        const {codeUrl,getCode} = composition(props, ctx)
+
         return {
             codeUrl,
             getCode,

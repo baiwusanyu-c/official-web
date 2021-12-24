@@ -27,7 +27,7 @@
                                       :onInput = "formData.code = formData.code.replace(/[^\d]/g,'')"
                                       size="large"/>
                         </div>
-                        <div class="flex-1" @click="getCode">
+                        <div class="flex-1" @click="getCode(formData)">
                             <img :src="codeUrl" alt="" style="height: 40px"/>
                         </div>
                     </div>
@@ -47,11 +47,10 @@
 <script lang="ts">
 import {watch, defineComponent, ref} from "vue";
 import {useI18n} from "vue-i18n";
-import {BeMessage} from "../../public/be-ui/be-ui.es";
 import {NInput} from "naive-ui";
-import {getBackCode, getReportByCode, IReportCode} from "../api/service";
+import {getReportByCode, IReportCode} from "../api/service";
 import {setSession} from "../utils/common";
-import {getCodeImg} from "../api/login";
+import composition from "../utils/mixin/common-func";
 export default defineComponent({
     name: "ver-code-dialog",
     components:{NInput},
@@ -60,8 +59,8 @@ export default defineComponent({
           type:String
       }
     },
-    setup(props) {
-        const message = BeMessage.service
+    setup(props, ctx) {
+        const {message} = composition(props, ctx)
         const isShow = ref<boolean>(false)
         const formData = ref<IReportCode>({})
         const {t} = useI18n()
@@ -81,54 +80,25 @@ export default defineComponent({
             }
             getReportByCode(params).then((res: any) => {
                 if (res.code === 200 && res.data) {
-                    message({
-                        customClass:'hermit-msg',
-                        titles: t('lang.opSuccess'),
-                        msgType: 'success',
-                        duration: 1500,
-                        offsetTop:80,
-                        close: true,
-                    })
+                    message('success',t('lang.opSuccess'),'hermit-msg')
                     setSession('CETInfo',JSON.stringify(res.data))
                     window.open('#/report', 'view_window')
                     handleClose()
                 }else{
-                    message({
-                        customClass:'hermit-msg',
-                        titles:t('lang.noResults'),
-                        msgType: 'warning',
-                        duration: 1500,
-                        offsetTop:80,
-                        close: true,
-                    })
+                    message('warning',t('lang.noResults'),'hermit-msg')
+
                 }
             }).catch(err => {
-                message({
-                    customClass:'hermit-msg',
-                    titles:err.message,
-                    msgType: 'warning',
-                    duration: 1500,
-                    offsetTop:80,
-                    close: true,
-                })
+                message('warning',err.message,'hermit-msg')
                 console.error(err)
             })
         }
-        /**
-         * 获取登录验证码
-         */
-        const codeUrl = ref<string>('')
-        const  getCode = ():void=>{
-            getCodeImg().then((res:any) => {
-                formData.value.uuid = res.uuid;
-                codeUrl.value = "data:image/gif;base64," + res.img;
-            });
-        }
+        const {codeUrl,getCode} = composition(props, ctx)
         watch(isShow,(nVal:boolean)=>{
             if(nVal){
                 formData.value.num = props.num && parseInt(props.num) || undefined
                 formData.value.code = ""
-                getCode()
+                getCode(formData)
             }
         })
         return {

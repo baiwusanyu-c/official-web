@@ -46,11 +46,11 @@
         </div>
         <div class="footer-class">
             <p class="font-format">{{$t('lang.HFooterBigger.policy.policyTitle')}}</p>
-            <div class="policy-class" @click="openPdf(linkConfigPolicy['conditions'])">
+            <div class="policy-class" @click="openWin(linkConfigPolicy['conditions'])">
                 <div class="text-point"></div>
                 <div class="policy-text font-format">{{$t('lang.HFooterBigger.policy.terms')}}</div>
             </div>
-            <div class="policy-class" @click="openPdf(linkConfigPolicy['privacy'])">
+            <div class="policy-class" @click="openWin(linkConfigPolicy['privacy'])">
                 <div class="text-point" ></div>
                 <div class="policy-text font-format">{{$t('lang.HFooterBigger.policy.privacy')}}</div>
             </div>
@@ -64,6 +64,7 @@ import {LocationSharp,PhonePortraitOutline,MailSharp,LogoWechat,LogoTwitter,Logo
 import {Telegram} from '@vicons/fa'
 import {NIcon,NPopover} from "naive-ui"
 import {linkConfig,linkConfigPolicy} from '../enums/link'
+import composition from "../utils/mixin/common-func";
 
 export default defineComponent({
     name: "h-footer-bigger",
@@ -78,21 +79,12 @@ export default defineComponent({
         LogoWechat,
         Telegram,
     },
-    setup(){
-        /**
-         * 打開窗口
-         */
-        const openWin = (url:string)=>{
-            window.open(url, url)
-        }
-        const openPdf = (url:string)=>{
-            window.open(url, url)
-        }
+    setup(props, ctx){
+        const {openWin} = composition(props, ctx)
         return{
             linkConfig,
             linkConfigPolicy,
             openWin,
-            openPdf,
         }
     }
 })

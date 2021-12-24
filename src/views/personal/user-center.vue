@@ -55,9 +55,9 @@ import {
     IReportListRes, ISearchReport, searchReport,
     verifyCode
 } from "../../api/personal";
-import {BeMessage} from '../../../public/be-ui/be-ui.es.js'
 import {downLoadZip} from "../../utils/zipdownload";
 import {formatDate, getStore, setSession} from "../../utils/common";
+import composition from "../../utils/mixin/common-func";
 
 type BuiltinThemeOverrides = NonNullable<DataTableProps['builtinThemeOverrides']>
 const builtinThemeOverrides: BuiltinThemeOverrides = {
@@ -76,8 +76,8 @@ export default defineComponent({
         Search,
         DownloadOutline,
     },
-    setup() {
-        const message = BeMessage.service
+    setup(props, ctx) {
+        const {message} = composition(props, ctx)
         const {t} = useI18n()
         const reportTypeDict = ref<Array<string>>([
             t('lang.report.reportName.reportName1'),
@@ -124,7 +124,7 @@ export default defineComponent({
                                 NIcon,
                                 {
                                     style: {cursor: 'pointer'},
-                                    onClick: openWin.bind(this, row),
+                                    onClick: openWin.bind(this, '#/report','view_window',()=>setSession('CETInfo', JSON.stringify(row))),
                                     size: '20px'
                                 },
                                 [h(
@@ -173,14 +173,8 @@ export default defineComponent({
         // 搜索方法
         const searchData = (): void => {
             if (!searchParams.value) {
-                message({
-                    customClass: 'hermit-msg',
-                    titles: t('lang.userCenter.searchInput'),
-                    msgType: 'warning',
-                    duration: 1500,
-                    offsetTop: 80,
-                    close: true,
-                })
+                message('warning',t('lang.userCenter.searchInput'),'hermit-msg')
+
                 return
             }
             const params: ISearchReport = {
@@ -188,37 +182,16 @@ export default defineComponent({
             }
             searchReport(params).then((res: any) => {
                 if (res.code === 200 && res.data) {
-                    message({
-                        customClass: 'hermit-msg',
-                        titles: t('lang.opSuccess'),
-                        msgType: 'success',
-                        duration: 1500,
-                        offsetTop: 80,
-                        close: true,
-                    })
+                    message('success',t('lang.opSuccess'),'hermit-msg')
                     auditReport.value = handleList([res.data])
                     paginationReactive.total = res.total
                 } else {
                     auditReport.value = []
-                    message({
-                        customClass: 'hermit-msg',
-                        titles: t('lang.opFailed'),
-                        msgType: 'warning',
-                        duration: 1500,
-                        offsetTop: 80,
-                        close: true,
-                    })
+                    message('warning',t('lang.opFailed'),'hermit-msg')
                 }
             })
                 .catch(err => {
-                    message({
-                        customClass: 'hermit-msg',
-                        titles: err.message,
-                        msgType: 'warning',
-                        duration: 1500,
-                        offsetTop: 80,
-                        close: true,
-                    })
+                    message('warning',err.message,'hermit-msg')
                     console.error(err)
                 })
         }
@@ -258,14 +231,7 @@ export default defineComponent({
                     paginationReactive.total = res.total
                 }
             }).catch(err => {
-                message({
-                    customClass: 'hermit-msg',
-                    titles: err.message,
-                    msgType: 'warning',
-                    duration: 1500,
-                    offsetTop: 80,
-                    close: true,
-                })
+                message('warning',err.message,'hermit-msg')
                 console.error(err)
             })
         }
@@ -289,13 +255,7 @@ export default defineComponent({
         onMounted(() => {
             getList()
         })
-        /**
-         * 打開窗口
-         */
-        const openWin = (row: any) => {
-            setSession('CETInfo', JSON.stringify(row))
-            window.open('#/report', 'view_window')
-        }
+        const {openWin} = composition(props, ctx)
         return {
             getList,
             downloadAll,

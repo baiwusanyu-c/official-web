@@ -46,7 +46,7 @@
                 <n-input size="large"
                          :theme-overrides="inputThemeOverrides"
                          v-model:value="searchPrams"
-                         :onInput = "searchPrams=searchPrams.replace(/[^\d]/g,'')"
+                         @Input = "searchPrams=searchPrams.replace(/[^\d]/g,'')"
                          :placeholder="$t('lang.serviceContract.search.input')">
                     <template #suffix>
                         <be-icon class="search-input-icon" @click="search" icon="search"></be-icon>
@@ -130,9 +130,9 @@
     import {defineComponent, getCurrentInstance, ref} from "vue";
     import {NInput,NButton,InputProps} from "naive-ui";
     import {useI18n} from "vue-i18n";
-    import {BeMessage} from '../../../public/be-ui/be-ui.es.js'
     import VerCodeDialog from "../../components/ver-code-dialog.vue";
     import {IDialog} from "../../utils/types";
+    import composition from "../../utils/mixin/common-func";
     type InputThemeOverrides = NonNullable<InputProps['themeOverrides']>
     const inputThemeOverrides: InputThemeOverrides = {
         border:'1px solid black'
@@ -146,21 +146,14 @@
             hServiceSwiper,
         },
 
-        setup(){
-            const message = BeMessage.service
+        setup(props, ctx){
+            const {message} = composition(props, ctx)
             const {t} = useI18n()
             const curInst = getCurrentInstance()
             const searchPrams = ref<string>('')
             const search = ():void =>{
                 if(!searchPrams.value){
-                    message({
-                        customClass:'hermit-msg',
-                        titles: t('lang.serviceSecurity.search.input'),
-                        msgType: 'warning',
-                        duration: 1500,
-                        offsetTop:80,
-                        close: true,
-                    })
+                    message('warning',t('lang.serviceSecurity.search.input'),'hermit-msg')
                     return
                 }
                 (curInst?.refs.verCodeDialog as IDialog).isShow = true

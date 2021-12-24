@@ -56,7 +56,7 @@ export default {
         }
     },
     contactUs: {
-        info1: 'Hermit, your blockchain security expert used by 10,000 practitioners worldwide',
+        info1: 'Beosin, your blockchain security expert used by 10,000 practitioners worldwide',
         info2: 'Smart Contract audit reports provided by more than 20 world-leading blockchain security engineers based on formal verification technology.'
     },
     aboutHerMit: {
@@ -103,15 +103,15 @@ export default {
         productFeature7: 'Project operation awareness',
         productFeature8: 'Public opinion sentiment monitoring',
         GlobalTitle: 'Serving Global Customers',
-        swiperInfo1: "Hermit has a professional audit technical team, which is really to our surprise.",
+        swiperInfo1: "Beosin has a professional audit technical team, which is really to our surprise.",
         swiperUser1: "Ted Johnston",
-        swiperInfo2: "Compared to other security audit teams, Hermit is an exciting team, not only provides professional technical audit services, but also empowered by security audit products.",
+        swiperInfo2: "Compared to other security audit teams, Beosin is an exciting team, not only provides professional technical audit services, but also empowered by security audit products.",
         swiperUser2: "Gerry Cooper",
         swiperInfo3: "They are highly efficient, and can work well with the project launch schedule. We will also actively work with them to fix every issue they raise in a timely manner.",
         swiperUser3: "Robert Parsons",
-        swiperInfo4: "Attitude. Yes, that's the word. Hermit has a professional service attitude and leading technology. They take every project very seriously. The business consultant is nice and professional. Always available to us, which is very reassuring.",
+        swiperInfo4: "Attitude. Yes, that's the word. Beosin has a professional service attitude and leading technology. They take every project very seriously. The business consultant is nice and professional. Always available to us, which is very reassuring.",
         swiperUser4: "Sophie Dennis",
-        swiperInfo5: "Hermit focuses on blockchain ecosystem security, and their products and services are just fantastic. They are able to provide security audits and defense deployments for global exchanges, wallets and smart contracts.",
+        swiperInfo5: "Beosin focuses on blockchain ecosystem security, and their products and services are just fantastic. They are able to provide security audits and defense deployments for global exchanges, wallets and smart contracts.",
         swiperUser5: "Anthony Davis",
     },
     // djd service-security
@@ -121,7 +121,7 @@ export default {
             textSmall: 'Multi-dimensional, multi-round and multi-way detection of blockchain security'
         },
         search: {
-            text: 'HERMIT can provide multi-dimensional code security testing for Blockchain platforms. Through the different security audit methods of black-box, gray-box and white-box, Hermit can effectively guarantee the security of Blockchain platforms at all levels such as node communication, storage, consensus, authority management.',
+            text: 'BEOSIN can provide multi-dimensional code security testing for Blockchain platforms. Through the different security audit methods of black-box, gray-box and white-box, BEOSIN can effectively guarantee the security of Blockchain platforms at all levels such as node communication, storage, consensus, authority management.',
             totalCustomers: 'Total customers served',
             audited: 'Audited contracts',
             totalAudited: 'Total audited funds',
@@ -155,7 +155,7 @@ export default {
             button: 'Reservation Now'
         },
         search: {
-            text: 'Based on formal verification technology, hermit can conduct the security audit services for smart contracts on multiple Blockchain platforms, make a comprehensive security verification on conventional security vulnerabilities of smart contracts’ code and security vulnerabilities of business logic, ensure the consistency of smart contracts’ code and business logic, and issue authoritative security audit report',
+            text: 'Based on formal verification technology, Beosin can conduct the security audit services for smart contracts on multiple Blockchain platforms, make a comprehensive security verification on conventional security vulnerabilities of smart contracts’ code and security vulnerabilities of business logic, ensure the consistency of smart contracts’ code and business logic, and issue authoritative security audit report',
             totalCustomers: 'Total customers served',
             audited: 'Audited contracts',
             totalAudited: 'Total audited funds',

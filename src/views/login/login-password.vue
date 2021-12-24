@@ -32,7 +32,7 @@
             <!--  數字驗證碼      -->
             <div class='mt-8 flex w-full'>
                 <input type="text" v-model="form.code" class="border h-12 flex-1 font-format"/>
-                <div class="bg-mainG cursor-pointer flex items-center justify-center w-32" @click="getCode">
+                <div class="bg-mainG cursor-pointer flex items-center justify-center w-32" @click="getCode(form)">
                     <img :src="codeUrl" alt=""/>
                 </div>
             </div>
@@ -50,20 +50,20 @@
 
 <script lang="ts">
 import {defineComponent, onMounted, ref} from "vue";
-import {loginAccount, ILogin, getCodeImg} from "../../api/login";
-import {BeMessage} from '../../../public/be-ui/be-ui.es.js'
+import {loginAccount, ILogin} from "../../api/login";
 import {setStore} from "../../utils/common";
 import {useI18n} from "vue-i18n";
 import {verEmail} from "../../utils/common";
 import {Router, useRouter} from "vue-router";
 import {Base64} from 'js-base64';
+import composition from "../../utils/mixin/common-func";
 export default defineComponent({
     name: "LoginPassword",
     emits: [
         'showChange',
     ],
     setup(props,ctx) {
-        const message = BeMessage.service
+        const {message} = composition(props, ctx)
         const form = ref<ILogin>({})
         const isShowPassword = ref<string>('password')
         const {t} = useI18n()
@@ -81,14 +81,7 @@ export default defineComponent({
          * 校验提示
          */
         const verMsg = (tipStr:string):void =>{
-            message({
-                customClass:'hermit-msg',
-                titles: tipStr,
-                msgType: 'warning',
-                duration: 1500,
-                offsetTop:80,
-                close: true,
-            })
+            message('warning',tipStr,'hermit-msg')
         }
         /**
          * 表单校验
@@ -131,27 +124,13 @@ export default defineComponent({
 
             }
             loginAccount(params).then((res:any)=>{
-                message({
-                    customClass:'hermit-msg',
-                    titles: t('lang.loginSuccess'),
-                    msgType: 'success',
-                    duration: 1500,
-                    offsetTop:80,
-                    close: true,
-                })
+                message('success',t('lang.loginSuccess'),'hermit-msg')
                 setStore('token',res.access_token)
                 setStore('userInfo', JSON.stringify(res))
 
                 router.push('/index/home')
             }).catch(err=>{
-                message({
-                    customClass:'hermit-msg',
-                    titles:err.message,
-                    msgType: 'warning',
-                    duration: 1500,
-                    offsetTop:80,
-                    close: true,
-                })
+                message('warning',err.message,'hermit-msg')
                 console.error(err)
             })
         }
@@ -161,18 +140,9 @@ export default defineComponent({
         const  changeShow = (type:string):void=>{
             ctx.emit('showChange',type)
         }
-        /**
-         * 获取登录验证码
-         */
-        const codeUrl = ref<string>('')
-        const  getCode = ():void=>{
-            getCodeImg().then((res:any) => {
-                form.value.uuid = res.uuid;
-                codeUrl.value = "data:image/gif;base64," + res.img;
-            });
-        }
+        const {codeUrl,getCode} = composition(props, ctx)
         onMounted(()=>{
-            getCode()
+            getCode(form)
         })
         return {
             codeUrl,

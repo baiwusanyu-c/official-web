@@ -185,6 +185,7 @@ import Hexagon from "../../components/hexagon.vue";
 import HHomeSwiper from "../../components/h-home-swiper.vue";
 import {useEventBus} from "@vueuse/core";
 import {Router, useRouter} from "vue-router";
+import composition from "../../utils/mixin/common-func";
 
 interface ISelect {
     label: string,
@@ -195,7 +196,7 @@ interface ISelect {
 export default defineComponent({
     name: "home",
     components: {HHomeSwiper, AboutHermit, ContactUs, Hexagon},
-    setup() {
+    setup(props, ctx) {
         const {t} = useI18n()
         const muguList = ref<Array<ISelect>>([
             {label: t('lang.home.mgtitle1'), value: '/index/service/contracts'},
@@ -259,17 +260,9 @@ export default defineComponent({
         const openDialog = (): void => {
             bus.emit('true')
         }
+        const {routerPush} = composition(props, ctx)
         const headerRouterPush = (value: string): void => {
-            console.log(value)
             routerPush(value)
-        }
-        /**
-         * 跳转方法
-         * @param path 路由地址
-         */
-        const router: Router = useRouter()
-        const routerPush = (path: string): void => {
-            router.push(path)
         }
         const swiperList = ref(
             [

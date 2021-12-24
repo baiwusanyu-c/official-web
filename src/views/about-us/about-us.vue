@@ -113,20 +113,15 @@
 import {defineComponent} from "vue";
 import ContactUs from "../../components/contact-us.vue";
 import {PopoverProps,NPopover} from "naive-ui";
-
+import composition from '../../utils/mixin/common-func'
 import {linkConfig} from '../../enums/link'
 
 export default defineComponent({
     name: "about-us",
     components: {ContactUs,NPopover},
-    setup(){
-        /**
-         * 打開窗口
-         */
-        const openWin = (url:string)=>{
-            window.open(url, url)
-        }
-        return{
+    setup(props, ctx){
+       const {openWin} = composition(props, ctx)
+       return{
             openWin,
             linkConfig,
         }

@@ -22,11 +22,12 @@ import RegisterAccount from "./register-account.vue";
 import LoginPassword from "./login-password.vue";
 import ForgetPassword from "./forget-password.vue";
 import {Router, useRouter} from "vue-router";
+import composition from "../../utils/mixin/common-func";
 
 export default defineComponent({
     name: "login",
     components: {ForgetPassword, LoginPassword, RegisterAccount},
-    setup() {
+    setup(props, ctx) {
         const showType = ref<string>('login')
         /**
          * 切換顯示
@@ -35,14 +36,7 @@ export default defineComponent({
         const changeType = (type:string):void =>{
             showType.value = type
         }
-        /**
-         * 跳转方法
-         * @param path 路由地址
-         */
-        const router: Router = useRouter()
-        const routerPush = (path: string): void => {
-            router.push(path)
-        }
+        const {routerPush} = composition(props, ctx)
         return {
             showType,
             routerPush,
