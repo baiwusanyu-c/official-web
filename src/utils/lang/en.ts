@@ -302,6 +302,7 @@ export default {
         forget: 'Forgot your password',
         tipPassword: 'Please enter your password',
         tipAccount: 'Please enter your email',
+        tipProject: 'Please select Project',
         tipPasswordConfirm: 'Please enter the code again',
         tipVerCode: 'Please enter the verification code',
         tipTwicePassword: ' The two passwords are inconsistent',

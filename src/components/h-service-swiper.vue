@@ -17,10 +17,10 @@
         class="myServiceSwiper">
         <swiper-slide v-for="item in list" :key="item.name + item.info">
             <div class="service-swiper-slide">
-                <div class="swiper-header">
+                <div class="swiper-header cursor-pointer"  @click="openWin(item.fileUrl)">
                     <p class="swiper-header-title font-format">{{item.name}}</p>
                 </div>
-                <div class="swiper-footer">
+                <div class="swiper-footer cursor-pointer"  @click="openWin(item.fileUrl)">
                     <p class="break-words text-left font-format">{{ item.info }}</p>
                 </div>
             </div>
@@ -39,6 +39,7 @@ import SwiperCore, {Pagination, Autoplay, Navigation} from 'swiper';
 SwiperCore.use([Pagination, Autoplay, Navigation]);
 import {SwiperEvents} from "swiper/types/swiper-events";
 import {NAvatar} from 'naive-ui'
+import composition from "../utils/mixin/common-func";
 export default defineComponent({
     name: "h-service-swiper",
     components: {
@@ -49,32 +50,13 @@ export default defineComponent({
     props: {
         list: {
             type: Array,
-            default: () => {
-                return [
-                    {imgUrl: '', info: 'SMART CONTRACT AUDIT REPORT', name: 'For xxxx'},
-                    {imgUrl: '', info: 'SMART CONTRACT AUDIT REPORT', name: 'For xxxx'},
-                    {imgUrl: '', info: 'SMART CONTRACT AUDIT REPORT', name: 'For xxxx'},
-                    {imgUrl: '', info: 'SMART CONTRACT AUDIT REPORT', name: 'For xxxx'},
-                    {imgUrl: '', info: 'SMART CONTRACT AUDIT REPORT', name: 'For xxxx'},
-                    {imgUrl: '', info: 'SMART CONTRACT AUDIT REPORT', name: 'For xxxx'},
-                    {imgUrl: '', info: 'SMART CONTRACT AUDIT REPORT', name: 'For xxxx'},
-                    {imgUrl: '', info: 'SMART CONTRACT AUDIT REPORT', name: 'For xxxx'},
-                    {imgUrl: '', info: 'SMART CONTRACT AUDIT REPORT', name: 'For xxxx'},
-                    {imgUrl: '', info: 'SMART CONTRACT AUDIT REPORT', name: 'For xxxx'},
-                ]
-            }
+            default: () => []
         }
     },
-    setup() {
-        const onSwiper = (swiper: SwiperEvents): void => {
-            console.log(swiper);
-        }
-        const onSlideChange = (): void => {
-            console.log('slide change');
-        }
+    setup(props, ctx) {
+        const {openWin} = composition(props, ctx)
         return {
-            onSwiper,
-            onSlideChange,
+            openWin,
         };
     }
 })
@@ -88,6 +70,8 @@ export default defineComponent({
 }
 
 .swiper-header{
+    padding: 10px;
+    box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;

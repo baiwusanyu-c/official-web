@@ -13,7 +13,10 @@
             <div slot="body" class="plus-dialog-body flex flex-col justify-center items-center w-full">
                 <div class="flex w-full mb-8 md:mb-4">
                     <div class="flex-1 mr-6">
-                        <p class="label">{{$t('lang.quoteDialog.projectName')}}</p>
+                        <p class="label">
+                            {{$t('lang.quoteDialog.projectName')}}
+                            <span style="color:red">*</span>
+                        </p>
                         <n-select v-model:value="formData.type"  placeholder="Select" size="large" :options="selectList" />
                     </div>
                     <div class="flex-1">
@@ -113,6 +116,11 @@ export default defineComponent({
          */
         const verifyCodeForm = ():boolean =>{
             let tipStr = ''
+            if(!formData.value.type){
+                tipStr = t('lang.login.tipProject')
+                verMsg(tipStr)
+                return false
+            }
             if(!formData.value.email){
                 tipStr = t('lang.login.tipAccount')
                 verMsg(tipStr)

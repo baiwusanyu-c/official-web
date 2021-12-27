@@ -118,7 +118,7 @@
             </div>
 
             <div style="margin-top: 76px">
-                <hServiceSwiper/>
+                <hServiceSwiper :list="reportList"/>
             </div>
         </div>
     </div>
@@ -133,6 +133,7 @@
     import VerCodeDialog from "../../components/ver-code-dialog.vue";
     import {IDialog} from "../../utils/types";
     import composition from "../../utils/mixin/common-func";
+    import {serviceContract} from "../../enums/link";
     type InputThemeOverrides = NonNullable<InputProps['themeOverrides']>
     const inputThemeOverrides: InputThemeOverrides = {
         border:'1px solid black'
@@ -158,9 +159,17 @@
                 }
                 (curInst?.refs.verCodeDialog as IDialog).isShow = true
             }
+            const reportList = [
+                { fileUrl:serviceContract.report1,info: 'SMART CONTRACT AUDIT REPORT', name: 'For CrossYield-stake'},
+                { fileUrl:serviceContract.report2,info: 'SMART CONTRACT AUDIT REPORT', name: 'For Huckleberry'},
+                { fileUrl:serviceContract.report3,info: 'SMART CONTRACT AUDIT REPORT', name: 'For NFT'},
+                { fileUrl:serviceContract.report1,info: 'SMART CONTRACT AUDIT REPORT', name: 'For CrossYield-stake'},
+                { fileUrl:serviceContract.report2,info: 'SMART CONTRACT AUDIT REPORT', name: 'For Huckleberry'},
+            ]
             return {
                 search,
                 searchPrams,
+                reportList,
                 inputThemeOverrides
             }
         },
@@ -181,7 +190,6 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
-
 #service_contract .content-card-down{
   display: flex;
   justify-content: space-between;

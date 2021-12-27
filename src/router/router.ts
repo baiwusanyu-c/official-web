@@ -10,6 +10,7 @@ import aboutUs from '../views/about-us/about-us.vue'
 import report from '../views/report/report.vue'
 import home from '../views/home/home.vue'
 import page404 from '../views/404/404.vue'
+import test from '../views/test.vue'
 const routes = [
     {
         path: '/index',
@@ -61,6 +62,11 @@ const routes = [
         path: '/report',
         component: report,
         name: 'report',
+    },
+    {
+        path: '/test',
+        component: test,
+        name: 'test',
     },
     {
         path: '/404',
