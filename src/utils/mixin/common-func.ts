@@ -39,7 +39,7 @@ export default (props: any, ctx: any) => {
             customClass:className,
             titles: info,
             msgType: type,
-            duration: 1500,
+            duration: 2500,
             offsetTop:80,
             close: true,
         })
