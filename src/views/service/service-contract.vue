@@ -317,10 +317,7 @@
                                 if (rowIndex === 25){
                                     return 9
                                 }
-                                if (rowIndex === 34){
-                                    return 1
-                                }
-                                if (rowIndex === 35){
+                                if (rowIndex === 34||rowIndex === 35){
                                     return 1
                                 }
                             }
