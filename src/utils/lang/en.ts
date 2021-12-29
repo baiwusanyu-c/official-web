@@ -173,7 +173,7 @@ export default {
             cardCode: 'Code Specification Audit',
             cardFunction: 'Function Call Audit',
         },
-        process: {
+        /*process: {
             title: 'Service Process',
             textEvaluation: 'Project Evaluation',
             textImplementation: 'Project Implementation',
@@ -184,7 +184,151 @@ export default {
             middleTitle: 'Security Audit Reports',
             answer: 'Our audit reports adopt several methods to offer you a comprehensive and customized service, including formal verification, static analysis, case testing and manual review. The report will list detailed information about the identified vulnerabilities and categorize them by severity (critical, high, medium, low and informational). Charts and graphs are included to provide a visual insight into your project, and fix recommendations will also be given.',
             middleText: 'Listed are some of the Blockchain and DeFi audit reports we published'
-        }
+        }*/
+        table: {
+            titleWhite:'White box testing solutions',
+            titleGrey:'Grey box testing solutions',
+            titleBlack:'Black box testing solutions',
+            textWhite:'White box testing is also known as structural testing, glass box testing, logic-driven testing or code-based testing. It is a test case design method where the box refers to the software being tested, and the white box refers to the box being visible, that is, it is clear what is inside the box and how it works. Note: offensive and defensive testing + full code audit.',
+            textGrey:'Gray box testing is a test between white box testing and black box testing. It focuses not only on the correctness of output and input, but also the internal situation of the program. Note: offensive and defensive testing + core code audit.',
+            textBlack:'Black box testing, also called functional testing, is a test to check whether each function works properly. During the test, the program is regarded as a black box that cannot be opened, and the program interface is tested without considering the internal structure and characteristics of the program. It only examines whether the program functions normally according to the specifications and whether the program can properly receive the input data and output the correct information. Note: offensive and defensive testing.',
+            white:{
+                categories01:'Language Coding Security',
+                categories02:'RPC security',
+                categories03:'Wallets and accounts security',
+                categories04:'Transaction model security',
+                categories05:'Block processing',
+                categories06:'Consensus security',
+                categories07:'P2P communication security',
+                categories08:'Cryptographic Security',
+                categories09:'Historical vulnerability detection',
+                item01: {
+                    text01:'Language Feature Security',
+                    text02:'Third-party library security',
+                    text03:'Hardware resource consumption',
+                    text04:'Exception handling',
+                    text05:'Arithmetic operations',
+                    text06:'Code injection',
+                    text07:'Thread safety',
+                },
+                item02: {
+                    text01:'Permissions of RPC sensitive interface',
+                    text02:'Traditional Web security',
+                    text03:'RPC implementation security',
+                },
+                item03: {
+                    text01:'Distributed key generation algorithm',
+                    text02:'Distributed key storage security',
+                    text03:'Distributed key usage security',
+                },
+                item04: {
+                    text01:'Transaction processing logic',
+                    text02:'Transaction fee',
+                    text03:'Transaction replay',
+                    text04:'Double-spending',
+                    text05:'Transaction signature',
+                    text06:'Cross-chain interaction security ',
+                },
+                item05: {
+                    text01:'Block synchronization logic',
+                    text02:'Block signature',
+                    text03:'Merkle tree root construction',
+                },
+                item06: {
+                    text01:'Consensus mechanism design',
+                    text02:'Consensus mechanism implementation',
+                    text03:'Incentive mechanism design',
+                },
+                item07: {
+                    text01:'Occupancy of connection counts',
+                    text02:'Node discovery algorithm',
+                    text03:'Node communication protocol',
+                    text04:'Routing table contamination',
+                    text05:'Traffic size limitation',
+                    text06:'Communication encryption',
+                    text07:'Node penalty mechanism',
+                    text08:'Eclipse Attack',
+                    text09:'Sybil Attack',
+                },
+                item08: 'Cryptographic algorithm implementation/usage',
+                item09: 'Security vulnerability audit',
+            },
+            grey:{
+                categories01:'Language Coding Security',
+                categories02:'RPC security',
+                categories03:'Wallets and accounts security',
+                categories04:'Transaction model security',
+                categories05:'Consensus security',
+                categories06:'P2P communication security',
+                categories07:'Historical vulnerability detection',
+                item01: 'Static code security',
+                item02: {
+                    text01:'Permissions of RPC sensitive interface',
+                    text02:'Traditional Web security',
+                    text03:'RPC implementation security',
+                },
+                item03: {
+                    text01:'Distributed key storage security',
+                    text02:'Distributed key usage security',
+                    text03:'Timeout protection',
+                },
+                item04: {
+                    text01:'Transaction processing logic',
+                    text02:'Transaction replay',
+                    text03:'Double-spending',
+                    text04:'Transaction signature',
+                    text05:'Cross-chain interaction security ',
+                },
+                item05: {
+                    text01:'Consensus mechanism design',
+                    text02:'Consensus mechanism implementation',
+                    text03:'Incentive mechanism design',
+                },
+                item06: {
+                    text01:'Occupancy of connection counts',
+                    text02:'Packet size limitation',
+                    text03:'Eclipse attack',
+                    text04:'Sybil attack'
+                },
+                item07: 'Security vulnerability audit',
+            },
+            black:{
+                categories01:'RPC security',
+                categories02:'Wallets and accounts security',
+                categories03:'Transaction model security',
+                categories04:'Consensus security',
+                categories05:'P2P communication security',
+                categories06:'Historical vulnerability detection',
+                item01: {
+                    text01:'Permissions of RPC sensitive interface',
+                    text02:'Traditional Web security',
+                    text03:'RPC implementation security',
+                },
+                item02: {
+                    text01:'Distributed key storage security',
+                    text02:'Distributed key usage Security',
+                    text03:'Timeout protection',
+                },
+                item03: {
+                    text01:'Transaction replay',
+                    text02:'Transaction processing logic',
+                    text03:'Double-spending',
+                    text04:'Transaction signature',
+                    text05:'Cross-chain interaction security ',
+                },
+                item04: {
+                    text01:'Consensus mechanism design',
+                    text02:'Consensus mechanism implementation',
+                    text03:'Incentive mechanism design',
+                },
+                item05: {
+                    text01:'Occupancy of connection counts',
+                    text02:'Packet size limitation',
+                    text03:'Eclipse attack'
+                },
+                item06: 'Security Vulnerability Audit',
+            },
+        },
     },
     // djd h-footer-bigger
     HFooterBigger: {

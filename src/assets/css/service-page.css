@@ -34,7 +34,6 @@
   border-radius: 5px;
 }
 
-
 .service-page .page-body-search {
   display: flex;
   flex-direction: column;
@@ -101,6 +100,66 @@
   font-size: 30px;
   font-weight: bold;
   color: #6D6D6E;
+}
+
+.service-page .page-body-table{
+  height: 2014px;
+  background-image: url("../../assets/img/contect-table-head.png"),
+                    url("../../assets/img/contect-table-body.png");
+  background-repeat: no-repeat, no-repeat;
+  background-position: center top, center 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.table-body{
+  margin-top: 65px;
+}
+
+.service-page .table-title-class{
+  height: 26px;
+  width: 100%;
+  margin: 109px 95px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #282828;
+  line-height: 42px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.table-text{
+  width: 1194px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table-introduce{
+  margin-left: 92px;
+  width: 682px;
+  font-size: 20px;
+  font-weight: 300;
+  color: #29292A;
+  line-height: 35px;
+}
+.table-title{
+  cursor:pointer
+}
+
+.fade-enter-active {
+  transition: opacity .5s ease;
+}
+
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}
+.service-page .table-title-footer{
+  height: 6px;
+  background: #02FBBB;
+  transition: all .5s ease;
 }
 
 .service-page .page-body-content {

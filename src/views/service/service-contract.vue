@@ -93,7 +93,49 @@
                 </div>
             </div>
         </div>
-        <div class="page-body-process">
+        <div class="page-body-table">
+            <!--
+            <img src="../../assets/img/contect-table-head.png" style="z-index:1" height="929" width="1920"/>
+            <img src="../../assets/img/contect-table-body.png" style="z-index:1" height="817" width="2413"/>
+            -->
+            <div class="table-title-class">
+                <div class="table-title" @click="tableChoseBox = 1">
+                    <div>{{$t('lang.serviceContract.table.titleWhite')}}</div>
+                    <transition  name="fade">
+                        <div class="table-title-footer" v-show="tableChoseBox===1"></div>
+                    </transition>
+                </div>
+                <div class="table-title" @click="tableChoseBox = 2">
+                    <div>{{$t('lang.serviceContract.table.titleGrey')}}</div>
+                    <transition  name="fade">
+                        <div class="table-title-footer" v-show="tableChoseBox===2"></div>
+                    </transition>
+                </div>
+                <div class="table-title" @click="tableChoseBox = 3">
+                    <div>{{$t('lang.serviceContract.table.titleBlack')}}</div>
+                    <transition  name="fade">
+                        <div class="table-title-footer" v-show="tableChoseBox===3"></div>
+                    </transition>
+                </div>
+            </div>
+            <div class="table-text">
+                <img src="../../assets/img/white-box.png" height="241" width="420"/>
+                <div class="table-introduce">
+                    <span>
+                        {{boxText}}
+                    </span>
+                </div>
+            </div>
+            <div class="table-body">
+                <n-data-table
+                        :data="data"
+                        :columns="columns"
+                        :row-class-name="rowClassName"
+                        :single-line="false"
+                />
+            </div>
+        </div>
+        <!--<div class="page-body-process">
             <div class="body-title font-format">{{$t('lang.serviceContract.process.title')}}</div>
             <div class="process-text">
                 <div class="font-format">{{$t('lang.serviceContract.process.textEvaluation')}}</div>
@@ -120,20 +162,22 @@
             <div style="margin-top: 76px">
                 <hServiceSwiper :list="reportList"/>
             </div>
-        </div>
+        </div>-->
     </div>
     <ver-code-dialog ref="verCodeDialog" :num="searchPrams"></ver-code-dialog>
 </template>
 
 <script lang="ts">
     import hServiceSwiper from '../../components/h-service-swiper.vue'
-    import {defineComponent, getCurrentInstance, ref} from "vue";
-    import {NInput,NButton,InputProps} from "naive-ui";
+    import {defineComponent, getCurrentInstance, h, ref,reactive,computed} from "vue";
+    import {NInput, NButton, InputProps, NDataTable} from "naive-ui";
     import {useI18n} from "vue-i18n";
     import VerCodeDialog from "../../components/ver-code-dialog.vue";
     import {IDialog} from "../../utils/types";
     import composition from "../../utils/mixin/common-func";
     import {serviceContract} from "../../enums/link";
+    import {setSession} from "../../utils/common";
+    import {DocumentOutline, DownloadOutline} from "@vicons/ionicons5";
     type InputThemeOverrides = NonNullable<InputProps['themeOverrides']>
     const inputThemeOverrides: InputThemeOverrides = {
         border:'1px solid black'
@@ -144,6 +188,7 @@
             VerCodeDialog,
             NInput,
             NButton,
+            NDataTable,
             hServiceSwiper,
         },
 
@@ -166,11 +211,294 @@
                 { fileUrl:serviceContract.report1,info: 'SMART CONTRACT AUDIT REPORT', name: 'For CrossYield-stake'},
                 { fileUrl:serviceContract.report2,info: 'SMART CONTRACT AUDIT REPORT', name: 'For Huckleberry'},
             ]
+            const createColumns = () => {
+                return [
+                    {
+                        title: 'No.',
+                        key: 'num',
+                        align: 'center',
+                        rowSpan: (rowData:Object, rowIndex:Number) => {
+                            if(tableChoseBox.value === 1){
+                                if (rowIndex === 0) {
+                                    return 7
+                                }
+                                if (rowIndex === 7) {
+                                    return 3
+                                }
+                                if (rowIndex === 10) {
+                                    return 3
+                                }
+                                if (rowIndex === 13) {
+                                    return 6
+                                }
+                                if (rowIndex === 19) {
+                                    return 3
+                                }
+                                if (rowIndex === 22) {
+                                    return 3
+                                }
+                                if (rowIndex === 25){
+                                    return 9
+                                }
+                                if (rowIndex === 34){
+                                    return 1
+                                }
+                                if (rowIndex === 35){
+                                    return 1
+                                }
+                            }
+                            if(tableChoseBox.value === 2){
+                                if(rowIndex === 0 ){
+                                    return 1
+                                }
+                                if (rowIndex === 1 ) {
+                                    return 3
+                                }
+                                if (rowIndex === 4) {
+                                    return 3
+                                }
+                                if (rowIndex === 12) {
+                                    return 3
+                                }
+                                if (rowIndex === 7) {
+                                    return 5
+                                }
+                                if (rowIndex === 15) {
+                                    return 4
+                                }
+                                if (rowIndex === 19) {
+                                    return 1
+                                }
+                            }
+                            if(tableChoseBox.value === 3){
+                                if (rowIndex === 0) {
+                                    return 3
+                                }
+                                if (rowIndex === 3) {
+                                    return 3
+                                }
+                                if (rowIndex === 11) {
+                                    return 3
+                                }
+                                if (rowIndex === 14) {
+                                    return 3
+                                }
+                                if (rowIndex === 6 ) {
+                                    return 5
+                                }
+                                if (rowIndex === 17) {
+                                    return 1
+                                }
+                            }
+                        },
+                        className:'title',
+                        width:86,
+                    },
+                    {
+                        title: 'Audit Categories',
+                        key: 'categories',
+                        align: 'center',
+                        rowSpan: (rowData:Object, rowIndex:Number) => {
+                            if(tableChoseBox.value === 1){
+                                if (rowIndex === 0) {
+                                    return 7
+                                }
+                                if (rowIndex === 7) {
+                                    return 3
+                                }
+                                if (rowIndex === 10) {
+                                    return 3
+                                }
+                                if (rowIndex === 13) {
+                                    return 6
+                                }
+                                if (rowIndex === 19) {
+                                    return 3
+                                }
+                                if (rowIndex === 22) {
+                                    return 3
+                                }
+                                if (rowIndex === 25){
+                                    return 9
+                                }
+                                if (rowIndex === 34){
+                                    return 1
+                                }
+                                if (rowIndex === 35){
+                                    return 1
+                                }
+                            }
+                            if(tableChoseBox.value === 2){
+                                if(rowIndex === 0 ){
+                                    return 1
+                                }
+                                if (rowIndex === 1 ) {
+                                    return 3
+                                }
+                                if (rowIndex === 4) {
+                                    return 3
+                                }
+                                if (rowIndex === 12) {
+                                    return 3
+                                }
+                                if (rowIndex === 7) {
+                                    return 5
+                                }
+                                if (rowIndex === 15) {
+                                    return 4
+                                }
+                                if (rowIndex === 19) {
+                                    return 1
+                                }
+                            }
+                            if(tableChoseBox.value === 3){
+                                if (rowIndex === 0) {
+                                    return 3
+                                }
+                                if (rowIndex === 3) {
+                                    return 3
+                                }
+                                if (rowIndex === 11) {
+                                    return 3
+                                }
+                                if (rowIndex === 14) {
+                                    return 3
+                                }
+                                if (rowIndex === 6 ) {
+                                    return 5
+                                }
+                                if (rowIndex === 17) {
+                                    return 1
+                                }
+                            }
+                        },
+                        className:'categories',
+                        width:623,
+                    },
+                    {
+                        title: 'Audit Sub-items',
+                        key: 'items',
+                        align: 'center',
+                        className:'title',
+                        width:495
+                    },
+                ]
+            }
+            function rowClassName (row:object,index:number) {
+                if(row.num%2 === 0){
+                    return 'change-color'
+                }
+                return null
+            }
+            const whiteBox = <Array<Object>>[
+                {num:'01',categories:t('lang.serviceContract.table.white.categories01'),items:t('lang.serviceContract.table.white.item01.text01')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.white.item01.text02')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.white.item01.text03')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.white.item01.text04')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.white.item01.text05')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.white.item01.text06')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.white.item01.text07')},
+                {num:'02',categories:t('lang.serviceContract.table.white.categories02'),items:t('lang.serviceContract.table.white.item02.text01')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.white.item02.text02')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.white.item02.text03')},
+                {num:'03',categories:t('lang.serviceContract.table.white.categories03'),items:t('lang.serviceContract.table.white.item03.text01')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.white.item03.text02')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.white.item03.text03')},
+                {num:'04',categories:t('lang.serviceContract.table.white.categories04'),items:t('lang.serviceContract.table.white.item04.text01')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.white.item04.text02')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.white.item04.text03')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.white.item04.text04')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.white.item04.text05')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.white.item04.text06')},
+                {num:'05',categories:t('lang.serviceContract.table.white.categories05'),items:t('lang.serviceContract.table.white.item05.text01')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.white.item05.text02')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.white.item05.text03')},
+                {num:'06',categories:t('lang.serviceContract.table.white.categories06'),items:t('lang.serviceContract.table.white.item06.text01')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.white.item06.text02')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.white.item06.text03')},
+                {num:'07',categories:t('lang.serviceContract.table.white.categories07'),items:t('lang.serviceContract.table.white.item07.text01')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.white.item07.text02')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.white.item07.text03')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.white.item07.text04')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.white.item07.text05')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.white.item07.text06')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.white.item07.text07')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.white.item07.text08')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.white.item07.text09')},
+                {num:'08',categories:t('lang.serviceContract.table.white.categories08'),items:t('lang.serviceContract.table.white.item08')},
+                {num:'09',categories:t('lang.serviceContract.table.white.categories09'),items:t('lang.serviceContract.table.white.item09')},
+            ]
+            const greyBox = <Array<Object>>[
+                {num:'01',categories:t('lang.serviceContract.table.grey.categories01'),items:t('lang.serviceContract.table.grey.item01')},
+                {num:'02',categories:t('lang.serviceContract.table.grey.categories02'),items:t('lang.serviceContract.table.grey.item02.text01')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.grey.item02.text02')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.grey.item02.text03')},
+                {num:'03',categories:t('lang.serviceContract.table.grey.categories03'),items:t('lang.serviceContract.table.grey.item03.text01')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.grey.item03.text02')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.grey.item03.text03')},
+                {num:'04',categories:t('lang.serviceContract.table.grey.categories04'),items:t('lang.serviceContract.table.grey.item04.text01')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.grey.item04.text02')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.grey.item04.text03')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.grey.item04.text04')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.grey.item04.text05')},
+                {num:'05',categories:t('lang.serviceContract.table.grey.categories05'),items:t('lang.serviceContract.table.grey.item05.text01')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.grey.item05.text02')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.grey.item05.text03')},
+                {num:'06',categories:t('lang.serviceContract.table.grey.categories06'),items:t('lang.serviceContract.table.grey.item06.text01')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.grey.item06.text02')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.grey.item06.text03')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.grey.item06.text04')},
+                {num:'07',categories:t('lang.serviceContract.table.grey.categories07'),items:t('lang.serviceContract.table.grey.item07')},
+            ]
+            const blackBox = <Array<Object>>[
+                {num:'01',categories:t('lang.serviceContract.table.black.categories01'),items:t('lang.serviceContract.table.black.item01.text01')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.black.item01.text02')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.black.item01.text03')},
+                {num:'02',categories:t('lang.serviceContract.table.black.categories02'),items:t('lang.serviceContract.table.black.item02.text01')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.black.item02.text02')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.black.item02.text03')},
+                {num:'03',categories:t('lang.serviceContract.table.black.categories03'),items:t('lang.serviceContract.table.black.item03.text01')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.black.item03.text02')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.black.item03.text03')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.black.item03.text04')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.black.item03.text05')},
+                {num:'04',categories:t('lang.serviceContract.table.black.categories04'),items:t('lang.serviceContract.table.black.item04.text01')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.black.item04.text02')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.black.item04.text03')},
+                {num:'04',categories:t('lang.serviceContract.table.black.categories05'),items:t('lang.serviceContract.table.black.item05.text01')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.black.item05.text02')},
+                {num:'',categories:'',items:t('lang.serviceContract.table.black.item05.text03')},
+                {num:'06',categories:t('lang.serviceContract.table.black.categories06'),items:t('lang.serviceContract.table.black.item06')},
+            ]
+            let boxText = computed<String>(()=>{
+                if(tableChoseBox.value === 1){
+                    return t('lang.serviceContract.table.textWhite')
+                }
+                if(tableChoseBox.value === 2){
+                    return t('lang.serviceContract.table.textGrey')
+                }
+                return t('lang.serviceContract.table.textBlack')
+            })
+            let data = computed<Array<Object>>(()=>{
+                if(tableChoseBox.value === 1){
+                    return whiteBox
+                }
+                if(tableChoseBox.value === 2){
+                    return greyBox
+                }
+                return blackBox
+            })
+            let tableChoseBox = ref<number>(1)
             return {
+                data,
+                columns: createColumns(),
                 search,
                 searchPrams,
                 reportList,
-                inputThemeOverrides
+                boxText,
+                inputThemeOverrides,
+                tableChoseBox,
+                rowClassName
             }
         },
     })
@@ -178,6 +506,30 @@
 
 <style scoped>
 @import "../../assets/css/service-page.css";
+
+:deep(.title) {
+    background-color: #FFFFFF !important;
+}
+
+:deep(.title) :hover {
+    background-color: rgba(248, 248, 248, 0);
+}
+
+:deep(.categories) {
+    background-color: #FFFFFF !important;
+}
+
+:deep(.categories) :hover {
+    background-color: #FFFFFF !important;
+}
+
+/deep/.n-data-table-th{
+    background-color: #F1F1F1 !important;
+}
+
+/deep/.change-color .categories {
+    background-color: #F8F8F8 !important;
+}
 
 #service_contract .page-head{
   display: flex;
@@ -190,6 +542,7 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 #service_contract .content-card-down{
   display: flex;
   justify-content: space-between;
@@ -208,6 +561,5 @@
   width: 1200px;
   margin-top: 71px;
 }
-
 
 </style>
