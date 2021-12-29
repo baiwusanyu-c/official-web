@@ -322,7 +322,7 @@
                                 }
                             }
                             if(tableChoseBox.value === 2){
-                                if(rowIndex === 0 ){
+                                if(rowIndex === 0 ||rowIndex === 19){
                                     return 1
                                 }
                                 if (rowIndex === 1||rowIndex === 4||rowIndex === 12) {
@@ -333,9 +333,6 @@
                                 }
                                 if (rowIndex === 15) {
                                     return 4
-                                }
-                                if (rowIndex === 19) {
-                                    return 1
                                 }
                             }
                             if(tableChoseBox.value === 3){
