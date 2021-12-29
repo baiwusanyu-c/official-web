@@ -103,7 +103,6 @@
 }
 
 .service-page .page-body-table{
-  height: 2014px;
   background-image: url("../../assets/img/contect-table-head.png"),
                     url("../../assets/img/contect-table-body.png");
   background-repeat: no-repeat, no-repeat;
@@ -115,16 +114,17 @@
 
 .table-body{
   margin-top: 65px;
+  margin-bottom: 100px;
 }
 
 .service-page .table-title-class{
   height: 26px;
   width: 100%;
-  margin: 109px 95px;
+  margin: 109px 88px;
   font-size: 24px;
   font-weight: bold;
   color: #282828;
-  line-height: 42px;
+  line-height: 32px;
   display: flex;
   justify-content: space-evenly;
 }
@@ -149,6 +149,10 @@
   cursor:pointer
 }
 
+.table-title-chick{
+  font-weight: 400;
+}
+
 .fade-enter-active {
   transition: opacity .5s ease;
 }
@@ -157,9 +161,19 @@
   opacity: 0;
 }
 .service-page .table-title-footer{
+  margin-top: 4px;
   height: 6px;
   background: #02FBBB;
-  transition: all .5s ease;
+}
+
+.service-page .table-title-big{
+  margin-top: 95px;
+  width: 680px;
+  height: 37px;
+  font-size: 36px;
+  font-weight: bold;
+  color: #121214;
+  line-height: 42px;
 }
 
 .service-page .page-body-content {
@@ -175,7 +189,6 @@
   font-size: 36px;
   font-weight: bold;
 }
-
 
 .service-page .card {
   display: flex;
@@ -206,12 +219,18 @@
   text-align: center;
 }
 
-
 .service-page .page-body-process {
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 2009px;
+  background-color: #FFF;
+}
+
+.service-page .page-body-process-contract {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #FFF;
 }
 

@@ -93,26 +93,38 @@
                 </div>
             </div>
         </div>
+        <div class="page-body-process-contract">
+            <div class="body-title font-format">{{$t('lang.serviceContract.process.title')}}</div>
+            <div class="process-text">
+                <div class="font-format">{{$t('lang.serviceContract.process.textEvaluation')}}</div>
+                <div class="font-format">{{$t('lang.serviceContract.process.textImplementation')}}</div>
+            </div>
+            <img src="../../assets/img/process-small.png" style="margin-bottom: 104px" height="342" width="1200"/>
+        </div>
         <div class="page-body-table">
             <!--
             <img src="../../assets/img/contect-table-head.png" style="z-index:1" height="929" width="1920"/>
             <img src="../../assets/img/contect-table-body.png" style="z-index:1" height="817" width="2413"/>
             -->
+            <div class="table-title-big">{{$t('lang.serviceContract.table.titleBig')}}</div>
             <div class="table-title-class">
                 <div class="table-title" @click="tableChoseBox = 1">
-                    <div>{{$t('lang.serviceContract.table.titleWhite')}}</div>
+                    <div v-show="tableChoseBox===1">{{$t('lang.serviceContract.table.titleWhite')}}</div>
+                    <div class="table-title-chick" v-show="tableChoseBox!==1">{{$t('lang.serviceContract.table.titleWhite')}}</div>
                     <transition  name="fade">
                         <div class="table-title-footer" v-show="tableChoseBox===1"></div>
                     </transition>
                 </div>
                 <div class="table-title" @click="tableChoseBox = 2">
-                    <div>{{$t('lang.serviceContract.table.titleGrey')}}</div>
+                    <div v-show="tableChoseBox===2">{{$t('lang.serviceContract.table.titleGrey')}}</div>
+                    <div class="table-title-chick" v-show="tableChoseBox!==2">{{$t('lang.serviceContract.table.titleGrey')}}</div>
                     <transition  name="fade">
                         <div class="table-title-footer" v-show="tableChoseBox===2"></div>
                     </transition>
                 </div>
                 <div class="table-title" @click="tableChoseBox = 3">
-                    <div>{{$t('lang.serviceContract.table.titleBlack')}}</div>
+                    <div v-show="tableChoseBox===3">{{$t('lang.serviceContract.table.titleBlack')}}</div>
+                    <div class="table-title-chick" v-show="tableChoseBox!==3">{{$t('lang.serviceContract.table.titleBlack')}}</div>
                     <transition  name="fade">
                         <div class="table-title-footer" v-show="tableChoseBox===3"></div>
                     </transition>
@@ -135,15 +147,7 @@
                 />
             </div>
         </div>
-        <!--<div class="page-body-process">
-            <div class="body-title font-format">{{$t('lang.serviceContract.process.title')}}</div>
-            <div class="process-text">
-                <div class="font-format">{{$t('lang.serviceContract.process.textEvaluation')}}</div>
-                <div class="font-format">{{$t('lang.serviceContract.process.textImplementation')}}</div>
-            </div>
-            <img src="../../assets/img/process-small.png" style="margin-bottom: 19px" height="342" width="1200"/>
-            <img src="../../assets/img/process-big.png" style="z-index: 1" height="1429" width="1200"/>
-        </div>
+        <!--
         <div class="page-body-reports">
             <div  class="page-body-reports-head">
                 <div class="reports-header">
@@ -178,6 +182,7 @@
     import {serviceContract} from "../../enums/link";
     import {setSession} from "../../utils/common";
     import {DocumentOutline, DownloadOutline} from "@vicons/ionicons5";
+    import {boxChoose} from "../../utils/table-date-service";
     type InputThemeOverrides = NonNullable<InputProps['themeOverrides']>
     const inputThemeOverrides: InputThemeOverrides = {
         border:'1px solid black'
@@ -303,20 +308,11 @@
                                 if (rowIndex === 0) {
                                     return 7
                                 }
-                                if (rowIndex === 7) {
-                                    return 3
-                                }
-                                if (rowIndex === 10) {
+                                if (rowIndex === 7 || rowIndex === 10||rowIndex === 19||rowIndex === 22) {
                                     return 3
                                 }
                                 if (rowIndex === 13) {
                                     return 6
-                                }
-                                if (rowIndex === 19) {
-                                    return 3
-                                }
-                                if (rowIndex === 22) {
-                                    return 3
                                 }
                                 if (rowIndex === 25){
                                     return 9
@@ -332,13 +328,7 @@
                                 if(rowIndex === 0 ){
                                     return 1
                                 }
-                                if (rowIndex === 1 ) {
-                                    return 3
-                                }
-                                if (rowIndex === 4) {
-                                    return 3
-                                }
-                                if (rowIndex === 12) {
+                                if (rowIndex === 1||rowIndex === 4||rowIndex === 12) {
                                     return 3
                                 }
                                 if (rowIndex === 7) {
@@ -352,16 +342,7 @@
                                 }
                             }
                             if(tableChoseBox.value === 3){
-                                if (rowIndex === 0) {
-                                    return 3
-                                }
-                                if (rowIndex === 3) {
-                                    return 3
-                                }
-                                if (rowIndex === 11) {
-                                    return 3
-                                }
-                                if (rowIndex === 14) {
+                                if (rowIndex === 0||rowIndex === 3||rowIndex === 11||rowIndex === 14) {
                                     return 3
                                 }
                                 if (rowIndex === 6 ) {
@@ -390,7 +371,7 @@
                 }
                 return null
             }
-            const whiteBox = <Array<Object>>[
+            /*const whiteBox = <Array<Object>>[
                 {num:'01',categories:t('lang.serviceContract.table.white.categories01'),items:t('lang.serviceContract.table.white.item01.text01')},
                 {num:'',categories:'',items:t('lang.serviceContract.table.white.item01.text02')},
                 {num:'',categories:'',items:t('lang.serviceContract.table.white.item01.text03')},
@@ -427,7 +408,7 @@
                 {num:'',categories:'',items:t('lang.serviceContract.table.white.item07.text09')},
                 {num:'08',categories:t('lang.serviceContract.table.white.categories08'),items:t('lang.serviceContract.table.white.item08')},
                 {num:'09',categories:t('lang.serviceContract.table.white.categories09'),items:t('lang.serviceContract.table.white.item09')},
-            ]
+            ]*/
             const greyBox = <Array<Object>>[
                 {num:'01',categories:t('lang.serviceContract.table.grey.categories01'),items:t('lang.serviceContract.table.grey.item01')},
                 {num:'02',categories:t('lang.serviceContract.table.grey.categories02'),items:t('lang.serviceContract.table.grey.item02.text01')},
@@ -479,16 +460,8 @@
                 }
                 return t('lang.serviceContract.table.textBlack')
             })
-            let data = computed<Array<Object>>(()=>{
-                if(tableChoseBox.value === 1){
-                    return whiteBox
-                }
-                if(tableChoseBox.value === 2){
-                    return greyBox
-                }
-                return blackBox
-            })
             let tableChoseBox = ref<number>(1)
+            let data = boxChoose(tableChoseBox.value,t)
             return {
                 data,
                 columns: createColumns(),

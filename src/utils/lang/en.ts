@@ -173,19 +173,20 @@ export default {
             cardCode: 'Code Specification Audit',
             cardFunction: 'Function Call Audit',
         },
-        /*process: {
+        process: {
             title: 'Service Process',
             textEvaluation: 'Project Evaluation',
             textImplementation: 'Project Implementation',
         },
-        reports: {
+        /*reports: {
             title: 'What’s in the audit report?',
             text: 'Our audit reports adopt several methods to offer you a comprehensive and customized service, including formal verification, static analysis, case testing and manual review. The report will list detailed information about the identified vulnerabilities and categorize them by severity (critical, high, medium, low and informational). Charts and graphs are included to provide a visual insight into your project, and fix recommendations will also be given.',
             middleTitle: 'Security Audit Reports',
             answer: 'Our audit reports adopt several methods to offer you a comprehensive and customized service, including formal verification, static analysis, case testing and manual review. The report will list detailed information about the identified vulnerabilities and categorize them by severity (critical, high, medium, low and informational). Charts and graphs are included to provide a visual insight into your project, and fix recommendations will also be given.',
             middleText: 'Listed are some of the Blockchain and DeFi audit reports we published'
-        }*/
+        },*/
         table: {
+            titleBig:'Smart contract security audit items',
             titleWhite:'White box testing solutions',
             titleGrey:'Grey box testing solutions',
             titleBlack:'Black box testing solutions',
