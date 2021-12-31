@@ -80,3 +80,7 @@
 * package-lock.json 版本管理使用的文件
 
 * vite.config.ts vite配置文件
+
+### 火狐浏览器兼容汇总
+* 登录页需要兼容  
+### Safari浏览器兼容汇总

@@ -46,7 +46,7 @@
 
 <script lang="ts">
 import {watch, defineComponent, ref} from "vue";
-import {useI18n} from "vue-i18n";
+import {useI18n,ComposerTranslation} from "vue-i18n";
 import {NInput} from "naive-ui";
 import {getReportByCode, IReportCode} from "../api/service";
 import {setSession} from "../utils/common";
