@@ -319,7 +319,15 @@
   right: 18%;
   @apply h-12 w-80 font-bold absolute ;
 }
-@media screen and (min-width: 1536px) and (max-width: 1750px) {
+@media screen and (min-width: 1328px) and (max-width: 1538px) {
+
+  #service_security.service-page .page-head,
+  #service_contract.service-page .page-head {
+    height: 480px;
+    padding: 0 120px 80px 120px;
+  }
+}
+@media screen and (min-width: 1540px) and (max-width: 1750px) {
 
   #service_security.service-page .page-head,
   #service_contract.service-page .page-head {

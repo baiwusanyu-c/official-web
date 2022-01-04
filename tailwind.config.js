@@ -8,7 +8,8 @@ module.exports = {
         screens: {
             sm: '100px',
             'md': {'min': '1280px', 'max': '1326px'},
-            'lg': {'min': '1536px', 'max': '1750px'},
+            'lg125': {'min': '1328px', 'max': '1538px'},
+            'lg': {'min': '1540px', 'max': '1750px'},
 
         },
         colors: {

@@ -38,7 +38,7 @@
         </div>
         <be-button @click="register"
                    size="large"
-                   customClass="login-btn linear-l-r text-black font-bold text-lg w-full mb-8 mx-auto md:mb-4">
+                   customClass="login-btn linear-l-r text-black font-bold text-lg w-full mb-8 mx-auto md:mb-4 lg125:mb-4">
            <span class="font-format">{{$t('lang.login.register')}}</span>
         </be-button>
         <be-button size="large"
@@ -186,4 +186,5 @@ export default defineComponent({
     width: 60px;
     height: 30px;
   }
+
 </style>

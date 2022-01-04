@@ -7,7 +7,7 @@
 
 <template>
     <div class="flex flex-col items-start w-full">
-        <img src="../../assets/img/logo-green-black.png" class='mb-4 w-1/2' alt=""/>
+        <img src="../../assets/img/logo-green-black.png" class='w-1/2' alt=""/>
         <!--  账户      -->
         <h3 class="text-2xl font-bold mb-2 font-format">{{$t('lang.login.forget')}}</h3>
         <div class='mb-2 h-24 border-b w-full md:h-14 lg:h-14'>

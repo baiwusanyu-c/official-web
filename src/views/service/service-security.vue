@@ -8,7 +8,7 @@
     <div class="service-page" id="service_security">
         <div class="page-head relative">
             <div class="header-text">
-                <div class="header-text-big">
+                <div class="header-text-big font-format">
                     {{$t('lang.serviceSecurity.pageHead.textBig')}}
                 </div>
                 <div class="header-text-small">

@@ -9,7 +9,7 @@
          @mouseenter="isHover = true"
          @mouseleave="isHover = false"
          :style="{
-             width: `${!isHover && 35}%`,
+             width: `${!isHover && 40}%`,
              height: `${!isHover && 230}px `,
              zIndex:`${!isHover ? 10 : 20}`,
              backgroundImage: `url(${img})`
@@ -57,6 +57,7 @@ export default defineComponent({
             list.value.map((val:string,index:number)=>{
                 const obj:IImge= {img:''}
                 obj.img = imgImport['../assets/img/hexagon' + (index + 1) + '.png'].default
+              //  obj.img = imgImport['../assets/img/hexagon' + (index + 1) + '-hover.png'].default
                 imgList.push(obj)
                 const objHover:IImge = {img:''}
                 objHover.img = imgImport['../assets/img/hexagon' + (index + 1) + '-hover.png'].default
@@ -96,6 +97,7 @@ export default defineComponent({
   text-align: center;
   background-repeat: no-repeat;
   transition: all .1s;
+  background-position-x: center;
 }
 
 .hexagon-container:hover p{

@@ -63,9 +63,13 @@ export default defineComponent({
   background-position-y: 5%;
   background-size: 28%;
   border-top: 5px solid #02fbbb;
-  @apply rounded w-1/4 h-4/6 bg-default;
+  @apply rounded w-1/4 h-4/6 bg-default lg125:h-5/6;
 }
-
+@media screen and (min-width: 1540px) and (max-width: 1750px) {
+    .login-form{
+        height: 70%;
+    }
+}
 .back{
   top: 30px;
   right:30px;
