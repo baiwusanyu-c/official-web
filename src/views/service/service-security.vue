@@ -103,7 +103,7 @@
                 <div class="reports-middle-text">{{$t('lang.serviceSecurity.reports.middleText')}}</div>
             </div>
             <div style="margin-top: 76px">
-                <hServiceSwiper/>
+                <hServiceSwiper :list="reportList"/>
             </div>
         </div>
         <contact-us></contact-us>
@@ -123,6 +123,7 @@ import ContactUs from "../../components/contact-us.vue";
 import VerCodeDialog from "../../components/ver-code-dialog.vue";
 import {IDialog} from "../../utils/types";
 import composition from "../../utils/mixin/common-func";
+import {serviceContract} from "../../enums/link";
 type InputThemeOverrides = NonNullable<InputProps['themeOverrides']>
 const inputThemeOverrides: InputThemeOverrides = {
     border:'1px solid black'
@@ -148,10 +149,18 @@ export default defineComponent({
             }
             (curInst?.refs.verCodeDialog as IDialog).isShow = true
         }
+        const reportList = [
+            { fileUrl:serviceContract.report1,info: 'SMART CONTRACT AUDIT REPORT', name: 'For CrossYield-stake'},
+            { fileUrl:serviceContract.report2,info: 'SMART CONTRACT AUDIT REPORT', name: 'For Huckleberry'},
+            { fileUrl:serviceContract.report3,info: 'SMART CONTRACT AUDIT REPORT', name: 'For NFT'},
+            { fileUrl:serviceContract.report1,info: 'SMART CONTRACT AUDIT REPORT', name: 'For CrossYield-stake'},
+            { fileUrl:serviceContract.report2,info: 'SMART CONTRACT AUDIT REPORT', name: 'For Huckleberry'},
+        ]
         return {
             search,
             searchPrams,
-            inputThemeOverrides,
+            reportList,
+            inputThemeOverrides
         }
     },
 })
@@ -161,9 +170,9 @@ export default defineComponent({
 @import "../../assets/css/service-page.css";
 
 #service_security .content-card-up{
+  width: 941px;
   display: flex;
   justify-content: space-between;
-  width: 941px;
   margin-top: 71px;
 }
 

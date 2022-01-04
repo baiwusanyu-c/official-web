@@ -7,9 +7,9 @@
     "serve:pretest": "vite --host --mode pretest",
     "serve:prod": "vite --host --mode production",
     "build:dev": "npm install -D tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9 && vite build --mode development",
-    "build:stage": "vite build --mode staging",
+    "build:stage": "npm install -D tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9 && vite build --mode staging",
     "build:prod": "vite build --mode production",
-    "build:pretest": "vite build --mode pretest",
+    "build:pretest": "npm install -D tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9 &&  vite build --mode pretest",
     "lint:style": "stylelint src/**/*.{html,vue,css}",
     "lint:style-fix": "stylelint --fix src/**/*.{html,vue,css}"
   },
