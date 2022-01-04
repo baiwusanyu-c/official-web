@@ -6,7 +6,7 @@
     "serve:stage": "vite --host --mode staging",
     "serve:pretest": "vite --host --mode pretest",
     "serve:prod": "vite --host --mode production",
-    "build:dev": "node -v && vite build --mode development",
+    "build:dev": "vite build --mode development",
     "build:stage": "vite build --mode staging",
     "build:prod": "vite build --mode production",
     "build:pretest": "vite build --mode pretest",
