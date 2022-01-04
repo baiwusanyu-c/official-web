@@ -170,9 +170,9 @@ export default defineComponent({
 @import "../../assets/css/service-page.css";
 
 #service_security .content-card-up{
-  width: 941px;
   display: flex;
   justify-content: space-between;
+  width: 941px;
   margin-top: 71px;
 }
 

@@ -66,10 +66,12 @@ export default defineComponent({
   @apply rounded w-1/4 h-4/6 bg-default lg125:h-5/6;
 }
 @media screen and (min-width: 1540px) and (max-width: 1750px) {
-    .login-form{
-        height: 70%;
-    }
+
+  .login-form{
+    height: 70%;
+  }
 }
+
 .back{
   top: 30px;
   right:30px;

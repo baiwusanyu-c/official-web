@@ -475,27 +475,27 @@
 @import "../../assets/css/service-page.css";
 
 :deep(.title) {
-    background-color: #FFFFFF !important;
+  background-color: #FFF !important;
 }
 
 :deep(.title) :hover {
-    background-color: rgba(248, 248, 248, 0);
+  background-color: rgba(248, 248, 248, 0);
 }
 
 :deep(.categories) {
-    background-color: #FFFFFF !important;
+  background-color: #FFF !important;
 }
 
 :deep(.categories) :hover {
-    background-color: #FFFFFF !important;
+  background-color: #FFF !important;
 }
 
 /deep/.n-data-table-th{
-    background-color: #F1F1F1 !important;
+  background-color: #F1F1F1 !important;
 }
 
 /deep/.change-color .categories {
-    background-color: #F8F8F8 !important;
+  background-color: #F8F8F8 !important;
 }
 
 #service_contract .page-head{

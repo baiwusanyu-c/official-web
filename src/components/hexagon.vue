@@ -96,8 +96,8 @@ export default defineComponent({
   padding: 0 30px 0 20px;
   text-align: center;
   background-repeat: no-repeat;
-  transition: all .1s;
   background-position-x: center;
+  transition: all .1s;
 }
 
 .hexagon-container:hover p{

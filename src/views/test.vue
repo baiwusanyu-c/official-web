@@ -35,19 +35,20 @@ export default defineComponent({
 
 <style >
 .test{
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    height: 100%;
-    width: 100%;
-    justify-content: center;
-    z-index: 2077;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2077;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
+
 .container {
-    width:300px;
-    height: 300px;
-    background-color: #f0f9eb;
-    @apply self-center;
+  width:300px;
+  height: 300px;
+  background-color: #f0f9eb;
+  @apply self-center;
 }
 </style>

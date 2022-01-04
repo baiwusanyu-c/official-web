@@ -558,23 +558,27 @@ export default defineComponent({
   height: 460px;
 }
 
-/*110% - 125% 适配*/
+/* 110% - 125% 适配 */
 @media screen and (min-width: 1536px) and (max-height: 840px) and (max-width: 1750px)  {
-    .slogan-service .hexagon8{
-        left: -12%;
-    }
-    .slogan-service .hexagon9{
-        left: 21.5%;
-    }
-    .slogan-service .hexagon11{
-        left: 5%;
-    }
-    .slogan-service .hexagon12{
-        left: 38.5%;
-    }
+
+  .slogan-service .hexagon8{
+    left: -12%;
+  }
+
+  .slogan-service .hexagon9{
+    left: 21.5%;
+  }
+
+  .slogan-service .hexagon11{
+    left: 5%;
+  }
+
+  .slogan-service .hexagon12{
+    left: 38.5%;
+  }
 }
 
-/*150% 适配*/
+/* 150% 适配 */
 @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
 
   .hermit-main .slogan-service {

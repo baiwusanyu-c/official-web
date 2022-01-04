@@ -70,13 +70,13 @@ export default defineComponent({
 }
 
 .swiper-header{
-    padding: 10px;
-    box-sizing: border-box;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
   width:258px;
   height:193px;
+  padding: 10px;
   background: url('../assets/img/service-contract/swiper-img.png');
 }
 
