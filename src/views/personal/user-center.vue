@@ -31,7 +31,7 @@
                 </div>
             </div>
         </div>
-        <div class="page-table">
+        <div class="page-table bg-white">
             <div class="table-body">
                 <n-data-table :theme-overrides="builtinThemeOverrides" :columns="columns" :data="auditReport"/>
                 <div class="flex justify-center mt-6">

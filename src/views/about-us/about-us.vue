@@ -71,7 +71,7 @@
             <p class="text-4xl font-bold w-1/3 text-center slogan font-format">{{$t('lang.aboutUsPage.securityBlock')}}</p>
         </div>
         <!--    connect    -->
-        <div class="flex flex-col py-16 items-center justify-center box-border w-full">
+        <div class="flex flex-col py-16 items-center justify-center box-border w-full bg-white">
             <p class="text-3xl font-bold w-1/3 text-center mb-16 font-format">{{$t('lang.connect')}}</p>
             <div class="flex items-center">
 <!--                <div class="flex items-center justify-center text-xl mr-36">
@@ -171,6 +171,7 @@ export default defineComponent({
   background-image: url("../../assets/img/customer-earth.png");
   background-repeat: no-repeat;
   background-size: 100%;
+  background-color: #fff;
 }
 
 .about-us-page .securing-the-blockchain{

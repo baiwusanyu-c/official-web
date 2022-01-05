@@ -119,6 +119,7 @@
     url("../../assets/img/contect-table-body.png");
   background-repeat: no-repeat, no-repeat;
   background-position: center top, center 50%;
+  @apply bg-white;
 }
 
 .table-body{

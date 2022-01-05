@@ -2,7 +2,8 @@
     <n-config-provider :locale="uiLang" :date-locale="dateLang">
         <be-container class="hermit-container-container h-full overscroll-auto pb-0">
             <!-- 头部   -->
-            <be-header class="flex items-center justify-between fixed w-full z-30 text-default" style="height: 4em;background: #141720;opacity:.8;">
+            <be-header class="flex items-center justify-between fixed w-full z-30 text-default"
+                       style="height: 4em;background: #141720;opacity:.8;">
                 <h-header @changeLang="changeLanguage"></h-header>
             </be-header>
             <!--  主体    -->
@@ -33,7 +34,7 @@ import {useEventBus} from "@vueuse/core";
 import {IDialog} from "../utils/types";
 
 export default defineComponent({
-    components: {RequestQuoteDialog, HFooterBigger, HHeader, NConfigProvider, NDatePicker,NSelect},
+    components: {RequestQuoteDialog, HFooterBigger, HHeader, NConfigProvider, NDatePicker, NSelect},
     setup() {
         const curInst = getCurrentInstance()
         /**
@@ -52,7 +53,7 @@ export default defineComponent({
         /**
          * 变换语言
          */
-        const changeLanguage = (lang:string): void => {
+        const changeLanguage = (lang: string): void => {
             locale.value = lang
             // 本地持久化
             setStore('lang', locale.value)
@@ -74,8 +75,8 @@ export default defineComponent({
         /**
          * 彈窗開啓
          */
-        const openQuoteDialog = (isShow:string):void =>{
-            if(isShow === 'true'){
+        const openQuoteDialog = (isShow: string): void => {
+            if (isShow === 'true') {
                 (curInst?.refs.requestQuoteDialog as IDialog).isShow = true
             }
         }
@@ -94,25 +95,29 @@ export default defineComponent({
 </script>
 
 <style>
+.hermit-container-container {
+  background-color: #040305;
+}
+
 .hermit-container-container .be-header {
   height: 4.5em;
   @apply px-8;
 }
 
-.hermit-container-container .hermit-footer{
+.hermit-container-container .hermit-footer {
   height: 20em;
 }
 
-.be-main.pb-0{
+.be-main.pb-0 {
   padding: 0;
 }
 
-.hermit-footer.px-0{
+.hermit-footer.px-0 {
   padding-right: 0;
   padding-left: 0;
 }
 
-.hermit-container-container .hermit-main{
+.hermit-container-container .hermit-main {
   overflow: hidden;
 }
 </style>
