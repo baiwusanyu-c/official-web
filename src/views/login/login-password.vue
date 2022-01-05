@@ -33,7 +33,7 @@
             <div class='mt-8 flex w-full'>
                 <input type="text" v-model="form.code" class="border h-12 flex-1 font-format"/>
                 <div class="bg-mainG cursor-pointer flex items-center justify-center w-32" @click="getCode(form)">
-                    <img :src="codeUrl" alt=""/>
+                    <img :src="codeUrl" alt="" style="height: 100%;"/>
                 </div>
             </div>
         </div>

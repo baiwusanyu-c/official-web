@@ -28,12 +28,12 @@
         <div class='login-password mb-2 h-24 border-b w-full flex items-center '>
             <span class="text-gray-500 mr-4 flex-grow-0 font-format">{{$t('lang.login.password')}}</span>
             <input class='flex-grow h-16 font-format md:h-12 lg:h-12'
-                   :type="isShowPassword"
+                   :type="isShowPasswordConfirm"
                    :placeholder="$t('lang.login.tipPasswordConfirm')"
                    v-model="form.re_password"/>
             <be-icon :icon="isShowPasswordConfirm === 'password' ? 'noEye' : 'eye'"
                      customClass="flex-grow-0"
-                     @click="changeShowPWord('unConfirm')"></be-icon>
+                     @click="changeShowPWordConfirm('unConfirm')"></be-icon>
             <!--       no-eye     -->
         </div>
         <p class="mb-4 text-gray-500 md:mb-2">
@@ -84,15 +84,22 @@ export default defineComponent({
         const changeShowPWord = (type:string):void =>{
             if(isShowPassword.value === 'password' && type === 'confirm'){
                 isShowPassword.value = 'text'
+                return
             }
             if(isShowPassword.value === 'text' && type === 'confirm'){
                 isShowPassword.value = 'password'
+                return;
             }
+
+        }
+        const changeShowPWordConfirm = (type:string):void =>{
             if(isShowPasswordConfirm.value === 'password' && type === 'unConfirm'){
                 isShowPasswordConfirm.value = 'text'
+                return;
             }
             if(isShowPasswordConfirm.value === 'text' && type === 'unConfirm'){
                 isShowPasswordConfirm.value = 'password'
+                return;
             }
         }
         /**
@@ -183,6 +190,7 @@ export default defineComponent({
             changeShow,
             isShowPassword,
             isShowPasswordConfirm,
+            changeShowPWordConfirm,
             form,
             changeShowPWord,
             verifyCodeMail,

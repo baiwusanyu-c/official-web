@@ -55,6 +55,7 @@ export default defineComponent({
 }
 
 .login-form{
+  -moz-box-sizing: content-box;
   min-width:480px;
   min-height: 558px;
   background-image: url("../../assets/img/hat-bg.png");

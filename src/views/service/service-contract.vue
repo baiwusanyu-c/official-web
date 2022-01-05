@@ -186,33 +186,34 @@ export default defineComponent({
 @import "../../assets/css/service-page.css";
 
 #service_contract .page-head{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 570px;
-    padding-bottom: 110px;
-    background: url("../../assets/img/service-contract/contract-header.png");
-    background-color: black;
-    background-repeat: no-repeat;
-    background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 570px;
+  padding-bottom: 110px;
+  background: url("../../assets/img/service-contract/contract-header.png");
+  background-color: black;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
 #service_contract .content-card-down{
-    display: flex;
-    justify-content: space-between;
-    width: 1200px;
-    margin-top: 79px;
+  display: flex;
+  justify-content: space-between;
+  width: 1200px;
+  margin-top: 79px;
 }
 
 #service_contract .page-body-reports{
-    height: 1227px;
-    background-color: #000;
+  height: 1227px;
+  background-color: #000;
 }
 
 #service_contract .content-card-up{
-    display: flex;
-    justify-content: space-between;
-    width: 1200px;
-    margin-top: 71px;
+  display: flex;
+  justify-content: space-between;
+  width: 1200px;
+  margin-top: 71px;
 }
 
 
