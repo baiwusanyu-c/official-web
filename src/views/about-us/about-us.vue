@@ -168,10 +168,10 @@ export default defineComponent({
 }
 
 .about-us-page .desc-info{
+  background-color: #fff;
   background-image: url("../../assets/img/customer-earth.png");
   background-repeat: no-repeat;
   background-size: 100%;
-  background-color: #fff;
 }
 
 .about-us-page .securing-the-blockchain{
