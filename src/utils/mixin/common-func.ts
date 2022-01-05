@@ -60,7 +60,7 @@ export default (props: any, ctx: any) => {
                 initVal.value = max
                 clearInterval(timer)
             }
-        },3000)
+        },1500)
     }
     return{
         startTimer,
