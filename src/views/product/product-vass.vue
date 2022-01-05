@@ -15,7 +15,8 @@
                 <div class="header-text-small font-format">
                     {{ $t('lang.product.vass.subTitle') }}
                 </div>
-                <be-button customClass="try-out-btn h-btn-txt-black linear-l-r text-black text-xl">
+                <be-button customClass="try-out-btn h-btn-txt-black linear-l-r text-black text-xl"
+                           @click="openWin(`https://vaas.lianantech.com/#/login?token=${getStore('token')}`,'vaas')">
                     {{ $t('lang.tryoutBtn') }}
                 </be-button>
             </div>
@@ -123,16 +124,20 @@ import AboutHermit from "../../components/about-hermit.vue";
 import {defineComponent, ref} from "vue";
 import {useI18n} from "vue-i18n";
 import HProductSwiper from "../../components/h-product-swiper.vue";
-
+import composition from "../../utils/mixin/common-func";
+import {getStore} from "../../utils/common";
 export default defineComponent({
     name: "product-vass",
     components: {HProductSwiper, AboutHermit, ContactUs},
-    setup() {
+    setup(props, ctx) {
         const {t} = useI18n()
         const funcList = ref([
             {title: '', desc: ''}
         ])
-        return {}
+        const {openWin} = composition(props, ctx)
+
+        // https://vaas.lianantech.com/#/login?token=undefined
+        return {openWin,getStore}
     }
 })
 </script>
