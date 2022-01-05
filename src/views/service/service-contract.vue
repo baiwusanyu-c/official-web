@@ -16,7 +16,7 @@
                 </div>
             </div>
             <!--            <be-button customClass="reservation-btn h-btn-txt-black linear-l-r text-black text-xl">{{$t('lang.ReservationBtn')}}</be-button>-->
-            <img src="../../assets/img/header-img.png" class="header-img" style="visibility: hidden"/>
+            <img alt=""  src="../../assets/img/header-img.png" class="header-img" style="visibility: hidden"/>
         </div>
         <div class="page-body-search">
             <div class="body-search-text">
@@ -69,37 +69,37 @@
             <div class="content-card-up">
                 <div class="card">
                     <div class="card-title font-format">{{$t('lang.serviceContract.content.cardSecurity')}}</div>
-                    <img src="../../assets/img/service-contract/asset.png" height="120" width="212"/>
+                    <img alt="" src="../../assets/img/service-contract/asset.png" height="120" width="212"/>
                 </div>
                 <div class="card">
                     <div class="card-title font-format">{{$t('lang.serviceContract.content.cardLogic')}}</div>
-                    <img src="../../assets/img/service-contract/logic.png" height="120" width="212"/>
+                    <img alt="" src="../../assets/img/service-contract/logic.png" height="120" width="212"/>
                 </div>
                 <div class="card">
                     <div class="card-title font-format">{{$t('lang.serviceContract.content.cardBackdoor')}}</div>
-                    <img src="../../assets/img/service-contract/backdoor.png" height="120" width="212"/>
+                    <img alt="" src="../../assets/img/service-contract/backdoor.png" height="120" width="212"/>
                 </div>
                 <div class="card">
                     <div class="card-title font-format">{{$t('lang.serviceContract.content.cardFlashLoan')}}</div>
-                    <img src="../../assets/img/service-contract/flash-loan.png" height="120" width="212"/>
+                    <img alt="" src="../../assets/img/service-contract/flash-loan.png" height="120" width="212"/>
                 </div>
             </div>
             <div class="content-card-down">
                 <div class="card">
                     <div class="card-title font-format">{{$t('lang.serviceContract.content.cardThirdParty')}}</div>
-                    <img src="../../assets/img/service-contract/third-party.png" height="120" width="212"/>
+                    <img alt="" src="../../assets/img/service-contract/third-party.png" height="120" width="212"/>
                 </div>
                 <div class="card">
                     <div class="card-title font-format">{{$t('lang.serviceContract.content.cardAttack')}}</div>
-                    <img src="../../assets/img/service-contract/attack.png" height="120" width="212"/>
+                    <img alt="" src="../../assets/img/service-contract/attack.png" height="120" width="212"/>
                 </div>
                 <div class="card">
                     <div class="card-title font-format">{{$t('lang.serviceContract.content.cardCode')}}</div>
-                    <img src="../../assets/img/service-contract/code-specification.png" height="120" width="212"/>
+                    <img alt="" src="../../assets/img/service-contract/code-specification.png" height="120" width="212"/>
                 </div>
                 <div class="card">
                     <div class="card-title font-format">{{$t('lang.serviceContract.content.cardFunction')}}</div>
-                    <img src="../../assets/img/service-contract/call-audit.png" height="120" width="212"/>
+                    <img alt="" src="../../assets/img/service-contract/call-audit.png" height="120" width="212"/>
                 </div>
             </div>
         </div>
@@ -109,8 +109,8 @@
                 <div class="font-format">{{$t('lang.serviceContract.process.textEvaluation')}}</div>
                 <div class="font-format">{{$t('lang.serviceContract.process.textImplementation')}}</div>
             </div>
-            <img src="../../assets/img/process-small.png" style="margin-bottom: 19px" height="342" width="1200"/>
-            <img src="../../assets/img/process-big.png" style="z-index: 1" height="1429" width="1200"/>
+            <img alt="" src="../../assets/img/process-small.png" style="margin-bottom: 19px" height="342" width="1200"/>
+            <img alt="" src="../../assets/img/process-big.png" style="z-index: 1" height="1429" width="1200"/>
         </div>
         <div class="page-body-reports">
             <div  class="page-body-reports-head">
@@ -119,7 +119,7 @@
                         <div class="reports-title-question font-format">{{$t('lang.serviceContract.reports.title')}}</div>
                         <div class="reports-title-answer font-format">{{$t('lang.serviceContract.reports.text')}}</div>
                     </div>
-                    <img src="../../assets/img/pad.png" height="345" width="339"/>
+                    <img alt="" src="../../assets/img/pad.png" height="345" width="339"/>
                 </div>
                 <div class="reports-middle">
                     <div class="reports-middle-title font-format">{{$t('lang.serviceContract.reports.middleTitle')}}</div>

@@ -16,7 +16,7 @@
                 </div>
             </div>
 <!--            <be-button customClass="reservation-btn h-btn-txt-black linear-l-r text-black text-xl">{{$t('lang.ReservationBtn') }}</be-button>-->
-            <img src="../../assets/img/header-img.png" class="header-img"/>
+            <img alt="" src="../../assets/img/header-img.png" class="header-img"/>
         </div>
         <div class="page-body-search">
             <div class="body-search-text font-format">
@@ -69,25 +69,25 @@
             <div class="content-card-up">
                 <div class="card">
                     <div class="card-title font-format">{{$t('lang.serviceSecurity.content.cardCoding')}}</div>
-                    <img src="../../assets/img/language-coding.png" height="120" width="212"/>
+                    <img alt="" src="../../assets/img/language-coding.png" height="120" width="212"/>
                 </div>
                 <div class="card">
                     <div class="card-title font-format">{{$t('lang.serviceSecurity.content.cardBlock')}}</div>
-                    <img src="../../assets/img/block-production.png" height="120" width="212"/>
+                    <img alt="" src="../../assets/img/block-production.png" height="120" width="212"/>
                 </div>
                 <div class="card">
                     <div class="card-title font-format">{{$t('lang.serviceSecurity.content.cardSystem')}}</div>
-                    <img src="../../assets/img/accounts-system.png" height="120" width="212"/>
+                    <img alt="" src="../../assets/img/accounts-system.png" height="120" width="212"/>
                 </div>
             </div>
             <div class="content-card-down">
                 <div class="card">
                     <div class="card-title font-format">{{$t('lang.serviceSecurity.content.cardAudit')}}</div>
-                    <img src="../../assets/img/application-layer.png" height="120" width="212"/>
+                    <img alt="" src="../../assets/img/application-layer.png" height="120" width="212"/>
                 </div>
                 <div class="card">
                     <div class="card-title font-format">{{$t('lang.serviceSecurity.content.cardLayer')}}</div>
-                    <img src="../../assets/img/application-layer.png" height="120" width="212"/>
+                    <img alt="" src="../../assets/img/application-layer.png" height="120" width="212"/>
                 </div>
             </div>
         </div>
@@ -97,7 +97,7 @@
                 <div class="font-format">{{$t('lang.serviceContract.process.textEvaluation')}}</div>
                 <div class="font-format">{{$t('lang.serviceContract.process.textImplementation')}}</div>
             </div>
-            <img src="../../assets/img/process-small.png" style="margin-bottom: 104px" height="342" width="1200"/>
+            <img alt="" src="../../assets/img/process-small.png" style="margin-bottom: 104px" height="342" width="1200"/>
         </div>
         <div class="page-body-table">
             <div class="table-title-big">{{$t('lang.serviceContract.table.titleBig')}}</div>
@@ -125,9 +125,9 @@
                 </div>
             </div>
             <div class="table-text">
-                <img v-show = "tableChoseBox === 1" src="../../assets/img/white-box.png" height="241" width="420"/>
-                <img v-show = "tableChoseBox === 2" src="../../assets/img/gary-box.png" height="241" width="420"/>
-                <img v-show = "tableChoseBox === 3" src="../../assets/img/black-box.png" height="241" width="420"/>
+                <img alt="" v-show = "tableChoseBox === 1" src="../../assets/img/white-box.png" height="241" width="420"/>
+                <img alt="" v-show = "tableChoseBox === 2" src="../../assets/img/gary-box.png" height="241" width="420"/>
+                <img alt="" v-show = "tableChoseBox === 3" src="../../assets/img/black-box.png" height="241" width="420"/>
                 <div class="table-introduce">
                     <span>
                         {{boxText}}

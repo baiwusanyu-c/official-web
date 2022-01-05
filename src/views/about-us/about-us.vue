@@ -101,7 +101,7 @@
                     <template #trigger>
                         <img  class="ml-16 cursor-pointer " src="../../assets/img/community3.png" alt="" />
                     </template>
-                    <div><img src="../../assets/img/wechat-code.jpg" height="100" width="100"/></div>
+                    <div><img alt=""  src="../../assets/img/wechat-code.jpg" height="100" width="100"/></div>
                 </n-popover>
             </div>
         </div>

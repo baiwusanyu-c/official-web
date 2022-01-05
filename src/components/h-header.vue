@@ -72,7 +72,7 @@
                     customClass="header-popover" placement="bottom">
             <template #trigger>
                 <div class="trigger-item y-full flex items-center cursor-pointer mr-12 text-base hover:text-mainG">
-                    <img style="width: 30px;height: 30px;" class='mr-2' src="../assets/img/avatar.png"/>
+                    <img style="width: 30px;height: 30px;" class='mr-2' src="../assets/img/avatar.png" alt="" />
                     <be-icon icon="under" ></be-icon>
                 </div>
             </template>
@@ -288,12 +288,12 @@ export default defineComponent({
 
 <style>
 .menu-icon .be-icon {
-  @apply w-6 h-6
+  @apply w-6 h-6;
 }
 
 .header-popover .be-popover{
   z-index: 998;
-  @apply bg-footer
+  @apply bg-footer;
 }
 
 .header-popover .be-popover-body{

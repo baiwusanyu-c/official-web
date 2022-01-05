@@ -20,12 +20,6 @@
 import {defineComponent} from "vue";
 export default defineComponent({
     name: "about-hermit",
-    data() {
-        return {}
-    },
-    mounted() {
-    },
-    methods: {},
 })
 </script>
 

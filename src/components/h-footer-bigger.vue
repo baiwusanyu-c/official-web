@@ -40,7 +40,7 @@
                     <template #trigger>
                         <n-icon size="30px" class="group"><logo-wechat/></n-icon>
                     </template>
-                    <div><img src="../assets/img/wechat-code.jpg" height="100" width="100"/></div>
+                    <div><img src="../assets/img/wechat-code.jpg" height="100" width="100" alt="" /></div>
                 </n-popover>
             </div>
         </div>

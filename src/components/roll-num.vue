@@ -6,14 +6,16 @@
 */
 <template>
     <div class="box-item">
-        <li :class="{'number-item': !isNaN(item), 'mark-item': isNaN(item) }"
-            v-for="(item,index) in orderNum"
-            :key="index">
+        <ul>
+            <li :class="{'number-item': !isNaN(item), 'mark-item': isNaN(item) }"
+                v-for="(item,index) in orderNum"
+                :key="index">
                 <span v-if="!isNaN(item)">
                  <i ref="numberItem" :class="`number-item-i` + uid">0123456789</i>
                 </span>
-<!--            <span class="comma" v-else>{{ item }}</span>-->
-        </li>
+                <!--            <span class="comma" v-else>{{ item }}</span>-->
+            </li>
+        </ul>
     </div>
 </template>
 <script lang="ts">
