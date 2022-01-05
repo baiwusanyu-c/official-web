@@ -1,7 +1,11 @@
 import {ComposerTranslation} from "vue-i18n";
-
-export function boxChoose(num:number,t:ComposerTranslation) {
-    const whiteBox = <Array<Object>>[
+export type TBoxType = {
+    num:string
+    categories:string
+    items?:string
+}
+export function boxChoose(num:number,t:ComposerTranslation):Array<TBoxType>{
+    const whiteBox = <Array<TBoxType>>[
         {num:'01',categories:t('lang.serviceContract.table.white.categories01'),items:t('lang.serviceContract.table.white.item01.text01')},
         {num:'',categories:'',items:t('lang.serviceContract.table.white.item01.text02')},
         {num:'',categories:'',items:t('lang.serviceContract.table.white.item01.text03')},
@@ -39,7 +43,7 @@ export function boxChoose(num:number,t:ComposerTranslation) {
         {num:'08',categories:t('lang.serviceContract.table.white.categories08'),items:t('lang.serviceContract.table.white.item08')},
         {num:'09',categories:t('lang.serviceContract.table.white.categories09'),items:t('lang.serviceContract.table.white.item09')},
     ]
-    const greyBox = <Array<Object>>[
+    const greyBox = <Array<TBoxType>>[
         {num:'01',categories:t('lang.serviceContract.table.grey.categories01'),items:t('lang.serviceContract.table.grey.item01')},
         {num:'02',categories:t('lang.serviceContract.table.grey.categories02'),items:t('lang.serviceContract.table.grey.item02.text01')},
         {num:'',categories:'',items:t('lang.serviceContract.table.grey.item02.text02')},
@@ -61,7 +65,7 @@ export function boxChoose(num:number,t:ComposerTranslation) {
         {num:'',categories:'',items:t('lang.serviceContract.table.grey.item06.text04')},
         {num:'07',categories:t('lang.serviceContract.table.grey.categories07'),items:t('lang.serviceContract.table.grey.item07')},
     ]
-    const blackBox = <Array<Object>>[
+    const blackBox = <Array<TBoxType>>[
         {num:'01',categories:t('lang.serviceContract.table.black.categories01'),items:t('lang.serviceContract.table.black.item01.text01')},
         {num:'',categories:'',items:t('lang.serviceContract.table.black.item01.text02')},
         {num:'',categories:'',items:t('lang.serviceContract.table.black.item01.text03')},

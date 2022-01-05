@@ -11,7 +11,7 @@
                 <div class="header-text-big font-format">
                     {{$t('lang.serviceSecurity.pageHead.textBig')}}
                 </div>
-                <div class="header-text-small">
+                <div class="header-text-small font-format">
                     {{$t('lang.serviceSecurity.pageHead.textSmall')}}
                 </div>
             </div>
@@ -19,28 +19,28 @@
             <img src="../../assets/img/header-img.png" class="header-img"/>
         </div>
         <div class="page-body-search">
-            <div class="body-search-text">
+            <div class="body-search-text font-format">
                 <span>{{$t('lang.serviceSecurity.search.text')}}</span>
             </div>
             <div class="body-search-num">
                 <div class="search-num-box">
-                    <div class="num-header">{{$t('lang.serviceSecurity.search.totalCustomers')}}</div>
+                    <div class="num-header font-format">{{$t('lang.serviceSecurity.search.totalCustomers')}}</div>
                     <div class="num-main">{{'1000+'}}</div>
                     <div class="num-footer"></div>
                 </div>
                 <div class="search-num-box">
-                    <div class="num-header">{{$t('lang.serviceSecurity.search.audited')}}</div>
+                    <div class="num-header font-format">{{$t('lang.serviceSecurity.search.audited')}}</div>
                     <div class="num-main">{{'2000+'}}</div>
                     <div class="num-footer"></div>
                 </div>
                 <div class="search-num-box">
-                    <div class="num-header">{{$t('lang.serviceSecurity.search.totalAudited')}}</div>
+                    <div class="num-header font-format">{{$t('lang.serviceSecurity.search.totalAudited')}}</div>
                     <div class="num-main">{{'$100B+'}}</div>
                     <div class="num-footer"></div>
                 </div>
             </div>
             <div class="body-search-input">
-                <div class="input-title">{{$t('lang.serviceSecurity.search.inputTitle')}}</div>
+                <div class="input-title font-format">{{$t('lang.serviceSecurity.search.inputTitle')}}</div>
             </div>
             <div class="search-input shadow-2xl">
                 <n-input size="large"
@@ -55,55 +55,82 @@
             </div>
         </div>
         <div class="page-body-content">
-            <div class="body-title">{{$t('lang.serviceSecurity.content.title')}}</div>
+            <div class="body-title font-format">{{$t('lang.serviceSecurity.content.title')}}</div>
             <div class="content-card-up">
                 <div class="card">
-                    <div class="card-title">{{$t('lang.serviceSecurity.content.cardCoding')}}</div>
+                    <div class="card-title font-format">{{$t('lang.serviceSecurity.content.cardCoding')}}</div>
                     <img src="../../assets/img/language-coding.png" height="120" width="212"/>
                 </div>
                 <div class="card">
-                    <div class="card-title">{{$t('lang.serviceSecurity.content.cardBlock')}}</div>
+                    <div class="card-title font-format">{{$t('lang.serviceSecurity.content.cardBlock')}}</div>
                     <img src="../../assets/img/block-production.png" height="120" width="212"/>
                 </div>
                 <div class="card">
-                    <div class="card-title">{{$t('lang.serviceSecurity.content.cardSystem')}}</div>
+                    <div class="card-title font-format">{{$t('lang.serviceSecurity.content.cardSystem')}}</div>
                     <img src="../../assets/img/accounts-system.png" height="120" width="212"/>
                 </div>
             </div>
             <div class="content-card-down">
                 <div class="card">
-                    <div class="card-title">{{$t('lang.serviceSecurity.content.cardAudit')}}</div>
+                    <div class="card-title font-format">{{$t('lang.serviceSecurity.content.cardAudit')}}</div>
                     <img src="../../assets/img/application-layer.png" height="120" width="212"/>
                 </div>
                 <div class="card">
-                    <div class="card-title">{{$t('lang.serviceSecurity.content.cardLayer')}}</div>
+                    <div class="card-title font-format">{{$t('lang.serviceSecurity.content.cardLayer')}}</div>
                     <img src="../../assets/img/application-layer.png" height="120" width="212"/>
                 </div>
             </div>
         </div>
-        <div class="page-body-process">
-            <div class="body-title">{{$t('lang.serviceSecurity.process.title')}}</div>
+        <div class="page-body-process-security">
+            <div class="body-title font-format">{{$t('lang.serviceContract.process.title')}}</div>
             <div class="process-text">
-                <div>{{$t('lang.serviceSecurity.process.textEvaluation')}}</div>
-                <div>{{$t('lang.serviceSecurity.process.textImplementation')}}</div>
+                <div class="font-format">{{$t('lang.serviceContract.process.textEvaluation')}}</div>
+                <div class="font-format">{{$t('lang.serviceContract.process.textImplementation')}}</div>
             </div>
-            <img src="../../assets/img/process-small.png" style="margin-bottom: 19px" height="342" width="1200"/>
-            <img src="../../assets/img/process-big.png" style="z-index: 1" height="1429" width="1200"/>
+            <img src="../../assets/img/process-small.png" style="margin-bottom: 104px" height="342" width="1200"/>
         </div>
-        <div class="page-body-reports">
-            <div class="reports-header">
-                <div class="reports-title-class">
-                    <div class="reports-title-question">{{$t('lang.serviceSecurity.reports.title')}}</div>
-                    <div class="reports-title-answer">{{$t('lang.serviceSecurity.reports.text')}}</div>
+        <div class="page-body-table">
+            <div class="table-title-big">{{$t('lang.serviceContract.table.titleBig')}}</div>
+            <div class="table-title-class">
+                <div class="table-title" @click="tableChoseBox = 1">
+                    <div v-show="tableChoseBox===1">{{$t('lang.serviceContract.table.titleWhite')}}</div>
+                    <div class="table-title-chick" v-show="tableChoseBox!==1">{{$t('lang.serviceContract.table.titleWhite')}}</div>
+                    <transition  name="fade">
+                        <div class="table-title-footer" v-show="tableChoseBox===1"></div>
+                    </transition>
                 </div>
-                <img src="../../assets/img/pad.png" height="345" width="339"/>
+                <div class="table-title" @click="tableChoseBox = 2">
+                    <div v-show="tableChoseBox===2">{{$t('lang.serviceContract.table.titleGrey')}}</div>
+                    <div class="table-title-chick" v-show="tableChoseBox!==2">{{$t('lang.serviceContract.table.titleGrey')}}</div>
+                    <transition  name="fade">
+                        <div class="table-title-footer" v-show="tableChoseBox===2"></div>
+                    </transition>
+                </div>
+                <div class="table-title" @click="tableChoseBox = 3">
+                    <div v-show="tableChoseBox===3">{{$t('lang.serviceContract.table.titleBlack')}}</div>
+                    <div class="table-title-chick" v-show="tableChoseBox!==3">{{$t('lang.serviceContract.table.titleBlack')}}</div>
+                    <transition  name="fade">
+                        <div class="table-title-footer" v-show="tableChoseBox===3"></div>
+                    </transition>
+                </div>
             </div>
-            <div class="reports-middle">
-                <div class="reports-middle-title">{{$t('lang.serviceSecurity.reports.middleTitle')}}</div>
-                <div class="reports-middle-text">{{$t('lang.serviceSecurity.reports.middleText')}}</div>
+            <div class="table-text">
+                <img v-show = "tableChoseBox === 1" src="../../assets/img/white-box.png" height="241" width="420"/>
+                <img v-show = "tableChoseBox === 2" src="../../assets/img/gary-box.png" height="241" width="420"/>
+                <img v-show = "tableChoseBox === 3" src="../../assets/img/black-box.png" height="241" width="420"/>
+                <div class="table-introduce">
+                    <span>
+                        {{boxText}}
+                    </span>
+                </div>
             </div>
-            <div style="margin-top: 76px">
-                <hServiceSwiper :list="reportList"/>
+            <div class="table-body">
+                <n-data-table
+                    :data="data"
+                    :columns="columns"
+                    :row-class-name="rowClassName"
+                    :single-line="false"
+                />
             </div>
         </div>
         <contact-us></contact-us>
@@ -115,8 +142,8 @@
 <script lang="ts">
 
 import hServiceSwiper from '../../components/h-service-swiper.vue'
-import {defineComponent, getCurrentInstance, ref} from "vue";
-import {InputProps, NInput} from "naive-ui";
+import {computed, defineComponent, getCurrentInstance, ref, watch} from "vue";
+import {InputProps, NInput,NDataTable} from "naive-ui";
 import {useI18n} from "vue-i18n";
 import AboutHermit from "../../components/about-hermit.vue";
 import ContactUs from "../../components/contact-us.vue";
@@ -124,6 +151,7 @@ import VerCodeDialog from "../../components/ver-code-dialog.vue";
 import {IDialog} from "../../utils/types";
 import composition from "../../utils/mixin/common-func";
 import {serviceContract} from "../../enums/link";
+import {boxChoose, TBoxType} from "../../utils/table-date-service";
 type InputThemeOverrides = NonNullable<InputProps['themeOverrides']>
 const inputThemeOverrides: InputThemeOverrides = {
     border:'1px solid black'
@@ -134,6 +162,7 @@ export default defineComponent({
         AboutHermit, ContactUs,
         hServiceSwiper,
         VerCodeDialog,
+        NDataTable,
         NInput
     },
 
@@ -149,18 +178,208 @@ export default defineComponent({
             }
             (curInst?.refs.verCodeDialog as IDialog).isShow = true
         }
-        const reportList = [
-            { fileUrl:serviceContract.report1,info: 'SMART CONTRACT AUDIT REPORT', name: 'For CrossYield-stake'},
-            { fileUrl:serviceContract.report2,info: 'SMART CONTRACT AUDIT REPORT', name: 'For Huckleberry'},
-            { fileUrl:serviceContract.report3,info: 'SMART CONTRACT AUDIT REPORT', name: 'For NFT'},
-            { fileUrl:serviceContract.report1,info: 'SMART CONTRACT AUDIT REPORT', name: 'For CrossYield-stake'},
-            { fileUrl:serviceContract.report2,info: 'SMART CONTRACT AUDIT REPORT', name: 'For Huckleberry'},
-        ]
+        const createColumns = () => {
+            return [
+                {
+                    title: 'No.',
+                    key: 'num',
+                    align: 'center',
+                    rowSpan: (rowData:Object, rowIndex:Number) => {
+                        if(tableChoseBox.value === 1){
+                            if (rowIndex === 0) {
+                                return 7
+                            }
+                            if (rowIndex === 7) {
+                                return 3
+                            }
+                            if (rowIndex === 10) {
+                                return 3
+                            }
+                            if (rowIndex === 13) {
+                                return 6
+                            }
+                            if (rowIndex === 19) {
+                                return 3
+                            }
+                            if (rowIndex === 22) {
+                                return 3
+                            }
+                            if (rowIndex === 25){
+                                return 9
+                            }
+                            if (rowIndex === 34){
+                                return 1
+                            }
+                            if (rowIndex === 35){
+                                return 1
+                            }
+                        }
+                        if(tableChoseBox.value === 2){
+                            if(rowIndex === 0 ){
+                                return 1
+                            }
+                            if (rowIndex === 1 ) {
+                                return 3
+                            }
+                            if (rowIndex === 4) {
+                                return 3
+                            }
+                            if (rowIndex === 12) {
+                                return 3
+                            }
+                            if (rowIndex === 7) {
+                                return 5
+                            }
+                            if (rowIndex === 15) {
+                                return 4
+                            }
+                            if (rowIndex === 19) {
+                                return 1
+                            }
+                        }
+                        if(tableChoseBox.value === 3){
+                            if (rowIndex === 0) {
+                                return 3
+                            }
+                            if (rowIndex === 3) {
+                                return 3
+                            }
+                            if (rowIndex === 11) {
+                                return 3
+                            }
+                            if (rowIndex === 14) {
+                                return 3
+                            }
+                            if (rowIndex === 6 ) {
+                                return 5
+                            }
+                            if (rowIndex === 17) {
+                                return 1
+                            }
+                        }
+                    },
+                    className:'title',
+                    width:86,
+                },
+                {
+                    title: 'Audit Categories',
+                    key: 'categories',
+                    align: 'center',
+                    rowSpan: (rowData:Object, rowIndex:Number) => {
+                        if(tableChoseBox.value === 1){
+                            if (rowIndex === 0) {
+                                return 7
+                            }
+                            if (rowIndex === 7) {
+                                return 3
+                            }
+                            if (rowIndex === 10) {
+                                return 3
+                            }
+                            if (rowIndex === 13) {
+                                return 6
+                            }
+                            if (rowIndex === 19) {
+                                return 3
+                            }
+                            if (rowIndex === 22) {
+                                return 3
+                            }
+                            if (rowIndex === 25){
+                                return 9
+                            }
+                            if (rowIndex === 34){
+                                return 1
+                            }
+                            if (rowIndex === 35){
+                                return 1
+                            }
+                        }
+                        if(tableChoseBox.value === 2){
+                            if(rowIndex === 0 ){
+                                return 1
+                            }
+                            if (rowIndex === 1 ) {
+                                return 3
+                            }
+                            if (rowIndex === 4) {
+                                return 3
+                            }
+                            if (rowIndex === 12) {
+                                return 3
+                            }
+                            if (rowIndex === 7) {
+                                return 5
+                            }
+                            if (rowIndex === 15) {
+                                return 4
+                            }
+                            if (rowIndex === 19) {
+                                return 1
+                            }
+                        }
+                        if(tableChoseBox.value === 3){
+                            if (rowIndex === 0) {
+                                return 3
+                            }
+                            if (rowIndex === 3) {
+                                return 3
+                            }
+                            if (rowIndex === 11) {
+                                return 3
+                            }
+                            if (rowIndex === 14) {
+                                return 3
+                            }
+                            if (rowIndex === 6 ) {
+                                return 5
+                            }
+                            if (rowIndex === 17) {
+                                return 1
+                            }
+                        }
+                    },
+                    className:'categories',
+                    width:623,
+                },
+                {
+                    title: 'Audit Sub-items',
+                    key: 'items',
+                    align: 'center',
+                    className:'title',
+                    width:495
+                },
+            ]
+        }
+        function rowClassName (row:TBoxType) {
+            if(Number(row.num) % 2 === 0){
+                return 'change-color'
+            }
+            return null
+        }
+        let boxText = computed<String>(()=>{
+            if(tableChoseBox.value === 1){
+                return t('lang.serviceContract.table.textWhite')
+            }
+            if(tableChoseBox.value === 2){
+                return t('lang.serviceContract.table.textGrey')
+            }
+            return t('lang.serviceContract.table.textBlack')
+        })
+        let tableChoseBox = ref<number>(1)
+        let data = ref<Array<TBoxType>>(boxChoose(tableChoseBox.value,t))
+        watch(tableChoseBox,(nVal)=>{
+            data.value = boxChoose(nVal,t)
+        })
         return {
+            data,
+            columns: createColumns(),
             search,
             searchPrams,
-            reportList,
-            inputThemeOverrides
+            boxText,
+            inputThemeOverrides,
+            tableChoseBox,
+            rowClassName
         }
     },
 })
@@ -168,6 +387,14 @@ export default defineComponent({
 
 <style scoped>
 @import "../../assets/css/service-page.css";
+
+/deep/.n-data-table-th{
+  background-color: #F1F1F1 !important;
+}
+
+/deep/.change-color .categories {
+  background-color: #F8F8F8 !important;
+}
 
 #service_security .content-card-up{
   display: flex;
@@ -198,5 +425,12 @@ export default defineComponent({
   align-items: center;
   height: 1227px;
   background-color: #000;
+}
+
+.page-body-process-security{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FFF;
 }
 </style>

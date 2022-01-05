@@ -2,7 +2,7 @@
 * @service-contract.vue
 * @deprecated 合约服务页面
 * @author djd
-* @update (czh 2021/12/16)
+* @update (czh 2022/01/05   )
 */
 <template>
     <div class="service-page" id="service_contract">
@@ -15,7 +15,7 @@
                     {{$t('lang.serviceContract.pageHead.textSmall')}}
                 </div>
             </div>
-<!--            <be-button customClass="reservation-btn h-btn-txt-black linear-l-r text-black text-xl">{{$t('lang.ReservationBtn')}}</be-button>-->
+            <!--            <be-button customClass="reservation-btn h-btn-txt-black linear-l-r text-black text-xl">{{$t('lang.ReservationBtn')}}</be-button>-->
             <img src="../../assets/img/header-img.png" class="header-img" style="visibility: hidden"/>
         </div>
         <div class="page-body-search">
@@ -93,63 +93,15 @@
                 </div>
             </div>
         </div>
-        <div class="page-body-process-contract">
+        <div class="page-body-process">
             <div class="body-title font-format">{{$t('lang.serviceContract.process.title')}}</div>
             <div class="process-text">
                 <div class="font-format">{{$t('lang.serviceContract.process.textEvaluation')}}</div>
                 <div class="font-format">{{$t('lang.serviceContract.process.textImplementation')}}</div>
             </div>
-            <img src="../../assets/img/process-small.png" style="margin-bottom: 104px" height="342" width="1200"/>
+            <img src="../../assets/img/process-small.png" style="margin-bottom: 19px" height="342" width="1200"/>
+            <img src="../../assets/img/process-big.png" style="z-index: 1" height="1429" width="1200"/>
         </div>
-        <div class="page-body-table">
-            <!--
-            <img src="../../assets/img/contect-table-head.png" style="z-index:1" height="929" width="1920"/>
-            <img src="../../assets/img/contect-table-body.png" style="z-index:1" height="817" width="2413"/>
-            -->
-            <div class="table-title-big">{{$t('lang.serviceContract.table.titleBig')}}</div>
-            <div class="table-title-class">
-                <div class="table-title" @click="tableChoseBox = 1">
-                    <div v-show="tableChoseBox===1">{{$t('lang.serviceContract.table.titleWhite')}}</div>
-                    <div class="table-title-chick" v-show="tableChoseBox!==1">{{$t('lang.serviceContract.table.titleWhite')}}</div>
-                    <transition  name="fade">
-                        <div class="table-title-footer" v-show="tableChoseBox===1"></div>
-                    </transition>
-                </div>
-                <div class="table-title" @click="tableChoseBox = 2">
-                    <div v-show="tableChoseBox===2">{{$t('lang.serviceContract.table.titleGrey')}}</div>
-                    <div class="table-title-chick" v-show="tableChoseBox!==2">{{$t('lang.serviceContract.table.titleGrey')}}</div>
-                    <transition  name="fade">
-                        <div class="table-title-footer" v-show="tableChoseBox===2"></div>
-                    </transition>
-                </div>
-                <div class="table-title" @click="tableChoseBox = 3">
-                    <div v-show="tableChoseBox===3">{{$t('lang.serviceContract.table.titleBlack')}}</div>
-                    <div class="table-title-chick" v-show="tableChoseBox!==3">{{$t('lang.serviceContract.table.titleBlack')}}</div>
-                    <transition  name="fade">
-                        <div class="table-title-footer" v-show="tableChoseBox===3"></div>
-                    </transition>
-                </div>
-            </div>
-            <div class="table-text">
-                <img v-show = "tableChoseBox === 1" src="../../assets/img/white-box.png" height="241" width="420"/>
-                <img v-show = "tableChoseBox === 2" src="../../assets/img/gary-box.png" height="241" width="420"/>
-                <img v-show = "tableChoseBox === 3" src="../../assets/img/black-box.png" height="241" width="420"/>
-                <div class="table-introduce">
-                    <span>
-                        {{boxText}}
-                    </span>
-                </div>
-            </div>
-            <div class="table-body">
-                <n-data-table
-                        :data="data"
-                        :columns="columns"
-                        :row-class-name="rowClassName"
-                        :single-line="false"
-                />
-            </div>
-        </div>
-        <!--
         <div class="page-body-reports">
             <div  class="page-body-reports-head">
                 <div class="reports-header">
@@ -168,252 +120,100 @@
             <div style="margin-top: 76px">
                 <hServiceSwiper :list="reportList"/>
             </div>
-        </div>-->
+        </div>
+        <contact-us></contact-us>
+        <about-hermit></about-hermit>
     </div>
     <ver-code-dialog ref="verCodeDialog" :num="searchPrams"></ver-code-dialog>
 </template>
 
 <script lang="ts">
-    import hServiceSwiper from '../../components/h-service-swiper.vue'
-    import {defineComponent, getCurrentInstance, h, ref,reactive,computed} from "vue";
-    import {NInput, NButton, InputProps, NDataTable} from "naive-ui";
-    import {useI18n} from "vue-i18n";
-    import VerCodeDialog from "../../components/ver-code-dialog.vue";
-    import {IDialog} from "../../utils/types";
-    import composition from "../../utils/mixin/common-func";
-    import {serviceContract} from "../../enums/link";
-    import {setSession} from "../../utils/common";
-    import {DocumentOutline, DownloadOutline} from "@vicons/ionicons5";
-    import {boxChoose} from "../../utils/table-date-service";
-    type InputThemeOverrides = NonNullable<InputProps['themeOverrides']>
-    const inputThemeOverrides: InputThemeOverrides = {
-        border:'1px solid black'
-    }
-    export default defineComponent({
-        name: "service-contract",
-        components:{
-            VerCodeDialog,
-            NInput,
-            NButton,
-            NDataTable,
-            hServiceSwiper,
-        },
+import hServiceSwiper from '../../components/h-service-swiper.vue'
+import {defineComponent, getCurrentInstance, ref} from "vue";
+import {NInput,NButton,InputProps} from "naive-ui";
+import {useI18n} from "vue-i18n";
+import VerCodeDialog from "../../components/ver-code-dialog.vue";
+import {IDialog} from "../../utils/types";
+import composition from "../../utils/mixin/common-func";
+import {serviceContract} from "../../enums/link";
+import ContactUs from "../../components/contact-us.vue";
+import AboutHermit from "../../components/about-hermit.vue";
+type InputThemeOverrides = NonNullable<InputProps['themeOverrides']>
+const inputThemeOverrides: InputThemeOverrides = {
+    border:'1px solid black'
+}
+export default defineComponent({
+    name: "service-contract",
+    components:{
+        AboutHermit,
+        ContactUs,
+        VerCodeDialog,
+        NInput,
+        NButton,
+        hServiceSwiper,
+    },
 
-        setup(props, ctx){
-            const {message} = composition(props, ctx)
-            const {t} = useI18n()
-            const curInst = getCurrentInstance()
-            const searchPrams = ref<string>('')
-            const search = ():void =>{
-                if(!searchPrams.value){
-                    message('warning',t('lang.serviceSecurity.search.input'),'hermit-msg')
-                    return
-                }
-                (curInst?.refs.verCodeDialog as IDialog).isShow = true
+    setup(props, ctx){
+        const {message} = composition(props, ctx)
+        const {t} = useI18n()
+        const curInst = getCurrentInstance()
+        const searchPrams = ref<string>('')
+        const search = ():void =>{
+            if(!searchPrams.value){
+                message('warning',t('lang.serviceSecurity.search.input'),'hermit-msg')
+                return
             }
-            const reportList = [
-                { fileUrl:serviceContract.report1,info: 'SMART CONTRACT AUDIT REPORT', name: 'For CrossYield-stake'},
-                { fileUrl:serviceContract.report2,info: 'SMART CONTRACT AUDIT REPORT', name: 'For Huckleberry'},
-                { fileUrl:serviceContract.report3,info: 'SMART CONTRACT AUDIT REPORT', name: 'For NFT'},
-                { fileUrl:serviceContract.report1,info: 'SMART CONTRACT AUDIT REPORT', name: 'For CrossYield-stake'},
-                { fileUrl:serviceContract.report2,info: 'SMART CONTRACT AUDIT REPORT', name: 'For Huckleberry'},
-            ]
-            const createColumns = () => {
-                return [
-                    {
-                        title: 'No.',
-                        key: 'num',
-                        align: 'center',
-                        rowSpan: (rowData:Object, rowIndex:Number) => {
-                            if(tableChoseBox.value === 1){
-                                if (rowIndex === 0) {
-                                    return 7
-                                }
-                                if (rowIndex === 7 || rowIndex === 10 || rowIndex === 19 || rowIndex === 22) {
-                                    return 3
-                                }
-
-                                if (rowIndex === 13) {
-                                    return 6
-                                }
-                                if (rowIndex === 25){
-                                    return 9
-                                }
-                                if (rowIndex === 34 || rowIndex === 35) {
-                                    return 1
-                                }
-
-                            }
-                            if(tableChoseBox.value === 2){
-                                if(rowIndex === 0 || rowIndex === 19){
-                                    return 1
-                                }
-                                if (rowIndex === 1 || rowIndex === 4 || rowIndex === 12) {
-                                    return 3
-                                }
-                                if (rowIndex === 7) {
-                                    return 5
-                                }
-                                if (rowIndex === 15) {
-                                    return 4
-                                }
-                            }
-                            if(tableChoseBox.value === 3){
-                                if (rowIndex === 0) {
-                                    return 3
-                                }
-                                if (rowIndex === 3) {
-                                    return 3
-                                }
-                                if (rowIndex === 11) {
-                                    return 3
-                                }
-                                if (rowIndex === 14) {
-                                    return 3
-                                }
-                                if (rowIndex === 6 ) {
-                                    return 5
-                                }
-                                if (rowIndex === 17) {
-                                    return 1
-                                }
-                            }
-                        },
-                        className:'title',
-                        width:86,
-                    },
-                    {
-                        title: 'Audit Categories',
-                        key: 'categories',
-                        align: 'center',
-                        rowSpan: (rowData:Object, rowIndex:Number) => {
-                            if(tableChoseBox.value === 1){
-                                if (rowIndex === 0) {
-                                    return 7
-                                }
-                                if (rowIndex === 7 || rowIndex === 10||rowIndex === 19||rowIndex === 22) {
-                                    return 3
-                                }
-                                if (rowIndex === 13) {
-                                    return 6
-                                }
-                                if (rowIndex === 25){
-                                    return 9
-                                }
-                                if (rowIndex === 34||rowIndex === 35){
-                                    return 1
-                                }
-                            }
-                            if(tableChoseBox.value === 2){
-                                if(rowIndex === 0 ||rowIndex === 19){
-                                    return 1
-                                }
-                                if (rowIndex === 1||rowIndex === 4||rowIndex === 12) {
-                                    return 3
-                                }
-                                if (rowIndex === 7) {
-                                    return 5
-                                }
-                                if (rowIndex === 15) {
-                                    return 4
-                                }
-                            }
-                            if(tableChoseBox.value === 3){
-                                if (rowIndex === 0||rowIndex === 3||rowIndex === 11||rowIndex === 14) {
-                                    return 3
-                                }
-                                if (rowIndex === 6 ) {
-                                    return 5
-                                }
-                                if (rowIndex === 17) {
-                                    return 1
-                                }
-                            }
-                        },
-                        className:'categories',
-                        width:623,
-                    },
-                    {
-                        title: 'Audit Sub-items',
-                        key: 'items',
-                        align: 'center',
-                        className:'title',
-                        width:495
-                    },
-                ]
-            }
-            function rowClassName (row: {num:string,categories:string }) {
-                if(Number(row.num) % 2 === 0){
-                    return 'change-color'
-                }
-                return null
-            }
-            let boxText = computed<String>(()=>{
-                if(tableChoseBox.value === 1){
-                    return t('lang.serviceContract.table.textWhite')
-                }
-                if(tableChoseBox.value === 2){
-                    return t('lang.serviceContract.table.textGrey')
-                }
-                return t('lang.serviceContract.table.textBlack')
-            })
-            let tableChoseBox = ref<number>(1)
-            let data = boxChoose(tableChoseBox.value,t)
-            return {
-                data,
-                columns: createColumns(),
-                search,
-                searchPrams,
-                reportList,
-                boxText,
-                inputThemeOverrides,
-                tableChoseBox,
-                rowClassName
-            }
-        },
-    })
+            (curInst?.refs.verCodeDialog as IDialog).isShow = true
+        }
+        const reportList = [
+            { fileUrl:serviceContract.report1,info: 'SMART CONTRACT AUDIT REPORT', name: 'For CrossYield-stake'},
+            { fileUrl:serviceContract.report2,info: 'SMART CONTRACT AUDIT REPORT', name: 'For Huckleberry'},
+            { fileUrl:serviceContract.report3,info: 'SMART CONTRACT AUDIT REPORT', name: 'For NFT'},
+            { fileUrl:serviceContract.report1,info: 'SMART CONTRACT AUDIT REPORT', name: 'For CrossYield-stake'},
+            { fileUrl:serviceContract.report2,info: 'SMART CONTRACT AUDIT REPORT', name: 'For Huckleberry'},
+        ]
+        return {
+            search,
+            searchPrams,
+            reportList,
+            inputThemeOverrides
+        }
+    },
+})
 </script>
 
 <style scoped>
 @import "../../assets/css/service-page.css";
 
-/deep/.n-data-table-th{
-  background-color: #F1F1F1 !important;
-}
-
-/deep/.change-color .categories {
-  background-color: #F8F8F8 !important;
-}
-
 #service_contract .page-head{
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  height: 570px;
-  padding-bottom: 110px;
-  background: url("../../assets/img/service-contract/contract-header.png");
-  background-color: black;
-  background-repeat: no-repeat;
-  background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 570px;
+    padding-bottom: 110px;
+    background: url("../../assets/img/service-contract/contract-header.png");
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-
 #service_contract .content-card-down{
-  display: flex;
-  justify-content: space-between;
-  width: 1200px;
-  margin-top: 79px;
+    display: flex;
+    justify-content: space-between;
+    width: 1200px;
+    margin-top: 79px;
 }
 
 #service_contract .page-body-reports{
-  height: 1227px;
-  background-color: #000;
+    height: 1227px;
+    background-color: #000;
 }
 
 #service_contract .content-card-up{
-  display: flex;
-  justify-content: space-between;
-  width: 1200px;
-  margin-top: 71px;
+    display: flex;
+    justify-content: space-between;
+    width: 1200px;
+    margin-top: 71px;
 }
+
 
 </style>
