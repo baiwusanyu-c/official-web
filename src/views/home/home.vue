@@ -9,7 +9,7 @@
         <!--   slogan & news     -->
         <div class="slogan-news w-full bg-mainBlueGary relative flex justify-center">
             <div class="slogan-news-bg w-full absolute ">
-                <video class='absolute left-0 bottom-0 top-0 right-0' style="z-index: 0;height: 100%;object-fit: fill"
+                <video class='absolute left-0 bottom-0 top-0 right-0' style="z-index: 0;height: 100%;width:100%;object-fit: fill"
                        src="../../assets/video/home.mp4"
                        muted="muted"
                        autoplay="autoplay" loop="loop" width="1920"></video>

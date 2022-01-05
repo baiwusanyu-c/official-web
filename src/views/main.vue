@@ -3,7 +3,7 @@
         <be-container class="hermit-container-container h-full overscroll-auto pb-0">
             <!-- 头部   -->
             <be-header class="flex items-center justify-between fixed w-full z-30 text-default"
-                       style="height: 4em;background: #141720;opacity:.8;">
+                       style="height: 4em;background: #141720;opacity:.9;">
                 <h-header @changeLang="changeLanguage"></h-header>
             </be-header>
             <!--  主体    -->
