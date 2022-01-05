@@ -7,7 +7,10 @@
 import {Router, useRouter} from "vue-router";
 import {ref} from "vue";
 import {getCodeImg} from "../../api/login";
+
+// @ts-ignore
 import {BeMessage} from "../../../public/be-ui/be-ui.es.js";
+import {Ref} from "@vue/reactivity";
 export default (props: any, ctx: any) => {
     /**
      * 打開窗口
@@ -44,7 +47,23 @@ export default (props: any, ctx: any) => {
             close: true,
         })
     }
+    /**
+     * 開啓定時器，進行數字滾動
+     * @param initVal
+     * @param max
+     * @param setp
+     */
+    const startTimer = (initVal:Ref,max:number,step:number):void =>{
+        let timer = setInterval(()=>{
+            initVal.value = initVal.value + step
+            if(initVal.value >= max){
+                initVal.value = max
+                clearInterval(timer)
+            }
+        },3000)
+    }
     return{
+        startTimer,
         message,
         codeUrl,
         getCode,

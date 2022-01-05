@@ -25,17 +25,27 @@
             <div class="body-search-num">
                 <div class="search-num-box">
                     <div class="num-header font-format">{{$t('lang.serviceContract.search.totalCustomers')}}</div>
-                    <div class="num-main">{{'1000+'}}</div>
+                    <div class="num-main">
+                        <roll-num :value="customersNum" :time="2"></roll-num>
+                        +
+                    </div>
                     <div class="num-footer"></div>
                 </div>
                 <div class="search-num-box">
                     <div class="num-header font-format">{{$t('lang.serviceContract.search.audited')}}</div>
-                    <div class="num-main">{{'2000+'}}</div>
+                    <div class="num-main">
+                        <roll-num :value="contractsNum" :time="2"></roll-num>
+                        +
+                    </div>
                     <div class="num-footer"></div>
                 </div>
                 <div class="search-num-box">
                     <div class="num-header font-format">{{$t('lang.serviceContract.search.totalAudited')}}</div>
-                    <div class="num-main">{{'$100B+'}}</div>
+                    <div class="num-main">
+                        $
+                        <roll-num :value="auditedNum" :time="2"></roll-num>
+                        +
+                    </div>
                     <div class="num-footer"></div>
                 </div>
             </div>
@@ -138,6 +148,8 @@ import composition from "../../utils/mixin/common-func";
 import {serviceContract} from "../../enums/link";
 import ContactUs from "../../components/contact-us.vue";
 import AboutHermit from "../../components/about-hermit.vue";
+import RollNum from "../../components/roll-num.vue";
+import {Ref} from "@vue/reactivity";
 type InputThemeOverrides = NonNullable<InputProps['themeOverrides']>
 const inputThemeOverrides: InputThemeOverrides = {
     border:'1px solid black'
@@ -145,6 +157,7 @@ const inputThemeOverrides: InputThemeOverrides = {
 export default defineComponent({
     name: "service-contract",
     components:{
+        RollNum,
         AboutHermit,
         ContactUs,
         VerCodeDialog,
@@ -172,7 +185,17 @@ export default defineComponent({
             { fileUrl:serviceContract.report1,info: 'SMART CONTRACT AUDIT REPORT', name: 'For CrossYield-stake'},
             { fileUrl:serviceContract.report2,info: 'SMART CONTRACT AUDIT REPORT', name: 'For Huckleberry'},
         ]
+        const customersNum = ref<number>(0)
+        const contractsNum = ref<number>(0)
+        const auditedNum = ref<number>(0)
+        const {startTimer} = composition(props, ctx)
+        startTimer(customersNum,1000,200)
+        startTimer(contractsNum,2000,300)
+        startTimer(auditedNum,100,20)
         return {
+            customersNum,
+            contractsNum,
+            auditedNum,
             search,
             searchPrams,
             reportList,

@@ -25,17 +25,27 @@
             <div class="body-search-num">
                 <div class="search-num-box">
                     <div class="num-header font-format">{{$t('lang.serviceSecurity.search.totalCustomers')}}</div>
-                    <div class="num-main">{{'1000+'}}</div>
+                    <div class="num-main">
+                        <roll-num :value="customersNum" :time="2"></roll-num>
+                        +
+                    </div>
                     <div class="num-footer"></div>
                 </div>
                 <div class="search-num-box">
                     <div class="num-header font-format">{{$t('lang.serviceSecurity.search.audited')}}</div>
-                    <div class="num-main">{{'2000+'}}</div>
+                    <div class="num-main">
+                        <roll-num :value="contractsNum" :time="2"></roll-num>
+                        +
+                    </div>
                     <div class="num-footer"></div>
                 </div>
                 <div class="search-num-box">
                     <div class="num-header font-format">{{$t('lang.serviceSecurity.search.totalAudited')}}</div>
-                    <div class="num-main">{{'$100B+'}}</div>
+                    <div class="num-main">
+                        $
+                        <roll-num :value="auditedNum" :time="2"></roll-num>
+                        +
+                    </div>
                     <div class="num-footer"></div>
                 </div>
             </div>
@@ -152,6 +162,7 @@ import {IDialog} from "../../utils/types";
 import composition from "../../utils/mixin/common-func";
 import {serviceContract} from "../../enums/link";
 import {boxChoose, TBoxType} from "../../utils/table-date-service";
+import RollNum from "../../components/roll-num.vue";
 type InputThemeOverrides = NonNullable<InputProps['themeOverrides']>
 const inputThemeOverrides: InputThemeOverrides = {
     border:'1px solid black'
@@ -159,6 +170,7 @@ const inputThemeOverrides: InputThemeOverrides = {
 export default defineComponent({
     name: "service-security",
     components:{
+        RollNum,
         AboutHermit, ContactUs,
         hServiceSwiper,
         VerCodeDialog,
@@ -371,7 +383,17 @@ export default defineComponent({
         watch(tableChoseBox,(nVal)=>{
             data.value = boxChoose(nVal,t)
         })
+        const customersNum = ref<number>(0)
+        const contractsNum = ref<number>(0)
+        const auditedNum = ref<number>(0)
+        const {startTimer} = composition(props, ctx)
+        startTimer(customersNum,1000,200)
+        startTimer(contractsNum,2000,300)
+        startTimer(auditedNum,100,20)
         return {
+            customersNum,
+            contractsNum,
+            auditedNum,
             data,
             columns: createColumns(),
             search,

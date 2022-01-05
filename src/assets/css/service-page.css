@@ -81,8 +81,17 @@
 }
 
 .service-page .num-main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
   font-size: 36px;
   font-weight: bold;
+}
+
+.service-page .num-main .box-item {
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 36px;
 }
 
 .service-page .num-footer {

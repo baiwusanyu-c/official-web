@@ -6,28 +6,20 @@
 */
 <template>
     <div class="test">
-        <div class="container">
-            <n-select v-model:value="data" placeholder="Select" size="large" :options="selectList"/>
-        </div>
+        <roll-num :value="102346"  :time="2"></roll-num>
     </div>
 </template>
 
 <script lang="ts">
-import {NSelect} from "naive-ui";
 import {defineComponent,ref} from "vue";
+import RollNum from "../components/roll-num.vue";
 export default defineComponent({
     name: "test",
-    components: {NSelect},
+    components: {RollNum},
     setup() {
-        const data = ref<string>('')
-        const show = ref<boolean>(true)
-        const selectList = ref([{
-            label: 'test1', value: 'value1'
-        }])
+
         return {
-            data,
-            show,
-            selectList
+
         }
     }
 })
