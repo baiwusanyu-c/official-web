@@ -19,7 +19,7 @@
                             <search/>
                         </n-icon>
                     </n-button>
-                    <n-button class="search-btn ml-2" @click="getList('reset')">
+                    <n-button class="search-btn ml-2" @click="searchParams = '';getList('reset')">
                         <n-icon size="20px">
                             <Refresh/>
                         </n-icon>
@@ -52,7 +52,7 @@ import {h, defineComponent, getCurrentInstance, ref, onMounted, reactive} from "
 import {NInput, NButton, NIcon, NDataTable, DataTableProps, NPagination} from "naive-ui";
 import {
     IReportList,
-    IReportListRes, ISearchReport, searchReport,
+    IReportListRes,
     verifyCode
 } from "../../api/personal";
 import {downLoadZip} from "../../utils/zipdownload";
@@ -186,22 +186,7 @@ export default defineComponent({
                 message('warning', t('lang.userCenter.searchInput'), 'hermit-msg')
                 return
             }
-            const params: ISearchReport = {
-                num: Number(searchParams.value)
-            }
-            searchReport(params).then((res: any) => {
-                if (res.code === 200 && res.data) {
-                    message('success', t('lang.opSuccess'), 'hermit-msg')
-                    auditReport.value = handleList([res.data])
-                    paginationReactive.total = res.total
-                } else {
-                    auditReport.value = []
-                    message('warning', t('lang.opFailed'), 'hermit-msg')
-                }
-            }).catch(err => {
-                message('warning', err.message, 'hermit-msg')
-                console.error(err)
-            })
+            getList('reset')
         }
         // 下載單個
         const downloadSingle = async (row: any) => {
@@ -210,7 +195,7 @@ export default defineComponent({
         // 下載全部
         const downloadAll = async () => {
             let userInfo: string = getStore('userInfo') as string
-            let fileName = JSON.parse(userInfo).userName + '_' + formatDate(new Date(), 'YmdHis') + '.zip';
+            let fileName = JSON.parse(userInfo).username + '_' + formatDate(new Date(), 'YmdHis') + '.zip';
             await downLoadZip(`/website/common/download/batch?belongUser=true`, fileName);
 
         }
@@ -218,7 +203,6 @@ export default defineComponent({
          * 參數重置
          */
         const reset = (): void => {
-            searchParams.value = ''
             paginationReactive.page = 1
             paginationReactive.pageSize = 5
         }
@@ -233,6 +217,7 @@ export default defineComponent({
             const params: IReportList = {
                 pageSize: paginationReactive.pageSize,
                 pageNum: paginationReactive.page,
+                value:searchParams.value
             }
             verifyCode(params).then((res: any) => {
                 if (res.code === 200) {
@@ -283,120 +268,120 @@ export default defineComponent({
 
 <style scoped>
 .page-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 400px;
-    background: url("../../assets/img/user-center.png");
-    background-repeat: no-repeat;
-    background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  background: url("../../assets/img/user-center.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .title-big {
-    width: 1200px;
-    margin-top: 180px;
-    margin-bottom: 10px;
-    font-size: 60px;
-    font-weight: bold;
-    line-height: 66px;
-    color: #FFF;
+  width: 1200px;
+  margin-top: 180px;
+  margin-bottom: 10px;
+  font-size: 60px;
+  font-weight: bold;
+  line-height: 66px;
+  color: #FFF;
 }
 
 .title-small {
-    width: 1200px;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 66px;
-    color: #FFF;
+  width: 1200px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 66px;
+  color: #FFF;
 }
 
 .search {
-    height: 400px;
-    background: #EFF2F7;
+  height: 400px;
+  background: #EFF2F7;
 
 }
 
 .search-up {
-    width: 1200px;
-    height: 37px;
-    padding-top: 148px;
-    margin: auto;
-    font-size: 36px;
-    font-weight: bold;
-    line-height: 42px;
-    color: #121214;
+  width: 1200px;
+  height: 37px;
+  padding-top: 148px;
+  margin: auto;
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 42px;
+  color: #121214;
 }
 
 .search-class {
-    display: flex;
-    justify-content: space-between;
-    width: 547px;
+  display: flex;
+  justify-content: space-between;
+  width: 547px;
 }
 
 .search-input {
-    display: flex;
-    align-items: center;
-    width: 465px;
-    height: 60px;
-    font-size: 20px;
+  display: flex;
+  align-items: center;
+  width: 465px;
+  height: 60px;
+  font-size: 20px;
 }
 
 .search-btn {
-    width: 66px;
-    height: 60px;
-    background: linear-gradient(144deg, #00FFC4, #02A1F9);
-    border-radius: 5px;
-    box-shadow: 0 5px 8px 0 rgba(132, 141, 134, .55);
+  width: 66px;
+  height: 60px;
+  background: linear-gradient(144deg, #00FFC4, #02A1F9);
+  border-radius: 5px;
+  box-shadow: 0 5px 8px 0 rgba(132, 141, 134, .55);
 }
 
 .download-btn {
-    width: 160px;
-    height: 60px;
-    background: #FFF;
-    border: 1px solid #00FFC4;
-    border-radius: 5px;
+  width: 160px;
+  height: 60px;
+  background: #FFF;
+  border: 1px solid #00FFC4;
+  border-radius: 5px;
 }
 
 .download-btn span {
-    width: 120px;
-    height: 16px;
-    font-size: 20px;
-    font-weight: 400;
-    color: #000;
+  width: 120px;
+  height: 16px;
+  font-size: 20px;
+  font-weight: 400;
+  color: #000;
 }
 
 .search-down {
-    display: flex;
-    justify-content: space-between;
-    width: 1200px;
-    height: 60px;
-    margin: 80px auto;
+  display: flex;
+  justify-content: space-between;
+  width: 1200px;
+  height: 60px;
+  margin: 80px auto;
 }
 
 .page-table {
-    width: 100%;
-    height: 548px;
-    margin-top: 0;
+  width: 100%;
+  height: 548px;
+  margin-top: 0;
 }
 
 .table-body {
-    width: 1500px;
-    height: 360px;
-    padding-top: 36px;
-    margin: auto;
+  width: 1500px;
+  height: 360px;
+  padding-top: 36px;
+  margin: auto;
 }
 
 @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
 
-    .page-header {
-        height: 264px;
-        background-size: 100%;
-    }
+  .page-header {
+    height: 264px;
+    background-size: 100%;
+  }
 
-    .title-big {
-        margin-top: 120px;
-    }
+  .title-big {
+    margin-top: 120px;
+  }
 
 
 }
