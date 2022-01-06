@@ -26,7 +26,7 @@
                 <div class="search-num-box">
                     <div class="num-header font-format">{{$t('lang.serviceContract.search.totalCustomers')}}</div>
                     <div class="num-main">
-                        <roll-num :value="customersNum" :time="2"></roll-num>
+                        <roll-num :value="customersNum" :time="1"></roll-num>
                         +
                     </div>
                     <div class="num-footer"></div>
@@ -34,7 +34,7 @@
                 <div class="search-num-box">
                     <div class="num-header font-format">{{$t('lang.serviceContract.search.audited')}}</div>
                     <div class="num-main">
-                        <roll-num :value="contractsNum" :time="2"></roll-num>
+                        <roll-num :value="contractsNum" :time="1"></roll-num>
                         +
                     </div>
                     <div class="num-footer"></div>
@@ -43,7 +43,7 @@
                     <div class="num-header font-format">{{$t('lang.serviceContract.search.totalAudited')}}</div>
                     <div class="num-main">
                         $
-                        <roll-num :value="auditedNum" :time="2"></roll-num>
+                        <roll-num :value="auditedNum" :time="1"></roll-num>
                         +
                     </div>
                     <div class="num-footer"></div>

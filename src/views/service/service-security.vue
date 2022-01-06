@@ -26,7 +26,7 @@
                 <div class="search-num-box">
                     <div class="num-header font-format">{{$t('lang.serviceSecurity.search.totalCustomers')}}</div>
                     <div class="num-main">
-                        <roll-num :value="customersNum" :time="2"></roll-num>
+                        <roll-num :value="customersNum" :time="1"></roll-num>
                         +
                     </div>
                     <div class="num-footer"></div>
@@ -34,7 +34,7 @@
                 <div class="search-num-box">
                     <div class="num-header font-format">{{$t('lang.serviceSecurity.search.audited')}}</div>
                     <div class="num-main">
-                        <roll-num :value="contractsNum" :time="2"></roll-num>
+                        <roll-num :value="contractsNum" :time="1"></roll-num>
                         +
                     </div>
                     <div class="num-footer"></div>
@@ -43,7 +43,7 @@
                     <div class="num-header font-format">{{$t('lang.serviceSecurity.search.totalAudited')}}</div>
                     <div class="num-main">
                         $
-                        <roll-num :value="auditedNum" :time="2"></roll-num>
+                        <roll-num :value="auditedNum" :time="1"></roll-num>
                         +
                     </div>
                     <div class="num-footer"></div>
@@ -102,25 +102,25 @@
         <div class="page-body-table">
             <div class="table-title-big">{{$t('lang.serviceContract.table.titleBig')}}</div>
             <div class="table-title-class">
-                <div class="table-title" @click="tableChoseBox = 1">
+                <div class="table-title" @click="tableChoseBox = 1" @mouseenter="tableChoseBoxHover = 1" @mouseleave="tableChoseBoxHover = 0">
                     <div v-show="tableChoseBox===1">{{$t('lang.serviceContract.table.titleWhite')}}</div>
                     <div class="table-title-chick" v-show="tableChoseBox!==1">{{$t('lang.serviceContract.table.titleWhite')}}</div>
                     <transition  name="fade">
-                        <div class="table-title-footer" v-show="tableChoseBox===1"></div>
+                        <div class="table-title-footer" v-show="tableChoseBox===1 || tableChoseBoxHover === 3"></div>
                     </transition>
                 </div>
-                <div class="table-title" @click="tableChoseBox = 2">
+                <div class="table-title" @click="tableChoseBox = 2" @mouseenter="tableChoseBoxHover = 2" @mouseleave="tableChoseBoxHover = 0">
                     <div v-show="tableChoseBox===2">{{$t('lang.serviceContract.table.titleGrey')}}</div>
                     <div class="table-title-chick" v-show="tableChoseBox!==2">{{$t('lang.serviceContract.table.titleGrey')}}</div>
                     <transition  name="fade">
-                        <div class="table-title-footer" v-show="tableChoseBox===2"></div>
+                        <div class="table-title-footer" v-show="tableChoseBox===2 || tableChoseBoxHover === 2"></div>
                     </transition>
                 </div>
-                <div class="table-title" @click="tableChoseBox = 3">
+                <div class="table-title" @click="tableChoseBox = 3" @mouseenter="tableChoseBoxHover = 3" @mouseleave="tableChoseBoxHover = 0">
                     <div v-show="tableChoseBox===3">{{$t('lang.serviceContract.table.titleBlack')}}</div>
                     <div class="table-title-chick" v-show="tableChoseBox!==3">{{$t('lang.serviceContract.table.titleBlack')}}</div>
                     <transition  name="fade">
-                        <div class="table-title-footer" v-show="tableChoseBox===3"></div>
+                        <div class="table-title-footer" v-show="tableChoseBox===3 || tableChoseBoxHover === 3"></div>
                     </transition>
                 </div>
             </div>
@@ -390,10 +390,12 @@ export default defineComponent({
         startTimer(customersNum,1000,200)
         startTimer(contractsNum,2000,300)
         startTimer(auditedNum,100,20)
+        const tableChoseBoxHover = ref<number>(0)
         return {
             customersNum,
             contractsNum,
             auditedNum,
+            tableChoseBoxHover,
             data,
             columns: createColumns(),
             search,

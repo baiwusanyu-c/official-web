@@ -6,7 +6,7 @@
 */
 <template>
     <div class="test">
-        <roll-num :value="102346"  :time="2"></roll-num>
+        <roll-num :value="1000"  :time="2"></roll-num>
     </div>
 </template>
 

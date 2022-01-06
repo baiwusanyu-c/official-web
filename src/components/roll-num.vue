@@ -13,7 +13,7 @@
                 <span v-if="!isNaN(item)">
                  <i ref="numberItem" :class="`number-item-i` + uid">0123456789</i>
                 </span>
-                <!--            <span class="comma" v-else>{{ item }}</span>-->
+                <span class="comma" v-else>{{ item }}</span>
             </li>
         </ul>
     </div>
@@ -35,7 +35,7 @@ export default defineComponent({
         },
     },
     setup(props) {
-        const orderNum = ref<Array<string>>([ '0','0','0', '0'])
+        const orderNum = ref<Array<string>>([ '0',',','0','0', '0'])
         const uid = getCurrentInstance()?.uid
         let timer:TimeoutHandle
         let newNumber:number = 0
@@ -70,7 +70,9 @@ export default defineComponent({
             } else if (num.length === 4) {
                 // 具体值value中加入逗号
                 num = num.slice(0, 1) + ',' + num.slice(1, 4)
+                console.log(num)
                 orderNum.value = num.split('') // 将其便变成数据，渲染至滚动数组
+
             } else {
                 // 具体值value数字超过八位显示异常
                console.error('显示异常，请联系后台管理员')
@@ -124,15 +126,14 @@ export default defineComponent({
 
   /* width: 10px; */
   height: 100px;
-
-  /* margin-right: 5px; */
+  margin-right: 5px;
   font-size: 48px;
   line-height: 10px;
 }
 
 .mark-item > span {
   position: absolute;
-  bottom: 0;
+  bottom: 34px;
   width: 100%;
   writing-mode: vertical-rl;
   text-orientation: upright;
@@ -143,9 +144,10 @@ export default defineComponent({
 .number-item {
   width: 30px;
   height: 54px;
+  margin-right: 5px;
   list-style: none;
-  background: rgba(250, 250, 250, 1);
   border-radius: 4px;
+  @apply bg-white
 }
 
 .number-item > span {

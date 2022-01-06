@@ -85,3 +85,7 @@
 * 登录页需要兼容  √
 * 产品页与about us 过长 （偶现）
 ### Safari浏览器兼容汇总
+* 登录页需要兼容  
+* contact us 组件
+* home-swiper
+* roll-num 组件
