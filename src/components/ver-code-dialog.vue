@@ -86,10 +86,11 @@ export default defineComponent({
                     handleClose()
                 }else{
                     message('warning',t('lang.noResults'),'hermit-msg')
-
+                    getCode(formData)
                 }
             }).catch(err => {
                 message('warning',err.message,'hermit-msg')
+                getCode(formData)
                 console.error(err)
             })
         }
