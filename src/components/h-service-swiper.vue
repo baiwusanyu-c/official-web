@@ -9,7 +9,7 @@
         :slidesPerView="4"
         :spaceBetween="10"
         :centerInsufficientSlides="true"
-        :initialSlide="1"
+        :initialSlide="0"
         :slidesPerGroup="1"
         :loopFillGroupWithBlank="true"
         :pagination="false"

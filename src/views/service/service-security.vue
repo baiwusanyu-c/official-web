@@ -440,7 +440,7 @@ export default defineComponent({
   justify-content: space-evenly;
   height: 570px;
   padding-bottom: 110px;
-  background-color: black;
+  background-color: #121214;
 }
 
 #service_security .page-body-reports{

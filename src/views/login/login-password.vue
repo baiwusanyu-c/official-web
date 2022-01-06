@@ -12,7 +12,7 @@
             <div class='mb-2 h-14 border-b w-full'>
                 <span class="text-gray-500 mr-4 font-format">{{$t('lang.login.account')}}</span>
                 <input type="text"
-                       class='w-9/12 font-format'
+                       class='w-9/12 font-format login-input'
                        :placeholder="$t('lang.login.tipAccount')"
                        v-model="form.username"/>
             </div>
@@ -20,7 +20,7 @@
             <!--  密码      -->
             <div class='login-password mb-2 h-24 border-b w-full flex items-center '>
                 <span class="text-gray-500 mr-4 flex-grow-0 font-format">{{$t('lang.login.password')}}</span>
-                <input class='flex-grow font-format'
+                <input class='flex-grow font-format login-input w-9/12'
                        :type="isShowPassword"
                        :placeholder="$t('lang.login.tipPassword')"
                        v-model="form.password"/>
@@ -31,7 +31,7 @@
             </div>
             <!--  數字驗證碼      -->
             <div class='mt-8 flex w-full'>
-                <input type="text" v-model="form.code" class="border h-12 flex-1 font-format"/>
+                <input type="text" v-model="form.code" class="border h-12 flex-1 font-format login-input w-9/12"/>
                 <div class="bg-mainG cursor-pointer flex items-center justify-center w-32" @click="getCode(form)">
                     <img :src="codeUrl" alt="" style="height: 100%;"/>
                 </div>
@@ -174,5 +174,14 @@ export default defineComponent({
 .login-password .be-icon{
   width: 60px;
   height: 30px;
+}
+
+.login-input{
+  height: 38px;
+  background-color: transparent;
+}
+
+.login-input:focus{
+  outline: none;
 }
 </style>

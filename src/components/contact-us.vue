@@ -5,9 +5,9 @@
 * @update (czh 2021/12/15)
 */
 <template>
-        <div class="contact-us w-full bg-mainG text-black h-64 flex items-center justify-end">
-            <div class="flex items-center justify-center md:w-3/4">
-                <div class="flex flex-1 flex-col mr-24 md:mr-0">
+        <div class="contact-us w-full bg-mainG text-black h-64 flex items-center justify-center">
+            <div class="flex items-center justify-center  lg125:w-3/4 md:w-3/4">
+                <div class="flex flex-1 flex-col mr-24 lg:mr-0 lg125:mr-0 md:mr-0">
                     <div class="bg-black mb-4" style="width: 300px;height: 5px"></div>
                     <h2 class="text-3xl  font-bold title font-format">
                         {{$t('lang.contactUs.info1') }}

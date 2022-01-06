@@ -41,8 +41,8 @@
 }
 
 .product-page .advant-container{
-
-  /* background-image:  url("../../assets/img/wave.jpg"); */
+  padding-right: 10%;
+  padding-left: 10%;
 }
 
 .product-page .advant-container .advant-circle{

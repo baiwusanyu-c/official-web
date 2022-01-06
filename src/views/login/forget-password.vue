@@ -12,12 +12,12 @@
         <h3 class="text-2xl font-bold mb-2 font-format">{{$t('lang.login.forget')}}</h3>
         <div class='mb-2 h-24 border-b w-full md:h-14 lg:h-14'>
             <span class="text-gray-500 mr-4 font-format">{{$t('lang.login.account')}}</span>
-            <input type="text" class='h-16 font-format md:h-12 lg:h-12'  :placeholder="$t('lang.login.tipAccount')" v-model="form.account"/>
+            <input type="text" class='w-9/12 login-input h-16 font-format md:h-12 lg:h-12'  :placeholder="$t('lang.login.tipAccount')" v-model="form.account"/>
         </div>
         <!--  密码      -->
         <div class='login-password mb-2 h-24 border-b w-full flex items-center md:h-14 lg:h-14'>
             <span class="text-gray-500 mr-4 flex-grow-0 font-format">{{$t('lang.login.password')}}</span>
-            <input class='flex-grow h-16 font-format md:h-12 lg:h-12'
+            <input class='w-9/12 login-input flex-grow h-16 font-format md:h-12 lg:h-12'
                    :placeholder="$t('lang.login.tipPassword')"
                    :type="isShowPassword" v-model="form.password"/>
             <be-icon :icon="isShowPassword === 'password' ? 'noEye' : 'eye'"
@@ -27,7 +27,7 @@
         <!--  确认密码      -->
         <div class='login-password mb-2 h-24 border-b w-full flex items-center '>
             <span class="text-gray-500 mr-4 flex-grow-0 font-format">{{$t('lang.login.password')}}</span>
-            <input class='flex-grow h-16 font-format md:h-12 lg:h-12'
+            <input class='w-9/12 login-input flex-grow h-16 font-format md:h-12 lg:h-12'
                    :type="isShowPasswordConfirm"
                    :placeholder="$t('lang.login.tipPasswordConfirm')"
                    v-model="form.re_password"/>
@@ -42,7 +42,7 @@
         </p>
         <!--  邮箱验证      -->
         <div class='mb-4 flex w-full'>
-            <input type="text" v-model="form.verification_code" class="border h-12 flex-1 font-format"/>
+            <input type="text" v-model="form.verification_code" class="w-9/12 login-input border h-12 flex-1 font-format"/>
             <div class="bg-mainG cursor-pointer flex items-center justify-center w-32" @click="verifyCodeMail">
                 <img src="../../assets/img/send-vr-code.png" alt=""/>
             </div>

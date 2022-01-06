@@ -182,8 +182,8 @@ export default defineComponent({
             { fileUrl:serviceContract.report1,info: 'SMART CONTRACT AUDIT REPORT', name: 'For CrossYield-stake'},
             { fileUrl:serviceContract.report2,info: 'SMART CONTRACT AUDIT REPORT', name: 'For Huckleberry'},
             { fileUrl:serviceContract.report3,info: 'SMART CONTRACT AUDIT REPORT', name: 'For NFT'},
-            { fileUrl:serviceContract.report1,info: 'SMART CONTRACT AUDIT REPORT', name: 'For CrossYield-stake'},
-            { fileUrl:serviceContract.report2,info: 'SMART CONTRACT AUDIT REPORT', name: 'For Huckleberry'},
+            { fileUrl:serviceContract.report1,info: 'SMART CONTRACT AUDIT REPORT', name: 'For CrossYield-stake2'},
+            { fileUrl:serviceContract.report2,info: 'SMART CONTRACT AUDIT REPORT', name: 'For Huckleberry2'},
         ]
         const customersNum = ref<number>(0)
         const contractsNum = ref<number>(0)
@@ -215,7 +215,7 @@ export default defineComponent({
   height: 570px;
   padding-bottom: 110px;
   background: url("../../assets/img/service-contract/contract-header.png");
-  background-color: black;
+  background-color: #121214;
   background-repeat: no-repeat;
   background-size: cover;
 }

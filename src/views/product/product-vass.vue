@@ -65,7 +65,7 @@
 
         </div>
         <!--    核心特色    -->
-        <div class="advant-container flex  w-full py-16 px-80 flex-col justify-center relative md:px-60">
+        <div class="advant-container flex  w-full py-16 flex-col justify-center relative md:px-60">
             <video class='absolute left-0 top-0 bottom-0 top-0'
                    style="z-index: 0;width: 100%;height: 100%;object-fit: fill"
                    key="product-vass-video1"
@@ -151,7 +151,7 @@ export default defineComponent({
   justify-content: flex-start;
   height: 570px;
   padding: 0 300px 110px 300px;
-  background-color: black;
+  background-color: #121214;
   background-image: url("../../assets/img/vass-bg.png");
   background-repeat: no-repeat;
   background-size: 100%;

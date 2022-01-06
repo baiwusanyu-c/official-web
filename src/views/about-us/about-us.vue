@@ -136,7 +136,7 @@ export default defineComponent({
   align-items: center;
   justify-content: flex-start;
   padding: 0 300px 110px 300px;
-  background-color: black;
+  background-color: #121214;
   background-image:  url("../../assets/img/about-us-bg.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -177,7 +177,7 @@ export default defineComponent({
 .about-us-page .securing-the-blockchain{
   height: 360px;
   background-image: url("../../assets/img/securing-the-blockchain.png");
-  background-repeat: no-repeat;
+  background-repeat: round;
   background-size: 100%;
 }
 @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {

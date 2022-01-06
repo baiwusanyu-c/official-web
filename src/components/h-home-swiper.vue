@@ -16,7 +16,7 @@
         class="mySwiper">
         <swiper-slide v-for="item in list" :key="item.name + item.info">
             <div class="swiper-item flex flex-col">
-                <div class="h-60 text-container" style="border-bottom: 1px solid #dcdcdc">
+                <div class="h-60 px-4 text-container" style="border-bottom: 1px solid #dcdcdc">
                     <h2 class="text-left">“</h2>
                     <p class="break-words text-left font-format">{{ item.info }}</p>
                 </div>
