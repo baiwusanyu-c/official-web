@@ -144,8 +144,8 @@ export default defineComponent({
          */
         const router: Router = useRouter()
         const route: RouteLocationNormalizedLoaded = useRoute()
-        const routerPush = (path: string,index:number): void => {
-            closePopover(path,index)
+        const routerPush = (path: string,index?:number): void => {
+            index && closePopover(path,index)
             if(/quit/.test(path)) return
             router.push(path)
         }
@@ -184,6 +184,7 @@ export default defineComponent({
                 removeStore('userInfo')
                 isLogin.value = false
                 message('success',t('lang.opSuccess'),'hermit-msg')
+                if(/personal/.test(path)) routerPush('index/home')
             }
             if(/lang/.test(path)){
                 langList.value.map((val:ISelect)=>val.active = false);

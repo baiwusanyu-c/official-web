@@ -139,7 +139,10 @@ export default defineComponent({
             return true
         }
         const submit = ():void =>{
-            if(!verifyCodeForm()) return
+            if(!verifyCodeForm()) {
+                getCode(formData)
+                return
+            }
             const params:IQuote = {
                 name:formData.value.name,
                 email:formData.value.email,
@@ -152,12 +155,12 @@ export default defineComponent({
             createQuote(params).then((res: any) => {
                 if (res.code === 200) {
                     message('success',t('lang.opSuccess'),'hermit-msg')
-
                     handleClose()
                     //paginationReactive.itemCount = 1
                 }
             }).catch(err => {
                 message('warning',err.message,'hermit-msg')
+                getCode(formData)
                 console.error(err)
             })
         }

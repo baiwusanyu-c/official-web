@@ -110,7 +110,10 @@ export default defineComponent({
          */
         const router: Router = useRouter()
         const login = ():void =>{
-            if(!verifyCodeForm()) return
+            if(!verifyCodeForm()) {
+                getCode(form)
+                return
+            }
             const params:ILogin = {
                 username: String(form.value.username),
                 password:Base64.encode(form.value.password as string),
@@ -130,6 +133,7 @@ export default defineComponent({
 
                 router.push('/index/home')
             }).catch(err=>{
+                getCode(form)
                 message('warning',err.message,'hermit-msg')
                 console.error(err)
             })

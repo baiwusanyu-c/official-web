@@ -33,7 +33,7 @@ export default (props: any, ctx: any) => {
     const codeUrl = ref<string>('')
     const  getCode = (formData:any):void=>{
         getCodeImg().then((res:any) => {
-            formData.uuid = res.uuid;
+            formData.value.uuid = res.uuid;
             codeUrl.value = "data:image/gif;base64," + res.img;
         });
     }
@@ -51,7 +51,7 @@ export default (props: any, ctx: any) => {
      * 開啓定時器，進行數字滾動
      * @param initVal
      * @param max
-     * @param setp
+     * @param step
      */
     const startTimer = (initVal:Ref,max:number,step:number):void =>{
         let timer = setInterval(()=>{
