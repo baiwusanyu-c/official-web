@@ -14,7 +14,7 @@ export interface IQuote {
     mobile?:string
     message?:string
     code?: string,
-    uuid?:number
+    uuid?:string
 }
 export function createQuote(params:IQuote){
     return request({

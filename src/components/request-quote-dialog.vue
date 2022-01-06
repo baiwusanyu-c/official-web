@@ -95,13 +95,12 @@ export default defineComponent({
                     name:'',
                     email:'',
                     type:1,
-                    uuid:0,
                     code:"",
                     mobile:'',
                     message:''
                 }
             }else{
-                getCode(formData)
+                getCode()
             }
         })
         /**
@@ -140,7 +139,7 @@ export default defineComponent({
         }
         const submit = ():void =>{
             if(!verifyCodeForm()) {
-                getCode(formData)
+                getCode()
                 return
             }
             const params:IQuote = {
@@ -150,7 +149,7 @@ export default defineComponent({
                 mobile:formData.value.mobile,
                 message:formData.value.message,
                 code:formData.value.code,
-                uuid:formData.value.uuid,
+                uuid:uuid.value,
             }
             createQuote(params).then((res: any) => {
                 if (res.code === 200) {
@@ -160,7 +159,7 @@ export default defineComponent({
                 }
             }).catch(err => {
                 message('warning',err.message,'hermit-msg')
-                getCode(formData)
+                getCode()
                 console.error(err)
             })
         }
@@ -168,7 +167,6 @@ export default defineComponent({
             name:'',
             email:'',
             type:1,
-            uuid:0,
             code:"",
             mobile:'',
             message:''
@@ -180,7 +178,7 @@ export default defineComponent({
               {label:t('lang.projectList.project3'), value:3},
               {label:t('lang.projectList.project4'), value:4}
             ])
-        const {codeUrl,getCode} = composition(props, ctx)
+        const {codeUrl,getCode,uuid} = composition(props, ctx)
 
         return {
             codeUrl,

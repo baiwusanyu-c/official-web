@@ -32,7 +32,7 @@
             <!--  數字驗證碼      -->
             <div class='mt-8 flex w-full'>
                 <input type="text" v-model="form.code" class="border h-12 flex-1 font-format login-input w-9/12"/>
-                <div class="bg-mainG cursor-pointer flex items-center justify-center w-32" @click="getCode(form)">
+                <div class="bg-mainG cursor-pointer flex items-center justify-center w-32" @click="getCode()">
                     <img :src="codeUrl" alt="" style="height: 100%;"/>
                 </div>
             </div>
@@ -111,7 +111,7 @@ export default defineComponent({
         const router: Router = useRouter()
         const login = ():void =>{
             if(!verifyCodeForm()) {
-                getCode(form)
+                getCode()
                 return
             }
             const params:ILogin = {
@@ -122,7 +122,7 @@ export default defineComponent({
                 grant_type: 'password',
                 scope: 'server',
                 code: form.value.code,
-                uuid:form.value.uuid,
+                uuid:uuid.value,
                 login_type:'password',
 
             }
@@ -133,7 +133,7 @@ export default defineComponent({
 
                 router.push('/index/home')
             }).catch(err=>{
-                getCode(form)
+                getCode()
                 message('warning',err.message,'hermit-msg')
                 console.error(err)
             })
@@ -144,9 +144,9 @@ export default defineComponent({
         const  changeShow = (type:string):void=>{
             ctx.emit('showChange',type)
         }
-        const {codeUrl,getCode} = composition(props, ctx)
+        const {codeUrl,getCode,uuid} = composition(props, ctx)
         onMounted(()=>{
-            getCode(form)
+            getCode()
         })
         return {
             codeUrl,

@@ -27,7 +27,7 @@
                                       :onInput = "formData.code = formData.code.replace(/[^\d]/g,'')"
                                       size="large"/>
                         </div>
-                        <div class="flex-1" @click="getCode(formData)">
+                        <div class="flex-1" @click="getCode()">
                             <img :src="codeUrl" alt="" style="height: 40px"/>
                         </div>
                     </div>
@@ -76,7 +76,7 @@ export default defineComponent({
             const params:IReportCode = {
                 num: formData.value.num,
                 code: formData.value.code,
-                uuid: formData.value.uuid
+                uuid: uuid.value
             }
             getReportByCode(params).then((res: any) => {
                 if (res.code === 200 && res.data) {
@@ -86,20 +86,20 @@ export default defineComponent({
                     handleClose()
                 }else{
                     message('warning',t('lang.noResults'),'hermit-msg')
-                    getCode(formData)
+                    getCode()
                 }
             }).catch(err => {
                 message('warning',err.message,'hermit-msg')
-                getCode(formData)
+                getCode()
                 console.error(err)
             })
         }
-        const {codeUrl,getCode} = composition(props, ctx)
+        const {codeUrl,getCode,uuid} = composition(props, ctx)
         watch(isShow,(nVal:boolean)=>{
             if(nVal){
                 formData.value.num = props.num && parseInt(props.num) || undefined
                 formData.value.code = ""
-                getCode(formData)
+                getCode()
             }
         })
         return {

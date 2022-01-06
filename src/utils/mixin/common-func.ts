@@ -31,9 +31,10 @@ export default (props: any, ctx: any) => {
      * 获取登录验证码
      */
     const codeUrl = ref<string>('')
-    const  getCode = (formData:any):void=>{
+    const uuid = ref<string>('')
+    const  getCode = ():void=>{
         getCodeImg().then((res:any) => {
-            formData.value.uuid = res.uuid;
+            uuid.value = res.uuid;
             codeUrl.value = "data:image/gif;base64," + res.img;
         });
     }
@@ -64,6 +65,7 @@ export default (props: any, ctx: any) => {
     }
     return{
         startTimer,
+        uuid,
         message,
         codeUrl,
         getCode,
