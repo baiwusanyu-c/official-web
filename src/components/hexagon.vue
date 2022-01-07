@@ -93,10 +93,11 @@ export default defineComponent({
   justify-content: center;
   width: 178px;
   height: 206px;
-  padding: 0 30px 0 20px;
+  padding: 0 20px 0 20px;
   text-align: center;
   background-repeat: no-repeat;
   background-position-x: center;
+  background-size: 85%;
   transition: all .1s;
 }
 

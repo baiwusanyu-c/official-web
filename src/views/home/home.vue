@@ -9,14 +9,16 @@
         <!--   slogan & news     -->
         <div class="slogan-news w-full bg-mainBlueGary relative flex justify-center">
             <div class="slogan-news-bg w-full absolute ">
-                <video class='absolute left-0 bottom-0 top-0 right-0' style="z-index: 0;width:100%;height: 100%;object-fit: fill"
+                <video class='absolute left-0 bottom-0 top-0 right-0'
+                       style="z-index: 0;width:100%;height: 100%;object-fit: fill"
                        src="../../assets/video/home.mp4"
                        muted="muted"
                        autoplay="autoplay" loop="loop" width="1920"></video>
 
             </div>
             <div class="absolute z-10 flex justify-center flex-col w-1/2  h-full animate__animated animate__fadeInDown">
-                <h2 class="text-mainG text-6xl text-center font-bold leading-normal font-format">{{ $t('lang.home.title1') }}</h2>
+                <h2 class="text-mainG text-6xl text-center font-bold leading-normal font-format">
+                    {{ $t('lang.home.title1') }}</h2>
                 <h2 class="text-mainG text-6xl text-center font-bold leading-normal mb-20 slogan font-format">
                     {{ $t('lang.home.title2') }}</h2>
                 <div class="flex flex-wrap w-2/3 justify-between self-center mb-16 slogan">
@@ -72,14 +74,13 @@
                     <hexagon class='absolute hexagon3 font-format' :index="2"></hexagon>
                     <hexagon class='absolute hexagon4 font-format' :index="3"></hexagon>
                     <hexagon class='absolute hexagon5 font-format' :index="4"></hexagon>
-                    <hexagon class='absolute hexagon6 font-format' :index="5"></hexagon>
-                    <hexagon class='absolute hexagon7 font-format' :index="6"></hexagon>
                 </div>
             </div>
-            <div class="slogan-service-item flex mt-20"  style="width: 60%">
+            <div class="slogan-service-item flex mt-20" style="width: 60%">
                 <div class="w-1/2 flex flex-wrap relative">
                     <hexagon class='absolute font-format hexagon8' :index="7"></hexagon>
                     <hexagon class='absolute font-format hexagon9' :index="8"></hexagon>
+
                     <hexagon class='absolute font-format hexagon10' :index="9"></hexagon>
                     <hexagon class='absolute font-format hexagon11' :index="10"></hexagon>
                     <hexagon class='absolute font-format hexagon12' :index="11"></hexagon>
@@ -105,19 +106,23 @@
                 <div class="slogan-product-circle1 w-full my-24 relative" style="height: 200px">
                     <div class="w-30 absolute circle1 flex justify-center flex-col items-center">
                         <img class='w-28' src="../../assets/img/prod-f1.png" alt="">
-                        <p class="font-format font-bold text-center" style="width: 10em;">{{ $t('lang.home.productFeature1') }}</p>
+                        <p class="font-format font-bold text-center" style="width: 10em;">
+                            {{ $t('lang.home.productFeature1') }}</p>
                     </div>
                     <div class="absolute circle2 flex justify-center flex-col items-center">
                         <img class='w-28' src="../../assets/img/prod-f2.png" alt="">
-                        <p class="font-format font-bold text-center" style="width: 10em;">{{ $t('lang.home.productFeature2') }}</p>
+                        <p class="font-format font-bold text-center" style="width: 10em;">
+                            {{ $t('lang.home.productFeature2') }}</p>
                     </div>
                     <div class="w-30 absolute circle3 flex justify-center flex-col items-center">
                         <img class='w-28' src="../../assets/img/prod-f3.png" alt="">
-                        <p class="font-format font-bold text-center" style="width: 10em;">{{ $t('lang.home.productFeature3') }}</p>
+                        <p class="font-format font-bold text-center" style="width: 10em;">
+                            {{ $t('lang.home.productFeature3') }}</p>
                     </div>
                     <div class="w-30 absolute circle4 flex justify-center flex-col items-center">
                         <img class='w-28' src="../../assets/img/prod-f4.png" alt="">
-                        <p class="font-format font-bold text-center" style="width: 10em;">{{ $t('lang.home.productFeature4') }}</p>
+                        <p class="font-format font-bold text-center" style="width: 10em;">
+                            {{ $t('lang.home.productFeature4') }}</p>
                     </div>
                 </div>
                 <be-button
@@ -133,19 +138,23 @@
                 <div class="slogan-product-circle2 w-full my-24 relative" style="height: 200px">
                     <div class="w-30 absolute circle5 flex justify-center flex-col items-center">
                         <img class='w-28' src="../../assets/img/prod-f5.png" alt="">
-                        <p class="font-format font-bold text-center" style="width: 10em;">{{ $t('lang.home.productFeature5') }}</p>
+                        <p class="font-format font-bold text-center" style="width: 10em;">
+                            {{ $t('lang.home.productFeature5') }}</p>
                     </div>
                     <div class="w-30 absolute circle6 flex justify-center flex-col items-center">
                         <img class='w-28' src="../../assets/img/prod-f6.png" alt="">
-                        <p class="font-format font-bold text-center" style="width: 10em;">{{ $t('lang.home.productFeature6') }}</p>
+                        <p class="font-format font-bold text-center" style="width: 10em;">
+                            {{ $t('lang.home.productFeature6') }}</p>
                     </div>
                     <div class="w-30 absolute circle7 flex justify-center flex-col items-center">
                         <img class='w-28' src="../../assets/img/prod-f7.png" alt="">
-                        <p class="font-format font-bold text-center" style="width: 10em;">{{ $t('lang.home.productFeature7') }}</p>
+                        <p class="font-format font-bold text-center" style="width: 10em;">
+                            {{ $t('lang.home.productFeature7') }}</p>
                     </div>
                     <div class="w-30 absolute circle8 flex justify-center flex-col items-center">
                         <img class='w-28' src="../../assets/img/prod-f8.png" alt="">
-                        <p class="font-format font-bold text-center" style="width: 10em;">{{ $t('lang.home.productFeature8') }}</p>
+                        <p class="font-format font-bold text-center" style="width: 10em;">
+                            {{ $t('lang.home.productFeature8') }}</p>
                     </div>
                 </div>
                 <be-button
@@ -401,14 +410,14 @@ export default defineComponent({
   padding: 150px 0;
 }
 
-.slogan-service-item{
+.slogan-service-item {
   width: 600px;
   min-width: 1050px;
 }
 
 .slogan-service .hexagon1 {
   top: -10%;
-  left: 20%
+  left: 18%
 }
 
 .slogan-service .hexagon2 {
@@ -417,18 +426,18 @@ export default defineComponent({
 }
 
 .slogan-service .hexagon3 {
-  top: 42%;
-  left: 5%;
+  top: 50%;
+  left: 3%;
 }
 
 .slogan-service .hexagon4 {
-  top: 42%;
+  top: 50%;
   left: 35%;
 }
 
 .slogan-service .hexagon5 {
-  top: 42%;
-  left: 65%;
+  top: 50%;
+  left: 67%;
 }
 
 .slogan-service .hexagon6 {
@@ -443,27 +452,27 @@ export default defineComponent({
 
 .slogan-service .hexagon8 {
   top: -22%;
-  left: -5%;
+  left: 8%;
 }
 
 .slogan-service .hexagon9 {
   top: -22%;
-  left: 25%;
+  left: 40%;
 }
 
 .slogan-service .hexagon10 {
-  top: -22%;
-  left: 55%;
+  top: 32%;
+  left: -8%;
 }
 
 .slogan-service .hexagon11 {
-  top: 25%;
-  left: 10%;
+  top: 32%;
+  left: 24%;
 }
 
 .slogan-service .hexagon12 {
-  top: 25%;
-  left: 40%;
+  top: 32%;
+  left: 56%;
 }
 
 .bar {
@@ -559,21 +568,21 @@ export default defineComponent({
 }
 
 /* 110% - 125% 适配 */
-@media screen and (min-width: 1536px) and (max-height: 840px) and (max-width: 1750px)  {
+@media screen and (min-width: 1536px) and (max-height: 840px) and (max-width: 1750px) {
 
-  .slogan-service .hexagon8{
+  .slogan-service .hexagon8 {
     left: -12%;
   }
 
-  .slogan-service .hexagon9{
+  .slogan-service .hexagon9 {
     left: 21.5%;
   }
 
-  .slogan-service .hexagon11{
+  .slogan-service .hexagon11 {
     left: 5%;
   }
 
-  .slogan-service .hexagon12{
+  .slogan-service .hexagon12 {
     left: 38.5%;
   }
 }
@@ -586,7 +595,7 @@ export default defineComponent({
     padding: 150px 80px;
   }
 
-  .slogan-news .slogan{
+  .slogan-news .slogan {
     @apply mb-4
     }
 
