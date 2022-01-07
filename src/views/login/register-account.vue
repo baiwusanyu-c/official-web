@@ -56,6 +56,7 @@ import {registerAccount, verifyCode,IMailCode,IRegister} from "../../api/login";
 import {useI18n} from "vue-i18n";
 import {verEmail} from "../../utils/common";
 import composition from "../../utils/mixin/common-func";
+import {Base64} from "js-base64";
 export default defineComponent({
     name: "RegisterAccount",
     emits: [
@@ -140,6 +141,7 @@ export default defineComponent({
          */
         const register = ():void =>{
             if(!verifyCodeForm()) return
+            form.value.password = Base64.encode(form.value.password as string)
             registerAccount(form.value).then((res:any)=>{
                 if(res.code === 200){
                     message('success',t('lang.opSuccess'),'hermit-msg')

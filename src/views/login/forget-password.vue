@@ -47,7 +47,7 @@
                 <img src="../../assets/img/send-vr-code.png" alt=""/>
             </div>
         </div>
-        <be-button @click="register"
+        <be-button @click="updatePassword"
                    size="large"
                    customClass="login-btn linear-l-r text-black font-bold text-lg w-full mb-4 mx-auto ">
             <span class="font-format">{{$t('lang.login.confirm')}}</span>
@@ -67,6 +67,7 @@ import {forgetPassword, verifyCodePassword,IMailCode,IForgetPassword} from "../.
 import {useI18n} from "vue-i18n";
 import {verEmail} from "../../utils/common";
 import composition from "../../utils/mixin/common-func";
+import {Base64} from "js-base64";
 export default defineComponent({
     name: "ForgetPassword",
     emits: [
@@ -168,8 +169,10 @@ export default defineComponent({
         /**
          * 修改密碼方法
          */
-        const register = ():void =>{
+        const updatePassword = ():void =>{
             if(!verifyCodeForm()) return
+            form.value.password = Base64.encode(form.value.password as string)
+            form.value.re_password = Base64.encode(form.value.re_password as string)
             forgetPassword(form.value).then((res:any)=>{
                 if(res.code === 200) {
                     message('success',t('lang.opSuccess'),'hermit-msg')
@@ -194,7 +197,7 @@ export default defineComponent({
             form,
             changeShowPWord,
             verifyCodeMail,
-            register
+            updatePassword
         }
     }
 })

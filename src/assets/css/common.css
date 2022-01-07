@@ -1,45 +1,43 @@
-
-@font-face
-{
+@font-face {
   font-family: SourceHanSansNormal;
-  src: url('../font/SourceHanSansNormal.otf');
+  src: url('../font/OpenSans.ttf');
 }
-@font-face
-{
+
+@font-face {
   font-family: SourceHanSansExtraLight;
-  src: url('../font/SourceHanSansExtraLight.otf');
+  src: url('../font/OpenSansLightItalic.ttf');
 }
-@font-face
-{
+
+@font-face {
   font-family: SourceHanSansLight;
-  src: url('../font/SourceHanSansLight.otf');
+  src: url('../font/OpenSansLight.ttf');
 }
-@font-face
+
+/* @font-face
 {
   font-family: SourceHanSansMedium;
   src: url('../font/SourceHanSansMedium.otf');
-}
-@font-face
-{
+} */
+
+@font-face {
   font-family: SourceHanSansRegular;
-  src: url('../font/SourceHanSansRegular.otf');
+  src: url('../font/OpenSans.ttf');
 }
-@font-face
+
+/* @font-face
 {
   font-family: SourceHanSansHeavy;
   src: url('../font/SourceHanSansHeavy.otf');
-}
+} */
 
-@font-face
-{
+@font-face {
   font-family: SourceHanSansBold;
-  src: url('../font/SourceHanSansBold.otf');
+  src: url('../font/OpenSansBold.ttf');
 }
 
 /* 定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸 */
 
-.scrollDiy::-webkit-scrollbar
-{
+.scrollDiy::-webkit-scrollbar {
   width: 8px;
   height: 8px;
   margin: 5px;
@@ -47,33 +45,32 @@
 
 /* 定义滑块 */
 
-.scrollDiy::-webkit-scrollbar-thumb
-{
+.scrollDiy::-webkit-scrollbar-thumb {
   background-color: #c1c1c1;
-  border-radius:  5px;
+  border-radius: 5px;
 }
 
-.linear-l-r{
+.linear-l-r {
   background: linear-gradient(-73deg, #19BDFB, #02FBBB);
 }
 
-.linear-xie{
+.linear-xie {
   background: linear-gradient(-32deg, #19BCFC, #00FFBA);
 }
 
-#hermit_app .h-btn-txt-black .be-button-body .be-button-slot{
+#hermit_app .h-btn-txt-black .be-button-body .be-button-slot {
   color: black;
 }
 
-.be-message{
+.be-message {
   z-index: 9999 !important;
 }
 
-.font-format{
-  font-family: SourceHanSansNormal,sans-serif !important;
+.font-format {
+  font-family: SourceHanSansNormal, sans-serif !important;
 }
 
 .hermit-msg .txt-warning,
-.hermit-msg .txt-success{
+.hermit-msg .txt-success {
   color: black !important;
 }
