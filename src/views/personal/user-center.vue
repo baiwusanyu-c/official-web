@@ -85,6 +85,7 @@ export default defineComponent({
             t('lang.report.reportName.reportName3'),
             t('lang.report.reportName.reportName4'),
             t('lang.report.reportName.reportName5'),
+            t('lang.report.reportName.reportName6'),
         ])
         const openFlagDict = ref<Array<string>>([
             t('lang.private'),

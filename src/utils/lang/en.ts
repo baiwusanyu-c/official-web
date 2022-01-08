@@ -485,6 +485,7 @@ export default {
             reportName3:'Consortium Blockchain Audit Report',
             reportName4:'Web-end In-depth Risk Monitoring Report',
             reportName5:'Mobile Risk Monitoring Report',
+            reportName6:'other',
         }
     }
 
