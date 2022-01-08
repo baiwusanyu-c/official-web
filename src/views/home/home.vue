@@ -61,7 +61,7 @@
                 <div class="w-1/2">
                     <div class="bar mb-8"></div>
                     <h3 class="font-bold text-3xl mb-8 font-format">{{ $t('lang.home.serviceTitle1') }}</h3>
-                    <p class="mb-16 font-format">{{ $t('lang.home.serviceInfo1') }}</p>
+                    <p class="mb-16 font-format text-justify">{{ $t('lang.home.serviceInfo1') }}</p>
                     <be-button
                         @click="routerPush('/index/service/contracts')"
                         customClass="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl ">
@@ -88,7 +88,7 @@
                 <div class="w-1/2">
                     <div class="bar mb-8"></div>
                     <h3 class="font-bold text-3xl mb-8 font-format">{{ $t('lang.home.serviceTitle2') }}</h3>
-                    <p class="mb-16 font-format">{{ $t('lang.home.serviceInfo2') }}</p>
+                    <p class="mb-16 font-format text-justify">{{ $t('lang.home.serviceInfo2') }}</p>
                     <be-button
                         @click="routerPush('/index/service/security')"
                         customClass="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl">
@@ -101,8 +101,8 @@
         <div class="slogan-product  bg-mainBlueGary flex flex-col justify-center items-center w-full">
             <div class="flex-1 flex-col flex justify-center items-center w-full mb-36">
                 <div class="bar mb-8"></div>
-                <h3 class="text-2xl font-bold mb-8 font-format">{{ $t('lang.home.productName1') }}</h3>
-                <p class="w-1/2 mb-8 font-format">{{ $t('lang.home.productDesc1') }}</p>
+                <h3 class="text-2xl font-bold mb-8 font-format ">{{ $t('lang.home.productName1') }}</h3>
+                <p class="w-1/2 mb-8 font-format text-justify">{{ $t('lang.home.productDesc1') }}</p>
                 <div class="slogan-product-circle1 w-full my-24 relative" style="height: 200px">
                     <div class="w-30 absolute circle1 flex justify-center flex-col items-center">
                         <img class='w-28' src="../../assets/img/prod-f1.png" alt="">
@@ -134,7 +134,7 @@
             <div class="flex-1 flex-col flex justify-center items-center w-full">
                 <div class="bar mb-8"></div>
                 <h3 class="text-2xl font-bold mb-8 font-format">{{ $t('lang.home.productName2') }}</h3>
-                <p class="w-1/2 mb-8 font-format">{{ $t('lang.home.productDesc2') }}</p>
+                <p class="w-1/2 mb-8 font-format text-justify">{{ $t('lang.home.productDesc2') }}</p>
                 <div class="slogan-product-circle2 w-full my-24 relative" style="height: 200px">
                     <div class="w-30 absolute circle5 flex justify-center flex-col items-center">
                         <img class='w-28' src="../../assets/img/prod-f5.png" alt="">
@@ -570,6 +570,10 @@ export default defineComponent({
 /* 110% - 125% 适配 */
 @media screen and (min-width: 1536px) and (max-height: 840px) and (max-width: 1750px) {
 
+  .home-swiper {
+    width: 106vw;
+  }
+
   .slogan-service .hexagon8 {
     left: -12%;
   }
@@ -589,6 +593,10 @@ export default defineComponent({
 
 /* 150% 适配 */
 @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
+
+  .home-swiper {
+    width: 126vw;
+  }
 
   .hermit-main .slogan-service {
     box-sizing: border-box;

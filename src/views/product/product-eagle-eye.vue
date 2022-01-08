@@ -33,22 +33,22 @@
                 <div class="func-card  bg-default flex flex-col items-center justify-start shadow-2xl mx-8 p-8 box-border rounded">
                     <h3 class="text-lg font-bold mb-8 text-center h-12 font-format"> {{$t('lang.product.eagle.funcSubTitle1')}}</h3>
                     <img class='mb-8' src="../../assets/img/eagle-func1.png" alt="">
-                    <p class="font-format"> {{$t('lang.product.eagle.funcDesc1')}}</p>
+                    <p class="font-format text-center"> {{$t('lang.product.eagle.funcDesc1')}}</p>
                 </div>
                 <div class="func-card  bg-default flex flex-col items-center justify-start shadow-2xl mx-8 p-8 box-border rounded">
                     <h3 class="text-lg font-bold mb-8 text-center h-12 font-format"> {{$t('lang.product.eagle.funcSubTitle2')}}</h3>
                     <img class='mb-8' src="../../assets/img/eagle-func2.png" alt="">
-                    <p class="font-format"> {{$t('lang.product.eagle.funcDesc2')}}</p>
+                    <p class="font-format text-center"> {{$t('lang.product.eagle.funcDesc2')}}</p>
                 </div>
                 <div class="func-card  bg-default flex flex-col items-center justify-start shadow-2xl mx-8 p-8 box-border rounded">
                     <h3 class="text-lg font-bold mb-8 text-center h-12 font-format"> {{$t('lang.product.eagle.funcSubTitle3')}}</h3>
                     <img class='mb-8' src="../../assets/img/eagle-func3.png" alt="">
-                    <p class="font-format"> {{$t('lang.product.eagle.funcDesc3')}}</p>
+                    <p class="font-format text-center"> {{$t('lang.product.eagle.funcDesc3')}}</p>
                 </div>
                 <div class="func-card  bg-default flex flex-col items-center justify-start shadow-2xl mx-8 p-8 box-border rounded">
                     <h3 class="text-lg font-bold mb-8 text-center h-12 font-format"> {{$t('lang.product.eagle.funcSubTitle4')}}</h3>
                     <img class='mb-8' src="../../assets/img/eagle-func4.png" alt="">
-                    <p class="font-format"> {{$t('lang.product.eagle.funcDesc4')}}</p>
+                    <p class="font-format text-center"> {{$t('lang.product.eagle.funcDesc4')}}</p>
                 </div>
             </div>
 

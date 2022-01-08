@@ -18,10 +18,10 @@
         <swiper-slide v-for="item in list" :key="item.name + item.info">
             <div class="service-swiper-slide">
                 <div class="swiper-header cursor-pointer"  @click="openWin(item.fileUrl)">
-                    <p class="swiper-header-title font-format">{{item.name}}</p>
+                    <p class="swiper-header-title font-format text-center">{{item.name}}</p>
                 </div>
                 <div class="swiper-footer cursor-pointer"  @click="openWin(item.fileUrl)">
-                    <p class="break-words text-left font-format">{{ item.info }}</p>
+                    <p class="break-words text-left font-format text-justify">{{ item.info }}</p>
                 </div>
             </div>
 

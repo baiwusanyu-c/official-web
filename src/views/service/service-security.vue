@@ -83,7 +83,7 @@
             <div class="content-card-down">
                 <div class="card">
                     <div class="card-title font-format">{{$t('lang.serviceSecurity.content.cardAudit')}}</div>
-                    <img alt="" src="../../assets/img/application-layer.png" height="120" width="212"/>
+                    <img alt="" src="../../assets/img/assets-security.png" height="120" width="212"/>
                 </div>
                 <div class="card">
                     <div class="card-title font-format">{{$t('lang.serviceSecurity.content.cardLayer')}}</div>
@@ -128,7 +128,7 @@
                 <img alt="" v-show = "tableChoseBox === 1" src="../../assets/img/white-box.png" height="241" width="420"/>
                 <img alt="" v-show = "tableChoseBox === 2" src="../../assets/img/gary-box.png" height="241" width="420"/>
                 <img alt="" v-show = "tableChoseBox === 3" src="../../assets/img/black-box.png" height="241" width="420"/>
-                <div class="table-introduce">
+                <div class="table-introduce text-justify">
                     <span>
                         {{boxText}}
                     </span>

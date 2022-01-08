@@ -116,8 +116,8 @@
             <div  class="page-body-reports-head">
                 <div class="reports-header">
                     <div class="reports-title-class">
-                        <div class="reports-title-question font-format">{{$t('lang.serviceContract.reports.title')}}</div>
-                        <div class="reports-title-answer font-format">{{$t('lang.serviceContract.reports.text')}}</div>
+                        <div class="reports-title-question font-format text-justify">{{$t('lang.serviceContract.reports.title')}}</div>
+                        <div class="reports-title-answer font-format text-justify">{{$t('lang.serviceContract.reports.text')}}</div>
                     </div>
                     <img alt="" src="../../assets/img/pad.png" height="345" width="339"/>
                 </div>
