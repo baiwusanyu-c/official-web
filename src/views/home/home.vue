@@ -57,18 +57,20 @@
         </div>
         <!--   service     -->
         <div class="slogan-service w-full bg-default flex flex-col">
-            <div class="slogan-service-item flex mb-44">
-                <div class="w-1/2">
+            <div class="slogan-service-item flex justify-center items-center w-full">
+                <div style="box-sizing: border-box;" class="mb-56 mr-12 hexagon-desc lg125:mb-48 md:mb-0">
                     <div class="bar mb-8"></div>
                     <h3 class="font-bold text-3xl mb-8 font-format">{{ $t('lang.home.serviceTitle1') }}</h3>
-                    <p class="mb-16 font-format text-justify">{{ $t('lang.home.serviceInfo1') }}</p>
+                    <p class="mb-16 font-format text-justify leading-normal text-lg">{{
+                            $t('lang.home.serviceInfo1')
+                        }}</p>
                     <be-button
                         @click="routerPush('/index/service/contracts')"
                         customClass="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl ">
                         <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
                     </be-button>
                 </div>
-                <div class="flex flex-wrap relative" style="width: 60%">
+                <div class="flex flex-wrap relative hexagon-container-body" style="width: 42%">
                     <hexagon class='absolute hexagon1 font-format' :index="0"></hexagon>
                     <hexagon class='absolute hexagon2 font-format' :index="1"></hexagon>
                     <hexagon class='absolute hexagon3 font-format' :index="2"></hexagon>
@@ -76,22 +78,23 @@
                     <hexagon class='absolute hexagon5 font-format' :index="4"></hexagon>
                 </div>
             </div>
-            <div class="slogan-service-item flex mt-20" style="width: 60%">
-                <div class="w-1/2 flex flex-wrap relative">
+            <div class="slogan-service-item flex mt-20 w-full justify-center items-center">
+                <div class="flex flex-wrap relative hexagon-container-body mr-12" style="width: 42%">
                     <hexagon class='absolute font-format hexagon8' :index="7"></hexagon>
                     <hexagon class='absolute font-format hexagon9' :index="8"></hexagon>
-
                     <hexagon class='absolute font-format hexagon10' :index="9"></hexagon>
                     <hexagon class='absolute font-format hexagon11' :index="10"></hexagon>
                     <hexagon class='absolute font-format hexagon12' :index="11"></hexagon>
                 </div>
-                <div class="w-1/2">
-                    <div class="bar mb-8"></div>
-                    <h3 class="font-bold text-3xl mb-8 font-format">{{ $t('lang.home.serviceTitle2') }}</h3>
-                    <p class="mb-16 font-format text-justify">{{ $t('lang.home.serviceInfo2') }}</p>
+                <div class="mb-56 hexagon-desc lg125:mb-48  md:mb-0">
+                    <div class="bar mb-8 float-right"></div>
+                    <h3 class="font-bold text-3xl mb-8 font-format text-right float-right">
+                        {{ $t('lang.home.serviceTitle2') }}</h3>
+                    <p class="mb-16 font-format text-justify leading-normal float-right text-lg">
+                        {{ $t('lang.home.serviceInfo2') }}</p>
                     <be-button
                         @click="routerPush('/index/service/security')"
-                        customClass="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl">
+                        customClass="float-right learn-more-btn h-btn-txt-black linear-l-r text-black text-xl">
                         <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
                     </be-button>
                 </div>
@@ -102,28 +105,14 @@
             <div class="flex-1 flex-col flex justify-center items-center w-full mb-36">
                 <div class="bar mb-8"></div>
                 <h3 class="text-2xl font-bold mb-8 font-format ">{{ $t('lang.home.productName1') }}</h3>
-                <p class="w-1/2 mb-8 font-format text-justify">{{ $t('lang.home.productDesc1') }}</p>
+                <p class="w-3/5 mb-8 font-format text-justify leading-normal text-lg">{{
+                        $t('lang.home.productDesc1')
+                    }}</p>
                 <div class="slogan-product-circle1 w-full my-24 relative" style="height: 200px">
-                    <div class="w-30 absolute circle1 flex justify-center flex-col items-center">
-                        <img class='w-28' src="../../assets/img/prod-f1.png" alt="">
-                        <p class="font-format font-bold text-center" style="width: 10em;">
-                            {{ $t('lang.home.productFeature1') }}</p>
-                    </div>
-                    <div class="absolute circle2 flex justify-center flex-col items-center">
-                        <img class='w-28' src="../../assets/img/prod-f2.png" alt="">
-                        <p class="font-format font-bold text-center" style="width: 10em;">
-                            {{ $t('lang.home.productFeature2') }}</p>
-                    </div>
-                    <div class="w-30 absolute circle3 flex justify-center flex-col items-center">
-                        <img class='w-28' src="../../assets/img/prod-f3.png" alt="">
-                        <p class="font-format font-bold text-center" style="width: 10em;">
-                            {{ $t('lang.home.productFeature3') }}</p>
-                    </div>
-                    <div class="w-30 absolute circle4 flex justify-center flex-col items-center">
-                        <img class='w-28' src="../../assets/img/prod-f4.png" alt="">
-                        <p class="font-format font-bold text-center" style="width: 10em;">
-                            {{ $t('lang.home.productFeature4') }}</p>
-                    </div>
+                    <home-product-circle :index="1"></home-product-circle>
+                    <home-product-circle :index="2"></home-product-circle>
+                    <home-product-circle :index="3"></home-product-circle>
+                    <home-product-circle :index="4"></home-product-circle>
                 </div>
                 <be-button
                     @click="routerPush('/index/product/productVass')"
@@ -134,28 +123,14 @@
             <div class="flex-1 flex-col flex justify-center items-center w-full">
                 <div class="bar mb-8"></div>
                 <h3 class="text-2xl font-bold mb-8 font-format">{{ $t('lang.home.productName2') }}</h3>
-                <p class="w-1/2 mb-8 font-format text-justify">{{ $t('lang.home.productDesc2') }}</p>
+                <p class="w-3/5 mb-8 font-format text-justify leading-normal text-lg">{{
+                        $t('lang.home.productDesc2')
+                    }}</p>
                 <div class="slogan-product-circle2 w-full my-24 relative" style="height: 200px">
-                    <div class="w-30 absolute circle5 flex justify-center flex-col items-center">
-                        <img class='w-28' src="../../assets/img/prod-f5.png" alt="">
-                        <p class="font-format font-bold text-center" style="width: 10em;">
-                            {{ $t('lang.home.productFeature5') }}</p>
-                    </div>
-                    <div class="w-30 absolute circle6 flex justify-center flex-col items-center">
-                        <img class='w-28' src="../../assets/img/prod-f6.png" alt="">
-                        <p class="font-format font-bold text-center" style="width: 10em;">
-                            {{ $t('lang.home.productFeature6') }}</p>
-                    </div>
-                    <div class="w-30 absolute circle7 flex justify-center flex-col items-center">
-                        <img class='w-28' src="../../assets/img/prod-f7.png" alt="">
-                        <p class="font-format font-bold text-center" style="width: 10em;">
-                            {{ $t('lang.home.productFeature7') }}</p>
-                    </div>
-                    <div class="w-30 absolute circle8 flex justify-center flex-col items-center">
-                        <img class='w-28' src="../../assets/img/prod-f8.png" alt="">
-                        <p class="font-format font-bold text-center" style="width: 10em;">
-                            {{ $t('lang.home.productFeature8') }}</p>
-                    </div>
+                    <home-product-circle :index="5"></home-product-circle>
+                    <home-product-circle :index="6"></home-product-circle>
+                    <home-product-circle :index="7"></home-product-circle>
+                    <home-product-circle :index="8"></home-product-circle>
                 </div>
                 <be-button
                     @click="routerPush('/index/product/productEagle')"
@@ -195,6 +170,7 @@ import HHomeSwiper from "../../components/h-home-swiper.vue";
 import {useEventBus} from "@vueuse/core";
 import {Router, useRouter} from "vue-router";
 import composition from "../../utils/mixin/common-func";
+import HomeProductCircle from "../../components/home-product-circle.vue";
 
 interface ISelect {
     label: string,
@@ -204,7 +180,7 @@ interface ISelect {
 
 export default defineComponent({
     name: "home",
-    components: {HHomeSwiper, AboutHermit, ContactUs, Hexagon},
+    components: {HomeProductCircle, HHomeSwiper, AboutHermit, ContactUs, Hexagon},
     setup(props, ctx) {
         const {t} = useI18n()
         const muguList = ref<Array<ISelect>>([
@@ -320,6 +296,13 @@ export default defineComponent({
 
 <style>
 
+.hexagon-container-body {
+  height: 800px;
+  background-image: url("../../assets/img/hexagon-texture.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
 .hermit-main .slogan-news {
   height: 100vh;
   background-position-x: -2px;
@@ -407,7 +390,7 @@ export default defineComponent({
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
-  padding: 150px 0;
+  padding: 30px 0;
 }
 
 .slogan-service-item {
@@ -415,29 +398,33 @@ export default defineComponent({
   min-width: 1050px;
 }
 
+.slogan-service-item .hexagon-desc{
+  width: 22%;
+}
+
 .slogan-service .hexagon1 {
-  top: -10%;
-  left: 18%
+  top: 20%;
+  left: 22%
 }
 
 .slogan-service .hexagon2 {
-  top: -10%;
-  left: 50%
+  top: 20%;
+  left: 46%
 }
 
 .slogan-service .hexagon3 {
-  top: 50%;
-  left: 3%;
+  top: 42%;
+  left: 10%;
 }
 
 .slogan-service .hexagon4 {
-  top: 50%;
-  left: 35%;
+  top: 42%;
+  left: 34%;
 }
 
 .slogan-service .hexagon5 {
-  top: 50%;
-  left: 67%;
+  top: 42%;
+  left: 58.5%
 }
 
 .slogan-service .hexagon6 {
@@ -451,28 +438,28 @@ export default defineComponent({
 }
 
 .slogan-service .hexagon8 {
-  top: -22%;
-  left: 8%;
+  top: 20%;
+  left: 22%;
 }
 
 .slogan-service .hexagon9 {
-  top: -22%;
-  left: 40%;
+  top: 20%;
+  left: 46%;
 }
 
 .slogan-service .hexagon10 {
-  top: 32%;
-  left: -8%;
+  top: 42%;
+  left: 10%;
 }
 
 .slogan-service .hexagon11 {
-  top: 32%;
-  left: 24%;
+  top: 42%;
+  left: 34%;
 }
 
 .slogan-service .hexagon12 {
-  top: 32%;
-  left: 56%;
+  top: 42%;
+  left: 58%;
 }
 
 .bar {
@@ -508,7 +495,7 @@ export default defineComponent({
 
 .slogan-product-circle1 .circle2 {
   top: -8%;
-  left: 44%;
+  left: 42%;
 }
 
 .slogan-product-circle1 .circle3 {
@@ -518,7 +505,7 @@ export default defineComponent({
 
 .slogan-product-circle1 .circle4 {
   top: -8%;
-  right: 14%;
+  right: 17%;
 }
 
 .slogan-product-circle2 {
@@ -534,7 +521,7 @@ export default defineComponent({
 
 .slogan-product-circle2 .circle6 {
   top: 46%;
-  left: 44%;
+  left: 42%;
 }
 
 .slogan-product-circle2 .circle7 {
@@ -544,7 +531,7 @@ export default defineComponent({
 
 .slogan-product-circle2 .circle8 {
   top: 46%;
-  right: 14%;
+  right: 17%;
 }
 
 .slogan-customer {
@@ -574,20 +561,28 @@ export default defineComponent({
     width: 106vw;
   }
 
-  .slogan-service .hexagon8 {
-    left: -12%;
+  .slogan-service .hexagon3 {
+    top: 37%
   }
 
-  .slogan-service .hexagon9 {
-    left: 21.5%;
+  .slogan-service .hexagon4 {
+    top: 37%
+  }
+
+  .slogan-service .hexagon5 {
+    top: 37%
+  }
+
+  .slogan-service .hexagon10 {
+    top: 37%
   }
 
   .slogan-service .hexagon11 {
-    left: 5%;
+    top: 37%
   }
 
   .slogan-service .hexagon12 {
-    left: 38.5%;
+    top: 37%
   }
 }
 
@@ -603,9 +598,61 @@ export default defineComponent({
     padding: 150px 80px;
   }
 
+  .hexagon-container-body {
+    height: 464px;
+  }
+
   .slogan-news .slogan {
     @apply mb-4
     }
+
+  .slogan-service-item .hexagon-desc{
+    width: 40%;
+  }
+
+  .slogan-service .hexagon1 {
+    left: 20%
+  }
+
+  .slogan-service .hexagon2 {
+    left: 48%
+  }
+
+  .slogan-service .hexagon3 {
+    top: 45%;
+    left: 6%;
+  }
+
+  .slogan-service .hexagon4 {
+    top: 45%;
+  }
+
+  .slogan-service .hexagon5 {
+    top: 45%;
+    left: 62%;
+  }
+
+  .slogan-service .hexagon8{
+    left: 20%;
+  }
+
+  .slogan-service .hexagon9{
+    left: 48%;
+  }
+
+  .slogan-service .hexagon10 {
+    top: 45%;
+    left: 6%;
+  }
+
+  .slogan-service .hexagon11 {
+    top: 45%;
+  }
+
+  .slogan-service .hexagon12 {
+    top: 45%;
+    left: 62%;
+  }
 
 }
 </style>

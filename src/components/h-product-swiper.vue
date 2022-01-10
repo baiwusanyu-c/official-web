@@ -100,7 +100,6 @@ export default defineComponent({
 
 .product-swiper .swiper {
   width: 100%;
-  height: 100%;
 }
 
 .product-swiper .swiper-wrapper{

@@ -11,7 +11,7 @@
                 <div class="header-text-big font-format">
                     {{$t('lang.serviceSecurity.pageHead.textBig')}}
                 </div>
-                <div class="header-text-small font-format">
+                <div class="header-text-small font-format leading-normal">
                     {{$t('lang.serviceSecurity.pageHead.textSmall')}}
                 </div>
             </div>
@@ -19,8 +19,8 @@
             <img alt="" src="../../assets/img/header-img.png" class="header-img"/>
         </div>
         <div class="page-body-search">
-            <div class="body-search-text font-format">
-                <span>{{$t('lang.serviceSecurity.search.text')}}</span>
+            <div class="body-search-text">
+                <span class="leading-normal font-format">{{$t('lang.serviceSecurity.search.text')}}</span>
             </div>
             <div class="body-search-num">
                 <div class="search-num-box">
@@ -52,7 +52,7 @@
             <div class="body-search-input">
                 <div class="input-title font-format">{{$t('lang.serviceSecurity.search.inputTitle')}}</div>
             </div>
-            <div class="search-input shadow-2xl">
+            <div class="search-input shadow-lg">
                 <n-input size="large"
                          :theme-overrides="inputThemeOverrides"
                          v-model:value="searchPrams"
@@ -103,22 +103,22 @@
             <div class="table-title-big">{{$t('lang.serviceContract.table.titleBig')}}</div>
             <div class="table-title-class">
                 <div class="table-title" @click="tableChoseBox = 1" @mouseenter="tableChoseBoxHover = 1" @mouseleave="tableChoseBoxHover = 0">
-                    <div v-show="tableChoseBox===1">{{$t('lang.serviceContract.table.titleWhite')}}</div>
-                    <div class="table-title-chick" v-show="tableChoseBox!==1">{{$t('lang.serviceContract.table.titleWhite')}}</div>
+                    <div v-show="tableChoseBox===1" class="font-format">{{$t('lang.serviceContract.table.titleWhite')}}</div>
+                    <div class="table-title-chick font-format" v-show="tableChoseBox!==1">{{$t('lang.serviceContract.table.titleWhite')}}</div>
                     <transition  name="fade">
                         <div class="table-title-footer" v-show="tableChoseBox===1 || tableChoseBoxHover === 3"></div>
                     </transition>
                 </div>
-                <div class="table-title" @click="tableChoseBox = 2" @mouseenter="tableChoseBoxHover = 2" @mouseleave="tableChoseBoxHover = 0">
-                    <div v-show="tableChoseBox===2">{{$t('lang.serviceContract.table.titleGrey')}}</div>
-                    <div class="table-title-chick" v-show="tableChoseBox!==2">{{$t('lang.serviceContract.table.titleGrey')}}</div>
+                <div class="table-title font-format" @click="tableChoseBox = 2" @mouseenter="tableChoseBoxHover = 2" @mouseleave="tableChoseBoxHover = 0">
+                    <div v-show="tableChoseBox===2" class="font-format">{{$t('lang.serviceContract.table.titleGrey')}}</div>
+                    <div class="table-title-chick font-format" v-show="tableChoseBox!==2">{{$t('lang.serviceContract.table.titleGrey')}}</div>
                     <transition  name="fade">
                         <div class="table-title-footer" v-show="tableChoseBox===2 || tableChoseBoxHover === 2"></div>
                     </transition>
                 </div>
-                <div class="table-title" @click="tableChoseBox = 3" @mouseenter="tableChoseBoxHover = 3" @mouseleave="tableChoseBoxHover = 0">
-                    <div v-show="tableChoseBox===3">{{$t('lang.serviceContract.table.titleBlack')}}</div>
-                    <div class="table-title-chick" v-show="tableChoseBox!==3">{{$t('lang.serviceContract.table.titleBlack')}}</div>
+                <div class="table-title font-format" @click="tableChoseBox = 3" @mouseenter="tableChoseBoxHover = 3" @mouseleave="tableChoseBoxHover = 0">
+                    <div v-show="tableChoseBox===3" class="font-format">{{$t('lang.serviceContract.table.titleBlack')}}</div>
+                    <div class="table-title-chick font-format" v-show="tableChoseBox!==3">{{$t('lang.serviceContract.table.titleBlack')}}</div>
                     <transition  name="fade">
                         <div class="table-title-footer" v-show="tableChoseBox===3 || tableChoseBoxHover === 3"></div>
                     </transition>
@@ -129,7 +129,7 @@
                 <img alt="" v-show = "tableChoseBox === 2" src="../../assets/img/gary-box.png" height="241" width="420"/>
                 <img alt="" v-show = "tableChoseBox === 3" src="../../assets/img/black-box.png" height="241" width="420"/>
                 <div class="table-introduce text-justify">
-                    <span>
+                    <span class="leading-normal font-format">
                         {{boxText}}
                     </span>
                 </div>
@@ -409,14 +409,14 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
+<style >
 @import "../../assets/css/service-page.css";
 
-/deep/.n-data-table-th{
+#service_security  /deep/.n-data-table-th{
   background-color: #F1F1F1 !important;
 }
 
-/deep/.change-color .categories {
+#service_security  /deep/.change-color .categories {
   background-color: #F8F8F8 !important;
 }
 

@@ -41,10 +41,14 @@
   width: 100%;
 }
 
-.h-btn-txt-black,.hexagon-container{
+.h-btn-txt-black,
+.home-product-circle,
+.hexagon-container{
   transition: all .3s;
 }
 
-.h-btn-txt-black:hover,.hexagon-container:hover{
+.h-btn-txt-black:hover,
+.home-product-circle:hover,
+.hexagon-container:hover{
   transform: scale(1.2);
 }

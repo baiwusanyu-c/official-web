@@ -36,6 +36,7 @@ export default defineConfig({
             },
         },
     },
+    // 定义环境变量
     define: {
         __DEV__: process.env.NODE_ENV == 'production',
         __TEST_PROD__: process.env.NODE_ENV === 'staging',

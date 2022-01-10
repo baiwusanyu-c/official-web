@@ -145,7 +145,7 @@ export default defineComponent({
         const router: Router = useRouter()
         const route: RouteLocationNormalizedLoaded = useRoute()
         const routerPush = (path: string,index?:number): void => {
-            index && closePopover(path,index)
+            (index || index === 0)&& closePopover(path,index)
             if(/quit/.test(path)) return
             router.push(path)
         }
@@ -332,9 +332,9 @@ export default defineComponent({
 }
 
 .trigger-item .be-icon-container .be-icon{
-  width: 15px;
-  height: 15px;
-  fill:#fff;
+  width: 10px;
+  height: 10px;
+  fill:#898e9a;
 }
 
 .trigger-item:hover .be-icon-container .be-icon{

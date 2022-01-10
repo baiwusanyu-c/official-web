@@ -36,7 +36,7 @@
                      @click="changeShowPWordConfirm('unConfirm')"></be-icon>
             <!--       no-eye     -->
         </div>
-        <p class="mb-4 text-gray-500 md:mb-2">
+        <p class="mb-4 text-gray-500 font-format md:mb-2">
             <span style="color: red">*</span>
             {{$t('lang.login.tip')}}
         </p>

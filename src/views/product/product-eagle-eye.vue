@@ -12,7 +12,7 @@
                 <div class="header-text-big font-format">
                    {{$t('lang.product.eagle.title')}}
                 </div>
-                <div class="header-text-small font-format">
+                <div class="header-text-small font-format leading-normal">
                     {{$t('lang.product.eagle.subTitle')}}
                 </div>
 <!--                <be-button customClass="try-out-btn h-btn-txt-black linear-l-r text-black text-xl">{{$t('lang.tryoutBtn') }}</be-button>-->
@@ -20,9 +20,9 @@
         </div>
         <!--    文字介绍 & 走马灯   -->
         <div class="flex items-center justify-center bg-default text-center py-16 box-border w-full flex-col">
-            <p class="w-1/2 text-lg font-format md:w-3/4"> {{$t('lang.product.eagle.desc')}}</p>
+            <p class="product-desc text-lg font-format text-justify leading-normal"> {{$t('lang.product.eagle.desc')}}</p>
             <!--     走馬燈      -->
-            <div class="mt-10 product-swiper w-1/2 md:w-3/4">
+            <div class="mt-10 product-swiper w-1/2 h-full">
                 <h-product-swiper></h-product-swiper>
             </div>
         </div>
@@ -33,22 +33,22 @@
                 <div class="func-card  bg-default flex flex-col items-center justify-start shadow-2xl mx-8 p-8 box-border rounded">
                     <h3 class="text-lg font-bold mb-8 text-center h-12 font-format"> {{$t('lang.product.eagle.funcSubTitle1')}}</h3>
                     <img class='mb-8' src="../../assets/img/eagle-func1.png" alt="">
-                    <p class="font-format text-center"> {{$t('lang.product.eagle.funcDesc1')}}</p>
+                    <p class="font-format text-center leading-normal"> {{$t('lang.product.eagle.funcDesc1')}}</p>
                 </div>
                 <div class="func-card  bg-default flex flex-col items-center justify-start shadow-2xl mx-8 p-8 box-border rounded">
                     <h3 class="text-lg font-bold mb-8 text-center h-12 font-format"> {{$t('lang.product.eagle.funcSubTitle2')}}</h3>
                     <img class='mb-8' src="../../assets/img/eagle-func2.png" alt="">
-                    <p class="font-format text-center"> {{$t('lang.product.eagle.funcDesc2')}}</p>
+                    <p class="font-format text-center leading-normal"> {{$t('lang.product.eagle.funcDesc2')}}</p>
                 </div>
                 <div class="func-card  bg-default flex flex-col items-center justify-start shadow-2xl mx-8 p-8 box-border rounded">
                     <h3 class="text-lg font-bold mb-8 text-center h-12 font-format"> {{$t('lang.product.eagle.funcSubTitle3')}}</h3>
                     <img class='mb-8' src="../../assets/img/eagle-func3.png" alt="">
-                    <p class="font-format text-center"> {{$t('lang.product.eagle.funcDesc3')}}</p>
+                    <p class="font-format text-center leading-normal"> {{$t('lang.product.eagle.funcDesc3')}}</p>
                 </div>
                 <div class="func-card  bg-default flex flex-col items-center justify-start shadow-2xl mx-8 p-8 box-border rounded">
                     <h3 class="text-lg font-bold mb-8 text-center h-12 font-format"> {{$t('lang.product.eagle.funcSubTitle4')}}</h3>
                     <img class='mb-8' src="../../assets/img/eagle-func4.png" alt="">
-                    <p class="font-format text-center"> {{$t('lang.product.eagle.funcDesc4')}}</p>
+                    <p class="font-format text-center leading-normal"> {{$t('lang.product.eagle.funcDesc4')}}</p>
                 </div>
             </div>
 
@@ -59,39 +59,11 @@
                    style="z-index: 0;width: 100%;height: 100%;object-fit: fill"
                    key="product-vass-video1"
                    src="../../assets/video/wave.webm" muted="muted" autoplay="autoplay" loop="loop" ></video>
-            <h2 class="text-4xl font-bold mb-16 text-default text-center font-format"> {{$t('lang.product.eagle.advantTitle')}}</h2>
-            <div class="flex justify-center items-center w-full  mb-2" style="z-index: 1">
-                <div class="advant-circle flex justify-center items-center font-bold p-6 text-center text-lg font-format md:p-4">
-                    {{$t('lang.product.eagle.advantSubTitle1')}}
-                </div>
-                <div class="flex-1 bg-mainG ml-6 justify-center items-center font-bold p-12 font-format md:p-6"  style="height: min-content">
-                    {{$t('lang.product.eagle.advantDesc1')}}
-                </div>
-            </div>
-            <div class="flex justify-center items-center w-full  mb-2" style="z-index: 1">
-                <div class="flex-1 bg-mainG mr-6 justify-center items-center font-bold p-12 font-format md:p-6" style="height: min-content">
-                    {{$t('lang.product.eagle.advantDesc2')}}
-                </div>
-                <div class="advant-circle flex justify-center items-center font-bold p-6 text-center text-lg font-format md:p-4">
-                    {{$t('lang.product.eagle.advantSubTitle2')}}
-                </div>
-            </div>
-            <div class="flex justify-center items-center w-full mb-6" style="z-index: 1">
-                <div class="advant-circle flex justify-center items-center font-bold p-6 text-center text-lg font-format md:p-4">
-                    {{$t('lang.product.eagle.advantSubTitle3')}}
-                </div>
-                <div class="flex-1 bg-mainG ml-6 justify-center items-center font-bold p-12 font-format md:p-6"  style="height: min-content">
-                    {{$t('lang.product.eagle.advantDesc3')}}
-                </div>
-            </div>
-            <div class="flex justify-center items-center w-full " style="z-index: 1">
-                <div class="flex-1 bg-mainG mr-6 justify-center items-center font-bold p-12 font-format md:p-6"  style="height: min-content">
-                    {{$t('lang.product.eagle.advantDesc4')}}
-                </div>
-                <div class="advant-circle flex justify-center items-center font-bold p-6 text-center text-lg font-format md:p-4">
-                    {{$t('lang.product.eagle.advantSubTitle4')}}
-                </div>
-            </div>
+            <h2 class="text-4xl font-bold mb-16 text-default text-center font-format" style="z-index: 1"> {{$t('lang.product.eagle.advantTitle')}}</h2>
+            <core-advantages :index="1" type="eagle"></core-advantages>
+            <core-advantages :index="2" type="eagle"></core-advantages>
+            <core-advantages :index="3" type="eagle"></core-advantages>
+            <core-advantages :index="4" type="eagle"></core-advantages>
         </div>
         <!--    支持币种    -->
         <div class="support-c-container flex bg-mainBlueGary w-full py-32 px-80 flex-col justify-center items-center">
@@ -142,9 +114,10 @@ import AboutHermit from "../../components/about-hermit.vue";
 import {defineComponent, ref} from "vue";
 import {useI18n} from "vue-i18n";
 import HProductSwiper from "../../components/h-product-swiper.vue";
+import CoreAdvantages from "../../components/core-advantages.vue";
 export default defineComponent({
     name: "product-eagle-eye",
-    components: {HProductSwiper, AboutHermit, ContactUs},
+    components: {CoreAdvantages, HProductSwiper, AboutHermit, ContactUs},
     setup(){
         const {t} = useI18n()
         const funcList = ref([
@@ -171,12 +144,13 @@ export default defineComponent({
   background-repeat: no-repeat;
   background-size: 100%;
 }
+
 @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
 
   #product_eagle .header-text-small {
     width: 768px;
     font-size: 28px;
-    line-height: 32px;
+    line-height: 1.5;
   }
 }
 </style>

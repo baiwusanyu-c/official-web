@@ -11,7 +11,7 @@
                 <div class="header-text-big font-format">
                     {{$t('lang.serviceContract.pageHead.textBig')}}
                 </div>
-                <div class="header-text-small font-format">
+                <div class="header-text-small font-format leading-normal">
                     {{$t('lang.serviceContract.pageHead.textSmall')}}
                 </div>
             </div>
@@ -20,7 +20,7 @@
         </div>
         <div class="page-body-search">
             <div class="body-search-text">
-                <span class="font-format">{{$t('lang.serviceContract.search.text')}}</span>
+                <span class="font-format leading-normal">{{$t('lang.serviceContract.search.text')}}</span>
             </div>
             <div class="body-search-num">
                 <div class="search-num-box">
@@ -52,7 +52,7 @@
             <div class="body-search-input">
                 <div class="input-title font-format">{{$t('lang.serviceContract.search.inputTitle')}}</div>
             </div>
-            <div class="search-input shadow-2xl">
+            <div class="search-input shadow-lg">
                 <n-input size="large"
                          :theme-overrides="inputThemeOverrides"
                          v-model:value="searchPrams"
@@ -65,7 +65,7 @@
             </div>
         </div>
         <div class="page-body-content">
-            <div class="body-title">{{$t('lang.serviceContract.content.title')}}</div>
+            <div class="body-title font-format">{{$t('lang.serviceContract.content.title')}}</div>
             <div class="content-card-up">
                 <div class="card">
                     <div class="card-title font-format">{{$t('lang.serviceContract.content.cardSecurity')}}</div>
@@ -117,7 +117,7 @@
                 <div class="reports-header">
                     <div class="reports-title-class">
                         <div class="reports-title-question font-format text-justify">{{$t('lang.serviceContract.reports.title')}}</div>
-                        <div class="reports-title-answer font-format text-justify">{{$t('lang.serviceContract.reports.text')}}</div>
+                        <div class="reports-title-answer font-format text-justify leading-normal">{{$t('lang.serviceContract.reports.text')}}</div>
                     </div>
                     <img alt="" src="../../assets/img/pad.png" height="345" width="339"/>
                 </div>
@@ -203,7 +203,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
+<style >
 @import "../../assets/css/service-page.css";
 
 #service_contract .page-head{

@@ -8,35 +8,35 @@
     <div id="request_quote_dialog">
         <n-modal v-model:show="isShow" preset="dialog" :title="$t('lang.header.requestUs')" to="#request_quote_dialog">
             <template #header>
-                <p class="pb-6 md:pb-4">{{$t('lang.header.requestUs')}}</p>
+                <p class="pb-6 font-bold font-format md:pb-4">{{$t('lang.header.requestUs')}}</p>
             </template>
             <div slot="body" class="plus-dialog-body flex flex-col justify-center items-center w-full">
                 <div class="flex w-full mb-8 md:mb-4">
                     <div class="flex-1 mr-6">
-                        <p class="label">
+                        <p class="label font-format">
                             {{$t('lang.quoteDialog.projectName')}}
                             <span style="color:red">*</span>
                         </p>
                         <n-select v-model:value="formData.type"  placeholder="Select" size="large" :options="selectList" />
                     </div>
                     <div class="flex-1">
-                        <p class="label">{{$t('lang.quoteDialog.yourName')}}</p>
+                        <p class="label font-format">{{$t('lang.quoteDialog.yourName')}}</p>
                         <n-input  v-model:value="formData.name" size="large"/>
                     </div>
                 </div>
                 <div class="flex flex-col w-full mb-8 md:mb-4">
-                    <p class="label">
+                    <p class="label font-format">
                         {{$t('lang.quoteDialog.email')}}
                         <span style="color:red">*</span>
                     </p>
                     <n-input  v-model:value="formData.email" size="large"/>
                 </div>
                 <div class="flex flex-col w-full mb-8 md:mb-4">
-                    <p class="label">{{$t('lang.quoteDialog.phone')}}</p>
+                    <p class="label font-format">{{$t('lang.quoteDialog.phone')}}</p>
                     <n-input  v-model:value="formData.mobile" size="large"/>
                 </div>
                 <div class="flex flex-col w-full mb-8 md:mb-4">
-                    <p class="label">{{$t('lang.quoteDialog.message')}}</p>
+                    <p class="label font-format">{{$t('lang.quoteDialog.message')}}</p>
                     <n-input
                         v-model:value="formData.message"
                         type="textarea"
@@ -44,7 +44,7 @@
                 </div>
                 <div class="flex w-full mb-8 md:mb-4">
                     <div class="flex-1 mr-6">
-                        <p class="label">{{$t('lang.login.verCode').toUpperCase()}}
+                        <p class="label font-format">{{$t('lang.login.verCode').toUpperCase()}}
                             <span style="color:red">*</span>
                         </p>
                         <n-input  v-model:value="formData.code" size="large"  :onInput = "formData.code=formData.code.replace(/[^\d]/g,'')"/>
@@ -204,8 +204,13 @@ export default defineComponent({
 }
 
 #request_quote_dialog .sure-btn{
+  font-family: SourceHanSansNormal, sans-serif !important;
 
   @apply bg-mainG text-black w-28;
+}
+
+#request_quote_dialog .sure-btn .be-button-slot{
+  font-family: SourceHanSansNormal, sans-serif !important;
 }
 
 #request_quote_dialog .plus-dialog-body{
@@ -213,7 +218,7 @@ export default defineComponent({
 }
 
 #request_quote_dialog .plus-dialog-body .label{
-  @apply text-black text-lg mb-2 font-light;
+  @apply text-black text-sm mb-2 font-light;
 }
 
 

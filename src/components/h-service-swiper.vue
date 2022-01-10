@@ -21,7 +21,7 @@
                     <p class="swiper-header-title font-format text-center">{{item.name}}</p>
                 </div>
                 <div class="swiper-footer cursor-pointer"  @click="openWin(item.fileUrl)">
-                    <p class="break-words text-left font-format text-justify">{{ item.info }}</p>
+                    <p class="break-words text-left font-format text-justify leading-normal">{{ item.info }}</p>
                 </div>
             </div>
 

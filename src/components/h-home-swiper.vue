@@ -18,14 +18,14 @@
             <div class="swiper-item flex flex-col">
                 <div class="h-72 px-4 text-container" style="border-bottom: 1px solid #dcdcdc">
                     <h2 class="text-left">“</h2>
-                    <p class="break-words text-left font-format text-justify">{{ item.info }}</p>
+                    <p class="break-words text-left font-format text-justify leading-normal">{{ item.info }}</p>
                 </div>
                 <div class="flex p-6 items-center">
                     <n-avatar
                         round
                         :size="48"
                         :src="item.imgUrl || `../assets/img/avatar.png`"/>
-                    <p class="ml-8">{{ item.name }}</p>
+                    <p class="ml-8 font-format">{{ item.name }}</p>
                 </div>
             </div>
         </swiper-slide>

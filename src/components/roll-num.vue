@@ -70,7 +70,6 @@ export default defineComponent({
             } else if (num.length === 4) {
                 // 具体值value中加入逗号
                 num = num.slice(0, 1) + ',' + num.slice(1, 4)
-                console.log(num)
                 orderNum.value = num.split('') // 将其便变成数据，渲染至滚动数组
 
             } else {

@@ -11,7 +11,7 @@
             ref='moreNodeDialog'
             v-model:is-show="isShow"
             layout="right"
-            customClass="request-quote-dialog"
+            customClass="request-quote-dialog font-format"
             escExit
             :isDrag="false"
             @close="test"

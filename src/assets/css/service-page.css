@@ -44,10 +44,8 @@
 
 .service-page .body-search-text {
   width: 1201px;
-  height: 157px;
   margin-top: 65px;
   font-size: 24px;
-  line-height: 44px;
   text-align: center;
 }
 
@@ -60,12 +58,22 @@
 
 .service-page .search-input {
   width: 834px;
-  height: 40px;
+  height: 80px;
   margin-top: 39px;
+}
+
+.service-page .search-input .n-input,
+.service-page .search-input .n-input .n-input__input-el{
+  height: 80px;
 }
 
 .service-page .search-input-icon {
   cursor: pointer
+}
+
+.be-icon-container.search-input-icon .be-icon{
+  width: 30px;
+  height: 30px;
 }
 
 .service-page .search-num-box {
@@ -322,7 +330,7 @@
   padding-top: 39px;
   font-family: SourceHanSansRegular, sans-serif;
   font-size: 30px;
-  line-height: 40px;
+  line-height: 1.5;
   color: #FFF;
 }
 
@@ -373,6 +381,6 @@
   .service-page .header-text-small {
     width: 768px;
     font-size: 28px;
-    line-height: 32px;
+    line-height: 1.5;
   }
 }
