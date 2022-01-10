@@ -827,6 +827,7 @@ module.exports = {
             '10/12': '83.333333%',
             '11/12': '91.666667%',
             full: '100%',
+            'full120%': '120%',
             screen: '100vw',
             min: 'min-content',
             max: 'max-content',

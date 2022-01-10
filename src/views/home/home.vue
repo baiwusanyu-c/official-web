@@ -14,21 +14,22 @@
                        src="../../assets/video/home.mp4"
                        muted="muted"
                        autoplay="autoplay" loop="loop" width="1920"></video>
-
             </div>
-            <div class="absolute z-10 flex justify-center flex-col w-1/2  h-full animate__animated animate__fadeInDown">
+            <div class="absolute z-10 flex justify-center flex-col w-1/2  h-full animate__animated animate__fadeInDown md:w-2/3">
                 <h2 class="text-mainG text-6xl text-center font-bold leading-normal font-format">
                     {{ $t('lang.home.title1') }}</h2>
                 <h2 class="text-mainG text-6xl text-center font-bold leading-normal mb-20 slogan font-format">
                     {{ $t('lang.home.title2') }}</h2>
-                <div class="flex flex-wrap w-2/3 justify-between self-center mb-16 slogan">
-                    <div v-for="(item) in muguList"
+                <div class="flex justify-between self-center mb-16 slogan w-full lg125:w-full120%">
+                    <div v-for="(item,index) in muguList"
+                         @mouseleave="item.isHover = false"
+                         @mouseenter="item.isHover = true"
                          @click="headerRouterPush(item.value)"
-                         style="line-height: 1rem;cursor:pointer;"
-                         class="text-default text-left w-1/2 mb-4 leading-6 flex items-center mogu-text"
+                         style="width: 152px;;line-height: 1rem;cursor:pointer"
+                         class="text-default text-center mb-4 flex-col leading-6 flex items-center mogu-text"
                          :key="item.label">
-                        <img alt="" src="../../assets/img/mogu.png" class="ml-4 mr-4"/>
-                        <p class="font-format hover:text-mainG">{{ item.label }}</p>
+                        <img alt="" :src="scienceImg(index)" class="ml-4 mr-4"/>
+                        <p :class="`mt-4 font-format ${item.isHover ? 'text-mainG' :''}`">{{ item.label }}</p>
                     </div>
                 </div>
                 <be-button
@@ -161,7 +162,7 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, ref, reactive, onMounted} from "vue";
+import {defineComponent, ref, reactive, onMounted, computed} from "vue";
 import ContactUs from "../../components/contact-us.vue";
 import AboutHermit from "../../components/about-hermit.vue";
 import {useI18n} from "vue-i18n";
@@ -175,7 +176,7 @@ import HomeProductCircle from "../../components/home-product-circle.vue";
 interface ISelect {
     label: string,
     value: string,
-    active?: boolean,
+    isHover?: boolean,
 }
 
 export default defineComponent({
@@ -183,12 +184,6 @@ export default defineComponent({
     components: {HomeProductCircle, HHomeSwiper, AboutHermit, ContactUs, Hexagon},
     setup(props, ctx) {
         const {t} = useI18n()
-        const muguList = ref<Array<ISelect>>([
-            {label: t('lang.home.mgtitle1'), value: '/index/service/contracts'},
-            {label: t('lang.home.mgtitle2'), value: '/index/service/security'},
-            {label: t('lang.home.mgtitle3'), value: '/index/product/productVass'},
-            {label: t('lang.home.mgtitle4'), value: '/index/product/productEagle'},
-        ])
         const titleCardList = ref<Array<any>>([
             {
                 label: t('lang.home.mgtitle1'),
@@ -211,6 +206,7 @@ export default defineComponent({
                 date: "12/06/2021"
             },
         ])
+        /*************************************** 一些动态、批量的img加载读取 ******************************/
         const customerList = [
             'polygon',
             'solrnr',
@@ -231,7 +227,9 @@ export default defineComponent({
             'GEMINI',
             'OKEX',
         ]
+        const scienceDict = ['science','science-hover']
         const customerImgList = reactive<object[]>([])
+        const scienceList = reactive<object[]>([])
         const getImage = (): void => {
             customerList.map((val: string) => {
                 const obj: { img: string } = {img: ''}
@@ -240,15 +238,43 @@ export default defineComponent({
                     customerImgList.push(obj)
                 })
             })
+            scienceDict.map((val: string) => {
+                const obj: { img: string } = {img: ''}
+                import('../../assets/img/' + val + '.png').then(res => {
+                    obj.img = res.default
+                    scienceList.push(obj)
+                })
+            })
         }
+        const isScienceHover = ref<boolean>(false)
+        const scienceImg = computed(()=>{
+            return function (index:number){
+                if(muguList.value[index].isHover){
+                    return (scienceList[1] as { img: string })?.img
+                }else{
+                    return (scienceList[0] as { img: string })?.img
+                }
+            }
+
+        })
+        const muguList = ref<Array<ISelect>>([
+            {isHover:false,label: t('lang.home.mgtitle1'), value: '/index/service/contracts'},
+            {isHover:false,label: t('lang.home.mgtitle2'), value: '/index/service/security'},
+            {isHover:false,label: t('lang.home.mgtitle3'), value: '/index/product/productVass'},
+            {isHover:false,label: t('lang.home.mgtitle4'), value: '/index/product/productEagle'},
+        ])
+
+        // eventBus 开启预约弹窗
         const bus = useEventBus<string>('openQuote')
         const openDialog = (): void => {
             bus.emit('true')
         }
+        // 路由跳转
         const {routerPush} = composition(props, ctx)
         const headerRouterPush = (value: string): void => {
             routerPush(value)
         }
+        // swiperList 的文字、头像变量
         const swiperList = ref(
             [
                 {
@@ -282,6 +308,8 @@ export default defineComponent({
             getImage()
         })
         return {
+            isScienceHover,
+            scienceImg,
             swiperList,
             routerPush,
             openDialog,
