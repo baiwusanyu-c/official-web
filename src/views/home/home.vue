@@ -21,7 +21,7 @@
                 <h2 class="text-mainG text-6xl text-center font-bold leading-normal mb-20 slogan font-format">
                     {{ $t('lang.home.title2') }}</h2>
                 <div class="flex justify-between self-center mb-16 slogan w-full lg125:w-full120%">
-                    <div v-for="(item,index) in muguList"
+                    <div v-for="(item,index) in scienceInfoList"
                          @mouseleave="item.isHover = false"
                          @mouseenter="item.isHover = true"
                          @click="headerRouterPush(item.value)"
@@ -249,7 +249,7 @@ export default defineComponent({
         const isScienceHover = ref<boolean>(false)
         const scienceImg = computed(()=>{
             return function (index:number){
-                if(muguList.value[index].isHover){
+                if(scienceInfoList.value[index].isHover){
                     return (scienceList[1] as { img: string })?.img
                 }else{
                     return (scienceList[0] as { img: string })?.img
@@ -257,7 +257,7 @@ export default defineComponent({
             }
 
         })
-        const muguList = ref<Array<ISelect>>([
+        const scienceInfoList = ref<Array<ISelect>>([
             {isHover:false,label: t('lang.home.mgtitle1'), value: '/index/service/contracts'},
             {isHover:false,label: t('lang.home.mgtitle2'), value: '/index/service/security'},
             {isHover:false,label: t('lang.home.mgtitle3'), value: '/index/product/productVass'},
@@ -313,7 +313,7 @@ export default defineComponent({
             swiperList,
             routerPush,
             openDialog,
-            muguList,
+            scienceInfoList,
             titleCardList,
             customerImgList,
             headerRouterPush,
