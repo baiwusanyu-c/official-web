@@ -65,7 +65,7 @@
 
         </div>
         <!--    核心特色    -->
-        <div class="advant-container flex  w-full py-16 flex-col justify-center relative md:px-60">
+        <div class="advant-container flex  w-full py-16 flex-col justify-center relative px-20% md:px-40">
             <video class='absolute left-0 top-0 bottom-0 top-0'
                    style="z-index: 0;width: 100%;height: 100%;object-fit: fill"
                    key="product-vass-video1"
