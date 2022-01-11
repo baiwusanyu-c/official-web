@@ -22,7 +22,7 @@
         <div class="flex items-center justify-center bg-default text-center py-16 box-border w-full flex-col">
             <p class="product-desc text-lg font-format text-justify leading-normal"> {{$t('lang.product.eagle.desc')}}</p>
             <!--     走馬燈      -->
-            <div class="mt-10 product-swiper w-1/2 h-full">
+            <div class="product-desc mt-10 product-swiper w-full h-full">
                 <h-product-swiper></h-product-swiper>
             </div>
         </div>
