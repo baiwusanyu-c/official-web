@@ -25,7 +25,7 @@
                          @mouseleave="item.isHover = false"
                          @mouseenter="item.isHover = true"
                          @click="headerRouterPush(item.value)"
-                         style="width: 152px;;line-height: 1rem;cursor:pointer"
+                         style="width: 152px;line-height: 1rem;cursor:pointer"
                          class="text-default text-center mb-4 flex-col leading-6 flex items-center mogu-text"
                          :key="item.label">
                         <img alt="" :src="scienceImg(index)" class="ml-4 mr-4"/>
