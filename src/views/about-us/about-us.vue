@@ -19,76 +19,81 @@
         </div>
         <!--    一大段文字描述   -->
         <div class="flex flex-col py-16 items-center justify-center box-border desc-info">
-            <div class="flex items-center justify-between w-4/6 introduction">
-                <img src="../../assets/img/ab-us-desc.png" alt=""/>
-                <p class="ml-16 leading-loose text-lg">
+            <div class="flex items-center justify-between w-4/6 introduction sm:w-4/5 sm:flex-col">
+                <img class='sm:mb-6' src="../../assets/img/ab-us-desc.png" alt=""/>
+                <p class="ml-16 leading-loose text-lg sm:text-xs sm:ml-0 sm:text-justify">
                     <span class="font-format">{{ $t('lang.aboutUsPage.descInfo1') }}</span>
                     <br>
                     <span class="font-format">{{ $t('lang.aboutUsPage.descInfo2') }}</span>
                 </p>
             </div>
-            <div class="ml-16 mt-32 flex items-center justify-between w-4/6 introduction introduction-logo">
+            <div class="ml-16 mt-32 flex flex-wrap items-center justify-between w-4/6 introduction introduction-logo sm:w-4/5 sm:ml-0 sm:mt-6 sm:justify-center">
                 <div class="flex items-center justify-between ">
-                    <img src="../../assets/img/ab-us-ic1.png" alt=""/>
-                    <div class="w-32 ml-2">
-                        <h2 class="text-mainG text-4xl font-bold font-format">
+                    <img src="../../assets/img/ab-us-ic1.png" class='sm:w-12' alt=""/>
+                    <div class="w-32 ml-2 sm:w-20">
+                        <h2 class="text-mainG text-4xl font-bold font-format sm:text-xl">
                             {{ $t('lang.aboutUsPage.descIcon1') }}
                         </h2>
-                        <span class="font-format">{{ $t('lang.aboutUsPage.descIconInfo1') }}</span>
+                        <span class="font-format sm:text-xs">{{ $t('lang.aboutUsPage.descIconInfo1') }}</span>
                     </div>
                 </div>
                 <div class="flex items-center justify-between ">
-                    <img src="../../assets/img/ab-us-ic2.png" alt=""/>
-                    <div class="w-32 ml-2">
-                        <h2 class="text-mainG text-4xl font-bold font-format">
+                    <img src="../../assets/img/ab-us-ic2.png" class='sm:w-12' alt=""/>
+                    <div class="w-32 ml-2 sm:w-20">
+                        <h2 class="text-mainG text-4xl font-bold font-format sm:text-xl">
                             {{ $t('lang.aboutUsPage.descIcon2') }}
                         </h2>
-                        <span class="font-format">{{ $t('lang.aboutUsPage.descIconInfo2') }}</span>
+                        <span class="font-format sm:text-xs">{{ $t('lang.aboutUsPage.descIconInfo2') }}</span>
                     </div>
                 </div>
                 <div class="flex items-center justify-between ">
-                    <img src="../../assets/img/ab-us-ic3.png" alt=""/>
-                    <div class="w-32 ml-2">
-                        <h2 class="text-mainG text-4xl font-bold font-format">
+                    <img src="../../assets/img/ab-us-ic3.png" class='sm:w-12' alt=""/>
+                    <div class="w-32 ml-2 sm:w-20">
+                        <h2 class="text-mainG text-4xl font-bold font-format sm:text-xl">
                             {{ $t('lang.aboutUsPage.descIcon3') }}
                         </h2>
-                        <span class="font-format">{{ $t('lang.aboutUsPage.descIconInfo3') }}</span>
+                        <span class="font-format sm:text-xs">{{ $t('lang.aboutUsPage.descIconInfo3') }}</span>
                     </div>
                 </div>
                 <div class="flex items-center justify-center ">
-                    <img src="../../assets/img/ab-us-ic4.png" alt=""/>
-                    <div class="w-32 ml-2">
-                        <h2 class="text-mainG text-4xl font-bold font-format">
+                    <img src="../../assets/img/ab-us-ic4.png" class='sm:w-12' alt=""/>
+                    <div class="w-32 ml-2 sm:w-20">
+                        <h2 class="text-mainG text-4xl font-bold font-format sm:text-xl">
                             {{ $t('lang.aboutUsPage.descIcon4') }}
                         </h2>
-                        <span class="font-format">{{ $t('lang.aboutUsPage.descIconInfo4') }}</span>
+                        <span class="font-format sm:text-xs" style="word-break: break-all">{{ $t('lang.aboutUsPage.descIconInfo4') }}</span>
                     </div>
                 </div>
             </div>
         </div>
         <!--    securing the blockchain ecology    -->
-        <div class="securing-the-blockchain flex items-center justify-center w-full h-auto">
-            <p class="text-4xl font-bold w-1/3 text-center slogan font-format">
-                {{ $t('lang.aboutUsPage.securityBlock') }}</p>
+        <div class="securing-the-blockchain flex items-center justify-center w-full h-auto relative">
+           <div class="left-dom w-1/3 h-full"></div>
+            <div class="center-dom text-center w-1/3 h-full flex justify-center items-center sm:w-2/3">
+                <p class="text-4xl font-bold w-2/3 text-center slogan font-format sm:text-xl sm:w-full">
+                {{ $t('lang.aboutUsPage.securityBlock') }}
+                </p>
+            </div>
+            <div class="right-dom w-1/3 h-full"></div>
         </div>
         <!--    connect    -->
-        <div class="flex flex-col py-16 items-center justify-center box-border w-full bg-white">
-            <p class="text-3xl font-bold w-1/3 text-center mb-16 font-format">{{ $t('lang.connect') }}</p>
+        <div class="flex flex-col py-16 items-center justify-center box-border w-full bg-white sm:px-6">
+            <p class="text-3xl font-bold w-1/3 text-center mb-16 font-format sm:mb-6">{{ $t('lang.connect') }}</p>
             <div class="flex items-center">
                 <!--                <div class="flex items-center justify-center text-xl mr-36">
                                     <img class="mr-4" src="../../assets/img/phone.png" alt="" />
                                     {{$t('lang.phone')}}:86-028-8326-2585
                                 </div>-->
-                <div class="flex items-center justify-center text-xl font-format">
-                    <img class="mr-4" src="../../assets/img/mail.png" alt=""/>
+                <div class="flex items-center justify-center text-xl font-format sm:text-base">
+                    <img class="mr-4 sm:w-12" src="../../assets/img/mail.png" alt=""/>
                     {{ $t('lang.mail') }}:hermitmarket@gmail.com
                 </div>
             </div>
         </div>
         <!--    Community    -->
         <div class="flex flex-col py-16 items-center justify-center box-border w-full bg-mainBlueGary community">
-            <p class="text-3xl font-bold w-1/3 text-center mb-24 font-format">{{ $t('lang.community') }}</p>
-            <div class="flex items-center mb-20">
+            <p class="text-3xl font-bold w-1/3 text-center mb-24 font-format sm:mb-6">{{ $t('lang.community') }}</p>
+            <div class="flex items-center flex-wrap mb-20 sm:mb-6 sm:justify-between sm:px-6">
                 <community-circle @click="openWin(linkConfig['twitter'])" :index="0"></community-circle>
                 <community-circle @click="openWin(linkConfig['telegram'])" :index="1"></community-circle>
                 <community-circle @click="openWin(linkConfig['medium'])" :index="2"></community-circle>
@@ -182,7 +187,22 @@ export default defineComponent({
 
 .about-us-page .securing-the-blockchain {
   height: 360px;
-  background-image: url("../../assets/img/securing-the-blockchain.png");
+}
+
+.about-us-page .securing-the-blockchain .left-dom{
+  background-image: url("../../assets/img/securing-the-blockchain-left.png");
+  background-repeat: round;
+  background-size: 100%;
+}
+
+.about-us-page .securing-the-blockchain .center-dom{
+  background-image: url("../../assets/img/securing-the-blockchain-center.png");
+  background-repeat: round;
+  background-size: 100%;
+}
+
+.about-us-page .securing-the-blockchain .right-dom{
+  background-image: url("../../assets/img/securing-the-blockchain-right.png");
   background-repeat: round;
   background-size: 100%;
 }
@@ -212,6 +232,41 @@ export default defineComponent({
   .about-us-page .securing-the-blockchain {
     height: 238px;
   }
+}
+@media screen and (min-width: 100px) and (max-width: 1278px) {
+
+  .about-us-page .page-head {
+    padding: 0 35px 30px 35px;
+    background-image: url("../../assets/img/about-us-bg-mobile.png");
+    background-repeat: round;
+    background-size: cover;
+  }
+
+  .about-us-page .header-text-big {
+    @apply text-4xl w-full mt-6;
+  }
+
+  .about-us-page .header-text-small {
+    @apply text-base w-full mt-0 pt-6;
+  }
+
+  .desc-info .introduction.introduction-logo {
+    background-image: url("../../assets/img/customer-earth.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+
+  .about-us-page .securing-the-blockchain{
+    height: 150px;
+  }
+
+  .about-us-page .securing-the-blockchain .left-dom,
+  .about-us-page .securing-the-blockchain .center-dom,
+  .about-us-page .securing-the-blockchain .right-dom{
+    background-size: cover;
+  }
+
+
 }
 
 </style>

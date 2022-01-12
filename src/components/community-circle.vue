@@ -9,7 +9,7 @@
         @mouseenter="isHover = true"
         @mouseleave="isHover = false"
         @click="handleClick"
-        class="mr-16 cursor-pointer"
+        class="mr-16 cursor-pointer sm:mb-6 sm:mr-0"
         :src="img" alt=""/>
 </template>
 
