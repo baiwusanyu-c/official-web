@@ -88,7 +88,7 @@
             </n-drawer>
         </div>
         <!--    logo    -->
-        <div class="flex items-center justify-end cursor-pointer w-64 sm:justify-center" @click="routerPush('/index/home')">
+        <div class="flex items-center justify-end cursor-pointer w-64 sm:justify-center sm:w-full" @click="routerPush('/index/home')">
             <img src="../assets/img/LOGO.png" alt="" style="height: 46px;"/>
         </div>
         <!--    pc 導航    -->

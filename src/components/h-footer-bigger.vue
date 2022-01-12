@@ -125,6 +125,7 @@ export default defineComponent({
 
 .contact-us-text{
   padding-left: 5px;
+  word-break: break-all;
 }
 
 .group{
