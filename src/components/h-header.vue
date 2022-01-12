@@ -1,13 +1,100 @@
 <template>
     <!--  左侧  -->
+
     <div class="hermit-header flex flex-1 items-center">
-        <div class="flex items-center justify-end cursor-pointer w-64" @click="routerPush('/index/home')">
+        <!--    mobile 導航    -->
+        <div class="text-right display-none sm:flex" >
+            <be-icon icon="type" customClass="menu-icon" @click="active = true"></be-icon>
+            <n-drawer v-model:show="active" :width="140" placement="left" style="top:4em" class="bg-footer text-white">
+                <n-drawer-content :title="$t('lang.header.nav')" class="menu-content">
+                    <!--   首页    -->
+                    <div class="mb-4 w-full font-format cursor-pointer text-left text-base hover:text-mainG"
+                         :class="route.path.indexOf('home') > 0 ? 'item-active' : ''"
+                         @click="routerPush('/index/home')">
+                        {{ $t('lang.header.home') }}
+                    </div>
+                    <!--   服务    -->
+                    <div class="mb-4 w-full cursor-pointer">
+                        <be-popover trigger="click"
+                                    ref="popoverService"
+                                    customClass="header-popover" placement="right">
+                            <template #trigger>
+                                <div class="font-format trigger-item y-full flex items-center text-base justify-start hover:text-mainG"
+                                     :class="route.path.indexOf('service') > 0 ? 'item-active' : ''">
+                                    {{ $t('lang.header.service') }}
+                                    <be-icon icon="under" class="ml-2"></be-icon>
+                                </div>
+                            </template>
+                            <div
+                                class="linear-l-r-s popover-list bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
+                                :class="item.active ? 'linear-l-r active-popover' : ''"
+                                @click="routerPush(item.value,index)"
+                                v-for="(item,index) in serviceList">
+                                <p class="ml-2 text-xs font-format">{{item.label}}</p>
+                            </div>
+                        </be-popover>
+                    </div>
+                    <!--   产品    -->
+                    <div class="mb-4 w-full cursor-pointer">
+                        <be-popover trigger="click" customClass="header-popover" placement="right" ref="popoverProduct">
+                            <template #trigger>
+                                <div class="trigger-item y-full flex items-center font-format text-base justify-start hover:text-mainG"
+                                     :class="route.path.indexOf('product') > 0 ? 'item-active' : ''">
+                                    {{ $t('lang.header.product') }}
+                                    <be-icon icon="under" class="ml-2"></be-icon>
+                                </div>
+                            </template>
+                            <div
+                                class="linear-l-r-s popover-list bg-footer h-10 text-default flex items-center cursor-pointer hover:text-black"
+                                :class="item.active ? 'linear-l-r active-popover' : ''"
+                                @click="routerPush(item.value,index)"
+                                v-for="(item,index) in productList">
+                                <p class="ml-2 text-xs font-format">{{item.label}}</p>
+                            </div>
+                        </be-popover>
+                    </div>
+                    <!--   關於我們    -->
+                    <div class="mb-4 w-full font-format cursor-pointer text-left text-base hover:text-mainG"
+                         :class="route.path.indexOf('aboutUs') > 0 ? 'item-active' : ''"
+                         @click="routerPush('/index/aboutUs')">
+                        {{ $t('lang.header.aboutUs') }}
+                    </div>
+                    <!--    登录前    -->
+                    <div class="mb-4 w-full font-format y-full text-left flex justify-start items-center cursor-pointer mr-12 text-base hover:text-mainG"
+                         @click="routerPush('/login')"
+                         v-if="!isLogin">
+                        <p>{{ $t('lang.header.login') }}</p>
+                    </div>
+                    <!--    登录后    -->
+                    <be-popover trigger="click"
+                                v-if="isLogin"
+                                ref="popoverLogin"
+                                customClass="header-popover" placement="bottom">
+                        <template #trigger>
+                            <div class="trigger-item y-full flex items-center cursor-pointer mr-12 text-base hover:text-mainG">
+                                <img style="width: 30px;height: 30px;" class='mr-2' src="../assets/img/avatar.png" alt="" />
+                                <be-icon icon="under" ></be-icon>
+                            </div>
+                        </template>
+                        <div
+                            class="linear-l-r-s popover-list bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
+                            :class="item.active ? 'linear-l-r active-popover' : ''"
+                            @click="routerPush(item.value,index)"
+                            v-for="(item,index) in loginList">
+                            <p class="ml-2 text-base font-format">{{item.label}}</p>
+                        </div>
+                    </be-popover>
+                </n-drawer-content>
+            </n-drawer>
+        </div>
+        <!--    logo    -->
+        <div class="flex items-center justify-end cursor-pointer w-64 sm:justify-center" @click="routerPush('/index/home')">
             <img src="../assets/img/LOGO.png" alt="" style="height: 46px;"/>
         </div>
-
-        <div class="h-10 flex items-center justify-between ml-10">
+        <!--    pc 導航    -->
+        <div class="display-flex h-10 items-center justify-between ml-10 sm:hidden">
             <!--    报表    -->
-<!--            <div class="w-28 cursor-pointer text-base md:flex sm:hidden" @click="routerPush('/index/home')">
+            <!-- <div class="w-28 cursor-pointer text-base md:flex sm:hidden" @click="routerPush('/index/home')">
                 {{ $t('lang.header.research') }}
             </div>-->
             <!--    服务    -->
@@ -48,6 +135,7 @@
                     </div>
                 </be-popover>
             </div>
+            <!--   關於我們    -->
             <div class="font-format w-28 cursor-pointer text-base hover:text-mainG"
                  :class="route.path.indexOf('aboutUs') > 0 ? 'item-active' : ''"
                  @click="routerPush('/index/aboutUs')">
@@ -55,8 +143,8 @@
             </div>
         </div>
     </div>
-    <!--  右侧  -->
-    <div class="hermit-header-l flex justify-end items-center flex-1 text-right ">
+    <!--  pc 右侧  -->
+    <div class="hermit-header-l display-flex justify-end items-center flex-1 text-right sm:hidden">
         <!--    联系    -->
         <be-button customClass="request-btn text-bold" @click="openDialog">
             <span class="font-format">{{ $t('lang.header.requestUs') }}</span>
@@ -86,7 +174,7 @@
         </be-popover>
 
         <!--    语言    -->
-<!--        <be-popover trigger="click"
+        <!--        <be-popover trigger="click"
                     ref="popoverLang"
                     customClass="header-popover" placement="bottom">
             <template #trigger>
@@ -104,19 +192,36 @@
             </div>
         </be-popover>-->
     </div>
-    <!--  移动端显示的菜单按钮  -->
-<!--    <div class="text-right md:hidden sm:flex">
-        <be-icon icon="type" customClass="menu-icon"></be-icon>
-    </div>-->
+    <!--  mobile 右侧  -->
+    <div class="display-none sm:flex">
+        <be-popover trigger="click"
+                    ref="popoverLang"
+                    customClass="header-popover" placement="bottom">
+            <template #trigger>
+                <div class="trigger-item y-full flex items-center cursor-pointer text-base hover:text-mainG">
+                    {{ $t('lang.header.language.EN') }}
+                    <be-icon icon="under" customClass="ml-2"></be-icon>
+                </div>
+            </template>
+            <div
+                class="linear-l-r-s popover-list bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
+                :class="item.active ? 'linear-l-r active-popover' : ''"
+                @click="changeLanguage(item.value,index)"
+                v-for="(item,index) in langList">
+                <p class="ml-2 text-base">{{item.label}}</p>
+            </div>
+        </be-popover>
+    </div>
+
 </template>
 
 <script lang="ts">
 import {Router, useRouter, useRoute, RouteLocationNormalizedLoaded} from "vue-router";
-import {NDatePicker, NInput, NPopselect,NConfigProvider,NAvatar} from 'naive-ui'
+import {NDatePicker, NInput, NPopselect,NConfigProvider,NAvatar,NDrawer,NDrawerContent} from 'naive-ui'
 import {defineComponent, ref, getCurrentInstance, ComponentInternalInstance, onMounted} from "vue";
 import {useI18n} from "vue-i18n";
 import {useEventBus} from "@vueuse/core";
-import {getStore, removeStore, setSession,getSession} from "../utils/common";
+import {getStore, removeStore, setSession, getSession, removeSession} from "../utils/common";
 import composition from "../utils/mixin/common-func";
 interface ISelect {
     label: string,
@@ -129,7 +234,7 @@ interface IPopover extends ComponentInternalInstance {
 }
 export default defineComponent({
     name: "HHeader",
-    components: {NDatePicker, NInput, NPopselect,NConfigProvider,NAvatar},
+    components: {NDatePicker, NInput, NPopselect,NConfigProvider,NAvatar,NDrawer,NDrawerContent},
     emits: [
         'changeLang',
     ],
@@ -147,7 +252,16 @@ export default defineComponent({
         const routerPush = (path: string,index?:number): void => {
             (index || index === 0)&& closePopover(path,index)
             if(/quit/.test(path)) return
+            // 主頁
+            if(/home/.test(path)){
+                clearActive()
+                removeSession('activeItem')
+            }
             router.push(path)
+        }
+        const clearActive = ():void =>{
+            serviceList.value.map((val:ISelect)=>val.active = false)
+            productList.value.map((val:ISelect)=>val.active = false)
         }
         /**
          * 关闭popover
@@ -155,8 +269,7 @@ export default defineComponent({
          * @param index 索引
          */
         const closePopover = (path: string,index:number):void => {
-            serviceList.value.map((val:ISelect)=>val.active = false)
-            productList.value.map((val:ISelect)=>val.active = false)
+            clearActive()
             // 服务介绍
             if(/service/.test(path)){
                 serviceList.value[index].active = true;
@@ -255,6 +368,8 @@ export default defineComponent({
         const openDialog = ():void =>{
             bus.emit('true')
         }
+        // 移動端彈出抽屜菜單
+        const active = ref<boolean>(false)
         onMounted(()=>{
             if(getStore('token')){
                 isLogin.value = true
@@ -273,6 +388,7 @@ export default defineComponent({
             }
         })
         return {
+            active,
             isLogin,
             openDialog,
             loginList,
@@ -289,11 +405,12 @@ export default defineComponent({
 
 <style>
 .menu-icon .be-icon {
+  fill:#fff;
   @apply w-6 h-6;
 }
 
 .header-popover .be-popover{
-  z-index: 998;
+  z-index: 2001;
   @apply bg-footer;
 }
 
@@ -344,6 +461,14 @@ export default defineComponent({
 .item-active,
 .item-active .be-icon-container .be-icon{
   color: #02fbbb;
-  fill:#02fbbb;;
+  fill:#02fbbb;
 }
+
+.n-drawer .n-drawer-content.menu-content .n-drawer-body-content-wrapper {
+    padding: 20px 0 20px 20px;
+}
+.n-drawer .n-drawer-content.menu-content .n-drawer-header__main{
+    color:#fff
+}
+
 </style>

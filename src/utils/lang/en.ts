@@ -32,12 +32,14 @@ export default {
         project4: 'Situational awareness',
     },
     header: {
+        nav:'Navigation',
+        home: "Home",
         research: "Research",
         service: "Service",
         product: "Product",
         aboutUs: 'About Us',
         requestUs: "Request a Quote",
-        login: 'login',
+        login: 'Login',
         loginStr: {
             center: 'Personal Center',
             quit: 'Log Out',
