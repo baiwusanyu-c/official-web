@@ -188,8 +188,8 @@ export default defineComponent({
 @media screen and (min-width: 100px) and (max-width: 1278px) {
 
   .bg-footer-container{
-      display: flex;
-      justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
     @apply py-12 px-6;
   }
 
