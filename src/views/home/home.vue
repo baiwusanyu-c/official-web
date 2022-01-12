@@ -7,7 +7,7 @@
 <template>
     <div class="hermit-main w-full bg-black-100">
         <!--   slogan & news     -->
-<!--        <div class="slogan-news w-full bg-mainBlueGary relative flex justify-center">
+        <div class="slogan-news w-full bg-mainBlueGary relative flex justify-center">
             <div class="slogan-news-bg w-full absolute ">
                 <video class='absolute left-0 bottom-0 top-0 right-0'
                        style="z-index: 0;width:100%;height: 100%;object-fit: fill"
@@ -38,7 +38,7 @@
                     <span class="font-format">{{ $t('lang.contactBtn') }}</span>
                 </be-button>
 
-                &lt;!&ndash;                <div class="mt-30 flex title-card-container">
+                <!--                <div class="mt-30 flex title-card-container">
                                     <div v-for="(item) in titleCardList"
                                          class="title-card text-black mr-3 bg-default z-10 flex flex-col p-6 box-border"
                                          :key="item.label">
@@ -51,12 +51,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p class="text-right relative -right-40">{{ $t('lang.home.more') }} >></p>&ndash;&gt;
+                                <p class="text-right relative -right-40">{{ $t('lang.home.more') }} >></p>-->
 
             </div>
 
         </div>
-        &lt;!&ndash;   service     &ndash;&gt;
+        <!--   service     -->
         <div class="slogan-service w-full bg-default flex flex-col">
             <div class="slogan-service-item flex justify-center items-center w-full">
                 <div style="box-sizing: border-box;" class="mb-56 mr-12 hexagon-desc lg125:mb-48 md:mb-0">
@@ -101,7 +101,7 @@
                 </div>
             </div>
         </div>
-        &lt;!&ndash;   product     &ndash;&gt;
+        <!--   product     -->
         <div class="slogan-product  bg-mainBlueGary flex flex-col justify-center items-center w-full">
             <div class="flex-1 flex-col flex justify-center items-center w-full mb-36">
                 <div class="bar mb-8"></div>
@@ -141,7 +141,7 @@
             </div>
         </div>
 
-        &lt;!&ndash;   serving global customer     &ndash;&gt;
+        <!--   serving global customer     -->
         <div class="slogan-customer bg-default flex flex-col justify-center items-center w-full">
             <div class="bar mb-8 mt-20"></div>
             <h3 class="text-2xl font-bold mb-8 font-format">{{ $t('lang.home.GlobalTitle') }}</h3>
@@ -156,7 +156,7 @@
                 <h-home-swiper :list="swiperList"></h-home-swiper>
             </div>
         </div>
-        <contact-us></contact-us>-->
+        <contact-us></contact-us>
         <about-hermit></about-hermit>
     </div>
 </template>

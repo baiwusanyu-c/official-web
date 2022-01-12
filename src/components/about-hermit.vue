@@ -52,7 +52,7 @@ export default defineComponent({
 @media screen and (min-width: 100px) and (max-width: 1278px) {
 
   .about-hermit {
-      height:auto;
+    height:auto;
   }
 
   .about-hermit-container {
