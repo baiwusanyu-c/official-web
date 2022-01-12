@@ -465,10 +465,11 @@ export default defineComponent({
 }
 
 .n-drawer .n-drawer-content.menu-content .n-drawer-body-content-wrapper {
-    padding: 20px 0 20px 20px;
+  padding: 20px 0 20px 20px;
 }
+
 .n-drawer .n-drawer-content.menu-content .n-drawer-header__main{
-    color:#fff
+  color:#fff
 }
 
 </style>
