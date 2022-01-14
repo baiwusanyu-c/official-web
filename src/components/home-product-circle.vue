@@ -10,8 +10,8 @@
         @mouseleave="isHover = false"
         class="absolute flex justify-center flex-col items-center home-product-circle"
          :class="`circle${index}`">
-        <img class='w-28' :src="img" alt="">
-        <p class="font-format font-bold text-center" style="width: 10em;">
+        <img class='w-28 sm:w-12' :src="img" alt="">
+        <p class="font-format font-bold text-center sm:text-xs" style="width: 10em;">
             {{ $t(`lang.home.productFeature${index}`)}}
         </p>
     </div>

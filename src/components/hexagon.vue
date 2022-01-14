@@ -11,7 +11,7 @@
          :style="{
              backgroundImage: `url(${img})`
          }">
-        <p class="mt-4 font-format">{{list[index]}}</p>
+        <p class="mt-4 font-format sm:text-xs">{{list[index]}}</p>
     </div>
 </template>
 
@@ -120,6 +120,12 @@ export default defineComponent({
     width: 35%;
     height: 170px;
     font-size: 12px;
+  }
+}
+@media screen and (min-width: 100px) and (max-width: 1278px) {
+
+  .hexagon-container {
+    height: 130px;
   }
 }
 </style>

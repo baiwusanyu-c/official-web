@@ -82,3 +82,7 @@
 .display-none{
   display: none;
 }
+
+.display-flex-col{
+  flex-direction: column;
+}

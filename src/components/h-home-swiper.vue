@@ -6,24 +6,24 @@
 */
 <template>
     <swiper
-        :slidesPerView="5"
-        :spaceBetween="30"
-        :centeredSlides="true"
-        :initialSlide="3"
+        :slidesPerView ="slidesPerView"
+        :spaceBetween ="spaceBetween"
+        :centeredSlides="centeredSlides"
         :loop="true"
         :autoplay='{ "delay": 5000, "disableOnInteraction": false }'
+        :initialSlide="3"
         :pagination='{ "clickable": true }'
         class="mySwiper">
         <swiper-slide v-for="item in list" :key="item.name + item.info">
             <div class="swiper-item flex flex-col">
-                <div class="h-72 px-4 text-container" style="border-bottom: 1px solid #dcdcdc">
+                <div class="h-72 px-4 text-container sm:h-52" style="border-bottom: 1px solid #dcdcdc">
                     <h2 class="text-left">“</h2>
-                    <p class="break-words text-left font-format text-justify leading-normal">{{ item.info }}</p>
+                    <p class="break-words text-left font-format text-justify leading-normal sm:text-left">{{ item.info }}</p>
                 </div>
-                <div class="flex p-6 items-center">
+                <div class="flex p-6 items-center sm:p-2">
                     <n-avatar
                         round
-                        :size="48"
+                        class="avatar"
                         :src="item.imgUrl || `../assets/img/avatar.png`"/>
                     <p class="ml-8 font-format">{{ item.name }}</p>
                 </div>
@@ -33,7 +33,7 @@
 </template>
 
 <script lang="ts">
-import {defineComponent} from "vue";
+import {defineComponent, ref} from "vue";
 import {Swiper, SwiperSlide} from 'swiper/vue';
 import 'swiper/css';
 import "swiper/css/pagination"
@@ -72,7 +72,19 @@ export default defineComponent({
         const onSlideChange = (): void => {
             console.log('slide change');
         }
+        const slidesPerView = ref<number>(5)
+        const spaceBetween = ref<number>(30)
+        const centeredSlides = ref<boolean>(true)
+        const screenWidth = window.screen.width
+        if( 100 < screenWidth && screenWidth < 1278){
+            slidesPerView.value = 2
+            spaceBetween.value = 10
+            centeredSlides.value = false
+        }
         return {
+            spaceBetween,
+            centeredSlides,
+            slidesPerView,
             onSwiper,
             onSlideChange,
         };
@@ -138,10 +150,15 @@ export default defineComponent({
   font-size: 16px;
 }
 
+.avatar{
+  width: 48px;
+  height: 48px;
+}
+
 /* 110% - 125% 适配 */
 @media screen and (min-width: 1536px) and (max-height: 840px) and (max-width: 1750px) {
 
-  .home-swiper .swiper-item h2{
+  .home-swiper .swiper-item h2 {
     font-size: 32px;
   }
 
@@ -160,5 +177,34 @@ export default defineComponent({
   .home-swiper .text-container {
     @apply p-4
     }
+}
+
+/* 移动端 适配 */
+@media screen and (min-width: 100px) and (max-width: 1278px) {
+
+  .home-swiper .swiper-item {
+    width: 300px;
+  }
+
+  .home-swiper .swiper-slide {
+    width: 300px;
+    min-width: 200px;
+    height: 260px;
+  }
+
+  .home-swiper .swiper-item p {
+    font-size: 12px;
+  }
+
+  .home-swiper .swiper-slide-active {
+    width: 300px;
+    height: 260px;
+
+  }
+
+  .avatar{
+    width: 30px;
+    height: 30px;
+  }
 }
 </style>
