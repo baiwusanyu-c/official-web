@@ -60,11 +60,12 @@
         <div class="slogan-service w-full bg-default flex flex-col">
             <div class="slogan-service-item flex justify-center items-center w-full sm:flex-col">
                 <div style="box-sizing: border-box;" class="mb-56 mr-12 hexagon-desc lg125:mb-48 md:mb-0 sm:mb-0 sm:mr-0">
-                    <div class="bar mb-8 sm:mb-2 "></div>
+                    <div class="bar mb-8 sm:mb-2"></div>
                     <h3 class="font-bold text-3xl mb-8 font-format sm:text-lg sm:mb-4 ">{{ $t('lang.home.serviceTitle1') }}</h3>
                     <p class="mb-16 font-format text-justify leading-normal text-lg sm:text-xs sm:mb-6">{{
                             $t('lang.home.serviceInfo1')
                         }}</p>
+                    <!--        pc 显示按钮            -->
                     <div class="sm:hidden">
                         <be-button
                             @click="routerPush('/index/service/contracts')"
@@ -79,7 +80,8 @@
                     <hexagon class='absolute hexagon3 font-format' :index="2"></hexagon>
                     <hexagon class='absolute hexagon4 font-format' :index="3"></hexagon>
                     <hexagon class='absolute hexagon5 font-format' :index="4"></hexagon>
-                    <div class="display-none sm:flex">
+                    <!--        mobile 显示按钮            -->
+                    <div class="display-none sm:flex" style="position: absolute; right: 50%;bottom: 15%; transform: translateX(50%)">
                         <be-button
                             @click="routerPush('/index/service/contracts')"
                             customClass="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl">
@@ -88,26 +90,44 @@
                     </div>
                 </div>
             </div>
-
-            <div class="slogan-service-item flex mt-20 w-full justify-center items-center sm:flex-col">
-                <div class="flex flex-wrap relative hexagon-container-body mr-12" style="width: 42%">
+            <div class="slogan-service-item flex mt-20 w-full justify-center items-center sm:flex-col sm:mt-10">
+                <!--        pc 显示六边形         -->
+                <div class="display-flex flex-wrap relative hexagon-container-body mr-12 sm:hidden" style="width: 42%">
                     <hexagon class='absolute font-format hexagon8' :index="7"></hexagon>
                     <hexagon class='absolute font-format hexagon9' :index="8"></hexagon>
                     <hexagon class='absolute font-format hexagon10' :index="9"></hexagon>
                     <hexagon class='absolute font-format hexagon11' :index="10"></hexagon>
                     <hexagon class='absolute font-format hexagon12' :index="11"></hexagon>
                 </div>
-                <div class="mb-56 hexagon-desc lg125:mb-48  md:mb-0">
-                    <div class="bar mb-8 float-right"></div>
-                    <h3 class="font-bold text-3xl mb-8 font-format text-right float-right sm:text-lg">
-                        {{ $t('lang.home.serviceTitle2') }}</h3>
-                    <p class="mb-16 font-format text-justify leading-normal float-right text-lg sm:text-xs">
-                        {{ $t('lang.home.serviceInfo2') }}</p>
-                    <be-button
-                        @click="routerPush('/index/service/security')"
-                        customClass="float-right learn-more-btn h-btn-txt-black linear-l-r text-black text-xl">
-                        <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
-                    </be-button>
+                <div class="mb-56 hexagon-desc lg125:mb-48 md:mb-0 sm:mb-0 sm:mr-0">
+                    <div class="bar mb-8 float-right sm:float-none sm:mb-2"></div>
+                    <h3 class="font-bold text-3xl mb-8 font-format text-right float-right sm:text-lg sm:float-none sm:mb-4 sm:text-left">
+                        {{$t('lang.home.serviceTitle2')}}</h3>
+                    <p class="mb-16 font-format text-justify leading-normal float-right text-lg sm:text-xs sm:float-none sm:mb-6">
+                        {{$t('lang.home.serviceInfo2')}}</p>
+                    <div class="sm:hidden">
+                        <be-button
+                            @click="routerPush('/index/service/security')"
+                            customClass="float-right learn-more-btn h-btn-txt-black linear-l-r text-black text-xl">
+                            <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
+                        </be-button>
+                    </div>
+                </div>
+                <!--        mobile 显示六边形         -->
+                <div class="display-none flex-wrap relative hexagon-container-body mr-12 justify-center sm:flex sm:mr-0" style="width: 42%">
+                    <hexagon class='absolute font-format hexagon8' :index="7"></hexagon>
+                    <hexagon class='absolute font-format hexagon9' :index="8"></hexagon>
+                    <hexagon class='absolute font-format hexagon10' :index="9"></hexagon>
+                    <hexagon class='absolute font-format hexagon11' :index="10"></hexagon>
+                    <hexagon class='absolute font-format hexagon12' :index="11"></hexagon>
+                    <!--        mobile 显示按钮            -->
+                    <div class="display-none sm:flex" style="position: absolute; right: 50%;bottom: 15%; transform: translateX(50%)">
+                        <be-button
+                            @click="routerPush('/index/service/security')"
+                            customClass="float-right learn-more-btn h-btn-txt-black linear-l-r text-black text-xl">
+                            <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
+                        </be-button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -699,7 +719,7 @@ export default defineComponent({
 @media screen and (min-width: 100px) and (max-width: 1278px) {
 
   .hermit-main .slogan-news{
-    height: 60vh;
+    height: 70vh;
   }
 
   .science-dom{
@@ -763,7 +783,7 @@ export default defineComponent({
 
   .slogan-product-circle2 .circle8 {
     top: -10%;
-    right: 0%;
+    right: 0;
   }
 
   .slogan-product-circle1,
@@ -775,5 +795,58 @@ export default defineComponent({
   .hermit-main .slogan-product{
     padding: 60px 0;
   }
+
+  .slogan-service-item .hexagon-desc{
+    width: 28%;
+  }
+
+  .hexagon-container-body {
+    height: 332px;
+    background-position: center;
+    background-size: 80%;
+  }
+
+  .slogan-service .hexagon1,
+  .slogan-service .hexagon2{
+    top: 0;
+  }
+
+  .slogan-service .hexagon3,
+  .slogan-service .hexagon4,
+  .slogan-service .hexagon5{
+    top: 28%;
+
+  }
+
+  .slogan-service .hexagon8,
+  .slogan-service .hexagon9{
+    top: 0;
+  }
+
+  .slogan-service .hexagon10,
+  .slogan-service .hexagon11,
+  .slogan-service .hexagon12{
+    top: 28%;
+  }
+
+  .slogan-service .hexagon1 p,
+  .slogan-service .hexagon2 p,
+  .slogan-service .hexagon3 p,
+  .slogan-service .hexagon4 p,
+  .slogan-service .hexagon5 p,
+  .slogan-service .hexagon8 p,
+  .slogan-service .hexagon9 p,
+  .slogan-service .hexagon10 p,
+  .slogan-service .hexagon11 p,
+  .slogan-service .hexagon12 p{
+    transform: scale(.7);
+  }
 }
+@media screen and (min-width: 100px) and (max-width: 340px) {
+
+  .science-dom{
+    margin-bottom: 10px !important;
+  }
+}
+
 </style>
