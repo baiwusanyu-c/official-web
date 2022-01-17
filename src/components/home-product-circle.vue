@@ -11,7 +11,7 @@
         class="absolute flex justify-center flex-col items-center home-product-circle"
          :class="`circle${index}`">
         <img class='w-28 sm:w-12' :src="img" alt="">
-        <p class="font-format font-bold text-center sm:text-xs" style="width: 10em;">
+        <p class="product-circle-desc font-format font-bold text-center sm:text-xs" style="width: 10em;">
             {{ $t(`lang.home.productFeature${index}`)}}
         </p>
     </div>
@@ -77,3 +77,12 @@ export default  defineComponent({
 
 })
 </script>
+<style>
+@media screen and (min-width: 100px) and (max-width: 1278px) {
+
+  .product-circle-desc{
+    transform: scale(.8);
+  }
+}
+
+</style>

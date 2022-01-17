@@ -762,7 +762,7 @@ export default defineComponent({
 
   .slogan-product-circle1 .circle4 {
     top: 12%;
-    right: 2%;
+    right: -3%;
   }
 
 
@@ -783,7 +783,7 @@ export default defineComponent({
 
   .slogan-product-circle2 .circle8 {
     top: -10%;
-    right: 0;
+    right: -3%;
   }
 
   .slogan-product-circle1,

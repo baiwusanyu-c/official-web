@@ -410,7 +410,7 @@ export default defineComponent({
 }
 
 .header-popover .be-popover{
-  z-index: 2001;
+  z-index: 2078;
   @apply bg-footer;
 }
 

@@ -5,15 +5,15 @@
 * @update (czh 2022/1/10)
 */
 <template>
-    <div class="flex justify-center items-center w-full my-8"
+    <div class="flex justify-center items-center w-full my-8 sm:my-4"
          style="z-index: 1">
-        <div class="advant-circle flex justify-center items-center font-bold p-6 text-center text-lg font-format md:p-4"
+        <div class="advant-circle flex justify-center items-center font-bold p-6 text-center text-lg font-format md:p-4 "
              :style="{backgroundImage: `url(${img})`
          }"></div>
         <div class="flex-1 ml-6 justify-center items-center text-white md:p-6"
              style="height: min-content">
-            <p class="leading-normal font-bold text-2xl font-format text-mainG mb-4">{{ $t(`lang.product.${type}.advantSubTitle${index}`) }}</p>
-            <p class="leading-normal text-lg font-format text-white">{{ $t(`lang.product.${type}.advantDesc${index}`) }}</p>
+            <p class="leading-normal font-bold text-2xl font-format text-mainG mb-4 sm:text-xs">{{ $t(`lang.product.${type}.advantSubTitle${index}`) }}</p>
+            <p class="leading-normal text-lg font-format text-white sm:text-xs">{{ $t(`lang.product.${type}.advantDesc${index}`) }}</p>
         </div>
     </div>
 </template>
