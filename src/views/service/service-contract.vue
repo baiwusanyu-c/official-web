@@ -16,7 +16,8 @@
                 </div>
             </div>
             <!--            <be-button customClass="reservation-btn h-btn-txt-black linear-l-r text-black text-xl">{{$t('lang.ReservationBtn')}}</be-button>-->
-            <img alt=""  src="../../assets/img/header-img.png" class="header-img" style="visibility: hidden"/>
+            <!--     占位用      -->
+            <img alt=""  src="../../assets/img/header-img.png" class="header-img sm:hidden" style="visibility: hidden"/>
         </div>
         <div class="page-body-search">
             <div class="body-search-text">
@@ -32,7 +33,7 @@
                     <div class="num-footer"></div>
                 </div>
                 <div class="search-num-box">
-                    <div class="num-header font-format">{{$t('lang.serviceContract.search.audited')}}</div>
+                    <div class="num-header font-format sm:mb-4">{{$t('lang.serviceContract.search.audited')}}</div>
                     <div class="num-main">
                         <roll-num :value="contractsNum" :time="1"></roll-num>
                         +
@@ -42,7 +43,7 @@
                 <div class="search-num-box">
                     <div class="num-header font-format">{{$t('lang.serviceContract.search.totalAudited')}}</div>
                     <div class="num-main">
-                        $
+                        <span style="margin-top: 2px">$</span>
                         <roll-num :value="auditedNum" :time="1"></roll-num>
                         +
                     </div>
@@ -50,7 +51,7 @@
                 </div>
             </div>
             <div class="body-search-input">
-                <div class="input-title font-format">{{$t('lang.serviceContract.search.inputTitle')}}</div>
+                <div class="input-title font-format sm:text-lg">{{$t('lang.serviceContract.search.inputTitle')}}</div>
             </div>
             <div class="search-input shadow-lg">
                 <n-input size="large"
@@ -65,7 +66,7 @@
             </div>
         </div>
         <div class="page-body-content">
-            <div class="body-title font-format">{{$t('lang.serviceContract.content.title')}}</div>
+            <div class="body-title font-format sm:text-lg">{{$t('lang.serviceContract.content.title')}}</div>
             <div class="content-card-up">
                 <div class="card">
                     <div class="card-title font-format">{{$t('lang.serviceContract.content.cardSecurity')}}</div>
@@ -104,14 +105,19 @@
             </div>
         </div>
         <div class="page-body-process">
-            <div class="body-title font-format">{{$t('lang.serviceContract.process.title')}}</div>
-            <div class="process-text">
-                <div class="font-format">{{$t('lang.serviceContract.process.textEvaluation')}}</div>
-                <div class="font-format">{{$t('lang.serviceContract.process.textImplementation')}}</div>
+            <div class="body-title font-format sm:mb-8">{{$t('lang.serviceContract.process.title')}}</div>
+            <div class="sm:hidden">
+                <div class="process-text">
+                    <div class="font-format font-bold">{{$t('lang.serviceContract.process.textEvaluation')}}</div>
+                    <div class="font-format font-bold">{{$t('lang.serviceContract.process.textImplementation')}}</div>
+                </div>
             </div>
-            <img alt="" src="../../assets/img/process-small.png" style="margin-bottom: 19px" height="342" width="1200"/>
-            <img alt="" src="../../assets/img/process-big.png" style="z-index: 1" height="1429" width="1200"/>
+            <img class="display-none sm:flex" alt="" src="../../assets/img/z18.png" style="margin-bottom: 19px" height="342" width="1200"/>
+            <img class="sm:hidden" alt="" src="../../assets/img/process-small.png" style="margin-bottom: 19px" height="342" width="1200"/>
+            <img class="display-none sm:flex" alt="" src="../../assets/img/z18-big.png" style="z-index: 1" height="1429" width="1200"/>
+            <img class="sm:hidden" alt="" src="../../assets/img/process-big.png" style="z-index: 1" height="1429" width="1200"/>
         </div>
+
         <div class="page-body-reports">
             <div  class="page-body-reports-head">
                 <div class="reports-header">
@@ -119,7 +125,7 @@
                         <div class="reports-title-question font-format text-justify">{{$t('lang.serviceContract.reports.title')}}</div>
                         <div class="reports-title-answer font-format text-justify leading-normal">{{$t('lang.serviceContract.reports.text')}}</div>
                     </div>
-                    <img alt="" src="../../assets/img/pad.png" height="345" width="339"/>
+                    <img alt="" src="../../assets/img/pad.png" height="345" width="339" class="sm:w-56 sm:h-56 sm:mt-4 sm:mx-auto"/>
                 </div>
                 <div class="reports-middle">
                     <div class="reports-middle-title font-format">{{$t('lang.serviceContract.reports.middleTitle')}}</div>
@@ -127,7 +133,7 @@
                 </div>
             </div>
 
-            <div style="margin-top: 76px">
+            <div class="reports-swiper">
                 <hServiceSwiper :list="reportList"/>
             </div>
         </div>
@@ -212,8 +218,8 @@ export default defineComponent({
   justify-content: space-evenly;
   height: 570px;
   padding-bottom: 110px;
-  background: url("../../assets/img/service-contract/contract-header.png");
   background-color: #121214;
+  background-image: url("../../assets/img/service-contract/contract-header.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -237,5 +243,24 @@ export default defineComponent({
   margin-top: 71px;
 }
 
+.reports-swiper{
+  margin-top: 76px;
+}
+@media screen and (min-width: 100px) and (max-width: 1278px) {
 
+  #service_contract .page-head{
+    flex-direction: column;
+    height: initial;
+    padding: 0  30px 30px 30px;
+    background-image:none;
+  }
+
+  .reports-swiper{
+    margin-top: 30px;
+  }
+
+  #service_contract .page-body-reports{
+    height: initial;
+  }
+}
 </style>

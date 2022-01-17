@@ -173,4 +173,5 @@ export default defineComponent({
 .number-item:last-child {
   margin-right: 0;
 }
+
 </style>
