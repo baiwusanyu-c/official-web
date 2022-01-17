@@ -452,9 +452,10 @@ export default defineComponent({
     height: initial;
     padding: 30px;
   }
-    .user-center .table-body{
-        height: initial;
-        width: 100%;
-    }
+
+  .user-center .table-body{
+    width: 100%;
+    height: initial;
+  }
 }
 </style>
