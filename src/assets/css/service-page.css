@@ -538,13 +538,13 @@
     font-size: 14px;
   }
 
-  #service_contract .page-body-reports{
+  .hermit-main #service_contract .page-body-reports{
     height: auto;
     padding: 0 30px 30px 30px;
   }
 
   .service-page .page-body-process{
-    height: 668px;
+    height: initial;
   }
 
   .service-page .reports-header{

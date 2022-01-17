@@ -1,11 +1,10 @@
 <template>
-    <div>
+    <div class='user-center'>
         <div class="page-header">
             <!--{{$t('lang.HFooterBigger.contact.locationRoad')}}-->
             <div class="title-big font-format">{{ $t('lang.userCenter.titleBig') }}</div>
             <div class="title-small font-format">{{ $t('lang.userCenter.titleSmall') }}</div>
         </div>
-
         <div class="search">
             <div class="search-up">
                 <span class="font-format">{{ $t('lang.userCenter.searchTitle') }}</span>
@@ -218,7 +217,7 @@ export default defineComponent({
             const params: IReportList = {
                 pageSize: paginationReactive.pageSize,
                 pageNum: paginationReactive.page,
-                value:searchParams.value
+                value: searchParams.value
             }
             verifyCode(params).then((res: any) => {
                 if (res.code === 200) {
@@ -274,7 +273,7 @@ export default defineComponent({
   align-items: center;
   justify-content: center;
   height: 400px;
-  background: url("../../assets/img/user-center.png");
+  background-image: url("../../assets/img/user-center.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -385,5 +384,77 @@ export default defineComponent({
   }
 
 
+}
+
+@media screen and (min-width: 100px) and (max-width: 1278px) {
+
+  .page-header {
+    height: initial;
+    padding: 30px;
+    background-image: none;
+  }
+
+  .user-center .title-big {
+    width: 100%;
+    margin: 0;
+    font-size: 35px;
+    line-height: 1.5;
+  }
+
+  .user-center .title-small {
+    width: 100%;
+    height: initial;
+    padding-top: 20px;
+    font-size: 20px;
+    line-height: 1.5;
+  }
+
+  .user-center .search {
+    box-sizing: border-box;
+    height: initial;
+    padding: 30px;
+  }
+
+
+  .user-center .search .search-up {
+    padding: 0;
+    @apply text-lg w-full mb-4;
+
+  }
+
+  .user-center .search .search-down {
+    height: initial;
+    @apply m-0 flex-col w-full
+    }
+
+  .user-center .search .search-class {
+    @apply w-full items-center
+    }
+
+  .user-center .search .search-input {
+    height: 50px;
+    margin-right: 10px;
+    @apply w-full;
+  }
+
+  .user-center .search .search-btn {
+    width: 50px;
+    height: 50px;
+  }
+
+  .user-center .download-btn {
+    height: 50px;
+    @apply mt-4 w-full;
+  }
+
+  .user-center .page-table {
+    box-sizing: border-box;
+    height: initial;
+    padding: 30px;
+  }
+    .user-center .table-body{
+        height: initial;
+        width: 100%;
+    }
 }
 </style>
