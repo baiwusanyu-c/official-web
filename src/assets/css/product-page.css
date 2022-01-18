@@ -31,7 +31,7 @@
 }
 
 .product-page .try-out-btn{
-  @apply h-12 w-80 font-bold mt-32 sm:w-48 sm:h-9;;
+  @apply h-12 w-80 font-bold mt-32 sm:w-48 sm:h-9;
 }
 
 .product-page .func-container .func-card{
