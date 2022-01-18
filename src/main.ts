@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import {router} from './router/router'
 import App from './App.vue'
+import 'virtual:windi.css'
 // @ts-ignore
 import BeUI from '../public/be-ui/be-ui.es.js'
 import '../public/be-ui/style.css'

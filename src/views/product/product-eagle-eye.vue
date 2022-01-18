@@ -8,7 +8,7 @@
     <div class="product-page" id="product_eagle">
         <!--    头部介绍    -->
         <div class="page-head">
-            <div class="header-text mr-1/2">
+            <div class="header-text">
                 <div class="header-text-big font-format">
                    {{$t('lang.product.eagle.title')}}
                 </div>

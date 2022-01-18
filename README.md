@@ -16,7 +16,7 @@
 |  @vueuse/core |  ^7.3.0  | vue3.x 的composition Api 方法庫  |
 |  animate.css |  ^4.1.1  | 動畫庫  |
 |  swiper | ^7.3.2  | 走馬燈插件  |
-|  tailwind.css | npm:@tailwindcss/postcss7-compat  | css原子化樣式庫  |
+|  windi.css | ^3.4.3  | css原子化樣式庫  |
 |  naive-ui |  ^2.22.0  | UI組件庫  |
 |  be-ui |  -  | 内部UI組件庫  |
 ##package指令
