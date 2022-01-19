@@ -1,5 +1,8 @@
-const colors = require('windicss/colors')
-module.exports = {
+
+import { defineConfig } from 'windicss/helpers'
+import colors from 'windicss/colors'
+// import plugin from 'windicss/plugin'
+export default defineConfig({
     extract: {include:['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}']},
     safelist: ['prose', 'prose-sm', 'm-auto'],
     presets: [],
@@ -35,13 +38,13 @@ module.exports = {
             black: colors.black,
             white: colors.white,
             gray: colors.coolGray,
-            red: colors.red,
+            red: colors.rose,
             yellow: colors.amber,
             green: colors.lime,
             blue: colors.blue,
             indigo: colors.indigo,
             purple: colors.violet,
-            pink: colors.pink,
+            pink: colors.fuchsia,
         },
         spacing: {
             px: '1px',
@@ -79,7 +82,7 @@ module.exports = {
             72: '18rem',
             80: '20rem',
             96: '24rem',
-            '20%':'20%'
+            '20b':'20%'
         },
         animation: {
             none: 'none',
@@ -826,7 +829,6 @@ module.exports = {
             '10/12': '83.333333%',
             '11/12': '91.666667%',
             full: '100%',
-            'full120%': '120%',
             screen: '100vw',
             min: 'min-content',
             max: 'max-content',
@@ -840,7 +842,13 @@ module.exports = {
             40: '40',
             50: '50',
         },
+        extend: {
+            width: {
+                "full120": '120%',
+            },
+        },
     },
+
     variantOrder: [
         'first',
         'last',
@@ -860,4 +868,5 @@ module.exports = {
         'disabled',
     ],
     plugins: [],
-}
+})
+

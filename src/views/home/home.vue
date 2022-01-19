@@ -20,7 +20,7 @@
                     {{ $t('lang.home.title1') }}</h2>
                 <h2 class="text-mainG text-6xl text-center font-bold leading-normal mb-20 slogan font-format sm:text-2xl sm:mb-8">
                     {{ $t('lang.home.title2') }}</h2>
-                <div class="flex justify-between self-center mb-16 slogan w-full lg125:w-full120% sm:flex-col sm:mb-8 sm:items-center">
+                <div class="flex justify-between self-center mb-16 slogan w-full lg125:w-full120 sm:flex-col sm:mb-8 sm:items-center">
                     <div v-for="(item,index) in scienceInfoList"
                          @mouseleave="item.isHover = false"
                          @mouseenter="item.isHover = true"

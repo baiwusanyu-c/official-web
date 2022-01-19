@@ -8,14 +8,14 @@
     <div class="bg-footer-container bg-footer">
         <div class="footer-class footer-class-1d5">
             <p class="footer-title text-lg font-format sm:text-base">{{$t('lang.HFooterBigger.contact.contactTitle')}}</p>
-            <div class="contact-us">
+<!--            <div class="contact-us">
                 <n-icon class="footer-icon">
                     <location-sharp/>
                 </n-icon>
                 <div class="contact-us-text font-format">{{$t('lang.HFooterBigger.contact.locationRoad')}}<br/>
                     {{$t('lang.HFooterBigger.contact.locationSingapore')}}
                 </div>
-            </div>
+            </div>-->
 <!--            <div class="contact-us">
                 <n-icon size="30px">
                     <phone-portrait-outline/>
