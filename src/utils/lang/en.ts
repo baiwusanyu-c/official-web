@@ -63,8 +63,8 @@ export default {
     },
     aboutHerMit: {
         title: 'ABOUT BEOSIN',
-        info1: 'Affiliated to HERMIT Technology Pte. Ltd., BEOSIN is the first institution in the world specializing in the construction of blockchain security ecosystem. The core team members are all professors, postdocs, PhDs, and Internet elites from world-renowned academic institutions.BEOSIN has more than 20 years of research in formal verification technology, trusted computing, mobile security and kernel security, with overseas experience in studying and collaborating in project research at well-known universities. Through the security audit and defense deployment of more than 2,000 smart contracts, over 50 public blockchains and wallets, and nearly 100 exchanges worldwide, BEOSIN has accumulated rich experience in security attack and defense of the blockchain field, and has developed several security products specifically for blockchain.',
-        info2: ''
+        info1: 'Beosin is a leading global blockchain security brand co-founded by several professors from world-renowned universities. The team consists of 100+ security experts, including 20+ PhDs and postdocs. The core team members have accumulated over 20 years of experience in formal verification technology, cybersecurity, artificial intelligence, and big data mining technology.',
+        info2: 'Beosin product series include smart contract audit service, blockchain platform audit service, smart contract detection product, and situation awareness product. Through security audits of more than 2,000 smart contracts and 50+ public blockchains worldwide, Beosin has successfully protected nearly $10 billion of assets and has been fully recognized by global partners.'
     },
     home: {
         title1: 'SECURING THE',
