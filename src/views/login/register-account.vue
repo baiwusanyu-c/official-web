@@ -44,7 +44,7 @@
         <be-button size="large"
                    bordered
                    @click="changeShow('login')"
-                   customClass="login-btn text-black font-bold text-lg w-80 mb-6 w-full mx-auto border-mainG">
+                   customClass="login-btn text-black font-bold text-lg mb-6 w-full mx-auto border-mainG">
             <span class="font-format">{{$t('lang.login.login')}}</span>
         </be-button>
     </div>

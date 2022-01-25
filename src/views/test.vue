@@ -5,21 +5,22 @@
 * @update (czh 2021/12/24)
 */
 <template>
-    <div class="test">
-        <roll-num :value="1000"  :time="2"></roll-num>
+    <div class="test" @click="asd.foo = 2">
+      {{asd.foo}}
     </div>
 </template>
 
 <script lang="ts">
-import {defineComponent,ref} from "vue";
+import {defineComponent,ref,reactive,effect} from "vue";
 import RollNum from "../components/roll-num.vue";
+
 export default defineComponent({
     name: "test",
     components: {RollNum},
     setup() {
-
+        const asd = reactive({foo:1})
         return {
-
+            asd
         }
     }
 })
