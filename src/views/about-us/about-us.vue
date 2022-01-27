@@ -86,7 +86,7 @@
                                 </div>-->
                 <div class="flex items-center justify-center text-xl font-format sm:text-base">
                     <img class="mr-4 sm:w-12" src="../../assets/img/mail.png" alt=""/>
-                    {{ $t('lang.mail') }}:hermitmarket@gmail.com
+                    {{ $t('lang.mail') }}:beosin@gmail.com
                 </div>
             </div>
         </div>
