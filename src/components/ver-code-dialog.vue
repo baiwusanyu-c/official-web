@@ -19,21 +19,18 @@
             <template #headerIcon>
                 <be-icon icon="deleteIc" @click="isShow = false"></be-icon>
             </template>
-            <template #body>
-                <div slot="body" class="plus-dialog-body flex flex-col justify-center items-center w-full">
-                    <div class="flex w-full mb-12">
-                        <div class="flex-1 mr-6">
-                            <n-input  v-model:value="formData.code"
-                                      :onInput = "formData.code = formData.code.replace(/[^\d]/g,'')"
-                                      size="large"/>
-                        </div>
-                        <div class="flex-1" @click="getCode()">
-                            <img :src="codeUrl" alt="" style="height: 40px"/>
-                        </div>
-                    </div>
-
-                </div>
-            </template>
+             <div class="plus-dialog-body flex flex-col justify-center items-center w-full">
+                 <div class="flex w-full mb-12">
+                     <div class="flex-1 mr-6">
+                         <n-input  v-model:value="formData.code"
+                                   :onInput = "formData.code = formData.code.replace(/[^\d]/g,'')"
+                                   size="large"/>
+                     </div>
+                     <div class="flex-1" @click="getCode()">
+                         <img :src="codeUrl" alt="" style="height: 40px"/>
+                     </div>
+                 </div>
+             </div>
             <template #footer>
                 <be-button  customClass="sure-btn" round="3" @click="submit">
                     <span class="font-format">{{$t('lang.sure')}}</span>
