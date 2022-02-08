@@ -26,7 +26,7 @@
                 <n-icon class="footer-icon">
                     <mail-sharp/>
                 </n-icon>
-                <div class="contact-us-text font-format">beosin@gmail.com</div>
+                <div class="contact-us-text font-format">contact@beosin.com</div>
             </div>
         </div>
         <div class="footer-class">

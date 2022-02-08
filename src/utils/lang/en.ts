@@ -93,14 +93,14 @@ export default {
         serviceIc11: 'Asset Security Audit',
         serviceIc12: 'Application-layer Security Audit',
 
-        productName1: 'Smart Contract Security Analysis Platform',
+        productName1: 'VAAS',
         productDesc1: 'The industry-leading security analysis platform for smart contracts with multi-dimensional detection capabilities such as static scanning, fuzzy testing, and formal verification, which can automatically discover known and unknown vulnerabilities and business logic issues in smart contracts and provide professional comments or revisions.',
         productFeature1: 'Known Vulnerabilities',
         productFeature2: 'Unknown Vulnerabilities',
         productFeature3: 'Logical Correctness',
         productFeature4: 'Support for multiple blockchain platforms',
 
-        productName2: 'Risk Alert Platform',
+        productName2: 'Eagle Eye',
         productDesc2: 'Through real-time monitoring of on-chain transactions, identification of transaction behaviors, and analysis of contract codes, it can discover and alert hacking incidents and contract vulnerabilities, supporting project owner on safe operation and asset protection.',
         productFeature5: 'Transaction Risk Detection',
         productFeature6: 'Contract Risk Identification',

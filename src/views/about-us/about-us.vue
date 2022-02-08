@@ -86,7 +86,7 @@
                                 </div>-->
                 <div class="flex items-center justify-center text-xl font-format sm:text-base">
                     <img class="mr-4 sm:w-12" src="../../assets/img/mail.png" alt=""/>
-                    {{ $t('lang.mail') }}:beosin@gmail.com
+                    {{ $t('lang.mail') }}:contact@beosin.com
                 </div>
             </div>
         </div>
@@ -96,9 +96,9 @@
             <div class="flex items-center flex-wrap mb-20 sm:mb-6 sm:justify-between sm:px-6">
                 <community-circle @click="openWin(linkConfig['twitter'])" :index="0"></community-circle>
                 <community-circle @click="openWin(linkConfig['telegram'])" :index="1"></community-circle>
-                <community-circle @click="openWin(linkConfig['medium'])" :index="2"></community-circle>
-                <community-circle @click="openWin(linkConfig['github'])" :index="3"></community-circle>
-                <community-circle @click="openWin(linkConfig['facebook'])" :index="4"></community-circle>
+                <community-circle @click="openWin(linkConfig['github'])" :index="2"></community-circle>
+                <community-circle @click="openWin(linkConfig['facebook'])" :index="3"></community-circle>
+                <community-circle @click="openWin(linkConfig['medium'])" :index="4"></community-circle>
                 <n-popover trigger="hover"
                            color="#00FFBA"
                            raw
