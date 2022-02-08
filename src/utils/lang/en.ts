@@ -421,7 +421,7 @@ export default {
         descIcon3: '50+',
         descIconInfo3: 'Public chain and wallet defense deployments',
         descIcon4: '100+',
-        descIconInfo4: 'ExchangePartnerships',
+        descIconInfo4: 'Exchange Partnerships',
         securityBlock: 'SECURING THE BLOCKCHAIN ECOLOGY'
     },
     quoteDialog: {

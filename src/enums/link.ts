@@ -6,10 +6,10 @@
 */
 export enum linkConfig {
     facebook = 'https://www.facebook.com/profile.php?id=100026616589335',
-    github = 'https://github.com/BeosinBeosin',
+    github = 'https://github.com/Beosin20180329',
     twitter = 'https://twitter.com/Beosin_com',
     telegram = 'https://t.me/+dD8Bnqd133RmNWNl',
-    medium = 'https://beosin.medium.com/',
+    medium = 'https://medium.com/@Beosin',
 }
 
 export enum linkConfigPolicy {
