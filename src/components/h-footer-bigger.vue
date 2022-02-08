@@ -112,7 +112,7 @@ export default defineComponent({
 
 .footer-class{
   width: 345px;
-  height: 200px;
+  height: 220px;
   margin-top: 60px;
 }
 
