@@ -16,10 +16,10 @@
                     {{ $t('lang.product.vass.subTitle') }}
                 </div>
                  <img alt="" src="../../assets/img/vaas-logo.png" class="display-none w-36 h-36 mt-10 mx-auto sm:flex">
-                <be-button customClass="try-out-btn h-btn-txt-black linear-l-r text-black text-xl "
+<!--                <be-button customClass="try-out-btn h-btn-txt-black linear-l-r text-black text-xl "
                            @click="openWin(`https://vaas.lianantech.com/#/login?token=${getStore('token')}&lang=${getStore('lang')}`,'vaas')">
                     <span class="font-format sm:text-base">{{ $t('lang.tryoutBtn') }}</span>
-                </be-button>
+                </be-button>-->
             </div>
         </div>
         <!--    文字介绍 & 走马灯   -->
