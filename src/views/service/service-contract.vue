@@ -113,7 +113,7 @@
                 </div>
             </div>
             <img class="display-none sm:flex" alt="" src="../../assets/img/z18.png" style="margin-bottom: 19px" height="342" width="1200"/>
-            <img class="sm:hidden" alt="" src="../../assets/img/process-small.png" style="margin-bottom: 19px" height="342" width="1200"/>
+            <img class="sm:hidden" alt="" src="../../assets/img/process-small2.png" style="margin-bottom: 19px" height="342" width="1200"/>
             <img class="display-none sm:flex" alt="" src="../../assets/img/z18-big.png" style="z-index: 1" height="1429" width="1200"/>
             <img class="sm:hidden" alt="" src="../../assets/img/process-big.png" style="z-index: 1" height="1429" width="1200"/>
         </div>

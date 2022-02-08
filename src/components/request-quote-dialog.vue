@@ -194,7 +194,7 @@ export default defineComponent({
 
 <style>
 #request_quote_dialog .n-dialog{
-  width: auto;
+  width: 600px;
   background: #EFF2F7 !important;
   border-top:5px solid #02fbbb;
 }

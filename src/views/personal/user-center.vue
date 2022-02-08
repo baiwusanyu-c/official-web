@@ -274,7 +274,7 @@ export default defineComponent({
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 400px;
+  height: 320px;
   background-image: url("../../assets/img/user-center.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -282,7 +282,7 @@ export default defineComponent({
 
 .title-big {
   width: 1200px;
-  margin-top: 180px;
+  margin-top: 100px;
   margin-bottom: 10px;
   font-size: 60px;
   font-weight: bold;
@@ -299,7 +299,7 @@ export default defineComponent({
 }
 
 .search {
-  height: 400px;
+  height: 320px;
   background: #EFF2F7;
 
 }
@@ -307,7 +307,7 @@ export default defineComponent({
 .search-up {
   width: 1200px;
   height: 37px;
-  padding-top: 148px;
+  padding-top: 100px;
   margin: auto;
   font-size: 36px;
   font-weight: bold;

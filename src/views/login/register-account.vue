@@ -25,7 +25,7 @@
                      @click="changeShowPWord"></be-icon>
         </div>
 
-        <p class="mb-8 text-gray-500 font-format md:mb-4 lg:mb-4">
+        <p class="mt-4 mb-2 text-gray-500 font-format md:mb-t lg:mb-t">
             <span style="color: red">*</span>
             {{$t('lang.login.tip')}}
         </p>

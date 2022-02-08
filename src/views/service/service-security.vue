@@ -102,14 +102,13 @@
         </div>
         <div class="page-body-process-security">
             <div class="body-title font-format sm:mb-8">{{ $t('lang.serviceContract.process.title') }}</div>
-            <div class="sm:hidden">
+<!--            <div class="sm:hidden">
                 <div class="process-text">
                     <div class="font-format">{{ $t('lang.serviceContract.process.textEvaluation') }}</div>
                     <div class="font-format">{{ $t('lang.serviceContract.process.textImplementation') }}</div>
                 </div>
-            </div>
-            <img class="display-none sm:flex" alt="" src="../../assets/img/z18.png" style="margin-bottom: 19px" height="342" width="1200"/>
-            <img class="sm:hidden" alt="" src="../../assets/img/process-small.png" style="margin-bottom: 19px" height="342" width="1200"/>
+            </div>-->
+            <img class="my-8 " alt="" src="../../assets/img/process-small.png" height="342" width="1200"/>
         </div>
                 <div class="page-body-table">
                     <div class="table-title-big sm:mb-8">{{ $t('lang.serviceContract.table.titleBig') }}</div>
