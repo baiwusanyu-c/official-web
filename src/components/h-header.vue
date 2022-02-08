@@ -194,7 +194,7 @@
     </div>
     <!--  mobile 右侧  -->
     <div class="display-none sm:flex">
-        <be-popover trigger="click"
+<!--        <be-popover trigger="click"
                     ref="popoverLang"
                     customClass="header-popover" placement="bottom">
             <template #trigger>
@@ -210,7 +210,7 @@
                 v-for="(item,index) in langList">
                 <p class="ml-2 text-base">{{item.label}}</p>
             </div>
-        </be-popover>
+        </be-popover>-->
     </div>
 
 </template>

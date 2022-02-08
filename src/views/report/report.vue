@@ -107,8 +107,9 @@ export default defineComponent({
             };
         }
         const downloadReport = async ()=> {
+            const prevUrl = String(import.meta.env.VITE_PROJECT_ENV) === 'production' ?  '/hermit/back' :  ''
             await downLoadZip(
-                `/website/common/download/single?fileUuid=${CETInfo.value.fileId}&reportNum=${CETInfo.value.num}`,
+                `${prevUrl}/website/common/download/single?fileUuid=${CETInfo.value.fileId}&reportNum=${CETInfo.value.num}`,
                 CETInfo.value.num + ".pdf"
             );
         }

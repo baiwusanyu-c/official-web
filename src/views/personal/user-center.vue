@@ -190,13 +190,15 @@ export default defineComponent({
         }
         // 下載單個
         const downloadSingle = async (row: any) => {
-            await downLoadZip(`/website/common/download/single?fileUuid=${row.uuid}&reportNum=${row.reportNum}`, row.reportNum + '.pdf');
+            const prevUrl = String(import.meta.env.VITE_PROJECT_ENV) === 'production' ?  '/hermit/back' :  ''
+            await downLoadZip(`${prevUrl}/website/common/download/single?fileUuid=${row.uuid}&reportNum=${row.reportNum}`, row.reportNum + '.pdf');
         }
         // 下載全部
         const downloadAll = async () => {
             let userInfo: string = getStore('userInfo') as string
             let fileName = JSON.parse(userInfo).username + '_' + formatDate(new Date(), 'YmdHis') + '.zip';
-            await downLoadZip(`/website/common/download/batch?belongUser=true`, fileName);
+            const prevUrl = String(import.meta.env.VITE_PROJECT_ENV) === 'production' ?  '/hermit/back' :  ''
+            await downLoadZip(`${prevUrl}/website/common/download/batch?belongUser=true`, fileName);
 
         }
         /**

@@ -59,7 +59,7 @@
             </div>
         </div>
     </div>
-    <div class="h-6 flex justify-center items-center font-format">©2021 by Hermit. All Rights Reserved.</div>
+<!--    <div class="h-6 flex justify-center items-center font-format">©2021 by Hermit. All Rights Reserved.</div>-->
 </template>
 <script lang="ts">
 import {defineComponent} from "vue";
