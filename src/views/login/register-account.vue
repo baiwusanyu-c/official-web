@@ -33,7 +33,8 @@
         <div class='mb-8 flex w-full md:mb-4'>
             <input type="text" v-model="form.verification_code" class="w-9/12 login-input border h-12 flex-1 font-format"/>
             <div class="bg-mainG cursor-pointer flex items-center justify-center w-32" @click="verifyCodeMail">
-                <img src="../../assets/img/send-vr-code.png" alt=""/>
+                <img v-show="!emailSent" src="../../assets/img/send-vr-code.png" alt=""/>
+                <span v-show="emailSent" style="color: #606266">{{sendSeconds}}s</span>
             </div>
         </div>
         <be-button @click="register"
@@ -51,7 +52,7 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, ref} from "vue";
+import {defineComponent, ref, watch, onMounted} from "vue";
 import {registerAccount, verifyCode,IMailCode,IRegister} from "../../api/login";
 import {useI18n} from "vue-i18n";
 import {verEmail} from "../../utils/common";
@@ -118,7 +119,42 @@ export default defineComponent({
         /**
          * 邮箱验证码发送
          */
+        const sendSeconds = ref<number>(10)
+        const emailSent = ref<boolean>(false)
+        // 如果邮件发送开始计时
+        watch(emailSent,()=>{
+            let time = sendSeconds.value*1000
+            if(emailSent.value){
+                localStorage.setItem('emailSentTime',JSON.stringify(Date.now()))
+                let interval = setInterval(()=>{
+                    if(sendSeconds.value>0){
+                        sendSeconds.value--
+                    }
+                    if(sendSeconds.value===0){
+                        clearInterval(interval)
+                    }
+                },1000)
+                // 限制10s时间
+                setTimeout(()=>{
+                    emailSent.value=false
+                },time)
+            }else{
+                sendSeconds.value = 10
+            }
+        })
+        // 确保页面刷新之后用户发送邮件所经过的时间是否超过限制
+        onMounted(()=>{
+            if(Date.now() - JSON.parse(localStorage.getItem('emailSentTime')) < 10000){
+                sendSeconds.value = 10 - parseInt((Date.now() - JSON.parse(localStorage.getItem('emailSentTime')))/1000)
+                emailSent.value = true
+                localStorage.setItem('emailSentTime',JSON.stringify(Date.now()))
+            }
+        })
         const verifyCodeMail = ():void =>{
+            if(emailSent.value){
+                message('warning',t('lang.login.tipWait'),'hermit-msg')
+                return
+            }
             if(!form.value.account){
                 message('warning',t('lang.login.tipAccount'),'hermit-msg')
                 return
@@ -128,6 +164,8 @@ export default defineComponent({
             }
             verifyCode(params).then((res:any)=>{
                 if(res.code === 200){
+                    // 邮件已发送开始计时
+                    emailSent.value = true
                     message('success',t('lang.sendSuccess'),'hermit-msg')
                 }
 
@@ -165,7 +203,10 @@ export default defineComponent({
             form,
             changeShowPWord,
             verifyCodeMail,
-            register
+            register,
+
+            emailSent,
+            sendSeconds
         }
     }
 })

@@ -58,7 +58,7 @@ export default defineComponent({
   -moz-box-sizing: content-box;
   min-width:480px;
   min-height: 558px;
-  background-image: url("../../assets/img/hat-bg.png");
+  /*background-image: url("../../assets/img/hat-bg.png");*/
   background-repeat: no-repeat;
   background-position-x: 95%;
   background-position-y: 5%;

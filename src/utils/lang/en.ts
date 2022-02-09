@@ -49,7 +49,7 @@ export default {
             service2: 'Blockchian Plaform Testing Service',
         },
         productStr: {
-            product1: 'Vaas',
+            product1: 'Beosin-Vaas',
             product2: 'Eagle Eye',
         },
         language: {
@@ -63,7 +63,7 @@ export default {
     },
     aboutHerMit: {
         title: 'ABOUT BEOSIN',
-        info1: 'Beosin is a leading global blockchain security brand co-founded by several professors from world-renowned universities. The team consists of 100+ security experts, including 20+ PhDs and postdocs. The core team members have accumulated over 20 years of experience in formal verification technology, cybersecurity, artificial intelligence, and big data mining technology.',
+        info1: 'Beosin is a leading global blockchain security brand co-founded by several professors from world-renowned universities. The team consists of 100+ security experts, including 40+ PhDs and postdocs. The core team members have accumulated over 20 years of experience in formal verification technology, cybersecurity, artificial intelligence, and big data mining technology.',
         info2: 'Beosin product series include smart contract audit service, blockchain platform audit service, smart contract detection product, and ‘Eagle Eye’ product. Through security audits of more than 2,000 smart contracts and 50+ public blockchains worldwide, Beosin has successfully protected nearly $10 billion of assets and has been fully recognized by global partners.'
     },
     home: {
@@ -93,7 +93,7 @@ export default {
         serviceIc11: 'Asset Security Audit',
         serviceIc12: 'Application-layer Security Audit',
 
-        productName1: 'VAAS',
+        productName1: 'BEOSIN-VAAS',
         productDesc1: 'The industry-leading security analysis platform for smart contracts with multi-dimensional detection capabilities such as static scanning, fuzzy testing, and formal verification, which can automatically discover known and unknown vulnerabilities and business logic issues in smart contracts and provide professional comments or revisions.',
         productFeature1: 'Known Vulnerabilities',
         productFeature2: 'Unknown Vulnerabilities',
@@ -411,7 +411,7 @@ export default {
     aboutUsPage: {
         title: 'ABOUT US',
         titleDesc: 'Securing the blockchain ecosystem is our only mission',
-        descInfo1: 'Beosin is a leading global blockchain security brand co-founded by several professors from world-renowned universities. The team consists of 100+ security experts, including 20+ PhDs and postdocs. The core team members have accumulated over 20 years of experience in formal verification technology, cybersecurity, artificial intelligence, and big data mining technology.\n' +
+        descInfo1: 'Beosin is a leading global blockchain security brand co-founded by several professors from world-renowned universities. The team consists of 100+ security experts, including 40+ PhDs and postdocs. The core team members have accumulated over 20 years of experience in formal verification technology, cybersecurity, artificial intelligence, and big data mining technology.\n' +
             'Beosin product series include smart contract audit service, blockchain platform audit service, smart contract detection product, and ‘Eagle Eye’ product. Through security audits of more than 2,000 smart contracts and 50+ public blockchains worldwide, Beosin has successfully protected nearly $10 billion of assets and has been fully recognized by global partners.',
         descInfo2: '',
         descIcon1: '20+',
@@ -458,6 +458,7 @@ export default {
         tipPassword: 'Please enter your password',
         tipAccount: 'Please enter your email',
         tipProject: 'Please select Project',
+        tipWait:'Please wait a moment',
         tipPasswordConfirm: 'Please enter the code again',
         tipVerCode: 'Please enter the verification code',
         tipTwicePassword: ' The two passwords are inconsistent',
