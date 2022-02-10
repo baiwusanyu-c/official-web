@@ -33,8 +33,9 @@
         <div class='mb-8 flex w-full md:mb-4'>
             <input type="text" v-model="form.verification_code" class="w-9/12 login-input border h-12 flex-1 font-format"/>
             <div class="bg-mainG cursor-pointer flex items-center justify-center w-32" @click="verifyCodeMail">
-                <img v-show="!emailSent" src="../../assets/img/send-vr-code.png" alt=""/>
-                <span v-show="emailSent" style="color: #606266">{{sendSeconds}}s</span>
+                <img v-show="!emailSent&&!sending" src="../../assets/img/send-vr-code.png" alt=""/>
+                <span v-show="sending" style="color: #606266">...</span>
+                <span v-show="emailSent&&!sending" style="color: #606266">{{sendSeconds}}s</span>
             </div>
         </div>
         <be-button @click="register"
@@ -121,6 +122,7 @@ export default defineComponent({
          */
         const sendSeconds = ref<number>(10)
         const emailSent = ref<boolean>(false)
+        const sending = ref<boolean>(false)
         // 如果邮件发送开始计时
         watch(emailSent,()=>{
             let time = sendSeconds.value*1000
@@ -151,7 +153,7 @@ export default defineComponent({
             }
         })
         const verifyCodeMail = ():void =>{
-            if(emailSent.value){
+            if(emailSent.value||sending.value){
                 message('warning',t('lang.login.tipWait'),'hermit-msg')
                 return
             }
@@ -162,8 +164,10 @@ export default defineComponent({
             const params:IMailCode = {
                 userName:String(form.value.account)
             }
+            sending.value = true
             verifyCode(params).then((res:any)=>{
                 if(res.code === 200){
+                    sending.value = false
                     // 邮件已发送开始计时
                     emailSent.value = true
                     message('success',t('lang.sendSuccess'),'hermit-msg')
@@ -171,6 +175,7 @@ export default defineComponent({
 
             }).catch(err=>{
                 message('warning',err.message,'hermit-msg')
+                sending.value = false
                 console.error(err)
             })
         }
@@ -206,7 +211,8 @@ export default defineComponent({
             register,
 
             emailSent,
-            sendSeconds
+            sendSeconds,
+            sending
         }
     }
 })
