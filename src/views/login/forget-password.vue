@@ -64,7 +64,7 @@
 </template>
 
 <script lang="ts">
-    import {defineComponent, onMounted, ref, watch} from "vue";
+    import {defineComponent, ref, onMounted} from "vue";
 import {forgetPassword, verifyCodePassword,IMailCode,IForgetPassword} from "../../api/login";
 import {useI18n} from "vue-i18n";
 import {verEmail} from "../../utils/common";
@@ -154,35 +154,36 @@ export default defineComponent({
         const sendSeconds = ref<number>(10)
         const emailSent = ref<boolean>(false)
         const sending = ref<boolean>(false)
-        // 如果邮件发送开始计时
-        watch(emailSent,()=>{
-            let time = sendSeconds.value*1000
-            if(emailSent.value){
-                localStorage.setItem('emailSentTime',JSON.stringify(Date.now()))
-                let interval = setInterval(()=>{
-                    if(sendSeconds.value>0){
-                        sendSeconds.value--
-                    }
-                    if(sendSeconds.value===0){
-                        clearInterval(interval)
-                    }
-                },1000)
-                // 限制10s时间
-                setTimeout(()=>{
-                    emailSent.value=false
-                },time)
-            }else{
-                sendSeconds.value = 10
-            }
-        })
-        // 确保页面刷新之后用户发送邮件所经过的时间是否超过限制
         onMounted(()=>{
-            if(Date.now() - JSON.parse(localStorage.getItem('emailSentTime')) < 10000){
-                sendSeconds.value = 10 - parseInt((Date.now() - JSON.parse(localStorage.getItem('emailSentTime')))/1000)
-                emailSent.value = true
-                localStorage.setItem('emailSentTime',JSON.stringify(Date.now()))
-            }
+            ifReload()
         })
+
+        // 页面重新加载时的函数
+        const ifReload = ():void => {
+            // 确保页面刷新之后用户发送邮件所经过的时间是否超过限制
+            let time = Date.now() - JSON.parse(`${(localStorage.getItem('emailSentTime') !== null) ? localStorage.getItem('emailSentTime'):0}`)
+            console.log(time)
+            time = parseInt(`${time/1000}`)
+            if(time < 10){
+                sendSeconds.value = 10 - time
+                countDown()
+            }
+        }
+
+        // 倒计时函数
+        const countDown = ():void => {
+            emailSent.value = true
+            let interval = setInterval(()=>{
+                if(sendSeconds.value > 0){
+                    sendSeconds.value--
+                }else{
+                    clearInterval(interval)
+                    sendSeconds.value = 10
+                    emailSent.value = false
+                }
+            },1000)
+        }
+
         const verifyCodeMail = ():void =>{
             if(emailSent.value||sending.value){
                 message('warning',t('lang.login.tipWait'),'hermit-msg')
@@ -195,14 +196,15 @@ export default defineComponent({
             const params:IMailCode = {
                 userName:String(form.value.account)
             }
+            // 发送中，防止用户连续点击两次
             sending.value = true
             verifyCodePassword(params).then((res:any)=>{
                 if(res.code === 200) {
                     sending.value = false
-                    // 邮件已发送开始计时
-                    emailSent.value = true
-                    localStorage.setItem('emailSentTime',JSON.stringify(Date.now()))
                     message('success',t('lang.sendSuccess'),'hermit-msg')
+                    localStorage.setItem('emailSentTime',JSON.stringify(Date.now()))
+                    // 邮件已发送开始计时
+                    countDown()
                 }
             }).catch(err=>{
                 message('warning',err.message,'hermit-msg')
