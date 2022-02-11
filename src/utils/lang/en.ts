@@ -71,11 +71,11 @@ export default {
         title2: 'BLOCKCHAIN ECOSYSTEM',
         mgtitle1: 'Smart contract security audit',
         mgtitle2: 'Blockchain platform security audit',
-        mgtitle3: 'BEOSIN-VAAS',
+        mgtitle3: 'Beosin-VAAS',
         mgtitle4: 'Beosin-Eagle Eye',
 
         titleCard1: 'A Full Analysis of the MonoX Attack',
-        titleCardInfo1: 'On November 30, Hermit detected that MonoX, an automatic market maker protocol,suffered a flash loan ',
+        titleCardInfo1: 'On November 30, Beosin detected that MonoX, an automatic market maker protocol,suffered a flash loan ',
         more: 'LEARN MORE',
         serviceTitle1: 'Smart Contract Audit',
         serviceInfo1: 'Based on formal verification tools, we identify and eliminate errors and vulnerabilitiesof the code, ensure the consistency of smart contracts’ code and business logic, and provide authoritative security audit reports.',
@@ -93,7 +93,7 @@ export default {
         serviceIc11: 'Asset Security Audit',
         serviceIc12: 'Application-layer Security Audit',
 
-        productName1: 'BEOSIN-VAAS',
+        productName1: 'Beosin-VAAS',
         productDesc1: 'The industry-leading security analysis platform for smart contracts with multi-dimensional detection capabilities such as static scanning, fuzzy testing, and formal verification, which can automatically discover known and unknown vulnerabilities and business logic issues in smart contracts and provide professional comments or revisions.',
         productFeature1: 'Known Vulnerabilities',
         productFeature2: 'Unknown Vulnerabilities',
@@ -433,7 +433,7 @@ export default {
     },
     userCenter: {
         titleBig: 'Personal Center',
-        titleSmall: 'Hermit，always guard your blockchain security',
+        titleSmall: 'Beosin，always guard your blockchain security',
         searchTitle: 'Security Audit Report Search',
         searchInput: 'Please enter the report number',
         download: 'Download all',
@@ -469,7 +469,7 @@ export default {
             downloadReport: 'Download the full report',
             downloadCET: 'Download this audit certificate',
             downloadAll: 'Download all',
-            resultTitle: `The result from Hermit’s audit is`,
+            resultTitle: `The result from Beosin’s audit is`,
             reportNum: 'Audit report number',
             addr: 'Audit address',
             linkAddr: 'Project deployment platform',
@@ -479,8 +479,8 @@ export default {
             tip3: 'to query',
             company: 'Chengdu LianAn Technology Co.Ltd.',
             agreementName: 'Disclaimer:',
-            agreement: `The Audit Report issued by Hermit is related to the services agreed in the relevant service agreement. The Project Party or the Served Party (hereinafter referred to as the "Served Party") can only be used within the conditions and scope agreed in the service agreement. Other third parties shall not transmit, disclose, quote, rely on or tamper with the Audit Report issued for any purpose.
-            The Audit Report issued by Hermit is made solely for the code, and any description, expression or wording contained therein shall not be interpreted as affirmation or confirmation of the project, nor shall any warranty or guarantee be given as to the absolute flawlessness of the code analyzed, the code team, the business model or legal compliance.The Audit Report issued by Hermit is only based on the code provided by the Served Party and the technology currently available to Hermit. However, due to the technical limitations of any organization, and in the event that the code provided by the Served Party is missing information, tampered with, deleted, hidden or subsequently altered, the audit report may still fail to fully enumerate all the risks.The Audit Report issued by Hermit in no way provides investment advice on any project, nor should it be utilized as investment suggestions of any type. This report represents an extensive evaluation process designed to help our customers improve code quality while mitigating the high risks in Blockchain.`
+            agreement: `The Audit Report issued by Beosin is related to the services agreed in the relevant service agreement. The Project Party or the Served Party (hereinafter referred to as the "Served Party") can only be used within the conditions and scope agreed in the service agreement. Other third parties shall not transmit, disclose, quote, rely on or tamper with the Audit Report issued for any purpose.
+            The Audit Report issued by Beosin is made solely for the code, and any description, expression or wording contained therein shall not be interpreted as affirmation or confirmation of the project, nor shall any warranty or guarantee be given as to the absolute flawlessness of the code analyzed, the code team, the business model or legal compliance.The Audit Report issued by Beosin is only based on the code provided by the Served Party and the technology currently available to Beosin. However, due to the technical limitations of any organization, and in the event that the code provided by the Served Party is missing information, tampered with, deleted, hidden or subsequently altered, the audit report may still fail to fully enumerate all the risks.The Audit Report issued by Beosin in no way provides investment advice on any project, nor should it be utilized as investment suggestions of any type. This report represents an extensive evaluation process designed to help our customers improve code quality while mitigating the high risks in Blockchain.`
         },
         reportName:{
             reportName1:'Smart Contract Audit Report',
