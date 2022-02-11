@@ -18,7 +18,7 @@ export default {
     community: 'Community',
     phone: 'phone',
     mail: 'mail',
-    sure: 'SURE',
+    sure: 'Confirm',
     opSuccess: 'option success！',
     opFailed: 'option failed！',
     loginSuccess: 'login success！',
