@@ -40,3 +40,15 @@
   z-index:-1;
   width: 100%;
 }
+
+.h-btn-txt-black,
+.home-product-circle,
+.hexagon-container{
+  transition: all .3s;
+}
+
+.h-btn-txt-black:hover,
+.home-product-circle:hover,
+.hexagon-container:hover{
+  transform: scale(1.2);
+}

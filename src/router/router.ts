@@ -9,7 +9,7 @@ import login from '../views/login/login.vue'
 import aboutUs from '../views/about-us/about-us.vue'
 import report from '../views/report/report.vue'
 import home from '../views/home/home.vue'
-import page404 from '../views/404/404.vue'
+const page404 = () => import('../views/404/404.vue')
 import test from '../views/test.vue'
 const routes = [
     {

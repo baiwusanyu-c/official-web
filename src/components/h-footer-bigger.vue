@@ -6,16 +6,16 @@
 */
 <template>
     <div class="bg-footer-container bg-footer">
-        <div class="footer-class">
-            <p class="font-format">{{$t('lang.HFooterBigger.contact.contactTitle')}}</p>
-            <div class="contact-us">
-                <n-icon size="30px">
+        <div class="footer-class footer-class-1d5">
+            <p class="footer-title text-lg font-format sm:text-base">{{$t('lang.HFooterBigger.contact.contactTitle')}}</p>
+<!--            <div class="contact-us">
+                <n-icon class="footer-icon">
                     <location-sharp/>
                 </n-icon>
                 <div class="contact-us-text font-format">{{$t('lang.HFooterBigger.contact.locationRoad')}}<br/>
                     {{$t('lang.HFooterBigger.contact.locationSingapore')}}
                 </div>
-            </div>
+            </div>-->
 <!--            <div class="contact-us">
                 <n-icon size="30px">
                     <phone-portrait-outline/>
@@ -23,29 +23,32 @@
                 <div class="contact-us-text">+86-028-8326-2585</div>
             </div>-->
             <div class="contact-us">
-                <n-icon size="30px">
+                <n-icon class="footer-icon">
                     <mail-sharp/>
                 </n-icon>
-                <div class="contact-us-text font-format">hermitmarket@gmail.com</div>
+                <div class="contact-us-text font-format">contact@beosin.com</div>
             </div>
         </div>
         <div class="footer-class">
-            <p class="font-format mb-2">{{$t('lang.HFooterBigger.group')}}</p>
-            <div>
-                <n-icon size="30px" class="group" @click="openWin(linkConfig['twitter'])"><logo-twitter/></n-icon>
-                <n-icon size="30px" class="group" @click="openWin(linkConfig['telegram'])"><telegram/></n-icon>
-                <n-icon size="30px" class="group" @click="openWin(linkConfig['github'])"><logo-github/></n-icon>
+            <p class="footer-title text-lg font-format mb-2 sm:text-base">{{$t('lang.HFooterBigger.group')}}</p>
+            <div class="flex flex-wrap ">
+                <n-icon class="group group-mr" @click="openWin(linkConfig['twitter'])"><logo-twitter/></n-icon>
+                <n-icon class="group group-mr" @click="openWin(linkConfig['telegram'])"><telegram/></n-icon>
+                <n-icon class="group group-mr group-mr-0" @click="openWin(linkConfig['github'])"><logo-github/></n-icon>
                 <n-popover trigger="hover"
                            color="#00FFBA" raw placement="bottom">
                     <template #trigger>
-                        <n-icon size="30px" class="group"><logo-wechat/></n-icon>
+                        <n-icon class="group sm:hidden"><logo-wechat/></n-icon>
                     </template>
-                    <div><img src="../assets/img/wechat-code.jpg" height="100" width="100"/></div>
+                    <div><img src="../assets/img/wechat-code.jpg" height="100" width="100" alt="" /></div>
                 </n-popover>
             </div>
+            <img src="../assets/img/wechat-code.jpg"
+                 class="display-none mt-4 sm:flex"
+                 height="100" width="100" alt="" />
         </div>
-        <div class="footer-class">
-            <p class="font-format">{{$t('lang.HFooterBigger.policy.policyTitle')}}</p>
+        <div class="footer-class sm:hidden">
+            <p class="footer-title text-lg font-format">{{$t('lang.HFooterBigger.policy.policyTitle')}}</p>
             <div class="policy-class" @click="openWin(linkConfigPolicy['conditions'])">
                 <div class="text-point"></div>
                 <div class="policy-text font-format">{{$t('lang.HFooterBigger.policy.terms')}}</div>
@@ -56,7 +59,7 @@
             </div>
         </div>
     </div>
-    <div class="h-6 flex justify-center items-center font-format">©2021 by Hermit. All Rights Reserved.</div>
+<!--    <div class="h-6 flex justify-center items-center font-format">©2021 by Hermit. All Rights Reserved.</div>-->
 </template>
 <script lang="ts">
 import {defineComponent} from "vue";
@@ -95,8 +98,7 @@ export default defineComponent({
   height: 21rem;
 }
 
-p{
-  font-size: 18px;
+.footer-title{
   font-weight: 500;
   line-height: 50px;
   color: #ECECEC;
@@ -110,7 +112,7 @@ p{
 
 .footer-class{
   width: 345px;
-  height: 200px;
+  height: 220px;
   margin-top: 60px;
 }
 
@@ -123,12 +125,21 @@ p{
 
 .contact-us-text{
   padding-left: 5px;
+  word-break: break-all;
 }
 
 .group{
-  margin-right: 32px;
+  font-size: 30px;
   cursor:pointer;
   transition: all .5s ease;
+}
+
+.group-mr{
+  margin-right: 32px;
+}
+
+.footer-icon{
+  font-size: 30px;
 }
 
 .group:hover{
@@ -174,5 +185,43 @@ p{
 .policy-class:hover  .policy-text {
   color: #02FBBB;
   transition: all .5s ease;
+}
+@media screen and (min-width: 100px) and (max-width: 1278px) {
+
+  .bg-footer-container{
+    display: flex;
+    justify-content: space-between;
+    @apply py-12 px-6;
+  }
+
+  .contact-us-text{
+    font-size: 12px;
+  }
+
+  .footer-class{
+    flex: 1;
+    width: 50%;
+    margin-top: 0;
+  }
+
+  .footer-class-1d5{
+    flex: 1.5
+  }
+
+  .group{
+    font-size: 25px;
+  }
+
+  .group-mr{
+    margin-right: 10px;
+  }
+
+  .group-mr-0{
+    margin-right: 0;
+  }
+
+  .footer-icon{
+    font-size: 25px;
+  }
 }
 </style>

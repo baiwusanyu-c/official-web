@@ -189,7 +189,7 @@ export const isHTMLElement = (val: unknown) => toRawType(val).startsWith('HTML')
 export const isFunction = (val: unknown) => Object.prototype.toString.call(val) === '[object Function]'
 // 邮箱校验
 export const verEmail = (val:string) => {
-    return /^(\w)+((\.\w+)|(\-\w+))*@(\w|\-)+((\.\w+)+)$/.test(val)
+    return /^[\.a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(val)
 }
 export const formatDate = (timestamp:Date, formats:string) => {
     // formats格式包括

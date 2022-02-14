@@ -1,11 +1,10 @@
 <template>
-    <div>
+    <div class='user-center'>
         <div class="page-header">
             <!--{{$t('lang.HFooterBigger.contact.locationRoad')}}-->
             <div class="title-big font-format">{{ $t('lang.userCenter.titleBig') }}</div>
             <div class="title-small font-format">{{ $t('lang.userCenter.titleSmall') }}</div>
         </div>
-
         <div class="search">
             <div class="search-up">
                 <span class="font-format">{{ $t('lang.userCenter.searchTitle') }}</span>
@@ -19,7 +18,7 @@
                             <search/>
                         </n-icon>
                     </n-button>
-                    <n-button class="search-btn ml-2" @click="getList('reset')">
+                    <n-button class="search-btn ml-2" @click="searchParams = '';getList('reset')">
                         <n-icon size="20px">
                             <Refresh/>
                         </n-icon>
@@ -31,7 +30,7 @@
                 </div>
             </div>
         </div>
-        <div class="page-table">
+        <div class="page-table bg-white">
             <div class="table-body">
                 <n-data-table :theme-overrides="builtinThemeOverrides" :columns="columns" :data="auditReport"/>
                 <div class="flex justify-center mt-6">
@@ -52,7 +51,7 @@ import {h, defineComponent, getCurrentInstance, ref, onMounted, reactive} from "
 import {NInput, NButton, NIcon, NDataTable, DataTableProps, NPagination} from "naive-ui";
 import {
     IReportList,
-    IReportListRes, ISearchReport, searchReport,
+    IReportListRes,
     verifyCode
 } from "../../api/personal";
 import {downLoadZip} from "../../utils/zipdownload";
@@ -85,6 +84,7 @@ export default defineComponent({
             t('lang.report.reportName.reportName3'),
             t('lang.report.reportName.reportName4'),
             t('lang.report.reportName.reportName5'),
+            t('lang.report.reportName.reportName6'),
         ])
         const openFlagDict = ref<Array<string>>([
             t('lang.private'),
@@ -101,15 +101,25 @@ export default defineComponent({
                 },
                 {
                     title: t('lang.userCenter.tableName'),
-                    key: 'reportName'
+                    key: 'reportName',
+                    ellipsis: {
+                        tooltip: true
+                    }
                 },
                 {
                     title: t('lang.userCenter.tableType'),
-                    key: 'reportTypeName'
+                    key: 'reportTypeName',
+                    ellipsis: {
+                        tooltip: true
+                    }
+
                 },
                 {
                     title: t('lang.userCenter.tableTime'),
-                    key: 'updateTime'
+                    key: 'updateTime',
+                    ellipsis: {
+                        tooltip: true
+                    }
                 },
                 {
                     title: t('lang.userCenter.tableSetting'),
@@ -124,7 +134,7 @@ export default defineComponent({
                                 NIcon,
                                 {
                                     style: {cursor: 'pointer'},
-                                    onClick: openWin.bind(this, '#/report','view_window',()=>setSession('CETInfo', JSON.stringify(row))),
+                                    onClick: openWin.bind(this, '#/report', 'view_window', () => setSession('CETInfo', JSON.stringify(row))),
                                     size: '20px'
                                 },
                                 [h(
@@ -173,37 +183,22 @@ export default defineComponent({
         // 搜索方法
         const searchData = (): void => {
             if (!searchParams.value) {
-                message('warning',t('lang.userCenter.searchInput'),'hermit-msg')
-
+                message('warning', t('lang.userCenter.searchInput'), 'hermit-msg')
                 return
             }
-            const params: ISearchReport = {
-                num: Number(searchParams.value)
-            }
-            searchReport(params).then((res: any) => {
-                if (res.code === 200 && res.data) {
-                    message('success',t('lang.opSuccess'),'hermit-msg')
-                    auditReport.value = handleList([res.data])
-                    paginationReactive.total = res.total
-                } else {
-                    auditReport.value = []
-                    message('warning',t('lang.opFailed'),'hermit-msg')
-                }
-            })
-                .catch(err => {
-                    message('warning',err.message,'hermit-msg')
-                    console.error(err)
-                })
+            getList('reset')
         }
         // 下載單個
         const downloadSingle = async (row: any) => {
-            await downLoadZip(`/website/common/download/single?fileUuid=${row.uuid}&reportNum=${row.reportNum}`, row.reportNum + '.pdf');
+            const prevUrl = String(import.meta.env.VITE_PROJECT_ENV) === 'production' ?  '/hermit/back' :  ''
+            await downLoadZip(`${prevUrl}/website/common/download/single?fileUuid=${row.uuid}&reportNum=${row.reportNum}`, row.reportNum + '.pdf');
         }
         // 下載全部
         const downloadAll = async () => {
             let userInfo: string = getStore('userInfo') as string
-            let fileName = JSON.parse(userInfo).userName + '_' + formatDate(new Date(), 'YmdHis') + '.zip';
-            await downLoadZip(`/website/common/download/batch?belongUser=true`, fileName);
+            let fileName = JSON.parse(userInfo).username + '_' + formatDate(new Date(), 'YmdHis') + '.zip';
+            const prevUrl = String(import.meta.env.VITE_PROJECT_ENV) === 'production' ?  '/hermit/back' :  ''
+            await downLoadZip(`${prevUrl}/website/common/download/batch?belongUser=true`, fileName);
 
         }
         /**
@@ -224,6 +219,7 @@ export default defineComponent({
             const params: IReportList = {
                 pageSize: paginationReactive.pageSize,
                 pageNum: paginationReactive.page,
+                value: searchParams.value
             }
             verifyCode(params).then((res: any) => {
                 if (res.code === 200) {
@@ -231,7 +227,7 @@ export default defineComponent({
                     paginationReactive.total = res.total
                 }
             }).catch(err => {
-                message('warning',err.message,'hermit-msg')
+                message('warning', err.message, 'hermit-msg')
                 console.error(err)
             })
         }
@@ -278,15 +274,15 @@ export default defineComponent({
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 400px;
-  background: url("../../assets/img/user-center.png");
+  height: 320px;
+  background-image: url("../../assets/img/user-center.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .title-big {
   width: 1200px;
-  margin-top: 180px;
+  margin-top: 100px;
   margin-bottom: 10px;
   font-size: 60px;
   font-weight: bold;
@@ -303,7 +299,7 @@ export default defineComponent({
 }
 
 .search {
-  height: 400px;
+  height: 320px;
   background: #EFF2F7;
 
 }
@@ -311,7 +307,7 @@ export default defineComponent({
 .search-up {
   width: 1200px;
   height: 37px;
-  padding-top: 148px;
+  padding-top: 100px;
   margin: auto;
   font-size: 36px;
   font-weight: bold;
@@ -372,7 +368,7 @@ export default defineComponent({
 }
 
 .table-body {
-  width: 1200px;
+  width: 1500px;
   height: 360px;
   padding-top: 36px;
   margin: auto;
@@ -390,6 +386,78 @@ export default defineComponent({
   }
 
 
+}
 
+@media screen and (min-width: 100px) and (max-width: 1278px) {
+
+  .page-header {
+    height: initial;
+    padding: 30px;
+    background-image: none;
+  }
+
+  .user-center .title-big {
+    width: 100%;
+    margin: 0;
+    font-size: 35px;
+    line-height: 1.5;
+  }
+
+  .user-center .title-small {
+    width: 100%;
+    height: initial;
+    padding-top: 20px;
+    font-size: 20px;
+    line-height: 1.5;
+  }
+
+  .user-center .search {
+    box-sizing: border-box;
+    height: initial;
+    padding: 30px;
+  }
+
+
+  .user-center .search .search-up {
+    padding: 0;
+    @apply text-lg w-full mb-4;
+
+  }
+
+  .user-center .search .search-down {
+    height: initial;
+    @apply m-0 flex-col w-full
+    }
+
+  .user-center .search .search-class {
+    @apply w-full items-center
+    }
+
+  .user-center .search .search-input {
+    height: 50px;
+    margin-right: 10px;
+    @apply w-full;
+  }
+
+  .user-center .search .search-btn {
+    width: 50px;
+    height: 50px;
+  }
+
+  .user-center .download-btn {
+    height: 50px;
+    @apply mt-4 w-full;
+  }
+
+  .user-center .page-table {
+    box-sizing: border-box;
+    height: initial;
+    padding: 30px;
+  }
+
+  .user-center .table-body{
+    width: 100%;
+    height: initial;
+  }
 }
 </style>

@@ -6,10 +6,10 @@
 */
 <template>
     <swiper
-        :slidesPerView="4"
-        :spaceBetween="10"
+        :slidesPerView="slidesPerView"
+        :spaceBetween="spaceBetween"
         :centerInsufficientSlides="true"
-        :initialSlide="1"
+        :initialSlide="0"
         :slidesPerGroup="1"
         :loopFillGroupWithBlank="true"
         :pagination="false"
@@ -18,10 +18,10 @@
         <swiper-slide v-for="item in list" :key="item.name + item.info">
             <div class="service-swiper-slide">
                 <div class="swiper-header cursor-pointer"  @click="openWin(item.fileUrl)">
-                    <p class="swiper-header-title font-format">{{item.name}}</p>
+                    <p class="swiper-header-title font-format text-center">{{item.name}}</p>
                 </div>
                 <div class="swiper-footer cursor-pointer"  @click="openWin(item.fileUrl)">
-                    <p class="break-words text-left font-format">{{ item.info }}</p>
+                    <p class="break-words text-left font-format text-justify leading-normal">{{ item.info }}</p>
                 </div>
             </div>
 
@@ -30,7 +30,7 @@
 </template>
 
 <script lang="ts">
-import {defineComponent} from "vue";
+import {defineComponent, ref} from "vue";
 import {Swiper, SwiperSlide} from 'swiper/vue';
 import 'swiper/css';
 import "swiper/css/pagination"
@@ -55,7 +55,16 @@ export default defineComponent({
     },
     setup(props, ctx) {
         const {openWin} = composition(props, ctx)
+        const slidesPerView = ref<number>(3)
+        const spaceBetween = ref<number>(10)
+        const screenWidth = window.screen.width
+        if( 100 < screenWidth && screenWidth < 1278){
+            slidesPerView.value = 3
+            spaceBetween.value = 10
+        }
         return {
+            slidesPerView,
+            spaceBetween,
             openWin,
         };
     }
@@ -70,14 +79,14 @@ export default defineComponent({
 }
 
 .swiper-header{
-    padding: 10px;
-    box-sizing: border-box;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
   width:258px;
   height:193px;
-  background: url('../assets/img/service-contract/swiper-img.png');
+  padding: 10px;
+  background-image: url('../assets/img/service-contract/swiper-img.png');
 }
 
 .swiper-header p{
@@ -149,5 +158,33 @@ export default defineComponent({
     font-size: 12px;
   }
 
+}
+@media screen and (min-width: 100px) and (max-width: 1278px) {
+
+  .myServiceSwiper{
+    width: 85vw;
+  }
+
+  .myServiceSwiper .swiper-header{
+    width:100px;
+    height:110px;
+    background-repeat: round;
+    background-size: 100%;
+  }
+
+  .myServiceSwiper .swiper-header p{
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .myServiceSwiper .swiper-footer{
+    width:100px;
+    height:100px;
+  }
+
+  .myServiceSwiper .swiper-footer p{
+    font-size: 12px;
+    line-height: 1.5;
+  }
 }
 </style>

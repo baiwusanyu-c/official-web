@@ -6,10 +6,10 @@
 */
 export enum linkConfig {
     facebook = 'https://www.facebook.com/profile.php?id=100026616589335',
-    github = 'https://github.com/BeosinBeosin',
+    github = 'https://github.com/Beosin20180329',
     twitter = 'https://twitter.com/Beosin_com',
     telegram = 'https://t.me/+dD8Bnqd133RmNWNl',
-    medium = 'https://beosin.medium.com/',
+    medium = 'https://medium.com/@Beosin',
 }
 
 export enum linkConfigPolicy {
@@ -18,7 +18,7 @@ export enum linkConfigPolicy {
 }
 
 export enum serviceContract {
-    report1 = 'https://beosin.obs.cn-east-3.myhuaweicloud.com/website/hermit/Smart%20contract%20security%20audit%20report%20-%20NFT.docx',
-    report2 = 'https://beosin.obs.cn-east-3.myhuaweicloud.com/website/hermit/Smart%20contract%20security%20audit%20report%20-%20CrossYield-stake.docx',
-    report3 = 'https://beosin.obs.cn-east-3.myhuaweicloud.com/website/hermit/Smart%20contract%20security%20audit%20report%20-%20Huckleberry.docx'
+    report3 = 'https://beosin.obs.cn-east-3.myhuaweicloud.com/website/hermit/Smart%20contract%20security%20audit%20report%20-%20NFT.pdf',
+    report2 = 'https://beosin.obs.cn-east-3.myhuaweicloud.com/website/hermit/Smart%20contract%20security%20audit%20report%20-%20CrossYield-stake.pdf',
+    report1 = 'https://beosin.obs.cn-east-3.myhuaweicloud.com/website/hermit/Smart%20contract%20security%20audit%20report%20-%20Huckleberry.pdf'
 }

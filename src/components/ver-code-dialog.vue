@@ -11,7 +11,7 @@
             ref='moreNodeDialog'
             v-model:is-show="isShow"
             layout="right"
-            customClass="request-quote-dialog"
+            customClass="request-quote-dialog font-format"
             escExit
             :isDrag="false"
             @close="test"
@@ -19,21 +19,18 @@
             <template #headerIcon>
                 <be-icon icon="deleteIc" @click="isShow = false"></be-icon>
             </template>
-            <template #body>
-                <div slot="body" class="plus-dialog-body flex flex-col justify-center items-center w-full">
-                    <div class="flex w-full mb-12">
-                        <div class="flex-1 mr-6">
-                            <n-input  v-model:value="formData.code"
-                                      :onInput = "formData.code = formData.code.replace(/[^\d]/g,'')"
-                                      size="large"/>
-                        </div>
-                        <div class="flex-1" @click="getCode(formData)">
-                            <img :src="codeUrl" alt="" style="height: 40px"/>
-                        </div>
-                    </div>
-
-                </div>
-            </template>
+             <div class="plus-dialog-body flex flex-col justify-center items-center w-full">
+                 <div class="flex w-full mb-12">
+                     <div class="flex-1 mr-6">
+                         <n-input  v-model:value="formData.code"
+                                   :onInput = "formData.code = formData.code.replace(/[^\d]/g,'')"
+                                   size="large"/>
+                     </div>
+                     <div class="flex-1" @click="getCode()">
+                         <img :src="codeUrl" alt="" style="height: 40px"/>
+                     </div>
+                 </div>
+             </div>
             <template #footer>
                 <be-button  customClass="sure-btn" round="3" @click="submit">
                     <span class="font-format">{{$t('lang.sure')}}</span>
@@ -46,7 +43,7 @@
 
 <script lang="ts">
 import {watch, defineComponent, ref} from "vue";
-import {useI18n} from "vue-i18n";
+import {useI18n,ComposerTranslation} from "vue-i18n";
 import {NInput} from "naive-ui";
 import {getReportByCode, IReportCode} from "../api/service";
 import {setSession} from "../utils/common";
@@ -76,7 +73,7 @@ export default defineComponent({
             const params:IReportCode = {
                 num: formData.value.num,
                 code: formData.value.code,
-                uuid: formData.value.uuid
+                uuid: uuid.value
             }
             getReportByCode(params).then((res: any) => {
                 if (res.code === 200 && res.data) {
@@ -86,19 +83,20 @@ export default defineComponent({
                     handleClose()
                 }else{
                     message('warning',t('lang.noResults'),'hermit-msg')
-
+                    getCode()
                 }
             }).catch(err => {
                 message('warning',err.message,'hermit-msg')
+                getCode()
                 console.error(err)
             })
         }
-        const {codeUrl,getCode} = composition(props, ctx)
+        const {codeUrl,getCode,uuid} = composition(props, ctx)
         watch(isShow,(nVal:boolean)=>{
             if(nVal){
                 formData.value.num = props.num && parseInt(props.num) || undefined
                 formData.value.code = ""
-                getCode(formData)
+                getCode()
             }
         })
         return {

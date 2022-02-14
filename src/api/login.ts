@@ -52,7 +52,7 @@ export interface IForgetPassword {
 }
 export function forgetPassword(params:IForgetPassword){
     return request({
-        url: '/system/user/new_official_website/email/password/forget',
+        url: '/system/user/official_site_sg_system/email/password/forget',
         method: 'post',
         params,
     })

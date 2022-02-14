@@ -5,29 +5,22 @@
 * @update (czh 2021/12/24)
 */
 <template>
-    <div class="test">
-        <div class="container">
-            <n-select v-model:value="data" placeholder="Select" size="large" :options="selectList"/>
-        </div>
+    <div class="test" @click="asd.foo = 2">
+      {{asd.foo}}
     </div>
 </template>
 
 <script lang="ts">
-import {NSelect} from "naive-ui";
-import {defineComponent,ref} from "vue";
+import {defineComponent,ref,reactive,effect} from "vue";
+import RollNum from "../components/roll-num.vue";
+
 export default defineComponent({
     name: "test",
-    components: {NSelect},
+    components: {RollNum},
     setup() {
-        const data = ref<string>('')
-        const show = ref<boolean>(true)
-        const selectList = ref([{
-            label: 'test1', value: 'value1'
-        }])
+        const asd = reactive({foo:1})
         return {
-            data,
-            show,
-            selectList
+            asd
         }
     }
 })
@@ -35,19 +28,20 @@ export default defineComponent({
 
 <style >
 .test{
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    height: 100%;
-    width: 100%;
-    justify-content: center;
-    z-index: 2077;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2077;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
+
 .container {
-    width:300px;
-    height: 300px;
-    background-color: #f0f9eb;
-    @apply self-center;
+  width:300px;
+  height: 300px;
+  background-color: #f0f9eb;
+  @apply self-center;
 }
 </style>

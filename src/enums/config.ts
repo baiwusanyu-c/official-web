@@ -2,9 +2,9 @@
 import {IOption} from "../utils/types";
 
 enum productionUrl {
-    baseURL = 'http://hermit.com.sg',
+    baseURL = 'https://beosin.com',
     authBaseURL = '',
-    imgURL = 'http://hermit.com.sg',
+    imgURL = 'https://beosin.com',
     codeURL = 'https://www.github.com',
     helpURL = 'https://www.github.com',
 }

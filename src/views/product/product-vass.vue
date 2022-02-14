@@ -8,90 +8,76 @@
     <div class="product-page" id="product_vass">
         <!--    头部介绍    -->
         <div class="page-head">
-            <div class="header-text mr-1/2">
+            <div class="header-text">
                 <div class="header-text-big font-format">
-                   {{$t('lang.product.vass.title')}}
+                    {{ $t('lang.product.vass.title') }}
                 </div>
-                <div class="header-text-small font-format">
-                    {{$t('lang.product.vass.subTitle')}}
+                <div class="header-text-small font-format leading-normal">
+                    {{ $t('lang.product.vass.subTitle') }}
                 </div>
-<!--                <be-button customClass="try-out-btn h-btn-txt-black linear-l-r text-black text-xl">{{$t('lang.tryoutBtn') }}</be-button>-->
+                 <img alt="" src="../../assets/img/vaas-logo.png" class="display-none w-36 h-36 mt-10 mx-auto sm:flex">
+<!--                <be-button customClass="try-out-btn h-btn-txt-black linear-l-r text-black text-xl "
+                           @click="openWin(`https://vaas.lianantech.com/#/login?token=${getStore('token')}&lang=${getStore('lang')}`,'vaas')">
+                    <span class="font-format sm:text-base">{{ $t('lang.tryoutBtn') }}</span>
+                </be-button>-->
             </div>
         </div>
         <!--    文字介绍 & 走马灯   -->
-        <div class="flex items-center justify-center bg-default text-center py-16 box-border w-full flex-col">
-            <p class="w-1/2 text-lg font-format md:w-3/4"> {{$t('lang.product.vass.desc')}}</p>
+        <div class="flex items-center justify-center bg-default text-center py-16 box-border w-full flex-col sm:py-8">
+            <p class="product-desc text-lg font-format text-justify leading-normal sm:text-xs"> {{ $t('lang.product.vass.desc') }}</p>
             <!--     走馬燈      -->
-            <div class="mt-10 product-swiper w-1/2 md:w-3/4">
+            <div class="product-desc mt-10 product-swiper w-full h-full">
                 <h-product-swiper></h-product-swiper>
             </div>
         </div>
         <!--    主要功能   -->
-        <div class="func-container flex flex-col py-16 items-center justify-center bg-mainBlueGary box-border">
-            <h2 class="text-4xl font-bold mb-16 font-format"> {{$t('lang.product.vass.funcTitle')}}</h2>
-            <div class="flex w-full items-center justify-center">
-                <div class="func-card  bg-default flex flex-col items-center justify-start shadow-2xl mx-8 p-8 box-border rounded">
-                    <h3 class="text-lg font-bold mb-8 text-center h-12 font-format"> {{$t('lang.product.vass.funcSubTitle1')}}</h3>
-                    <img class='mb-8' src="../../assets/img/func1.png" alt="">
-                    <p class="font-format"> {{$t('lang.product.vass.funcDesc1')}}</p>
+        <div class="func-container flex flex-col py-16 items-center justify-center bg-mainBlueGary box-border sm:py-8">
+            <h2 class="text-4xl font-bold mb-16 font-format sm:text-lg sm:mb-8"> {{ $t('lang.product.vass.funcTitle') }}</h2>
+            <div class="flex w-full items-center justify-center sm:flex-wrap">
+                <div
+                    class="func-card  bg-default flex flex-col items-center justify-start shadow-2xl mx-8 p-8 box-border rounded sm:mx-2 sm:p-2">
+                    <h3 class="text-lg font-bold mb-8 text-center h-12 font-format sm:text-xs sm:mb-4">
+                        {{ $t('lang.product.vass.funcSubTitle1') }}</h3>
+                    <img class='mb-8 sm:mb-4' src="../../assets/img/func1.png" alt="">
+                    <p class="font-format text-center leading-normal sm:text-xs"> {{ $t('lang.product.vass.funcDesc1') }}</p>
                 </div>
-                <div class="func-card  bg-default flex flex-col items-center justify-start shadow-2xl mx-8 p-8 box-border rounded">
-                    <h3 class="text-lg font-bold mb-8 text-center h-12 font-format"> {{$t('lang.product.vass.funcSubTitle2')}}</h3>
-                    <img class='mb-8' src="../../assets/img/func2.png" alt="">
-                    <p class="font-format"> {{$t('lang.product.vass.funcDesc2')}}</p>
+                <div
+                    class="func-card  bg-default flex flex-col items-center justify-start shadow-2xl mx-8 p-8 box-border rounded sm:mx-2 sm:p-2">
+                    <h3 class="text-lg font-bold mb-8 text-center h-12 font-format sm:text-xs sm:mb-4">
+                        {{ $t('lang.product.vass.funcSubTitle2') }}</h3>
+                    <img class='mb-8 sm:mb-4' src="../../assets/img/func2.png" alt="">
+                    <p class="font-format text-center leading-normal sm:text-xs"> {{ $t('lang.product.vass.funcDesc2') }}</p>
                 </div>
-                <div class="func-card  bg-default flex flex-col items-center justify-start shadow-2xl mx-8 p-8 box-border rounded">
-                    <h3 class="text-lg font-bold mb-8 text-center h-12 font-format"> {{$t('lang.product.vass.funcSubTitle3')}}</h3>
-                    <img class='mb-8' src="../../assets/img/func3.png" alt="">
-                    <p class="font-format"> {{$t('lang.product.vass.funcDesc3')}}</p>
+                <div
+                    class="func-card  bg-default flex flex-col items-center justify-start shadow-2xl mx-8 p-8 box-border rounded sm:mx-2 sm:p-2 sm:mt-4">
+                    <h3 class="text-lg font-bold mb-8 text-center h-12 font-format sm:text-xs sm:mb-4">
+                        {{ $t('lang.product.vass.funcSubTitle3') }}</h3>
+                    <img class='mb-8 sm:mb-4' src="../../assets/img/func3.png" alt="">
+                    <p class="font-format text-center leading-normal sm:text-xs"> {{ $t('lang.product.vass.funcDesc3') }}</p>
                 </div>
-                <div class="func-card  bg-default flex flex-col items-center justify-start shadow-2xl mx-8 p-8 box-border rounded">
-                    <h3 class="text-lg font-bold mb-8 text-center h-12 font-format"> {{$t('lang.product.vass.funcSubTitle4')}}</h3>
-                    <img class='mb-8' src="../../assets/img/func4.png" alt="">
-                    <p class="font-format"> {{$t('lang.product.vass.funcDesc4')}}</p>
+                <div
+                    class="func-card  bg-default flex flex-col items-center justify-start shadow-2xl mx-8 p-8 box-border rounded sm:mx-2 sm:p-2 sm:mt-4">
+                    <h3 class="text-lg font-bold mb-8 text-center h-12 font-format sm:text-xs sm:mb-4">
+                        {{ $t('lang.product.vass.funcSubTitle4') }}</h3>
+                    <img class='mb-8 sm:mb-4' src="../../assets/img/func4.png" alt="">
+                    <p class="font-format text-center leading-normal sm:text-xs "> {{ $t('lang.product.vass.funcDesc4') }}</p>
                 </div>
             </div>
 
         </div>
         <!--    核心特色    -->
-        <div class="advant-container flex  w-full py-16 px-80 flex-col justify-center relative md:px-60" >
+        <div class="advant-container flex  w-full py-16 flex-col justify-center relative px-20b md:px-40 sm:px-4 sm:py-10">
             <video class='absolute left-0 top-0 bottom-0 top-0'
-                   style="z-index: -1;width: 100%;height: 100%;object-fit: fill"
+                   style="z-index: 0;width: 100%;height: 100%;object-fit: fill"
                    key="product-vass-video1"
-                   src="../../assets/video/wave.webm" muted="muted" autoplay="autoplay" loop="loop" ></video>
-            <h2 class="text-4xl font-bold mb-12 text-default text-center font-format"> {{$t('lang.product.vass.advantTitle')}}</h2>
-            <div class="flex justify-center items-center w-full  mb-2">
-                <div class="advant-circle flex justify-center items-center font-bold p-6 text-center text-lg font-format md:p-4">
-                    {{$t('lang.product.vass.advantSubTitle1')}}
-                </div>
-                <div class="flex-1 bg-mainG ml-6 justify-center items-center font-bold p-12 font-format md:p-6"  style="height: min-content">
-                    {{$t('lang.product.vass.advantDesc1')}}
-                </div>
-            </div>
-            <div class="flex justify-center items-center w-full  mb-2">
-                <div class="flex-1 bg-mainG mr-6 justify-center items-center font-bold p-12 font-format md:p-6" style="height: min-content">
-                    {{$t('lang.product.vass.advantDesc2')}}
-                </div>
-                <div class="advant-circle flex justify-center items-center font-bold p-6 text-center text-lg font-format md:p-4">
-                    {{$t('lang.product.vass.advantSubTitle2')}}
-                </div>
-            </div>
-            <div class="flex justify-center items-center w-full mb-6">
-                <div class="advant-circle flex justify-center items-center font-bold p-6 text-center text-lg font-format md:p-4">
-                    {{$t('lang.product.vass.advantSubTitle3')}}
-                </div>
-                <div class="flex-1 bg-mainG ml-6 justify-center items-center font-bold p-12 font-format md:p-6"  style="height: min-content">
-                    {{$t('lang.product.vass.advantDesc3')}}
-                </div>
-            </div>
-            <div class="flex justify-center items-center w-full ">
-                <div class="flex-1 bg-mainG mr-6 justify-center items-center font-bold p-12 font-format md:p-6"  style="height: min-content">
-                    {{$t('lang.product.vass.advantDesc4')}}
-                </div>
-                <div class="advant-circle flex justify-center items-center font-bold p-6 text-center text-lg font-format md:p-4">
-                    {{$t('lang.product.vass.advantSubTitle4')}}
-                </div>
-            </div>
+                   src="../../assets/video/wave.webm" muted="muted" autoplay="autoplay" loop="loop"></video>
+            <h2 class="text-4xl font-bold mb-12 text-default text-center font-format sm:text-lg sm:mb-2" style="z-index: 1">
+                {{ $t('lang.product.vass.advantTitle') }}
+            </h2>
+            <core-advantages :index="1" type="vass"></core-advantages>
+            <core-advantages :index="2" type="vass"></core-advantages>
+            <core-advantages :index="3" type="vass"></core-advantages>
+            <core-advantages :index="4" type="vass"></core-advantages>
         </div>
         <contact-us></contact-us>
         <about-hermit></about-hermit>
@@ -104,17 +90,21 @@ import AboutHermit from "../../components/about-hermit.vue";
 import {defineComponent, ref} from "vue";
 import {useI18n} from "vue-i18n";
 import HProductSwiper from "../../components/h-product-swiper.vue";
+import composition from "../../utils/mixin/common-func";
+import {getStore} from "../../utils/common";
+import CoreAdvantages from "../../components/core-advantages.vue";
 export default defineComponent({
     name: "product-vass",
-    components: {HProductSwiper, AboutHermit, ContactUs},
-    setup(){
+    components: {CoreAdvantages, HProductSwiper, AboutHermit, ContactUs},
+    setup(props, ctx) {
         const {t} = useI18n()
         const funcList = ref([
-            {title:'',desc:''}
+            {title: '', desc: ''}
         ])
-        return {
+        const {openWin} = composition(props, ctx)
 
-        }
+        // https://vaas.lianantech.com/#/login?token=undefined
+        return {openWin,getStore}
     }
 })
 </script>
@@ -122,14 +112,14 @@ export default defineComponent({
 <style>
 @import "../../assets/css/product-page.css";
 
-#product_vass .page-head{
+#product_vass .page-head {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   height: 570px;
   padding: 0 300px 110px 300px;
-  background-color: black;
-  background-image:  url("../../assets/img/vass-bg.png");
+  background-color: #121214;
+  background-image: url("../../assets/img/vass-bg.png");
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -139,7 +129,7 @@ export default defineComponent({
   #product_vass .header-text-small {
     width: 790px;
     font-size: 28px;
-    line-height: 32px;
+    line-height: 1.5;
   }
 }
 </style>

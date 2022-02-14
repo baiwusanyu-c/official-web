@@ -16,7 +16,7 @@ export function downLoadZip(str:string, filename:string) {
         method: 'get',
         url: url,
         responseType: 'blob',
-        headers: { 'Authorization': (getStore('token') === undefined ? '' : getStore('token')) as string }
+        headers: { 'Authorization': (!getStore('token')? '' : 'Bearer ' + getStore('token')) as string }
     }
     return new Promise((resolve, reject) => {
         axios(axiosConfig)

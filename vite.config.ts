@@ -1,13 +1,15 @@
-import { defineConfig } from 'vite'
+import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import path from "path";
+import WindiCSS from 'vite-plugin-windicss'
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-      vue(),
-    vueJsx(),
-  ], /**
+    plugins: [
+        vue(),
+        vueJsx(),
+        WindiCSS(),
+    ], /**
      * 在生产中服务时的基本公共路径。
      * @default '/'
      */
@@ -36,6 +38,7 @@ export default defineConfig({
             },
         },
     },
+    // 定义环境变量
     define: {
         __DEV__: process.env.NODE_ENV == 'production',
         __TEST_PROD__: process.env.NODE_ENV === 'staging',
@@ -56,18 +59,18 @@ export default defineConfig({
              mixins: path.resolve(__dirname, "./src/mixins")*/
         },
     },
-  /*  build: {
-        rollupOptions: {
-            // 确保外部化处理那些你不想打包进库的依赖
-            external: [  path.resolve( __dirname, 'public/be-ui/be-ui.es.js' ),],
-            output: {
-                // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
-                globals: {
-                    vue: 'Vue'
-                }
-            }
-        }
-    },*/
+    /*  build: {
+          rollupOptions: {
+              // 确保外部化处理那些你不想打包进库的依赖
+              external: [  path.resolve( __dirname, 'public/be-ui/be-ui.es.js' ),],
+              output: {
+                  // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
+                  globals: {
+                      vue: 'Vue'
+                  }
+              }
+          }
+      },*/
     esbuild: {
         jsxFactory: 'h',
         jsxFragment: 'Fragment'

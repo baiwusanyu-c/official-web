@@ -5,6 +5,11 @@
   flex-direction: column;
 }
 
+.product-page  .product-desc{
+  box-sizing: border-box;
+  padding: 0 300px;
+}
+
 .product-page .header-text-big{
   width: 780px;
   padding-top: 0;
@@ -21,12 +26,12 @@
   padding-top: 39px;
   font-family: SourceHanSansRegular, sans-serif;
   font-size: 30px;
-  line-height: 30px;
+  line-height: 1.5;
   color: #FFF;
 }
 
 .product-page .try-out-btn{
-  @apply h-12 w-80 font-bold mt-32;
+  @apply h-12 w-80 font-bold mt-32 sm:w-48 sm:h-9;
 }
 
 .product-page .func-container .func-card{
@@ -40,24 +45,44 @@
   box-shadow: 0 25px 50px -12px #02fbbb;
 }
 
-.product-page .advant-container{
-
-  /* background-image:  url("../../assets/img/wave.jpg"); */
-}
-
 .product-page .advant-container .advant-circle{
-  width: 200px;
-  height: 200px;
-  background-image:  url("../../assets/img/advant-circle.png");
+  width: 100px;
+  height: 100px;
   background-repeat: no-repeat;
   background-size: cover;
 }
-@media screen and (min-width: 1536px) and (max-width: 1750px) {
+@media screen and (min-width: 1328px) and (max-width: 1538px) {
 
   #product_vass.product-page .page-head,
   #product_eagle.product-page .page-head{
     height: 480px;
-    padding: 0 120px 80px 120px;
+    padding: 0 160px 80px 160px;
+  }
+
+  .product-page  .product-desc{
+    box-sizing: border-box;
+    padding: 0 160px;
+  }
+
+  .product-page .header-text-small {
+    width: 846px;
+  }
+
+  .product-page .try-out-btn{
+    margin-top: 6rem;
+  }
+}
+@media screen and (min-width: 1540px) and (max-width: 1750px) {
+
+  #product_vass.product-page .page-head,
+  #product_eagle.product-page .page-head{
+    height: 480px;
+    padding: 0 160px 80px 160px;
+  }
+
+  .product-page  .product-desc{
+    box-sizing: border-box;
+    padding: 0 160px;
   }
 }
 @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
@@ -65,11 +90,59 @@
   #product_vass.product-page .page-head,
   #product_eagle.product-page .page-head{
     height: 376px;
-    padding: 0 120px 80px 120px;
+    padding: 0 80px 80px 80px;
+  }
+
+  .product-page  .product-desc{
+    box-sizing: border-box;
+    padding: 0 80px;
   }
 
   .product-page .header-text-big{
     margin-top: 60px;
   }
 
+  .product-page .try-out-btn{
+    margin-top: 3rem;
+  }
+}
+@media screen and (min-width: 100px) and (max-width: 1278px) {
+
+  .hermit-main #product_vass .page-head ,
+  .hermit-main #product_eagle .page-head {
+    padding: 0 30px 10px 30px;
+    background-image: none;
+  }
+
+  .product-page .header-text-big{
+    width: initial;
+    margin-top: 40px;
+    font-size: 35px;
+    line-height: 1.5;
+  }
+
+  .product-page .header-text-small  {
+    width: initial;
+    padding-top: 10px;
+    font-size: 20px;
+  }
+
+  .product-page .try-out-btn{
+    margin-top: 3rem;
+    @apply mx-auto
+  }
+
+  .product-page .product-desc{
+    padding: 0 30px;
+  }
+
+  .product-page .func-container .func-card{
+    width:140px;
+    height: 300px;
+  }
+
+  .product-page .advant-container .advant-circle{
+    width: 36px;
+    height: 36px;
+  }
 }

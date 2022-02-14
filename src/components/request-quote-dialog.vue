@@ -8,43 +8,43 @@
     <div id="request_quote_dialog">
         <n-modal v-model:show="isShow" preset="dialog" :title="$t('lang.header.requestUs')" to="#request_quote_dialog">
             <template #header>
-                <p class="pb-6 md:pb-4">{{$t('lang.header.requestUs')}}</p>
+                <p class="pb-6 font-bold font-format md:pb-4">{{$t('lang.header.requestUs')}}</p>
             </template>
             <div slot="body" class="plus-dialog-body flex flex-col justify-center items-center w-full">
-                <div class="flex w-full mb-8 md:mb-4">
-                    <div class="flex-1 mr-6">
-                        <p class="label">
+                <div class="flex w-full mb-8 md:mb-4 sm:flex-col sm:mb-4 ">
+                    <div class="flex-1 mr-6 sm:mb-4 sm:mr-0">
+                        <p class="label font-format">
                             {{$t('lang.quoteDialog.projectName')}}
                             <span style="color:red">*</span>
                         </p>
                         <n-select v-model:value="formData.type"  placeholder="Select" size="large" :options="selectList" />
                     </div>
-                    <div class="flex-1">
-                        <p class="label">{{$t('lang.quoteDialog.yourName')}}</p>
+                    <div class="flex-1 ">
+                        <p class="label font-format">{{$t('lang.quoteDialog.yourName')}}</p>
                         <n-input  v-model:value="formData.name" size="large"/>
                     </div>
                 </div>
-                <div class="flex flex-col w-full mb-8 md:mb-4">
-                    <p class="label">
+                <div class="flex flex-col w-full mb-8 md:mb-4 sm:mb-4">
+                    <p class="label font-format">
                         {{$t('lang.quoteDialog.email')}}
                         <span style="color:red">*</span>
                     </p>
                     <n-input  v-model:value="formData.email" size="large"/>
                 </div>
-                <div class="flex flex-col w-full mb-8 md:mb-4">
-                    <p class="label">{{$t('lang.quoteDialog.phone')}}</p>
+                <div class="flex flex-col w-full mb-8 md:mb-4 sm:mb-4">
+                    <p class="label font-format">{{$t('lang.quoteDialog.phone')}}</p>
                     <n-input  v-model:value="formData.mobile" size="large"/>
                 </div>
-                <div class="flex flex-col w-full mb-8 md:mb-4">
-                    <p class="label">{{$t('lang.quoteDialog.message')}}</p>
+                <div class="flex flex-col w-full mb-8 md:mb-4 sm:mb-4">
+                    <p class="label font-format">{{$t('lang.quoteDialog.message')}}</p>
                     <n-input
                         v-model:value="formData.message"
                         type="textarea"
                         :autosize="{  minRows: 4, maxRows: 6 }"/>
                 </div>
-                <div class="flex w-full mb-8 md:mb-4">
+                <div class="flex w-full mb-8 md:mb-4 sm:mb-4">
                     <div class="flex-1 mr-6">
-                        <p class="label">{{$t('lang.login.verCode').toUpperCase()}}
+                        <p class="label font-format">{{$t('lang.login.verCode').toUpperCase()}}
                             <span style="color:red">*</span>
                         </p>
                         <n-input  v-model:value="formData.code" size="large"  :onInput = "formData.code=formData.code.replace(/[^\d]/g,'')"/>
@@ -95,13 +95,12 @@ export default defineComponent({
                     name:'',
                     email:'',
                     type:1,
-                    uuid:0,
                     code:"",
                     mobile:'',
                     message:''
                 }
             }else{
-                getCode(formData)
+                getCode()
             }
         })
         /**
@@ -139,7 +138,10 @@ export default defineComponent({
             return true
         }
         const submit = ():void =>{
-            if(!verifyCodeForm()) return
+            if(!verifyCodeForm()) {
+                getCode()
+                return
+            }
             const params:IQuote = {
                 name:formData.value.name,
                 email:formData.value.email,
@@ -147,17 +149,17 @@ export default defineComponent({
                 mobile:formData.value.mobile,
                 message:formData.value.message,
                 code:formData.value.code,
-                uuid:formData.value.uuid,
+                uuid:uuid.value,
             }
             createQuote(params).then((res: any) => {
                 if (res.code === 200) {
                     message('success',t('lang.opSuccess'),'hermit-msg')
-
                     handleClose()
                     //paginationReactive.itemCount = 1
                 }
             }).catch(err => {
                 message('warning',err.message,'hermit-msg')
+                getCode()
                 console.error(err)
             })
         }
@@ -165,7 +167,6 @@ export default defineComponent({
             name:'',
             email:'',
             type:1,
-            uuid:0,
             code:"",
             mobile:'',
             message:''
@@ -177,7 +178,7 @@ export default defineComponent({
               {label:t('lang.projectList.project3'), value:3},
               {label:t('lang.projectList.project4'), value:4}
             ])
-        const {codeUrl,getCode} = composition(props, ctx)
+        const {codeUrl,getCode,uuid} = composition(props, ctx)
 
         return {
             codeUrl,
@@ -193,7 +194,7 @@ export default defineComponent({
 
 <style>
 #request_quote_dialog .n-dialog{
-  width: auto;
+  width: 600px;
   background: #EFF2F7 !important;
   border-top:5px solid #02fbbb;
 }
@@ -203,8 +204,13 @@ export default defineComponent({
 }
 
 #request_quote_dialog .sure-btn{
+  font-family: SourceHanSansNormal, sans-serif !important;
 
   @apply bg-mainG text-black w-28;
+}
+
+#request_quote_dialog .sure-btn .be-button-slot{
+  font-family: SourceHanSansNormal, sans-serif !important;
 }
 
 #request_quote_dialog .plus-dialog-body{
@@ -212,7 +218,7 @@ export default defineComponent({
 }
 
 #request_quote_dialog .plus-dialog-body .label{
-  @apply text-black text-lg mb-2 font-light;
+  @apply text-black text-sm mb-2 font-light;
 }
 
 
