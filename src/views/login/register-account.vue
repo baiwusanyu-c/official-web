@@ -33,7 +33,9 @@
         <div class='mb-8 flex w-full md:mb-4'>
             <input type="text" v-model="form.verification_code" class="w-9/12 login-input border h-12 flex-1 font-format"/>
             <div class="bg-mainG cursor-pointer flex items-center justify-center w-32" @click="verifyCodeMail">
-                <img src="../../assets/img/send-vr-code.png" alt=""/>
+                <img v-show="!emailSent&&!sending" src="../../assets/img/send-vr-code.png" alt=""/>
+                <span v-show="sending" style="color: #606266">...</span>
+                <span v-show="emailSent&&!sending" style="color: #606266">{{sendSeconds}}s</span>
             </div>
         </div>
         <be-button @click="register"
@@ -51,7 +53,7 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, ref} from "vue";
+import {defineComponent, ref, onMounted} from "vue";
 import {registerAccount, verifyCode,IMailCode,IRegister} from "../../api/login";
 import {useI18n} from "vue-i18n";
 import {verEmail} from "../../utils/common";
@@ -118,7 +120,44 @@ export default defineComponent({
         /**
          * 邮箱验证码发送
          */
+        const sendSeconds = ref<number>(10)
+        const emailSent = ref<boolean>(false)
+        const sending = ref<boolean>(false)
+        onMounted(()=>{
+            ifReload()
+        })
+
+        // 页面重新加载时的函数
+        const ifReload = ():void => {
+            // 确保页面刷新之后用户发送邮件所经过的时间是否超过限制
+            let time = Date.now() - JSON.parse(`${(localStorage.getItem('emailSentTime') !== null) ? localStorage.getItem('emailSentTime'):0}`)
+            console.log(time)
+            time = parseInt(`${time/1000}`)
+            if(time < 10){
+                sendSeconds.value = 10 - time
+                countDown()
+            }
+        }
+
+        // 倒计时函数
+        const countDown = ():void => {
+            emailSent.value = true
+            let interval = setInterval(()=>{
+                if(sendSeconds.value > 0){
+                    sendSeconds.value--
+                }else{
+                    clearInterval(interval)
+                    sendSeconds.value = 10
+                    emailSent.value = false
+                }
+            },1000)
+        }
+
         const verifyCodeMail = ():void =>{
+            if(emailSent.value||sending.value){
+                message('warning',t('lang.login.tipWait'),'hermit-msg')
+                return
+            }
             if(!form.value.account){
                 message('warning',t('lang.login.tipAccount'),'hermit-msg')
                 return
@@ -126,13 +165,19 @@ export default defineComponent({
             const params:IMailCode = {
                 userName:String(form.value.account)
             }
+            // 发送中，防止用户连续点击两次
+            sending.value = true
             verifyCode(params).then((res:any)=>{
                 if(res.code === 200){
+                    sending.value = false
                     message('success',t('lang.sendSuccess'),'hermit-msg')
+                    localStorage.setItem('emailSentTime',JSON.stringify(Date.now()))
+                    // 邮件已发送开始计时
+                    countDown()
                 }
-
             }).catch(err=>{
                 message('warning',err.message,'hermit-msg')
+                sending.value = false
                 console.error(err)
             })
         }
@@ -165,7 +210,11 @@ export default defineComponent({
             form,
             changeShowPWord,
             verifyCodeMail,
-            register
+            register,
+
+            emailSent,
+            sendSeconds,
+            sending
         }
     }
 })

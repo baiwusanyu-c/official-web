@@ -18,7 +18,7 @@ export default {
     community: 'Community',
     phone: 'phone',
     mail: 'mail',
-    sure: 'SURE',
+    sure: 'Confirm',
     opSuccess: 'option success！',
     opFailed: 'option failed！',
     loginSuccess: 'login success！',
@@ -28,8 +28,8 @@ export default {
     projectList: {
         project1: 'Smart contract audit',
         project2: 'Blockchain platform detection',
-        project3: 'Vaas',
-        project4: 'Eagle Eye',
+        project3: 'Beosin-Vaas',
+        project4: 'Beosin-Eagle Eye',
     },
     header: {
         nav:'Navigation',
@@ -49,8 +49,8 @@ export default {
             service2: 'Blockchian Plaform Testing Service',
         },
         productStr: {
-            product1: 'Vaas',
-            product2: 'Eagle Eye',
+            product1: 'Beosin-Vaas',
+            product2: 'Beosin-Eagle Eye',
         },
         language: {
             EN: 'EN',
@@ -63,7 +63,7 @@ export default {
     },
     aboutHerMit: {
         title: 'ABOUT BEOSIN',
-        info1: 'Beosin is a leading global blockchain security brand co-founded by several professors from world-renowned universities. The team consists of 100+ security experts, including 20+ PhDs and postdocs. The core team members have accumulated over 20 years of experience in formal verification technology, cybersecurity, artificial intelligence, and big data mining technology.',
+        info1: 'Beosin is a leading global blockchain security brand co-founded by several professors from world-renowned universities. The team consists of 100+ security experts, including 40+ PhDs and postdocs. The core team members have accumulated over 20 years of experience in formal verification technology, cybersecurity, artificial intelligence, and big data mining technology.',
         info2: 'Beosin product series include smart contract audit service, blockchain platform audit service, smart contract detection product, and ‘Eagle Eye’ product. Through security audits of more than 2,000 smart contracts and 50+ public blockchains worldwide, Beosin has successfully protected nearly $10 billion of assets and has been fully recognized by global partners.'
     },
     home: {
@@ -71,11 +71,11 @@ export default {
         title2: 'BLOCKCHAIN ECOSYSTEM',
         mgtitle1: 'Smart contract security audit',
         mgtitle2: 'Blockchain platform security audit',
-        mgtitle3: 'VAAS',
-        mgtitle4: 'Eagle Eye',
+        mgtitle3: 'Beosin-VAAS',
+        mgtitle4: 'Beosin-Eagle Eye',
 
         titleCard1: 'A Full Analysis of the MonoX Attack',
-        titleCardInfo1: 'On November 30, Hermit detected that MonoX, an automatic market maker protocol,suffered a flash loan ',
+        titleCardInfo1: 'On November 30, Beosin detected that MonoX, an automatic market maker protocol,suffered a flash loan ',
         more: 'LEARN MORE',
         serviceTitle1: 'Smart Contract Audit',
         serviceInfo1: 'Based on formal verification tools, we identify and eliminate errors and vulnerabilitiesof the code, ensure the consistency of smart contracts’ code and business logic, and provide authoritative security audit reports.',
@@ -93,14 +93,14 @@ export default {
         serviceIc11: 'Asset Security Audit',
         serviceIc12: 'Application-layer Security Audit',
 
-        productName1: 'VAAS',
+        productName1: 'Beosin-VAAS',
         productDesc1: 'The industry-leading security analysis platform for smart contracts with multi-dimensional detection capabilities such as static scanning, fuzzy testing, and formal verification, which can automatically discover known and unknown vulnerabilities and business logic issues in smart contracts and provide professional comments or revisions.',
         productFeature1: 'Known Vulnerabilities',
         productFeature2: 'Unknown Vulnerabilities',
         productFeature3: 'Logical Correctness',
         productFeature4: 'Support for multiple blockchain platforms',
 
-        productName2: 'Eagle Eye',
+        productName2: 'Beosin-Eagle Eye',
         productDesc2: 'Through real-time monitoring of on-chain transactions, identification of transaction behaviors, and analysis of contract codes, it can discover and alert hacking incidents and contract vulnerabilities, supporting project owner on safe operation and asset protection.',
         productFeature5: 'Transaction Risk Detection',
         productFeature6: 'Contract Risk Identification',
@@ -411,7 +411,7 @@ export default {
     aboutUsPage: {
         title: 'ABOUT US',
         titleDesc: 'Securing the blockchain ecosystem is our only mission',
-        descInfo1: 'Beosin is a leading global blockchain security brand co-founded by several professors from world-renowned universities. The team consists of 100+ security experts, including 20+ PhDs and postdocs. The core team members have accumulated over 20 years of experience in formal verification technology, cybersecurity, artificial intelligence, and big data mining technology.\n' +
+        descInfo1: 'Beosin is a leading global blockchain security brand co-founded by several professors from world-renowned universities. The team consists of 100+ security experts, including 40+ PhDs and postdocs. The core team members have accumulated over 20 years of experience in formal verification technology, cybersecurity, artificial intelligence, and big data mining technology.\n' +
             'Beosin product series include smart contract audit service, blockchain platform audit service, smart contract detection product, and ‘Eagle Eye’ product. Through security audits of more than 2,000 smart contracts and 50+ public blockchains worldwide, Beosin has successfully protected nearly $10 billion of assets and has been fully recognized by global partners.',
         descInfo2: '',
         descIcon1: '20+',
@@ -433,7 +433,7 @@ export default {
     },
     userCenter: {
         titleBig: 'Personal Center',
-        titleSmall: 'Hermit，always guard your blockchain security',
+        titleSmall: 'Beosin，always guard your blockchain security',
         searchTitle: 'Security Audit Report Search',
         searchInput: 'Please enter the report number',
         download: 'Download all',
@@ -458,6 +458,7 @@ export default {
         tipPassword: 'Please enter your password',
         tipAccount: 'Please enter your email',
         tipProject: 'Please select Project',
+        tipWait:'Please wait a moment',
         tipPasswordConfirm: 'Please enter the code again',
         tipVerCode: 'Please enter the verification code',
         tipTwicePassword: ' The two passwords are inconsistent',
@@ -468,7 +469,7 @@ export default {
             downloadReport: 'Download the full report',
             downloadCET: 'Download this audit certificate',
             downloadAll: 'Download all',
-            resultTitle: `The result from Hermit’s audit is`,
+            resultTitle: `The result from Beosin’s audit is`,
             reportNum: 'Audit report number',
             addr: 'Audit address',
             linkAddr: 'Project deployment platform',
@@ -478,8 +479,8 @@ export default {
             tip3: 'to query',
             company: 'Chengdu LianAn Technology Co.Ltd.',
             agreementName: 'Disclaimer:',
-            agreement: `The Audit Report issued by Hermit is related to the services agreed in the relevant service agreement. The Project Party or the Served Party (hereinafter referred to as the "Served Party") can only be used within the conditions and scope agreed in the service agreement. Other third parties shall not transmit, disclose, quote, rely on or tamper with the Audit Report issued for any purpose.
-            The Audit Report issued by Hermit is made solely for the code, and any description, expression or wording contained therein shall not be interpreted as affirmation or confirmation of the project, nor shall any warranty or guarantee be given as to the absolute flawlessness of the code analyzed, the code team, the business model or legal compliance.The Audit Report issued by Hermit is only based on the code provided by the Served Party and the technology currently available to Hermit. However, due to the technical limitations of any organization, and in the event that the code provided by the Served Party is missing information, tampered with, deleted, hidden or subsequently altered, the audit report may still fail to fully enumerate all the risks.The Audit Report issued by Hermit in no way provides investment advice on any project, nor should it be utilized as investment suggestions of any type. This report represents an extensive evaluation process designed to help our customers improve code quality while mitigating the high risks in Blockchain.`
+            agreement: `The Audit Report issued by Beosin is related to the services agreed in the relevant service agreement. The Project Party or the Served Party (hereinafter referred to as the "Served Party") can only be used within the conditions and scope agreed in the service agreement. Other third parties shall not transmit, disclose, quote, rely on or tamper with the Audit Report issued for any purpose.
+            The Audit Report issued by Beosin is made solely for the code, and any description, expression or wording contained therein shall not be interpreted as affirmation or confirmation of the project, nor shall any warranty or guarantee be given as to the absolute flawlessness of the code analyzed, the code team, the business model or legal compliance.The Audit Report issued by Beosin is only based on the code provided by the Served Party and the technology currently available to Beosin. However, due to the technical limitations of any organization, and in the event that the code provided by the Served Party is missing information, tampered with, deleted, hidden or subsequently altered, the audit report may still fail to fully enumerate all the risks.The Audit Report issued by Beosin in no way provides investment advice on any project, nor should it be utilized as investment suggestions of any type. This report represents an extensive evaluation process designed to help our customers improve code quality while mitigating the high risks in Blockchain.`
         },
         reportName:{
             reportName1:'Smart Contract Audit Report',

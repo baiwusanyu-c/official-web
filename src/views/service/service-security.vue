@@ -151,9 +151,9 @@
                         </div>
                     </div>
                     <div class="table-text">
-                        <img alt="" v-show="tableChoseBox === 1" src="../../assets/img/white-box.png" height="241" width="420"/>
-                        <img alt="" v-show="tableChoseBox === 2" src="../../assets/img/gary-box.png" height="241" width="420"/>
-                        <img alt="" v-show="tableChoseBox === 3" src="../../assets/img/black-box.png" height="241" width="420"/>
+                        <img alt="" v-show="tableChoseBox === 1" src="../../assets/img/box-white.png"/>
+                        <img alt="" v-show="tableChoseBox === 2" src="../../assets/img/box-gary.png"/>
+                        <img alt="" v-show="tableChoseBox === 3" src="../../assets/img/box-black.png"/>
                         <div class="table-introduce text-justify">
                             <span class="leading-normal font-format">
                                 {{ boxText }}

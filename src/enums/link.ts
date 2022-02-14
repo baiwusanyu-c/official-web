@@ -18,7 +18,7 @@ export enum linkConfigPolicy {
 }
 
 export enum serviceContract {
-    report1 = 'https://beosin.obs.cn-east-3.myhuaweicloud.com/website/hermit/Smart%20contract%20security%20audit%20report%20-%20NFT.pdf',
+    report3 = 'https://beosin.obs.cn-east-3.myhuaweicloud.com/website/hermit/Smart%20contract%20security%20audit%20report%20-%20NFT.pdf',
     report2 = 'https://beosin.obs.cn-east-3.myhuaweicloud.com/website/hermit/Smart%20contract%20security%20audit%20report%20-%20CrossYield-stake.pdf',
-    report3 = 'https://beosin.obs.cn-east-3.myhuaweicloud.com/website/hermit/Smart%20contract%20security%20audit%20report%20-%20Huckleberry.pdf'
+    report1 = 'https://beosin.obs.cn-east-3.myhuaweicloud.com/website/hermit/Smart%20contract%20security%20audit%20report%20-%20Huckleberry.pdf'
 }
