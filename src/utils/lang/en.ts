@@ -46,7 +46,7 @@ export default {
         },
         serviceStr: {
             service1: 'Smart Contract Audit Service',
-            service2: 'Blockchian Plaform Testing Service',
+            service2: 'Blockchian Plaform Audit Service',
         },
         productStr: {
             product1: 'Beosin-Vaas',
@@ -122,7 +122,7 @@ export default {
     // djd service-security
     serviceSecurity: {
         pageHead: {
-            textBig: 'Beosin - Blockchian Plaform Testing Service',
+            textBig: 'Beosin - Blockchian Plaform Audit Service',
             textSmall: 'Multi-dimensional, multi-round and multi-way detection of blockchain security'
         },
         search: {
