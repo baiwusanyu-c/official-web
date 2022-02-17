@@ -185,8 +185,8 @@ export default defineComponent({
             (curInst?.refs.verCodeDialog as IDialog).isShow = true
         }
         const reportList = [
-            { fileUrl:serviceContract.report1,info: 'SMART CONTRACT AUDIT REPORT', name: 'For CrossYield-stake'},
-            { fileUrl:serviceContract.report2,info: 'SMART CONTRACT AUDIT REPORT', name: 'For Huckleberry'},
+            { fileUrl:serviceContract.report1,info: 'SMART CONTRACT AUDIT REPORT', name: 'For Huckleberry'},
+            { fileUrl:serviceContract.report2,info: 'SMART CONTRACT AUDIT REPORT', name: 'For CrossYield-stake'},
             { fileUrl:serviceContract.report3,info: 'SMART CONTRACT AUDIT REPORT', name: 'For NFT'},
         ]
         const customersNum = ref<number>(0)

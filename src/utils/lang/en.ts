@@ -27,7 +27,7 @@ export default {
     sendFailed: 'send failed！',
     projectList: {
         project1: 'Smart contract audit',
-        project2: 'Blockchain platform detection',
+        project2: 'Blockchain platform audit',
         project3: 'Beosin-Vaas',
         project4: 'Beosin-Eagle Eye',
     },
@@ -45,8 +45,8 @@ export default {
             quit: 'Log Out',
         },
         serviceStr: {
-            service1: 'Smart Contract Audit Service',
-            service2: 'Blockchian Plaform Audit Service',
+            service1: 'Smart Contract Audit',
+            service2: 'Blockchian Platform Audit',
         },
         productStr: {
             product1: 'Beosin-Vaas',
@@ -69,8 +69,8 @@ export default {
     home: {
         title1: 'SECURING THE',
         title2: 'BLOCKCHAIN ECOSYSTEM',
-        mgtitle1: 'Smart contract security audit',
-        mgtitle2: 'Blockchain platform security audit',
+        mgtitle1: 'Smart contract audit',
+        mgtitle2: 'Blockchain platform audit',
         mgtitle3: 'Beosin-VAAS',
         mgtitle4: 'Beosin-Eagle Eye',
 
@@ -122,11 +122,11 @@ export default {
     // djd service-security
     serviceSecurity: {
         pageHead: {
-            textBig: 'Beosin - Blockchian Plaform Audit Service',
+            textBig: 'Blockchian Plaform Audit',
             textSmall: 'Multi-dimensional, multi-round and multi-way detection of blockchain security'
         },
         search: {
-            text: 'We provide multi-dimensional security testing for codes of blockchain platforms, and effectively guarantee the overall security of blockchain platform in aspects of node communication, storage, consensus and authority management through different auditing methods, such as black box, gray box and white box testing.',
+            text: 'We provide multi-dimensional security for codes of blockchain platforms, and effectively guarantee the overall security of blockchain platform in aspects of node communication, storage, consensus and authority management through different auditing methods, such as black box, gray box and white box testing.',
             totalCustomers: 'Total customers served',
             audited: 'Audited contracts',
             totalAudited: 'Total audited funds',
@@ -155,7 +155,7 @@ export default {
     },
     serviceContract: {
         pageHead: {
-            textBig: 'Beosin - Smart Contract Audit Service',
+            textBig: 'Smart Contract Audit',
             textSmall: 'Co-audited by more than 20 top blockchain security engineers worldwide',
             button: 'Reservation Now'
         },
