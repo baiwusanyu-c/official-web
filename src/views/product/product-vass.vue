@@ -17,7 +17,7 @@
                 </div>
                  <img alt="" src="../../assets/img/vaas-logo.png" class="display-none w-36 h-36 mt-10 mx-auto sm:flex">
                 <be-button customClass="try-out-btn h-btn-txt-black linear-l-r text-black text-xl "
-                           @click="openWin(`https://vaas.lianantech.com/#/login?token=${getStore('token')}&lang=${getStore('lang')}`,'vaas')">
+                           @click="openWin(`http://124.71.193.230:17070/#/login?token=Bearer ${getStore('token')}&lang=${getStore('lang')}`,'vaas')">
                     <span class="font-format sm:text-base">{{ $t('lang.tryoutBtn') }}</span>
                 </be-button>
             </div>
