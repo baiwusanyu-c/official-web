@@ -81,7 +81,7 @@
                             :class="item.active ? 'linear-l-r active-popover' : ''"
                             @click="routerPush(item.value,index)"
                             v-for="(item,index) in loginList">
-                            <p class="ml-2 text-base font-format">{{item.label}}</p>
+                            <p class="mx-2 text-base font-format">{{item.label}}</p>
                         </div>
                     </be-popover>
                 </n-drawer-content>
@@ -113,7 +113,7 @@
                         :class="item.active ? 'linear-l-r active-popover' : ''"
                         @click="routerPush(item.value,index)"
                         v-for="(item,index) in serviceList">
-                        <p class="ml-2 text-base font-format">{{item.label}}</p>
+                        <p class="mx-2 text-base font-format">{{item.label}}</p>
                     </div>
                 </be-popover>
             </div>
@@ -131,7 +131,7 @@
                         :class="item.active ? 'linear-l-r active-popover' : ''"
                         @click="routerPush(item.value,index)"
                         v-for="(item,index) in productList">
-                        <p class="ml-2 text-base font-format">{{item.label}}</p>
+                        <p class="mx-2 text-base font-format">{{item.label}}</p>
                     </div>
                 </be-popover>
             </div>
@@ -169,7 +169,7 @@
                 :class="item.active ? 'linear-l-r active-popover' : ''"
                 @click="routerPush(item.value,index)"
                 v-for="(item,index) in loginList">
-                <p class="ml-2 text-base font-format">{{item.label}}</p>
+                <p class="mx-2 text-base font-format">{{item.label}}</p>
             </div>
         </be-popover>
 

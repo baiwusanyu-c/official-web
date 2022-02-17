@@ -122,11 +122,11 @@ export default {
     // djd service-security
     serviceSecurity: {
         pageHead: {
-            textBig: 'Blockchian Plaform Audit',
+            textBig: 'Blockchian Platform Audit',
             textSmall: 'Multi-dimensional, multi-round and multi-way detection of blockchain security'
         },
         search: {
-            text: 'We provide multi-dimensional security for codes of blockchain platforms, and effectively guarantee the overall security of blockchain platform in aspects of node communication, storage, consensus and authority management through different auditing methods, such as black box, gray box and white box testing.',
+            text: 'We provide multi-dimensional security audit for codes of blockchain platforms, and effectively guarantee the overall security of blockchain platform in aspects of node communication, storage, consensus and authority management through different auditing methods, such as black box, gray box and white box testing.',
             totalCustomers: 'Total customers served',
             audited: 'Audited contracts',
             totalAudited: 'Total audited funds',
