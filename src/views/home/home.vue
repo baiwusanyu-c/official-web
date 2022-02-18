@@ -146,7 +146,7 @@
                     <home-product-circle :index="4"></home-product-circle>
                 </div>
                 <be-button
-                    @click="routerPush('/index/product/productVass')"
+                    @click="routerPush('/index/product/productVaaS')"
                     customClass="try-out-btn h-btn-txt-black linear-l-r text-black text-xl sm:text-base">
                     <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
                 </be-button>
@@ -289,7 +289,7 @@ export default defineComponent({
         const scienceInfoList = ref<Array<ISelect>>([
             {isHover:false,label: t('lang.home.mgtitle1'), value: '/index/service/contracts'},
             {isHover:false,label: t('lang.home.mgtitle2'), value: '/index/service/security'},
-            {isHover:false,label: t('lang.home.mgtitle3'), value: '/index/product/productVass'},
+            {isHover:false,label: t('lang.home.mgtitle3'), value: '/index/product/productVaaS'},
             {isHover:false,label: t('lang.home.mgtitle4'), value: '/index/product/productEagle'},
         ])
 

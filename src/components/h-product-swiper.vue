@@ -63,7 +63,7 @@ export default defineComponent({
         const getImage = ():void =>{
             list.value.map((val:string,index:number)=>{
                 const objImg = {img:''}
-                if(route.path === '/index/product/productVass'){
+                if(route.path === '/index/product/productVaaS'){
                     objImg.img = imgImport['../assets/img/beosin-vaas' + (index + 1) + '.png'].default
                     imgList.push(objImg)
                 }else if(route.path === '/index/product/productEagle'){

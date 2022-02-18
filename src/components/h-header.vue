@@ -331,7 +331,7 @@ export default defineComponent({
         const productList = ref<Array<ISelect>>([
             {
                 label: t('lang.header.productStr.product1'),
-                value: '/index/product/productVass',
+                value: '/index/product/productVaaS',
                 active:false,
             },
             {

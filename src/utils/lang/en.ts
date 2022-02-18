@@ -28,7 +28,7 @@ export default {
     projectList: {
         project1: 'Smart contract audit',
         project2: 'Blockchain platform audit',
-        project3: 'Beosin-Vaas',
+        project3: 'Beosin-VaaS',
         project4: 'Beosin-Eagle Eye',
     },
     header: {
@@ -49,7 +49,7 @@ export default {
             service2: 'Blockchian Platform Audit',
         },
         productStr: {
-            product1: 'Beosin-Vaas',
+            product1: 'Beosin-VaaS',
             product2: 'Beosin-Eagle Eye',
         },
         language: {
@@ -372,7 +372,7 @@ export default {
             advantDesc1: 'We are one of the first companies in the world to apply formal verification to the blockchain. With over 20 years of experience in formal verification technology, we have audited thousands of smart contracts.',
             advantSubTitle2: 'High-accuracy security testing',
             advantDesc2: 'Automatic testing to locate the code vulnerabilities with an accuracy up to 97%.',
-            advantSubTitle3: 'Support multiply chain platforms',
+            advantSubTitle3: 'Support multiply mainstream blockchain platforms',
             advantDesc3: 'Supporting ETH, BSC, MATIC, AAVE, ONT, EOS, etc.',
             advantSubTitle4: 'Easy formal specifications',
             advantDesc4: 'Formal specifications are written directly in contract language. No additional efforts in learning specification language.',

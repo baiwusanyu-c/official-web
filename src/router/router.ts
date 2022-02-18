@@ -32,7 +32,7 @@ const routes = [
                 name: 'security',
             },
             {
-                path: '/index/product/productVass',
+                path: '/index/product/productVaaS',
                 component: productVass,
                 name: 'productVass',
             },
