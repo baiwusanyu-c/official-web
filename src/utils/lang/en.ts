@@ -400,7 +400,7 @@ export default {
             advantDesc2: 'Relying on our own formal verification engine, the contract can be automatically scanned to expose potential risks, also being rated based on security levels.',
             advantSubTitle3: 'Multi-dimensional security models',
             advantDesc3: 'The platform uses four-dimensional model to assess the project\'s static security, operational security, business fluctuation, and threat intelligence, and visualizes abstract security risks into intuitive scores, helping users quickly perceive risk points.',
-            advantSubTitle4: 'Multiple support of blockchain platforms',
+            advantSubTitle4: 'Support multiple mainstream blockchain platforms',
             advantDesc4: 'Covering ETH, BSC, HECO, Polygon, Tron and other mainstream blockchain platforms, and supporting all kinds of Dapps.',
 
             supportTitle: 'Supported blockchain platforms',

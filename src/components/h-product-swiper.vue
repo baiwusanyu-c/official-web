@@ -1,6 +1,6 @@
 /*
 * @h-product-swiper.vue
-* @deprecated
+* @deprecated :autoplay='{ "delay": 2000, "disableOnInteraction": false }'
 * @author czh
 * @update (czh 2021/12/15)
 */
@@ -9,7 +9,6 @@
         :centeredSlides="true"
         :initialSlide="3"
         :loop="true"
-        :autoplay='{ "delay": 2000, "disableOnInteraction": false }'
         :pagination='{ "clickable": true }'
         class="mySwiper">
         <swiper-slide v-for="(item,index) in imgList" :key="index">
