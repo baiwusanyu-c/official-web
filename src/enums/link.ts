@@ -13,8 +13,8 @@ export enum linkConfig {
 }
 
 export enum linkConfigPolicy {
-    conditions = 'https://anonymous.obs.cn-east-3.myhuaweicloud.com/Beosin_User%20Agreement.pdf',
-    privacy = 'https://anonymous.obs.cn-east-3.myhuaweicloud.com/Beosin_Privacy%20Policy.pdf'
+    conditions = 'https://anonymous.obs.cn-east-3.myhuaweicloud.com:443/Beosin_User%20Agreement.pdf?AccessKeyId=JGG75VX9HENSQGHAPICW&Expires=1676201373&Signature=wmEF1VfUSqwOfs35%2BEHhdFKJye4%3D',
+    privacy = 'https://anonymous.obs.cn-east-3.myhuaweicloud.com:443/Beosin_Privacy%20Policy.pdf?AccessKeyId=JGG75VX9HENSQGHAPICW&Expires=1676201336&Signature=OfG%2BpOt9zpEtEkQSImPSRaDxpIw%3D'
 }
 
 export enum serviceContract {
