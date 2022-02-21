@@ -28,7 +28,7 @@
                     <div class="num-header font-format">{{$t('lang.serviceContract.search.totalCustomers')}}</div>
                     <div class="num-main">
                         <roll-num :value="customersNum" :time="1"></roll-num>
-                        B+
+                        +
                     </div>
                     <div class="num-footer"></div>
                 </div>
@@ -36,7 +36,7 @@
                     <div class="num-header font-format sm:mb-4">{{$t('lang.serviceContract.search.audited')}}</div>
                     <div class="num-main">
                         <roll-num :value="contractsNum" :time="1"></roll-num>
-                        B+
+                        +
                     </div>
                     <div class="num-footer"></div>
                 </div>
@@ -193,8 +193,8 @@ export default defineComponent({
         const contractsNum = ref<number>(0)
         const auditedNum = ref<number>(0)
         const {startTimer} = composition(props, ctx)
-        startTimer(customersNum,100,200)
-        startTimer(contractsNum,200,300)
+        startTimer(customersNum,1000,200)
+        startTimer(contractsNum,2000,300)
         startTimer(auditedNum,10,20)
         return {
             customersNum,
