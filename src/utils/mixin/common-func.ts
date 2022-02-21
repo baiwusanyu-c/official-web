@@ -9,7 +9,8 @@ import {ref} from "vue";
 import {getCodeImg} from "../../api/login";
 
 // @ts-ignore
-import {BeMessage} from "../../../public/be-ui/be-ui.es.js";
+import {BeMessage} from "../../../src/components/be-ui";
+import {IMessage} from "../../../src/components/be-ui/interface";
 import {Ref} from "@vue/reactivity";
 export default (props: any, ctx: any) => {
     /**
@@ -46,7 +47,7 @@ export default (props: any, ctx: any) => {
             duration: 2500,
             offsetTop:80,
             close: true,
-        })
+        } as IMessage)
     }
     /**
      * 開啓定時器，進行數字滾動

@@ -29,7 +29,7 @@
         </div>
         <!--    主要功能   -->
         <div class="func-container flex flex-col py-16 items-center justify-center bg-mainBlueGary box-border sm:py-8">
-            <h2 class="text-4xl font-bold mb-16 font-format  sm:text-lg sm:mb-8"> {{$t('lang.product.eagle.funcTitle')}}</h2>
+            <h2 class="text-4xl font-bold m/index/product/productVaaS16 font-format  sm:text-lg sm:mb-8"> {{$t('lang.product.eagle.funcTitle')}}</h2>
             <div class="flex w-full items-center justify-center sm:flex-wrap">
                 <div class="func-card  bg-default flex flex-col items-center justify-start shadow-2xl mx-8 p-8 box-border rounded sm:mx-2 sm:p-2">
                     <h3 class="text-lg font-bold mb-8 text-center h-12 font-format sm:text-xs sm:mb-4"> {{$t('lang.product.eagle.funcSubTitle1')}}</h3>
