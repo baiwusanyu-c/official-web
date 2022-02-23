@@ -17,9 +17,9 @@
             <div class="CET-header">
                 <img alt=""  class="logo" src="../../assets/img/logo-black.png"/>
                 <div class="name font-format">{{ CETInfo.projectName }}</div>
-                <div class="desc font-format">{{ $t("lang.report.cet.resultTitle") }}:</div>
+            <!--<div class="desc font-format">{{ $t("lang.report.cet.resultTitle") }}:</div>
                 <img alt="" v-if="locale === 'en_US'" class="result" src="../../assets/img/pass_en.png"/>
-                <img alt=""  v-else class="result" src="../../assets/img/pass.png"/>
+                <img alt=""  v-else class="result" src="../../assets/img/pass.png"/>-->
             </div>
             <div class="CET-content">
                 <div class="content-item"><span class="label font-format" :class="locale === 'en_US' ? 'en' : ''">{{
