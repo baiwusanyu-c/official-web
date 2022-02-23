@@ -67,7 +67,7 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, getCurrentInstance, onMounted, ref} from "vue";
+import {computed, defineComponent, getCurrentInstance, onMounted, ref} from "vue";
 import {formatDate, getSession} from "../../utils/common";
 import {useI18n} from "vue-i18n";
 import {downLoadZip} from "../../utils/zipdownload";
@@ -134,6 +134,13 @@ export default defineComponent({
                 }
             });
         }
+        const handleEmpty = computed(()=>{
+            return function (val){
+                if(!val || val.trim){
+
+                }
+            }
+        })
         onMounted(()=>{
             initData()
         })
