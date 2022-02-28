@@ -39,9 +39,9 @@
                 <n-icon class="group group-mr" @click="openWin(linkConfig['telegram'])">
                     <telegram/>
                 </n-icon>
-                <n-icon class="group group-mr group-mr-0" @click="openWin(linkConfig['github'])">
+<!--                <n-icon class="group group-mr group-mr-0" @click="openWin(linkConfig['github'])">
                     <logo-github/>
-                </n-icon>
+                </n-icon>-->
                 <be-icon customClass="group group-mr group-mr-0 discord"
                          icon='iconDiscordBeosin'
                          @click="openWin(linkConfig['discord'])"></be-icon>
