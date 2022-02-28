@@ -17,7 +17,7 @@
                 </div>
                  <img alt="" src="../../assets/img/vaas-logo.png" class="display-none w-36 h-36 mt-10 mx-auto sm:flex">
                 <be-button customClass="try-out-btn h-btn-txt-black linear-l-r text-black text-xl "
-                           @click="openWin(`https://vaas.beosin.com/#/login?token=Bearer ${getStore('token')}&lang=${getStore('lang')}`,'vaas')">
+                           @click="toVaaSPage">
                     <span class="font-format sm:text-base">{{ $t('lang.tryoutBtn') }}</span>
                 </be-button>
             </div>
@@ -97,14 +97,14 @@ export default defineComponent({
     name: "product-vass",
     components: {CoreAdvantages, HProductSwiper, AboutHermit, ContactUs},
     setup(props, ctx) {
-        const {t} = useI18n()
-        const funcList = ref([
-            {title: '', desc: ''}
-        ])
         const {openWin} = composition(props, ctx)
-
+        const toVaaSPage = ():void =>{
+            let base = import.meta.env.VITE_PROJECT_ENV === 'staging' ? 'http://124.71.193.230:17070/#/login' : 'https://vaas.beosin.com/#/login'
+            let url = `${base}?token=Bearer ${getStore('token')}&lang=${getStore('lang')}`
+            openWin(url,'vaas')
+        }
         // https://vaas.lianantech.com/#/login?token=undefined
-        return {openWin,getStore}
+        return {getStore,toVaaSPage}
     }
 })
 </script>
