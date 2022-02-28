@@ -32,7 +32,7 @@ export default  defineComponent({
     },
     setup(props,ctx){
         const isHover = ref<boolean>(false)
-        const list = [1, 2,  5, 6, 7,3]
+        const list = [1, 2,4, 5, 6, 7,3]
         const imgList = reactive<object[]>([])
         const imgListHover = reactive<object[]>([])
         const imgImport = import.meta.globEager("../assets/img/community*.png");

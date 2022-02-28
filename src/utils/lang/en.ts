@@ -467,6 +467,7 @@ export default {
     report: {
         cet: {
             downloadReport: 'Download the full report',
+            viewReport: 'view',
             downloadCET: 'Download this audit certificate',
             downloadAll: 'Download all',
             resultTitle: `The result from Beosin’s audit is`,

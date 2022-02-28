@@ -6,6 +6,7 @@
 */
 export enum linkConfig {
     facebook = 'https://www.facebook.com/profile.php?id=100026616589335',
+    discord = 'https://discord.gg/B4QJxhStV4 ',
     github = 'https://github.com/Beosin20180329',
     twitter = 'https://twitter.com/Beosin_com',
     telegram = 'https://t.me/+dD8Bnqd133RmNWNl',

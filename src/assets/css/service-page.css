@@ -109,6 +109,11 @@
   border-radius: 5px 5px 0 0;
 }
 
+.service-page .num-footer-plus {
+  width: 260px;
+
+}
+
 .service-page .body-search-input {
   margin-top: 94px;
 }

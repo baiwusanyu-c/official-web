@@ -7,21 +7,22 @@
 <template>
     <div class="bg-footer-container bg-footer">
         <div class="footer-class footer-class-1d5">
-            <p class="footer-title text-lg font-format sm:text-base">{{$t('lang.HFooterBigger.contact.contactTitle')}}</p>
-<!--            <div class="contact-us">
-                <n-icon class="footer-icon">
-                    <location-sharp/>
-                </n-icon>
-                <div class="contact-us-text font-format">{{$t('lang.HFooterBigger.contact.locationRoad')}}<br/>
-                    {{$t('lang.HFooterBigger.contact.locationSingapore')}}
-                </div>
-            </div>-->
-<!--            <div class="contact-us">
-                <n-icon size="30px">
-                    <phone-portrait-outline/>
-                </n-icon>
-                <div class="contact-us-text">+86-028-8326-2585</div>
-            </div>-->
+            <p class="footer-title text-lg font-format sm:text-base">
+                {{ $t('lang.HFooterBigger.contact.contactTitle') }}</p>
+            <!--            <div class="contact-us">
+                            <n-icon class="footer-icon">
+                                <location-sharp/>
+                            </n-icon>
+                            <div class="contact-us-text font-format">{{$t('lang.HFooterBigger.contact.locationRoad')}}<br/>
+                                {{$t('lang.HFooterBigger.contact.locationSingapore')}}
+                            </div>
+                        </div>-->
+            <!--            <div class="contact-us">
+                            <n-icon size="30px">
+                                <phone-portrait-outline/>
+                            </n-icon>
+                            <div class="contact-us-text">+86-028-8326-2585</div>
+                        </div>-->
             <div class="contact-us">
                 <n-icon class="footer-icon">
                     <mail-sharp/>
@@ -30,48 +31,59 @@
             </div>
         </div>
         <div class="footer-class">
-            <p class="footer-title text-lg font-format mb-2 sm:text-base">{{$t('lang.HFooterBigger.group')}}</p>
+            <p class="footer-title text-lg font-format mb-2 sm:text-base">{{ $t('lang.HFooterBigger.group') }}</p>
             <div class="flex flex-wrap ">
-                <n-icon class="group group-mr" @click="openWin(linkConfig['twitter'])"><logo-twitter/></n-icon>
-                <n-icon class="group group-mr" @click="openWin(linkConfig['telegram'])"><telegram/></n-icon>
-                <n-icon class="group group-mr group-mr-0" @click="openWin(linkConfig['github'])"><logo-github/></n-icon>
+                <n-icon class="group group-mr" @click="openWin(linkConfig['twitter'])">
+                    <logo-twitter/>
+                </n-icon>
+                <n-icon class="group group-mr" @click="openWin(linkConfig['telegram'])">
+                    <telegram/>
+                </n-icon>
+                <n-icon class="group group-mr group-mr-0" @click="openWin(linkConfig['github'])">
+                    <logo-github/>
+                </n-icon>
+                <be-icon customClass="group group-mr group-mr-0 discord"
+                         icon='iconDiscordBeosin'
+                         @click="openWin(linkConfig['discord'])"></be-icon>
                 <n-popover trigger="hover"
                            color="#00FFBA" raw placement="bottom">
                     <template #trigger>
-                        <n-icon class="group sm:hidden"><logo-wechat/></n-icon>
+                        <n-icon class="group sm:hidden">
+                            <logo-wechat/>
+                        </n-icon>
                     </template>
-                    <div><img src="../assets/img/wechat-code.jpg" height="100" width="100" alt="" /></div>
+                    <div><img src="../assets/img/wechat-code.jpg" height="100" width="100" alt=""/></div>
                 </n-popover>
             </div>
             <img src="../assets/img/wechat-code.jpg"
                  class="display-none mt-4 sm:flex"
-                 height="100" width="100" alt="" />
+                 height="100" width="100" alt=""/>
         </div>
         <div class="footer-class sm:hidden">
-            <p class="footer-title text-lg font-format">{{$t('lang.HFooterBigger.policy.policyTitle')}}</p>
+            <p class="footer-title text-lg font-format">{{ $t('lang.HFooterBigger.policy.policyTitle') }}</p>
             <div class="policy-class" @click="openWin(linkConfigPolicy['conditions'])">
                 <div class="text-point"></div>
-                <div class="policy-text font-format">{{$t('lang.HFooterBigger.policy.terms')}}</div>
+                <div class="policy-text font-format">{{ $t('lang.HFooterBigger.policy.terms') }}</div>
             </div>
             <div class="policy-class" @click="openWin(linkConfigPolicy['privacy'])">
-                <div class="text-point" ></div>
-                <div class="policy-text font-format">{{$t('lang.HFooterBigger.policy.privacy')}}</div>
+                <div class="text-point"></div>
+                <div class="policy-text font-format">{{ $t('lang.HFooterBigger.policy.privacy') }}</div>
             </div>
         </div>
     </div>
-<!--    <div class="h-6 flex justify-center items-center font-format">©2021 by Hermit. All Rights Reserved.</div>-->
+    <!--    <div class="h-6 flex justify-center items-center font-format">©2021 by Hermit. All Rights Reserved.</div>-->
 </template>
 <script lang="ts">
 import {defineComponent} from "vue";
-import {LocationSharp,PhonePortraitOutline,MailSharp,LogoWechat,LogoTwitter,LogoGithub} from '@vicons/ionicons5'
-import {Telegram} from '@vicons/fa'
-import {NIcon,NPopover} from "naive-ui"
-import {linkConfig,linkConfigPolicy} from '../enums/link'
+import {LocationSharp, PhonePortraitOutline, MailSharp, LogoWechat, LogoTwitter, LogoGithub} from '@vicons/ionicons5'
+import {Telegram, Discord} from '@vicons/fa'
+import {NIcon, NPopover} from "naive-ui"
+import {linkConfig, linkConfigPolicy} from '../enums/link'
 import composition from "../utils/mixin/common-func";
 
 export default defineComponent({
     name: "h-footer-bigger",
-    components:{
+    components: {
         NIcon,
         NPopover,
         LocationSharp,
@@ -81,10 +93,11 @@ export default defineComponent({
         LogoGithub,
         LogoWechat,
         Telegram,
+        Discord
     },
-    setup(props, ctx){
+    setup(props, ctx) {
         const {openWin} = composition(props, ctx)
-        return{
+        return {
             linkConfig,
             linkConfigPolicy,
             openWin,
@@ -92,77 +105,87 @@ export default defineComponent({
     }
 })
 </script>
+<style>
+.footer-class .discord .be-icon{
+  width:30px;
+  height:30px;
+  fill: white
+}
 
-<style scoped >
-.h-60{
+.footer-class .discord .be-icon:hover{
+  fill: #02FBBB
+}
+</style>
+<style scoped>
+.h-60 {
   height: 21rem;
 }
 
-.footer-title{
+.footer-title {
   font-weight: 500;
   line-height: 50px;
   color: #ECECEC;
 }
 
-.bg-footer-container{
+.bg-footer-container {
   display: flex;
   justify-content: center;
   color: #ECECEC;
 }
 
-.footer-class{
+.footer-class {
   width: 345px;
   height: 220px;
   margin-top: 60px;
 }
 
-.contact-us{
+.contact-us {
   display: flex;
   flex-direction: row;
   align-items: center;
   margin-top: 15px;
 }
 
-.contact-us-text{
+.contact-us-text {
   padding-left: 5px;
   word-break: break-all;
 }
 
-.group{
+.group {
   font-size: 30px;
-  cursor:pointer;
+  cursor: pointer;
   transition: all .5s ease;
 }
 
-.group-mr{
+.group-mr {
   margin-right: 32px;
 }
 
-.footer-icon{
+.footer-icon {
   font-size: 30px;
 }
 
-.group:hover{
+.group:hover {
   color: #02FBBB;
   transition: all .5s ease;
 }
 
-.wechatCode{
+.wechatCode {
   width: 100px;
   height: 100px;
   background: linear-gradient(236deg, #00FFBA, #0ED9E0);
 }
 
-.policy-class{
+.policy-class {
   display: flex;
   flex-direction: row;
   align-items: center;
   width: 200px;
   margin-top: 15px;
-  cursor:pointer;
+  cursor: pointer;
 }
 
-.text-point{
+.text-point {
   width: 4px;
   height: 4px;
   background: #CEC7C1;
@@ -170,11 +193,11 @@ export default defineComponent({
   transition: all .5s ease;
 }
 
-.policy-text{
+.policy-text {
   padding-left: 4px;
 }
 
-.policy-class:hover  .text-point {
+.policy-class:hover .text-point {
   width: 8px;
   height: 8px;
   background: #02FBBB;
@@ -182,45 +205,47 @@ export default defineComponent({
   transition: all .5s ease;
 }
 
-.policy-class:hover  .policy-text {
+.policy-class:hover .policy-text {
   color: #02FBBB;
   transition: all .5s ease;
 }
+
 @media screen and (min-width: 100px) and (max-width: 1278px) {
 
-  .bg-footer-container{
+  .bg-footer-container {
     display: flex;
     justify-content: space-between;
     @apply py-12 px-6;
   }
 
-  .contact-us-text{
+  .contact-us-text {
     font-size: 12px;
   }
 
-  .footer-class{
+  .footer-class {
     flex: 1;
     width: 50%;
     margin-top: 0;
   }
 
-  .footer-class-1d5{
+
+  .footer-class-1d5 {
     flex: 1.5
   }
 
-  .group{
+  .group {
     font-size: 25px;
   }
 
-  .group-mr{
+  .group-mr {
     margin-right: 10px;
   }
 
-  .group-mr-0{
+  .group-mr-0 {
     margin-right: 0;
   }
 
-  .footer-icon{
+  .footer-icon {
     font-size: 25px;
   }
 }

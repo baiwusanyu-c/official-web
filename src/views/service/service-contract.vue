@@ -43,11 +43,10 @@
                 <div class="search-num-box">
                     <div class="num-header font-format">{{$t('lang.serviceContract.search.totalAudited')}}</div>
                     <div class="num-main">
-                        <span style="margin-top: 2px">$</span>
                         <roll-num :value="auditedNum" :time="1"></roll-num>
-                        B+
+                        Million+
                     </div>
-                    <div class="num-footer"></div>
+                    <div class="num-footer num-footer-plus"></div>
                 </div>
             </div>
             <div class="body-search-input">
@@ -195,7 +194,7 @@ export default defineComponent({
         const {startTimer} = composition(props, ctx)
         startTimer(customersNum,1000,200)
         startTimer(contractsNum,2000,300)
-        startTimer(auditedNum,10,20)
+        startTimer(auditedNum, 1000, 200)
         return {
             customersNum,
             contractsNum,

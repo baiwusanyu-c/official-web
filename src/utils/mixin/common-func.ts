@@ -16,7 +16,7 @@ export default (props: any, ctx: any) => {
     /**
      * 打開窗口
      */
-    const openWin = (url:string,winName:string,cb:Function):void =>{
+    const openWin = (url:string,winName:string,cb?:Function):void =>{
         if(cb){cb()}
         window.open(url, winName?winName:url)
     }

@@ -7,8 +7,8 @@
 <template>
     <div class="report-detail-container p-6">
         <div class="flex  justify-end">
-            <be-button :round="3" bordered class="mr-6 downloadReport" @click="downloadReport" size="large">
-                <span class="font-format">{{$t('lang.report.cet.downloadReport')}}</span></be-button>
+            <be-button :round="3" bordered class="mr-6 downloadReport" @click="previewReport" size="large">
+                <span class="font-format">{{$t('lang.report.cet.viewReport')}}</span></be-button>
             <be-button :round="3" type='primary' bordered class="downloadCET" @click="downloadCET" size="large">
                 <span class="font-format"> {{$t('lang.report.cet.downloadCET')}}</span>
             </be-button>
@@ -72,6 +72,8 @@ import {formatDate, getSession} from "../../utils/common";
 import {useI18n} from "vue-i18n";
 import {downLoadZip} from "../../utils/zipdownload";
 import html2canvas from "html2canvas";
+import composition from "../../utils/mixin/common-func";
+import config from "../../enums/config";
 interface ICETInfo {
     projectName?:string
     num?:string
@@ -84,7 +86,7 @@ interface ICETInfo {
 }
 export default defineComponent({
     name: "report",
-    setup(){
+    setup(props, ctx){
         const CETInfoSession = ref(JSON.parse(getSession('CETInfo') as string))
         const CETInfo = ref<ICETInfo>({})
         const {locale} = useI18n()
@@ -112,6 +114,14 @@ export default defineComponent({
                 `${prevUrl}/website/common/download/single?fileUuid=${CETInfo.value.fileId}&reportNum=${CETInfo.value.num}`,
                 CETInfo.value.num + ".pdf"
             );
+        }
+        const {openWin} = composition(props, ctx)
+        const previewReport = ()=> {
+
+            const prevUrl = String(import.meta.env.VITE_PROJECT_ENV) === 'production' ?  '/hermit/back' :  ''
+            let baseURL = config.baseURL
+            openWin(`${baseURL}${prevUrl}/website/common/preview/single?fileUuid=${CETInfo.value.fileId}&reportNum=${CETInfo.value.num}`,`preview${CETInfo.value.num}`)
+
         }
         const downloadCET = ():void => {
             html2canvas(curInst?.refs.CET as HTMLElement).then(function (canvas) {
@@ -147,6 +157,7 @@ export default defineComponent({
         return{
             CETInfo,
             locale,
+            previewReport,
             downloadReport,
             downloadCET
         }
