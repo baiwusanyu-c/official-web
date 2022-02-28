@@ -53,6 +53,7 @@
             </div>
             <div class="search-input shadow-lg">
                 <n-input size="large"
+                         @keyup.enter="search"
                          :theme-overrides="inputThemeOverrides"
                          v-model:value="searchPrams"
                          @Input="searchPrams=searchPrams.replace(/[^\d]/g,'')"

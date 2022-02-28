@@ -206,7 +206,7 @@ export default defineComponent({
 #request_quote_dialog .sure-btn{
   font-family: SourceHanSansNormal, sans-serif !important;
 
-  @apply bg-mainG text-black w-28;
+  @apply bg-mainG text-black w-28 hover:bg-mainGHover;
 }
 
 #request_quote_dialog .sure-btn .be-button-slot{

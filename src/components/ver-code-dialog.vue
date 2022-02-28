@@ -23,6 +23,7 @@
                  <div class="flex w-full mb-12">
                      <div class="flex-1 mr-6">
                          <n-input  v-model:value="formData.code"
+                                   @keyup.enter="submit"
                                    :onInput = "formData.code = formData.code.replace(/[^\d]/g,'')"
                                    size="large"/>
                      </div>
@@ -32,7 +33,7 @@
                  </div>
              </div>
             <template #footer>
-                <be-button  customClass="sure-btn" round="3" @click="submit">
+                <be-button  customClass="sure-btn" round="3" @click="submit ">
                     <span class="font-format">{{$t('lang.sure')}}</span>
                 </be-button>
             </template>
@@ -131,7 +132,7 @@ export default defineComponent({
 
 #ver_code_dialog .sure-btn{
 
-  @apply bg-mainG text-black w-28;
+  @apply bg-mainG text-black w-28 hover:bg-mainGHover;
 }
 
 #ver_code_dialog .plus-dialog-body{

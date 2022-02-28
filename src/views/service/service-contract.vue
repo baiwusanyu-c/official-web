@@ -55,6 +55,7 @@
             <div class="search-input shadow-lg">
                 <n-input size="large"
                          :theme-overrides="inputThemeOverrides"
+                         @keyup.enter="search"
                          v-model:value="searchPrams"
                          @Input = "searchPrams=searchPrams.replace(/[^\d]/g,'')"
                          :placeholder="$t('lang.serviceContract.search.input')">

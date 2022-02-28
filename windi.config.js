@@ -33,6 +33,7 @@ export default defineConfig({
             header:'#12141c',
             footer:'#242424',
             mainG:'#02fbbb',
+            mainGHover:'#01e099',
             mainB:'#07c4ff',
             mainBlueGary:'#EFF2F7',
             black: colors.black,
