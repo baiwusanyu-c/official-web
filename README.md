@@ -91,7 +91,7 @@
 * git add .husky/pre-commit  
 * npx husky add .husky/commit-msg "npx --no -- commitlint --edit $1"  
 * 在package.json的script里面配置"commit": "这里面添加 eslint、单测、stylelint等"  
-
+* 提交时执行命令例如 git commit -am "feat: 项目添加commitlint本地校验配置" 或 git commit -m "feat: 项目添加commitlint本地校验配置"
 
 ### 火狐浏览器兼容汇总
 * 登录页需要兼容  √  
