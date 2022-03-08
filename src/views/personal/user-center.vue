@@ -25,13 +25,7 @@
               <search />
             </n-icon>
           </n-button>
-          <n-button
-            class="search-btn ml-2"
-            @click="
-              searchParams = '';
-              getList('reset')
-            "
-          >
+          <n-button class="search-btn ml-2" @click="resetHandle()">
             <n-icon size="20px">
               <Refresh />
             </n-icon>
@@ -295,7 +289,12 @@ export default defineComponent({
       getList()
     })
     const { openWin } = composition()
+    const resetHandle = (): void => {
+      searchParams.value = ''
+      getList('reset')
+    }
     return {
+      resetHandle,
       getList,
       downloadAll,
       searchData,
