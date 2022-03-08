@@ -1,33 +1,26 @@
-/*
-* @test.vue
-* @deprecated
-* @author czh
-* @update (czh 2021/12/24)
-*/
+/* * @test.vue * @deprecated * @author czh * @update (czh 2021/12/24) */
 <template>
-    <div class="test" @click="asd.foo = 2">
-      {{asd.foo}}
-    </div>
+  <div class="test" @click="asd.foo = 2">
+    {{ asd.foo }}
+  </div>
 </template>
 
 <script lang="ts">
-import {defineComponent,ref,reactive,effect} from "vue";
-import RollNum from "../components/roll-num.vue";
+import { defineComponent, reactive } from 'vue'
 
 export default defineComponent({
-    name: "test",
-    components: {RollNum},
-    setup() {
-        const asd = reactive({foo:1})
-        return {
-            asd
-        }
+  name: 'TestComp',
+  setup() {
+    const asd = reactive({ foo: 1 })
+    return {
+      asd,
     }
+  },
 })
 </script>
 
-<style >
-.test{
+<style>
+.test {
   position: fixed;
   top: 0;
   left: 0;
@@ -39,7 +32,7 @@ export default defineComponent({
 }
 
 .container {
-  width:300px;
+  width: 300px;
   height: 300px;
   background-color: #f0f9eb;
   @apply self-center;

@@ -1,0 +1,4 @@
+/src/components/be-ui/*/__test__/
+dist
+node_modules
+coverage

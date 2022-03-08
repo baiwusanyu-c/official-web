@@ -1,4 +1,3 @@
-
 .service-page .header-text {
   display: flex;
   flex-direction: column;
@@ -12,7 +11,7 @@
   font-size: 60px;
   font-weight: bold;
   line-height: 80px;
-  color: #FFF;
+  color: #fff;
 }
 
 .service-page .header-button-box {
@@ -30,7 +29,7 @@
 .service-page .header-button {
   width: 360px;
   height: 60px;
-  background: linear-gradient(-73deg, #19BDFB, #00FFBA);
+  background: linear-gradient(-73deg, #19bdfb, #00ffba);
   border-radius: 5px;
 }
 
@@ -63,15 +62,15 @@
 }
 
 .service-page .search-input .n-input,
-.service-page .search-input .n-input .n-input__input-el{
+.service-page .search-input .n-input .n-input__input-el {
   height: 80px;
 }
 
 .service-page .search-input-icon {
-  cursor: pointer
+  cursor: pointer;
 }
 
-.be-icon-container.search-input-icon .be-icon{
+.be-icon-container.search-input-icon .be-icon {
   width: 30px;
   height: 30px;
 }
@@ -105,13 +104,12 @@
 .service-page .num-footer {
   width: 180px;
   height: 7px;
-  background: #00FFC4;
+  background: #00ffc4;
   border-radius: 5px 5px 0 0;
 }
 
 .service-page .num-footer-plus {
   width: 260px;
-
 }
 
 .service-page .body-search-input {
@@ -121,26 +119,26 @@
 .service-page .input-title {
   font-size: 30px;
   font-weight: bold;
-  color: #6D6D6E;
+  color: #6d6d6e;
 }
 
-.service-page .page-body-table{
+.service-page .page-body-table {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url("../../assets/img/contect-table-head.png"),
-    url("../../assets/img/contect-table-body.png");
+  background-image: url('../../assets/img/contect-table-head.png'),
+    url('../../assets/img/contect-table-body.png');
   background-repeat: no-repeat, no-repeat;
   background-position: center top, center 50%;
   @apply bg-white;
 }
 
-.table-body{
+.table-body {
   margin-top: 65px;
   margin-bottom: 100px;
 }
 
-.service-page .table-title-class{
+.service-page .table-title-class {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
@@ -152,7 +150,7 @@
   color: #282828;
 }
 
-.table-text{
+.table-text {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -160,20 +158,20 @@
   margin-top: 40px;
 }
 
-.table-introduce{
+.table-introduce {
   width: 682px;
   margin-left: 92px;
   font-size: 20px;
   font-weight: 300;
   line-height: 35px;
-  color: #29292A;
+  color: #29292a;
 }
 
-.table-title{
-  cursor:pointer
+.table-title {
+  cursor: pointer;
 }
 
-.table-title-chick{
+.table-title-chick {
   font-weight: 400;
 }
 
@@ -181,17 +179,18 @@
   transition: opacity .5s ease;
 }
 
-.fade-enter-from, .fade-leave-to {
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
 }
 
-.service-page .table-title-footer{
+.service-page .table-title-footer {
   height: 6px;
   margin-top: 4px;
-  background: #02FBBB;
+  background: #02fbbb;
 }
 
-.service-page .table-title-big{
+.service-page .table-title-big {
   width: 680px;
   height: 37px;
   margin-top: 95px;
@@ -206,7 +205,7 @@
   flex-direction: column;
   align-items: center;
   height: 969px;
-  background-color: #EFF2F7;
+  background-color: #eff2f7;
 }
 
 .service-page .body-title {
@@ -221,7 +220,7 @@
   align-items: center;
   width: 255px;
   height: 282px;
-  background-color: #FFF;
+  background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 6px 5px 0 rgba(0, 0, 0, .16);
   transition: all .5s ease;
@@ -249,14 +248,14 @@
   flex-direction: column;
   align-items: center;
   height: 2009px;
-  background-color: #FFF;
+  background-color: #fff;
 }
 
 .service-page .page-body-process-contract {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #FFF;
+  background-color: #fff;
 }
 
 .service-page .process-text {
@@ -289,7 +288,7 @@
   width: 710px;
   height: 247px;
   font-family: SourceHanSansNormal, sans-serif;
-  color: #FFF;
+  color: #fff;
 }
 
 .service-page .reports-title-question {
@@ -313,7 +312,7 @@
   width: 680px;
   height: 91px;
   margin-top: 97px;
-  color: #FFF;
+  color: #fff;
 }
 
 .service-page .reports-middle-title {
@@ -336,13 +335,13 @@
   font-family: SourceHanSansRegular, sans-serif;
   font-size: 30px;
   line-height: 1.5;
-  color: #FFF;
+  color: #fff;
 }
 
 .service-page .reservation-btn {
   top: 58%;
   right: 18%;
-  @apply h-12 w-80 font-bold absolute ;
+  @apply h-12 w-80 font-bold absolute;
 }
 @media screen and (min-width: 1328px) and (max-width: 1538px) {
 
@@ -392,7 +391,7 @@
 
 @media screen and (min-width: 100px) and (max-width: 1278px) {
 
-  .service-page .header-text-small{
+  .service-page .header-text-small {
     width: 100%;
     height: initial;
     min-height: 230px;
@@ -400,51 +399,51 @@
     font-size: 20px;
   }
 
-  #service_contract .header-text-small{
-    background-image: url("../../assets/img/smart-ontracts.png");
+  #service_contract .header-text-small {
+    background-image: url('../../assets/img/smart-ontracts.png');
     background-repeat: no-repeat;
     background-position-x: 40%;
     background-position-y: 50%;
     background-size: 150%;
   }
 
-  #service_security .header-text-small{
-    background-image: url("../../assets/img/header-img.png");
+  #service_security .header-text-small {
+    background-image: url('../../assets/img/header-img.png');
     background-repeat: no-repeat;
     background-position-y: 60%;
     background-size: 95%;
   }
 
-  .service-page .header-text-big{
+  .service-page .header-text-big {
     margin-top: 0;
     font-size: 35px;
     line-height: 1.5;
   }
 
-  .service-page .header-text{
+  .service-page .header-text {
     margin-top: 70px;
   }
 
-  .service-page .page-body-search{
+  .service-page .page-body-search {
     height: initial;
     padding: 30px;
   }
 
-  .service-page .body-search-text{
+  .service-page .body-search-text {
     @apply w-full text-xs mt-0;
   }
 
-  .service-page .num-header{
+  .service-page .num-header {
     font-size: 12px;
     font-weight: bold;
     text-align: center;
   }
 
-  .service-page .body-search-num{
-    @apply w-full mt-4 ;
+  .service-page .body-search-num {
+    @apply w-full mt-4;
   }
 
-  .service-page .search-num-box{
+  .service-page .search-num-box {
     flex: 1;
     height: 86px;
   }
@@ -456,49 +455,49 @@
     line-height: 20px;
   }
 
-  .service-page .num-main .number-item{
+  .service-page .num-main .number-item {
     width: 12px;
     height: 36px;
   }
 
-  .service-page .num-main .mark-item{
+  .service-page .num-main .mark-item {
     height: 36px;
     font-size: 20px;
   }
 
-  .service-page .num-main .mark-item > span{
+  .service-page .num-main .mark-item > span {
     bottom: -2px;
     left: 3px;
   }
 
-  .service-page .num-footer{
+  .service-page .num-footer {
     width: 80px;
     height: 4px;
   }
 
-  .service-page .num-main{
+  .service-page .num-main {
     font-size: 20px;
   }
 
-  .service-page .number-item > span > i{
+  .service-page .number-item > span > i {
     top: 6px;
   }
 
-  .service-page .body-search-input{
+  .service-page .body-search-input {
     @apply mt-8;
   }
 
-  .service-page .input-title{
+  .service-page .input-title {
     @apply text-lg;
   }
 
-  .service-page .search-input{
+  .service-page .search-input {
     width: 100%;
   }
 
   .service-page .search-input .n-input,
   .service-page .search-input,
-  .service-page .search-input .n-input .n-input__input-el{
+  .service-page .search-input .n-input .n-input__input-el {
     height: 50px;
   }
 
@@ -507,27 +506,27 @@
     @apply text-lg;
   }
 
-  .service-page .page-body-content{
+  .service-page .page-body-content {
     box-sizing: border-box;
     height: initial;
     padding: 0 30px 30px 30px;
   }
 
   #service_contract .page-body-content .content-card-up,
-  #service_security .page-body-content .content-card-up{
+  #service_security .page-body-content .content-card-up {
     flex-wrap: wrap;
     width: 100%;
     margin-top: 20px;
   }
 
   #service_security .page-body-content .content-card-down,
-  #service_contract .page-body-content .content-card-down{
+  #service_contract .page-body-content .content-card-down {
     flex-wrap: wrap;
     width: 100%;
     margin-top: 0;
   }
 
-  .service-page .card{
+  .service-page .card {
     box-sizing: border-box;
     width: 140px;
     height: 180px;
@@ -535,7 +534,7 @@
     margin-bottom: 30px;
   }
 
-  .service-page .card-title{
+  .service-page .card-title {
     width: 100%;
     height: 50px;
     margin-top: 0;
@@ -543,81 +542,81 @@
     font-size: 14px;
   }
 
-  .hermit-main #service_contract .page-body-reports{
+  .hermit-main #service_contract .page-body-reports {
     height: auto;
     padding: 0 30px 30px 30px;
   }
 
-  .service-page .page-body-process{
+  .service-page .page-body-process {
     height: initial;
   }
 
-  .service-page .reports-header{
+  .service-page .reports-header {
     flex-direction: column;
     width: 100%;
     margin-top: 40px;
   }
 
-  .service-page .reports-title-class{
+  .service-page .reports-title-class {
     width: 100%;
   }
 
-  .service-page .reports-title-answer{
+  .service-page .reports-title-answer {
     width: 100%;
     height: initial;
     @apply text-xs;
   }
 
-  .service-page .reports-title-question{
+  .service-page .reports-title-question {
     @apply text-lg mb-4;
   }
 
-  .service-page .reports-middle{
+  .service-page .reports-middle {
     width: 100%;
     height: initial;
   }
 
-  .service-page .reports-middle-title{
+  .service-page .reports-middle-title {
     width: 100%;
     @apply text-lg text-center;
   }
 
-  .service-page .reports-middle-text{
+  .service-page .reports-middle-text {
     width: 100%;
     height: initial;
     @apply text-xs text-center;
   }
 
-  .service-page .page-body-table{
+  .service-page .page-body-table {
     box-sizing: border-box;
     height: auto;
     padding: 30px;
   }
 
-  .service-page .table-title-big{
-    @apply w-full mt-0 text-lg text-center
+  .service-page .table-title-big {
+    @apply w-full mt-0 text-lg text-center;
   }
 
-  .service-page .table-title-class{
-    flex:1;
+  .service-page .table-title-class {
+    flex: 1;
     height: auto;
-    margin: 0 ;
+    margin: 0;
     @apply text-xs text-center;
   }
 
-  .service-page .table-text{
+  .service-page .table-text {
     flex-direction: column;
     width: 100%;
     margin-top: 30px;
   }
 
-  .service-page .table-introduce{
+  .service-page .table-introduce {
     width: 100%;
     margin: 20px 0 0 0;
     @apply text-xs;
   }
 
-  .service-page .table-body{
+  .service-page .table-body {
     box-sizing: border-box;
     padding: 0 10px;
     margin: 30px 0;

@@ -1,27 +1,26 @@
-/*
-* be-dialog.vue
-* @deprecated 可拖拽弹窗
-* @author czh
-* @create (czh 2021/5/8)
-* @update (czh 2021/5/8)
-*/
+/* * be-dialog.vue * @deprecated 可拖拽弹窗 * @author czh * @create (czh
+2021/5/8) * @update (czh 2021/5/8) */
 <template>
-  <div :class="dialogModels" v-if="isShow"></div>
+  <div v-if="isShow" :class="dialogModels"></div>
   <transition name="dialog-fade">
-    <div class="be-dialog" v-if="isShow">
-      <div class="be-dialog-container"
-           :id="`be_dialog_container${uid}`"
-           v-drag="{isDrag:isDrag}"
-           :class="customClassStyle">
+    <div v-if="isShow" class="be-dialog">
+      <div
+        :id="`be_dialog_container${uid}`"
+        v-drag="{ isDrag: isDrag }"
+        class="be-dialog-container"
+        :class="customClassStyle"
+      >
         <div class="be-dialog-title">
-          <div class="be-dialog-container-head" :id="`be_head${uid}`">
+          <div :id="`be_head${uid}`" class="be-dialog-container-head">
             <span>{{ titles }}</span>
             <!-- @slot 弹窗头部按钮 -->
             <div class="be-dialog-close">
               <slot name="headerIcon">
-                <be-icon icon='deleteIc'
-                         custom-class="be-dialog-close-btn"
-                         @click="handleClose('btn')"></be-icon>
+                <be-icon
+                  icon="deleteIc"
+                  custom-class="be-dialog-close-btn"
+                  @click="handleClose('btn')"
+                ></be-icon>
               </slot>
             </div>
           </div>
@@ -32,14 +31,19 @@
             <slot></slot>
           </div>
         </div>
-        <div :class="`be-dialog-footer be-dialog-footer__${layout}`" v-if="showFooter">
+        <div
+          v-if="showFooter"
+          :class="`be-dialog-footer be-dialog-footer__${layout}`"
+        >
           <!-- @slot 弹窗底部-->
           <slot name="footer">
-            <be-button type="primary"
-                       bordered
-                       round="3"
-                       @click="handleConfirm"
-                       customClass="be-dialog-footer-btn">确定
+            <be-button
+              type="primary"
+              bordered
+              round="3"
+              custom-class="be-dialog-footer-btn"
+              @click="handleConfirm"
+              >确定
             </be-button>
           </slot>
         </div>
@@ -51,84 +55,90 @@
 <script lang="ts">
 import {
   defineComponent,
-  ref, computed, onMounted, onUnmounted, getCurrentInstance, nextTick, watch
-} from "vue";
-import {dragDirective} from '../../../../utils/direactives/custom-direactives/drag-directives';
-import BeButton from "../../button/src/be-button";
-import BeIcon from "../../svg-icon/src/be-icon.vue";
-import {IDialog} from "./be-dialog-type";
+  ref,
+  computed,
+  onMounted,
+  onUnmounted,
+  getCurrentInstance,
+  nextTick,
+  watch,
+} from 'vue'
+import { dragDirective } from '../../../../utils/direactives/custom-direactives/drag-directives'
+import BeButton from '../../button/src/be-button'
+import BeIcon from '../../svg-icon/src/be-icon.vue'
+import { IDialog } from './be-dialog-type'
 
 /**
  * 可拖拽、放大、缩小弹窗
  */
 export default defineComponent({
-  name: "BeDialog",
-  components: {BeIcon, BeButton},
-  directives: {drag: dragDirective},
-  emits: [
-    'confirm',// 插槽下无效
-    'close',// 插槽下无效
-    'update:isShow',
-    'escEvt'
-  ],
+  name: 'BeDialog',
+  components: { BeIcon, BeButton },
+  directives: { drag: dragDirective },
   props: {
     /**
      * 是否拖拽 （完成）
      */
-    'isDrag': {
+    isDrag: {
       type: Boolean,
-      default: false
+      default: false,
     },
-      /**
-       * 是否显示底部 （完成）
-       */
-    'showFooter': {
-        type: Boolean,
-        default: true
+    /**
+     * 是否显示底部 （完成）
+     */
+    showFooter: {
+      type: Boolean,
+      default: true,
     },
     /**
      * 标题 （完成）
      */
-    'titles': {
+    titles: {
       type: String,
-      default: ''
+      default: '',
     },
     /**
      * 弹窗显示（完成）
      */
-    'isShow': {
+    isShow: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * 自定义样式类（完成）
      */
-    'customClass': {
+    customClass: {
       type: String,
-      default: ''
+      default: '',
     },
     /**
      * 是否开启遮罩层（完成）
      */
-    'isOpenModal': {
+    isOpenModal: {
       type: Boolean,
-      default: true
+      default: true,
     },
     /**
      * 是否开启esc退出 （完成）
      */
-    'escExit': {
+    escExit: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * 底部布局 （完成）
      */
-    'layout': {
+    layout: {
       type: String,
-      default: 'center'
-    }
+      default: 'center',
+    },
   },
+  emits: [
+    'confirm', // 插槽下无效
+    'close', // 插槽下无效
+    'update:isShow',
+    'escEvt',
+  ],
   setup(props, ctx) {
     const customClassStyle = computed(() => props.customClass)
     const internalInstance = getCurrentInstance() as IDialog
@@ -205,8 +215,8 @@ export default defineComponent({
       customClassStyle,
       handleClose,
       handleConfirm,
-      uid: internalInstance.uid
+      uid: internalInstance.uid,
     }
-  }
+  },
 })
 </script>

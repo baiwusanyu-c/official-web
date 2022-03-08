@@ -1,19 +1,16 @@
 <template>
-  <div class='be-icon-container' :class="spinClass" v-on="$attrs">
-    <svg class="be-icon"
-         :width="width"
-         :height="height"
-         aria-hidden="true">
-      <use :xlink:href="`#${iconName}`" :fill="color"/>
+  <div class="be-icon-container" :class="spinClass" v-on="$attrs">
+    <svg class="be-icon" :width="width" :height="height" aria-hidden="true">
+      <use :xlink:href="`#${iconName}`" :fill="color" />
     </svg>
   </div>
 </template>
 
 <script lang="ts">
-import {defineComponent, computed} from "vue";
+import { defineComponent, computed } from 'vue'
 /*
-* 旋转
-* */
+ * 旋转
+ * */
 export default defineComponent({
   name: 'BeIcon',
   props: {
@@ -22,51 +19,54 @@ export default defineComponent({
      */
     width: {
       type: [Number, String],
-      default: 18
+      default: 18,
     },
     /**
      * 自定义高
      */
     height: {
       type: [Number, String],
-      default: 18
+      default: 18,
     },
     /**
      * 定义颜色
      */
     color: {
       type: String,
-      default: ''
+      default: '',
     },
     /**
      * icon 名称
      */
     icon: {
       type: String,
+      default: '',
     },
     /**
      * 自定义样式类
      */
     customClass: {
       type: String,
-      default: ''
+      default: '',
     },
     /**
      * 是否旋转
      */
     spin: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
-  setup(props, context) {
+  setup(props) {
     const iconName = computed(() => `${props.icon}`)
-    const spinClass = computed(() => props.spin ? 'be-icon-spin ' + props.customClass : '' + props.customClass)
+    const spinClass = computed(() =>
+      props.spin ? `be-icon-spin ${props.customClass}` : `${props.customClass}`
+    )
     return {
       props,
       iconName,
-      spinClass
+      spinClass,
     }
-  }
+  },
 })
 </script>

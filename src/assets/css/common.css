@@ -51,11 +51,11 @@
 }
 
 .linear-l-r {
-  background: linear-gradient(-73deg, #19BDFB, #02FBBB);
+  background: linear-gradient(-73deg, #19bdfb, #02fbbb);
 }
 
 .linear-xie {
-  background: linear-gradient(-32deg, #19BCFC, #00FFBA);
+  background: linear-gradient(-32deg, #19bcfc, #00ffba);
 }
 
 #hermit_app .h-btn-txt-black .be-button-body .be-button-slot {
@@ -75,14 +75,14 @@
   color: black !important;
 }
 
-.display-flex{
+.display-flex {
   display: flex;
 }
 
-.display-none{
+.display-none {
   display: none;
 }
 
-.display-flex-col{
+.display-flex-col {
   flex-direction: column;
 }

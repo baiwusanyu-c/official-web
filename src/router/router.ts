@@ -1,4 +1,4 @@
-import {createRouter, createWebHashHistory} from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import main from '../views/main.vue'
 import security from '../views/service/service-security.vue'
 import contracts from '../views/service/service-contract.vue'
@@ -9,88 +9,88 @@ import login from '../views/login/login.vue'
 import aboutUs from '../views/about-us/about-us.vue'
 import report from '../views/report/report.vue'
 import home from '../views/home/home.vue'
-const page404 = () => import('../views/404/404.vue')
 import test from '../views/test.vue'
-const routes = [
-    {
-        path: '/index',
-        component: main,
-        children: [
-            {
-                path: '/index/home',
-                component: home,
-                name: 'home',
-            },
-            {
-                path: '/index/service/contracts',
-                component: contracts,
-                name: 'contracts',
-            },
-            {
-                path: '/index/service/security',
-                component: security,
-                name: 'security',
-            },
-            {
-                path: '/index/product/productVaaS',
-                component: productVass,
-                name: 'productVass',
-            },
-            {
-                path: '/index/product/productEagle',
-                component: productEagle,
-                name: 'productEagle',
-            },
-            {
-                path: '/index/user/personal',
-                component: personal,
-                name: 'personal',
-            },
-            {
-                path: '/index/aboutUs',
-                component: aboutUs,
-                name: 'aboutUs',
-            },
-        ],
-    },
-    {
-        path: '/login',
-        component: login,
-        name: 'login',
-    },
-    {
-        path: '/report',
-        component: report,
-        name: 'report',
-    },
-    {
-        path: '/test',
-        component: test,
-        name: 'test',
-    },
-    {
-        path: '/404',
-        component: page404,
-        name: '404',
-    },
-    {
-        path: '/',
-        redirect: '/index/home'
-    },
-    {
-        path: '/:w+',
-        redirect: '/404'
-    }
 
+const page404 = () => import('../views/404/404.vue')
+const routes = [
+  {
+    path: '/index',
+    component: main,
+    children: [
+      {
+        path: '/index/home',
+        component: home,
+        name: 'home',
+      },
+      {
+        path: '/index/service/contracts',
+        component: contracts,
+        name: 'contracts',
+      },
+      {
+        path: '/index/service/security',
+        component: security,
+        name: 'security',
+      },
+      {
+        path: '/index/product/productVaaS',
+        component: productVass,
+        name: 'productVass',
+      },
+      {
+        path: '/index/product/productEagle',
+        component: productEagle,
+        name: 'productEagle',
+      },
+      {
+        path: '/index/user/personal',
+        component: personal,
+        name: 'personal',
+      },
+      {
+        path: '/index/aboutUs',
+        component: aboutUs,
+        name: 'aboutUs',
+      },
+    ],
+  },
+  {
+    path: '/login',
+    component: login,
+    name: 'login',
+  },
+  {
+    path: '/report',
+    component: report,
+    name: 'report',
+  },
+  {
+    path: '/test',
+    component: test,
+    name: 'test',
+  },
+  {
+    path: '/404',
+    component: page404,
+    name: '404',
+  },
+  {
+    path: '/',
+    redirect: '/index/home',
+  },
+  {
+    path: '/:w+',
+    redirect: '/404',
+  },
 ]
 
 // 3. 创建路由实例并传递 `routes` 配置
 // 你可以在这里输入更多的配置，但我们在这里
 // 暂时保持简单
 export const router = createRouter({
-    history: createWebHashHistory(),
-    routes,
+  history: createWebHashHistory(),
+  routes,
 })
-router.afterEach((to, from) => {
-    window.scrollTo(0,0);
+router.afterEach(() => {
+  window.scrollTo(0, 0)
 })
