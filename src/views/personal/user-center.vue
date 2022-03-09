@@ -374,7 +374,7 @@ export default defineComponent({
   height: 60px;
   background: linear-gradient(144deg, #00ffc4, #02a1f9);
   border-radius: 5px;
-  box-shadow: 0 5px 8px 0 rgba(132, 141, 134, .55);
+  box-shadow: 0 5px 8px 0 rgba(132, 141, 134, 0.55);
 }
 
 .download-btn {
@@ -415,7 +415,6 @@ export default defineComponent({
 }
 
 @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
-
   .page-header {
     height: 264px;
     background-size: 100%;
@@ -427,7 +426,6 @@ export default defineComponent({
 }
 
 @media screen and (min-width: 100px) and (max-width: 1278px) {
-
   .page-header {
     height: initial;
     padding: 30px;

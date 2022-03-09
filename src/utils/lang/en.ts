@@ -465,9 +465,11 @@ export default {
   quoteDialog: {
     projectName: 'PROJECT NAME',
     yourName: 'YOUR NAME',
-    email: 'EMAIL ADDRESS',
+    email: 'YOUR EMAIL ADDRESS',
     phone: 'YOU CONTACT',
     message: 'MESSAGE',
+    messageP:
+      'Please enter the content you wish to consult,e.g. cooperation process,cooperation price,others...',
   },
   userCenter: {
     titleBig: 'Personal Center',
@@ -500,7 +502,7 @@ export default {
     tipPasswordConfirm: 'Please enter the code again',
     tipVerCode: 'Please enter the verification code',
     tipTwicePassword: ' The two passwords are inconsistent',
-    tipErrEmail: 'Mailbox format error',
+    tipErrEmail: 'Invalid email address',
   },
   report: {
     cet: {

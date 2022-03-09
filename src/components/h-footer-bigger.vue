@@ -170,7 +170,7 @@ export default defineComponent({
 .group {
   font-size: 30px;
   cursor: pointer;
-  transition: all .5s ease;
+  transition: all 0.5s ease;
 }
 
 .group-mr {
@@ -183,7 +183,7 @@ export default defineComponent({
 
 .group:hover {
   color: #02fbbb;
-  transition: all .5s ease;
+  transition: all 0.5s ease;
 }
 
 .wechatCode {
@@ -206,7 +206,7 @@ export default defineComponent({
   height: 4px;
   background: #cec7c1;
   border-radius: 50%;
-  transition: all .5s ease;
+  transition: all 0.5s ease;
 }
 
 .policy-text {
@@ -218,16 +218,15 @@ export default defineComponent({
   height: 8px;
   background: #02fbbb;
   border-radius: 50%;
-  transition: all .5s ease;
+  transition: all 0.5s ease;
 }
 
 .policy-class:hover .policy-text {
   color: #02fbbb;
-  transition: all .5s ease;
+  transition: all 0.5s ease;
 }
 
 @media screen and (min-width: 100px) and (max-width: 1278px) {
-
   .bg-footer-container {
     display: flex;
     justify-content: space-between;

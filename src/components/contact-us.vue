@@ -48,7 +48,6 @@ export default defineComponent({
 
 <style>
 @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
-
   .contact-us .title {
     @apply text-2xl;
   }
@@ -68,7 +67,6 @@ export default defineComponent({
   height: 5px;
 }
 @media screen and (min-width: 100px) and (max-width: 1278px) {
-
   .contact-us-line {
     width: 150px;
   }

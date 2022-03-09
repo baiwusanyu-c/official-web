@@ -382,7 +382,6 @@ export default defineComponent({
   margin-top: 76px;
 }
 @media screen and (min-width: 100px) and (max-width: 1278px) {
-
   #service_contract .page-head {
     flex-direction: column;
     height: initial;

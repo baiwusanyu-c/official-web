@@ -603,7 +603,6 @@ export default defineComponent({
 }
 
 @media screen and (min-width: 100px) and (max-width: 1278px) {
-
   #service_security .page-head {
     flex-direction: column;
     height: initial;

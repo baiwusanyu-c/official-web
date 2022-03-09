@@ -1,5 +1,5 @@
-/* * @request-quote-dialog.vue * @deprecated :rules="rules" * @author czh *
-@update (czh 2021/12/17) */
+/* * @request-quote-dialog.vue * @deprecated @author czh * @update (czh
+2021/12/17) */
 <template>
   <div id="request_quote_dialog">
     <n-modal
@@ -43,15 +43,16 @@
           </p>
           <n-input v-model:value="formData.email" size="large" />
         </div>
-        <div class="flex flex-col w-full mb-8 md:mb-4 sm:mb-4">
-          <p class="label font-format">{{ $t('lang.quoteDialog.phone') }}</p>
-          <n-input v-model:value="formData.mobile" size="large" />
-        </div>
+        <!--<div class="flex flex-col w-full mb-8 md:mb-4 sm:mb-4">
+            <p class="label font-format">{{ $t('lang.quoteDialog.phone') }}</p>
+            <n-input v-model:value="formData.mobile" size="large" />
+          </div>-->
         <div class="flex flex-col w-full mb-8 md:mb-4 sm:mb-4">
           <p class="label font-format">{{ $t('lang.quoteDialog.message') }}</p>
           <n-input
             v-model:value="formData.message"
             type="textarea"
+            :placeholder="$t('lang.quoteDialog.messageP')"
             :autosize="{ minRows: 4, maxRows: 6 }"
           />
         </div>
@@ -64,7 +65,11 @@
             <n-input
               v-model:value="formData.code"
               size="large"
-              :on-input="(formData.code = formData.code.replace(/[^\d]/g, ''))"
+              :on-input="
+                () => {
+                  formData.code = formData.code.replace(/[^\d]/g, '')
+                }
+              "
             />
           </div>
           <div class="flex-1 relative" @click="getCode(formData)">
@@ -102,8 +107,8 @@ export default defineComponent({
     NModal,
     NInput,
   },
-  setup(props, ctx) {
-    const { message } = composition(props, ctx)
+  setup() {
+    const { message, codeUrl, getCode, uuid } = composition()
     const isShow = ref<boolean>(false)
     const handleClose = (): void => {
       isShow.value = false
@@ -198,7 +203,6 @@ export default defineComponent({
       { label: t('lang.projectList.project3'), value: 3 },
       { label: t('lang.projectList.project4'), value: 4 },
     ])
-    const { codeUrl, getCode, uuid } = composition(props, ctx)
 
     return {
       codeUrl,

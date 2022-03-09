@@ -17,7 +17,7 @@
         ></video>
       </div>
       <div
-        class="absolute z-10 flex justify-center flex-col w-1/2 h-full animate__animated animate__fadeInDown md:w-2/3 sm:w-4/5"
+        class="absolute z-10 flex justify-center flex-col w-3/5 h-full animate__animated animate__fadeInDown md:w-11/12 sm:w-4/5"
       >
         <h2
           class="text-mainG text-6xl text-center font-bold leading-normal font-format sm:text-2xl"
@@ -30,7 +30,7 @@
           {{ $t('lang.home.title2') }}
         </h2>
         <div
-          class="flex justify-between self-center mb-16 slogan w-full lg125:w-full120 sm:flex-col sm:mb-8 sm:items-center"
+          class="flex justify-around self-center mb-16 slogan w-full lg125:w-full120 sm:flex-col sm:mb-8 sm:items-center"
         >
           <div
             v-for="(item, index) in scienceInfoList"
@@ -47,7 +47,7 @@
                 item.isHover ? 'text-mainG' : ''
               } sm:mt-0 sm:text-xs`"
             >
-              {{ item.label }}
+              <span class="font-format text-lg">{{ item.label }}</span>
             </p>
           </div>
         </div>
@@ -77,13 +77,12 @@
     <!--   service     -->
     <div class="slogan-service w-full bg-default flex flex-col">
       <div
-        class="slogan-service-item flex justify-center items-center w-full sm:flex-col"
+        class="slogan-service-item flex justify-end items-center w-full sm:flex-col"
       >
         <div
           style="box-sizing: border-box"
-          class="mb-56 mr-12 hexagon-desc lg125:mb-48 md:mb-0 sm:mb-0 sm:mr-0"
+          class="mr-12 hexagon-desc lg125:mb-0 md:mb-0 sm:mb-0 sm:mr-0"
         >
-          <div class="bar mb-8 sm:mb-2"></div>
           <h3 class="font-bold text-3xl mb-8 font-format sm:text-lg sm:mb-4">
             {{ $t('lang.home.serviceTitle1') }}
           </h3>
@@ -92,6 +91,7 @@
           >
             {{ $t('lang.home.serviceInfo1') }}
           </p>
+
           <!--        pc 显示按钮            -->
           <div class="sm:hidden">
             <be-button
@@ -102,9 +102,10 @@
             </be-button>
           </div>
         </div>
+
         <div
           class="flex flex-wrap relative hexagon-container-body justify-center"
-          style="width: 42%"
+          style="width: 52%"
         >
           <hexagon class="absolute hexagon1 font-format" :index="0"></hexagon>
           <hexagon class="absolute hexagon2 font-format" :index="1"></hexagon>
@@ -130,13 +131,14 @@
           </div>
         </div>
       </div>
+
       <div
-        class="slogan-service-item flex mt-20 w-full justify-center items-center sm:flex-col sm:mt-10"
+        class="slogan-service-item flex mt-10 w-full justify-start items-center sm:flex-col sm:mt-10"
       >
         <!--        pc 显示六边形         -->
         <div
           class="display-flex flex-wrap relative hexagon-container-body mr-12 sm:hidden"
-          style="width: 42%"
+          style="width: 52%"
         >
           <hexagon class="absolute font-format hexagon8" :index="7"></hexagon>
           <hexagon class="absolute font-format hexagon9" :index="8"></hexagon>
@@ -144,8 +146,8 @@
           <hexagon class="absolute font-format hexagon11" :index="10"></hexagon>
           <hexagon class="absolute font-format hexagon12" :index="11"></hexagon>
         </div>
-        <div class="mb-56 hexagon-desc lg125:mb-48 md:mb-0 sm:mb-0 sm:mr-0">
-          <div class="bar mb-8 float-right sm:float-none sm:mb-2"></div>
+
+        <div class="hexagon-desc mb-48 lg125:mb-0 md:mb-0 sm:mb-0 sm:mr-0">
           <h3
             class="font-bold text-3xl mb-8 font-format text-right float-right sm:text-lg sm:float-none sm:mb-4 sm:text-left"
           >
@@ -266,7 +268,7 @@
         <div
           v-for="item in customerImgList"
           :key="item.img"
-          class="shadow-lg mb-14 mr-6 bg-default hover:shadow-2xl sm:mb-4 sm:mr-0"
+          class="shadow-lg mb-14 mr-6 bg-default sm:mb-4 sm:mr-0"
         >
           <img :src="item.img" alt="" class="sm:w-20 sm:h-6" />
         </div>
@@ -465,11 +467,11 @@ export default defineComponent({
 
 <style>
 .science-dom {
-  width: 152px;
+  width: 178px;
 }
 
 .hexagon-container-body {
-  height: 800px;
+  height: 756px;
   background-image: url('../../assets/img/hexagon-texture.png');
   background-repeat: no-repeat;
   background-size: 100%;
@@ -477,18 +479,17 @@ export default defineComponent({
 
 .hermit-main .slogan-news {
   height: 100vh;
+  padding: 0 200px;
   background-position-x: -2px;
   background-size: 101% 100%;
 }
 
 .hermit-main .slogan-news .slogan-news-bg {
-
   /* height: 58%; */
   height: 100%;
 }
 
 .hermit-main .slogan-news .contact-btn {
-
   /* margin-bottom: 20em; */
   @apply h-12 w-80 font-bold sm:w-60 sm:h-9;
 }
@@ -504,7 +505,7 @@ export default defineComponent({
   top: 0;
   width: 291px;
   height: 378px;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
 .hermit-main .slogan-news .title-card-container .title-card:nth-child(1) {
@@ -531,7 +532,7 @@ export default defineComponent({
 .hermit-main .slogan-news .title-card-container .title-card .be-icon {
   width: 50px;
   height: 50px;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
 .hermit-main .slogan-news .title-card-container .title-card:hover .be-icon {
@@ -549,11 +550,11 @@ export default defineComponent({
 }
 
 .hermit-main
-.slogan-news
-.title-card-container
-.title-card:hover
-.icon-up2
-.be-icon {
+  .slogan-news
+  .title-card-container
+  .title-card:hover
+  .icon-up2
+  .be-icon {
   width: 30px !important;
   height: 30px !important;
 }
@@ -562,7 +563,7 @@ export default defineComponent({
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
-  padding: 30px 0;
+  padding: 10px 200px;
 }
 
 .slogan-service-item {
@@ -571,7 +572,7 @@ export default defineComponent({
 }
 
 .slogan-service-item .hexagon-desc {
-  width: 22%;
+  width: 30%;
 }
 
 .slogan-service .hexagon1 {
@@ -719,7 +720,6 @@ export default defineComponent({
 
 .slogan-customer-logo div:hover {
   border-width: 1px;
-  @apply border-mainG;
 }
 
 .home-swiper {
@@ -727,52 +727,65 @@ export default defineComponent({
   height: 460px;
 }
 
+/* 100% - 110% 适配 */
+@media screen and (min-width: 1540px) and (max-width: 1750px) {
+  .hexagon-container-body {
+    height: 660px;
+  }
+}
+
 /* 110% - 125% 适配 */
-@media screen and (min-width: 1536px) and (max-height: 840px) and (max-width: 1750px) {
+@media screen and (min-width: 1328px) and (max-width: 1538px) {
+  .hermit-main .slogan-service {
+    padding: 10px 116px;
+  }
+
+  .hexagon-container-body {
+    height: 640px;
+  }
 
   .home-swiper {
     width: 106vw;
   }
 
   .slogan-service .hexagon3 {
-    top: 37%;
+    top: 42%;
   }
 
   .slogan-service .hexagon4 {
-    top: 37%;
+    top: 42%;
   }
 
   .slogan-service .hexagon5 {
-    top: 37%;
+    top: 42%;
   }
 
   .slogan-service .hexagon10 {
-    top: 37%;
+    top: 42%;
   }
 
   .slogan-service .hexagon11 {
-    top: 37%;
+    top: 42%;
   }
 
   .slogan-service .hexagon12 {
-    top: 37%;
+    top: 42%;
   }
 }
 
 /* 150% 适配 */
-@media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
-
+@media screen and (min-width: 1280px) and (max-width: 1326px) {
   .home-swiper {
     width: 126vw;
   }
 
   .hermit-main .slogan-service {
     box-sizing: border-box;
-    padding: 150px 80px;
+    padding: 30px 80px;
   }
 
   .hexagon-container-body {
-    height: 464px;
+    height: 546px;
   }
 
   .slogan-news .slogan {
@@ -828,7 +841,6 @@ export default defineComponent({
   }
 }
 @media screen and (min-width: 100px) and (max-width: 1278px) {
-
   .hermit-main .slogan-news {
     height: 70vh;
   }
@@ -947,11 +959,10 @@ export default defineComponent({
   .slogan-service .hexagon10 p,
   .slogan-service .hexagon11 p,
   .slogan-service .hexagon12 p {
-    transform: scale(.7);
+    transform: scale(0.7);
   }
 }
 @media screen and (min-width: 100px) and (max-width: 340px) {
-
   .science-dom {
     margin-bottom: 10px !important;
   }

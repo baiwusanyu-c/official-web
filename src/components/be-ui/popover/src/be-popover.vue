@@ -9,7 +9,11 @@
   </div>
 
   <teleport to="body">
-    <div :class="customClass">
+    <div
+      :class="customClass"
+      @mouseenter="handlePopoverDomEnter"
+      @mouseleave="handlePopoverDomLeave"
+    >
       <transition name="be-fade-in-linear">
         <div
           v-if="show"
@@ -27,7 +31,9 @@
             v-if="raw"
             :id="`be_popover_arrow${uid}`"
             :class="`be-popover-arrow`"
-          ></div>
+          >
+            >
+          </div>
         </div>
       </transition>
     </div>
@@ -145,6 +151,7 @@ export default defineComponent({
     const close = (): void => {
       setTimeout(() => {
         show.value = false
+        isEnterPopover.value = false
         //show.value = false
         /** 提交触发 显示跟新 事件
          * @event update
@@ -168,7 +175,13 @@ export default defineComponent({
         delay = props.duration
       }
       setTimeout(() => {
+        // 关闭时如果鼠标移入了popover的dom，则不关闭
+        if (isEnterPopover.value && !isShow && props.trigger === 'hover') {
+          return
+        }
+        // 设置 false 时通过 v-if 关闭卸载
         show.value = isShow
+
         nextTick(() => {
           if (show.value) {
             computePosition(props.placement)
@@ -182,6 +195,7 @@ export default defineComponent({
     let stylePopover: TPopoverStyle = reactive({
       left: '0px',
       top: '0px',
+      zIndex: '2000',
     })
     // popover.js 实例缓存
     let popperJS: any = null
@@ -302,7 +316,7 @@ export default defineComponent({
         const triggerElm: string | HTMLElement = trigger || props.triggerElm
         if (triggerElm) {
           triggerDom = isString(triggerElm)
-            ? document.getElementById(triggerElm as string)
+            ? document.getElementById(triggerElm)
             : triggerElm
           computeDom =
             matchDom(internalInstance.refs.bePopoverTrigger) ||
@@ -391,7 +405,18 @@ export default defineComponent({
         popperJS.destroy()
       }
     })
+    /******************************************** popover元素 dom 操作相关 ************************************/
+    const isEnterPopover = ref<boolean>(false)
+    const handlePopoverDomEnter = (): void => {
+      isEnterPopover.value = true
+    }
+    const handlePopoverDomLeave = (): void => {
+      isEnterPopover.value = false
+      changeDisplay(false)
+    }
     return {
+      handlePopoverDomLeave,
+      handlePopoverDomEnter,
       uid: internalInstance.uid,
       addEvent,
       stylePopover,

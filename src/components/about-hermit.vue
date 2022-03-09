@@ -51,14 +51,12 @@ export default defineComponent({
 }
 
 @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
-
   .about-hermit {
     height: 354px;
   }
 }
 
 @media screen and (min-width: 100px) and (max-width: 1278px) {
-
   .about-hermit {
     height: auto;
   }

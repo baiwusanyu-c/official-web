@@ -176,7 +176,6 @@ export default defineComponent({
 }
 
 @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
-
   #product_vass .header-text-small {
     width: 790px;
     font-size: 28px;

@@ -266,7 +266,6 @@ export default defineComponent({
 }
 
 @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
-
   .about-us-page .page-head {
     padding: 0 100px 50px 100px;
   }
@@ -292,7 +291,6 @@ export default defineComponent({
   }
 }
 @media screen and (min-width: 100px) and (max-width: 1278px) {
-
   .about-us-page .page-head {
     padding: 0 35px 30px 35px;
     background-image: url('../../assets/img/about-us-bg-mobile.png');

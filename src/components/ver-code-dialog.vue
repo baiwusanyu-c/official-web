@@ -23,7 +23,11 @@
           <div class="flex-1 mr-6">
             <n-input
               v-model:value="formData.code"
-              :on-input="(formData.code = formData.code.replace(/[^\d]/g, ''))"
+              :on-input="
+                () => {
+                  formData.code = formData.code.replace(/[^\d]/g, '')
+                }
+              "
               size="large"
               @keyup.enter="submit"
             />
