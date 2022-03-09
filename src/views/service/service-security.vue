@@ -322,7 +322,7 @@ export default defineComponent({
     NInput,
   },
 
-  setup(props, ctx) {
+  setup() {
     const { t } = useI18n()
     const { message } = composition()
     const curInst = getCurrentInstance()
@@ -609,7 +609,6 @@ export default defineComponent({
 }
 
 @media screen and (min-width: 100px) and (max-width: 1278px) {
-
   #service_security .page-head {
     flex-direction: column;
     height: initial;

@@ -307,7 +307,7 @@ export default defineComponent({
     ContactUs,
     Hexagon,
   },
-  setup(props, ctx) {
+  setup() {
     const { t } = useI18n()
     const titleCardList = ref<Array<any>>([
       {
@@ -485,13 +485,11 @@ export default defineComponent({
 }
 
 .hermit-main .slogan-news .slogan-news-bg {
-
   /* height: 58%; */
   height: 100%;
 }
 
 .hermit-main .slogan-news .contact-btn {
-
   /* margin-bottom: 20em; */
   @apply h-12 w-80 font-bold sm:w-60 sm:h-9;
 }
@@ -507,7 +505,7 @@ export default defineComponent({
   top: 0;
   width: 291px;
   height: 378px;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
 .hermit-main .slogan-news .title-card-container .title-card:nth-child(1) {
@@ -534,7 +532,7 @@ export default defineComponent({
 .hermit-main .slogan-news .title-card-container .title-card .be-icon {
   width: 50px;
   height: 50px;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
 .hermit-main .slogan-news .title-card-container .title-card:hover .be-icon {
@@ -552,11 +550,11 @@ export default defineComponent({
 }
 
 .hermit-main
-.slogan-news
-.title-card-container
-.title-card:hover
-.icon-up2
-.be-icon {
+  .slogan-news
+  .title-card-container
+  .title-card:hover
+  .icon-up2
+  .be-icon {
   width: 30px !important;
   height: 30px !important;
 }
@@ -731,7 +729,6 @@ export default defineComponent({
 
 /* 100% - 110% 适配 */
 @media screen and (min-width: 1540px) and (max-width: 1750px) {
-
   .hexagon-container-body {
     height: 578px;
   }
@@ -743,7 +740,6 @@ export default defineComponent({
 
 /* 110% - 125% 适配 */
 @media screen and (min-width: 1328px) and (max-width: 1538px) {
-
   .hermit-main .slogan-service {
     padding: 10px 116px;
   }
@@ -783,7 +779,6 @@ export default defineComponent({
 
 /* 150% 适配 */
 @media screen and (min-width: 1280px) and (max-width: 1326px) {
-
   .home-swiper {
     width: 126vw;
   }
@@ -850,7 +845,6 @@ export default defineComponent({
   }
 }
 @media screen and (min-width: 100px) and (max-width: 1278px) {
-
   .hermit-main .slogan-news {
     height: 70vh;
   }
@@ -969,17 +963,15 @@ export default defineComponent({
   .slogan-service .hexagon10 p,
   .slogan-service .hexagon11 p,
   .slogan-service .hexagon12 p {
-    transform: scale(.7);
+    transform: scale(0.7);
   }
 }
 @media screen and (min-width: 100px) and (max-width: 1278px) {
-
   .hexagon-container-body {
     width: 42%;
   }
 }
 @media screen and (min-width: 100px) and (max-width: 340px) {
-
   .science-dom {
     margin-bottom: 10px !important;
   }

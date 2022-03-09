@@ -121,7 +121,7 @@ interface ICETInfo {
 }
 export default defineComponent({
   name: 'ReportPage',
-  setup(props, ctx) {
+  setup() {
     const CETInfoSession = ref(JSON.parse(getSession('CETInfo') as string))
     const CETInfo = ref<ICETInfo>({})
     const { locale } = useI18n()
@@ -346,11 +346,11 @@ export default defineComponent({
 }
 
 .report-detail-container
-.report-body
-.CET-area-ch
-.CET-content
-.content-item
-.label {
+  .report-body
+  .CET-area-ch
+  .CET-content
+  .content-item
+  .label {
   -moz-text-align-last: justify;
   -webkit-text-align-last: justify;
   text-align-last: justify;

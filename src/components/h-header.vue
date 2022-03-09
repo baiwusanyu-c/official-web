@@ -536,19 +536,29 @@ export default defineComponent({
 .popover-list:hover {
   background: rgba(93, 232, 176, 1);
   background: -moz-linear-gradient(
-    left,rgba(93, 232, 176, 1) 0%,rgba(37, 180, 232, 1) 100%
+    left,
+    rgba(93, 232, 176, 1) 0%,
+    rgba(37, 180, 232, 1) 100%
   );
   background: -webkit-linear-gradient(
-    left,rgba(93, 232, 176, 1) 0%,rgba(37, 180, 232, 1) 100%
+    left,
+    rgba(93, 232, 176, 1) 0%,
+    rgba(37, 180, 232, 1) 100%
   );
   background: -o-linear-gradient(
-    left,rgba(93, 232, 176, 1) 0%,rgba(37, 180, 232, 1) 100%
+    left,
+    rgba(93, 232, 176, 1) 0%,
+    rgba(37, 180, 232, 1) 100%
   );
   background: -ms-linear-gradient(
-    left,rgba(93, 232, 176, 1) 0%,rgba(37, 180, 232, 1) 100%
+    left,
+    rgba(93, 232, 176, 1) 0%,
+    rgba(37, 180, 232, 1) 100%
   );
   background: linear-gradient(
-    to right,rgba(93, 232, 176, 1) 0%,rgba(37, 180, 232, 1) 100%
+    to right,
+    rgba(93, 232, 176, 1) 0%,
+    rgba(37, 180, 232, 1) 100%
   );
 }
 

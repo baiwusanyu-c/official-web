@@ -36,7 +36,7 @@ import composition from '../../utils/mixin/common-func'
 export default defineComponent({
   name: 'LoginPage',
   components: { ForgetPassword, LoginPassword, RegisterAccount },
-  setup(props, ctx) {
+  setup() {
     const showType = ref<string>('login')
     /**
      * 切換顯示
@@ -77,7 +77,6 @@ export default defineComponent({
   @apply rounded w-1/4 h-4/6 bg-default lg125:h-5/6;
 }
 @media screen and (min-width: 1540px) and (max-width: 1750px) {
-
   .login-form {
     height: 70%;
   }

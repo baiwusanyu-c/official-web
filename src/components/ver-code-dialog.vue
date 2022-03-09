@@ -62,7 +62,7 @@ export default defineComponent({
       default: '',
     },
   },
-  setup(props, ctx) {
+  setup(props) {
     const { message } = composition()
     const isShow = ref<boolean>(false)
     const formData = ref<IReportCode>({})

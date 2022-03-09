@@ -58,7 +58,7 @@ export default defineComponent({
       default: () => [],
     },
   },
-  setup(props, ctx) {
+  setup() {
     const { openWin } = composition()
     const slidesPerView = ref<number>(3)
     const spaceBetween = ref<number>(10)
@@ -138,7 +138,6 @@ export default defineComponent({
   --swiper-navigation-size: 30px; /* 设置按钮大小 */
 }
 @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
-
   .myServiceSwiper {
     width: 1100px;
   }
@@ -162,7 +161,6 @@ export default defineComponent({
   }
 }
 @media screen and (min-width: 100px) and (max-width: 1278px) {
-
   .myServiceSwiper {
     width: 85vw;
   }

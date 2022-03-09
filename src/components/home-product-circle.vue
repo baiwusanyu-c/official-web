@@ -76,9 +76,8 @@ export default defineComponent({
 </script>
 <style>
 @media screen and (min-width: 100px) and (max-width: 1278px) {
-
   .product-circle-desc {
-    transform: scale(.8);
+    transform: scale(0.8);
   }
 }
 </style>

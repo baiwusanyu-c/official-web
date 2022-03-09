@@ -301,7 +301,7 @@ export default defineComponent({
     hServiceSwiper,
   },
 
-  setup(props, ctx) {
+  setup() {
     const { message } = composition()
     const { t } = useI18n()
     const curInst = getCurrentInstance()
@@ -388,7 +388,6 @@ export default defineComponent({
   margin-top: 76px;
 }
 @media screen and (min-width: 100px) and (max-width: 1278px) {
-
   #service_contract .page-head {
     flex-direction: column;
     height: initial;
