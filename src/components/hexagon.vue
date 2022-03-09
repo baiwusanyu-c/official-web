@@ -108,27 +108,28 @@ export default defineComponent({
   z-index: 20;
   padding: 0 30px;
 }
+
 /* 100% - 110% 适配 */
 @media screen and (min-width: 1540px) and (max-width: 1750px) {
 
-  .hexagon-container{
+  .hexagon-container {
     height: 190px;
     font-size: 12px;
   }
+
   .hexagon-container:hover p {
     font-size: 12px;
-
   }
 }
 @media screen and (min-width: 1536px) and (max-height: 840px) and (max-width: 1750px) {
 
-  .hexagon-container{
+  .hexagon-container {
     height: 180px;
     font-size: 12px;
   }
+
   .hexagon-container:hover p {
     font-size: 12px;
-
   }
 }
 @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
@@ -138,9 +139,9 @@ export default defineComponent({
     height: 220px;
     font-size: 12px;
   }
+
   .hexagon-container:hover p {
     font-size: 12px;
-
   }
 }
 @media screen and (min-width: 100px) and (max-width: 1278px) {
@@ -152,7 +153,6 @@ export default defineComponent({
 
   .hexagon-container:hover p {
     font-size: 12px;
-
   }
 }
 </style>

@@ -34,7 +34,7 @@ export const clearTimer = (timer: any) => {
 
 export function debounce(func: Function, wait: number) {
   let timeout: any
-  return function (...debounce:any[]) {
+  return function (...debounce: any[]) {
     const args = [...debounce]
     if (timeout) clearTimeout(timeout)
     const callNow = !timeout

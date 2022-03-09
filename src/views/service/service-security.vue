@@ -36,18 +36,17 @@
             </div>
             <div class="num-footer"></div>
           </div>
-
         </div>
         <div class="search-num-box">
           <div class="num-header font-format sm:mb-4">
             {{ $t('lang.serviceSecurity.search.audited') }}
           </div>
           <div>
-          <div class="num-main">
-            <roll-num :value="contractsNum" :time="1"></roll-num>
-            +
-          </div>
-          <div class="num-footer"></div>
+            <div class="num-main">
+              <roll-num :value="contractsNum" :time="1"></roll-num>
+              +
+            </div>
+            <div class="num-footer"></div>
           </div>
         </div>
         <div class="search-num-box">
@@ -55,11 +54,11 @@
             {{ $t('lang.serviceSecurity.search.totalAudited') }}
           </div>
           <div>
-          <div class="num-main">
-            <roll-num :value="auditedNum" :time="1"></roll-num>
-            Million+
-          </div>
-          <div class="num-footer num-footer-plus"></div>
+            <div class="num-main">
+              <roll-num :value="auditedNum" :time="1"></roll-num>
+              Million+
+            </div>
+            <div class="num-footer num-footer-plus"></div>
           </div>
         </div>
       </div>

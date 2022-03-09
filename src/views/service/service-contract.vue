@@ -58,10 +58,9 @@
           <div>
             <div class="num-main">
               <roll-num :value="auditedNum" :time="1"></roll-num>
-              <span style='margin-left: 3px;'>Million+</span>
+              <span style="margin-left: 3px">Million+</span>
             </div>
             <div class="num-footer num-footer-plus"></div>
-
           </div>
         </div>
       </div>

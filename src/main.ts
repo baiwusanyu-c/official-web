@@ -7,7 +7,6 @@ import BeUI from '../src/components/be-ui'
 import './assets/css/be-ui/style.css'
 import { i18n } from './utils/i18n'
 
-
 const app = createApp(App)
 app.use(BeUI)
 app.use(router)

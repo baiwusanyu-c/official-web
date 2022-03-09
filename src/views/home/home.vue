@@ -17,7 +17,7 @@
         ></video>
       </div>
       <div
-        class="absolute z-10 flex justify-center flex-col w-3/5 h-full  md:w-11/12 sm:w-4/5"
+        class="absolute z-10 flex justify-center flex-col w-3/5 h-full md:w-11/12 sm:w-4/5"
       >
         <h2
           class="text-mainG text-6xl text-center font-bold leading-normal font-format sm:text-2xl"
@@ -137,7 +137,6 @@
         <!--        pc 显示六边形         -->
         <div
           class="display-flex flex-wrap relative hexagon-container-body mr-12 sm:hidden"
-
         >
           <hexagon class="absolute font-format hexagon8" :index="7"></hexagon>
           <hexagon class="absolute font-format hexagon9" :index="8"></hexagon>
@@ -146,7 +145,9 @@
           <hexagon class="absolute font-format hexagon12" :index="11"></hexagon>
         </div>
 
-        <div class="hexagon-desc mb-48 ml-24 lg125:mb-0 md:mb-0 sm:mb-0 sm:mr-0">
+        <div
+          class="hexagon-desc mb-48 ml-24 lg125:mb-0 md:mb-0 sm:mb-0 sm:mr-0"
+        >
           <h3
             class="font-bold text-3xl mb-8 font-format text-right float-right sm:text-lg sm:float-none sm:mb-4 sm:text-left"
           >
@@ -169,7 +170,6 @@
         <!--        mobile 显示六边形         -->
         <div
           class="display-none flex-wrap relative hexagon-container-body mr-12 justify-center sm:flex sm:mr-0"
-
         >
           <hexagon class="absolute font-format hexagon8" :index="7"></hexagon>
           <hexagon class="absolute font-format hexagon9" :index="8"></hexagon>
@@ -195,7 +195,6 @@
           </div>
         </div>
       </div>
-
     </div>
     <!--   product     -->
     <div
@@ -476,7 +475,6 @@ export default defineComponent({
   background-image: url('../../assets/img/hexagon-texture.png');
   background-repeat: no-repeat;
   background-size: 100%;
-
 }
 
 .hermit-main .slogan-news {
@@ -737,7 +735,8 @@ export default defineComponent({
   .hexagon-container-body {
     height: 578px;
   }
-  .hexagon-container{
+
+  .hexagon-container {
     height: 190px;
   }
 }
@@ -974,6 +973,7 @@ export default defineComponent({
   }
 }
 @media screen and (min-width: 100px) and (max-width: 1278px) {
+
   .hexagon-container-body {
     width: 42%;
   }
