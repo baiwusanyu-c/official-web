@@ -76,59 +76,77 @@
     </div>
     <!--   service     -->
     <div class="slogan-service w-full bg-default flex flex-col">
-      <div class="slogan-service-item flex justify-end items-center w-full sm:flex-col">
-        <div style="box-sizing: border-box" class="mr-24 hexagon-desc lg125:mb-0 md:mb-0 sm:mb-0 sm:mr-0" >
+      <div
+        class="slogan-service-item flex justify-end items-center w-full sm:flex-col"
+      >
+        <div
+          style="box-sizing: border-box"
+          class="mr-24 hexagon-desc lg125:mb-0 md:mb-0 sm:mb-0 sm:mr-0"
+        >
           <h3 class="font-bold text-3xl mb-8 font-format sm:text-lg sm:mb-4">
             {{ $t('lang.home.serviceTitle1') }}
           </h3>
-          <p class="mb-16 font-format text-justify leading-normal text-lg sm:text-xs sm:mb-6" >
+          <p
+            class="mb-16 font-format text-justify leading-normal text-lg sm:text-xs sm:mb-6"
+          >
             {{ $t('lang.home.serviceInfo1') }}
           </p>
 
           <!--        pc 显示按钮            -->
           <div class="sm:hidden">
-            <be-button custom-class="display-flex learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
-                       @click="routerPush('/index/service/contracts')">
+            <be-button
+              custom-class="display-flex learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
+              @click="routerPush('/index/service/contracts')"
+            >
               <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
             </be-button>
           </div>
         </div>
 
-        <div class="flex flex-wrap flex-col relative hexagon-container-body justify-center" >
-          <div class='flex justify-center'>
+        <div
+          class="flex flex-wrap flex-col relative hexagon-container-body justify-center"
+        >
+          <div class="flex justify-center">
             <hexagon class="font-format" :index="0"></hexagon>
             <hexagon class="font-format" :index="1"></hexagon>
             <hexagon class="font-format" :index="2"></hexagon>
           </div>
-          <div class='flex justify-center relative hexagon-b1'>
+          <div class="flex justify-center relative hexagon-b1">
             <hexagon class="font-format" :index="3"></hexagon>
             <hexagon class="font-format" :index="4"></hexagon>
           </div>
           <!--        mobile 显示按钮            -->
-          <div class="display-none sm:flex"
+          <div
+            class="display-none sm:flex"
             style="
               position: absolute;
               right: 50%;
               bottom: 5%;
-              transform: translateX(50%);">
-            <be-button custom-class="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
-              @click="routerPush('/index/service/contracts')" >
+              transform: translateX(50%);
+            "
+          >
+            <be-button
+              custom-class="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
+              @click="routerPush('/index/service/contracts')"
+            >
               <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
             </be-button>
           </div>
         </div>
       </div>
 
-      <div class="slogan-service-item flex mt-10 w-full justify-start items-center sm:flex-col sm:mt-10" >
+      <div
+        class="slogan-service-item flex mt-10 w-full justify-start items-center sm:flex-col sm:mt-10"
+      >
         <!--        pc 显示六边形         -->
         <div
           class="display-flex flex-wrap flex-col relative hexagon-container-body sm:hidden"
         >
-          <div class='flex justify-center'>
+          <div class="flex justify-center">
             <hexagon class="font-format" :index="7"></hexagon>
             <hexagon class="font-format" :index="8"></hexagon>
           </div>
-          <div class='flex justify-center relative hexagon-b1'>
+          <div class="flex justify-center relative hexagon-b1">
             <hexagon class="font-format" :index="9"></hexagon>
             <hexagon class="font-format" :index="10"></hexagon>
             <hexagon class="font-format" :index="11"></hexagon>
@@ -161,11 +179,11 @@
         <div
           class="display-none flex-wrap relative hexagon-container-body mr-12 justify-center sm:flex sm:mr-0"
         >
-          <div class='flex justify-center'>
+          <div class="flex justify-center">
             <hexagon class="font-format" :index="7"></hexagon>
             <hexagon class="font-format" :index="8"></hexagon>
           </div>
-          <div class='flex justify-center relative hexagon-b1'>
+          <div class="flex justify-center relative hexagon-b1">
             <hexagon class="font-format" :index="9"></hexagon>
             <hexagon class="font-format" :index="10"></hexagon>
             <hexagon class="font-format" :index="11"></hexagon>
@@ -465,12 +483,13 @@ export default defineComponent({
 
 .hexagon-container-body {
   width: 68%;
+  padding: 6em 0;
   background-image: url('../../assets/img/hexagon-texture.png');
   background-repeat: no-repeat;
   background-size: 100%;
-  padding: 6em 0;
 }
-.hexagon-container-body .hexagon-b1{
+
+.hexagon-container-body .hexagon-b1 {
   bottom: 60px;
 }
 
@@ -574,7 +593,6 @@ export default defineComponent({
   width: 40%;
 }
 
-
 .bar {
   width: 360px;
   height: 5px;
@@ -670,7 +688,7 @@ export default defineComponent({
 /* 100% - 110% 适配 */
 @media screen and (min-width: 1540px) and (max-width: 1750px) {
 
-  .hexagon-container-body .hexagon-b1{
+  .hexagon-container-body .hexagon-b1 {
     bottom: 50px;
   }
 
@@ -686,9 +704,10 @@ export default defineComponent({
     padding: 10px 116px;
   }
 
-  .hexagon-container-body .hexagon-b1{
+  .hexagon-container-body .hexagon-b1 {
     bottom: 40px;
   }
+
   .home-swiper {
     width: 106vw;
   }
@@ -730,8 +749,6 @@ export default defineComponent({
     padding: 30px 80px;
   }
 
-
-
   .slogan-news .slogan {
     @apply mb-4;
   }
@@ -739,7 +756,6 @@ export default defineComponent({
   .slogan-service-item .hexagon-desc {
     width: 40%;
   }
-
 }
 @media screen and (min-width: 100px) and (max-width: 1278px) {
 
@@ -824,14 +840,11 @@ export default defineComponent({
   }
 
   .hexagon-container-body {
-    /*height: 332px;
+
+    /* height: 332px;
     background-position: center;
-    background-size: 80%;*/
+    background-size: 80%; */
   }
-
-
-
-
 }
 @media screen and (min-width: 100px) and (max-width: 1278px) {
 
@@ -839,9 +852,11 @@ export default defineComponent({
     width: 42%;
     padding: 3em 0;
   }
-  .hexagon-container-body .hexagon-b1{
+
+  .hexagon-container-body .hexagon-b1 {
     bottom: 34px;
   }
+
   .hermit-main .slogan-service {
     padding: 30px;
   }
