@@ -16,6 +16,7 @@ export default defineComponent({})
   min-width: 1220px;
 }
 @media screen and (min-width: 100px) and (max-width: 1278px) {
+
   #hermit_app {
     min-width: initial;
   }

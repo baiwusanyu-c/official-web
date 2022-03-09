@@ -124,6 +124,7 @@ export default defineComponent({
 }
 
 .home-swiper .swiper-slide {
+
   /* Center slide text vertically */
   display: -webkit-box;
   display: -ms-flexbox;
@@ -181,6 +182,7 @@ export default defineComponent({
 
 /* 110% - 125% 适配 */
 @media screen and (min-width: 1536px) and (max-height: 840px) and (max-width: 1750px) {
+
   .home-swiper .swiper-item h2 {
     font-size: 32px;
   }
@@ -192,6 +194,7 @@ export default defineComponent({
 
 /* 150% 适配 */
 @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
+
   .home-swiper .swiper-item p {
     font-size: 12px;
   }
@@ -203,6 +206,7 @@ export default defineComponent({
 
 /* 移动端 适配 */
 @media screen and (min-width: 100px) and (max-width: 1278px) {
+
   .home-swiper .swiper-item {
     width: 300px;
   }
