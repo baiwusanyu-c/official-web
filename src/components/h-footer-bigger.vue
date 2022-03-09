@@ -112,7 +112,7 @@ export default defineComponent({
     Telegram,
   },
   setup(props, ctx) {
-    const { openWin } = composition(props, ctx)
+    const { openWin } = composition()
     return {
       linkConfig,
       linkConfigPolicy,

@@ -1,16 +1,15 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import main from '../views/main.vue'
-import security from '../views/service/service-security.vue'
-import contracts from '../views/service/service-contract.vue'
-import productVass from '../views/product/product-vass.vue'
-import productEagle from '../views/product/product-eagle-eye.vue'
-import personal from '../views/personal/user-center.vue'
-import login from '../views/login/login.vue'
-import aboutUs from '../views/about-us/about-us.vue'
-import report from '../views/report/report.vue'
-import home from '../views/home/home.vue'
-import test from '../views/test.vue'
-
+const main = () => import( '../views/main.vue')
+const security = () => import( '../views/service/service-security.vue')
+const contracts = () => import( '../views/service/service-contract.vue')
+const productVass = () => import( '../views/product/product-vass.vue')
+const productEagle = () => import( '../views/product/product-eagle-eye.vue')
+const personal = () => import( '../views/personal/user-center.vue')
+const login = () => import( '../views/login/login.vue')
+const aboutUs = () => import( '../views/about-us/about-us.vue')
+const report = () => import( '../views/report/report.vue')
+const home = () => import( '../views/home/home.vue')
+const test = () => import( '../views/test.vue')
 const page404 = () => import('../views/404/404.vue')
 const routes = [
   {

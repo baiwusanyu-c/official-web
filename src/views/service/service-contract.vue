@@ -31,31 +31,38 @@
           <div class="num-header font-format">
             {{ $t('lang.serviceContract.search.totalCustomers') }}
           </div>
-          <div class="num-main">
-            <roll-num :value="customersNum" :time="1"></roll-num>
-            +
+          <div>
+            <div class="num-main">
+              <roll-num :value="customersNum" :time="1"></roll-num>
+              +
+            </div>
+            <div class="num-footer"></div>
           </div>
-          <div class="num-footer"></div>
         </div>
         <div class="search-num-box">
           <div class="num-header font-format sm:mb-4">
             {{ $t('lang.serviceContract.search.audited') }}
           </div>
-          <div class="num-main">
-            <roll-num :value="contractsNum" :time="1"></roll-num>
-            +
+          <div>
+            <div class="num-main">
+              <roll-num :value="contractsNum" :time="1"></roll-num>
+              +
+            </div>
+            <div class="num-footer"></div>
           </div>
-          <div class="num-footer"></div>
         </div>
         <div class="search-num-box">
           <div class="num-header font-format">
             {{ $t('lang.serviceContract.search.totalAudited') }}
           </div>
-          <div class="num-main">
-            <roll-num :value="auditedNum" :time="1"></roll-num>
-            Million+
+          <div>
+            <div class="num-main">
+              <roll-num :value="auditedNum" :time="1"></roll-num>
+              <span style='margin-left: 3px;'>Million+</span>
+            </div>
+            <div class="num-footer num-footer-plus"></div>
+
           </div>
-          <div class="num-footer num-footer-plus"></div>
         </div>
       </div>
       <div class="body-search-input">
@@ -296,7 +303,7 @@ export default defineComponent({
   },
 
   setup(props, ctx) {
-    const { message } = composition(props, ctx)
+    const { message } = composition()
     const { t } = useI18n()
     const curInst = getCurrentInstance()
     const searchPrams = ref<string>('')
@@ -327,7 +334,7 @@ export default defineComponent({
     const customersNum = ref<number>(0)
     const contractsNum = ref<number>(0)
     const auditedNum = ref<number>(0)
-    const { startTimer } = composition(props, ctx)
+    const { startTimer } = composition()
     startTimer(customersNum, 1000, 200)
     startTimer(contractsNum, 2000, 300)
     startTimer(auditedNum, 1000, 200)

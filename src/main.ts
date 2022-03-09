@@ -6,7 +6,7 @@ import 'virtual:windi.css'
 import BeUI from '../src/components/be-ui'
 import './assets/css/be-ui/style.css'
 import { i18n } from './utils/i18n'
-import '../node_modules/animate.css/animate.css'
+
 
 const app = createApp(App)
 app.use(BeUI)

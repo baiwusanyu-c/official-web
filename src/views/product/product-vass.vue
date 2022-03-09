@@ -143,7 +143,7 @@ export default defineComponent({
   name: 'ProductVass',
   components: { CoreAdvantages, HProductSwiper, AboutHermit, ContactUs },
   setup(props, ctx) {
-    const { openWin } = composition(props, ctx)
+    const { openWin } = composition()
     const toVaaSPage = (): void => {
       let base =
         import.meta.env.VITE_PROJECT_ENV === 'staging'

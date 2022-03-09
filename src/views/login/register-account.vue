@@ -74,14 +74,8 @@
     >
       <span class="font-format">{{ $t('lang.login.register') }}</span>
     </be-button>
-    <be-button
-      size="large"
-      bordered
-      custom-class="login-btn text-black font-bold text-lg mb-6 w-full mx-auto border-mainG"
-      @click="changeShow('login')"
-    >
-      <span class="font-format">{{ $t('lang.login.login') }}</span>
-    </be-button>
+    <span  class="text-gray-500 cursor-pointer font-format"
+           style="text-decoration: underline" @click="changeShow('login')">{{ $t('lang.login.login') }}</span>
   </div>
 </template>
 
@@ -101,7 +95,7 @@ export default defineComponent({
   name: 'RegisterAccount',
   emits: ['showChange'],
   setup(props, ctx) {
-    const { message } = composition(props, ctx)
+    const { message } = composition()
     const form = ref<IRegister>({})
     const isShowPassword = ref<string>('password')
     const { t } = useI18n()

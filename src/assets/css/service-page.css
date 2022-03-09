@@ -450,19 +450,19 @@
 
   .service-page .num-main .box-item {
     height: 36px;
-    font-size: 20px;
+    font-size: 14px;
     font-weight: bold;
     line-height: 20px;
   }
 
   .service-page .num-main .number-item {
-    width: 12px;
-    height: 36px;
+    width: 8px;
+    height: 24px;
   }
 
   .service-page .num-main .mark-item {
-    height: 36px;
-    font-size: 20px;
+    height: 24px;
+    font-size: 14px;
   }
 
   .service-page .num-main .mark-item > span {
@@ -474,9 +474,13 @@
     width: 80px;
     height: 4px;
   }
+  .service-page .num-footer-plus {
+    width: 110px;
+  }
 
   .service-page .num-main {
-    font-size: 20px;
+    font-size: 14px;
+    line-height: 28px;
   }
 
   .service-page .number-item > span > i {

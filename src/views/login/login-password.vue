@@ -93,7 +93,7 @@ export default defineComponent({
   name: 'LoginPassword',
   emits: ['showChange'],
   setup(props, ctx) {
-    const { message } = composition(props, ctx)
+    const { message } = composition()
     const form = ref<ILogin>({})
     const isShowPassword = ref<string>('password')
     const { t } = useI18n()
@@ -175,7 +175,7 @@ export default defineComponent({
     const changeShow = (type: string): void => {
       ctx.emit('showChange', type)
     }
-    const { codeUrl, getCode, uuid } = composition(props, ctx)
+    const { codeUrl, getCode, uuid } = composition()
     onMounted(() => {
       getCode()
     })

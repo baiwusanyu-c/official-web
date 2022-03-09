@@ -3,7 +3,7 @@
   <div class="login flex justify-center items-center relative">
     <div
       id="login_form"
-      class="login-form px-12 py-10 box-border flex animate__animated animate__fadeInDown animate__faster md:py-8 md:px-10"
+      class="login-form px-12 py-10 box-border flex md:py-8 md:px-10"
     >
       <register-account
         v-if="showType === 'register'"
@@ -45,7 +45,7 @@ export default defineComponent({
     const changeType = (type: string): void => {
       showType.value = type
     }
-    const { routerPush } = composition(props, ctx)
+    const { routerPush } = composition()
     return {
       showType,
       routerPush,
@@ -58,7 +58,7 @@ export default defineComponent({
 <style scoped>
 .login {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-image: url('../../assets/img/login-bg.png');
   background-size: cover;
 }
@@ -66,7 +66,7 @@ export default defineComponent({
 .login-form {
   -moz-box-sizing: content-box;
   min-width: 480px;
-  min-height: 558px;
+  min-height: 600px;
 
   /* background-image: url("../../assets/img/hat-bg.png"); */
   background-repeat: no-repeat;

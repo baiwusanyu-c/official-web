@@ -63,7 +63,7 @@ export default defineComponent({
     },
   },
   setup(props, ctx) {
-    const { message } = composition(props, ctx)
+    const { message } = composition()
     const isShow = ref<boolean>(false)
     const formData = ref<IReportCode>({})
     const { t } = useI18n()
@@ -99,7 +99,7 @@ export default defineComponent({
           console.error(err)
         })
     }
-    const { codeUrl, getCode, uuid } = composition(props, ctx)
+    const { codeUrl, getCode, uuid } = composition()
     watch(isShow, (nVal: boolean) => {
       if (nVal) {
         formData.value.num = (props.num && parseInt(props.num)) || undefined

@@ -59,7 +59,7 @@ export default defineComponent({
     },
   },
   setup(props, ctx) {
-    const { openWin } = composition(props, ctx)
+    const { openWin } = composition()
     const slidesPerView = ref<number>(3)
     const spaceBetween = ref<number>(10)
     const screenWidth = window.screen.width

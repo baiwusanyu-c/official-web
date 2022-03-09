@@ -155,7 +155,7 @@ export default defineComponent({
         CETInfo.value.num + '.pdf'
       )
     }
-    const { openWin } = composition(props, ctx)
+    const { openWin } = composition()
     const previewReport = () => {
       const prevUrl =
         String(import.meta.env.VITE_PROJECT_ENV) === 'production'

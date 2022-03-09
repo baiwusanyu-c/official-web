@@ -345,7 +345,7 @@ export default defineComponent({
   },
   emits: ['changeLang'],
   setup(props, ctx) {
-    const { message } = composition(props, ctx)
+    const { message } = composition()
     const internalInstance = getCurrentInstance()
     const isLogin = ref<boolean>(false)
     /**
