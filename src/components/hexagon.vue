@@ -97,7 +97,7 @@ export default defineComponent({
   background-repeat: no-repeat;
   background-position-x: center;
   background-size: 85%;
-  transition: all 0.1s;
+  transition: all .1s;
 }
 
 .hexagon-container:hover p {
@@ -109,11 +109,13 @@ export default defineComponent({
   padding: 0 30px;
 }
 @media screen and (min-width: 1536px) and (max-height: 840px) and (max-width: 1750px) {
+
   .hexagon-container {
     height: 200px;
   }
 }
 @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
+
   .hexagon-container {
     width: 35%;
     height: 220px;
@@ -121,6 +123,7 @@ export default defineComponent({
   }
 }
 @media screen and (min-width: 100px) and (max-width: 1278px) {
+
   .hexagon-container {
     height: 140px;
   }
