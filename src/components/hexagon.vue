@@ -91,30 +91,31 @@ export default defineComponent({
   align-items: center;
   justify-content: center;
   width: 30%;
-  height: 230px;
-  padding: 0 30px;
+  height: 240px;
   text-align: center;
   background-repeat: no-repeat;
   background-position-x: center;
-  background-size: 85%;
+  background-size: cover;
   transition: all .1s;
+  padding: 0 10px;
+
+}
+.hexagon-container p {
+  margin-top: 40px;
 }
 
-.hexagon-container:hover p {
-  margin-top: 20px;
-}
 
 .hexagon-container:hover {
   z-index: 20;
-  padding: 0 30px;
 }
 
 /* 100% - 110% 适配 */
 @media screen and (min-width: 1540px) and (max-width: 1750px) {
 
   .hexagon-container {
-    height: 190px;
+    height: 200px;
     font-size: 12px;
+
   }
 
   .hexagon-container:hover p {
@@ -124,8 +125,9 @@ export default defineComponent({
 @media screen and (min-width: 1536px) and (max-height: 840px) and (max-width: 1750px) {
 
   .hexagon-container {
-    height: 180px;
+    height: 204px;
     font-size: 12px;
+
   }
 
   .hexagon-container:hover p {
@@ -135,9 +137,10 @@ export default defineComponent({
 @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
 
   .hexagon-container {
-    width: 35%;
-    height: 220px;
+    width: 32%;
+    height: 228px;
     font-size: 12px;
+
   }
 
   .hexagon-container:hover p {
@@ -147,8 +150,12 @@ export default defineComponent({
 @media screen and (min-width: 100px) and (max-width: 1278px) {
 
   .hexagon-container {
-    height: 140px;
+    height: 128px;
+    width: 26%;
     font-size: 12px;
+  }
+  .hexagon-container p {
+    transform: scale(.7);
   }
 
   .hexagon-container:hover p {
