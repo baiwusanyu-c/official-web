@@ -192,8 +192,8 @@
   }
 
   .product-page .product-desc {
-    padding: 0 30px;
     position: relative;
+    padding: 0 30px;
     background: transparent;
   }
 
@@ -209,11 +209,9 @@
 
   #product_eagle.product-page .product-desc-body {
     @apply pt-8 px-0 h-auto;
-
   }
 
   #product_vass.product-page .product-desc-body {
     @apply pt-8 px-0 h-auto;
   }
-
 }

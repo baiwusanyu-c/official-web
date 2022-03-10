@@ -20,20 +20,28 @@
     </div>
 
     <!--    文字介绍 & 走马灯   -->
-    <div class="relative flex items-center justify-center text-center box-border product-desc-body bg-mainBlueGary w-full flex-col" >
+    <div
+      class="relative flex items-center justify-center text-center box-border product-desc-body bg-mainBlueGary w-full flex-col"
+    >
       <!--   mobile   -->
-      <h2 class="display-none text-4xl font-bold font-format sm:text-lg sm:mb-4 sm:flex">
+      <h2
+        class="display-none text-4xl font-bold font-format sm:text-lg sm:mb-4 sm:flex"
+      >
         {{ $t('lang.product.eagle.funcDisplay') }}
       </h2>
-      <div class=" p-8 w-2/3 rounded-md product-desc sm:w-full sm:relative">
+      <div class="p-8 w-2/3 rounded-md product-desc sm:w-full sm:relative">
         <h2 class="text-4xl font-bold font-format sm:hidden">
           {{ $t('lang.product.eagle.funcDisplay') }}
         </h2>
         <!--     走馬燈      -->
-        <div class="mt-10 product-swiper w-full h-full md:mt-8 sm:mt-4 sm:bg-default sm:p-2 sm:rounded">
+        <div
+          class="mt-10 product-swiper w-full h-full md:mt-8 sm:mt-4 sm:bg-default sm:p-2 sm:rounded"
+        >
           <h-product-swiper></h-product-swiper>
         </div>
-        <p class="text-lg font-format text-justify leading-normal px-12 mt-12 sm:text-xs sm:mt-4 sm:px-0">
+        <p
+          class="text-lg font-format text-justify leading-normal px-12 mt-12 sm:text-xs sm:mt-4 sm:px-0"
+        >
           {{ $t('lang.product.eagle.desc') }}
         </p>
       </div>
