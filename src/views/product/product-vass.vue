@@ -3,7 +3,7 @@
 <template>
   <div id="product_vass" class="product-page">
     <!--    头部介绍    -->
-    <div class="page-head">
+    <div class="page-head relative">
       <div class="header-text">
         <div class="header-text-big font-format">
           {{ $t('lang.product.vass.title') }}
@@ -25,24 +25,30 @@
           }}</span>
         </be-button>
       </div>
+      <div  class='vass-header-logo'></div>
     </div>
+
     <!--    文字介绍 & 走马灯   -->
     <div
-      class="flex items-center justify-center bg-default text-center py-16 box-border w-full flex-col sm:py-8"
+      class="relative flex items-center justify-center text-center box-border product-desc-body bg-mainBlueGary w-full flex-col sm:py-8"
     >
-      <p
-        class="product-desc text-lg font-format text-justify leading-normal sm:text-xs"
-      >
-        {{ $t('lang.product.vass.desc') }}
-      </p>
-      <!--     走馬燈      -->
-      <div class="product-desc mt-10 product-swiper w-full h-full">
-        <h-product-swiper></h-product-swiper>
+      <div class="absolute p-8 w-2/3 rounded-md product-desc">
+        <!--     走馬燈      -->
+        <div class="mt-10 product-swiper w-full h-full">
+          <h-product-swiper></h-product-swiper>
+        </div>
+        <p
+          class="text-lg font-format text-justify leading-normal px-12 mt-12 sm:text-xs"
+        >
+          {{ $t('lang.product.vass.desc') }}
+        </p>
       </div>
     </div>
+
+
     <!--    主要功能   -->
     <div
-      class="func-container flex flex-col py-16 items-center justify-center bg-mainBlueGary box-border sm:py-8"
+      class="func-container flex flex-col pb-16 items-center justify-center bg-mainBlueGary box-border sm:py-8"
     >
       <h2 class="text-4xl font-bold mb-16 font-format sm:text-lg sm:mb-8">
         {{ $t('lang.product.vass.funcTitle') }}
@@ -165,20 +171,38 @@ export default defineComponent({
 
 #product_vass .page-head {
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: flex-start;
-  height: 570px;
-  padding: 0 300px 110px 300px;
+  height: 880px;
+  padding: 0 300px 110px 320px;
   background-color: #121214;
-  background-image: url('../../assets/img/vass-bg.png');
+  background-image: url('../../assets/img/product-bg.png');
   background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+#product_vass .product-desc-body{
+  box-sizing: border-box;
+  height: 700px;
+  padding: 0 300px;
+}
+
+.product-page .vass-header-logo{
+  position: absolute;
+  top: 144px;
+  right: 118px;
+  width: 900px;
+  height: 500px;
+  background: url(/src/assets/img/vass-new-logo.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: 100%;
 }
 
 @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
 
   #product_vass .header-text-small {
-    width: 790px;
+    width: 578px;
     font-size: 28px;
     line-height: 1.5;
   }

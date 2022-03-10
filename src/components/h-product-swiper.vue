@@ -87,9 +87,9 @@ export default defineComponent({
 </script>
 
 <style>
-.product-swiper {
+/* .product-swiper {
   height: 600px;
-}
+} */
 
 .product-swiper .swiper {
   width: 100%;
