@@ -11,7 +11,9 @@
     <h3 class="text-2xl font-bold mb-2 font-format sm:mb-0">
       {{ $t('lang.login.registerTxt') }}
     </h3>
-    <div class="mb-2 h-24 border-b w-full flex items-center md:mb-4 lg:mb-4 sm:h-14">
+    <div
+      class="mb-2 h-24 border-b w-full flex items-center md:mb-4 lg:mb-4 sm:h-14"
+    >
       <span class="text-gray-500 mr-4 font-format">{{
         $t('lang.login.account')
       }}</span>
@@ -24,7 +26,9 @@
     </div>
 
     <!--  密码      -->
-    <div class="login-password mb-2 h-24 border-b w-full flex items-center sm:h-14">
+    <div
+      class="login-password mb-2 h-24 border-b w-full flex items-center sm:h-14"
+    >
       <span class="text-gray-500 mr-4 flex-grow-0 font-format">{{
         $t('lang.login.password')
       }}</span>
@@ -72,7 +76,9 @@
       custom-class="login-btn linear-l-r font-bold text-lg w-full mb-8 mx-auto md:mb-4 lg125:mb-4"
       @click="register"
     >
-      <span class="font-format text-black">{{ $t('lang.login.register') }}</span>
+      <span class="font-format text-black">{{
+        $t('lang.login.register')
+      }}</span>
     </be-button>
     <span
       class="text-gray-500 cursor-pointer font-format"

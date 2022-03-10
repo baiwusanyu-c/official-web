@@ -68,9 +68,11 @@ export default defineComponent({
   height: 5px;
 }
 @media screen and (min-width: 100px) and (max-width: 1278px) {
+
   .contact-us-body {
     width: 100%;
   }
+
   .contact-us-line {
     width: 150px;
   }

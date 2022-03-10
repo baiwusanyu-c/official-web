@@ -1,12 +1,8 @@
-/*
-* @login-dialog.vue
-* @deprecated 移动端登录弹窗
-* @author czh
-* @update (czh 2022/3/10)
-*/
+/* * @login-dialog.vue * @deprecated 移动端登录弹窗 * @author czh * @update (czh
+2022/3/10) */
 <template>
   <teleport to="body">
-    <div id='login_dialog'>
+    <div id="login_dialog">
       <be-dialog
         ref="moreNodeDialog"
         v-model:is-show="show"
@@ -15,7 +11,8 @@
         custom-class="font-format"
         esc-exit
         :is-drag="false"
-        :is-open-modal="true">
+        :is-open-modal="true"
+      >
         <template #headerIcon>
           <be-icon icon="deleteIc" @click="show = false"></be-icon>
         </template>
@@ -35,19 +32,18 @@
       </be-dialog>
     </div>
   </teleport>
-
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import { defineComponent, ref } from 'vue'
 import RegisterAccount from './register-account.vue'
 import LoginPassword from './login-password.vue'
 import ForgetPassword from './forget-password.vue'
 import { useEventBus } from '_@vueuse_core@7.7.1@@vueuse/core'
 export default defineComponent({
-  name: 'login-dialog',
+  name: 'LoginDialog',
   components: { ForgetPassword, LoginPassword, RegisterAccount },
-  setup(){
+  setup() {
     const show = ref<boolean>(false)
     const showType = ref<string>('login')
     /**
@@ -58,17 +54,17 @@ export default defineComponent({
       showType.value = type
     }
     const bus = useEventBus<string>('isLogin')
-    bus.on((params)=>{
-      if(params === 'true'){
+    bus.on((params) => {
+      if (params === 'true') {
         show.value = false
       }
     })
     return {
       changeType,
       showType,
-      show
+      show,
     }
-  }
+  },
 })
 </script>
 
@@ -79,10 +75,11 @@ export default defineComponent({
 }
 
 #login_dialog .be-dialog .be-dialog-container {
- width: 90%;
- min-width: 14rem;
+  width: 90%;
+  min-width: 14rem;
 }
-#login_dialog .be-dialog-body{
+
+#login_dialog .be-dialog-body {
   padding-top: 0;
 }
 
@@ -93,7 +90,8 @@ export default defineComponent({
 #login_dialog .request-quote-dialog {
   border-top: 5px solid #02fbbb;
 }
-#login_dialog .be-dialog-footer{
+
+#login_dialog .be-dialog-footer {
   display: none;
 }
 </style>

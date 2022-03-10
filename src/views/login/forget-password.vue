@@ -8,7 +8,9 @@
     <h3 class="text-2xl font-bold mb-2 font-format sm:mb-0">
       {{ $t('lang.login.forget') }}
     </h3>
-    <div class="mb-2 h-24 border-b w-full flex items-center md:h-14 lg:h-14 sm:h-14">
+    <div
+      class="mb-2 h-24 border-b w-full flex items-center md:h-14 lg:h-14 sm:h-14"
+    >
       <span class="text-gray-500 mr-4 font-format">{{
         $t('lang.login.account')
       }}</span>
@@ -39,7 +41,9 @@
       ></be-icon>
     </div>
     <!--  确认密码      -->
-    <div class="login-password mb-2 h-24 border-b w-full flex items-center sm:h-14">
+    <div
+      class="login-password mb-2 h-24 border-b w-full flex items-center sm:h-14"
+    >
       <span class="text-gray-500 mr-4 flex-grow-0 font-format">{{
         $t('lang.login.password')
       }}</span>

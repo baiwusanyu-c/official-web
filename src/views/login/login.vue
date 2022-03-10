@@ -3,7 +3,8 @@
   <div class="login flex justify-center items-center">
     <div
       id="login_form"
-      class="login-form px-12 py-10 box-border flex relative md:py-8 md:px-10">
+      class="login-form px-12 py-10 box-border flex relative md:py-8 md:px-10"
+    >
       <register-account
         v-if="showType === 'register'"
         @show-change="changeType"

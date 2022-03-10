@@ -6,7 +6,9 @@
     <div class="text-right display-none relative sm:flex sm:items-center">
       <be-icon
         icon="type"
-        :custom-class="`menu-icon absolute left-2 ${active ? 'menu-icon-active' :''}`"
+        :custom-class="`menu-icon absolute left-2 ${
+          active ? 'menu-icon-active' : ''
+        }`"
         @click="active = true"
       ></be-icon>
       <n-drawer
@@ -136,8 +138,10 @@
       </n-drawer>
     </div>
     <!--    logo    -->
-    <div class="flex items-center justify-end cursor-pointer w-64 sm:justify-center sm:w-full"
-      @click="routerPush('/index/home')" >
+    <div
+      class="flex items-center justify-end cursor-pointer w-64 sm:justify-center sm:w-full"
+      @click="routerPush('/index/home')"
+    >
       <img src="../assets/img/LOGO.png" alt="" style="height: 46px" />
     </div>
     <!--    pc 導航    -->
@@ -300,7 +304,7 @@
         </be-popover>-->
   </div>
   <!-- 登录弹窗 -->
-  <login-dialog ref='loginDialog'></login-dialog>
+  <login-dialog ref="loginDialog"></login-dialog>
 </template>
 
 <script lang="ts">
@@ -509,13 +513,13 @@ export default defineComponent({
     /**
      * 移动端 开启登录弹窗
      */
-    const openLoginDialog = ():void=>{
+    const openLoginDialog = (): void => {
       active.value = false
       ;(internalInstance?.refs?.loginDialog as ILoginDialog).show = true
     }
     const busLogin = useEventBus<string>('isLogin')
-    busLogin.on((params)=>{
-      if(params === 'true'){
+    busLogin.on((params) => {
+      if (params === 'true') {
         isLogin.value = true
       }
     })
@@ -542,7 +546,7 @@ export default defineComponent({
   @apply w-6 h-6;
 }
 
-.menu-icon-active .be-icon{
+.menu-icon-active .be-icon {
   fill: #02fbbb;
 }
 

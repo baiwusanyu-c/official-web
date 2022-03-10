@@ -21,7 +21,9 @@
         />
       </div>
       <!--  密码      -->
-      <div class="login-password mb-2 h-24 border-b w-full flex items-center sm:h-14">
+      <div
+        class="login-password mb-2 h-24 border-b w-full flex items-center sm:h-14"
+      >
         <span class="text-gray-500 mr-4 flex-grow-0 font-format">{{
           $t('lang.login.password')
         }}</span>
@@ -56,13 +58,16 @@
     <be-button
       size="large"
       custom-class="login-btn linear-l-r font-bold text-lg w-full mb-8 mx-auto sm:my-4"
-      @click="login">
+      @click="login"
+    >
       <span class="font-format text-black">{{ $t('lang.login.login') }}</span>
     </be-button>
     <div class="flex items-center justify-between w-full">
-      <p class="text-gray-500 cursor-pointer font-format"
+      <p
+        class="text-gray-500 cursor-pointer font-format"
         style="text-decoration: underline"
-        @click="changeShow('forget')">
+        @click="changeShow('forget')"
+      >
         {{ $t('lang.login.forget') }}
       </p>
       <p
@@ -82,7 +87,12 @@ import { loginAccount, ILogin } from '../../api/login'
 import { setStore } from '../../utils/common'
 import { useI18n } from 'vue-i18n'
 import { verEmail } from '../../utils/common'
-import { Router, useRouter ,useRoute,RouteLocationNormalizedLoaded} from 'vue-router'
+import {
+  Router,
+  useRouter,
+  useRoute,
+  RouteLocationNormalizedLoaded,
+} from 'vue-router'
 import { Base64 } from 'js-base64'
 import composition from '../../utils/mixin/common-func'
 import { useEventBus } from '_@vueuse_core@7.7.1@@vueuse/core'
@@ -160,7 +170,7 @@ export default defineComponent({
           setStore('token', res.access_token)
           setStore('userInfo', JSON.stringify(res))
           bus.emit('true')
-          if(route.path.indexOf('login') > 0){
+          if (route.path.indexOf('login') > 0) {
             router.push('/index/home')
           }
         })
