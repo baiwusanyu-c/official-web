@@ -11,7 +11,6 @@
       esc-exit
       :is-drag="false"
       :is-open-modal="true"
-      @close="test"
     >
       <template #headerIcon>
         <be-icon icon="deleteIc" @click="isShow = false"></be-icon>

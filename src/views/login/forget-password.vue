@@ -5,10 +5,10 @@
   <div class="flex flex-col items-start w-full">
     <img src="../../assets/img/logo-green-black.png" class="w-1/2" alt="" />
     <!--  账户      -->
-    <h3 class="text-2xl font-bold mb-2 font-format">
+    <h3 class="text-2xl font-bold mb-2 font-format sm:mb-0">
       {{ $t('lang.login.forget') }}
     </h3>
-    <div class="mb-2 h-24 border-b w-full md:h-14 lg:h-14">
+    <div class="mb-2 h-24 border-b w-full flex items-center md:h-14 lg:h-14 sm:h-14">
       <span class="text-gray-500 mr-4 font-format">{{
         $t('lang.login.account')
       }}</span>
@@ -21,7 +21,7 @@
     </div>
     <!--  密码      -->
     <div
-      class="login-password mb-2 h-24 border-b w-full flex items-center md:h-14 lg:h-14"
+      class="login-password mb-2 h-24 border-b w-full flex items-center md:h-14 lg:h-14 sm:h-14"
     >
       <span class="text-gray-500 mr-4 flex-grow-0 font-format">{{
         $t('lang.login.password')
@@ -39,7 +39,7 @@
       ></be-icon>
     </div>
     <!--  确认密码      -->
-    <div class="login-password mb-2 h-24 border-b w-full flex items-center">
+    <div class="login-password mb-2 h-24 border-b w-full flex items-center sm:h-14">
       <span class="text-gray-500 mr-4 flex-grow-0 font-format">{{
         $t('lang.login.password')
       }}</span>
@@ -84,10 +84,10 @@
     </div>
     <be-button
       size="large"
-      custom-class="login-btn linear-l-r text-black font-bold text-lg w-full mb-4 mx-auto "
+      custom-class="login-btn linear-l-r font-bold text-lg w-full mb-4 mx-auto "
       @click="updatePassword"
     >
-      <span class="font-format">{{ $t('lang.login.confirm') }}</span>
+      <span class="font-format text-black">{{ $t('lang.login.confirm') }}</span>
     </be-button>
     <span
       class="text-gray-500 cursor-pointer font-format"

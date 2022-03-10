@@ -1,10 +1,9 @@
 /* * @login.vue * @deprecated * @author czh * @update (czh 2021/12/17) */
 <template>
-  <div class="login flex justify-center items-center relative">
+  <div class="login flex justify-center items-center">
     <div
       id="login_form"
-      class="login-form px-12 py-10 box-border flex md:py-8 md:px-10"
-    >
+      class="login-form px-12 py-10 box-border flex relative md:py-8 md:px-10">
       <register-account
         v-if="showType === 'register'"
         @show-change="changeType"

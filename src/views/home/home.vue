@@ -761,6 +761,7 @@ export default defineComponent({
 
   .hermit-main .slogan-news {
     height: 70vh;
+    padding: 0 30px;
   }
 
   .science-dom {

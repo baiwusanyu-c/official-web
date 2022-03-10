@@ -4,7 +4,7 @@
     class="contact-us w-full bg-mainG text-black h-64 flex items-center justify-center sm:h-auto"
   >
     <div
-      class="contact-us-body flex items-center justify-center box-border lg125:w-3/4 md:w-3/4 sm:flex-col sm:w-full sm:p-6"
+      class="contact-us-body flex items-center justify-center box-border lg125:w-3/4 md:w-3/4 sm:flex-col sm:p-6"
     >
       <div class="flex flex-col lg:mr-0 lg125:mr-0 md:mr-0">
         <div class="contact-us-line bg-black mb-4"></div>
@@ -68,7 +68,9 @@ export default defineComponent({
   height: 5px;
 }
 @media screen and (min-width: 100px) and (max-width: 1278px) {
-
+  .contact-us-body {
+    width: 100%;
+  }
   .contact-us-line {
     width: 150px;
   }

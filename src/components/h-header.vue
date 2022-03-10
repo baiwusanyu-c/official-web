@@ -3,10 +3,10 @@
 
   <div class="hermit-header flex flex-1 items-center">
     <!--    mobile 導航    -->
-    <div class="text-right display-none sm:flex">
+    <div class="text-right display-none relative sm:flex sm:items-center">
       <be-icon
         icon="type"
-        custom-class="menu-icon"
+        :custom-class="`menu-icon absolute left-2 ${active ? 'menu-icon-active' :''}`"
         @click="active = true"
       ></be-icon>
       <n-drawer
@@ -97,7 +97,7 @@
           <div
             v-if="!isLogin"
             class="mb-4 w-full font-format y-full text-left flex justify-start items-center cursor-pointer mr-12 text-base hover:text-mainG"
-            @click="routerPush('/login')"
+            @click="openLoginDialog"
           >
             <p>{{ $t('lang.header.login') }}</p>
           </div>
@@ -107,11 +107,11 @@
             ref="popoverLogin"
             trigger="click"
             custom-class="header-popover"
-            placement="bottom"
+            placement="right"
           >
             <template #trigger>
               <div
-                class="trigger-item y-full flex items-center cursor-pointer mr-12 text-base hover:text-mainG"
+                class="trigger-item y-full w-full flex items-center cursor-pointer mr-12 text-base hover:text-mainG"
               >
                 <img
                   style="width: 30px; height: 30px"
@@ -136,10 +136,8 @@
       </n-drawer>
     </div>
     <!--    logo    -->
-    <div
-      class="flex items-center justify-end cursor-pointer w-64 sm:justify-center sm:w-full"
-      @click="routerPush('/index/home')"
-    >
+    <div class="flex items-center justify-end cursor-pointer w-64 sm:justify-center sm:w-full"
+      @click="routerPush('/index/home')" >
       <img src="../assets/img/LOGO.png" alt="" style="height: 46px" />
     </div>
     <!--    pc 導航    -->
@@ -301,6 +299,8 @@
             </div>
         </be-popover>-->
   </div>
+  <!-- 登录弹窗 -->
+  <login-dialog ref='loginDialog'></login-dialog>
 </template>
 
 <script lang="ts">
@@ -328,6 +328,7 @@ import {
   removeSession,
 } from '../utils/common'
 import composition from '../utils/mixin/common-func'
+import LoginDialog from '../views/login/login-dialog.vue'
 interface ISelect {
   label: string
   value: string
@@ -337,9 +338,14 @@ interface IPopover extends ComponentInternalInstance {
   uid: number
   close: Function
 }
+interface ILoginDialog extends ComponentInternalInstance {
+  uid: number
+  show: boolean
+}
 export default defineComponent({
   name: 'HHeader',
   components: {
+    LoginDialog,
     NDrawer,
     NDrawerContent,
   },
@@ -356,6 +362,7 @@ export default defineComponent({
     const router: Router = useRouter()
     const route: RouteLocationNormalizedLoaded = useRoute()
     const routerPush = (path: string, index?: number): void => {
+      active.value = false
       ;(index || index === 0) && closePopover(path, index)
       if (/quit/.test(path)) return
       // 主頁
@@ -368,6 +375,7 @@ export default defineComponent({
     const clearActive = (): void => {
       serviceList.value.map((val: ISelect) => (val.active = false))
       productList.value.map((val: ISelect) => (val.active = false))
+      loginList.value.map((val: ISelect) => (val.active = false))
     }
     /**
      * 关闭popover
@@ -498,7 +506,21 @@ export default defineComponent({
         serviceList.value[activeIndex].active = true
       }
     })
+    /**
+     * 移动端 开启登录弹窗
+     */
+    const openLoginDialog = ():void=>{
+      active.value = false
+      ;(internalInstance?.refs?.loginDialog as ILoginDialog).show = true
+    }
+    const busLogin = useEventBus<string>('isLogin')
+    busLogin.on((params)=>{
+      if(params === 'true'){
+        isLogin.value = true
+      }
+    })
     return {
+      openLoginDialog,
       active,
       isLogin,
       openDialog,
@@ -518,6 +540,10 @@ export default defineComponent({
 .menu-icon .be-icon {
   fill: #fff;
   @apply w-6 h-6;
+}
+
+.menu-icon-active .be-icon{
+  fill: #02fbbb;
 }
 
 .header-popover .be-popover {

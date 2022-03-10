@@ -4,7 +4,7 @@
   <div class="flex flex-col items-start w-full">
     <img
       src="../../assets/img/logo-green-black.png"
-      class="mb-8 w-1/2"
+      class="mb-8 w-1/2 sm:mb-0"
       alt=""
     />
     <div class="flex flex-col items-start w-full flex-grow">
@@ -20,9 +20,8 @@
           :placeholder="$t('lang.login.tipAccount')"
         />
       </div>
-
       <!--  密码      -->
-      <div class="login-password mb-2 h-24 border-b w-full flex items-center">
+      <div class="login-password mb-2 h-24 border-b w-full flex items-center sm:h-14">
         <span class="text-gray-500 mr-4 flex-grow-0 font-format">{{
           $t('lang.login.password')
         }}</span>
@@ -56,17 +55,14 @@
     </div>
     <be-button
       size="large"
-      custom-class="login-btn linear-l-r text-black font-bold text-lg w-full mb-8 mx-auto"
-      @click="login"
-    >
-      <span class="font-format">{{ $t('lang.login.login') }}</span>
+      custom-class="login-btn linear-l-r font-bold text-lg w-full mb-8 mx-auto sm:my-4"
+      @click="login">
+      <span class="font-format text-black">{{ $t('lang.login.login') }}</span>
     </be-button>
     <div class="flex items-center justify-between w-full">
-      <p
-        class="text-gray-500 cursor-pointer font-format"
+      <p class="text-gray-500 cursor-pointer font-format"
         style="text-decoration: underline"
-        @click="changeShow('forget')"
-      >
+        @click="changeShow('forget')">
         {{ $t('lang.login.forget') }}
       </p>
       <p
@@ -86,9 +82,10 @@ import { loginAccount, ILogin } from '../../api/login'
 import { setStore } from '../../utils/common'
 import { useI18n } from 'vue-i18n'
 import { verEmail } from '../../utils/common'
-import { Router, useRouter } from 'vue-router'
+import { Router, useRouter ,useRoute,RouteLocationNormalizedLoaded} from 'vue-router'
 import { Base64 } from 'js-base64'
 import composition from '../../utils/mixin/common-func'
+import { useEventBus } from '_@vueuse_core@7.7.1@@vueuse/core'
 export default defineComponent({
   name: 'LoginPassword',
   emits: ['showChange'],
@@ -139,6 +136,8 @@ export default defineComponent({
      * 登錄方法
      */
     const router: Router = useRouter()
+    const bus = useEventBus<string>('isLogin')
+    const route: RouteLocationNormalizedLoaded = useRoute()
     const login = (): void => {
       if (!verifyCodeForm()) {
         getCode()
@@ -160,8 +159,10 @@ export default defineComponent({
           message('success', t('lang.loginSuccess'), 'hermit-msg')
           setStore('token', res.access_token)
           setStore('userInfo', JSON.stringify(res))
-
-          router.push('/index/home')
+          bus.emit('true')
+          if(route.path.indexOf('login') > 0){
+            router.push('/index/home')
+          }
         })
         .catch((err) => {
           getCode()
@@ -212,7 +213,7 @@ export default defineComponent({
 }
 
 .login-input {
-  height: 38px;
+  height: 48px;
   background-color: transparent;
 }
 
