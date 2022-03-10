@@ -503,7 +503,7 @@ export default defineComponent({
   }
 
   .user-center .table-body {
-    width: 100%;
+    width: 1000px;
     height: initial;
   }
 }
