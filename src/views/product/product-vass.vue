@@ -25,18 +25,22 @@
 
     <!--    文字介绍 & 走马灯   -->
     <div
-      class="relative flex items-center justify-center text-center box-border product-desc-body bg-mainBlueGary w-full flex-col sm:py-8"
+      class="relative flex items-center justify-center text-center box-border product-desc-body bg-mainBlueGary w-full flex-col"
     >
-      <div class="absolute p-8 w-2/3 rounded-md product-desc">
-        <h2 class="text-4xl font-bold font-format sm:text-lg sm:mb-8">
+      <!--   mobile   -->
+      <h2 class="display-none text-4xl font-bold font-format sm:text-lg sm:mb-4 sm:flex">
+        {{ $t('lang.product.eagle.funcDisplay') }}
+      </h2>
+      <div class="p-8 w-2/3 rounded-md product-desc sm:w-full sm:relative">
+        <h2 class="text-4xl font-bold font-format sm:hidden">
           {{ $t('lang.product.eagle.funcDisplay') }}
         </h2>
         <!--     走馬燈      -->
-        <div class="mt-10 product-swiper w-full h-full md:mt-8">
+        <div class="mt-10 product-swiper w-full h-full md:mt-8 sm:mt-4 sm:bg-default sm:p-2 sm:rounded">
           <h-product-swiper></h-product-swiper>
         </div>
         <p
-          class="text-lg font-format text-justify leading-normal px-12 mt-12 sm:text-xs"
+          class="text-lg font-format text-justify leading-normal px-12 mt-12 sm:text-xs sm:mt-4 sm:px-0"
         >
           {{ $t('lang.product.vass.desc') }}
         </p>
@@ -45,9 +49,9 @@
 
     <!--    主要功能   -->
     <div
-      class="func-container flex flex-col pb-16 items-center justify-center bg-mainBlueGary box-border sm:py-8"
+      class="func-container flex flex-col pb-16 items-center justify-center bg-mainBlueGary box-border sm:pt-0 sm:pb-8"
     >
-      <h2 class="text-4xl font-bold mb-16 font-format sm:text-lg sm:mb-8">
+      <h2 class="text-4xl font-bold m-16 font-format sm:text-lg sm:m-6">
         {{ $t('lang.product.vass.funcTitle') }}
       </h2>
       <div class="flex w-full items-center justify-center sm:flex-wrap">

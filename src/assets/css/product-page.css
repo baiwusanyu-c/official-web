@@ -5,6 +5,7 @@
 }
 
 .product-page .product-desc {
+  position: absolute;
   bottom: 10px;
   background: linear-gradient(
     to bottom,rgba(255, 255, 255, 1) 0%,rgba(246, 246, 246, 1) 59%,rgba(239, 242, 247, 1) 100%
@@ -192,6 +193,8 @@
 
   .product-page .product-desc {
     padding: 0 30px;
+    position: relative;
+    background: transparent;
   }
 
   .product-page .func-container .func-card {
@@ -203,4 +206,14 @@
     width: 36px;
     height: 36px;
   }
+
+  #product_eagle.product-page .product-desc-body {
+    @apply pt-8 px-0 h-auto;
+
+  }
+
+  #product_vass.product-page .product-desc-body {
+    @apply pt-8 px-0 h-auto;
+  }
+
 }
