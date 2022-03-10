@@ -136,7 +136,6 @@
     height: 624px;
   }
 
-
   .product-page .header-text-big {
     margin-top: 60px;
   }
@@ -161,11 +160,10 @@
 }
 @media screen and (min-width: 100px) and (max-width: 1278px) {
 
-  .hermit-main #product_vass .page-head{
+  .hermit-main #product_vass .page-head {
     height: 486px;
     padding: 0 30px 10px 30px;
     background-image: url('../../assets/img/vaas-header-bg-m.png');
-
   }
 
   .hermit-main #product_eagle .page-head {

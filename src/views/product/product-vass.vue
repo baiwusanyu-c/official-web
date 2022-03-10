@@ -13,7 +13,8 @@
         </div>
         <be-button
           custom-class="try-out-btn h-btn-txt-black linear-l-r text-black text-xl sm:absolute sm:bottom-8 sm:inset-x-0"
-          @click="toVaaSPage">
+          @click="toVaaSPage"
+        >
           <span class="font-format sm:text-base">{{
             $t('lang.tryoutBtn')
           }}</span>
