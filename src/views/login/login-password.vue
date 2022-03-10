@@ -230,4 +230,10 @@ export default defineComponent({
 .login-input:focus {
   outline: none;
 }
+@media screen and (min-width: 100px) and (max-width: 1278px) {
+
+  .login-input {
+    font-size: 12px;
+  }
+}
 </style>
