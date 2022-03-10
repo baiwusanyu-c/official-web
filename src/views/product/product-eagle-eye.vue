@@ -21,7 +21,7 @@
           >{{ $t('lang.tryoutBtn') }}</be-button
         >
       </div>
-      <div  class='eagle-header-logo'></div>
+      <div class="eagle-header-logo"></div>
     </div>
 
     <!--    文字介绍 & 走马灯   -->
@@ -269,7 +269,7 @@ export default defineComponent({
   padding: 0 300px;
 }
 
-.product-page .eagle-header-logo{
+.product-page .eagle-header-logo {
   position: absolute;
   top: 134px;
   right: 154px;
@@ -288,5 +288,4 @@ export default defineComponent({
     line-height: 1.5;
   }
 }
-
 </style>

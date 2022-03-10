@@ -64,11 +64,11 @@
     height: 1050px;
   }
 
-  #product_vass.product-page .product-desc-body{
+  #product_vass.product-page .product-desc-body {
     height: 668px;
   }
 
-  .product-page .header-text-big{
+  .product-page .header-text-big {
     margin-top: 146px;
   }
 
@@ -76,14 +76,14 @@
     margin-top: 4rem;
   }
 
-  #product_eagle.product-page .eagle-header-logo{
+  #product_eagle.product-page .eagle-header-logo {
     top: 92px;
     right: 116px;
     width: 682px;
     height: 406px;
   }
 
-  #product_vass.product-page .vass-header-logo{
+  #product_vass.product-page .vass-header-logo {
     top: 116px;
     right: 90px;
     width: 730px;
@@ -104,14 +104,14 @@
     height: 1126px;
   }
 
-  #product_eagle.product-page .eagle-header-logo{
+  #product_eagle.product-page .eagle-header-logo {
     top: 104px;
     right: 134px;
     width: 776px;
     height: 463px;
   }
 
-  #product_vass.product-page .vass-header-logo{
+  #product_vass.product-page .vass-header-logo {
     top: 122px;
     right: 100px;
     width: 834px;
@@ -121,8 +121,6 @@
 
 /* 125 - 150% */
 @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
-
-
 
   #product_vass.product-page .page-head,
   #product_eagle.product-page .page-head {
@@ -151,14 +149,14 @@
     margin-top: 3rem;
   }
 
-  #product_eagle.product-page .eagle-header-logo{
+  #product_eagle.product-page .eagle-header-logo {
     top: 74px;
     right: 100px;
     width: 564px;
     height: 334px;
   }
 
-  #product_vass.product-page .vass-header-logo{
+  #product_vass.product-page .vass-header-logo {
     top: 94px;
     right: 72px;
     width: 610px;

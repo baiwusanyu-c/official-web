@@ -25,7 +25,7 @@
           }}</span>
         </be-button>
       </div>
-      <div  class='vass-header-logo'></div>
+      <div class="vass-header-logo"></div>
     </div>
 
     <!--    文字介绍 & 走马灯   -->
@@ -44,7 +44,6 @@
         </p>
       </div>
     </div>
-
 
     <!--    主要功能   -->
     <div
@@ -181,13 +180,13 @@ export default defineComponent({
   background-size: 100%;
 }
 
-#product_vass .product-desc-body{
+#product_vass .product-desc-body {
   box-sizing: border-box;
   height: 700px;
   padding: 0 300px;
 }
 
-.product-page .vass-header-logo{
+.product-page .vass-header-logo {
   position: absolute;
   top: 144px;
   right: 118px;
