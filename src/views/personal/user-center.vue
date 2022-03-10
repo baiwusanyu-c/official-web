@@ -1,63 +1,61 @@
 <template>
-  <div class='user-center'>
-    <div class='page-header'>
+  <div class="user-center">
+    <div class="page-header">
       <!--{{$t('lang.HFooterBigger.contact.locationRoad')}}-->
-      <div class='title-big font-format'>
+      <div class="title-big font-format">
         {{ $t('lang.userCenter.titleBig') }}
       </div>
-      <div class='title-small font-format'>
+      <div class="title-small font-format">
         {{ $t('lang.userCenter.titleSmall') }}
       </div>
     </div>
-    <div class='search'>
-      <div class='search-up sm:text-center'>
-        <span class='font-format'>{{ $t('lang.userCenter.searchTitle') }}</span>
+    <div class="search">
+      <div class="search-up sm:text-center">
+        <span class="font-format">{{ $t('lang.userCenter.searchTitle') }}</span>
       </div>
-      <div class='search-down'>
-        <div class='search-class'>
+      <div class="search-down">
+        <div class="search-class">
           <n-input
-            v-model:value='searchParams'
-            class='search-input font-format'
+            v-model:value="searchParams"
+            class="search-input font-format"
             :placeholder="$t('lang.userCenter.searchInput')"
           />
-          <n-button class='search-btn' @click='searchData'>
-            <n-icon size='20px'>
+          <n-button class="search-btn" @click="searchData">
+            <n-icon size="20px">
               <search />
             </n-icon>
           </n-button>
-          <n-button class='search-btn ml-2' @click='resetHandle()'>
-            <n-icon size='20px'>
+          <n-button class="search-btn ml-2" @click="resetHandle()">
+            <n-icon size="20px">
               <Refresh />
             </n-icon>
           </n-button>
         </div>
-        <div class='sm:hidden'>
-          <n-button class='download-btn' @click='downloadAll'>
-            <span class='font-format'>{{
-                $t('lang.userCenter.download')
-              }}</span></n-button
+        <div class="sm:hidden">
+          <n-button class="download-btn" @click="downloadAll">
+            <span class="font-format">{{
+              $t('lang.userCenter.download')
+            }}</span></n-button
           >
         </div>
       </div>
     </div>
-    <div class='page-table bg-white'>
-      <n-button class='display-none download-btn sm:flex' @click='downloadAll'>
-            <span class='font-format'>{{
-                $t('lang.userCenter.download')
-              }}</span>
+    <div class="page-table bg-white">
+      <n-button class="display-none download-btn sm:flex" @click="downloadAll">
+        <span class="font-format">{{ $t('lang.userCenter.download') }}</span>
       </n-button>
-      <div class='table-body'>
+      <div class="table-body">
         <n-data-table
-          :theme-overrides='builtinThemeOverrides'
-          :columns='columns'
-          :data='auditReport'
+          :theme-overrides="builtinThemeOverrides"
+          :columns="columns"
+          :data="auditReport"
         />
-        <div class='flex justify-center mt-6'>
+        <div class="flex justify-center mt-6">
           <n-pagination
-            v-model:page='paginationReactive.page'
-            :on-update-page='updatePage'
-            :item-count='paginationReactive.total'
-            :page-size='paginationReactive.pageSize'
+            v-model:page="paginationReactive.page"
+            :on-update-page="updatePage"
+            :item-count="paginationReactive.total"
+            :page-size="paginationReactive.pageSize"
           />
         </div>
       </div>
@@ -65,13 +63,13 @@
   </div>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import { useI18n } from 'vue-i18n'
 import {
   Search,
   DownloadOutline,
   Refresh,
-  DocumentOutline
+  DocumentOutline,
 } from '@vicons/ionicons5'
 import { h, defineComponent, ref, onMounted, reactive } from 'vue'
 import {
@@ -80,17 +78,19 @@ import {
   NIcon,
   NDataTable,
   DataTableProps,
-  NPagination
+  NPagination,
 } from 'naive-ui'
 import { IReportList, IReportListRes, verifyCode } from '../../api/personal'
 import { downLoadZip } from '../../utils/zipdownload'
 import { formatDate, getStore, setSession } from '../../utils/common'
 import composition from '../../utils/mixin/common-func'
 
-type BuiltinThemeOverrides = NonNullable<DataTableProps['builtinThemeOverrides']>
+type BuiltinThemeOverrides = NonNullable<
+  DataTableProps['builtinThemeOverrides']
+>
 const builtinThemeOverrides: BuiltinThemeOverrides = {
   thColor: '#02fbbb',
-  borderRadius: '5px'
+  borderRadius: '5px',
 }
 export default defineComponent({
   name: 'UserCenter',
@@ -102,7 +102,7 @@ export default defineComponent({
     NButton,
     NDataTable,
     Search,
-    DownloadOutline
+    DownloadOutline,
   },
   setup() {
     const { message } = composition()
@@ -113,11 +113,11 @@ export default defineComponent({
       t('lang.report.reportName.reportName3'),
       t('lang.report.reportName.reportName4'),
       t('lang.report.reportName.reportName5'),
-      t('lang.report.reportName.reportName6')
+      t('lang.report.reportName.reportName6'),
     ])
     const openFlagDict = ref<Array<string>>([
       t('lang.private'),
-      t('lang.public')
+      t('lang.public'),
     ])
 
     // 創建表格配置
@@ -126,32 +126,32 @@ export default defineComponent({
         {
           title: t('lang.userCenter.tableAudit'),
           key: 'reportNum',
-          align: 'center'
+          align: 'center',
         },
         {
           title: t('lang.userCenter.tableName'),
           key: 'reportName',
           ellipsis: {
-            tooltip: true
-          }
+            tooltip: true,
+          },
         },
         {
           title: t('lang.userCenter.tableType'),
           key: 'reportTypeName',
           ellipsis: {
-            tooltip: true
-          }
+            tooltip: true,
+          },
         },
         {
           title: t('lang.userCenter.tableTime'),
           key: 'updateTime',
           ellipsis: {
-            tooltip: true
-          }
+            tooltip: true,
+          },
         },
         {
           title: t('lang.userCenter.tableSetting'),
-          key: 'permission'
+          key: 'permission',
         },
         {
           title: t('lang.userCenter.tableCertificate'),
@@ -165,13 +165,13 @@ export default defineComponent({
                   onClick: openWin.bind(this, '#/report', 'view_window', () =>
                     setSession('CETInfo', JSON.stringify(row))
                   ),
-                  size: '20px'
+                  size: '20px',
                 },
                 [h(DocumentOutline)]
               )
             }
             return h('span', [row.viewCET])
-          }
+          },
         },
         {
           title: t('lang.userCenter.tableAction'),
@@ -182,19 +182,19 @@ export default defineComponent({
               {
                 style: { cursor: 'pointer' },
                 onClick: download.bind(this, row),
-                size: '20px'
+                size: '20px',
               },
               [h(DownloadOutline)]
             )
-          }
-        }
+          },
+        },
       ]
     }
     // 分頁參數
     const paginationReactive = reactive({
       page: 1,
       pageSize: 5,
-      total: 0
+      total: 0,
     })
     // 更新分頁
     const updatePage = (page: number): void => {
@@ -257,7 +257,7 @@ export default defineComponent({
       const params: IReportList = {
         pageSize: paginationReactive.pageSize,
         pageNum: paginationReactive.page,
-        value: searchParams.value
+        value: searchParams.value,
       }
       verifyCode(params)
         .then((res: any) => {
@@ -306,9 +306,9 @@ export default defineComponent({
       auditReport,
       updatePage,
       columns: createColumns(downloadSingle, openWin),
-      paginationReactive
+      paginationReactive,
     }
-  }
+  },
 })
 </script>
 
@@ -436,8 +436,8 @@ export default defineComponent({
     height: initial;
     padding: 30px;
     background-image: url('../../assets/img/user-center-m.png');
-    background-size: cover;
     background-repeat: round;
+    background-size: cover;
   }
 
   .user-center .title-big {
@@ -478,7 +478,6 @@ export default defineComponent({
   .user-center .search .search-class .n-input__placeholder {
     font-size: 12px;
   }
-
 
   .user-center .search .search-input {
     height: 35px;
