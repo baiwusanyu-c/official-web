@@ -410,10 +410,10 @@ export default {
       title: 'BEOSIN-Eagle Eye',
       subTitle:
         'Provide Dapp operators with project intelligence and real-time risk alerts',
-
+      funcDisplay: 'Function Display',
       desc: 'An integrated monitoring platform designed for blockchain project owners. By automatically assessing security situation of contracts, monitoring on-chain operations and real-time transactions, it can identify suspicious transactions, comprehensively assess the operation status, help user to find out risks and get disposal suggestions, and finally setup security shield for project operation and asset protection.',
 
-      funcTitle: 'Functions',
+      funcTitle: 'Main Functions Of Product',
       funcSubTitle1: 'CHAIN PROFILE',
       funcDesc1:
         'Real-time monitoring transaction trends, security intelligence, suspicious transactions on the blockchain, presenting insight into specific chain.',

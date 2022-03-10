@@ -11,26 +11,20 @@
         <div class="header-text-small font-format leading-normal">
           {{ $t('lang.product.eagle.subTitle') }}
         </div>
-        <img
-          alt=""
-          src="../../assets/img/eagle-logo.png"
-          class="display-none w-36 h-36 mt-10 mx-auto sm:flex"
-        />
-        <be-button
-          custom-class="try-out-btn h-btn-txt-black linear-l-r text-black text-xl"
-          >{{ $t('lang.tryoutBtn') }}</be-button
-        >
+        <be-button custom-class="try-out-btn h-btn-txt-black linear-l-r text-black text-xl sm:absolute sm:bottom-8 sm:inset-x-0">{{ $t('lang.tryoutBtn') }}</be-button>
       </div>
-      <div class="eagle-header-logo"></div>
+      <div class="eagle-header-logo sm:hidden"></div>
     </div>
 
     <!--    文字介绍 & 走马灯   -->
-    <div
-      class="relative flex items-center justify-center text-center box-border product-desc-body bg-mainBlueGary w-full flex-col sm:py-8"
+    <div class="relative flex items-center justify-center text-center box-border product-desc-body bg-mainBlueGary w-full flex-col sm:py-8"
     >
       <div class="absolute p-8 w-2/3 rounded-md product-desc">
+        <h2 class="text-4xl font-bold font-format sm:text-lg sm:mb-8">
+          {{ $t('lang.product.eagle.funcDisplay') }}
+        </h2>
         <!--     走馬燈      -->
-        <div class="mt-10 product-swiper w-full h-full">
+        <div class="mt-10 product-swiper w-full h-full md:mt-8">
           <h-product-swiper></h-product-swiper>
         </div>
         <p
@@ -41,9 +35,7 @@
       </div>
     </div>
     <!--    主要功能   -->
-    <div
-      class="func-container flex flex-col pb-16 items-center justify-center bg-mainBlueGary box-border sm:py-8"
-    >
+    <div class="func-container flex flex-col pb-16 items-center justify-center bg-mainBlueGary box-border sm:py-8">
       <h2 class="text-4xl font-bold m-16 font-format sm:text-lg sm:mb-8">
         {{ $t('lang.product.eagle.funcTitle') }}
       </h2>
@@ -118,11 +110,8 @@
         </div>
       </div>
     </div>
-
     <!--    核心特色    -->
-    <div
-      class="advant-container flex w-full py-16 flex-col justify-center relative px-20b sm:px-4 sm:py-10"
-    >
+    <div class="advant-container flex w-full py-16 flex-col justify-center relative px-20b sm:px-4 sm:py-10">
       <video
         key="product-vass-video1"
         class="absolute left-0 top-0 bottom-0 top-0"
@@ -265,20 +254,21 @@ export default defineComponent({
 
 #product_eagle .product-desc-body {
   box-sizing: border-box;
-  height: 1200px;
+  height: 1028px;
   padding: 0 300px;
 }
 
 .product-page .eagle-header-logo {
   position: absolute;
-  top: 134px;
+  top: 80px;
   right: 154px;
   width: 840px;
-  height: 466px;
-  background: url(/src/assets/img/eagle-new-logo.png);
+  height: 700px;
+  background: url('../../assets/img/eagle-new-logo.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
+
 }
 @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
 

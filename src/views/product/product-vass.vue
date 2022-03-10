@@ -11,21 +11,15 @@
         <div class="header-text-small font-format leading-normal">
           {{ $t('lang.product.vass.subTitle') }}
         </div>
-        <img
-          alt=""
-          src="../../assets/img/vaas-logo.png"
-          class="display-none w-36 h-36 mt-10 mx-auto sm:flex"
-        />
         <be-button
-          custom-class="try-out-btn h-btn-txt-black linear-l-r text-black text-xl "
-          @click="toVaaSPage"
-        >
+          custom-class="try-out-btn h-btn-txt-black linear-l-r text-black text-xl sm:absolute sm:bottom-8 sm:inset-x-0"
+          @click="toVaaSPage">
           <span class="font-format sm:text-base">{{
             $t('lang.tryoutBtn')
           }}</span>
         </be-button>
       </div>
-      <div class="vass-header-logo"></div>
+      <div class="vass-header-logo sm:hidden"></div>
     </div>
 
     <!--    文字介绍 & 走马灯   -->
@@ -33,8 +27,11 @@
       class="relative flex items-center justify-center text-center box-border product-desc-body bg-mainBlueGary w-full flex-col sm:py-8"
     >
       <div class="absolute p-8 w-2/3 rounded-md product-desc">
+        <h2 class="text-4xl font-bold font-format sm:text-lg sm:mb-8">
+          {{ $t('lang.product.eagle.funcDisplay') }}
+        </h2>
         <!--     走馬燈      -->
-        <div class="mt-10 product-swiper w-full h-full">
+        <div class="mt-10 product-swiper w-full h-full md:mt-8">
           <h-product-swiper></h-product-swiper>
         </div>
         <p
@@ -188,11 +185,11 @@ export default defineComponent({
 
 .product-page .vass-header-logo {
   position: absolute;
-  top: 144px;
-  right: 118px;
-  width: 900px;
-  height: 500px;
-  background: url(/src/assets/img/vass-new-logo.png);
+  top: 80px;
+  right: 154px;
+  width: 840px;
+  height: 700px;
+  background: url('../../assets/img/vass-new-logo.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
@@ -201,7 +198,7 @@ export default defineComponent({
 @media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
 
   #product_vass .header-text-small {
-    width: 578px;
+    width: 420px;
     font-size: 28px;
     line-height: 1.5;
   }
