@@ -712,29 +712,6 @@ export default defineComponent({
     width: 106vw;
   }
 
-  .slogan-service .hexagon3 {
-    top: 42%;
-  }
-
-  .slogan-service .hexagon4 {
-    top: 42%;
-  }
-
-  .slogan-service .hexagon5 {
-    top: 42%;
-  }
-
-  .slogan-service .hexagon10 {
-    top: 42%;
-  }
-
-  .slogan-service .hexagon11 {
-    top: 42%;
-  }
-
-  .slogan-service .hexagon12 {
-    top: 42%;
-  }
 }
 
 /* 150% 适配 */

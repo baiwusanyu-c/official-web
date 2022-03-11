@@ -265,7 +265,7 @@ export default defineComponent({
   background-size: 100%;
 }
 
-@media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
+@media screen and (min-width: 1280px)  and (max-width: 1326px) {
 
   .about-us-page .page-head {
     padding: 0 100px 50px 100px;

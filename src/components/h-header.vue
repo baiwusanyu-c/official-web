@@ -14,6 +14,7 @@
       <n-drawer
         v-model:show="active"
         :width="140"
+        z-index='2000'
         placement="left"
         style="top: 4em"
         class="bg-footer text-white"
@@ -284,8 +285,8 @@
         </be-popover>-->
   </div>
   <!--  mobile 右侧  -->
-  <div class="display-none sm:flex">
-    <!--        <be-popover trigger="click"
+  <!-- <div class="display-none sm:flex">
+           <be-popover trigger="click"
                     ref="popoverLang"
                     customClass="header-popover" placement="bottom">
             <template #trigger>
@@ -301,8 +302,8 @@
                 v-for="(item,index) in langList">
                 <p class="ml-2 text-base">{{item.label}}</p>
             </div>
-        </be-popover>-->
-  </div>
+        </be-popover>
+  </div>-->
   <!-- 登录弹窗 -->
   <login-dialog ref="loginDialog"></login-dialog>
 </template>
