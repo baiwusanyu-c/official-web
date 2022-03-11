@@ -14,7 +14,7 @@
       <n-drawer
         v-model:show="active"
         :width="140"
-        z-index='2000'
+        z-index="2000"
         placement="left"
         style="top: 4em"
         class="bg-footer text-white"

@@ -193,7 +193,7 @@ export default defineComponent({
 }
 
 /* 150% 适配 */
-@media screen and (min-width: 1280px)  and (max-width: 1326px) {
+@media screen and (min-width: 1280px) and (max-width: 1326px) {
 
   .home-swiper .swiper-item p {
     font-size: 12px;

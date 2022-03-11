@@ -417,7 +417,7 @@ export default defineComponent({
   margin: auto;
 }
 
-@media screen and (min-width: 1280px)  and (max-width: 1326px) {
+@media screen and (min-width: 1280px) and (max-width: 1326px) {
 
   .page-header {
     height: 264px;

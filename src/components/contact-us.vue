@@ -47,7 +47,7 @@ export default defineComponent({
 </script>
 
 <style>
-@media screen and (min-width: 1280px)  and (max-width: 1326px) {
+@media screen and (min-width: 1280px) and (max-width: 1326px) {
 
   .contact-us .title {
     @apply text-2xl;

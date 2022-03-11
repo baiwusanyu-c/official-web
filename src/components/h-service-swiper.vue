@@ -137,7 +137,7 @@ export default defineComponent({
   --swiper-navigation-color: #dfdfdf; /* 单独设置按钮颜色 */
   --swiper-navigation-size: 30px; /* 设置按钮大小 */
 }
-@media screen and (min-width: 1280px)  and (max-width: 1326px) {
+@media screen and (min-width: 1280px) and (max-width: 1326px) {
 
   .myServiceSwiper {
     width: 1100px;

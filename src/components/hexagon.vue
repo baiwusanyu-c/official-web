@@ -121,7 +121,7 @@ export default defineComponent({
   }
 }
 
-@media screen and (min-width: 1536px)  and (max-width: 1750px) {
+@media screen and (min-width: 1536px) and (max-width: 1750px) {
 
   .hexagon-container {
     height: 204px;
@@ -137,8 +137,8 @@ export default defineComponent({
   .hexagon-container {
     width: 32%;
     height: 228px;
-    font-size: 12px;
     padding: 0 14px;
+    font-size: 12px;
   }
 
   .hexagon-container:hover p {

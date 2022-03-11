@@ -711,7 +711,6 @@ export default defineComponent({
   .home-swiper {
     width: 106vw;
   }
-
 }
 
 /* 150% 适配 */

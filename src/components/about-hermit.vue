@@ -50,7 +50,7 @@ export default defineComponent({
   background-size: cover;
 }
 
-@media screen and (min-width: 1280px)  and (max-width: 1326px) {
+@media screen and (min-width: 1280px) and (max-width: 1326px) {
 
   .about-hermit {
     height: 354px;
