@@ -839,12 +839,13 @@ export default defineComponent({
   }
 }
 
-/*pad*/
+/* pad */
 @media screen and (min-width: 768px) and (max-width: 1278px) {
 
-  .science-dom{
+  .science-dom {
     width: 46%;
   }
+
   .slogan-product-circle1 .circle1 {
     top: -10%;
     left: 10%;
@@ -864,8 +865,6 @@ export default defineComponent({
     top: 40%;
     right: 4%;
   }
-
-
 
   .slogan-product-circle2 .circle5 {
     top: 48%;
@@ -887,6 +886,4 @@ export default defineComponent({
     right: 4%;
   }
 }
-
-
 </style>
