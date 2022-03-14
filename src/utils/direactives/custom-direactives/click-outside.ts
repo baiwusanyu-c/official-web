@@ -12,16 +12,11 @@ function defaultConditional(): boolean {
 }
 
 function directive(e: Event, el: Node, binding: DirectiveBinding): void {
-  const handler =
-    typeof binding.value === 'function' ? binding.value : binding.value.handler
+  const handler = typeof binding.value === 'function' ? binding.value : binding.value.handler
   const isActive =
-    (typeof binding.value === 'object' && binding.value.closeConditional) ||
-    defaultConditional
+    (typeof binding.value === 'object' && binding.value.closeConditional) || defaultConditional
   if (!e || isActive(e) === false) return
-  const elements = (
-    (typeof binding.value === 'object' && binding.value.include) ||
-    (() => [])
-  )()
+  const elements = ((typeof binding.value === 'object' && binding.value.include) || (() => []))()
   elements.push(el)
   !elements.some((el: Node) => el.contains(e.target as HTMLElement)) &&
     setTimeout(() => {
@@ -31,8 +26,7 @@ function directive(e: Event, el: Node, binding: DirectiveBinding): void {
 
 export const ClickOutside: ObjectDirective = {
   beforeMount(el, binding): void {
-    const isDisabled: boolean =
-      typeof binding.value === 'object' && binding.value.isDisabled
+    const isDisabled: boolean = typeof binding.value === 'object' && binding.value.isDisabled
     if (isDisabled) {
       return
     }

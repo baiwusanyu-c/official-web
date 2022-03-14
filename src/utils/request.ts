@@ -24,9 +24,7 @@ service.interceptors.request.use(
     if (tokenCache) {
       config.headers['Authorization'] = 'Bearer ' + getStore('token')
     }
-    config.headers['Accept-Language'] = getStore('lang')
-      ? getStore('lang')
-      : 'en_US'
+    config.headers['Accept-Language'] = getStore('lang') ? getStore('lang') : 'en_US'
     if (config.method === 'post' && config.url !== '/auth/oauth/login') {
       config.data = config.params
       config.headers['Content-Type'] = 'application/json;charset=UTF-8'
@@ -38,7 +36,7 @@ service.interceptors.request.use(
     }
     return config
   },
-  (error) => {
+  error => {
     console.log(error) // for debug
     return Promise.reject(error)
   }
@@ -46,7 +44,7 @@ service.interceptors.request.use(
 
 // response interceptor
 service.interceptors.response.use(
-  (response) => {
+  response => {
     const res = response.data
     if (res.code !== 200) {
       // 50008: Illegal token; 50012: Other clients logged in; 50014: Token expired;
@@ -64,7 +62,7 @@ service.interceptors.response.use(
       return res
     }
   },
-  (error) => {
+  error => {
     console.log('err' + error) // for debug
     return Promise.reject(error)
   }

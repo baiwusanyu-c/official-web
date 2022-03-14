@@ -13,8 +13,7 @@ describe('test-be-icon-props', () => {
         height: 25,
       },
     })
-    const iconElm: HTMLElement | null =
-      wrapper.element.querySelector('.be-icon')
+    const iconElm: HTMLElement | null = wrapper.element.querySelector('.be-icon')
     expect(iconElm?.getAttribute('width')).toBe(`25`)
     expect(iconElm?.getAttribute('height')).toBe(`25`)
   })
@@ -25,8 +24,7 @@ describe('test-be-icon-props', () => {
         height: '25',
       },
     })
-    const iconElm: HTMLElement | null =
-      wrapper.element.querySelector('.be-icon')
+    const iconElm: HTMLElement | null = wrapper.element.querySelector('.be-icon')
     expect(iconElm?.getAttribute('width')).toBe(`25`)
     expect(iconElm?.getAttribute('height')).toBe(`25`)
   })

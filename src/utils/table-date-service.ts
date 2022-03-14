@@ -4,10 +4,7 @@ export type TBoxType = {
   categories: string
   items?: string
 }
-export function boxChoose(
-  num: number,
-  t: ComposerTranslation
-): Array<TBoxType> {
+export function boxChoose(num: number, t: ComposerTranslation): Array<TBoxType> {
   const whiteBox = <Array<TBoxType>>[
     {
       num: '01',

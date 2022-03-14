@@ -14,10 +14,7 @@ export const dragDirective: ObjectDirective = {
     op.style.transform = 'translate(0%, 0%)'
     op.style.position = 'absolute'
     // 设置不拖拽就直接返回
-    if (
-      binding.value &&
-      (binding.value.isDrag === false || binding.value.isDrag === 'false')
-    ) {
+    if (binding.value && (binding.value.isDrag === false || binding.value.isDrag === 'false')) {
       return
     }
     if (op.firstChild) {
@@ -27,10 +24,7 @@ export const dragDirective: ObjectDirective = {
     let otherEle: Element | null = null
     const childrenList: HTMLCollection = op.children
     for (let i = 0; i < childrenList.length; i++) {
-      if (
-        childrenList[i].className &&
-        childrenList[i].className.indexOf('info-tag') > -1
-      ) {
+      if (childrenList[i].className && childrenList[i].className.indexOf('info-tag') > -1) {
         otherEle = childrenList[i]
         break
       }
@@ -43,10 +37,7 @@ export const dragDirective: ObjectDirective = {
         //遍历，只允许拖拽标题时触发移动
         for (let i = 0; i < (E as IEvent).path.length; i++) {
           //由标题触发拖拽，必然经过firstChild
-          if (
-            op.firstChild === (E as IEvent).path[i] ||
-            otherEle === (E as IEvent).path[i]
-          ) {
+          if (op.firstChild === (E as IEvent).path[i] || otherEle === (E as IEvent).path[i]) {
             isTitle = true
             break
           }
@@ -75,7 +66,7 @@ export const dragDirective: ObjectDirective = {
       const eWidth = (curTarget as HTMLInputElement).offsetWidth
       const eHeight = (curTarget as HTMLInputElement).offsetHeight
       let ix = 0
-      document.onmousemove = (e) => {
+      document.onmousemove = e => {
         if (ix > 1) {
           let left = e.clientX - disX
           let top = e.clientY - disY
@@ -99,8 +90,7 @@ export const dragDirective: ObjectDirective = {
           //将移动后的top和left回调出去
           if (
             binding.value &&
-            Object.prototype.toString.call(binding.value) ===
-              '[object Function]'
+            Object.prototype.toString.call(binding.value) === '[object Function]'
           ) {
             binding.value({ left, top })
           }

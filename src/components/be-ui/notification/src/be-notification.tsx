@@ -5,14 +5,7 @@
  * @update (czh 2021/6/7)
  */
 
-import {
-  computed,
-  defineComponent,
-  reactive,
-  ref,
-  h,
-  getCurrentInstance,
-} from 'vue'
+import { computed, defineComponent, reactive, ref, h, getCurrentInstance } from 'vue'
 import BeIcon from '../../svg-icon/src/be-icon.vue'
 import { INotfiy } from './be-notification-type'
 
@@ -68,19 +61,13 @@ export default defineComponent({
     }
 
     const offsetBottomStyle = computed(() => option.offsetBottom)
-    if (
-      option.placementSelf === 'bottomLeft' ||
-      option.placementSelf === 'bottomRight'
-    ) {
+    if (option.placementSelf === 'bottomLeft' || option.placementSelf === 'bottomRight') {
       option.style = { bottom: offsetBottomStyle.value + 'px' }
     }
 
     const placementStyle = computed(() => option.placement)
     option.placementSelf = placementStyle.value
-    if (
-      option.placementSelf === 'bottomLeft' ||
-      option.placementSelf === 'bottomRight'
-    ) {
+    if (option.placementSelf === 'bottomLeft' || option.placementSelf === 'bottomRight') {
       option.style = { bottom: option.offsetBottom + 'px' }
     }
     if (
@@ -142,21 +129,18 @@ export default defineComponent({
         (option.placement === 'topRight' && !option.isUpdate)
       ) {
         containerClass.value =
-          classStr +
-          ` be-${props.compType}-animation-right-in be-${props.compType}-bottom`
+          classStr + ` be-${props.compType}-animation-right-in be-${props.compType}-bottom`
       }
       if (
         option.placement === 'bottomLeft' ||
         (option.placement === 'topLeft' && !option.isUpdate)
       ) {
         containerClass.value =
-          classStr +
-          ` be-${props.compType}-animation-left-in be-${props.compType}-top`
+          classStr + ` be-${props.compType}-animation-left-in be-${props.compType}-top`
       }
       if (option.placement === 'topCenter' && !option.isUpdate) {
         containerClass.value =
-          classStr +
-          ` be-${props.compType}-animation-top-center-in be-${props.compType}-top`
+          classStr + ` be-${props.compType}-animation-top-center-in be-${props.compType}-top`
       }
     }
     setAnimate()
@@ -172,27 +156,18 @@ export default defineComponent({
       }
       return h(
         <div
-          class={`be-${props.compType}-container be-${props.compType}-container__${option.placement}`}
-        >
+          class={`be-${props.compType}-container be-${props.compType}-container__${option.placement}`}>
           <div class={`be-${props.compType}-title`}>
-            <div
-              class={`be-${props.compType}-head`}
-              id={`be_${props.compType}_head${uid}`}
-            >
+            <div class={`be-${props.compType}-head`} id={`be_${props.compType}_head${uid}`}>
               <div>
                 {isLoading.value ? (
-                  <BeIcon
-                    icon="loading"
-                    spin
-                    customClass={`icon-${option.msgType}`}
-                  ></BeIcon>
+                  <BeIcon icon="loading" spin customClass={`icon-${option.msgType}`}></BeIcon>
                 ) : option.iconPreRender ? (
                   option.iconPreRender
                 ) : (
                   <BeIcon
                     icon={`${option.msgType}`}
-                    customClass={`icon-${option.msgType}`}
-                  ></BeIcon>
+                    customClass={`icon-${option.msgType}`}></BeIcon>
                 )}
                 <span class={`txt-${option.msgType}`}>{option.titles}</span>
               </div>
@@ -214,9 +189,7 @@ export default defineComponent({
               {option.bodyRender ? (
                 option.bodyRender()
               ) : (
-                <p class={`be-${props.compType}-description`}>
-                  {option.description}
-                </p>
+                <p class={`be-${props.compType}-description`}>{option.description}</p>
               )}
             </div>
           ) : (
@@ -233,12 +206,11 @@ export default defineComponent({
       return (
         <div
           style={option.style}
-          onClick={(event) => {
+          onClick={event => {
             onClick(event)
           }}
           class={containerClass.value}
-          id={`be_${props.compType}${uid}`}
-        >
+          id={`be_${props.compType}${uid}`}>
           {option.isShow ? renderBody.call(this, h) : ''}
         </div>
       )

@@ -6,159 +6,150 @@
       backgroundImage: `url(${img})`,
     }"
     @mouseenter="isHover = true"
-    @mouseleave="isHover = false"
-  >
+    @mouseleave="isHover = false">
     <p class="mt-4 font-format sm:text-xs">{{ list[index] }}</p>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, reactive, ref, computed } from 'vue'
-import { useI18n } from 'vue-i18n'
-interface IImge {
-  img: string
-}
-export default defineComponent({
-  name: 'HexagonComp',
-  props: {
-    index: {
-      type: Number,
-      default: 0,
-      require: true,
+  import { defineComponent, onMounted, reactive, ref, computed } from 'vue'
+  import { useI18n } from 'vue-i18n'
+  interface IImge {
+    img: string
+  }
+  export default defineComponent({
+    name: 'HexagonComp',
+    props: {
+      index: {
+        type: Number,
+        default: 0,
+        require: true,
+      },
     },
-  },
-  setup(props) {
-    const { t } = useI18n()
-    const isHover = ref<boolean>(false)
-    const list = ref<Array<string>>([
-      t('lang.home.serviceIc1'),
-      t('lang.home.serviceIc2'),
-      t('lang.home.serviceIc3'),
-      t('lang.home.serviceIc4'),
-      t('lang.home.serviceIc5'),
-      t('lang.home.serviceIc6'),
-      t('lang.home.serviceIc7'),
-      t('lang.home.serviceIc8'),
-      t('lang.home.serviceIc9'),
-      t('lang.home.serviceIc10'),
-      t('lang.home.serviceIc11'),
-      t('lang.home.serviceIc12'),
-    ])
-    const imgList = reactive<object[]>([])
-    const imgListHover = reactive<object[]>([])
-    const imgImport = import.meta.globEager('../assets/img/hexagon*.png')
-    const getImage = (): void => {
-      list.value.map((val: string, index: number) => {
-        const obj: IImge = { img: '' }
-        obj.img =
-          imgImport['../assets/img/hexagon' + (index + 1) + '.png'].default
-        //  obj.img = imgImport['../assets/img/hexagon' + (index + 1) + '-hover.png'].default
-        imgList.push(obj)
-        const objHover: IImge = { img: '' }
-        objHover.img =
-          imgImport[
-            '../assets/img/hexagon' + (index + 1) + '-hover.png'
-          ].default
-        imgListHover.push(objHover)
-      })
-    }
-    const img = computed(() => {
-      if (isHover.value) {
-        return (imgListHover[props.index] as IImge)?.img
-      } else {
-        return (imgList[props.index] as IImge)?.img
+    setup(props) {
+      const { t } = useI18n()
+      const isHover = ref<boolean>(false)
+      const list = ref<Array<string>>([
+        t('lang.home.serviceIc1'),
+        t('lang.home.serviceIc2'),
+        t('lang.home.serviceIc3'),
+        t('lang.home.serviceIc4'),
+        t('lang.home.serviceIc5'),
+        t('lang.home.serviceIc6'),
+        t('lang.home.serviceIc7'),
+        t('lang.home.serviceIc8'),
+        t('lang.home.serviceIc9'),
+        t('lang.home.serviceIc10'),
+        t('lang.home.serviceIc11'),
+        t('lang.home.serviceIc12'),
+      ])
+      const imgList = reactive<object[]>([])
+      const imgListHover = reactive<object[]>([])
+      const imgImport = import.meta.globEager('../assets/img/hexagon*.png')
+      const getImage = (): void => {
+        list.value.map((val: string, index: number) => {
+          const obj: IImge = { img: '' }
+          obj.img = imgImport['../assets/img/hexagon' + (index + 1) + '.png'].default
+          //  obj.img = imgImport['../assets/img/hexagon' + (index + 1) + '-hover.png'].default
+          imgList.push(obj)
+          const objHover: IImge = { img: '' }
+          objHover.img = imgImport['../assets/img/hexagon' + (index + 1) + '-hover.png'].default
+          imgListHover.push(objHover)
+        })
       }
-    })
+      const img = computed(() => {
+        if (isHover.value) {
+          return (imgListHover[props.index] as IImge)?.img
+        } else {
+          return (imgList[props.index] as IImge)?.img
+        }
+      })
 
-    onMounted(() => {
-      getImage()
-    })
-    return {
-      img,
-      isHover,
-      list,
-      imgList,
-      imgListHover,
-    }
-  },
-})
+      onMounted(() => {
+        getImage()
+      })
+      return {
+        img,
+        isHover,
+        list,
+        imgList,
+        imgListHover,
+      }
+    },
+  })
 </script>
 
 <style scoped>
-.hexagon-container {
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 30%;
-  height: 240px;
-  padding: 0 10px;
-  text-align: center;
-  background-repeat: no-repeat;
-  background-position-x: center;
-  background-size: cover;
-  transition: all .1s;
-}
-
-.hexagon-container p {
-  margin-top: 40px;
-}
-
-.hexagon-container:hover {
-  z-index: 20;
-}
-
-/* 100% - 110% 适配 */
-@media screen and (min-width: 1540px) and (max-width: 1750px) {
-
   .hexagon-container {
-    height: 200px;
-    font-size: 12px;
-  }
-
-  .hexagon-container:hover p {
-    font-size: 12px;
-  }
-}
-
-@media screen and (min-width: 1536px) and (max-width: 1750px) {
-
-  .hexagon-container {
-    height: 204px;
-    font-size: 12px;
-  }
-
-  .hexagon-container:hover p {
-    font-size: 12px;
-  }
-}
-@media screen and (min-width: 1280px) and (max-width: 1326px) {
-
-  .hexagon-container {
-    width: 32%;
-    height: 228px;
-    padding: 0 14px;
-    font-size: 12px;
-  }
-
-  .hexagon-container:hover p {
-    font-size: 12px;
-  }
-}
-@media screen and (min-width: 100px) and (max-width: 1278px) {
-
-  .hexagon-container {
-    width: 26%;
-    height: 128px;
-    font-size: 12px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    height: 240px;
+    padding: 0 10px;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size: cover;
+    transition: all 0.1s;
   }
 
   .hexagon-container p {
-    transform: scale(.7);
+    margin-top: 40px;
   }
 
-  .hexagon-container:hover p {
-    font-size: 12px;
+  .hexagon-container:hover {
+    z-index: 20;
   }
-}
+
+  /* 100% - 110% 适配 */
+  @media screen and (min-width: 1540px) and (max-width: 1750px) {
+    .hexagon-container {
+      height: 200px;
+      font-size: 12px;
+    }
+
+    .hexagon-container:hover p {
+      font-size: 12px;
+    }
+  }
+
+  @media screen and (min-width: 1536px) and (max-width: 1750px) {
+    .hexagon-container {
+      height: 204px;
+      font-size: 12px;
+    }
+
+    .hexagon-container:hover p {
+      font-size: 12px;
+    }
+  }
+  @media screen and (min-width: 1280px) and (max-width: 1326px) {
+    .hexagon-container {
+      width: 32%;
+      height: 228px;
+      padding: 0 14px;
+      font-size: 12px;
+    }
+
+    .hexagon-container:hover p {
+      font-size: 12px;
+    }
+  }
+  @media screen and (min-width: 100px) and (max-width: 1278px) {
+    .hexagon-container {
+      width: 26%;
+      height: 128px;
+      font-size: 12px;
+    }
+
+    .hexagon-container p {
+      transform: scale(0.7);
+    }
+
+    .hexagon-container:hover p {
+      font-size: 12px;
+    }
+  }
 </style>

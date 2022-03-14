@@ -29,8 +29,7 @@ const closeNotify = function (instance: DefineComponent, isAll = false): void {
   if (!instance) return
   let index = -1
   const placement: string = instance.props && instance.props.option.placement
-  const instanceUid: number =
-    (instance.component && instance.component.uid) || instance.uid
+  const instanceUid: number = (instance.component && instance.component.uid) || instance.uid
   const instanceEl = instance.el || instance.proxy.$el
   const instancesList = Object(instanceMap)[placement]
   const direction = /^top-/.test(placement) ? 'top' : 'bottom'
@@ -60,17 +59,12 @@ const closeNotify = function (instance: DefineComponent, isAll = false): void {
   const removedHeight = instanceEl.offsetHeight
   for (let i = index; i < len - 1; i++) {
     instancesList[i].instance.el.style[direction] =
-      parseInt(instancesList[i].instance.el.style[direction], 10) -
-      removedHeight -
-      35 +
-      'px'
+      parseInt(instancesList[i].instance.el.style[direction], 10) - removedHeight - 35 + 'px'
   }
   // 根据组件uid过滤组件实例
-  Object(instanceMap)[placement] = Object(instanceMap)[placement].filter(
-    (val: any) => {
-      return val.instance.component.uid !== instanceUid
-    }
-  )
+  Object(instanceMap)[placement] = Object(instanceMap)[placement].filter((val: any) => {
+    return val.instance.component.uid !== instanceUid
+  })
   // 关闭
   instance.props.option.onClose && instance.props.option.onClose()
   close(instanceEl, currentInstance.elm)
@@ -155,8 +149,7 @@ const computeOffset = (
   }
   if (!isCache) {
     instanceArr.forEach((item: any, index: number) => {
-      verticalOffset +=
-        (item.instance.el.childNodes[0].offsetHeight || 0) + offset
+      verticalOffset += (item.instance.el.childNodes[0].offsetHeight || 0) + offset
       if (index === 0 && option?.compType === 'message') {
         const offsetInit: number = /top/.test(String(option.placement))
           ? option.offsetTop || 0

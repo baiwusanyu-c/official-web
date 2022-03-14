@@ -17,13 +17,11 @@ export function downLoadZip(str: string, filename: string) {
     url: url,
     responseType: 'blob',
     headers: {
-      Authorization: (!getStore('token')
-        ? ''
-        : 'Bearer ' + getStore('token')) as string,
+      Authorization: (!getStore('token') ? '' : 'Bearer ' + getStore('token')) as string,
     },
   }
-  return new Promise((resolve) => {
-    axios(axiosConfig).then((res) => {
+  return new Promise(resolve => {
+    axios(axiosConfig).then(res => {
       resolveBlob(res, mimeMap.zip, filename)
       resolve(res)
     })

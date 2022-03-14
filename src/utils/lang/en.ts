@@ -58,8 +58,7 @@ export default {
     },
   },
   contactUs: {
-    info1:
-      'Beosin, your blockchain security expert used by 10,000 practitioners worldwide',
+    info1: 'Beosin, your blockchain security expert used by 10,000 practitioners worldwide',
     info2:
       'Smart Contract audit reports provided by more than 20 world-leading blockchain security engineers based on formal verification technology.',
   },
@@ -117,8 +116,7 @@ export default {
     productFeature8: 'Project Operation Dashboard',
 
     GlobalTitle: 'Serving Global Customers',
-    swiperInfo1:
-      'Beosin has a professional audit technical team, which is really to our surprise.',
+    swiperInfo1: 'Beosin has a professional audit technical team, which is really to our surprise.',
     swiperUser1: 'Ted Johnston',
     swiperInfo2:
       'Compared to other security audit teams, Beosin is an exciting team, not only provides professional technical audit services, but also empowered by security audit products.',
@@ -137,8 +135,7 @@ export default {
   serviceSecurity: {
     pageHead: {
       textBig: 'Blockchian Platform Audit',
-      textSmall:
-        'Multi-dimensional, multi-round and multi-way detection of blockchain security',
+      textSmall: 'Multi-dimensional, multi-round and multi-way detection of blockchain security',
     },
     search: {
       text: 'We provide multi-dimensional security audit for codes of blockchain platforms, and effectively guarantee the overall security of blockchain platform in aspects of node communication, storage, consensus and authority management through different auditing methods, such as black box, gray box and white box testing.',
@@ -165,15 +162,13 @@ export default {
       title: 'What’s in the audit report?',
       text: 'Our audit reports adopt several methods to offer you a comprehensive and customized service, including formal verification, static analysis, case testing and manual review. The report will list detailed information about the identified vulnerabilities and categorize them by severity (critical, high, medium, low and informational). Charts and graphs are included to provide a visual insight into your project, and fix recommendations will also be given.',
       middleTitle: 'Security Audit Reports',
-      middleText:
-        'Listed are some of the Blockchain and DeFi audit reports we published',
+      middleText: 'Listed are some of the Blockchain and DeFi audit reports we published',
     },
   },
   serviceContract: {
     pageHead: {
       textBig: 'Smart Contract Audit',
-      textSmall:
-        'Co-audited by more than 20 top blockchain security engineers worldwide',
+      textSmall: 'Co-audited by more than 20 top blockchain security engineers worldwide',
       button: 'Reservation Now',
     },
     search: {
@@ -206,8 +201,7 @@ export default {
       middleTitle: 'Security Audit Reports',
       answer:
         'Our audit reports adopt several methods to offer you a comprehensive and customized service, including formal verification, static analysis, case testing and manual review. The report will list detailed information about the identified vulnerabilities and categorize them by severity (critical, high, medium, low and informational). Charts and graphs are included to provide a visual insight into your project, and fix recommendations will also be given.',
-      middleText:
-        'Listed are some of the Blockchain and DeFi audit reports we published',
+      middleText: 'Listed are some of the Blockchain and DeFi audit reports we published',
     },
     table: {
       titleBig: 'Smart contract security audit items',
@@ -381,11 +375,9 @@ export default {
 
       funcTitle: 'Functions',
       funcSubTitle1: 'ONE-CLICK AUTOMATIC DETECTION',
-      funcDesc1:
-        'Just upload the contract and the platform will automatically detect.',
+      funcDesc1: 'Just upload the contract and the platform will automatically detect.',
       funcSubTitle2: 'CUSTOMIZED CONFIGURATION',
-      funcDesc2:
-        'Customized configuration for different blockchain platform parameters.',
+      funcDesc2: 'Customized configuration for different blockchain platform parameters.',
       funcSubTitle3: 'CONTRACT-TO-CONTRACT VERIFICATION',
       funcDesc3:
         'Support inter-call between multiple contracts, able to verify the properties between contracts.',
@@ -408,8 +400,7 @@ export default {
     },
     eagle: {
       title: 'BEOSIN-Eagle Eye',
-      subTitle:
-        'Provide Dapp operators with project intelligence and real-time risk alerts',
+      subTitle: 'Provide Dapp operators with project intelligence and real-time risk alerts',
       funcDisplay: 'Function Display',
       desc: 'An integrated monitoring platform designed for blockchain project owners. By automatically assessing security situation of contracts, monitoring on-chain operations and real-time transactions, it can identify suspicious transactions, comprehensively assess the operation status, help user to find out risks and get disposal suggestions, and finally setup security shield for project operation and asset protection.',
 
@@ -424,8 +415,7 @@ export default {
       funcDesc3:
         'Evaluate the contract code security, transaction security, and transaction volatility to trace the security of contract lifecycle.',
       funcSubTitle4: 'RISK WARNING',
-      funcDesc4:
-        'Real-time security risk identification, assessment and alert.',
+      funcDesc4: 'Real-time security risk identification, assessment and alert.',
 
       advantTitle: 'Our Advantages',
       advantSubTitle1: 'High Accuracy',

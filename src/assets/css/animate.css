@@ -21,7 +21,7 @@
   height: 100%;
   content: '';
   background: linear-gradient(-73deg, #19bdfb, #02fbbb);
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .linear-l-r-s:hover {
@@ -41,7 +41,7 @@
 .h-btn-txt-black,
 .home-product-circle,
 .hexagon-container {
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
 .h-btn-txt-black:hover,

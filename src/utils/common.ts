@@ -90,7 +90,7 @@ export const accAdd = (arg1: number, arg2: number): number => {
 export const getMaxDecimalLength = (val: Array<number>): number => {
   // 最大小数位长度
   let maxDecimalLength = 0
-  val.forEach((x) => {
+  val.forEach(x => {
     const strVal = x.toString(),
       dotIndex = strVal.indexOf('.')
     if (dotIndex > -1) {
@@ -124,8 +124,7 @@ export const accSub = (arg: Array<number>): number => {
  * @param str
  */
 export const checkNumber = (str: string): boolean => {
-  const reg =
-    /^(([1-9][0-9]*\.[0-9][0-9]*)|([0]\.[0-9][0-9]*)|([1-9][0-9]*)|([0]{1}))$/
+  const reg = /^(([1-9][0-9]*\.[0-9][0-9]*)|([0]\.[0-9][0-9]*)|([1-9][0-9]*)|([0]{1}))$/
   if (reg.test(str)) {
     return true
   }
@@ -174,8 +173,7 @@ export const jsonClone = <T>(val: T): T => JSON.parse(JSON.stringify(val))
 // 判定布尔
 export const isBool = (val: unknown) => typeof val === 'boolean'
 // 判定字符串
-export const isString = (val: unknown) =>
-  typeof val == 'string' && val.constructor == String
+export const isString = (val: unknown) => typeof val == 'string' && val.constructor == String
 // 判定数字
 export const isNumber = (val: unknown) => typeof val === 'number'
 // 判定HTML元素
