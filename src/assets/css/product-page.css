@@ -215,3 +215,11 @@
     @apply pt-8 px-0 h-auto;
   }
 }
+@media screen and (min-width: 768px) and (max-width: 1278px) {
+
+  .hermit-main #product_vass .page-head {
+    height: auto;
+    padding: 0 30px 10px 30px;
+    background-image: url('../../assets/img/vaas-header-bg-m.png');
+  }
+}

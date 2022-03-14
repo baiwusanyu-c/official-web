@@ -2,7 +2,7 @@
 */
 <template>
   <img
-    class="mr-16 cursor-pointer sm:mb-6 sm:mr-0"
+    class="mr-16 cursor-pointer pad:mr-4 sm:mb-6 sm:mr-0"
     :src="img"
     alt=""
     @mouseenter="isHover = true"

@@ -392,7 +392,7 @@ export default defineComponent({
   #service_contract .page-head {
     flex-direction: column;
     height: initial;
-    padding: 0 30px 30px 30px;
+    padding: 0 30px 0 30px;
     background-image: none;
   }
 

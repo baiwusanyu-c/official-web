@@ -733,16 +733,12 @@ export default defineComponent({
     width: 40%;
   }
 }
+
 @media screen and (min-width: 100px) and (max-width: 1278px) {
 
   .hermit-main .slogan-news {
     height: 70vh;
     padding: 0 30px;
-  }
-
-  .science-dom {
-    width: 80%;
-    text-align: left;
   }
 
   .science-dom p {
@@ -804,7 +800,7 @@ export default defineComponent({
 
   .slogan-product-circle1,
   .slogan-product-circle2 {
-    height: 120px;
+    height: 160px;
     background-size: 150%;
   }
 
@@ -815,15 +811,6 @@ export default defineComponent({
   .slogan-service-item .hexagon-desc {
     width: 28%;
   }
-
-  .hexagon-container-body {
-
-    /* height: 332px;
-    background-position: center;
-    background-size: 80%; */
-  }
-}
-@media screen and (min-width: 100px) and (max-width: 1278px) {
 
   .hexagon-container-body {
     width: 42%;
@@ -838,10 +825,68 @@ export default defineComponent({
     padding: 30px;
   }
 }
+@media screen and (min-width: 100px) and (max-width: 768px) {
+
+  .science-dom {
+    width: 92%;
+    text-align: left;
+  }
+}
 @media screen and (min-width: 100px) and (max-width: 340px) {
 
   .science-dom {
     margin-bottom: 10px !important;
   }
 }
+
+/*pad*/
+@media screen and (min-width: 768px) and (max-width: 1278px) {
+
+  .science-dom{
+    width: 46%;
+  }
+  .slogan-product-circle1 .circle1 {
+    top: -10%;
+    left: 10%;
+  }
+
+  .slogan-product-circle1 .circle2 {
+    top: 40%;
+    left: 34%;
+  }
+
+  .slogan-product-circle1 .circle3 {
+    top: -10%;
+    left: 56%;
+  }
+
+  .slogan-product-circle1 .circle4 {
+    top: 40%;
+    right: 4%;
+  }
+
+
+
+  .slogan-product-circle2 .circle5 {
+    top: 48%;
+    left: 10%;
+  }
+
+  .slogan-product-circle2 .circle6 {
+    top: -10%;
+    left: 34%;
+  }
+
+  .slogan-product-circle2 .circle7 {
+    top: 48%;
+    left: 56%;
+  }
+
+  .slogan-product-circle2 .circle8 {
+    top: -10%;
+    right: 4%;
+  }
+}
+
+
 </style>
