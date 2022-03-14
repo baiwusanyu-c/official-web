@@ -218,8 +218,24 @@
 @media screen and (min-width: 768px) and (max-width: 1278px) {
 
   .hermit-main #product_vass .page-head {
-    height: auto;
+    height:640px;
     padding: 0 30px 10px 30px;
+    background-color: #050506;
     background-image: url('../../assets/img/vaas-header-bg-m.png');
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: 80%;
+    background-size: 70%;
+  }
+
+  .hermit-main #product_eagle .page-head {
+    height:640px;
+    padding: 0 30px 10px 30px;
+    background-color: #050506;
+    background-image: url('../../assets/img/eagle-header-bg-m.png');
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: 80%;
+    background-size: 70%;
   }
 }
