@@ -490,9 +490,11 @@
   })
 </script>
 
+<!-- prettier-ignore -->
 <style>
   .menu-icon .be-icon {
     fill: #fff;
+
     @apply w-6 h-6;
   }
 
@@ -502,6 +504,7 @@
 
   .header-popover .be-popover {
     z-index: 2078;
+
     @apply bg-footer;
   }
 
@@ -529,6 +532,7 @@
   .hermit-header-l .request-btn {
     width: 145px;
     height: 34px;
+
     @apply bg-mainG text-black mr-12;
   }
 

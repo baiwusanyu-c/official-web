@@ -1,4 +1,6 @@
 /src/components/be-ui/*/__test__/
+/src/**/*.css
 dist
 node_modules
 coverage
+

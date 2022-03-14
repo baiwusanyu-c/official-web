@@ -181,6 +181,7 @@
   })
 </script>
 
+<!-- prettier-ignore -->
 <style>
   #login_form .login-btn,
   #login_form .login-btn .be-button-body {
@@ -208,7 +209,9 @@
   .login-input:focus {
     outline: none;
   }
+
   @media screen and (min-width: 100px) and (max-width: 1278px) {
+
     .login-input {
       font-size: 12px;
     }

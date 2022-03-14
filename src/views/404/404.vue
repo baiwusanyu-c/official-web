@@ -12,6 +12,7 @@
     name: '404Page',
   })
 </script>
+<!-- prettier-ignore -->
 <style scoped>
   .notfound .content-area {
     width: 100vw;

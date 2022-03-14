@@ -100,6 +100,7 @@
   })
 </script>
 
+<!-- prettier-ignore -->
 <style>
   .hermit-container-container {
     background-color: #040305;
@@ -107,6 +108,7 @@
 
   .hermit-container-container .be-header {
     height: 4.5em;
+
     @apply px-8;
   }
 

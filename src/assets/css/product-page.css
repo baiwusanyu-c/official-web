@@ -7,12 +7,10 @@
 .product-page .product-desc {
   position: absolute;
   bottom: 10px;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(246, 246, 246, 1) 59%,
-    rgba(239, 242, 247, 1) 100%
-  );
+  background:
+    linear-gradient(
+      to bottom,rgba(255, 255, 255, 1) 0%,rgba(246, 246, 246, 1) 59%,rgba(239, 242, 247, 1) 100%
+    );
 }
 
 .product-page .header-text-big {
@@ -57,6 +55,7 @@
 
 /* 110 - 125 */
 @media screen and (min-width: 1328px) and (max-width: 1538px) {
+
   #product_vass.product-page .page-head,
   #product_eagle.product-page .page-head {
     height: 700px;
@@ -97,6 +96,7 @@
 /* 100 - 110 */
 
 @media screen and (min-width: 1540px) and (max-width: 1750px) {
+
   #product_vass.product-page .page-head,
   #product_eagle.product-page .page-head {
     height: 790px;
@@ -123,6 +123,7 @@
 
 /* 125 - 150% */
 @media screen and (min-width: 1280px) and (max-width: 1326px) {
+
   #product_vass.product-page .page-head,
   #product_eagle.product-page .page-head {
     height: 578px;
@@ -159,7 +160,9 @@
     height: 468px;
   }
 }
+
 @media screen and (min-width: 100px) and (max-width: 1278px) {
+
   .hermit-main #product_vass .page-head {
     height: 486px;
     padding: 0 30px 10px 30px;
@@ -187,6 +190,7 @@
 
   .product-page .try-out-btn {
     margin-top: 3rem;
+
     @apply mx-auto;
   }
 
@@ -214,7 +218,9 @@
     @apply pt-8 px-0 h-auto;
   }
 }
+
 @media screen and (min-width: 768px) and (max-width: 1278px) {
+
   .hermit-main #product_vass .page-head {
     height: 640px;
     padding: 0 30px 10px 30px;

@@ -204,6 +204,7 @@
   })
 </script>
 
+<!-- prettier-ignore -->
 <style>
   #request_quote_dialog .n-dialog {
     width: 600px;

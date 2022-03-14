@@ -106,6 +106,7 @@
   })
 </script>
 
+<!-- prettier-ignore -->
 <style>
   .home-swiper .swiper {
     width: 100%;
@@ -113,6 +114,7 @@
   }
 
   .home-swiper .swiper-slide {
+
     /* Center slide text vertically */
     display: -webkit-box;
     display: -ms-flexbox;
@@ -131,12 +133,14 @@
     -ms-flex-pack: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
+
     @apply shadow-xl;
   }
 
   .home-swiper .swiper-slide-active {
     width: 380px;
     height: 386px;
+
     @apply shadow-2xl;
   }
 
@@ -170,6 +174,7 @@
 
   /* 110% - 125% 适配 */
   @media screen and (min-width: 1536px) and (max-width: 1750px) {
+
     .home-swiper .swiper-item h2 {
       font-size: 32px;
     }
@@ -181,6 +186,7 @@
 
   /* 150% 适配 */
   @media screen and (min-width: 1280px) and (max-width: 1326px) {
+
     .home-swiper .swiper-item p {
       font-size: 12px;
     }
@@ -192,6 +198,7 @@
 
   /* 移动端 适配 */
   @media screen and (min-width: 100px) and (max-width: 1278px) {
+
     .home-swiper .swiper-item {
       width: 300px;
     }

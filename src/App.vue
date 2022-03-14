@@ -8,6 +8,7 @@
 
   export default defineComponent({})
 </script>
+<!-- prettier-ignore -->
 <style>
   @import 'assets/css/animate.css';
   @import 'assets/css/common.css';
@@ -15,7 +16,9 @@
   #hermit_app {
     min-width: 1220px;
   }
+
   @media screen and (min-width: 100px) and (max-width: 1278px) {
+
     #hermit_app {
       min-width: initial;
     }

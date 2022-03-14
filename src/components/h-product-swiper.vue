@@ -81,32 +81,33 @@
   })
 </script>
 
+<!-- prettier-ignore -->
 <style>
-  /* .product-swiper {
+/* .product-swiper {
   height: 600px;
 } */
 
-  .product-swiper .swiper {
-    width: 100%;
-  }
+.product-swiper .swiper {
+  width: 100%;
+}
 
-  .product-swiper .swiper-wrapper {
-    height: 90%;
-  }
+.product-swiper .swiper-wrapper {
+  height: 90%;
+}
 
-  .product-swiper .swiper-slide {
-    background-position: center;
-    background-size: cover;
-  }
+.product-swiper .swiper-slide {
+  background-position: center;
+  background-size: cover;
+}
 
-  .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-  .swiper-pagination-bullet-active {
-    @apply bg-mainG;
-  }
+.swiper-pagination-bullet-active {
+  @apply bg-mainG;
+}
 </style>

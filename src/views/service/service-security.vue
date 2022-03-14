@@ -483,6 +483,7 @@
   })
 </script>
 
+<!-- prettier-ignore -->
 <style>
   @import '../../assets/css/service-page.css';
 
@@ -533,6 +534,7 @@
   }
 
   @media screen and (min-width: 100px) and (max-width: 1278px) {
+
     #service_security .page-head {
       flex-direction: column;
       height: initial;

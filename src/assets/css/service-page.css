@@ -126,10 +126,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url('../../assets/img/contect-table-head.png'),
+  background-image:
+    url('../../assets/img/contect-table-head.png'),
     url('../../assets/img/contect-table-body.png');
   background-repeat: no-repeat, no-repeat;
   background-position: center top, center 50%;
+
   @apply bg-white;
 }
 
@@ -176,7 +178,7 @@
 }
 
 .fade-enter-active {
-  transition: opacity 0.5s ease;
+  transition: opacity .5s ease;
 }
 
 .fade-enter-from,
@@ -222,13 +224,13 @@
   height: 282px;
   background-color: #fff;
   border-radius: 5px;
-  box-shadow: 0 6px 5px 0 rgba(0, 0, 0, 0.16);
-  transition: all 0.5s ease;
+  box-shadow: 0 6px 5px 0 rgba(0, 0, 0, .16);
+  transition: all .5s ease;
 }
 
 .service-page .card:hover {
-  box-shadow: 0 16px 30px 0 rgba(0, 255, 196, 0.16);
-  transition: all 0.5s ease;
+  box-shadow: 0 16px 30px 0 rgba(0, 255, 196, .16);
+  transition: all .5s ease;
 }
 
 .service-page .card-title {
@@ -341,16 +343,21 @@
 .service-page .reservation-btn {
   top: 58%;
   right: 18%;
+
   @apply h-12 w-80 font-bold absolute;
 }
+
 @media screen and (min-width: 1328px) and (max-width: 1538px) {
+
   #service_security.service-page .page-head,
   #service_contract.service-page .page-head {
     height: 480px;
     padding: 0 120px 80px 120px;
   }
 }
+
 @media screen and (min-width: 1540px) and (max-width: 1750px) {
+
   #service_security.service-page .page-head,
   #service_contract.service-page .page-head {
     height: 480px;
@@ -359,6 +366,7 @@
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1326px) {
+
   #service_security.service-page .page-body-reports,
   #service_contract.service-page .page-body-reports {
     height: 1160px;
@@ -387,6 +395,7 @@
 }
 
 @media screen and (min-width: 100px) and (max-width: 1278px) {
+
   .service-page .header-text-small {
     width: 100%;
     height: initial;
@@ -504,6 +513,7 @@
 
   .service-page .body-title {
     margin-top: 30px;
+
     @apply text-lg;
   }
 
@@ -565,6 +575,7 @@
   .service-page .reports-title-answer {
     width: 100%;
     height: initial;
+
     @apply text-xs;
   }
 
@@ -579,12 +590,14 @@
 
   .service-page .reports-middle-title {
     width: 100%;
+
     @apply text-lg text-center;
   }
 
   .service-page .reports-middle-text {
     width: 100%;
     height: initial;
+
     @apply text-xs text-center;
   }
 
@@ -602,6 +615,7 @@
     flex: 1;
     height: auto;
     margin: 0;
+
     @apply text-xs text-center;
   }
 
@@ -614,6 +628,7 @@
   .service-page .table-introduce {
     width: 100%;
     margin: 20px 0 0 0;
+
     @apply text-xs;
   }
 

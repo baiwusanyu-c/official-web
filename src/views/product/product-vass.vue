@@ -144,6 +144,7 @@
   })
 </script>
 
+<!-- prettier-ignore -->
 <style>
   @import '../../assets/css/product-page.css';
 
@@ -178,6 +179,7 @@
   }
 
   @media screen and (min-width: 1280px) and (max-width: 1326px) {
+
     #product_vass .header-text-small {
       width: 420px;
       font-size: 28px;

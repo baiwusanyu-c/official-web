@@ -278,6 +278,7 @@
   })
 </script>
 
+<!-- prettier-ignore -->
 <style>
   #login_form .login-btn,
   #login_form .login-btn .be-button-body {

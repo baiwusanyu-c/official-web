@@ -112,38 +112,40 @@
   })
 </script>
 
+<!-- prettier-ignore -->
 <style>
-  #ver_code_dialog .be-dialog .be-dialog-container,
-  #ver_code_dialog .be-dialog .be-dialog-container .be-dialog-title {
-    border-radius: 2px;
-    @apply bg-mainBlueGary;
-  }
+#ver_code_dialog .be-dialog .be-dialog-container,
+#ver_code_dialog .be-dialog .be-dialog-container .be-dialog-title {
+  border-radius: 2px;
 
-  #ver_code_dialog .be-dialog .be-dialog-container {
-    @apply w-1/3;
-  }
+  @apply bg-mainBlueGary;
+}
 
-  #ver_code_dialog .be-dialog-container-head {
-    cursor: initial;
-  }
+#ver_code_dialog .be-dialog .be-dialog-container {
+  @apply w-1/3;
+}
 
-  #ver_code_dialog .request-quote-dialog {
-    border-top: 5px solid #02fbbb;
-  }
+#ver_code_dialog .be-dialog-container-head {
+  cursor: initial;
+}
 
-  #ver_code_dialog .sure-btn {
-    @apply bg-mainG text-black w-28 hover:bg-mainGHover;
-  }
+#ver_code_dialog .request-quote-dialog {
+  border-top: 5px solid #02fbbb;
+}
 
-  #ver_code_dialog .plus-dialog-body {
-    @apply bg-mainBlueGary;
-  }
+#ver_code_dialog .sure-btn {
+  @apply bg-mainG text-black w-28 hover:bg-mainGHover;
+}
 
-  #ver_code_dialog .plus-dialog-body .label {
-    @apply text-black text-lg mb-2 font-light;
-  }
+#ver_code_dialog .plus-dialog-body {
+  @apply bg-mainBlueGary;
+}
 
-  /* .request-quote-dialog .be-dialog-footer,
+#ver_code_dialog .plus-dialog-body .label {
+  @apply text-black text-lg mb-2 font-light;
+}
+
+/* .request-quote-dialog .be-dialog-footer,
 .request-quote-dialog .be-dialog-title{
      border-radius: 2px;
  } */

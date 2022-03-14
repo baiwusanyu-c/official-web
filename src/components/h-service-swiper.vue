@@ -66,6 +66,7 @@
   })
 </script>
 
+<!-- prettier-ignore -->
 <style>
   .myServiceSwiper {
     width: 1500px;
@@ -127,7 +128,9 @@
     --swiper-navigation-color: #dfdfdf; /* 单独设置按钮颜色 */
     --swiper-navigation-size: 30px; /* 设置按钮大小 */
   }
+
   @media screen and (min-width: 1280px) and (max-width: 1326px) {
+
     .myServiceSwiper {
       width: 1100px;
     }
@@ -150,7 +153,9 @@
       font-size: 12px;
     }
   }
+
   @media screen and (min-width: 100px) and (max-width: 1278px) {
+
     .myServiceSwiper {
       width: 85vw;
     }

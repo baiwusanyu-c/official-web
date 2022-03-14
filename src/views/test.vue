@@ -19,6 +19,7 @@
   })
 </script>
 
+<!-- prettier-ignore -->
 <style>
   .test {
     position: fixed;
@@ -35,6 +36,7 @@
     width: 300px;
     height: 300px;
     background-color: #f0f9eb;
+
     @apply self-center;
   }
 </style>

@@ -41,8 +41,10 @@
   })
 </script>
 
+<!-- prettier-ignore -->
 <style>
   @media screen and (min-width: 1280px) and (max-width: 1326px) {
+
     .contact-us .title {
       @apply text-2xl;
     }
@@ -61,7 +63,9 @@
     width: 300px;
     height: 5px;
   }
+
   @media screen and (min-width: 100px) and (max-width: 1278px) {
+
     .contact-us-body {
       width: 100%;
     }

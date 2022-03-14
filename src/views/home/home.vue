@@ -415,6 +415,7 @@
   })
 </script>
 
+<!-- prettier-ignore -->
 <style>
   .science-dom {
     width: 178px;
@@ -440,11 +441,13 @@
   }
 
   .hermit-main .slogan-news .slogan-news-bg {
+
     /* height: 58%; */
     height: 100%;
   }
 
   .hermit-main .slogan-news .contact-btn {
+
     /* margin-bottom: 20em; */
     @apply h-12 w-80 font-bold sm:w-60 sm:h-9;
   }
@@ -460,7 +463,7 @@
     top: 0;
     width: 291px;
     height: 378px;
-    transition: all 0.3s;
+    transition: all .3s;
   }
 
   .hermit-main .slogan-news .title-card-container .title-card:nth-child(1) {
@@ -487,7 +490,7 @@
   .hermit-main .slogan-news .title-card-container .title-card .be-icon {
     width: 50px;
     height: 50px;
-    transition: all 0.3s;
+    transition: all .3s;
   }
 
   .hermit-main .slogan-news .title-card-container .title-card:hover .be-icon {
@@ -528,6 +531,7 @@
   .bar {
     width: 360px;
     height: 5px;
+
     @apply bg-mainG rounded;
   }
 
@@ -541,6 +545,7 @@
 
   .hermit-main .slogan-product .try-out-btn {
     width: 320px;
+
     @apply h-10 font-bold sm:w-60 sm:h-9;
   }
 
@@ -619,6 +624,7 @@
 
   /* 100% - 110% 适配 */
   @media screen and (min-width: 1540px) and (max-width: 1750px) {
+
     .hexagon-container-body .hexagon-b1 {
       bottom: 50px;
     }
@@ -630,6 +636,7 @@
 
   /* 110% - 125% 适配 */
   @media screen and (min-width: 1328px) and (max-width: 1538px) {
+
     .hermit-main .slogan-service {
       padding: 10px 116px;
     }
@@ -645,6 +652,7 @@
 
   /* 150% 适配 */
   @media screen and (min-width: 1280px) and (max-width: 1326px) {
+
     .home-swiper {
       width: 126vw;
     }
@@ -664,6 +672,7 @@
   }
 
   @media screen and (min-width: 100px) and (max-width: 1278px) {
+
     .hermit-main .slogan-news {
       height: 70vh;
       padding: 0 30px;
@@ -753,13 +762,17 @@
       padding: 30px;
     }
   }
+
   @media screen and (min-width: 100px) and (max-width: 768px) {
+
     .science-dom {
       width: 92%;
       text-align: left;
     }
   }
+
   @media screen and (min-width: 100px) and (max-width: 340px) {
+
     .science-dom {
       margin-bottom: 10px !important;
     }
@@ -767,6 +780,7 @@
 
   /* pad */
   @media screen and (min-width: 768px) and (max-width: 1278px) {
+
     .science-dom {
       width: 46%;
     }

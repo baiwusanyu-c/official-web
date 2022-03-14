@@ -78,7 +78,7 @@
     },
   })
 </script>
-
+<!-- prettier-ignore -->
 <style scoped>
   .hexagon-container {
     z-index: 10;
@@ -92,7 +92,7 @@
     background-repeat: no-repeat;
     background-position-x: center;
     background-size: cover;
-    transition: all 0.1s;
+    transition: all .1s;
   }
 
   .hexagon-container p {
@@ -105,6 +105,7 @@
 
   /* 100% - 110% 适配 */
   @media screen and (min-width: 1540px) and (max-width: 1750px) {
+
     .hexagon-container {
       height: 200px;
       font-size: 12px;
@@ -116,6 +117,7 @@
   }
 
   @media screen and (min-width: 1536px) and (max-width: 1750px) {
+
     .hexagon-container {
       height: 204px;
       font-size: 12px;
@@ -125,7 +127,9 @@
       font-size: 12px;
     }
   }
+
   @media screen and (min-width: 1280px) and (max-width: 1326px) {
+
     .hexagon-container {
       width: 32%;
       height: 228px;
@@ -137,7 +141,9 @@
       font-size: 12px;
     }
   }
+
   @media screen and (min-width: 100px) and (max-width: 1278px) {
+
     .hexagon-container {
       width: 26%;
       height: 128px;
@@ -145,7 +151,7 @@
     }
 
     .hexagon-container p {
-      transform: scale(0.7);
+      transform: scale(.7);
     }
 
     .hexagon-container:hover p {

@@ -172,7 +172,7 @@
     },
   })
 </script>
-
+<!-- prettier-ignore -->
 <style scoped>
   .report-detail-container .report-body {
     position: relative;

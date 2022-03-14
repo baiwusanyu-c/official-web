@@ -54,11 +54,14 @@
 `"lint:style-fix": "stylelint --fix src/**/*.{html,vue,css}"`  
 **styleLint 樣式代碼修復**
 
-`"lint:ts": "eslint ./src --ext .vue,.js,.ts,.jsx,.tsx && prettier --check .",`
-**esLint 代碼校验与 prettier 格式检查**
+`"lint:ts": "eslint ./src --ext .vue,.js,.ts,.jsx,.tsx",`
+**esLint 代碼校验**
 
-`"lint:ts-fix": "eslint --fix ./src --ext .vue,.js,.ts,.jsx,.tsx && prettier --write .",`
-**esLint 代碼校验修復与 prettier 格式修復**
+`"lint:ts-fix": "eslint --fix ./src --ext .vue,.js,.ts,.jsx,.tsx",`
+**esLint 代碼校验修復**
+
+`"prettier:fix": "prettier --write ."`,
+**prettier 格式修復**
 
 `"test": "jest",`
 **jest 单元测试**

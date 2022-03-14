@@ -138,6 +138,7 @@
   })
 </script>
 
+<!-- prettier-ignore -->
 <style>
   .about-us-page .page-head {
     display: flex;
@@ -211,6 +212,7 @@
   }
 
   @media screen and (min-width: 1280px) and (max-width: 1326px) {
+
     .about-us-page .page-head {
       padding: 0 100px 50px 100px;
     }
@@ -235,7 +237,9 @@
       height: 238px;
     }
   }
+
   @media screen and (min-width: 100px) and (max-width: 1278px) {
+
     .about-us-page .page-head {
       padding: 0 35px 30px 35px;
       background-image: url('../../assets/img/about-us-bg-mobile.png');

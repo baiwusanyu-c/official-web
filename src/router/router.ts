@@ -1,9 +1,9 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 const main = () => import('../views/main.vue')
 const security = () => import('../views/service/service-security.vue')
 const contracts = () => import('../views/service/service-contract.vue')
 const productVass = () => import('../views/product/product-vass.vue')
-const productEagle = () => import('../views/product/product-eagle-eye.vue')
+const productEagle = () => import('../views/product/product-eagle-eye-next.vue')
 const personal = () => import('../views/personal/user-center.vue')
 const login = () => import('../views/login/login.vue')
 const aboutUs = () => import('../views/about-us/about-us.vue')
@@ -11,7 +11,7 @@ const report = () => import('../views/report/report.vue')
 const home = () => import('../views/home/home.vue')
 const test = () => import('../views/test.vue')
 const page404 = () => import('../views/404/404.vue')
-const routes = [
+const routes: Array<RouteRecordRaw> = [
   {
     path: '/index',
     component: main,

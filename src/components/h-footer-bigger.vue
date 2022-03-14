@@ -110,6 +110,7 @@
     },
   })
 </script>
+<!-- prettier-ignore -->
 <style>
   .footer-class .discord .be-icon {
     width: 30px;
@@ -121,6 +122,7 @@
     fill: #02fbbb;
   }
 </style>
+<!-- prettier-ignore -->
 <style scoped>
   .h-60 {
     height: 21rem;
@@ -159,7 +161,7 @@
   .group {
     font-size: 30px;
     cursor: pointer;
-    transition: all 0.5s ease;
+    transition: all .5s ease;
   }
 
   .group-mr {
@@ -172,7 +174,7 @@
 
   .group:hover {
     color: #02fbbb;
-    transition: all 0.5s ease;
+    transition: all .5s ease;
   }
 
   .wechatCode {
@@ -195,7 +197,7 @@
     height: 4px;
     background: #cec7c1;
     border-radius: 50%;
-    transition: all 0.5s ease;
+    transition: all .5s ease;
   }
 
   .policy-text {
@@ -207,18 +209,20 @@
     height: 8px;
     background: #02fbbb;
     border-radius: 50%;
-    transition: all 0.5s ease;
+    transition: all .5s ease;
   }
 
   .policy-class:hover .policy-text {
     color: #02fbbb;
-    transition: all 0.5s ease;
+    transition: all .5s ease;
   }
 
   @media screen and (min-width: 100px) and (max-width: 1278px) {
+
     .bg-footer-container {
       display: flex;
       justify-content: space-between;
+
       @apply py-12 px-6;
     }
 

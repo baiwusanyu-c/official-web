@@ -102,6 +102,7 @@
     },
   })
 </script>
+<!-- prettier-ignore -->
 <style scoped>
   /* 具体值value总量滚动数字设置 */
 
@@ -153,6 +154,7 @@
     margin-right: 5px;
     list-style: none;
     border-radius: 4px;
+
     @apply bg-white;
   }
 

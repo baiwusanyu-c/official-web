@@ -184,6 +184,7 @@
   })
 </script>
 
+<!-- prettier-ignore -->
 <style>
   @import '../../assets/css/product-page.css';
 
@@ -216,7 +217,9 @@
     background-position: center;
     background-size: 100%;
   }
+
   @media screen and (min-width: 1280px) and (max-width: 1326px) {
+
     #product_eagle .header-text-small {
       width: 578px;
       font-size: 28px;

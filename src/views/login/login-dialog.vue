@@ -59,6 +59,7 @@
   })
 </script>
 
+<!-- prettier-ignore -->
 <style>
   #login_dialog .be-dialog .be-dialog-container,
   #login_dialog .be-dialog .be-dialog-container .be-dialog-title {

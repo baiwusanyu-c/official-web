@@ -68,10 +68,12 @@
     },
   })
 </script>
+<!-- prettier-ignore -->
 <style>
   @media screen and (min-width: 100px) and (max-width: 1278px) {
+
     .product-circle-desc {
-      transform: scale(0.8);
+      transform: scale(.8);
     }
   }
 </style>

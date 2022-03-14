@@ -279,7 +279,7 @@
     },
   })
 </script>
-
+<!-- prettier-ignore -->
 <style scoped>
   .page-header {
     display: flex;
@@ -345,7 +345,7 @@
     height: 60px;
     background: linear-gradient(144deg, #00ffc4, #02a1f9);
     border-radius: 5px;
-    box-shadow: 0 5px 8px 0 rgba(132, 141, 134, 0.55);
+    box-shadow: 0 5px 8px 0 rgba(132, 141, 134, .55);
   }
 
   .download-btn {
@@ -386,6 +386,7 @@
   }
 
   @media screen and (min-width: 1280px) and (max-width: 1326px) {
+
     .page-header {
       height: 264px;
       background-size: 100%;
@@ -396,8 +397,10 @@
     }
   }
 </style>
+<!-- prettier-ignore -->
 <style>
   @media screen and (min-width: 100px) and (max-width: 1278px) {
+
     .user-center .page-header {
       height: initial;
       padding: 30px;
@@ -429,11 +432,13 @@
 
     .user-center .search .search-up {
       padding: 0;
+
       @apply text-lg w-full mb-4;
     }
 
     .user-center .search .search-down {
       height: initial;
+
       @apply m-0 flex-col w-full;
     }
 
@@ -448,6 +453,7 @@
     .user-center .search .search-input {
       height: 35px;
       margin-right: 10px;
+
       @apply w-full;
     }
 
@@ -459,6 +465,7 @@
     .user-center .download-btn {
       width: 150px;
       height: 50px;
+
       @apply mt-4;
     }
 

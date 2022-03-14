@@ -27,7 +27,7 @@
     name: 'AboutHermit',
   })
 </script>
-
+<!-- prettier-ignore -->
 <style scoped>
   .bg-header {
     width: 1400px;
@@ -44,12 +44,14 @@
   }
 
   @media screen and (min-width: 1280px) and (max-width: 1326px) {
+
     .about-hermit {
       height: 354px;
     }
   }
 
   @media screen and (min-width: 100px) and (max-width: 1278px) {
+
     .about-hermit {
       height: auto;
     }
