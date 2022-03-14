@@ -39,7 +39,7 @@ import { defineComponent, ref } from 'vue'
 import RegisterAccount from './register-account.vue'
 import LoginPassword from './login-password.vue'
 import ForgetPassword from './forget-password.vue'
-import { useEventBus } from '_@vueuse_core@7.7.1@@vueuse/core'
+import { useEventBus } from '@vueuse/core'
 export default defineComponent({
   name: 'LoginDialog',
   components: { ForgetPassword, LoginPassword, RegisterAccount },

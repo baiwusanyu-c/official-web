@@ -95,7 +95,7 @@ import {
 } from 'vue-router'
 import { Base64 } from 'js-base64'
 import composition from '../../utils/mixin/common-func'
-import { useEventBus } from '_@vueuse_core@7.7.1@@vueuse/core'
+import { useEventBus } from '@vueuse/core'
 export default defineComponent({
   name: 'LoginPassword',
   emits: ['showChange'],

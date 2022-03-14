@@ -13,8 +13,8 @@
         </div>
         <be-button
           custom-class="try-out-btn h-btn-txt-black linear-l-r text-black text-xl sm:absolute sm:bottom-8 sm:inset-x-0"
-          >{{ $t('lang.tryoutBtn') }}</be-button
-        >
+          >{{ $t('lang.tryoutBtn') }}
+        </be-button>
       </div>
       <div class="eagle-header-logo sm:hidden"></div>
     </div>
