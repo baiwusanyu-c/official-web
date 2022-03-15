@@ -365,7 +365,7 @@
         bus.emit('true')
       }
       const busLoginExpired = useEventBus<string>('loginExpired')
-      busLoginExpired.on(()=>{
+      busLoginExpired.on(() => {
         location.reload()
       })
       // 路由跳转

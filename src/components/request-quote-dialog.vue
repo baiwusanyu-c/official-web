@@ -65,8 +65,13 @@
                 }
               " />
           </div>
-          <div class="flex-1 relative" >
-            <img @click="getCode(formData)" :src="codeUrl" alt="" class="absolute bottom-0 left-0" style="height: 42px" />
+          <div class="flex-1 relative">
+            <img
+              :src="codeUrl"
+              alt=""
+              class="absolute bottom-0 left-0"
+              style="height: 42px"
+              @click="getCode(formData)" />
           </div>
         </div>
       </div>

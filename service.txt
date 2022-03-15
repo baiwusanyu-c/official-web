@@ -1,2 +1,2 @@
 # 前端端口号，用於部署，前端和運維約定好即可
-hermit-front:18088
+beosin-front:9098

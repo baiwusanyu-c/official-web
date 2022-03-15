@@ -22,7 +22,7 @@ const service = axios.create({
 service.interceptors.request.use(
   (requestCfg: any) => {
     const tokenCache = getStore('token')
-    if (tokenCache && requestCfg.url !== "/website/quote/create") {
+    if (tokenCache && requestCfg.url !== '/website/quote/create') {
       requestCfg.headers['Authorization'] = 'Bearer ' + getStore('token')
     }
     requestCfg.headers['Accept-Language'] = getStore('lang') ? getStore('lang') : 'en_US'
@@ -59,7 +59,7 @@ service.interceptors.response.use(
         removeStore('userInfo')
         bus.emit('true')
         window.location.href = '#/index/home'
-        let err = getStore('lang') === 'en_US' ? 'Login Expired' : '登录过期';
+        const err = getStore('lang') === 'en_US' ? 'Login Expired' : '登录过期'
         return Promise.reject(new Error(err))
       }
       return Promise.reject(new Error(res.msg || 'Error'))
