@@ -149,7 +149,7 @@
                 : 0
             }`
           )
-        console.log(time)
+
         time = parseInt(`${time / 1000}`)
         if (time < 10) {
           sendSeconds.value = 10 - time

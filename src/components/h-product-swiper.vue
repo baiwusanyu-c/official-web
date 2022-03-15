@@ -21,7 +21,6 @@
   import 'swiper/css/navigation'
   import SwiperCore, { Pagination, Autoplay } from 'swiper'
   SwiperCore.use([Pagination, Autoplay])
-  import { SwiperEvents } from 'swiper/types/swiper-events'
   import { RouteLocationNormalizedLoaded, useRoute } from 'vue-router'
 
   export default defineComponent({
@@ -61,18 +60,11 @@
           }
         })
       }
-      const onSwiper = (swiper: SwiperEvents): void => {
-        console.log(swiper)
-      }
-      const onSlideChange = (): void => {
-        console.log('slide change')
-      }
+
       onMounted(() => {
         getImage()
       })
       return {
-        onSwiper,
-        onSlideChange,
         getImage,
         imgList,
         route,

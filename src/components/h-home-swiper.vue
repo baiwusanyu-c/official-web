@@ -35,7 +35,6 @@
   import SwiperCore, { Pagination, Autoplay } from 'swiper'
 
   SwiperCore.use([Pagination, Autoplay])
-  import { SwiperEvents } from 'swiper/types/swiper-events'
   import { NAvatar } from 'naive-ui'
 
   export default defineComponent({
@@ -80,12 +79,6 @@
       },
     },
     setup() {
-      const onSwiper = (swiper: SwiperEvents): void => {
-        console.log(swiper)
-      }
-      const onSlideChange = (): void => {
-        console.log('slide change')
-      }
       const slidesPerView = ref<number>(5)
       const spaceBetween = ref<number>(30)
       const centeredSlides = ref<boolean>(true)
@@ -99,8 +92,6 @@
         spaceBetween,
         centeredSlides,
         slidesPerView,
-        onSwiper,
-        onSlideChange,
       }
     },
   })
