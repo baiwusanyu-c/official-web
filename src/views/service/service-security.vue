@@ -24,7 +24,8 @@
           </div>
           <div>
             <div class="num-main">
-              <roll-num :value="customersNum" :time="1"></roll-num>
+              <roll-num :value="customersNum" :time="1" v-if='!isM'></roll-num>
+              <span v-if='isM'>1,0 0 0</span>
               +
             </div>
             <div class="num-footer"></div>
@@ -36,7 +37,8 @@
           </div>
           <div>
             <div class="num-main">
-              <roll-num :value="contractsNum" :time="1"></roll-num>
+              <roll-num :value="contractsNum" :time="1" v-if='!isM'></roll-num>
+              <span v-if='isM'>2,0 0 0</span>
               +
             </div>
             <div class="num-footer"></div>
@@ -48,7 +50,8 @@
           </div>
           <div>
             <div class="num-main">
-              <roll-num :value="auditedNum" :time="1"></roll-num>
+              <roll-num :value="auditedNum" :time="1" v-if='!isM'></roll-num>
+              <span v-if='isM'>1,0 0 0</span>
               Million+
             </div>
             <div class="num-footer num-footer-plus"></div>
@@ -464,8 +467,15 @@
       startTimer(contractsNum, 2000, 300)
       startTimer(auditedNum, 1000, 200)
       const tableChoseBoxHover = ref<number>(0)
-
+      let isM = ref<boolean>(false)
+      const getScreenWidth = (): void => {
+        if (100 < window.screen.width && window.screen.width < 1278) {
+          isM.value = true
+        }
+      }
+      getScreenWidth()
       return {
+        isM,
         customersNum,
         contractsNum,
         auditedNum,
