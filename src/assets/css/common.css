@@ -86,3 +86,7 @@
 .display-flex-col {
   flex-direction: column;
 }
+
+.n-drawer-container{
+  z-index: 1999 !important;
+}

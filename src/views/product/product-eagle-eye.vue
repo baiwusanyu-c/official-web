@@ -11,11 +11,11 @@
         <div class="header-text-small font-format leading-normal">
           {{ $t('lang.product.eagle.subTitle') }}
         </div>
-        <be-button
+<!--        <be-button
           custom-class="try-out-btn h-btn-txt-black linear-l-r text-black text-xl sm:absolute sm:bottom-8 sm:inset-x-0"
           @click="toEagleEyePage"
           >{{ $t('lang.tryoutBtn') }}</be-button
-        >
+        >-->
       </div>
       <div class="eagle-header-logo sm:hidden"></div>
     </div>
@@ -33,13 +33,14 @@
           {{ $t('lang.product.eagle.funcDisplay') }}
         </h2>
         <!--     走馬燈      -->
-        <div class="mt-10 product-eagle-frame md:mt-8 sm:mt-4 sm:bg-default sm:p-2 sm:rounded">
+        <div class="relative mt-10 product-eagle-frame md:mt-8 sm:mt-4 sm:bg-default sm:p-2 sm:rounded">
+          <!--    遮罩 暂时屏蔽iframe      -->
+          <div style='position: absolute;left: 0;top:0;width: 100%;height: 100%'></div>
           <iframe :src="`${base}external/riskTrx/list`" class="sm:hidden"></iframe>
           <img
             src="../../assets/img/eagle-eye1.png"
             alt=""
-            class="display-none sm:flex"
-            @click="toEagleEyePage" />
+            class="display-none sm:flex" />
         </div>
         <p class="text-lg font-format text-justify leading-normal px-12 sm:text-xs sm:px-0">
           {{ $t('lang.product.eagle.desc') }}
@@ -189,13 +190,13 @@
     setup() {
       const { openWin } = composition()
       const base = ref<string>(productLinkList.eagleEye)
-      const toEagleEyePage = (): void => {
+      /*const toEagleEyePage = (): void => {
         let url = `${base.value}?token=Bearer ${getStore('token')}&lang=${getStore('lang')}`
         openWin(url, 'vaas')
-      }
+      }*/
       return {
         base,
-        toEagleEyePage,
+       // toEagleEyePage,
       }
     },
   })
