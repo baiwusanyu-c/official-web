@@ -380,10 +380,6 @@
       const openDialog = (): void => {
         bus.emit('true')
       }
-      const busLoginExpired = useEventBus<string>('loginExpired')
-      busLoginExpired.on(() => {
-        location.reload()
-      })
       // 路由跳转
       const { routerPush } = composition()
       const headerRouterPush = (value: string): void => {

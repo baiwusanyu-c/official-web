@@ -11,7 +11,7 @@
         <div class="header-text-small font-format leading-normal">
           {{ $t('lang.product.eagle.subTitle') }}
         </div>
-<!--        <be-button
+        <!--        <be-button
           custom-class="try-out-btn h-btn-txt-black linear-l-r text-black text-xl sm:absolute sm:bottom-8 sm:inset-x-0"
         >{{ $t('lang.tryoutBtn') }}
         </be-button>-->
@@ -169,19 +169,19 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import ContactUs from '../../components/contact-us.vue'
-import AboutHermit from '../../components/about-hermit.vue'
-import HProductSwiper from '../../components/h-product-swiper.vue'
-import CoreAdvantages from '../../components/core-advantages.vue'
+  import { defineComponent } from 'vue'
+  import ContactUs from '../../components/contact-us.vue'
+  import AboutHermit from '../../components/about-hermit.vue'
+  import HProductSwiper from '../../components/h-product-swiper.vue'
+  import CoreAdvantages from '../../components/core-advantages.vue'
 
-export default defineComponent({
-  name: 'ProductEagleEye',
-  components: { CoreAdvantages, HProductSwiper, AboutHermit, ContactUs },
-  setup() {
-    return {}
-  },
-})
+  export default defineComponent({
+    name: 'ProductEagleEye',
+    components: { CoreAdvantages, HProductSwiper, AboutHermit, ContactUs },
+    setup() {
+      return {}
+    },
+  })
 </script>
 
 <!-- prettier-ignore -->

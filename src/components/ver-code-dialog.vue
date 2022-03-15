@@ -75,12 +75,22 @@
           code: formData.value.code,
           uuid: uuid.value,
         }
+
+        let asd = window.open('#/report', 'view_window')
+        if(asd === null || typeof(asd) === 'undefined' ){
+          alert(111)
+        }
+
         getReportByCode(params)
           .then((res: any) => {
             if (res.code === 200 && res.data) {
               message('success', t('lang.opSuccess'), 'hermit-msg')
               setSession('CETInfo', JSON.stringify(res.data))
-              window.open('#/report', 'view_window')
+
+              // let asd = window.open('#/report', 'view_window')
+              // if(asd === null || typeof(asd) === 'undefined' ){
+              //
+              // }
               handleClose()
             } else {
               message('warning', t('lang.noResults'), 'hermit-msg')

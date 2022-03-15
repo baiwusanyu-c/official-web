@@ -207,7 +207,7 @@
     <be-popover
       v-if="isLogin"
       ref="popoverLogin"
-      trigger="hover"
+      trigger="click"
       custom-class="header-popover"
       placement="bottom">
       <template #trigger>
@@ -443,7 +443,7 @@
       }
       // 移動端彈出抽屜菜單
       const active = ref<boolean>(false)
-      onMounted(() => {
+      const initPage = ():void =>{
         if (getStore('token')) {
           isLogin.value = true
         }
@@ -459,6 +459,9 @@
         if (JSON.parse(activeItem).key === 'service') {
           serviceList.value[activeIndex].active = true
         }
+      }
+      onMounted(() => {
+        initPage()
       })
       /**
        * 移动端 开启登录弹窗
@@ -472,6 +475,12 @@
         if (params === 'true') {
           isLogin.value = true
         }
+      })
+      const busLoginExpired = useEventBus<string>('loginExpired')
+      busLoginExpired.on(() => {
+        removeSession('activeItem')
+        isLogin.value = false
+        initPage()
       })
       return {
         openLoginDialog,
