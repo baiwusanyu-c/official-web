@@ -12,7 +12,11 @@
           autoplay="autoplay"
           loop="loop"
           width="1920"></video>
-        <img src="../../assets/img/home-bg-m.jpg" alt="" style='width: 100%' class='display-none sm:flex'/>
+        <img
+          src="../../assets/img/home-bg-m.jpg"
+          alt=""
+          style="width: 100%;height: 100%;"
+          class="display-none sm:flex" />
       </div>
       <div class="absolute z-10 flex justify-center flex-col w-3/5 h-full md:w-11/12 sm:w-4/5">
         <h2
@@ -308,7 +312,15 @@
         'GEMINI',
         'OKEX',
       ]
-      const scienceDict = ['science', 'science-hover']
+      const scienceDict = [
+        'science01',
+        'science02',
+        'science03',
+        'science04',
+        'science01-hover',
+        'science02-hover',
+        'science03-hover',
+        'science04-hover', ]
       const customerImgList = reactive<object[]>([])
       const scienceList = reactive<object[]>([])
       const getImage = (): void => {
@@ -322,7 +334,8 @@
         scienceDict.map((val: string) => {
           const obj: { img: string } = { img: '' }
           import('../../assets/img/' + val + '.png').then(res => {
-            obj.img = res.default
+            let path = res.default.split('/@fs')
+            obj.img = res.default.indexOf('/@fs') >= 0 ? path[1] : path[0]
             scienceList.push(obj)
           })
         })
@@ -331,9 +344,9 @@
       const scienceImg = computed(() => {
         return function (index: number) {
           if (scienceInfoList.value[index].isHover) {
-            return (scienceList[1] as { img: string })?.img
+            return (scienceList[index + 4] as { img: string })?.img
           } else {
-            return (scienceList[0] as { img: string })?.img
+            return (scienceList[index] as { img: string })?.img
           }
         }
       })
@@ -423,7 +436,7 @@
 <!-- prettier-ignore -->
 <style>
   .science-dom {
-    width: 178px;
+    width:220px;
   }
 
   .hexagon-container-body {

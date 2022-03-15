@@ -149,7 +149,7 @@
           <div
             v-for="(item, index) in serviceList"
             :key="item.value"
-            class="linear-l-r-s popover-list bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
+            class="linear-l-r-s bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
             :class="item.active ? 'linear-l-r active-popover' : ''"
             @click="routerPush(item.value, index)">
             <p class="mx-2 text-base font-format">{{ item.label }}</p>
@@ -174,7 +174,7 @@
           <div
             v-for="(item, index) in productList"
             :key="item.value"
-            class="linear-l-r-s popover-list bg-footer h-10 text-default flex items-center cursor-pointer hover:text-black"
+            class="linear-l-r-s bg-footer h-10 text-default flex items-center cursor-pointer hover:text-black"
             :class="item.active ? 'linear-l-r active-popover' : ''"
             @click="routerPush(item.value, index)">
             <p class="mx-2 text-base font-format">{{ item.label }}</p>
@@ -224,7 +224,7 @@
       <div
         v-for="(item, index) in loginList"
         :key="item.value"
-        class="linear-l-r-s popover-list bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
+        class="linear-l-r-s bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
         :class="item.active ? 'linear-l-r active-popover' : ''"
         @click="routerPush(item.value, index)">
         <p class="mx-2 text-base font-format">{{ item.label }}</p>
