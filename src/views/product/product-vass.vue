@@ -125,17 +125,16 @@
   import composition from '../../utils/mixin/common-func'
   import { getStore } from '../../utils/common'
   import CoreAdvantages from '../../components/core-advantages.vue'
+  import { ref } from '_vue@3.2.31@vue'
+  import { productLinkList } from '../../enums/link'
   export default defineComponent({
     name: 'ProductVass',
     components: { CoreAdvantages, HProductSwiper, AboutHermit, ContactUs },
     setup() {
       const { openWin } = composition()
+      const base = ref<string>(productLinkList.vaas)
       const toVaaSPage = (): void => {
-        let base =
-          import.meta.env.VITE_PROJECT_ENV === 'staging'
-            ? 'http://124.71.193.230:17070/#/login'
-            : 'https://vaas.beosin.com/#/login'
-        let url = `${base}?token=Bearer ${getStore('token')}&lang=${getStore('lang')}`
+        let url = `${base.value}?token=Bearer ${getStore('token')}&lang=${getStore('lang')}`
         openWin(url, 'vaas')
       }
       // https://vaas.lianantech.com/#/login?token=undefined

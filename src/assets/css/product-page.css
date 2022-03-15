@@ -4,13 +4,27 @@
   width: 580px;
 }
 
-.product-page .product-desc {
+#product_vass .product-desc {
   position: absolute;
   bottom: 10px;
+
+}
+
+.product-page .product-desc {
   background:
     linear-gradient(
       to bottom,rgba(255, 255, 255, 1) 0%,rgba(246, 246, 246, 1) 59%,rgba(239, 242, 247, 1) 100%
     );
+}
+
+.product-page .product-eagle-frame {
+  width: 100%;
+  height: 100vh;
+}
+
+.product-page .product-eagle-frame iframe {
+  width: 100%;
+  height: 100%;
 }
 
 .product-page .header-text-big {
@@ -62,8 +76,8 @@
     padding: 0 250px 80px 250px;
   }
 
-  #product_eagle.product-page .product-desc-body {
-    height: 922px;
+  #product_eagle.product-page .product-eagle-frame {
+    height: 126vh;
   }
 
   #product_vass.product-page .product-desc-body {
@@ -91,6 +105,15 @@
     width: 682px;
     height: 570px;
   }
+
+  #product_eagle.product-page .product-desc-body {
+    box-sizing: border-box;
+    height: 960px;
+  }
+
+  #product_eagle.product-page .product-desc-body .product-desc {
+    top: -18%;
+  }
 }
 
 /* 100 - 110 */
@@ -102,8 +125,8 @@
     height: 790px;
   }
 
-  #product_eagle.product-page .product-desc-body {
-    height: 980px;
+  #product_eagle.product-page .product-eagle-frame {
+    height: 110vh;
   }
 
   #product_eagle.product-page .eagle-header-logo {
@@ -119,6 +142,15 @@
     width: 776px;
     height: 645px;
   }
+
+  #product_eagle.product-page .product-desc-body {
+    box-sizing: border-box;
+    height: 910px;
+  }
+
+  #product_eagle.product-page .product-desc-body .product-desc {
+    top:-23%
+  }
 }
 
 /* 125 - 150% */
@@ -130,8 +162,9 @@
     padding: 0 210px 80px 210px;
   }
 
-  #product_eagle.product-page .product-desc-body {
-    height: 840px;
+  .product-page .product-eagle-frame {
+    width: 100%;
+    height: 150vh;
   }
 
   #product_vass.product-page .product-desc-body {
@@ -158,6 +191,14 @@
     right: 100px;
     width: 564px;
     height: 468px;
+  }
+
+  #product_eagle.product-page .product-desc-body {
+    height: 970px;
+  }
+
+  #product_eagle.product-page .product-desc-body .product-desc {
+    top: -18%;
   }
 }
 
@@ -212,6 +253,11 @@
 
   #product_eagle.product-page .product-desc-body {
     @apply pt-8 px-0 h-auto;
+  }
+
+  #product_eagle.product-page .product-eagle-frame {
+    height: auto;
+    margin-bottom: 1rem;
   }
 
   #product_vass.product-page .product-desc-body {
