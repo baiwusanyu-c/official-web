@@ -44,7 +44,7 @@
       <div
         class="bg-mainG cursor-pointer flex items-center justify-center w-32"
         @click="verifyCodeMail">
-        <img v-show="!emailSent && !sending" src="../../assets/img/send-vr-code.png" alt="" />
+        <span v-show="!emailSent && !sending" style="color: #606266">Send Code</span>
         <span v-show="sending" style="color: #606266">...</span>
         <span v-show="emailSent && !sending" style="color: #606266">{{ sendSeconds }}s</span>
       </div>
