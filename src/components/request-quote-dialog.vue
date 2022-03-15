@@ -65,8 +65,8 @@
                 }
               " />
           </div>
-          <div class="flex-1 relative" @click="getCode(formData)">
-            <img :src="codeUrl" alt="" class="absolute bottom-0 left-0" style="height: 42px" />
+          <div class="flex-1 relative" >
+            <img @click="getCode(formData)" :src="codeUrl" alt="" class="absolute bottom-0 left-0" style="height: 42px" />
           </div>
         </div>
       </div>
@@ -232,6 +232,7 @@
 
   #request_quote_dialog .plus-dialog-body .label {
     @apply text-black text-sm mb-2 font-light;
+    font-size: .675rem;
   }
 
   #request_quote_dialog .n-dialog.n-dialog--icon-left .n-dialog__icon {

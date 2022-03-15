@@ -8,6 +8,7 @@ import axios from 'axios'
 import config from '../enums/config'
 import { getStore, removeSession, removeStore } from './common'
 import qs from 'qs'
+import { useEventBus } from '@vueuse/core'
 // create an axios instance
 const service = axios.create({
   baseURL:
@@ -19,22 +20,22 @@ const service = axios.create({
 
 // request interceptor
 service.interceptors.request.use(
-  (config: any) => {
+  (requestCfg: any) => {
     const tokenCache = getStore('token')
-    if (tokenCache) {
-      config.headers['Authorization'] = 'Bearer ' + getStore('token')
+    if (tokenCache && requestCfg.url !== "/website/quote/create") {
+      requestCfg.headers['Authorization'] = 'Bearer ' + getStore('token')
     }
-    config.headers['Accept-Language'] = getStore('lang') ? getStore('lang') : 'en_US'
-    if (config.method === 'post' && config.url !== '/auth/oauth/login') {
-      config.data = config.params
-      config.headers['Content-Type'] = 'application/json;charset=UTF-8'
-      config.headers.post['Content-Type'] = 'application/json;charset=UTF-8'
-      delete config.params
-      if (config.otherParams) {
-        config.data = qs.stringify(config.data)
+    requestCfg.headers['Accept-Language'] = getStore('lang') ? getStore('lang') : 'en_US'
+    if (requestCfg.method === 'post' && requestCfg.url !== '/auth/oauth/login') {
+      requestCfg.data = requestCfg.params
+      requestCfg.headers['Content-Type'] = 'application/json;charset=UTF-8'
+      requestCfg.headers.post['Content-Type'] = 'application/json;charset=UTF-8'
+      delete requestCfg.params
+      if (requestCfg.otherParams) {
+        requestCfg.data = qs.stringify(requestCfg.data)
       }
     }
-    return config
+    return requestCfg
   },
   error => {
     console.log(error) // for debug
@@ -46,6 +47,7 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   response => {
     const res = response.data
+    const bus = useEventBus<string>('loginExpired')
     if (res.code !== 200) {
       // 50008: Illegal token; 50012: Other clients logged in; 50014: Token expired;
       if (res.code === 50008 || res.code === 50012 || res.code === 50014) {
@@ -55,7 +57,10 @@ service.interceptors.response.use(
         removeSession('CETInfo')
         removeStore('token')
         removeStore('userInfo')
-        return Promise.reject(new Error('登录过期' || 'Error'))
+        bus.emit('true')
+        window.location.href = '#/index/home'
+        let err = getStore('lang') === 'en_US' ? 'Login Expired' : '登录过期';
+        return Promise.reject(new Error(err))
       }
       return Promise.reject(new Error(res.msg || 'Error'))
     } else {

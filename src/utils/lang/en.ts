@@ -29,7 +29,7 @@ export default {
     project1: 'Smart contract audit',
     project2: 'Blockchain platform audit',
     project3: 'Beosin-VaaS',
-    project4: 'BEOSIN-Eagle Eye',
+    project4: 'Beosin-Eagle Eye',
   },
   header: {
     nav: 'Navigation',
@@ -50,7 +50,7 @@ export default {
     },
     productStr: {
       product1: 'Beosin-VaaS',
-      product2: 'BEOSIN-Eagle Eye',
+      product2: 'Beosin-Eagle Eye',
     },
     language: {
       EN: 'EN',
@@ -75,7 +75,7 @@ export default {
     mgtitle1: 'Smart contract audit',
     mgtitle2: 'Blockchain platform audit',
     mgtitle3: 'Beosin-VAAS',
-    mgtitle4: 'BEOSIN-Eagle Eye',
+    mgtitle4: 'Beosin-Eagle Eye',
 
     titleCard1: 'A Full Analysis of the MonoX Attack',
     titleCardInfo1:
@@ -107,7 +107,7 @@ export default {
     productFeature3: 'Logical Correctness',
     productFeature4: 'Support for multiple blockchain platforms',
 
-    productName2: 'BEOSIN-Eagle Eye',
+    productName2: 'Beosin-Eagle Eye',
     productDesc2:
       'Through real-time monitoring of on-chain transactions, identification of transaction behaviors, and analysis of contract codes, it can discover and alert hacking incidents and contract vulnerabilities, supporting project owner on safe operation and asset protection.',
     productFeature5: 'Transaction Risk Detection',
@@ -399,7 +399,7 @@ export default {
         'Formal specifications are written directly in contract language. No additional efforts in learning specification language.',
     },
     eagle: {
-      title: 'BEOSIN-Eagle Eye',
+      title: 'Beosin-Eagle Eye',
       subTitle: 'Provide Dapp operators with project intelligence and real-time risk alerts',
       funcDisplay: 'Function Display',
       desc: 'An integrated monitoring platform designed for blockchain project owners. By automatically assessing security situation of contracts, monitoring on-chain operations and real-time transactions, it can identify suspicious transactions, comprehensively assess the operation status, help user to find out risks and get disposal suggestions, and finally setup security shield for project operation and asset protection.',

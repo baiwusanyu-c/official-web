@@ -235,7 +235,7 @@
     @apply mx-auto;
   }
 
-  .product-page .product-desc {
+  #product_vass.product-page .product-desc {
     position: relative;
     padding: 0 30px;
     background: transparent;
