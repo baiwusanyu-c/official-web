@@ -15,7 +15,7 @@
         <img
           src="../../assets/img/home-bg-m.jpg"
           alt=""
-          style="width: 100%;height: 100%;"
+          style="width: 100%; height: 100%"
           class="display-none sm:flex" />
       </div>
       <div class="absolute z-10 flex justify-center flex-col w-3/5 h-full md:w-11/12 sm:w-4/5">
@@ -320,7 +320,8 @@
         'science01-hover',
         'science02-hover',
         'science03-hover',
-        'science04-hover', ]
+        'science04-hover',
+      ]
       const customerImgList = reactive<object[]>([])
       const scienceList = reactive<object[]>([])
       const getImage = (): void => {

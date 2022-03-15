@@ -235,6 +235,10 @@
     @apply mx-auto;
   }
 
+  #product_eagle.product-page .product-desc {
+    position: relative;
+  }
+
   #product_vass.product-page .product-desc {
     position: relative;
     padding: 0 30px;
