@@ -10,7 +10,7 @@ import { SvgDom } from './utils/create-svg'
 /**
  * 初始化图标，生成svgDom
  */
-const initIcon = ():void =>{
+const initIcon = (): void => {
   new SvgDom()
 }
 initIcon()
