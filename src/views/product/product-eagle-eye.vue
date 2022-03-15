@@ -12,9 +12,10 @@
           {{ $t('lang.product.eagle.subTitle') }}
         </div>
         <be-button
-          @click="toEagleEyePage"
           custom-class="try-out-btn h-btn-txt-black linear-l-r text-black text-xl sm:absolute sm:bottom-8 sm:inset-x-0"
-          >{{ $t('lang.tryoutBtn') }}</be-button>
+          @click="toEagleEyePage"
+          >{{ $t('lang.tryoutBtn') }}</be-button
+        >
       </div>
       <div class="eagle-header-logo sm:hidden"></div>
     </div>
@@ -34,7 +35,11 @@
         <!--     走馬燈      -->
         <div class="mt-10 product-eagle-frame md:mt-8 sm:mt-4 sm:bg-default sm:p-2 sm:rounded">
           <iframe :src="`${base}external/riskTrx/list`" class="sm:hidden"></iframe>
-          <img  @click="toEagleEyePage" src="../../assets/img/eagle-eye1.png" alt="" class='display-none sm:flex'/>
+          <img
+            src="../../assets/img/eagle-eye1.png"
+            alt=""
+            class="display-none sm:flex"
+            @click="toEagleEyePage" />
         </div>
         <p class="text-lg font-format text-justify leading-normal px-12 sm:text-xs sm:px-0">
           {{ $t('lang.product.eagle.desc') }}
@@ -169,7 +174,7 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent ,ref} from 'vue'
+  import { defineComponent, ref } from 'vue'
   import ContactUs from '../../components/contact-us.vue'
   import AboutHermit from '../../components/about-hermit.vue'
 
@@ -190,7 +195,7 @@
       }
       return {
         base,
-        toEagleEyePage
+        toEagleEyePage,
       }
     },
   })
