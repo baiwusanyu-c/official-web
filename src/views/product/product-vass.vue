@@ -120,7 +120,7 @@
 <script lang="ts">
   import ContactUs from '../../components/contact-us.vue'
   import AboutHermit from '../../components/about-hermit.vue'
-  import { defineComponent,ref} from 'vue'
+  import { defineComponent, ref } from 'vue'
   import HProductSwiper from '../../components/h-product-swiper.vue'
   import composition from '../../utils/mixin/common-func'
   import { getStore } from '../../utils/common'
