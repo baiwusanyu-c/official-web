@@ -5,13 +5,14 @@
     <div class="slogan-news w-full bg-mainBlueGary relative flex justify-center">
       <div class="slogan-news-bg w-full absolute">
         <video
-          class="absolute left-0 bottom-0 top-0 right-0"
+          class="absolute left-0 bottom-0 top-0 right-0 sm:hidden"
           style="z-index: 0; width: 100%; height: 100%; object-fit: fill"
           src="../../assets/video/home.mp4"
           muted="muted"
           autoplay="autoplay"
           loop="loop"
           width="1920"></video>
+        <img src="../../assets/img/home-bg-m.jpg" alt="" style='width: 100%' class='display-none sm:flex'/>
       </div>
       <div class="absolute z-10 flex justify-center flex-col w-3/5 h-full md:w-11/12 sm:w-4/5">
         <h2

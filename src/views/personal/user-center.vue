@@ -473,6 +473,7 @@
       box-sizing: border-box;
       height: initial;
       padding: 30px;
+      overflow-y: auto;
     }
 
     .user-center .table-body {

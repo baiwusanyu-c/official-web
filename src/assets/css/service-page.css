@@ -490,7 +490,7 @@
   }
 
   .service-page .number-item > span > i {
-    top: 6px;
+    top: 6px !important;
   }
 
   .service-page .body-search-input {

@@ -32,7 +32,7 @@ export enum productLinkDev {
 }
 export enum productLinkStage {
   eagleEye = 'http://124.71.193.230:18088/#/',
-  vaas = 'http://124.71.193.230:17070/#/login',
+  vaas = 'http://124.71.132.90:17072/#/login',
 }
 export enum productLinkProd {
   eagleEye = 'https://eagleeye.beosin.com/',

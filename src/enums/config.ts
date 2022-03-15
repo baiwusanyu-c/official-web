@@ -34,20 +34,18 @@ enum pretestnUrl {
 }
 
 enum developmentUrl02 {
-  baseURL= 'http://192.168.0.2:9527',
-
+  baseURL = 'http://192.168.0.2:9527',
 }
 
 enum stagingnUrl02 {
-  baseURL= 'http://124.71.132.90:9527',
-
+  baseURL = 'http://124.71.132.90:9527',
 }
 const configUrl: IOption = {
   production: productionUrl,
   development: developmentUrl,
   staging: stagingnUrl,
   pretest: pretestnUrl,
-  staging02:stagingnUrl02,
-  development02:developmentUrl02,
+  staging02: stagingnUrl02,
+  development02: developmentUrl02,
 }
 export default configUrl[String(import.meta.env.VITE_PROJECT_ENV)]

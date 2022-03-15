@@ -180,6 +180,10 @@
           message('warning', t('lang.login.tipAccount'), 'hermit-msg')
           return
         }
+        if (!verEmail(String(form.value.account))) {
+          message('warning', t('lang.login.tipErrEmail'), 'hermit-msg')
+          return
+        }
         const params: IMailCode = {
           userName: String(form.value.account),
         }
