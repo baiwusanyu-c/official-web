@@ -11,11 +11,10 @@
         <div class="header-text-small font-format leading-normal">
           {{ $t('lang.product.eagle.subTitle') }}
         </div>
-        <!--        <be-button
+<!--        <be-button
           custom-class="try-out-btn h-btn-txt-black linear-l-r text-black text-xl sm:absolute sm:bottom-8 sm:inset-x-0"
-          @click="toEagleEyePage"
-          >{{ $t('lang.tryoutBtn') }}</be-button
-        >-->
+        >{{ $t('lang.tryoutBtn') }}
+        </be-button>-->
       </div>
       <div class="eagle-header-logo sm:hidden"></div>
     </div>
@@ -27,20 +26,17 @@
       <h2 class="display-none text-4xl font-bold font-format sm:text-lg sm:mb-4 sm:flex">
         {{ $t('lang.product.eagle.funcDisplay') }}
       </h2>
-      <div
-        class="absolute flex justify-center w-70b items-center flex-col p-8 rounded-md product-desc sm:w-full sm:relative">
+      <div class="p-8 w-2/3 rounded-md product-desc sm:w-full sm:relative">
         <h2 class="text-4xl font-bold font-format sm:hidden">
           {{ $t('lang.product.eagle.funcDisplay') }}
         </h2>
         <!--     走馬燈      -->
         <div
-          class="relative mt-10 product-eagle-frame md:mt-8 sm:mt-4 sm:bg-default sm:p-2 sm:rounded">
-          <!--    遮罩 暂时屏蔽iframe      -->
-          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%"></div>
-          <iframe :src="`${base}external/riskTrx/list`" class="sm:hidden"></iframe>
-          <img src="../../assets/img/eagle-eye1.png" alt="" class="display-none sm:flex" />
+          class="mt-10 product-swiper w-full h-full md:mt-8 sm:mt-4 sm:bg-default sm:p-2 sm:rounded">
+          <h-product-swiper></h-product-swiper>
         </div>
-        <p class="text-lg font-format text-justify leading-normal px-12 sm:text-xs sm:px-0">
+        <p
+          class="text-lg font-format text-justify leading-normal px-12 mt-12 sm:text-xs sm:mt-4 sm:px-0">
           {{ $t('lang.product.eagle.desc') }}
         </p>
       </div>
@@ -53,7 +49,7 @@
       </h2>
       <div class="flex w-full items-center justify-center sm:flex-wrap">
         <div
-          class="func-card bg-default flex flex-col items-center justify-start shadow-2xl mx-6 p-8 box-border rounded sm:mx-2 sm:p-2">
+          class="func-card bg-default flex flex-col items-center justify-start shadow-2xl mx-6 p-8 box-border rounded sm:m-2 sm:p-2">
           <h3 class="text-lg font-bold mb-8 text-center h-12 font-format sm:text-xs sm:mb-4">
             {{ $t('lang.product.eagle.funcSubTitle1') }}
           </h3>
@@ -63,7 +59,7 @@
           </p>
         </div>
         <div
-          class="func-card bg-default flex flex-col items-center justify-start shadow-2xl mx-6 p-8 box-border rounded sm:mx-2 sm:p-2">
+          class="func-card bg-default flex flex-col items-center justify-start shadow-2xl mx-6 p-8 box-border rounded sm:m-2 sm:p-2">
           <h3 class="text-lg font-bold mb-8 text-center h-12 font-format sm:text-xs sm:mb-2">
             {{ $t('lang.product.eagle.funcSubTitle2') }}
           </h3>
@@ -73,7 +69,7 @@
           </p>
         </div>
         <div
-          class="func-card bg-default flex flex-col items-center justify-start shadow-2xl mx-6 p-8 box-border rounded sm:mx-2 sm:p-2 sm:mt-4">
+          class="func-card bg-default flex flex-col items-center justify-start shadow-2xl mx-6 p-8 box-border rounded sm:mx-2 sm:p-2">
           <h3 class="text-lg font-bold mb-8 text-center h-12 font-format sm:text-xs sm:mb-4">
             {{ $t('lang.product.eagle.funcSubTitle3') }}
           </h3>
@@ -83,7 +79,7 @@
           </p>
         </div>
         <div
-          class="func-card bg-default flex flex-col items-center justify-start shadow-2xl mx-6 p-8 box-border rounded sm:mx-2 sm:p-2 sm:mt-4">
+          class="func-card bg-default flex flex-col items-center justify-start shadow-2xl mx-6 p-8 box-border rounded sm:mx-2 sm:p-2">
           <h3 class="text-lg font-bold mb-8 text-center h-12 font-format sm:text-xs sm:mb-4">
             {{ $t('lang.product.eagle.funcSubTitle4') }}
           </h3>
@@ -173,76 +169,61 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, ref } from 'vue'
-  import ContactUs from '../../components/contact-us.vue'
-  import AboutHermit from '../../components/about-hermit.vue'
+import { defineComponent } from 'vue'
+import ContactUs from '../../components/contact-us.vue'
+import AboutHermit from '../../components/about-hermit.vue'
+import HProductSwiper from '../../components/h-product-swiper.vue'
+import CoreAdvantages from '../../components/core-advantages.vue'
 
-  import CoreAdvantages from '../../components/core-advantages.vue'
-  import composition from '../../utils/mixin/common-func'
-  import { getStore } from '../../utils/common'
-  import { productLinkList } from '../../enums/link'
-
-  export default defineComponent({
-    name: 'ProductEagleEye',
-    components: { CoreAdvantages, AboutHermit, ContactUs },
-    setup() {
-      const { openWin } = composition()
-      const base = ref<string>(productLinkList.eagleEye)
-      /*const toEagleEyePage = (): void => {
-        let url = `${base.value}?token=Bearer ${getStore('token')}&lang=${getStore('lang')}`
-        openWin(url, 'vaas')
-      }*/
-      return {
-        base,
-        // toEagleEyePage,
-      }
-    },
-  })
+export default defineComponent({
+  name: 'ProductEagleEye',
+  components: { CoreAdvantages, HProductSwiper, AboutHermit, ContactUs },
+  setup() {
+    return {}
+  },
+})
 </script>
 
 <!-- prettier-ignore -->
 <style>
-  @import '../../assets/css/product-page.css';
+@import '../../assets/css/product-page.css';
 
-  #product_eagle .page-head {
-    display: flex;
-    align-items: start;
-    justify-content: flex-start;
-    height: 880px;
-    padding: 0 300px 110px 320px;
-    background-color: #121214;
-    background-image: url('../../assets/img/product-bg.png');
-    background-repeat: no-repeat;
-    background-size: 100%;
+#product_eagle .page-head {
+  display: flex;
+  align-items: start;
+  justify-content: flex-start;
+  height: 880px;
+  padding: 0 300px 110px 320px;
+  background-color: #121214;
+  background-image: url('../../assets/img/product-bg.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+#product_eagle .product-desc-body {
+  box-sizing: border-box;
+  height: 1028px;
+  padding: 0 300px;
+}
+
+.product-page .eagle-header-logo {
+  position: absolute;
+  top: 80px;
+  right: 154px;
+  width: 840px;
+  height: 700px;
+  background: url('../../assets/img/eagle-new-logo.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1326px) {
+
+  #product_eagle .header-text-small {
+    width: 578px;
+    font-size: 28px;
+    line-height: 1.5;
   }
-
-  #product_eagle .product-desc-body {
-    box-sizing: border-box;
-    height: 900px;
-  }
-
-  #product_eagle .product-desc-body .product-desc {
-    top:-23%
-  }
-
-  .product-page .eagle-header-logo {
-    position: absolute;
-    top: 80px;
-    right: 154px;
-    width: 840px;
-    height: 700px;
-    background: url('../../assets/img/eagle-new-logo.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100%;
-  }
-
-  @media screen and (min-width: 1280px) and (max-width: 1326px) {
-
-    #product_eagle .header-text-small {
-      width: 578px;
-      font-size: 28px;
-      line-height: 1.5;
-    }
-  }
+}
 </style>
