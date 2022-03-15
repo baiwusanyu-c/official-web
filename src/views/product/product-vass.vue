@@ -130,12 +130,16 @@
     name: 'ProductVass',
     components: { CoreAdvantages, HProductSwiper, AboutHermit, ContactUs },
     setup() {
-      const { openWin,message } = composition()
+      const { openWin, message } = composition()
       const base = ref<string>(productLinkList.vaas)
       const toVaaSPage = (): void => {
         const screenWidth = window.screen.width
         if (100 < screenWidth && screenWidth < 1278) {
-          message('warning', 'To ensure your experience, please use a desktop browser to access', 'hermit-msg')
+          message(
+            'warning',
+            'To ensure your experience, please use a desktop browser to access',
+            'hermit-msg'
+          )
           return
         }
         let url = `${base.value}?token=Bearer ${getStore('token')}&lang=${getStore('lang')}`
