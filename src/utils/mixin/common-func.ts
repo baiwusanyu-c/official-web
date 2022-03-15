@@ -47,7 +47,7 @@ export default () => {
       msgType: type,
       duration: 2500,
       offsetTop: 80,
-      close: true,
+      close: false,
     })
   }
   /**

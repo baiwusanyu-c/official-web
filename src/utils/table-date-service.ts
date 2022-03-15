@@ -361,7 +361,7 @@ export function boxChoose(num: number, t: ComposerTranslation): Array<TBoxType> 
       items: t('lang.serviceContract.table.black.item04.text03'),
     },
     {
-      num: '04',
+      num: '05',
       categories: t('lang.serviceContract.table.black.categories05'),
       items: t('lang.serviceContract.table.black.item05.text01'),
     },

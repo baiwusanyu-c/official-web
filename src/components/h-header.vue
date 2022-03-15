@@ -443,7 +443,7 @@
       }
       // 移動端彈出抽屜菜單
       const active = ref<boolean>(false)
-      const initPage = ():void =>{
+      const initPage = (): void => {
         if (getStore('token')) {
           isLogin.value = true
         }
