@@ -90,3 +90,13 @@
 .n-drawer-container{
   z-index: 1999 !important;
 }
+
+
+
+.be-message .be-message-container .be-message-title{
+  height: initial !important;
+}
+
+.be-message .be-message-container__topCenter{
+  max-width: 100vw ;
+}

@@ -5,7 +5,7 @@
     <div class="slogan-news w-full bg-mainBlueGary relative flex justify-center">
       <div class="slogan-news-bg w-full absolute">
         <video
-          v-if='!isM'
+          v-if="!isM"
           class="absolute left-0 bottom-0 top-0 right-0 sm:hidden"
           style="z-index: 0; width: 100%; height: 100%; object-fit: fill"
           src="../../assets/video/home.mp4"
@@ -419,7 +419,7 @@
       ])
       const screenWidth = window.screen.width
       let isM = ref<boolean>(false)
-      const getScreenWidth = ():void => {
+      const getScreenWidth = (): void => {
         if (100 < screenWidth && screenWidth < 1278) {
           isM.value = true
         }

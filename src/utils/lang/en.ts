@@ -459,7 +459,7 @@ export default {
     phone: 'YOU CONTACT',
     message: 'MESSAGE',
     messageP:
-      'Please enter the content you wish to consult,e.g. cooperation process,cooperation price,others...',
+      'Please input the content you wish to consult, e.g. cooperation process, cooperation price, others...',
   },
   userCenter: {
     titleBig: 'Personal Center',
