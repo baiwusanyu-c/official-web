@@ -120,12 +120,11 @@
 <script lang="ts">
   import ContactUs from '../../components/contact-us.vue'
   import AboutHermit from '../../components/about-hermit.vue'
-  import { defineComponent } from 'vue'
+  import { defineComponent,ref} from 'vue'
   import HProductSwiper from '../../components/h-product-swiper.vue'
   import composition from '../../utils/mixin/common-func'
   import { getStore } from '../../utils/common'
   import CoreAdvantages from '../../components/core-advantages.vue'
-  import { ref } from '_vue@3.2.31@vue'
   import { productLinkList } from '../../enums/link'
   export default defineComponent({
     name: 'ProductVass',
