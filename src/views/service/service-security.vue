@@ -51,8 +51,8 @@
           <div>
             <div class="num-main">
               <roll-num v-if="!isM" :value="auditedNum" :time="1"></roll-num>
-              <span v-if="isM">1,0 0 0</span>
-              Million+
+              <span v-if="isM">1 0</span>
+              Billion+
             </div>
             <div class="num-footer num-footer-plus"></div>
           </div>
@@ -465,7 +465,7 @@
       const { startTimer } = composition()
       startTimer(customersNum, 1000, 200)
       startTimer(contractsNum, 2000, 300)
-      startTimer(auditedNum, 1000, 200)
+      startTimer(auditedNum, 10, 200)
       const tableChoseBoxHover = ref<number>(0)
       let isM = ref<boolean>(false)
       const getScreenWidth = (): void => {
