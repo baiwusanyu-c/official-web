@@ -23,7 +23,6 @@
     "commit": "eslint --fix ./src --ext .vue,.js,.ts,.jsx,.tsx && prettier --write .&& stylelint --fix src/**/*.{html,vue,css}",
     "stylelint-check": "stylelint-config-prettier-check",
     "preview": "vite preview --port 8080 --host"
-
   },
   "dependencies": {
     "@popperjs/core": "^2.10.1",

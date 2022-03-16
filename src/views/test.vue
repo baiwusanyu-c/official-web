@@ -1,12 +1,11 @@
 /* * @test.vue * @deprecated * @author czh * @update (czh 2021/12/24) */
 <template>
-
   <div>
     <h-header></h-header>
     <h-footer-bigger></h-footer-bigger>
   </div>
 
-<!--    <be-popover trigger="manual" width="300" customClass="asdwq" placement="bottom">
+  <!--    <be-popover trigger="manual" width="300" customClass="asdwq" placement="bottom">
       <template #trigger>
         <be-icon icon="deleteIc" style="position: absolute;left: 20%;top: 300px;"></be-icon>
       </template>
@@ -23,33 +22,25 @@
       :is-open-modal="true">
        asdwqdwqdwqd
     </be-dialog>-->
-
-
-
-
-
 </template>
 
 <script lang="ts">
-import { defineComponent, getCurrentInstance, onMounted, ref,reactive } from 'vue'
+  import { defineComponent, getCurrentInstance, onMounted, ref, reactive } from 'vue'
 
-import HFooterBigger from '../components/h-footer-bigger.vue'
-import HHeader from '../components/h-header.vue'
-
-
+  import HFooterBigger from '../components/h-footer-bigger.vue'
+  import HHeader from '../components/h-header.vue'
 
   export default defineComponent({
-    components:{
+    name: 'TestComp',
+    components: {
       HHeader,
       HFooterBigger,
     },
-    name: 'TestComp',
     setup() {
       const asd = reactive({ foo: 1 })
       const asdwqd = ref<boolean>(true)
 
       return {
-
         asdwqd,
         asd,
       }
