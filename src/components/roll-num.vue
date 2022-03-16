@@ -71,8 +71,8 @@
         num = num.toString()
         // 把具体值value变成字符串
         if (num.length < 4) {
-         // num = '0' + num // 如未满八位数，添加"0"补位
-         // toOrderNum(num) // 递归添加"0"补位
+          // num = '0' + num // 如未满八位数，添加"0"补位
+          // toOrderNum(num) // 递归添加"0"补位
           orderNum.value = num.split('')
         } else if (num.length === 4) {
           // 具体值value中加入逗号
