@@ -72,8 +72,11 @@
 `"prepare": "husky install",`
 **husky 初始化**
 
-`"commit": "eslint --fix ./src --ext .vue,.js,.ts,.jsx,.tsx && prettier --write . && stylelint --fix src/**/*.{html,vue,css} && jest"`
+`"commit": "eslint --fix ./src --ext .vue,.js,.ts,.jsx,.tsx && prettier --write .&& stylelint --fix src/**/*.{html,vue,css}"`
 **基于 husky 和 commitlint/cli 的 git commit 钩子指令，提交时会调用该指令进行**
+
+`"preview": "vite preview --port 8080 --host"`
+**打包预览，当年你打包后使用该指令 vite 会自动开启一个容器来运行 dist 打包结果**
 
 ## 目錄結構
 

@@ -1,6 +1,6 @@
 {
   "name": "hermit-front",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "scripts": {
     "serve:dev": "vite --host --mode development",
     "serve:stage": "vite --host --mode staging",
@@ -21,7 +21,6 @@
     "test:coverage": "jest --coverage",
     "prepare": "husky install",
     "commit": "eslint --fix ./src --ext .vue,.js,.ts,.jsx,.tsx && prettier --write .&& stylelint --fix src/**/*.{html,vue,css}",
-    "stylelint-check": "stylelint-config-prettier-check",
     "preview": "vite preview --port 8080 --host"
   },
   "dependencies": {
