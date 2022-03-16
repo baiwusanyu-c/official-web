@@ -67,6 +67,9 @@ export default defineConfig({
               }
           }
       },*/
+  build: {
+    target:['es2015']
+  },
   esbuild: {
     jsxFactory: 'h',
     jsxFragment: 'Fragment',
