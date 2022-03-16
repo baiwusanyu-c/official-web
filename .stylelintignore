@@ -8,4 +8,6 @@
 tailwind.css
 # 依赖和打包目录
 /dist/
+/src/assets/css/be-ui/
+/src/components/be-ui/
 /node_modules/

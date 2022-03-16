@@ -11,17 +11,8 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "lib": [
-      "esnext",
-      "dom"
-    ],
-    "types": [
-      "node",
-      "vite/client",
-      "@types/qs",
-      "jest",
-      "/public/**/*.d.ts"
-    ]
+    "lib": ["esnext", "dom"],
+    "types": ["node", "vite/client", "@types/qs", "jest", "/public/**/*.d.ts"]
   },
   "include": [
     "/src/**/*.ts",
@@ -31,8 +22,5 @@
     "node_modules/@types/jest/index.d.ts"
   ],
   // ts 排除的文件
-  "exclude": [
-    "node_modules",
-    "**/__tests__/"
-  ]
+  "exclude": ["node_modules", "**/__tests__/"]
 }

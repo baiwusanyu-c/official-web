@@ -1,40 +1,41 @@
-
-
-.product-page .header-text{
+.product-page .header-text {
   display: flex;
   flex-direction: column;
+  width: 580px;
 }
 
-.product-page  .product-desc{
-  box-sizing: border-box;
-  padding: 0 300px;
+.product-page .product-desc {
+  position: absolute;
+  bottom: 10px;
+  background:
+    linear-gradient(
+      to bottom,rgba(255, 255, 255, 1) 0%,rgba(246, 246, 246, 1) 59%,rgba(239, 242, 247, 1) 100%
+    );
 }
 
-.product-page .header-text-big{
-  width: 780px;
+.product-page .header-text-big {
   padding-top: 0;
-  margin-top: 112px;
+  margin-top: 176px;
   font-family: SourceHanSansBold, sans-serif;
   font-size: 60px;
   font-weight: bold;
   line-height: 80px;
-  color: #FFF;
+  color: #fff;
 }
 
-.product-page .header-text-small{
-  width: 900px;
+.product-page .header-text-small {
   padding-top: 39px;
   font-family: SourceHanSansRegular, sans-serif;
-  font-size: 30px;
+  font-size: 24px;
   line-height: 1.5;
-  color: #FFF;
+  color: #fff;
 }
 
-.product-page .try-out-btn{
-  @apply h-12 w-80 font-bold mt-32 sm:w-48 sm:h-9;
+.product-page .try-out-btn {
+  @apply h-12 w-80 font-bold mt-24 sm:w-48 sm:h-9;
 }
 
-.product-page .func-container .func-card{
+.product-page .func-container .func-card {
   width: 285px;
   height: 470px;
   border-top: 5px solid transparent;
@@ -45,104 +46,200 @@
   box-shadow: 0 25px 50px -12px #02fbbb;
 }
 
-.product-page .advant-container .advant-circle{
+.product-page .advant-container .advant-circle {
   width: 100px;
   height: 100px;
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+/* 110 - 125 */
 @media screen and (min-width: 1328px) and (max-width: 1538px) {
 
   #product_vass.product-page .page-head,
-  #product_eagle.product-page .page-head{
-    height: 480px;
-    padding: 0 160px 80px 160px;
+  #product_eagle.product-page .page-head {
+    height: 700px;
+    padding: 0 250px 80px 250px;
   }
 
-  .product-page  .product-desc{
-    box-sizing: border-box;
-    padding: 0 160px;
+  #product_eagle.product-page .product-desc-body {
+    height: 922px;
   }
 
-  .product-page .header-text-small {
-    width: 846px;
+  #product_vass.product-page .product-desc-body {
+    height: 668px;
   }
 
-  .product-page .try-out-btn{
-    margin-top: 6rem;
+  .product-page .header-text-big {
+    margin-top: 146px;
+  }
+
+  .product-page .try-out-btn {
+    margin-top: 4rem;
+  }
+
+  #product_eagle.product-page .eagle-header-logo {
+    top: 54px;
+    right: 116px;
+    width: 682px;
+    height: 570px;
+  }
+
+  #product_vass.product-page .vass-header-logo {
+    top: 54px;
+    right: 116px;
+    width: 682px;
+    height: 570px;
   }
 }
+
+/* 100 - 110 */
+
 @media screen and (min-width: 1540px) and (max-width: 1750px) {
 
   #product_vass.product-page .page-head,
-  #product_eagle.product-page .page-head{
-    height: 480px;
-    padding: 0 160px 80px 160px;
+  #product_eagle.product-page .page-head {
+    height: 790px;
   }
 
-  .product-page  .product-desc{
-    box-sizing: border-box;
-    padding: 0 160px;
+  #product_eagle.product-page .product-desc-body {
+    height: 980px;
+  }
+
+  #product_eagle.product-page .eagle-header-logo {
+    top: 76px;
+    right: 134px;
+    width: 776px;
+    height: 645px;
+  }
+
+  #product_vass.product-page .vass-header-logo {
+    top: 76px;
+    right: 134px;
+    width: 776px;
+    height: 645px;
   }
 }
-@media screen and (min-width: 1280px) and (max-height: 638px) and (max-width: 1326px) {
+
+/* 125 - 150% */
+@media screen and (min-width: 1280px) and (max-width: 1326px) {
 
   #product_vass.product-page .page-head,
-  #product_eagle.product-page .page-head{
-    height: 376px;
-    padding: 0 80px 80px 80px;
+  #product_eagle.product-page .page-head {
+    height: 578px;
+    padding: 0 210px 80px 210px;
   }
 
-  .product-page  .product-desc{
-    box-sizing: border-box;
-    padding: 0 80px;
+  #product_eagle.product-page .product-desc-body {
+    height: 840px;
   }
 
-  .product-page .header-text-big{
+  #product_vass.product-page .product-desc-body {
+    height: 624px;
+  }
+
+  .product-page .header-text-big {
     margin-top: 60px;
   }
 
-  .product-page .try-out-btn{
+  .product-page .try-out-btn {
     margin-top: 3rem;
   }
-}
-@media screen and (min-width: 100px) and (max-width: 1278px) {
 
-  .hermit-main #product_vass .page-head ,
-  .hermit-main #product_eagle .page-head {
-    padding: 0 30px 10px 30px;
-    background-image: none;
+  #product_eagle.product-page .eagle-header-logo {
+    top: 42px;
+    right: 100px;
+    width: 564px;
+    height: 468px;
   }
 
-  .product-page .header-text-big{
+  #product_vass.product-page .vass-header-logo {
+    top: 42px;
+    right: 100px;
+    width: 564px;
+    height: 468px;
+  }
+}
+
+@media screen and (min-width: 100px) and (max-width: 1278px) {
+
+  .hermit-main #product_vass .page-head {
+    height: 486px;
+    padding: 0 30px 10px 30px;
+    background-image: url('../../assets/img/vaas-header-bg-m.png');
+  }
+
+  .hermit-main #product_eagle .page-head {
+    height: 486px;
+    padding: 0 30px 10px 30px;
+    background-image: url('../../assets/img/eagle-header-bg-m.png');
+  }
+
+  .product-page .header-text-big {
     width: initial;
     margin-top: 40px;
     font-size: 35px;
     line-height: 1.5;
   }
 
-  .product-page .header-text-small  {
+  .product-page .header-text-small {
     width: initial;
     padding-top: 10px;
     font-size: 20px;
   }
 
-  .product-page .try-out-btn{
+  .product-page .try-out-btn {
     margin-top: 3rem;
-    @apply mx-auto
+
+    @apply mx-auto;
   }
 
-  .product-page .product-desc{
+  .product-page .product-desc {
+    position: relative;
     padding: 0 30px;
+    background: transparent;
   }
 
-  .product-page .func-container .func-card{
-    width:140px;
+  .product-page .func-container .func-card {
+    width: 140px;
     height: 300px;
   }
 
-  .product-page .advant-container .advant-circle{
+  .product-page .advant-container .advant-circle {
     width: 36px;
     height: 36px;
+  }
+
+  #product_eagle.product-page .product-desc-body {
+    @apply pt-8 px-0 h-auto;
+  }
+
+  #product_vass.product-page .product-desc-body {
+    @apply pt-8 px-0 h-auto;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1278px) {
+
+  .hermit-main #product_vass .page-head {
+    height: 640px;
+    padding: 0 30px 10px 30px;
+    background-color: #050506;
+    background-image: url('../../assets/img/vaas-header-bg-m.png');
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: 80%;
+    background-size: 70%;
+  }
+
+  .hermit-main #product_eagle .page-head {
+    height: 640px;
+    padding: 0 30px 10px 30px;
+    background-color: #050506;
+    background-image: url('../../assets/img/eagle-header-bg-m.png');
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: 80%;
+    background-size: 70%;
   }
 }

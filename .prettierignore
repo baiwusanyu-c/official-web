@@ -1,0 +1,6 @@
+public
+/src/**/*.css
+dist
+node_modules
+coverage
+
