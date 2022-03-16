@@ -118,6 +118,11 @@
           verMsg(tipStr)
           return false
         }
+        if (!form.value.code) {
+          tipStr = t('lang.login.tipVerCode')
+          verMsg(tipStr)
+          return false
+        }
         return true
       }
       /**

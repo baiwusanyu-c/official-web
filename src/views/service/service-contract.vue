@@ -29,8 +29,8 @@
           </div>
           <div>
             <div class="num-main">
-              <roll-num :value="customersNum" :time="1" v-if='!isM'></roll-num>
-              <span v-if='isM'>1,0 0 0</span>
+              <roll-num v-if="!isM" :value="customersNum" :time="1"></roll-num>
+              <span v-if="isM">1,0 0 0</span>
               +
             </div>
             <div class="num-footer"></div>
@@ -42,8 +42,8 @@
           </div>
           <div>
             <div class="num-main">
-              <roll-num :value="contractsNum" :time="1" v-if='!isM'></roll-num>
-              <span v-if='isM'>2,0 0 0</span>
+              <roll-num v-if="!isM" :value="contractsNum" :time="1"></roll-num>
+              <span v-if="isM">2,0 0 0</span>
               +
             </div>
             <div class="num-footer"></div>
@@ -55,8 +55,8 @@
           </div>
           <div>
             <div class="num-main">
-              <roll-num :value="auditedNum" :time="1" v-if='!isM'></roll-num>
-              <span v-if='isM'>1,0 0 0</span>
+              <roll-num v-if="!isM" :value="auditedNum" :time="1"></roll-num>
+              <span v-if="isM">1,0 0 0</span>
               <span style="margin-left: 3px">Million+</span>
             </div>
             <div class="num-footer num-footer-plus"></div>
