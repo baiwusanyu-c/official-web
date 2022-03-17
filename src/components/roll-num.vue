@@ -146,6 +146,12 @@
     writing-mode: vertical-rl;
     text-orientation: upright;
   }
+  /*兼容火狐*/
+  @-moz-document url-prefix() {
+    .mark-item > span {
+      bottom:48px;
+    }
+  }
 
   /* 滚动数字设置 */
 
