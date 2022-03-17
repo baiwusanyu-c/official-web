@@ -57,7 +57,7 @@
         <div
           v-for="item in titleCardList"
           :key="item.label"
-          class="title-card text-black mr-3 bg-default z-10 flex flex-col p-6 box-border">
+          class="title-card text-black mr-3 bg-default z-10 flex flex-col p-6 box-border cursor-pointer">
           <be-icon icon="search" color="black" custom-class="title-card-btn"></be-icon>
           <h3 class="w-full break-words text-2xl my-6 font-format">{{ item.label }}</h3>
           <p class="w-full break-words font-format">
@@ -77,7 +77,9 @@
           </div>
         </div>
       </div>
-      <p class="">{{ $t('lang.home.more') }} >></p>
+      <p class="more cursor-pointer" @click="routerPush('/index/research')">
+        {{ $t('lang.home.more') }} >>
+      </p>
     </div>
     <!--   service     -->
     <div class="slogan-service w-full bg-default flex flex-col">
@@ -504,15 +506,21 @@
     padding: 0 200px;
   }
 
+  .hermit-main .blog-new .more{
+    width: 70%;
+    padding: 0 10px;
+    text-align: right;
+  }
+
   .hermit-main .blog-new .title-card-container {
     position: relative;
     width: 70%;
-    height: 100%;
+    height:66%;
   }
 
   .hermit-main .blog-new .title-card-container .title-card {
     position: relative;
-    top: -50px;
+    top: -130px;
     width: 291px;
     height: 378px;
     transition: all .3s;

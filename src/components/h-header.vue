@@ -17,10 +17,17 @@
         <n-drawer-content :title="$t('lang.header.nav')" class="menu-content">
           <!--   首页    -->
           <div
-            class="mb-4 w-full font-format cursor-pointer text-left text-base hover:text-mainG"
+            class="mb-4 w-full cursor-pointer"
             :class="route.path.indexOf('home') > 0 ? 'item-active' : ''"
             @click="routerPush('/index/home')">
             {{ $t('lang.header.home') }}
+          </div>
+          <!--    博客研究    -->
+          <div
+            class="mb-4 w-full font-format cursor-pointer text-left text-base hover:text-mainG"
+            :class="route.path.indexOf('research') > 0 ? 'item-active' : ''"
+            @click="routerPush('/index/research')">
+            {{ $t('lang.header.research') }}
           </div>
           <!--   服务    -->
           <div class="mb-4 w-full cursor-pointer">
@@ -127,10 +134,13 @@
     </div>
     <!--    pc 導航    -->
     <div class="display-flex h-10 items-center justify-between ml-10 sm:hidden">
-      <!--    报表    -->
-      <!-- <div class="w-28 cursor-pointer text-base md:flex sm:hidden" @click="routerPush('/index/home')">
-                {{ $t('lang.header.research') }}
-            </div>-->
+      <!--    博客研究    -->
+      <div
+        class="w-28 cursor-pointer text-base hover:text-mainG md:flex sm:hidden"
+        :class="route.path.indexOf('research') > 0 ? 'item-active' : ''"
+        @click="routerPush('/index/research')">
+        {{ $t('lang.header.research') }}
+      </div>
       <!--    服务    -->
       <div class="w-28 cursor-pointer">
         <be-popover
