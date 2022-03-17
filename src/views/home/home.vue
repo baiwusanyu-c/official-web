@@ -50,21 +50,32 @@
           <span class="font-format">{{ $t('lang.contactBtn') }}</span>
         </be-button>
 
-        <!--                <div class="mt-30 flex title-card-container">
-                                    <div v-for="(item) in titleCardList"
-                                         class="title-card text-black mr-3 bg-default z-10 flex flex-col p-6 box-border"
-                                         :key="item.label">
-                                        <be-icon icon="search" color="black" customClass="title-card-btn"></be-icon>
-                                        <h3 class="w-full break-words text-2xl mb-8">{{item.label}}</h3>
-                                        <p class="w-full break-words mb-6">{{item.value}}</p>
-                                        <div class="text-base flex items-center justify-between w-full">
-                                            {{item.date}}
-                                            <be-icon icon="up2" color="black" customClass="ml-4 mr-4 cursor-pointer icon-up2"></be-icon>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p class="text-right relative -right-40">{{ $t('lang.home.more') }} >></p>-->
+
       </div>
+    </div>
+    <!--   blog     -->
+    <div class='blog-new relative w-full bg-mainBlueGary flex flex-col justify-center items-center'>
+      <div class=" flex title-card-container ">
+        <div v-for="(item) in titleCardList"
+             class="title-card text-black mr-3 bg-default z-10 flex flex-col p-6 box-border"
+             :key="item.label">
+          <be-icon icon="search" color="black" customClass="title-card-btn"></be-icon>
+          <h3 class="w-full break-words text-2xl my-6 font-format">{{item.label}}</h3>
+          <p class="w-full break-words font-format">
+            <be-ellipsis
+              disabled
+              :elpNum='item.value.length > 30 ? 15 : 0'
+              :text="item.value"
+              :content="item.value">
+            </be-ellipsis>
+          </p>
+          <div class="text-base flex items-center justify-between w-full mt-4">
+            {{item.date}}
+            <be-icon icon="up2" color="black" customClass="ml-4 mr-4 cursor-pointer icon-up2"></be-icon>
+          </div>
+        </div>
+      </div>
+      <p class="">{{ $t('lang.home.more') }} >></p>
     </div>
     <!--   service     -->
     <div class="slogan-service w-full bg-default flex flex-col">
@@ -254,7 +265,11 @@
     value: string
     isHover?: boolean
   }
-
+  interface IBlobList {
+    label: string
+    value: string
+    date?: string
+  }
   export default defineComponent({
     name: 'HomePage',
     components: {
@@ -266,32 +281,35 @@
     },
     setup() {
       const { t } = useI18n()
-      const titleCardList = ref<Array<any>>([
-        {
-          label: t('lang.home.mgtitle1'),
-          value:
-            'On November 30, Hermit detected that MonoX, an automatic market maker protocol, suffered a flash loan attack',
-          date: '12/06/2021',
-        },
-        {
-          label: t('lang.home.mgtitle2'),
-          value:
-            'On November 30, Hermit detected that MonoX, an automatic market maker protocol, suffered a flash loan attack',
-          date: '12/06/2021',
-        },
-        {
-          label: t('lang.home.mgtitle3'),
-          value:
-            'On November 30, Hermit detected that MonoX, an automatic market maker protocol, suffered a flash loan attack',
-          date: '12/06/2021',
-        },
-        {
-          label: t('lang.home.mgtitle4'),
-          value:
-            'On November 30, Hermit detected that MonoX, an automatic market maker protocol, suffered a flash loan attack',
-          date: '12/06/2021',
-        },
-      ])
+      const titleCardList = ref<Array<IBlobList>>([])
+      const getBlogNewsData = ():void=>{
+        titleCardList.value = [
+          {
+            label: t('lang.home.mgtitle1'),
+            value:
+              'On November 30, Hermit detected that MonoX, an automatic market maker protocol, suffered a flash loan attack',
+            date: '12/06/2021',
+          },
+          {
+            label: t('lang.home.mgtitle2'),
+            value:
+              'On November 30, Hermit detected that MonoX, an automatic market maker protocol, suffered a flash loan attack',
+            date: '12/06/2021',
+          },
+          {
+            label: t('lang.home.mgtitle3'),
+            value:
+              'On November 30, Hermit detected that MonoX, an automatic market maker protocol, suffered a flash loan attack',
+            date: '12/06/2021',
+          },
+          {
+            label: t('lang.home.mgtitle4'),
+            value:
+              'On November 30, Hermit detected that MonoX, an automatic market maker protocol, suffered a flash loan attack',
+            date: '12/06/2021',
+          },
+        ]
+      }
       /*************************************** 一些动态、批量的img加载读取 ******************************/
       const customerList = [
         'polygon',
@@ -421,6 +439,7 @@
         }
       }
       onMounted(() => {
+        getBlogNewsData()
         getImage()
         getScreenWidth()
       })
@@ -476,63 +495,78 @@
     /* margin-bottom: 20em; */
     @apply h-12 w-80 font-bold sm:w-60 sm:h-9;
   }
-
-  .hermit-main .slogan-news .title-card-container {
+  .hermit-main .blog-new{
+    height: 514px;
+    padding: 0 200px;
+    box-sizing: border-box;
+  }
+  .hermit-main .blog-new .title-card-container {
     position: relative;
-    top: -32%;
-    left: 0;
+    width: 70%;
+    height: 100%;
   }
 
-  .hermit-main .slogan-news .title-card-container .title-card {
-    position: absolute;
-    top: 0;
+  .hermit-main .blog-new .title-card-container .title-card {
+    position: relative;
+    top: -50px;
     width: 291px;
     height: 378px;
     transition: all .3s;
   }
-
-  .hermit-main .slogan-news .title-card-container .title-card:nth-child(1) {
-    left: -150px;
+  .blog-new .title-card-container h3 {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 35px;
   }
 
-  .hermit-main .slogan-news .title-card-container .title-card:nth-child(2) {
-    left: 180px;
+  .blog-new .title-card-container p {
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 400;
   }
 
-  .hermit-main .slogan-news .title-card-container .title-card:nth-child(3) {
-    left: 510px;
+  .hermit-main .blog-new .title-card-container .title-card:nth-child(1) {
+    /*left: -150px;*/
   }
 
-  .hermit-main .slogan-news .title-card-container .title-card:nth-child(4) {
-    left: 840px;
+  .hermit-main .blog-new .title-card-container .title-card:nth-child(2) {
+    /*left: 180px;*/
   }
 
-  .hermit-main .slogan-news .title-card-container .title-card:hover {
+  .hermit-main .blog-new .title-card-container .title-card:nth-child(3) {
+   /* left: 510px;*/
+  }
+
+  .hermit-main .blog-new.title-card-container .title-card:nth-child(4) {
+   /* left: 840px;*/
+  }
+
+  .hermit-main .blog-new .title-card-container .title-card:hover {
     height: 450px;
     background: linear-gradient(-32deg, #19bcfc, #00ffba);
   }
 
-  .hermit-main .slogan-news .title-card-container .title-card .be-icon {
+  .hermit-main .blog-new .title-card-container .title-card .be-icon {
     width: 50px;
     height: 50px;
     transition: all .3s;
   }
 
-  .hermit-main .slogan-news .title-card-container .title-card:hover .be-icon {
+  .hermit-main .blog-new .title-card-container .title-card:hover .be-icon {
     width: 64px;
     height: 64px;
   }
 
-  .hermit-main .slogan-news .title-card-container .title-card .icon-up2 {
+  .hermit-main .blog-new .title-card-container .title-card .icon-up2 {
     display: none;
   }
 
-  .hermit-main .slogan-news .title-card-container .title-card:hover .icon-up2 {
+  .hermit-main .blog-new .title-card-container .title-card:hover .icon-up2 {
     display: initial;
     transform: rotate(90deg);
   }
 
-  .hermit-main .slogan-news .title-card-container .title-card:hover .icon-up2 .be-icon {
+  .hermit-main .blog-new .title-card-container .title-card:hover .icon-up2 .be-icon {
     width: 30px !important;
     height: 30px !important;
   }
