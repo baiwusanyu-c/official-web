@@ -49,29 +49,31 @@
           @click="openDialog">
           <span class="font-format">{{ $t('lang.contactBtn') }}</span>
         </be-button>
-
-
       </div>
     </div>
     <!--   blog     -->
-    <div class='blog-new relative w-full bg-mainBlueGary flex flex-col justify-center items-center'>
-      <div class=" flex title-card-container ">
-        <div v-for="(item) in titleCardList"
-             class="title-card text-black mr-3 bg-default z-10 flex flex-col p-6 box-border"
-             :key="item.label">
-          <be-icon icon="search" color="black" customClass="title-card-btn"></be-icon>
-          <h3 class="w-full break-words text-2xl my-6 font-format">{{item.label}}</h3>
+    <div class="blog-new relative w-full bg-mainBlueGary flex flex-col justify-center items-center">
+      <div class="flex title-card-container">
+        <div
+          v-for="item in titleCardList"
+          :key="item.label"
+          class="title-card text-black mr-3 bg-default z-10 flex flex-col p-6 box-border">
+          <be-icon icon="search" color="black" custom-class="title-card-btn"></be-icon>
+          <h3 class="w-full break-words text-2xl my-6 font-format">{{ item.label }}</h3>
           <p class="w-full break-words font-format">
             <be-ellipsis
               disabled
-              :elpNum='item.value.length > 30 ? 15 : 0'
+              :elp-num="item.value.length > 30 ? 15 : 0"
               :text="item.value"
               :content="item.value">
             </be-ellipsis>
           </p>
           <div class="text-base flex items-center justify-between w-full mt-4">
-            {{item.date}}
-            <be-icon icon="up2" color="black" customClass="ml-4 mr-4 cursor-pointer icon-up2"></be-icon>
+            {{ item.date }}
+            <be-icon
+              icon="up2"
+              color="black"
+              custom-class="ml-4 mr-4 cursor-pointer icon-up2"></be-icon>
           </div>
         </div>
       </div>
@@ -282,7 +284,7 @@
     setup() {
       const { t } = useI18n()
       const titleCardList = ref<Array<IBlobList>>([])
-      const getBlogNewsData = ():void=>{
+      const getBlogNewsData = (): void => {
         titleCardList.value = [
           {
             label: t('lang.home.mgtitle1'),
@@ -495,11 +497,13 @@
     /* margin-bottom: 20em; */
     @apply h-12 w-80 font-bold sm:w-60 sm:h-9;
   }
+
   .hermit-main .blog-new{
+    box-sizing: border-box;
     height: 514px;
     padding: 0 200px;
-    box-sizing: border-box;
   }
+
   .hermit-main .blog-new .title-card-container {
     position: relative;
     width: 70%;
@@ -513,6 +517,7 @@
     height: 378px;
     transition: all .3s;
   }
+
   .blog-new .title-card-container h3 {
     font-size: 24px;
     font-weight: 400;
@@ -521,24 +526,28 @@
 
   .blog-new .title-card-container p {
     font-size: 16px;
-    line-height: 28px;
     font-weight: 400;
+    line-height: 28px;
   }
 
   .hermit-main .blog-new .title-card-container .title-card:nth-child(1) {
-    /*left: -150px;*/
+
+    /* left: -150px; */
   }
 
   .hermit-main .blog-new .title-card-container .title-card:nth-child(2) {
-    /*left: 180px;*/
+
+    /* left: 180px; */
   }
 
   .hermit-main .blog-new .title-card-container .title-card:nth-child(3) {
-   /* left: 510px;*/
+
+    /* left: 510px; */
   }
 
   .hermit-main .blog-new.title-card-container .title-card:nth-child(4) {
-   /* left: 840px;*/
+
+    /* left: 840px; */
   }
 
   .hermit-main .blog-new .title-card-container .title-card:hover {
