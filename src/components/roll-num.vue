@@ -2,10 +2,7 @@
 <template>
   <div class="box-item">
     <ul>
-      <li
-        v-for="(item, index) in orderNum"
-        :key="index"
-        :class="setMarkItem(item)">
+      <li v-for="(item, index) in orderNum" :key="index" :class="setMarkItem(item)">
         <span v-if="!isNaN(item)">
           <i ref="numberItem" :class="`number-item-i` + uid">0123456789</i>
         </span>
@@ -25,7 +22,7 @@
     watch,
   } from 'vue'
   import { TimeoutHandle } from '../utils/types'
-  import { detectOS ,uaMatch} from '../utils/common'
+  import { detectOS, uaMatch } from '../utils/common'
 
   export default defineComponent({
     name: 'RollNum',
@@ -102,22 +99,21 @@
       // 浏览器信息
       const browserInfo = uaMatch(navigator.userAgent.toLowerCase())
       // 设置样式
-      const setMarkItem = computed(()=>{
-        return function(item){
-
-          if(!isNaN(item) && osInfo === 'Linux' && browserInfo.browser === 'chrome'){
+      const setMarkItem = computed(() => {
+        return function (item) {
+          if (!isNaN(item) && osInfo === 'Linux' && browserInfo.browser === 'chrome') {
             return 'number-item number-item-webkit-linux'
           }
-          if(!isNaN(item)){
+          if (!isNaN(item)) {
             return 'number-item'
           }
 
           // linux 火狐
-          if(isNaN(item) && osInfo === 'Linux' && browserInfo.browser === 'firefox'){
+          if (isNaN(item) && osInfo === 'Linux' && browserInfo.browser === 'firefox') {
             return 'mark-item mark-item-moz-linux'
           }
           // linux 谷歌
-          if(isNaN(item) && osInfo === 'Linux' && browserInfo.browser === 'chrome'){
+          if (isNaN(item) && osInfo === 'Linux' && browserInfo.browser === 'chrome') {
             return 'mark-item mark-item-webkit-linux'
           }
 
@@ -184,6 +180,7 @@
       bottom:48px;
     }
   }
+
   .mark-item-webkit-linux > span {
     bottom:48px;
   }
@@ -221,10 +218,13 @@
     transition: transform 1s ease-in-out;
     transform: translate(-50%, 0);
   }
+
   /* linux兼容谷歌 */
+
   .number-item-webkit-linux > span > i {
     top:6px
   }
+
   .number-item:last-child {
     margin-right: 0;
   }

@@ -234,73 +234,75 @@ export const formatDate = (timestamp: Date, formats: string) => {
 /**
  * 判断操作系统
  */
-export const detectOS = ():string =>{
-  let sUserAgent = navigator.userAgent;
-  let isWin:boolean = (navigator.platform == "Win32") || (navigator.platform == "Windows");
-  let isMac:boolean = (navigator.platform == "Mac68K") || (navigator.platform == "MacPPC") || (navigator.platform == "Macintosh") || (navigator.platform == "MacIntel");
-  if (isMac) return "Mac";
-  let isUnix:boolean = (navigator.platform == "X11") && !isWin && !isMac;
-  if (isUnix) return "Unix";
-  let isLinux:boolean = (String(navigator.platform).indexOf("Linux") > -1);
-  if (isLinux) return "Linux";
+export const detectOS = (): string => {
+  const sUserAgent = navigator.userAgent
+  const isWin: boolean = navigator.platform == 'Win32' || navigator.platform == 'Windows'
+  const isMac: boolean =
+    navigator.platform == 'Mac68K' ||
+    navigator.platform == 'MacPPC' ||
+    navigator.platform == 'Macintosh' ||
+    navigator.platform == 'MacIntel'
+  if (isMac) return 'Mac'
+  const isUnix: boolean = navigator.platform == 'X11' && !isWin && !isMac
+  if (isUnix) return 'Unix'
+  const isLinux: boolean = String(navigator.platform).indexOf('Linux') > -1
+  if (isLinux) return 'Linux'
   if (isWin) {
-    let isWin2K:boolean = sUserAgent.indexOf("Windows NT 5.0") > -1 || sUserAgent.indexOf("Windows 2000") > -1;
-    if (isWin2K)
-      return "Win2000";
+    const isWin2K: boolean =
+      sUserAgent.indexOf('Windows NT 5.0') > -1 || sUserAgent.indexOf('Windows 2000') > -1
+    if (isWin2K) return 'Win2000'
 
-    let isWinXP:boolean = sUserAgent.indexOf("Windows NT 5.1") > -1 || sUserAgent.indexOf("Windows XP") > -1;
-    if (isWinXP)
-      return "WinXP";
+    const isWinXP: boolean =
+      sUserAgent.indexOf('Windows NT 5.1') > -1 || sUserAgent.indexOf('Windows XP') > -1
+    if (isWinXP) return 'WinXP'
 
-    let isWin2003:boolean = sUserAgent.indexOf("Windows NT 5.2") > -1 || sUserAgent.indexOf("Windows 2003") > -1;
-    if (isWin2003)
-      return "Win2003";
+    const isWin2003: boolean =
+      sUserAgent.indexOf('Windows NT 5.2') > -1 || sUserAgent.indexOf('Windows 2003') > -1
+    if (isWin2003) return 'Win2003'
 
-    let isWinVista:boolean = sUserAgent.indexOf("Windows NT 6.0") > -1 || sUserAgent.indexOf("Windows Vista") > -1;
-    if (isWinVista)
-      return "WinVista";
+    const isWinVista: boolean =
+      sUserAgent.indexOf('Windows NT 6.0') > -1 || sUserAgent.indexOf('Windows Vista') > -1
+    if (isWinVista) return 'WinVista'
 
-    let isWin7:boolean = sUserAgent.indexOf("Windows NT 6.1") > -1 || sUserAgent.indexOf("Windows 7") > -1;
-    if (isWin7)
-      return "Win7";
+    const isWin7: boolean =
+      sUserAgent.indexOf('Windows NT 6.1') > -1 || sUserAgent.indexOf('Windows 7') > -1
+    if (isWin7) return 'Win7'
 
-    let isWin10:boolean = sUserAgent.indexOf("Windows NT 10.0") > -1 || sUserAgent.indexOf("Windows 10") > -1;
-    if (isWin10)
-      return "isWin10";
+    const isWin10: boolean =
+      sUserAgent.indexOf('Windows NT 10.0') > -1 || sUserAgent.indexOf('Windows 10') > -1
+    if (isWin10) return 'isWin10'
   }
-  return "other";
+  return 'other'
 }
 
+export function uaMatch(ua: string) {
+  const rMsie = /(msie\s|trident.*rv:)([\w.]+)/
+  const rFirefox = /(firefox)\/([\w.]+)/
+  const rOpera = /(opera).+version\/([\w.]+)/
+  const rChrome = /(chrome)\/([\w.]+)/
+  const rSafari = /version\/([\w.]+).*(safari)/
 
-
-export function uaMatch(ua:string) {
-  let rMsie = /(msie\s|trident.*rv:)([\w.]+)/;
-  let rFirefox = /(firefox)\/([\w.]+)/;
-  let rOpera = /(opera).+version\/([\w.]+)/;
-  let rChrome = /(chrome)\/([\w.]+)/;
-  let rSafari = /version\/([\w.]+).*(safari)/;
-
-  let match = rMsie.exec(ua);
+  let match = rMsie.exec(ua)
   if (match != null) {
-    return {browser: "IE", version: match[2] || "0"};
+    return { browser: 'IE', version: match[2] || '0' }
   }
-   match = rFirefox.exec(ua);
+  match = rFirefox.exec(ua)
   if (match != null) {
-    return {browser: match[1] || "", version: match[2] || "0"};
+    return { browser: match[1] || '', version: match[2] || '0' }
   }
-   match = rOpera.exec(ua);
+  match = rOpera.exec(ua)
   if (match != null) {
-    return {browser: match[1] || "", version: match[2] || "0"};
+    return { browser: match[1] || '', version: match[2] || '0' }
   }
-   match = rChrome.exec(ua);
+  match = rChrome.exec(ua)
   if (match != null) {
-    return {browser: match[1] || "", version: match[2] || "0"};
+    return { browser: match[1] || '', version: match[2] || '0' }
   }
-   match = rSafari.exec(ua);
+  match = rSafari.exec(ua)
   if (match != null) {
-    return {browser: match[2] || "", version: match[1] || "0"};
+    return { browser: match[2] || '', version: match[1] || '0' }
   }
   if (match != null) {
-    return {browser: "", version: "0"};
+    return { browser: '', version: '0' }
   }
 }
