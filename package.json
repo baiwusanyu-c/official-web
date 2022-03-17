@@ -12,6 +12,7 @@
     "build:pretest": "vite build --mode pretest",
     "build:dev02": "vite build --mode development02",
     "build:test02": "vite build --mode staging02",
+    "build:prod02": "vite build --mode production02",
     "lint:style": "stylelint src/**/*.{html,vue,css}",
     "lint:style-fix": "stylelint --fix src/**/*.{html,vue,css}",
     "lint:ts": "eslint ./src --ext .vue,.js,.ts,.jsx,.tsx",
