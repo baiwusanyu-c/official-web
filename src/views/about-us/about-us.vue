@@ -15,8 +15,9 @@
     <!--    一大段文字描述   -->
     <div class="flex flex-col py-16 items-center justify-center box-border desc-info">
       <div class="flex items-center justify-between w-4/6 introduction sm:w-4/5 sm:flex-col">
-        <img class="sm:mb-6" src="../../assets/img/ab-us-desc.png" alt="" />
-        <p class="ml-16 leading-loose text-justify text-lg sm:text-xs sm:ml-0 sm:text-justify">
+        <img class="flex-1 sm:mb-6" src="../../assets/img/ab-us-desc.png" alt="" />
+        <p
+          class="ml-16 flex-1 leading-loose text-justify text-lg sm:text-xs sm:ml-0 sm:text-justify">
           <span class="font-format">{{ $t('lang.aboutUsPage.descInfo1') }}</span>
           <br />
           <span class="font-format">{{ $t('lang.aboutUsPage.descInfo2') }}</span>
