@@ -5,7 +5,7 @@
       <li
         v-for="(item, index) in orderNum"
         :key="index"
-        :class="{ 'number-item': !isNaN(item), 'mark-item': isNaN(item) }">
+        :class="setMarkItem(item)">
         <span v-if="!isNaN(item)">
           <i ref="numberItem" :class="`number-item-i` + uid">0123456789</i>
         </span>
@@ -25,6 +25,7 @@
     watch,
   } from 'vue'
   import { TimeoutHandle } from '../utils/types'
+  import { detectOS ,uaMatch} from '../utils/common'
 
   export default defineComponent({
     name: 'RollNum',
@@ -96,7 +97,36 @@
         toOrderNum(props.value) // 这里输入数字即可调用
         increaseNumber(props.time)
       })
+      // 获取系统信息
+      const osInfo = detectOS()
+      // 浏览器信息
+      const browserInfo = uaMatch(navigator.userAgent.toLowerCase())
+      // 设置样式
+      const setMarkItem = computed(()=>{
+        return function(item){
+
+          if(!isNaN(item) && osInfo === 'Linux' && browserInfo.browser === 'chrome'){
+            return 'number-item number-item-webkit-linux'
+          }
+          if(!isNaN(item)){
+            return 'number-item'
+          }
+
+          // linux 火狐
+          if(isNaN(item) && osInfo === 'Linux' && browserInfo.browser === 'firefox'){
+            return 'mark-item mark-item-moz-linux'
+          }
+          // linux 谷歌
+          if(isNaN(item) && osInfo === 'Linux' && browserInfo.browser === 'chrome'){
+            return 'mark-item mark-item-webkit-linux'
+          }
+
+          return 'mark-item'
+        }
+      })
       return {
+        setMarkItem,
+        osInfo,
         orderNum,
         uid,
       }
@@ -147,13 +177,17 @@
     text-orientation: upright;
   }
 
-  /* 兼容火狐 */
+  /* linux兼容火狐 */
   @-moz-document url-prefix() {
 
-    .mark-item > span {
+    .mark-item-moz-linux > span {
       bottom:48px;
     }
   }
+  .mark-item-webkit-linux > span {
+    bottom:48px;
+  }
+
 
   /* 滚动数字设置 */
 
@@ -187,7 +221,10 @@
     transition: transform 1s ease-in-out;
     transform: translate(-50%, 0);
   }
-
+  /* linux兼容谷歌 */
+  .number-item-webkit-linux > span > i {
+    top:6px
+  }
   .number-item:last-child {
     margin-right: 0;
   }
