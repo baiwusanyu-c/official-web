@@ -29,7 +29,7 @@
           {{ $t('lang.home.title2') }}
         </h2>
         <div
-          class="flex justify-around self-center mb-16 slogan w-full lg125:w-full120 sm:flex-col sm:mb-8 sm:items-center">
+          class="flex justify-around self-center mb-16 slogan w-full lg125:w-full120 sm:flex-col sm:mb-0 sm:items-center">
           <div
             v-for="(item, index) in scienceInfoList"
             :key="item.label"
@@ -53,32 +53,20 @@
     </div>
     <!--   blog     -->
     <div class="blog-new relative w-full bg-mainBlueGary flex flex-col justify-center items-center">
-      <div class="flex title-card-container">
-        <div
-          v-for="item in titleCardList"
-          :key="item.label"
-          class="title-card text-black mr-3 bg-default z-10 flex flex-col p-6 box-border cursor-pointer">
-          <be-icon icon="search" color="black" custom-class="title-card-btn"></be-icon>
-          <h3 class="w-full break-words text-2xl my-6 font-format">{{ item.label }}</h3>
-          <p class="w-full break-words font-format">
-            <be-ellipsis
-              disabled
-              :elp-num="item.value.length > 30 ? 15 : 0"
-              :text="item.value"
-              :content="item.value">
-            </be-ellipsis>
-          </p>
-          <div class="text-base flex items-center justify-between w-full mt-4">
-            {{ item.date }}
-            <be-icon
-              icon="up2"
-              color="black"
-              custom-class="ml-4 mr-4 cursor-pointer icon-up2"></be-icon>
-          </div>
-        </div>
+      <div class="display-flex title-card-container sm:hidden">
+        <blog-new v-for="item in titleCardList"
+                  :data="item"
+                  :key="item.label">
+        </blog-new>
+      </div>
+      <div class="display-none title-card-container sm:flex sm:flex-wrap sm:justify-between">
+        <blog-new v-for="item in titleCardList"
+                  :data="item"
+                  :key="item.label">
+        </blog-new>
       </div>
       <p class="more cursor-pointer" @click="routerPush('/index/research')">
-        {{ $t('lang.home.more') }} >>
+        {{ $t('lang.home.more') }} <img alt=""  src="../../assets/img/more.png" class='inline ml-2' style='height: 14px'/>
       </p>
     </div>
     <!--   service     -->
@@ -263,20 +251,24 @@
   import { useEventBus } from '@vueuse/core'
   import composition from '../../utils/mixin/common-func'
   import HomeProductCircle from '../../components/home-product-circle.vue'
+  import BlogNew from '../../components/blog-new.vue'
 
   interface ISelect {
     label: string
     value: string
     isHover?: boolean
   }
-  interface IBlobList {
+  export interface IBlobList {
     label: string
     value: string
     date?: string
+    type:string
+    url?:string
   }
   export default defineComponent({
     name: 'HomePage',
     components: {
+      BlogNew,
       HomeProductCircle,
       HHomeSwiper,
       AboutHermit,
@@ -293,24 +285,28 @@
             value:
               'On November 30, Hermit detected that MonoX, an automatic market maker protocol, suffered a flash loan attack',
             date: '12/06/2021',
+            type:'0'
           },
           {
             label: t('lang.home.mgtitle2'),
             value:
               'On November 30, Hermit detected that MonoX, an automatic market maker protocol, suffered a flash loan attack',
             date: '12/06/2021',
+            type:'1'
           },
           {
             label: t('lang.home.mgtitle3'),
             value:
               'On November 30, Hermit detected that MonoX, an automatic market maker protocol, suffered a flash loan attack',
             date: '12/06/2021',
+            type:'1'
           },
           {
             label: t('lang.home.mgtitle4'),
             value:
               'On November 30, Hermit detected that MonoX, an automatic market maker protocol, suffered a flash loan attack',
             date: '12/06/2021',
+            type:'1'
           },
         ]
       }
@@ -510,6 +506,10 @@
     width: 70%;
     padding: 0 10px;
     text-align: right;
+    display: flex;
+    align-items: flex-start;
+    justify-content: end;
+    line-height: 16px;
   }
 
   .hermit-main .blog-new .title-card-container {
@@ -522,7 +522,7 @@
     position: relative;
     top: -130px;
     width: 291px;
-    height: 378px;
+    height: 400px;
     transition: all .3s;
   }
 
@@ -538,38 +538,18 @@
     line-height: 28px;
   }
 
-  .hermit-main .blog-new .title-card-container .title-card:nth-child(1) {
-
-    /* left: -150px; */
-  }
-
-  .hermit-main .blog-new .title-card-container .title-card:nth-child(2) {
-
-    /* left: 180px; */
-  }
-
-  .hermit-main .blog-new .title-card-container .title-card:nth-child(3) {
-
-    /* left: 510px; */
-  }
-
-  .hermit-main .blog-new.title-card-container .title-card:nth-child(4) {
-
-    /* left: 840px; */
-  }
-
   .hermit-main .blog-new .title-card-container .title-card:hover {
     height: 450px;
     background: linear-gradient(-32deg, #19bcfc, #00ffba);
   }
 
-  .hermit-main .blog-new .title-card-container .title-card .be-icon {
+  .hermit-main .blog-new .title-card-container .title-card .title-card-btn {
     width: 50px;
     height: 50px;
     transition: all .3s;
   }
 
-  .hermit-main .blog-new .title-card-container .title-card:hover .be-icon {
+  .hermit-main .blog-new .title-card-container .title-card:hover .title-card-btn {
     width: 64px;
     height: 64px;
   }
@@ -708,6 +688,19 @@
     .hexagon-container {
       height: 190px;
     }
+
+
+    .blog-new .title-card-container h3 {
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 35px;
+    }
+
+    .blog-new .title-card-container p {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 28px;
+    }
   }
 
   /* 110% - 125% 适配 */
@@ -723,6 +716,20 @@
 
     .home-swiper {
       width: 106vw;
+    }
+
+    .hermit-main .blog-new .title-card-container,
+    .hermit-main .blog-new .more{
+      width: 90%;
+
+    }
+
+    .blog-new .title-card-container h3 {
+      font-size: 20px;
+    }
+
+    .blog-new .title-card-container p {
+      font-size: 14px;
     }
   }
 
@@ -744,6 +751,11 @@
 
     .slogan-service-item .hexagon-desc {
       width: 40%;
+    }
+    .hermit-main .blog-new .title-card-container,
+    .hermit-main .blog-new .more{
+      width: 120%;
+
     }
   }
 
@@ -844,6 +856,56 @@
     .science-dom {
       width: 92%;
       text-align: left;
+    }
+    .hermit-main .blog-new{
+      padding: 0 30px;
+      height: 580px;
+    }
+    .hermit-main .blog-new .title-card-container{
+      width: 100%;
+      height: 88%;
+    }
+    .hermit-main .blog-new .title-card-container .title-card {
+      position: relative;
+      top: -80px;
+      width: 48%;
+      height: 270px;
+      margin-bottom: 10px;
+      transition: all .3s;
+    }
+
+    .blog-new .title-card-container h3 {
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 20px;
+    }
+
+    .blog-new .title-card-container p {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 16px;
+    }
+    .hermit-main .blog-new .title-card-container .title-card:hover {
+      height: 270px;
+      background: linear-gradient(-32deg, #19bcfc, #00ffba);
+    }
+    .hermit-main .blog-new .title-card-container .title-card .title-card-btn {
+      width: 30px;
+      height: 30px;
+      transition: all .3s;
+    }
+
+    .hermit-main .blog-new .title-card-container .title-card:hover .title-card-btn {
+      width: 30px;
+      height: 30px;
+    }
+    .hermit-main .blog-new .title-card-container .title-card:hover .icon-up2 .be-icon {
+      width: 20px !important;
+      height: 20px !important;
+    }
+    .hermit-main .blog-new .more{
+      width: 100%;
+      justify-content: center;
     }
   }
 
