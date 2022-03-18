@@ -167,12 +167,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    height: 400px;
     background-color: #121214;
     background-image: url('../../assets/img/research-bg.png');
     background-repeat: no-repeat;
     background-size: cover;
-    height: 400px;
-    width: 100%;
   }
 
   .research-page .header-text {
@@ -202,8 +202,8 @@
   .research-body .tab {
     width: 260px;
     height: 60px;
-    font-size: 20px;
     font-family: SourceHanSansRegular, sans-serif;
+    font-size: 20px;
     font-weight: 400;
     line-height: 60px;
     text-align: center;
@@ -218,98 +218,119 @@
   .research-body--list {
     height: 500px;
   }
+
   .research-body--pager .be-pager li {
     width: 40px;
     height: 40px;
   }
+
   .research-body--pager .be-pager li .be-icon {
     width: 14px;
     height: 14px;
   }
+
   .research-body--pager .be-pager li.active,
   .research-body--pager .be-pager li:hover,
   .research-body--pager .page--btn:hover {
     @apply bg-mainG text-black;
   }
+
   .research-body--pager .be-pager li .be-icon use {
     fill: black;
   }
+
   .research-body--pager .be-pager li.more .be-icon,
   .research-body--pager .be-pager li.pageFirst .be-icon,
   .research-body--pager .be-pager li.pageLast .be-icon {
     width: 18px;
     height: 18px;
   }
+
   .research-body--pager .page--btn {
     box-sizing: border-box;
-    min-width: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 40px;
+    min-width: 25px;
     height: 40px;
     padding: 0 4px;
     margin: 0 3px;
     font-size: 13px;
     line-height: 25px;
     text-align: center;
+    cursor: pointer;
     background-color: #fff;
     border-radius: 3px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
   /* 100% - 110% 适配 */
   @media screen and (min-width: 1540px) and (max-width: 1750px) {
+
     .research-page .page-head {
       height: 380px;
     }
+
     .research-page .header-text-big {
       font-size: 56px;
     }
+
     .research-page .header-text-small {
       width: 840px;
       margin-top: 16px;
     }
   }
+
   /* 110% - 125% 适配 */
   @media screen and (min-width: 1328px) and (max-width: 1538px) {
+
     .research-page .page-head {
       height: 300px;
     }
+
     .research-page .header-text-big {
       font-size: 45px;
     }
+
     .research-page .header-text-small {
       width: 700px;
       margin-top: 16px;
     }
   }
+
   /* 150% 适配 */
   @media screen and (min-width: 1280px) and (max-width: 1326px) {
+
     .research-page .page-head {
       height: 270px;
     }
+
     .research-page .header-text-big {
       font-size: 30px;
     }
+
     .research-page .header-text-small {
       width: 580px;
       margin-top: 0;
       font-size: 16px;
     }
   }
+
   /* 移动端 适配 */
   @media screen and (min-width: 100px) and (max-width: 1278px) {
+
     .research-page .page-head {
+      height: 230px;
       padding: 0 35px 30px 35px;
       background-image: url('../../assets/img/research-bg-m.png');
       background-repeat: round;
       background-size: cover;
-      height: 230px;
     }
+
     .research-page .header-text {
       @apply w-full;
     }
+
     .research-page .header-text-big {
       @apply text-4xl w-full mt-6;
     }
@@ -318,15 +339,18 @@
       font-size: 12px;
       @apply w-full mt-0 pt-2;
     }
+
     .research-body .tab {
       width: 140px;
       height: 45px;
       font-size: 14px;
       line-height: 45px;
     }
+
     .research-body--list {
       height: auto;
     }
+
     .research-body--pager .be-pager li,
     .research-body--pager .page--btn {
       width: 25px;
