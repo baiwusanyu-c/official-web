@@ -54,19 +54,14 @@
     <!--   blog     -->
     <div class="blog-new relative w-full bg-mainBlueGary flex flex-col justify-center items-center">
       <div class="display-flex title-card-container sm:hidden">
-        <blog-new v-for="item in titleCardList"
-                  :data="item"
-                  :key="item.label">
-        </blog-new>
+        <blog-new v-for="item in titleCardList" :key="item.label" :data="item"> </blog-new>
       </div>
       <div class="display-none title-card-container sm:flex sm:flex-wrap sm:justify-between">
-        <blog-new v-for="item in titleCardList"
-                  :data="item"
-                  :key="item.label">
-        </blog-new>
+        <blog-new v-for="item in titleCardList" :key="item.label" :data="item"> </blog-new>
       </div>
       <p class="more cursor-pointer" @click="routerPush('/index/research')">
-        {{ $t('lang.home.more') }} <img alt=""  src="../../assets/img/more.png" class='inline ml-2' style='height: 14px'/>
+        {{ $t('lang.home.more') }}
+        <img alt="" src="../../assets/img/more.png" class="inline ml-2" style="height: 14px" />
       </p>
     </div>
     <!--   service     -->
@@ -262,8 +257,8 @@
     label: string
     value: string
     date?: string
-    type:string
-    url?:string
+    type: string
+    url?: string
   }
   export default defineComponent({
     name: 'HomePage',
@@ -285,28 +280,28 @@
             value:
               'On November 30, Hermit detected that MonoX, an automatic market maker protocol, suffered a flash loan attack',
             date: '12/06/2021',
-            type:'0'
+            type: '0',
           },
           {
             label: t('lang.home.mgtitle2'),
             value:
               'On November 30, Hermit detected that MonoX, an automatic market maker protocol, suffered a flash loan attack',
             date: '12/06/2021',
-            type:'1'
+            type: '1',
           },
           {
             label: t('lang.home.mgtitle3'),
             value:
               'On November 30, Hermit detected that MonoX, an automatic market maker protocol, suffered a flash loan attack',
             date: '12/06/2021',
-            type:'1'
+            type: '1',
           },
           {
             label: t('lang.home.mgtitle4'),
             value:
               'On November 30, Hermit detected that MonoX, an automatic market maker protocol, suffered a flash loan attack',
             date: '12/06/2021',
-            type:'1'
+            type: '1',
           },
         ]
       }
@@ -503,13 +498,13 @@
   }
 
   .hermit-main .blog-new .more{
-    width: 70%;
-    padding: 0 10px;
-    text-align: right;
     display: flex;
     align-items: flex-start;
     justify-content: end;
+    width: 70%;
+    padding: 0 10px;
     line-height: 16px;
+    text-align: right;
   }
 
   .hermit-main .blog-new .title-card-container {
@@ -752,6 +747,7 @@
     .slogan-service-item .hexagon-desc {
       width: 40%;
     }
+
     .hermit-main .blog-new .title-card-container,
     .hermit-main .blog-new .more{
       width: 120%;
@@ -857,14 +853,17 @@
       width: 92%;
       text-align: left;
     }
+
     .hermit-main .blog-new{
-      padding: 0 30px;
       height: 580px;
+      padding: 0 30px;
     }
+
     .hermit-main .blog-new .title-card-container{
       width: 100%;
       height: 88%;
     }
+
     .hermit-main .blog-new .title-card-container .title-card {
       position: relative;
       top: -80px;
@@ -885,10 +884,12 @@
       font-weight: 400;
       line-height: 16px;
     }
+
     .hermit-main .blog-new .title-card-container .title-card:hover {
       height: 270px;
       background: linear-gradient(-32deg, #19bcfc, #00ffba);
     }
+
     .hermit-main .blog-new .title-card-container .title-card .title-card-btn {
       width: 30px;
       height: 30px;
@@ -899,13 +900,15 @@
       width: 30px;
       height: 30px;
     }
+
     .hermit-main .blog-new .title-card-container .title-card:hover .icon-up2 .be-icon {
       width: 20px !important;
       height: 20px !important;
     }
+
     .hermit-main .blog-new .more{
-      width: 100%;
       justify-content: center;
+      width: 100%;
     }
   }
 
