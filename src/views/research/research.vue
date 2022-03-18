@@ -30,14 +30,13 @@
           {{ $t('lang.researchPage.tabOtherReport') }}
         </div>
       </div>
-      <div
-        class="research-body--list w-2/3 flex flex-col py-4 box-content sm:w-full sm:py-0">
+      <div class="research-body--list w-2/3 flex flex-col py-4 box-content sm:w-full sm:py-0">
         <!--    列表缺省   -->
         <div v-if="reportList.length === 0" class="empty-data">
           <img class="img" src="../../assets/img/empty-data.png" alt="" />
           <p style="line-height: 25px">{{ $t('lang.emptyData') }}</p>
         </div>
-        <div v-if="reportList.length > 0" class='w-full'>
+        <div v-if="reportList.length > 0" class="w-full">
           <blob-report v-for="item in reportList" :key="item.url" :data="item"> </blob-report>
         </div>
       </div>
@@ -95,7 +94,7 @@
     name: 'ResearchPage',
     components: { BlobReport },
     setup() {
-      const {message} = composition()
+      const { message } = composition()
       // 處理tab點擊
       const activeTab = ref<number>(1)
       const handleClickTab = (type: number): void => {
@@ -113,21 +112,23 @@
       const reportList = ref<Array<IReport>>([])
       // 獲取數據
       const getReportData = (): void => {
-        const params:IBlogListParam = {
-          pageNum:pageParams.value.currentPage,
-          pageSize:pageParams.value.pageSize,
-          type:activeTab.value,
-          total:0//這個參數沒用只是爲了接口不暴紅
+        const params: IBlogListParam = {
+          pageNum: pageParams.value.currentPage,
+          pageSize: pageParams.value.pageSize,
+          type: activeTab.value,
+          total: 0, //這個參數沒用只是爲了接口不暴紅
         }
-        getBlogNewsList(params).then((res:any)=>{
-          if(res.code === 200 && res.rows){
-            reportList.value = res.rows
-            pageParams.value.total = res.total
-          }
-        }).catch((err)=>{
-          message('warning', err.message, 'hermit-msg')
-          console.error(err)
-        })
+        getBlogNewsList(params)
+          .then((res: any) => {
+            if (res.code === 200 && res.rows) {
+              reportList.value = res.rows
+              pageParams.value.total = res.total
+            }
+          })
+          .catch(err => {
+            message('warning', err.message, 'hermit-msg')
+            console.error(err)
+          })
       }
       getReportData()
       /**
@@ -144,7 +145,9 @@
        */
       const handlePageEndOrStart = (type: string): void => {
         if (type === 'end') {
-          pageParams.value.currentPage = Math.ceil(pageParams.value.total / pageParams.value.pageSize)
+          pageParams.value.currentPage = Math.ceil(
+            pageParams.value.total / pageParams.value.pageSize
+          )
         }
         if (type === 'start') {
           pageParams.value.currentPage = 1

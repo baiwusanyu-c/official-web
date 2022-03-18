@@ -1,6 +1,8 @@
 /* * @blob-report.vue * @deprecated * @author czh * @update (czh 2022/3/18) */
 <template>
-  <div class="blob-report p-6 w-full bg-default m-4 rounded flex cursor-pointer sm:flex-col sm:mx-0 " @click="openWin(data.url)">
+  <div
+    class="blob-report p-6 w-full bg-default m-4 rounded flex cursor-pointer sm:flex-col sm:mx-0"
+    @click="openWin(data.url)">
     <div class="blob-report--img">
       <img v-if="!data.coverImg" src="../assets/img/empty-data.png" />
       <img v-if="data.coverImg" :src="data.coverImg" />
@@ -53,7 +55,8 @@
   .blob-report {
     height: 222px;
   }
-  .blob-report:hover{
+
+  .blob-report:hover {
     box-shadow: 0 16px 30px 0 rgb(0 255 196 / 16%);
     transition: all .5s ease;
   }

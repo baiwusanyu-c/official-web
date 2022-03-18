@@ -52,7 +52,9 @@
       </div>
     </div>
     <!--   blog     -->
-    <div class="blog-new relative w-full bg-mainBlueGary flex flex-col justify-center items-center" v-if='titleCardList.length > 0'>
+    <div
+      v-if="titleCardList.length > 0"
+      class="blog-new relative w-full bg-mainBlueGary flex flex-col justify-center items-center">
       <div class="display-flex title-card-container sm:hidden">
         <blog-new v-for="item in titleCardList" :key="item.id" :data="item"> </blog-new>
       </div>
@@ -260,7 +262,7 @@
     pubTime?: string // 發佈時間
     type: number
     url?: string
-    id:string
+    id: string
   }
   export default defineComponent({
     name: 'HomePage',
@@ -274,17 +276,19 @@
     },
     setup() {
       const { t } = useI18n()
-      const {message} = composition()
+      const { message } = composition()
       const titleCardList = ref<Array<IBlobList>>([])
       const getBlogNewsData = (): void => {
-        getBlogNews().then((res:any)=>{
-          if(res.code === 200 && res.data){
-            titleCardList.value = res.data
-          }
-        }).catch((err)=>{
-          message('warning', err.message, 'hermit-msg')
-          console.error(err)
-        })
+        getBlogNews()
+          .then((res: any) => {
+            if (res.code === 200 && res.data) {
+              titleCardList.value = res.data
+            }
+          })
+          .catch(err => {
+            message('warning', err.message, 'hermit-msg')
+            console.error(err)
+          })
       }
       /*************************************** 一些动态、批量的img加载读取 ******************************/
       const customerList = [

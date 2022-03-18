@@ -146,7 +146,7 @@ export const isFunction = (val: unknown) =>
 export const verEmail = (val: string) => {
   return /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(val)
 }
-export const formatDate = (timestamp: string | Date, formats?: string):string => {
+export const formatDate = (timestamp: string | Date, formats?: string): string => {
   // formats格式包括
   // 1. Y-m-d
   // 2. Y-m-d H:i:s
@@ -251,9 +251,9 @@ export const detectOS = (): string => {
 }
 interface IUaMatch {
   browser: string
-  version:string
+  version: string
 }
-export function uaMatch(ua: string):IUaMatch {
+export function uaMatch(ua: string): IUaMatch {
   const rMsie = /(msie\s|trident.*rv:)([\w.]+)/
   const rFirefox = /(firefox)\/([\w.]+)/
   const rOpera = /(opera).+version\/([\w.]+)/
@@ -283,9 +283,8 @@ export function uaMatch(ua: string):IUaMatch {
   return { browser: '', version: '0' }
 }
 
-
 //北京时间转UTC时间
-export const beijing2utc = (now: number | string, formats?: string):string => {
+export const beijing2utc = (now: number | string, formats?: string): string => {
   let timestamp
   // 处理成为时间戳
   if (typeof now == 'number') {
@@ -304,12 +303,12 @@ export const beijing2utc = (now: number | string, formats?: string):string => {
   return formatDate(createDate(tempTime).toString(), formats)
 }
 
-export const dateToMDY = (params:string):string =>{
-  let date:Date = createDate(beijing2utc(params))
-  let month:number = date.getMonth() + 1
-  let day:number = date.getDate()
-  let year:number = date.getFullYear()
-  const MONTH_LIST:Array<string> = [
+export const dateToMDY = (params: string): string => {
+  const date: Date = createDate(beijing2utc(params))
+  const month: number = date.getMonth() + 1
+  const day: number = date.getDate()
+  const year: number = date.getFullYear()
+  const MONTH_LIST: Array<string> = [
     'Jan',
     'Feb',
     'Mar',
