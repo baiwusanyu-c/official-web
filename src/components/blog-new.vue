@@ -2,28 +2,28 @@
 <template>
   <div
     class="title-card text-black mr-3 bg-default z-10 flex flex-col p-6 box-border cursor-pointer sm:mr-0 sm:p-4"
-    @click="openWin('loc')">
+    @click="openWin(data.url)">
     <img
-      v-if="data.type === '0'"
+      v-if="data.type === 1"
       alt=""
       src="../../src/assets/img/blob0.png"
       class="title-card-btn" />
     <img
-      v-if="data.type === '1'"
+      v-if="data.type === 2"
       alt=""
       src="../../src/assets/img/blob1.png"
       class="title-card-btn" />
-    <h3 class="w-full break-words text-2xl my-6 font-format sm:my-4">{{ data.label }}</h3>
+    <h3 class="w-full break-words text-2xl my-6 font-format sm:my-4">{{ data.title }}</h3>
     <p class="w-full break-words font-format">
       <be-ellipsis
         disabled
-        :elp-num="data.value.length > 30 ? 15 : 0"
-        :text="data.value"
-        :content="data.value">
+        :elp-num="data.content.length > 30 ? 15 : 0"
+        :text="data.content"
+        :content="data.content">
       </be-ellipsis>
     </p>
     <div class="text-base flex items-center justify-between w-full mt-2 font-bold sm:text-xs">
-      {{ data.date }}
+      {{ dateToMDY(data.pubTime) }}
       <be-icon icon="up2" color="black" custom-class="ml-4 mr-4 cursor-pointer icon-up2"> </be-icon>
     </div>
   </div>
@@ -33,6 +33,7 @@
   import { defineComponent, PropType } from 'vue'
   import composition from '../utils/mixin/common-func'
   import { IBlobList } from '../views/home/home.vue'
+  import { dateToMDY } from '../utils/common'
   export default defineComponent({
     name: 'BlogNew',
     props: {
@@ -43,6 +44,7 @@
     setup() {
       const { openWin } = composition()
       return {
+        dateToMDY,
         openWin,
       }
     },

@@ -1,9 +1,9 @@
 /* * @blob-report.vue * @deprecated * @author czh * @update (czh 2022/3/18) */
 <template>
-  <div class="blob-report p-6 w-full bg-default m-4 rounded flex sm:flex-col">
+  <div class="blob-report p-6 w-full bg-default m-4 rounded flex cursor-pointer sm:flex-col sm:mx-0 " @click="openWin(data.url)">
     <div class="blob-report--img">
-      <img v-if="!data.img" src="../assets/img/empty-data.png" />
-      <img v-if="data.img" :src="data.img" />
+      <img v-if="!data.coverImg" src="../assets/img/empty-data.png" />
+      <img v-if="data.coverImg" :src="data.coverImg" />
     </div>
     <div class="blob-report-info">
       <h3 class="blob-report--title">
@@ -22,7 +22,7 @@
           :content="data.content">
         </be-ellipsis>
       </p>
-      <p class="blob-report--date">{{ data.date }}</p>
+      <p class="blob-report--date">{{ dateToMDY(data.pubTime) }}</p>
     </div>
   </div>
 </template>
@@ -30,6 +30,8 @@
 <script lang="ts">
   import { defineComponent, PropType } from 'vue'
   import { IReport } from '../views/research/research.vue'
+  import composition from '../utils/mixin/common-func'
+  import { dateToMDY } from '../utils/common'
   export default defineComponent({
     name: 'BlobReport',
     props: {
@@ -37,12 +39,23 @@
         type: Object as PropType<IReport>,
       },
     },
+    setup() {
+      const { openWin } = composition()
+      return {
+        dateToMDY,
+        openWin,
+      }
+    },
   })
 </script>
 
 <style>
   .blob-report {
     height: 222px;
+  }
+  .blob-report:hover{
+    box-shadow: 0 16px 30px 0 rgb(0 255 196 / 16%);
+    transition: all .5s ease;
   }
 
   .blob-report--img {

@@ -19,25 +19,25 @@
         class="h-16 border-b-6 border-mainG w-2/3 flex items-end sm:w-full sm:border-b-0 sm:items-start sm:justify-center">
         <div
           class="tab rounded-t-lg bg-default cursor-pointer"
-          :class="activeTab === 0 ? 'tab__active ' : ''"
-          @click="handleClickTab(0)">
+          :class="activeTab === 1 ? 'tab__active ' : ''"
+          @click="handleClickTab(1)">
           {{ $t('lang.researchPage.tabSecurityAnalysis') }}
         </div>
         <div
           class="tab rounded-t-lg bg-default cursor-pointer"
-          :class="activeTab === 1 ? 'tab__active ' : ''"
-          @click="handleClickTab(1)">
+          :class="activeTab === 0 ? 'tab__active ' : ''"
+          @click="handleClickTab(0)">
           {{ $t('lang.researchPage.tabOtherReport') }}
         </div>
       </div>
       <div
-        class="research-body--list w-2/3 items-center justify-center flex flex-col py-4 box-content sm:w-full sm:py-0">
+        class="research-body--list w-2/3 flex flex-col py-4 box-content sm:w-full sm:py-0">
         <!--    列表缺省   -->
         <div v-if="reportList.length === 0" class="empty-data">
           <img class="img" src="../../assets/img/empty-data.png" alt="" />
           <p style="line-height: 25px">{{ $t('lang.emptyData') }}</p>
         </div>
-        <div v-if="reportList.length > 0">
+        <div v-if="reportList.length > 0" class='w-full'>
           <blob-report v-for="item in reportList" :key="item.url" :data="item"> </blob-report>
         </div>
       </div>
@@ -63,7 +63,7 @@
               <be-icon icon="pageLast"></be-icon>
             </div>
             <span class="text-sm text-info ml-8 sm:hidden"
-              >{{ pageParams.total / pageParams.pageSize }} {{ $t('lang.page') }}</span
+              >{{ Math.ceil(pageParams.total / pageParams.pageSize) }} {{ $t('lang.page') }}</span
             >
           </template>
         </be-pagination>
@@ -80,69 +80,80 @@
   import { defineComponent, ref } from 'vue'
   import { IPageParam } from '../../utils/types'
   import BlobReport from '../../components/blob-report.vue'
+  import { getBlogNewsList, IBlogListParam } from '../../api/research'
+  import composition from '../../utils/mixin/common-func'
   export declare interface IReport {
     title: string
     content: string
-    date?: string
+    pubTime?: string
     type: string
     url?: string
-    img?: string
+    coverImg?: string
   }
 
   export default defineComponent({
     name: 'ResearchPage',
     components: { BlobReport },
     setup() {
+      const {message} = composition()
       // 處理tab點擊
-      const activeTab = ref<number>(0)
+      const activeTab = ref<number>(1)
       const handleClickTab = (type: number): void => {
         activeTab.value = type
+        pageParams.value.currentPage = 1
+        pageParams.value.total = 1
+        getReportData()
       }
       // 分页参数
       const pageParams = ref<IPageParam>({
         currentPage: 1,
         pageSize: 2,
-        total: 100,
+        total: 0,
       })
       const reportList = ref<Array<IReport>>([])
       // 獲取數據
       const getReportData = (): void => {
-        reportList.value = [
-          {
-            title:
-              'A Full Analysis of the MonoX Attack A Full Analysis of the MonoX AttackA Full Analysis of the MonoX AttackA Full Analysis of the MonoX AttackA Full Analysis of the MonoX Attack',
-            content:
-              ' an au maker protocol, sufferack with a loss about USD 31 million. Regarding this attack, the BEOSIN technical team immediately conducted an incident analysis.',
-            date: '2020/1/2',
-            type: '0',
-            url: 'strisssng',
-            img: '',
-          },
-          {
-            title: 'A Full Analysis of the MonoX Attack',
-            content:
-              'On November 30, HERMIT detected that MonoX, an automatic market maker protocol, suffered a flash loan attack with a loss about USD 31 million. Regarding this attack, the BEOSIN technical team immediately conducted an incident analysis.',
-            date: '2020/1/2',
-            type: '0',
-            url: 'strqwdqwring',
-            img: '',
-          },
-        ]
+        const params:IBlogListParam = {
+          pageNum:pageParams.value.currentPage,
+          pageSize:pageParams.value.pageSize,
+          type:activeTab.value,
+          total:0//這個參數沒用只是爲了接口不暴紅
+        }
+        getBlogNewsList(params).then((res:any)=>{
+          if(res.code === 200 && res.rows){
+            reportList.value = res.rows
+            pageParams.value.total = res.total
+          }
+        }).catch((err)=>{
+          message('warning', err.message, 'hermit-msg')
+          console.error(err)
+        })
       }
       getReportData()
-
+      /**
+       * 分頁方法
+       * @param data
+       */
       const pageChange = (data: IPageParam): void => {
         pageParams.value.currentPage = data.currentPage
         getReportData()
       }
+      /**
+       * 跳轉到首頁或末頁
+       * @param type
+       */
       const handlePageEndOrStart = (type: string): void => {
         if (type === 'end') {
-          pageParams.value.currentPage = pageParams.value.total / pageParams.value.pageSize
+          pageParams.value.currentPage = Math.ceil(pageParams.value.total / pageParams.value.pageSize)
         }
         if (type === 'start') {
           pageParams.value.currentPage = 1
         }
+        getReportData()
       }
+      /**
+       * 動態設置分頁顯示數量
+       */
       let pagerShowCount = ref<number>(6)
       const getScreenWidth = (): void => {
         if (100 < window.screen.width && window.screen.width < 1278) {

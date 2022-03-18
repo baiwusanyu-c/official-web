@@ -4,12 +4,7 @@
  * @author czh
  * @update (czh 2022/2/21)
  */
-/*
- * @utils.ts
- * @deprecated
- * @author czh
- * @update (czh 2021/11/15)
- */
+
 import { nextTick } from 'vue'
 
 export function asyncExpect(fn: Function, timeout: number | null) {

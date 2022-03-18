@@ -74,10 +74,6 @@ export default {
   home: {
     title1: 'SECURING THE',
     title2: 'BLOCKCHAIN ECOSYSTEM',
-    mgtitle1: 'Smart contract audit',
-    mgtitle2: 'Blockchain platform audit',
-    mgtitle3: 'Beosin-VAAS',
-    mgtitle4: 'Beosin-Eagle Eye',
 
     titleCard1: 'A Full Analysis of the MonoX Attack',
     titleCardInfo1:

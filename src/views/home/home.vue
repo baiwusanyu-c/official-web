@@ -52,12 +52,12 @@
       </div>
     </div>
     <!--   blog     -->
-    <div class="blog-new relative w-full bg-mainBlueGary flex flex-col justify-center items-center">
+    <div class="blog-new relative w-full bg-mainBlueGary flex flex-col justify-center items-center" v-if='titleCardList.length > 0'>
       <div class="display-flex title-card-container sm:hidden">
-        <blog-new v-for="item in titleCardList" :key="item.label" :data="item"> </blog-new>
+        <blog-new v-for="item in titleCardList" :key="item.id" :data="item"> </blog-new>
       </div>
       <div class="display-none title-card-container sm:flex sm:flex-wrap sm:justify-between">
-        <blog-new v-for="item in titleCardList" :key="item.label" :data="item"> </blog-new>
+        <blog-new v-for="item in titleCardList" :key="item.id" :data="item"> </blog-new>
       </div>
       <p class="more cursor-pointer" @click="routerPush('/index/research')">
         {{ $t('lang.home.more') }}
@@ -247,6 +247,7 @@
   import composition from '../../utils/mixin/common-func'
   import HomeProductCircle from '../../components/home-product-circle.vue'
   import BlogNew from '../../components/blog-new.vue'
+  import { getBlogNews } from '../../api/research'
 
   interface ISelect {
     label: string
@@ -254,11 +255,12 @@
     isHover?: boolean
   }
   export interface IBlobList {
-    label: string
-    value: string
-    date?: string
-    type: string
+    title: string // 標題
+    content: string // 内容
+    pubTime?: string // 發佈時間
+    type: number
     url?: string
+    id:string
   }
   export default defineComponent({
     name: 'HomePage',
@@ -272,38 +274,17 @@
     },
     setup() {
       const { t } = useI18n()
+      const {message} = composition()
       const titleCardList = ref<Array<IBlobList>>([])
       const getBlogNewsData = (): void => {
-        titleCardList.value = [
-          {
-            label: t('lang.home.mgtitle1'),
-            value:
-              'On November 30, Hermit detected that MonoX, an automatic market maker protocol, suffered a flash loan attack',
-            date: '12/06/2021',
-            type: '0',
-          },
-          {
-            label: t('lang.home.mgtitle2'),
-            value:
-              'On November 30, Hermit detected that MonoX, an automatic market maker protocol, suffered a flash loan attack',
-            date: '12/06/2021',
-            type: '1',
-          },
-          {
-            label: t('lang.home.mgtitle3'),
-            value:
-              'On November 30, Hermit detected that MonoX, an automatic market maker protocol, suffered a flash loan attack',
-            date: '12/06/2021',
-            type: '1',
-          },
-          {
-            label: t('lang.home.mgtitle4'),
-            value:
-              'On November 30, Hermit detected that MonoX, an automatic market maker protocol, suffered a flash loan attack',
-            date: '12/06/2021',
-            type: '1',
-          },
-        ]
+        getBlogNews().then((res:any)=>{
+          if(res.code === 200 && res.data){
+            titleCardList.value = res.data
+          }
+        }).catch((err)=>{
+          message('warning', err.message, 'hermit-msg')
+          console.error(err)
+        })
       }
       /*************************************** 一些动态、批量的img加载读取 ******************************/
       const customerList = [
