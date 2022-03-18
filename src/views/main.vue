@@ -4,14 +4,16 @@
       <!-- 头部   -->
       <be-header
         class="flex items-center justify-between fixed w-full z-30 text-default"
-        style="height: 4em; background: #141720; opacity: .9">
+        style="height: 4em; background: #141720; opacity: 0.9">
         <h-header @change-lang="changeLanguage"></h-header>
       </be-header>
       <!--  主体    -->
       <be-main class="relative left-0 top-14 pb-0 overflow-hidden hermit-main">
         <router-view></router-view>
       </be-main>
-      <be-footer class="hermit-footer px-0 box-border top-14 relative left-0">
+      <be-footer
+        v-if="!/research/.test(route.path)"
+        class="hermit-footer px-0 box-border top-14 relative left-0">
         <h-footer-bigger></h-footer-bigger>
       </be-footer>
     </be-container>
@@ -33,6 +35,7 @@
   import RequestQuoteDialog from '../components/request-quote-dialog.vue'
   import { useEventBus } from '@vueuse/core'
   import { IDialog } from '../utils/types'
+  import composition from '../utils/mixin/common-func'
 
   export default defineComponent({
     name: 'MainPage',
@@ -91,7 +94,9 @@
       onMounted(() => {
         initLang()
       })
+      const { route } = composition()
       return {
+        route,
         uiLang,
         dateLang,
         changeLanguage,
