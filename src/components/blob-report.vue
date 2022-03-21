@@ -3,7 +3,7 @@
   <div
     class="blob-report p-6 w-full bg-default m-4 rounded flex cursor-pointer sm:flex-col sm:mx-0"
     @click="openWin(data.url)">
-    <div class="blob-report--img">
+    <div class="blob-report--img"  :key='data.id + "blob-report--img"'>
       <img v-if="!data.coverImg" src="../assets/img/empty-data.png" />
       <img v-if="data.coverImg" :src="data.coverImg" />
     </div>
@@ -11,26 +11,28 @@
       <h3 class="blob-report--title">
         <be-ellipsis
           disabled
+          :key='data.id + "blob-report--title"'
           :elp-num="data.title.length > 80 ? data.title.length - 80 : 0"
           :text="data.title"
           :content="data.title">
         </be-ellipsis>
       </h3>
-      <p class="blob-report--content">
+      <p class="blob-report--content " style='word-break: break-all'>
         <be-ellipsis
           disabled
-          :elp-num="data.content.length > 430 ? data.content.length - 430 : 0"
+          :key='data.id + "blob-report--content"'
+          :elp-num="data.content.length > 160 ? data.content.length - 160 : 0"
           :text="data.content"
           :content="data.content">
         </be-ellipsis>
       </p>
-      <p class="blob-report--date">{{ dateToMDY(data.pubTime) }}</p>
+      <p class="blob-report--date" :key='data.id + "blob-report--date"'>{{ dateToMDY(data.pubTime) }}</p>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-  import { defineComponent, PropType } from 'vue'
+import { computed, defineComponent, PropType } from 'vue'
   import { IReport } from '../views/research/research.vue'
   import composition from '../utils/mixin/common-func'
   import { dateToMDY } from '../utils/common'
@@ -41,7 +43,7 @@
         type: Object as PropType<IReport>,
       },
     },
-    setup() {
+    setup(props) {
       const { openWin } = composition()
       return {
         dateToMDY,
@@ -121,6 +123,7 @@
     }
 
     .blob-report .blob-report--title {
+      line-height: 30px;
       font-size: 14px;
     }
 

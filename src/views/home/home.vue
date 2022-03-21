@@ -501,7 +501,7 @@
   .hermit-main .blog-new .title-card-container .title-card {
     position: relative;
     top: -130px;
-    width: 291px;
+    width: 260px;
     height: 400px;
     transition: all .3s;
   }

@@ -13,11 +13,18 @@
       alt=""
       src="../../src/assets/img/blob1.png"
       class="title-card-btn" />
-    <h3 class="w-full break-words text-2xl my-6 font-format sm:my-4">{{ data.title }}</h3>
+    <h3 class="w-full text-2xl my-6 break-words font-format sm:my-4" >
+      <be-ellipsis
+        disabled
+        :elp-num="data.title.length > 14 ? data.title.length - 14 : 0"
+        :text="data.title"
+        :content="data.title">
+      </be-ellipsis>
+    </h3>
     <p class="w-full break-words font-format">
       <be-ellipsis
         disabled
-        :elp-num="data.content.length > 30 ? 15 : 0"
+        :elp-num="data.content.length > 80 ? data.content.length - 80 : 0"
         :text="data.content"
         :content="data.content">
       </be-ellipsis>
