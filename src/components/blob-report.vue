@@ -3,34 +3,38 @@
   <div
     class="blob-report p-6 w-full bg-default m-4 rounded flex cursor-pointer sm:flex-col sm:mx-0"
     @click="openWin(data.url)">
-    <div class="blob-report--img">
+    <div :key="data.id + 'blob-report--img'" class="blob-report--img">
       <img v-if="!data.coverImg" src="../assets/img/empty-data.png" />
       <img v-if="data.coverImg" :src="data.coverImg" />
     </div>
     <div class="blob-report-info">
       <h3 class="blob-report--title">
         <be-ellipsis
+          :key="data.id + 'blob-report--title'"
           disabled
           :elp-num="data.title.length > 80 ? data.title.length - 80 : 0"
           :text="data.title"
           :content="data.title">
         </be-ellipsis>
       </h3>
-      <p class="blob-report--content">
+      <p class="blob-report--content" style="word-break: break-all">
         <be-ellipsis
+          :key="data.id + 'blob-report--content'"
           disabled
-          :elp-num="data.content.length > 430 ? data.content.length - 430 : 0"
+          :elp-num="data.content.length > 160 ? data.content.length - 160 : 0"
           :text="data.content"
           :content="data.content">
         </be-ellipsis>
       </p>
-      <p class="blob-report--date">{{ dateToMDY(data.pubTime) }}</p>
+      <p :key="data.id + 'blob-report--date'" class="blob-report--date">
+        {{ dateToMDY(data.pubTime) }}
+      </p>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-  import { defineComponent, PropType } from 'vue'
+  import { computed, defineComponent, PropType } from 'vue'
   import { IReport } from '../views/research/research.vue'
   import composition from '../utils/mixin/common-func'
   import { dateToMDY } from '../utils/common'
@@ -41,7 +45,7 @@
         type: Object as PropType<IReport>,
       },
     },
-    setup() {
+    setup(props) {
       const { openWin } = composition()
       return {
         dateToMDY,
@@ -98,6 +102,46 @@
     bottom: 0;
   }
 
+  /* 100% - 110% 适配 */
+  @media screen and (min-width: 1540px) and (max-width: 1750px) {
+
+    .blob-report-info .blob-report--title {
+      font-size: 20px;
+    }
+
+    .blob-report-info .blob-report--content p {
+      font-size: 14px;
+    }
+  }
+
+  /* 110% - 125% 适配 */
+  @media screen and (min-width: 1328px) and (max-width: 1538px) {
+
+    .blob-report-info .blob-report--title {
+      font-size: 18px;
+    }
+
+    .blob-report-info .blob-report--content p {
+      font-size: 14px;
+    }
+  }
+
+  /* 150% 适配 */
+  @media screen and (min-width: 1280px) and (max-width: 1326px) {
+
+    .blob-report-info .blob-report--title {
+      font-size: 14px;
+    }
+
+    .blob-report-info .blob-report--content p {
+      font-size: 12px;
+    }
+
+    .blob-report-info {
+      flex: 2;
+    }
+  }
+
   /* 移动端 适配 */
   @media screen and (min-width: 100px) and (max-width: 1278px) {
 
@@ -122,6 +166,8 @@
 
     .blob-report .blob-report--title {
       font-size: 14px;
+      line-height: 30px;
+      word-break: break-all;
     }
 
     .blob-report .blob-report--content span {
