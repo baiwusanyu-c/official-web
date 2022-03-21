@@ -3,36 +3,38 @@
   <div
     class="blob-report p-6 w-full bg-default m-4 rounded flex cursor-pointer sm:flex-col sm:mx-0"
     @click="openWin(data.url)">
-    <div class="blob-report--img"  :key='data.id + "blob-report--img"'>
+    <div :key="data.id + 'blob-report--img'" class="blob-report--img">
       <img v-if="!data.coverImg" src="../assets/img/empty-data.png" />
       <img v-if="data.coverImg" :src="data.coverImg" />
     </div>
     <div class="blob-report-info">
       <h3 class="blob-report--title">
         <be-ellipsis
+          :key="data.id + 'blob-report--title'"
           disabled
-          :key='data.id + "blob-report--title"'
           :elp-num="data.title.length > 80 ? data.title.length - 80 : 0"
           :text="data.title"
           :content="data.title">
         </be-ellipsis>
       </h3>
-      <p class="blob-report--content " style='word-break: break-all'>
+      <p class="blob-report--content" style="word-break: break-all">
         <be-ellipsis
+          :key="data.id + 'blob-report--content'"
           disabled
-          :key='data.id + "blob-report--content"'
           :elp-num="data.content.length > 160 ? data.content.length - 160 : 0"
           :text="data.content"
           :content="data.content">
         </be-ellipsis>
       </p>
-      <p class="blob-report--date" :key='data.id + "blob-report--date"'>{{ dateToMDY(data.pubTime) }}</p>
+      <p :key="data.id + 'blob-report--date'" class="blob-report--date">
+        {{ dateToMDY(data.pubTime) }}
+      </p>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, PropType } from 'vue'
+  import { computed, defineComponent, PropType } from 'vue'
   import { IReport } from '../views/research/research.vue'
   import composition from '../utils/mixin/common-func'
   import { dateToMDY } from '../utils/common'
@@ -123,8 +125,8 @@ import { computed, defineComponent, PropType } from 'vue'
     }
 
     .blob-report .blob-report--title {
-      line-height: 30px;
       font-size: 14px;
+      line-height: 30px;
     }
 
     .blob-report .blob-report--content span {
