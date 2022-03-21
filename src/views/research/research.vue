@@ -12,7 +12,8 @@
         </div>
       </div>
     </div>
-    <div class="research-body flex flex-col py-16 items-center justify-center box-border w-full bg-mainBlueGary sm:p-6">
+    <div
+      class="research-body flex flex-col py-16 items-center justify-center box-border w-full bg-mainBlueGary sm:p-6">
       <!--    tab    -->
       <div
         class="h-16 border-b-6 border-mainG w-2/3 flex items-end sm:w-full sm:border-b-0 sm:items-start sm:justify-center md:w-3/4">
@@ -29,7 +30,8 @@
           {{ $t('lang.researchPage.tabOtherReport') }}
         </div>
       </div>
-      <div class="research-body--list w-2/3 flex flex-col py-4 box-content sm:w-full sm:py-0 md:w-3/4">
+      <div
+        class="research-body--list w-2/3 flex flex-col py-4 box-content sm:w-full sm:py-0 md:w-3/4">
         <!--    列表缺省   -->
         <div v-if="reportList.length === 0" class="empty-data">
           <img class="img" src="../../assets/img/empty-data.png" alt="" />
