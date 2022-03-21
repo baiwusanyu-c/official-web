@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, getCurrentInstance, onMounted, ref, reactive } from 'vue'
+  import { defineComponent, ref, reactive } from 'vue'
 
   import HFooterBigger from '../components/h-footer-bigger.vue'
   import HHeader from '../components/h-header.vue'

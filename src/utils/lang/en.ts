@@ -1,5 +1,5 @@
 /*
- * @en.ts.ts
+ * @en.ts
  * @deprecated
  * @author czh
  * @update (czh 2021/12/15)
@@ -25,6 +25,8 @@ export default {
   loginFailed: 'login failed！',
   sendSuccess: 'send success！',
   sendFailed: 'send failed！',
+  emptyData: 'No data available',
+  page: 'Pages',
   projectList: {
     project1: 'Smart contract audit',
     project2: 'Blockchain platform audit',
@@ -76,7 +78,6 @@ export default {
     mgtitle2: 'Blockchain platform audit',
     mgtitle3: 'Beosin-VAAS',
     mgtitle4: 'Beosin-Eagle Eye',
-
     titleCard1: 'A Full Analysis of the MonoX Attack',
     titleCardInfo1:
       'On November 30, Beosin detected that MonoX, an automatic market maker protocol,suffered a flash loan ',
@@ -451,6 +452,13 @@ export default {
     descIcon4: '100+',
     descIconInfo4: 'Exchange Partnerships',
     securityBlock: 'SECURING THE BLOCKCHAIN ECOLOGY',
+  },
+  researchPage: {
+    title: 'Research',
+    titleDesc:
+      'Our team have analyzed the latest exploits and vulnerabilities related to blockchain security. Technical details including hacking techniques, flow of funds, mitigation recommendations can be found in our research.',
+    tabSecurityAnalysis: 'Security Analysis',
+    tabOtherReport: 'Other Reports',
   },
   quoteDialog: {
     projectName: 'PROJECT NAME',

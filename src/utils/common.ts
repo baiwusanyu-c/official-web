@@ -26,45 +26,6 @@ export function isEmpty(val: unknown) {
   return false
 }
 
-export const clearTimer = (timer: any) => {
-  clearTimeout(timer.value)
-  // @ts-ignore
-  timer.value = null
-}
-
-export function debounce(func: Function, wait: number) {
-  let timeout: any
-  return function (...debounce: any[]) {
-    const args = [...debounce]
-    if (timeout) clearTimeout(timeout)
-    const callNow = !timeout
-    timeout = setTimeout(() => {
-      // @ts-ignore
-      timeout = null
-    }, wait)
-    if (callNow) func.apply(this, args)
-  }
-}
-
-/**
- * map转数组
- * @param map
- */
-export const mapToArr = (map: any): Array<any> => {
-  const list = []
-  for (const key of map) {
-    list.push(key[1])
-  }
-  return list
-}
-
-export const arrDupRemov = (arr: Array<any>, key: string): Array<any> => {
-  const newObj: any = {}
-  return arr.reduce((preVal, curVal) => {
-    newObj[curVal[key]] ? '' : (newObj[curVal[key]] = preVal.push(curVal))
-    return preVal
-  }, [])
-}
 /**
  * 加法
  */
@@ -185,7 +146,7 @@ export const isFunction = (val: unknown) =>
 export const verEmail = (val: string) => {
   return /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(val)
 }
-export const formatDate = (timestamp: Date, formats: string) => {
+export const formatDate = (timestamp: string | Date, formats?: string): string => {
   // formats格式包括
   // 1. Y-m-d
   // 2. Y-m-d H:i:s
@@ -230,7 +191,21 @@ export const formatDate = (timestamp: Date, formats: string) => {
 
   return date
 }
-
+export const createDate = function createDate(dateStr?: string | Date | number) {
+  if (dateStr instanceof Date) {
+    return dateStr
+  }
+  if (dateStr && dateStr.constructor === String) {
+    // 替换成ie支持的字符串
+    return uaMatch(navigator.userAgent.toLowerCase()).browser !== 'IE'
+      ? new Date(dateStr)
+      : new Date(dateStr.replace(/-/g, '/').replace('.000+0000', ''))
+  } else if (dateStr && dateStr.constructor === Number) {
+    return new Date(dateStr)
+  } else {
+    return new Date()
+  }
+}
 /**
  * 判断操作系统
  */
@@ -274,8 +249,11 @@ export const detectOS = (): string => {
   }
   return 'other'
 }
-
-export function uaMatch(ua: string) {
+interface IUaMatch {
+  browser: string
+  version: string
+}
+export function uaMatch(ua: string): IUaMatch {
   const rMsie = /(msie\s|trident.*rv:)([\w.]+)/
   const rFirefox = /(firefox)\/([\w.]+)/
   const rOpera = /(opera).+version\/([\w.]+)/
@@ -302,7 +280,47 @@ export function uaMatch(ua: string) {
   if (match != null) {
     return { browser: match[2] || '', version: match[1] || '0' }
   }
-  if (match != null) {
-    return { browser: '', version: '0' }
+  return { browser: '', version: '0' }
+}
+
+//北京时间转UTC时间
+export const beijing2utc = (now: number | string, formats?: string): string => {
+  let timestamp
+  // 处理成为时间戳
+  if (typeof now == 'number') {
+    timestamp = createDate(now)
+  } else {
+    timestamp = createDate(Date.parse(now))
   }
+  timestamp = timestamp.getTime()
+  timestamp = timestamp / 1000
+
+  // 增加8个小时，北京时间比utc时间多八个时区
+  timestamp = timestamp + createDate().getTimezoneOffset() * 60
+  // 时间戳转为时间
+  // var utc_datetime = new Date(parseInt(timestamp) * 1000).toLocaleString().replace(/年|月/g, "-").replace(/日/g, " ");
+  const tempTime = parseInt(timestamp.toString()) * 1000
+  return formatDate(createDate(tempTime).toString(), formats)
+}
+
+export const dateToMDY = (params: string): string => {
+  const date: Date = createDate(beijing2utc(params))
+  const month: number = date.getMonth() + 1
+  const day: number = date.getDate()
+  const year: number = date.getFullYear()
+  const MONTH_LIST: Array<string> = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'Ay',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ]
+  return `${MONTH_LIST[month - 1]} ${day}, ${year}`
 }

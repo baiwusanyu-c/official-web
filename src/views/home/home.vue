@@ -29,7 +29,7 @@
           {{ $t('lang.home.title2') }}
         </h2>
         <div
-          class="flex justify-around self-center mb-16 slogan w-full lg125:w-full120 sm:flex-col sm:mb-8 sm:items-center">
+          class="flex justify-around self-center mb-16 slogan w-full lg125:w-full120 sm:flex-col sm:mb-0 sm:items-center">
           <div
             v-for="(item, index) in scienceInfoList"
             :key="item.label"
@@ -49,22 +49,22 @@
           @click="openDialog">
           <span class="font-format">{{ $t('lang.contactBtn') }}</span>
         </be-button>
-
-        <!--                <div class="mt-30 flex title-card-container">
-                                    <div v-for="(item) in titleCardList"
-                                         class="title-card text-black mr-3 bg-default z-10 flex flex-col p-6 box-border"
-                                         :key="item.label">
-                                        <be-icon icon="search" color="black" customClass="title-card-btn"></be-icon>
-                                        <h3 class="w-full break-words text-2xl mb-8">{{item.label}}</h3>
-                                        <p class="w-full break-words mb-6">{{item.value}}</p>
-                                        <div class="text-base flex items-center justify-between w-full">
-                                            {{item.date}}
-                                            <be-icon icon="up2" color="black" customClass="ml-4 mr-4 cursor-pointer icon-up2"></be-icon>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p class="text-right relative -right-40">{{ $t('lang.home.more') }} >></p>-->
       </div>
+    </div>
+    <!--   blog     -->
+    <div
+      v-if="titleCardList.length > 0"
+      class="blog-new relative w-full bg-mainBlueGary flex flex-col justify-center items-center">
+      <div class="display-flex title-card-container sm:hidden">
+        <blog-new v-for="item in titleCardList" :key="item.id" :data="item"> </blog-new>
+      </div>
+      <div class="display-none title-card-container sm:flex sm:flex-wrap sm:justify-between">
+        <blog-new v-for="item in titleCardList" :key="item.id" :data="item"> </blog-new>
+      </div>
+      <p class="more cursor-pointer" @click="routerPush('/index/research')">
+        {{ $t('lang.home.more') }}
+        <img alt="" src="../../assets/img/more.png" class="inline ml-2" style="height: 14px" />
+      </p>
     </div>
     <!--   service     -->
     <div class="slogan-service w-full bg-default flex flex-col">
@@ -248,16 +248,26 @@
   import { useEventBus } from '@vueuse/core'
   import composition from '../../utils/mixin/common-func'
   import HomeProductCircle from '../../components/home-product-circle.vue'
+  import BlogNew from '../../components/blog-new.vue'
+  import { getBlogNews } from '../../api/research'
 
   interface ISelect {
     label: string
     value: string
     isHover?: boolean
   }
-
+  export interface IBlobList {
+    title: string // 標題
+    content: string // 内容
+    pubTime?: string // 發佈時間
+    type: number
+    url?: string
+    id: string
+  }
   export default defineComponent({
     name: 'HomePage',
     components: {
+      BlogNew,
       HomeProductCircle,
       HHomeSwiper,
       AboutHermit,
@@ -266,32 +276,20 @@
     },
     setup() {
       const { t } = useI18n()
-      const titleCardList = ref<Array<any>>([
-        {
-          label: t('lang.home.mgtitle1'),
-          value:
-            'On November 30, Hermit detected that MonoX, an automatic market maker protocol, suffered a flash loan attack',
-          date: '12/06/2021',
-        },
-        {
-          label: t('lang.home.mgtitle2'),
-          value:
-            'On November 30, Hermit detected that MonoX, an automatic market maker protocol, suffered a flash loan attack',
-          date: '12/06/2021',
-        },
-        {
-          label: t('lang.home.mgtitle3'),
-          value:
-            'On November 30, Hermit detected that MonoX, an automatic market maker protocol, suffered a flash loan attack',
-          date: '12/06/2021',
-        },
-        {
-          label: t('lang.home.mgtitle4'),
-          value:
-            'On November 30, Hermit detected that MonoX, an automatic market maker protocol, suffered a flash loan attack',
-          date: '12/06/2021',
-        },
-      ])
+      const { message } = composition()
+      const titleCardList = ref<Array<IBlobList>>([])
+      const getBlogNewsData = (): void => {
+        getBlogNews()
+          .then((res: any) => {
+            if (res.code === 200 && res.data) {
+              titleCardList.value = res.data
+            }
+          })
+          .catch(err => {
+            message('warning', err.message, 'hermit-msg')
+            console.error(err)
+          })
+      }
       /*************************************** 一些动态、批量的img加载读取 ******************************/
       const customerList = [
         'polygon',
@@ -421,6 +419,7 @@
         }
       }
       onMounted(() => {
+        getBlogNewsData()
         getImage()
         getScreenWidth()
       })
@@ -477,62 +476,74 @@
     @apply h-12 w-80 font-bold sm:w-60 sm:h-9;
   }
 
-  .hermit-main .slogan-news .title-card-container {
-    position: relative;
-    top: -32%;
-    left: 0;
+  .hermit-main .blog-new{
+    box-sizing: border-box;
+    height: 514px;
+    padding: 0 200px;
   }
 
-  .hermit-main .slogan-news .title-card-container .title-card {
-    position: absolute;
-    top: 0;
+  .hermit-main .blog-new .more{
+    display: flex;
+    align-items: flex-start;
+    justify-content: end;
+    width: 70%;
+    padding: 0 10px;
+    line-height: 16px;
+    text-align: right;
+  }
+
+  .hermit-main .blog-new .title-card-container {
+    position: relative;
+    width: 70%;
+    height:66%;
+  }
+
+  .hermit-main .blog-new .title-card-container .title-card {
+    position: relative;
+    top: -130px;
     width: 291px;
-    height: 378px;
+    height: 400px;
     transition: all .3s;
   }
 
-  .hermit-main .slogan-news .title-card-container .title-card:nth-child(1) {
-    left: -150px;
+  .blog-new .title-card-container h3 {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 35px;
   }
 
-  .hermit-main .slogan-news .title-card-container .title-card:nth-child(2) {
-    left: 180px;
+  .blog-new .title-card-container p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
   }
 
-  .hermit-main .slogan-news .title-card-container .title-card:nth-child(3) {
-    left: 510px;
-  }
-
-  .hermit-main .slogan-news .title-card-container .title-card:nth-child(4) {
-    left: 840px;
-  }
-
-  .hermit-main .slogan-news .title-card-container .title-card:hover {
+  .hermit-main .blog-new .title-card-container .title-card:hover {
     height: 450px;
     background: linear-gradient(-32deg, #19bcfc, #00ffba);
   }
 
-  .hermit-main .slogan-news .title-card-container .title-card .be-icon {
+  .hermit-main .blog-new .title-card-container .title-card .title-card-btn {
     width: 50px;
     height: 50px;
     transition: all .3s;
   }
 
-  .hermit-main .slogan-news .title-card-container .title-card:hover .be-icon {
+  .hermit-main .blog-new .title-card-container .title-card:hover .title-card-btn {
     width: 64px;
     height: 64px;
   }
 
-  .hermit-main .slogan-news .title-card-container .title-card .icon-up2 {
+  .hermit-main .blog-new .title-card-container .title-card .icon-up2 {
     display: none;
   }
 
-  .hermit-main .slogan-news .title-card-container .title-card:hover .icon-up2 {
+  .hermit-main .blog-new .title-card-container .title-card:hover .icon-up2 {
     display: initial;
     transform: rotate(90deg);
   }
 
-  .hermit-main .slogan-news .title-card-container .title-card:hover .icon-up2 .be-icon {
+  .hermit-main .blog-new .title-card-container .title-card:hover .icon-up2 .be-icon {
     width: 30px !important;
     height: 30px !important;
   }
@@ -657,6 +668,19 @@
     .hexagon-container {
       height: 190px;
     }
+
+
+    .blog-new .title-card-container h3 {
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 35px;
+    }
+
+    .blog-new .title-card-container p {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 28px;
+    }
   }
 
   /* 110% - 125% 适配 */
@@ -672,6 +696,20 @@
 
     .home-swiper {
       width: 106vw;
+    }
+
+    .hermit-main .blog-new .title-card-container,
+    .hermit-main .blog-new .more{
+      width: 90%;
+
+    }
+
+    .blog-new .title-card-container h3 {
+      font-size: 20px;
+    }
+
+    .blog-new .title-card-container p {
+      font-size: 14px;
     }
   }
 
@@ -693,6 +731,12 @@
 
     .slogan-service-item .hexagon-desc {
       width: 40%;
+    }
+
+    .hermit-main .blog-new .title-card-container,
+    .hermit-main .blog-new .more{
+      width: 120%;
+
     }
   }
 
@@ -793,6 +837,63 @@
     .science-dom {
       width: 92%;
       text-align: left;
+    }
+
+    .hermit-main .blog-new{
+      height: 580px;
+      padding: 0 30px;
+    }
+
+    .hermit-main .blog-new .title-card-container{
+      width: 100%;
+      height: 88%;
+    }
+
+    .hermit-main .blog-new .title-card-container .title-card {
+      position: relative;
+      top: -80px;
+      width: 48%;
+      height: 270px;
+      margin-bottom: 10px;
+      transition: all .3s;
+    }
+
+    .blog-new .title-card-container h3 {
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 20px;
+    }
+
+    .blog-new .title-card-container p {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 16px;
+    }
+
+    .hermit-main .blog-new .title-card-container .title-card:hover {
+      height: 270px;
+      background: linear-gradient(-32deg, #19bcfc, #00ffba);
+    }
+
+    .hermit-main .blog-new .title-card-container .title-card .title-card-btn {
+      width: 30px;
+      height: 30px;
+      transition: all .3s;
+    }
+
+    .hermit-main .blog-new .title-card-container .title-card:hover .title-card-btn {
+      width: 30px;
+      height: 30px;
+    }
+
+    .hermit-main .blog-new .title-card-container .title-card:hover .icon-up2 .be-icon {
+      width: 20px !important;
+      height: 20px !important;
+    }
+
+    .hermit-main .blog-new .more{
+      justify-content: center;
+      width: 100%;
     }
   }
 
