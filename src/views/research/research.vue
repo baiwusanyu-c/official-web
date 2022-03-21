@@ -12,11 +12,10 @@
         </div>
       </div>
     </div>
-    <div
-      class="research-body flex flex-col py-16 items-center justify-center box-border w-full bg-mainBlueGary sm:p-6">
+    <div class="research-body flex flex-col py-16 items-center justify-center box-border w-full bg-mainBlueGary sm:p-6">
       <!--    tab    -->
       <div
-        class="h-16 border-b-6 border-mainG w-2/3 flex items-end sm:w-full sm:border-b-0 sm:items-start sm:justify-center">
+        class="h-16 border-b-6 border-mainG w-2/3 flex items-end sm:w-full sm:border-b-0 sm:items-start sm:justify-center md:w-3/4">
         <div
           class="tab rounded-t-lg bg-default cursor-pointer"
           :class="activeTab === 1 ? 'tab__active ' : ''"
@@ -30,7 +29,7 @@
           {{ $t('lang.researchPage.tabOtherReport') }}
         </div>
       </div>
-      <div class="research-body--list w-2/3 flex flex-col py-4 box-content sm:w-full sm:py-0">
+      <div class="research-body--list w-2/3 flex flex-col py-4 box-content sm:w-full sm:py-0 md:w-3/4">
         <!--    列表缺省   -->
         <div v-if="reportList.length === 0" class="empty-data">
           <img class="img" src="../../assets/img/empty-data.png" alt="" />
@@ -43,7 +42,7 @@
       <!--    分页    -->
       <div
         v-if="reportList.length > 0"
-        class="research-body--pager w-2/3 items-center justify-center flex mt-12 sm:mt-4">
+        class="research-body--pager w-2/3 items-center justify-center flex mt-12 sm:mt-4 sm:3/4">
         <be-pagination
           is-ordianry
           :layout="['prev', 'page', 'next']"

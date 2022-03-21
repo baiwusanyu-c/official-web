@@ -24,7 +24,7 @@
     <p class="w-full break-words font-format">
       <be-ellipsis
         disabled
-        :elp-num="data.content.length > 80 ? data.content.length - 80 : 0"
+        :elp-num="data.content.length > 60 ? data.content.length - 60 : 0"
         :text="data.content"
         :content="data.content">
       </be-ellipsis>

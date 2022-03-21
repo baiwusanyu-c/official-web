@@ -660,7 +660,9 @@
 
   /* 100% - 110% 适配 */
   @media screen and (min-width: 1540px) and (max-width: 1750px) {
-
+    .hermit-main .blog-new .title-card-container .title-card{
+      width: 236px;
+    }
     .hexagon-container-body .hexagon-b1 {
       bottom: 50px;
     }
