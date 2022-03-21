@@ -67,10 +67,10 @@
 **jest 单元测试**
 
 `"test:coverage": "jest --coverage",`  
-**jest 单元 coverage 测试**  
+**jest 单元 coverage 测试**
 
 `"prepare": "husky install",`  
-**husky 初始化**  
+**husky 初始化**
 
 `"commit": "eslint --fix ./src --ext .vue,.js,.ts,.jsx,.tsx && prettier --write .&& stylelint --fix src/**/*.{html,vue,css}"`  
 **基于 husky 和 commitlint/cli 的 git commit 钩子指令，提交时会调用该指令进行**
