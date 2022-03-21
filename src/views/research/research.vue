@@ -25,8 +25,8 @@
         </div>
         <div
           class="tab rounded-t-lg bg-default cursor-pointer"
-          :class="activeTab === 0 ? 'tab__active ' : ''"
-          @click="handleClickTab(0)">
+          :class="activeTab === 2 ? 'tab__active ' : ''"
+          @click="handleClickTab(2)">
           {{ $t('lang.researchPage.tabOtherReport') }}
         </div>
       </div>
