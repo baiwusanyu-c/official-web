@@ -54,7 +54,9 @@
           :pager-show-count="pagerShowCount"
           @change-page="pageChange">
           <template #next>
-            <span class="text-sm text-info ml-8 sm:hidden">{{ Math.ceil(pageParams.total / pageParams.pageSize) }} {{ $t('lang.page') }}</span>
+            <span class="text-sm text-info ml-8 sm:hidden"
+              >{{ Math.ceil(pageParams.total / pageParams.pageSize) }} {{ $t('lang.page') }}</span
+            >
           </template>
         </be-pagination>
       </div>
@@ -221,7 +223,7 @@
   }
 
   .research-body--pager .be-pager li.active,
-  .research-body--pager .be-pager li:hover{
+  .research-body--pager .be-pager li:hover {
     @apply bg-mainG text-black;
   }
 
