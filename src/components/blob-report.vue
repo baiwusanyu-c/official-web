@@ -152,14 +152,14 @@
     }
 
     .blob-report--img {
-      padding-right: 0;
+      flex: 3;
       width: initial;
-      flex:3
+      padding-right: 0;
     }
 
     .blob-report-info {
-      width: initial;
       flex: 1;
+      width: initial;
     }
 
     .blob-report--img img {
