@@ -197,7 +197,8 @@ export const createDate = function createDate(dateStr?: string | Date | number) 
   }
   if (dateStr && dateStr.constructor === String) {
     // 替换成ie支持的字符串
-    return uaMatch(navigator.userAgent.toLowerCase()).browser !== 'IE'
+    return uaMatch(navigator.userAgent.toLowerCase()).browser !== 'IE' &&
+      uaMatch(navigator.userAgent.toLowerCase()).browser !== 'safari'
       ? new Date(dateStr)
       : new Date(dateStr.replace(/-/g, '/').replace('.000+0000', ''))
   } else if (dateStr && dateStr.constructor === Number) {

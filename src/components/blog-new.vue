@@ -6,17 +6,17 @@
     <img
       v-if="data.type === 1"
       alt=""
-      src="../../src/assets/img/blob0.png"
+      src="../../src/assets/img/blob1.png"
       class="title-card-btn" />
     <img
       v-if="data.type === 2"
       alt=""
-      src="../../src/assets/img/blob1.png"
+      src="../../src/assets/img/blob0.png"
       class="title-card-btn" />
     <h3 class="w-full text-2xl my-6 break-words font-format sm:my-4">
       <be-ellipsis
         disabled
-        :elp-num="data.title.length > 14 ? data.title.length - 14 : 0"
+        :elp-num="data.title.length > 10 ? data.title.length - 10 : 0"
         :text="data.title"
         :content="data.title">
       </be-ellipsis>
@@ -24,7 +24,7 @@
     <p class="w-full break-words font-format">
       <be-ellipsis
         disabled
-        :elp-num="data.content.length > 60 ? data.content.length - 60 : 0"
+        :elp-num="data.content.length > 50 ? data.content.length - 50 : 0"
         :text="data.content"
         :content="data.content">
       </be-ellipsis>
