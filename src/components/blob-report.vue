@@ -67,7 +67,7 @@
 
   .blob-report--img {
     box-sizing: border-box;
-    flex: 1;
+    width: 25%;
     padding-right: 30px;
   }
 
@@ -79,13 +79,14 @@
 
   .blob-report-info {
     position: relative;
-    flex: 3;
+    width: 75%;
   }
 
   .blob-report-info .blob-report--title {
     font-family: SourceHanSansRegular, sans-serif;
     font-size: 22px;
     font-weight: bold;
+    word-break: break-all;
   }
 
   .blob-report-info .blob-report--content span,

@@ -139,7 +139,6 @@
       const getScreenWidth = (): void => {
         if (100 < window.screen.width && window.screen.width < 1278) {
           pagerShowCount.value = 3
-          pageParams.value.pageSize = 2
         }
       }
       getScreenWidth()
