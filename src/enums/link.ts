@@ -42,5 +42,7 @@ const productLink: IOption = {
   production: productLinkProd,
   development: productLinkDev,
   staging: productLinkStage,
+  production02: productLinkProd,
+  staging02: productLinkStage,
 }
 export const productLinkList = productLink[String(import.meta.env.VITE_PROJECT_ENV)]
