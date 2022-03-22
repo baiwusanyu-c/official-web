@@ -6,12 +6,12 @@
     <img
       v-if="data.type === 1"
       alt=""
-      src="../../src/assets/img/blob0.png"
+      src="../../src/assets/img/blob1.png"
       class="title-card-btn" />
     <img
       v-if="data.type === 2"
       alt=""
-      src="../../src/assets/img/blob1.png"
+      src="../../src/assets/img/blob0.png"
       class="title-card-btn" />
     <h3 class="w-full text-2xl my-6 break-words font-format sm:my-4">
       <be-ellipsis
