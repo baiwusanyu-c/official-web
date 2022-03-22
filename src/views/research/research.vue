@@ -158,7 +158,7 @@
       /**
        * 動態設置分頁顯示數量
        */
-      let pagerShowCount = ref<number>(6)
+      let pagerShowCount = ref<number>(5)
       const getScreenWidth = (): void => {
         if (100 < window.screen.width && window.screen.width < 1278) {
           pagerShowCount.value = 3
