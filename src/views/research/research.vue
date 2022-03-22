@@ -239,6 +239,7 @@
 
   /* 100% - 110% 适配 */
   @media screen and (min-width: 1540px) and (max-width: 1750px) {
+
     .research-page .page-head {
       height: 380px;
     }
@@ -255,6 +256,7 @@
 
   /* 110% - 125% 适配 */
   @media screen and (min-width: 1328px) and (max-width: 1538px) {
+
     .research-page .page-head {
       height: 300px;
     }
@@ -271,6 +273,7 @@
 
   /* 150% 适配 */
   @media screen and (min-width: 1280px) and (max-width: 1326px) {
+
     .research-page .page-head {
       height: 270px;
     }
@@ -288,6 +291,7 @@
 
   /* 移动端 适配 */
   @media screen and (min-width: 100px) and (max-width: 1278px) {
+
     .research-page .page-head {
       height: 230px;
       padding: 0 35px 30px 35px;

@@ -62,7 +62,7 @@
 
   .blob-report:hover {
     box-shadow: 0 16px 30px 0 rgb(0 255 196 / 16%);
-    transition: all 0.5s ease;
+    transition: all .5s ease;
   }
 
   .blob-report--img {
@@ -105,6 +105,7 @@
 
   /* 100% - 110% 适配 */
   @media screen and (min-width: 1540px) and (max-width: 1750px) {
+
     .blob-report-info .blob-report--title {
       font-size: 20px;
     }
@@ -116,6 +117,7 @@
 
   /* 110% - 125% 适配 */
   @media screen and (min-width: 1328px) and (max-width: 1538px) {
+
     .blob-report-info .blob-report--title {
       font-size: 18px;
     }
@@ -127,6 +129,7 @@
 
   /* 150% 适配 */
   @media screen and (min-width: 1280px) and (max-width: 1326px) {
+
     .blob-report-info .blob-report--title {
       font-size: 14px;
     }
@@ -142,6 +145,7 @@
 
   /* 移动端 适配 */
   @media screen and (min-width: 100px) and (max-width: 1278px) {
+
     .blob-report {
       height: auto;
       @apply p-4;
