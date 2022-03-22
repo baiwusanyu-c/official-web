@@ -61,7 +61,7 @@
       <div class="display-none title-card-container sm:flex sm:flex-wrap sm:justify-between">
         <blog-new v-for="item in titleCardList" :key="item.id" :data="item"> </blog-new>
       </div>
-      <p class="more cursor-pointer" @click="routerPush('/index/research')">
+      <p class="more cursor-pointer hover:underline" @click="routerPush('/index/research')">
         {{ $t('lang.home.more') }}
         <img alt="" src="../../assets/img/more.png" class="inline ml-2" style="height: 14px" />
       </p>

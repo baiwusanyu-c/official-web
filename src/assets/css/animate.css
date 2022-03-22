@@ -49,3 +49,7 @@
 .hexagon-container:hover {
   transform: scale(1.2);
 }
+
+.scale:hover{
+  transform: scale(1.2);
+}
