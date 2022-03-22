@@ -22,11 +22,11 @@
         :content="data.title">
       </be-ellipsis>
     </h3>
-    <p class="w-full break-words font-format">
+    <p class="w-full break-words font-format" style="height: 300px">
       <be-ellipsis
         disabled
         style="color: #666"
-        :elp-num="data.content.length > 50 ? data.content.length - 50 : 0"
+        :elp-num="data.content.length > 100 ? data.content.length - 100 : 0"
         :text="data.content"
         :content="data.content">
       </be-ellipsis>
