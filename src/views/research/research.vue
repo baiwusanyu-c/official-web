@@ -53,18 +53,8 @@
           :current-page="pageParams.currentPage"
           :pager-show-count="pagerShowCount"
           @change-page="pageChange">
-          <template #prev>
-            <div class="page--btn" @click="handlePageEndOrStart('start')">
-              <be-icon icon="pageFirst"></be-icon>
-            </div>
-          </template>
           <template #next>
-            <div class="page--btn" @click="handlePageEndOrStart('end')">
-              <be-icon icon="pageLast"></be-icon>
-            </div>
-            <span class="text-sm text-info ml-8 sm:hidden"
-              >{{ Math.ceil(pageParams.total / pageParams.pageSize) }} {{ $t('lang.page') }}</span
-            >
+            <span class="text-sm text-info ml-8 sm:hidden">{{ Math.ceil(pageParams.total / pageParams.pageSize) }} {{ $t('lang.page') }}</span>
           </template>
         </be-pagination>
       </div>
@@ -107,7 +97,7 @@
       // 分页参数
       const pageParams = ref<IPageParam>({
         currentPage: 1,
-        pageSize: 2,
+        pageSize: 5,
         total: 0,
       })
       const reportList = ref<Array<IReport>>([])
@@ -131,7 +121,7 @@
             console.error(err)
           })
       }
-      getReportData()
+
       /**
        * 分頁方法
        * @param data
@@ -141,33 +131,19 @@
         getReportData()
       }
       /**
-       * 跳轉到首頁或末頁
-       * @param type
-       */
-      const handlePageEndOrStart = (type: string): void => {
-        if (type === 'end') {
-          pageParams.value.currentPage = Math.ceil(
-            pageParams.value.total / pageParams.value.pageSize
-          )
-        }
-        if (type === 'start') {
-          pageParams.value.currentPage = 1
-        }
-        getReportData()
-      }
-      /**
        * 動態設置分頁顯示數量
        */
       let pagerShowCount = ref<number>(5)
       const getScreenWidth = (): void => {
         if (100 < window.screen.width && window.screen.width < 1278) {
           pagerShowCount.value = 3
+          pageParams.value.pageSize = 2
         }
       }
       getScreenWidth()
+      getReportData()
       return {
         pagerShowCount,
-        handlePageEndOrStart,
         pageChange,
         pageParams,
         activeTab,
@@ -231,7 +207,7 @@
   }
 
   .research-body--list {
-    height: 500px;
+    min-height: 500px;
   }
 
   .research-body--pager .be-pager li {
@@ -245,8 +221,7 @@
   }
 
   .research-body--pager .be-pager li.active,
-  .research-body--pager .be-pager li:hover,
-  .research-body--pager .page--btn:hover {
+  .research-body--pager .be-pager li:hover{
     @apply bg-mainG text-black;
   }
 
@@ -259,24 +234,6 @@
   .research-body--pager .be-pager li.pageLast .be-icon {
     width: 18px;
     height: 18px;
-  }
-
-  .research-body--pager .page--btn {
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    min-width: 25px;
-    height: 40px;
-    padding: 0 4px;
-    margin: 0 3px;
-    font-size: 13px;
-    line-height: 25px;
-    text-align: center;
-    cursor: pointer;
-    background-color: #fff;
-    border-radius: 3px;
   }
 
   /* 100% - 110% 适配 */
@@ -366,8 +323,7 @@
       height: auto;
     }
 
-    .research-body--pager .be-pager li,
-    .research-body--pager .page--btn {
+    .research-body--pager .be-pager li {
       width: 25px;
       height: 25px;
     }
