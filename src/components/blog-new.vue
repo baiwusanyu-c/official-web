@@ -16,7 +16,7 @@
     <h3 class="w-full text-2xl my-6 break-words font-format sm:my-4">
       <be-ellipsis
         disabled
-        style="font-weight: bold;"
+        style="font-weight: bold"
         :elp-num="data.title.length > 10 ? data.title.length - 10 : 0"
         :text="data.title"
         :content="data.title">
@@ -25,13 +25,14 @@
     <p class="w-full break-words font-format">
       <be-ellipsis
         disabled
-        style="color:#666"
+        style="color: #666"
         :elp-num="data.content.length > 50 ? data.content.length - 50 : 0"
         :text="data.content"
         :content="data.content">
       </be-ellipsis>
     </p>
-    <div class="text-base flex items-center justify-between w-11/12 mt-2 absolute left-4 bottom-4 sm:text-xs">
+    <div
+      class="text-base flex items-center justify-between w-11/12 mt-2 absolute left-4 bottom-4 sm:text-xs">
       {{ dateToMDY(data.pubTime) }}
       <be-icon icon="up2" color="black" custom-class="ml-4 mr-4 cursor-pointer icon-up2"> </be-icon>
     </div>
