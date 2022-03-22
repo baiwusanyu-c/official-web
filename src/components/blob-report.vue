@@ -153,9 +153,12 @@
 
     .blob-report--img {
       padding-right: 0;
+      width: initial;
+      flex:3
     }
 
     .blob-report-info {
+      width: initial;
       flex: 1;
     }
 
