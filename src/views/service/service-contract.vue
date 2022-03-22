@@ -56,8 +56,8 @@
           <div>
             <div class="num-main">
               <roll-num v-if="!isM" :value="auditedNum" :time="1"></roll-num>
-              <span v-if="isM">1,0 0 0</span>
-              <span style="margin-left: 3px">Million+</span>
+              <span v-if="isM">1 0</span>
+              <span style="margin-left: 3px">Billion+</span>
             </div>
             <div class="num-footer num-footer-plus"></div>
           </div>
@@ -303,7 +303,7 @@
       const { startTimer } = composition()
       startTimer(customersNum, 1000, 200)
       startTimer(contractsNum, 2000, 300)
-      startTimer(auditedNum, 1000, 200)
+      startTimer(auditedNum, 10, 200)
 
       let isM = ref<boolean>(false)
       const getScreenWidth = (): void => {

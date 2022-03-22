@@ -8,7 +8,7 @@
           v-if="!isM"
           class="absolute left-0 bottom-0 top-0 right-0 sm:hidden"
           style="z-index: 0; width: 100%; height: 100%; object-fit: fill"
-          src="../../assets/video/home.mp4"
+          src="../../assets/video/home.webm"
           muted="muted"
           autoplay="autoplay"
           loop="loop"

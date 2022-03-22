@@ -71,8 +71,9 @@
         num = num.toString()
         // 把具体值value变成字符串
         if (num.length < 4) {
-          num = '0' + num // 如未满八位数，添加"0"补位
-          toOrderNum(num) // 递归添加"0"补位
+          // num = '0' + num // 如未满八位数，添加"0"补位
+          // toOrderNum(num) // 递归添加"0"补位
+          orderNum.value = num.split('')
         } else if (num.length === 4) {
           // 具体值value中加入逗号
           num = num.slice(0, 1) + ',' + num.slice(1, 4)
@@ -144,6 +145,14 @@
     width: 100%;
     writing-mode: vertical-rl;
     text-orientation: upright;
+  }
+
+  /* 兼容火狐 */
+  @-moz-document url-prefix() {
+
+    .mark-item > span {
+      bottom:48px;
+    }
   }
 
   /* 滚动数字设置 */
