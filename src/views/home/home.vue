@@ -494,7 +494,7 @@
 
   .hermit-main .blog-new .title-card-container {
     position: relative;
-    width: 70%;
+    width: 72%;
     height:66%;
   }
 
@@ -660,7 +660,9 @@
 
   /* 100% - 110% 适配 */
   @media screen and (min-width: 1540px) and (max-width: 1750px) {
-
+    .hermit-main .blog-new .title-card-container {
+      width: 75%;
+    }
     .hermit-main .blog-new .title-card-container .title-card{
       width: 236px;
     }
@@ -704,7 +706,7 @@
 
     .hermit-main .blog-new .title-card-container,
     .hermit-main .blog-new .more{
-      width: 90%;
+      width: 97%;
 
     }
 
@@ -739,7 +741,7 @@
 
     .hermit-main .blog-new .title-card-container,
     .hermit-main .blog-new .more{
-      width: 120%;
+      width: 126%;
 
     }
   }

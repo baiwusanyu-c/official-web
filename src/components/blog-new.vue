@@ -1,7 +1,7 @@
 /* * @blog-new.vue * @deprecated * @author czh * @update (czh 2022/3/18) */
 <template>
   <div
-    class="title-card text-black mr-3 bg-default z-10 flex flex-col p-6 box-border cursor-pointer sm:mr-0 sm:p-4"
+    class="title-card text-black bg-default z-10 mr-3 flex flex-col p-6 box-border cursor-pointer sm:mr-0 sm:p-4"
     @click="openWin(data.url)">
     <img
       v-if="data.type === 1"
@@ -22,7 +22,7 @@
         :content="data.title">
       </be-ellipsis>
     </h3>
-    <p class="w-full break-words font-format" style="height: 300px">
+    <p class="w-full break-words font-format text-justify" style="height: 300px">
       <be-ellipsis
         disabled
         style="color: #666"
