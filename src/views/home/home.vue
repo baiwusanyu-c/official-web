@@ -486,7 +486,7 @@
     display: flex;
     align-items: flex-start;
     justify-content: end;
-    width: 70%;
+    width: 78%;
     padding: 0 10px;
     line-height: 16px;
     text-align: right;
@@ -494,14 +494,14 @@
 
   .hermit-main .blog-new .title-card-container {
     position: relative;
-    width: 72%;
+    width: 80%;
     height:66%;
   }
 
   .hermit-main .blog-new .title-card-container .title-card {
     position: relative;
     top: -130px;
-    width: 260px;
+    width: 280px;
     height: 400px;
     transition: all .3s;
   }

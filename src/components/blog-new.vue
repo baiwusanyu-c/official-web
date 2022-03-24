@@ -1,7 +1,7 @@
 /* * @blog-new.vue * @deprecated * @author czh * @update (czh 2022/3/18) */
 <template>
   <div
-    class="title-card text-black bg-default z-10 mr-3 flex flex-col p-6 box-border cursor-pointer sm:mr-0 sm:p-4"
+    class="title-card text-black bg-default z-10 mr-6 flex flex-col p-6 box-border cursor-pointer sm:mr-0 sm:p-4"
     @click="openWin(data.url)">
     <img
       v-if="data.type === 1"
@@ -13,16 +13,16 @@
       alt=""
       src="../../src/assets/img/blob0.png"
       class="title-card-btn" />
-    <h3 class="w-full text-2xl my-6 break-words font-format sm:my-4">
+    <h3 class="w-full text-2xl my-6 break-words font-format text-left sm:my-4">
       <be-ellipsis
         disabled
         style="font-weight: bold"
-        :elp-num="data.title.length > 10 ? data.title.length - 10 : 0"
+        :elp-num="data.title.length > 80 ? data.title.length - 80 : 0"
         :text="data.title"
         :content="data.title">
       </be-ellipsis>
     </h3>
-    <p class="w-full break-words font-format text-justify" style="height: 300px">
+<!--    <p class="w-full break-words font-format text-justify" style="height: 300px">
       <be-ellipsis
         disabled
         style="color: #666"
@@ -30,7 +30,7 @@
         :text="data.content"
         :content="data.content">
       </be-ellipsis>
-    </p>
+    </p>-->
     <div
       class="text-base flex items-center justify-between w-11/12 mt-2 absolute left-4 bottom-4 sm:text-xs">
       {{ dateToMDY(data.pubTime) }}
