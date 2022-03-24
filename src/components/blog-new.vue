@@ -22,7 +22,7 @@
         :content="data.title">
       </be-ellipsis>
     </h3>
-<!--    <p class="w-full break-words font-format text-justify" style="height: 300px">
+    <!--    <p class="w-full break-words font-format text-justify" style="height: 300px">
       <be-ellipsis
         disabled
         style="color: #666"
