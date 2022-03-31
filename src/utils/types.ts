@@ -25,3 +25,13 @@ export declare type VNodeRef =
 export interface IDialog {
   isShow: boolean
 }
+
+export interface IPageParam {
+  page_num?: number
+  page_size?: number
+
+  currentPage?: number
+  pageNum?: number
+  pageSize: number
+  total: number
+}

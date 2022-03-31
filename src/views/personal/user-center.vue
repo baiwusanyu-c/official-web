@@ -83,7 +83,6 @@
       NButton,
       NDataTable,
       Search,
-      DownloadOutline,
     },
     setup() {
       const { message } = composition()

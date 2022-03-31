@@ -11,7 +11,7 @@ export enum linkConfig {
   discord = 'https://discord.gg/B4QJxhStV4 ',
   github = 'https://github.com/Beosin20180329',
   twitter = 'https://twitter.com/Beosin_com',
-  telegram = 'https://t.me/+dD8Bnqd133RmNWNl',
+  telegram = 'https://t.co/pCyqL6IKha',
   medium = 'https://medium.com/@Beosin',
 }
 
@@ -42,5 +42,7 @@ const productLink: IOption = {
   production: productLinkProd,
   development: productLinkDev,
   staging: productLinkStage,
+  production02: productLinkProd,
+  staging02: productLinkStage,
 }
 export const productLinkList = productLink[String(import.meta.env.VITE_PROJECT_ENV)]

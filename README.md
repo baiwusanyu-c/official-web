@@ -54,28 +54,28 @@
 `"lint:style-fix": "stylelint --fix src/**/*.{html,vue,css}"`  
 **styleLint 樣式代碼修復**
 
-`"lint:ts": "eslint ./src --ext .vue,.js,.ts,.jsx,.tsx",`
+`"lint:ts": "eslint ./src --ext .vue,.js,.ts,.jsx,.tsx",`  
 **esLint 代碼校验**
 
-`"lint:ts-fix": "eslint --fix ./src --ext .vue,.js,.ts,.jsx,.tsx",`
+`"lint:ts-fix": "eslint --fix ./src --ext .vue,.js,.ts,.jsx,.tsx",`  
 **esLint 代碼校验修復**
 
-`"prettier:fix": "prettier --write ."`,
+`"prettier:fix": "prettier --write ."`,  
 **prettier 格式修復**
 
-`"test": "jest",`
+`"test": "jest",`  
 **jest 单元测试**
 
-`"test:coverage": "jest --coverage",`
+`"test:coverage": "jest --coverage",`  
 **jest 单元 coverage 测试**
 
-`"prepare": "husky install",`
+`"prepare": "husky install",`  
 **husky 初始化**
 
-`"commit": "eslint --fix ./src --ext .vue,.js,.ts,.jsx,.tsx && prettier --write .&& stylelint --fix src/**/*.{html,vue,css}"`
+`"commit": "eslint --fix ./src --ext .vue,.js,.ts,.jsx,.tsx && prettier --write .&& stylelint --fix src/**/*.{html,vue,css}"`  
 **基于 husky 和 commitlint/cli 的 git commit 钩子指令，提交时会调用该指令进行**
 
-`"preview": "vite preview --port 8080 --host"`
+`"preview": "vite preview --port 8080 --host"`  
 **打包预览，当年你打包后使用该指令 vite 会自动开启一个容器来运行 dist 打包结果**
 
 ## 目錄結構

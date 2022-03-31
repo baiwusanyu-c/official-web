@@ -4,7 +4,7 @@
  * @author czh
  * @update (czh 2021/12/24)
  */
-import { Router, useRouter } from 'vue-router'
+import { Router, RouteLocationNormalizedLoaded, useRouter, useRoute } from 'vue-router'
 import { ref } from 'vue'
 import { getCodeImg } from '../../api/login'
 
@@ -26,6 +26,7 @@ export default () => {
    * @param path 路由地址
    */
   const router: Router = useRouter()
+  const route: RouteLocationNormalizedLoaded = useRoute()
   const routerPush = (path: string): void => {
     router.push(path)
   }
@@ -68,6 +69,8 @@ export default () => {
   return {
     startTimer,
     uuid,
+    router,
+    route,
     message,
     codeUrl,
     getCode,

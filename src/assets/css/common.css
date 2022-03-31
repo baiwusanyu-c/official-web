@@ -58,7 +58,7 @@
   background: linear-gradient(-32deg, #19bcfc, #00ffba);
 }
 
-#hermit_app .h-btn-txt-black .be-button-body .be-button-slot {
+#hermit_app_main .h-btn-txt-black .be-button-body .be-button-slot {
   color: black;
 }
 
@@ -99,4 +99,12 @@
 
 .be-message .be-message-container__topCenter{
   max-width: 100vw ;
+}
+
+.empty-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @apply text-info;
 }
