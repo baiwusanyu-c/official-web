@@ -11,7 +11,7 @@ export enum linkConfig {
   discord = 'https://discord.gg/B4QJxhStV4 ',
   github = 'https://github.com/Beosin20180329',
   twitter = 'https://twitter.com/Beosin_com',
-  telegram = 'https://t.me/+dD8Bnqd133RmNWNl',
+  telegram = 'https://t.co/pCyqL6IKha',
   medium = 'https://medium.com/@Beosin',
 }
 

@@ -1,6 +1,6 @@
 {
   "name": "hermit-front",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "scripts": {
     "serve:dev": "vite --host --mode development",
     "serve:stage": "vite --host --mode staging",
