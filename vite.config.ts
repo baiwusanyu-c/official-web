@@ -2,10 +2,22 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import path from 'path'
+import { transformScript } from 'vite-plugin-svg-transform-script'
 import WindiCSS from 'vite-plugin-windicss'
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), vueJsx(), WindiCSS()],
+  plugins: [
+    vue(),
+    vueJsx(),
+    WindiCSS(),
+    transformScript({
+      input: './icon/',
+      output: './src/utils/',
+      name: 'svg-dict',
+      type: 'ts',
+      format: 'default',
+    }),
+  ],
   /**
    * 在生产中服务时的基本公共路径。
    * @default '/'
