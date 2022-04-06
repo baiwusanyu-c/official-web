@@ -1,3 +1,4 @@
 node_modules
 /src/**/*.css
 /src/components/be-ui/*/__test__/
+svg-dict.ts
