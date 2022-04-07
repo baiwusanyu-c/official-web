@@ -3,4 +3,5 @@ public
 dist
 node_modules
 coverage
+svg-dict.ts
 
