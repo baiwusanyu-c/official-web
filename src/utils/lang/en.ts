@@ -9,10 +9,10 @@ export default {
   app: 'app',
   public: 'public',
   private: 'private',
-  contactBtn: 'CONTACT US',
+  contactBtn: 'Contact Us',
   contactBtnMore: 'Contact us to learn more',
-  tryoutBtn: 'TRY OUT',
-  LearnMoreBtn: 'LEARN MORE',
+  tryoutBtn: 'Try Out',
+  LearnMoreBtn: 'Learn More',
   ReservationBtn: 'RESERVATION NOW',
   connect: 'Contact',
   community: 'Community',
@@ -30,8 +30,8 @@ export default {
   projectList: {
     project1: 'Smart contract audit',
     project2: 'Blockchain platform audit',
-    project3: 'Beosin-VaaS',
-    project4: 'Beosin-Eagle Eye',
+    project3: 'VaaS',
+    project4: 'Eagle Eye',
   },
   header: {
     nav: 'Navigation',
@@ -51,8 +51,8 @@ export default {
       service2: 'Blockchian Platform Audit',
     },
     productStr: {
-      product1: 'Beosin-VaaS',
-      product2: 'Beosin-Eagle Eye',
+      product1: 'VaaS',
+      product2: 'Eagle Eye',
     },
     language: {
       EN: 'EN',
@@ -60,7 +60,7 @@ export default {
     },
   },
   contactUs: {
-    info1: 'Beosin, your blockchain security expert used by 10,000 practitioners worldwide',
+    info1: 'Beosin, your blockchain security expert.',
     info2:
       'Smart Contract audit reports provided by more than 20 world-leading blockchain security engineers based on formal verification technology.',
   },
@@ -76,15 +76,15 @@ export default {
     title2: 'BLOCKCHAIN ECOSYSTEM',
     mgtitle1: 'Smart contract audit',
     mgtitle2: 'Blockchain platform audit',
-    mgtitle3: 'Beosin-VAAS',
-    mgtitle4: 'Beosin-Eagle Eye',
+    mgtitle3: 'VAAS',
+    mgtitle4: 'Eagle Eye',
     titleCard1: 'A Full Analysis of the MonoX Attack',
     titleCardInfo1:
       'On November 30, Beosin detected that MonoX, an automatic market maker protocol,suffered a flash loan ',
-    more: 'LEARN MORE',
+    more: 'Learn More',
     serviceTitle1: 'Smart Contract Audit',
     serviceInfo1:
-      'Based on formal verification tools, we identify and eliminate errors and vulnerabilitiesof the code, ensure the consistency of smart contracts’ code and business logic, and provide authoritative security audit reports.',
+      'Based on formal verification tools, we identify and eliminate errors and vulnerabilities of the code, ensure the consistency of smart contracts’ code and business logic, and provide authoritative security audit reports.',
     serviceIc1: 'DeFi contracts',
     serviceIc2: 'Tokens contracts',
     serviceIc3: 'Other Customized Smart Contracts',
@@ -100,7 +100,7 @@ export default {
     serviceIc11: 'Asset Security Audit',
     serviceIc12: 'Application-layer Security Audit',
 
-    productName1: 'Beosin-VAAS',
+    productName1: 'VAAS',
     productDesc1:
       'The industry-leading security analysis platform for smart contracts with multi-dimensional detection capabilities such as static scanning, fuzzy testing, and formal verification, which can automatically discover known and unknown vulnerabilities and business logic issues in smart contracts and provide professional comments or revisions.',
     productFeature1: 'Known Vulnerabilities',
@@ -108,7 +108,7 @@ export default {
     productFeature3: 'Logical Correctness',
     productFeature4: 'Support for multiple blockchain platforms',
 
-    productName2: 'Beosin-Eagle Eye',
+    productName2: 'Eagle Eye',
     productDesc2:
       'Through real-time monitoring of on-chain transactions, identification of transaction behaviors, and analysis of contract codes, it can discover and alert hacking incidents and contract vulnerabilities, supporting project owner on safe operation and asset protection.',
     productFeature5: 'Transaction Risk Detection',
@@ -356,7 +356,7 @@ export default {
   // djd h-footer-bigger
   HFooterBigger: {
     contact: {
-      contactTitle: 'CONTACT US',
+      contactTitle: 'Contact Us',
       locationRoad: '120 ROBINSON ROAD',
       locationSingapore: '#13-01 SINGAPORE 068913',
     },
@@ -369,7 +369,7 @@ export default {
   },
   product: {
     vass: {
-      title: 'Beosin-VAAS',
+      title: 'VAAS',
       subTitle: 'Improving the security of smart contracts for developers',
 
       desc: 'The Smart Contract Formal Verification Platform provides static scanning, fuzzy testing and formal verification capabilities for smart contract codes. The platform supports 100+ testing items including traditional vulnerabilities and business logic correctness on multiple public blockchains such as ETH, BSC, MATIC, AAVE, ONT, EOS, etc., with an accuracy rate of above 97%. It can precisely locate the risky codes while giving recommendations to help developers improve the security of smart contracts.',
@@ -400,7 +400,7 @@ export default {
         'Formal specifications are written directly in contract language. No additional efforts in learning specification language.',
     },
     eagle: {
-      title: 'Beosin-Eagle Eye',
+      title: 'Eagle Eye',
       subTitle: 'Provide Dapp operators with project intelligence and real-time risk alerts',
       funcDisplay: 'Function Display',
       desc: 'An integrated monitoring platform designed for blockchain project owners. By automatically assessing security situation of contracts, monitoring on-chain operations and real-time transactions, it can identify suspicious transactions, comprehensively assess the operation status, help user to find out risks and get disposal suggestions, and finally setup security shield for project operation and asset protection.',
