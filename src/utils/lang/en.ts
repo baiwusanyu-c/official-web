@@ -67,9 +67,9 @@ export default {
   aboutHerMit: {
     title: 'ABOUT BEOSIN',
     info1:
-      'Beosin is a leading global blockchain security brand co-founded by several professors from world-renowned universities. The team consists of 100+ security experts, including 40+ PhDs and postdocs. The core team members have accumulated over 20 years of experience in formal verification technology, cybersecurity, artificial intelligence, and big data mining technology.',
+      'Beosin is a leading global Web 3.0 blockchain security brand co-founded by several professors from world-renowned universities. The team consists of 100+ security experts, including 40+ PhDs and postdocs. ',
     info2:
-      'Beosin product series include smart contract audit service, blockchain platform audit service, smart contract detection product, and ‘Eagle Eye’ product. Through security audits of more than 2,000 smart contracts and 50+ public blockchains worldwide, Beosin has successfully protected nearly $10 billion of assets and has been fully recognized by global partners.',
+      'With the mission of "Securing Web3.0 blockchain ecosystem”, Beosin provides integrated blockchain security services and products to serve 1 million+ users in the global blockchain ecosystem.',
   },
   home: {
     title1: 'SECURING THE',
@@ -440,8 +440,8 @@ export default {
     title: 'ABOUT US',
     titleDesc: 'Securing the blockchain ecosystem is our only mission',
     descInfo1:
-      'Beosin is a leading global blockchain security brand co-founded by several professors from world-renowned universities. The team consists of 100+ security experts, including 40+ PhDs and postdocs. The core team members have accumulated over 20 years of experience in formal verification technology, cybersecurity, artificial intelligence, and big data mining technology.\n' +
-      'Beosin product series include smart contract audit service, blockchain platform audit service, smart contract detection product, and ‘Eagle Eye’ product. Through security audits of more than 2,000 smart contracts and 50+ public blockchains worldwide, Beosin has successfully protected nearly $10 billion of assets and has been fully recognized by global partners.',
+      'Beosin is a leading global Web 3.0 blockchain security brand co-founded by several professors from world-renowned universities. The team consists of 100+ security experts, including 40+ PhDs and postdocs. \n' +
+      'With the mission of "Securing Web3.0 blockchain ecosystem”, Beosin provides integrated blockchain security services and products to serve 1 million+ users in the global blockchain ecosystem.',
     descInfo2: '',
     descIcon1: '20+',
     descIconInfo1: 'Years of scientific research',
