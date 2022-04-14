@@ -76,7 +76,7 @@ export default {
     title2: 'BLOCKCHAIN ECOSYSTEM',
     mgtitle1: 'Smart contract audit',
     mgtitle2: 'Blockchain platform audit',
-    mgtitle3: 'VAAS',
+    mgtitle3: 'VaaS',
     mgtitle4: 'Eagle Eye',
     titleCard1: 'A Full Analysis of the MonoX Attack',
     titleCardInfo1:
@@ -100,7 +100,7 @@ export default {
     serviceIc11: 'Asset Security Audit',
     serviceIc12: 'Application-layer Security Audit',
 
-    productName1: 'VAAS',
+    productName1: 'VaaS',
     productDesc1:
       'The industry-leading security analysis platform for smart contracts with multi-dimensional detection capabilities such as static scanning, fuzzy testing, and formal verification, which can automatically discover known and unknown vulnerabilities and business logic issues in smart contracts and provide professional comments or revisions.',
     productFeature1: 'Known Vulnerabilities',
@@ -369,7 +369,7 @@ export default {
   },
   product: {
     vass: {
-      title: 'VAAS',
+      title: 'VaaS',
       subTitle: 'Improving the security of smart contracts for developers',
 
       desc: 'The Smart Contract Formal Verification Platform provides static scanning, fuzzy testing and formal verification capabilities for smart contract codes. The platform supports 100+ testing items including traditional vulnerabilities and business logic correctness on multiple public blockchains such as ETH, BSC, MATIC, AAVE, ONT, EOS, etc., with an accuracy rate of above 97%. It can precisely locate the risky codes while giving recommendations to help developers improve the security of smart contracts.',
