@@ -8,19 +8,20 @@
 
 **Vue3.2 + Vue-router4 + Vite2.x + typeScript4.5**
 
-| 名称         | 版本    | 説明                             |
-| ------------ | ------- | -------------------------------- |
-| Vue          | ^3.2.3  | 前端開發框架                     |
-| axios        | ^0.24.0 | Ajax 封裝庫                      |
-| vite         | ^2.2.3  | 工程化開發打包框架               |
-| vue-router   | 4       | vue3.x 路由                      |
-| vue-i18n     | 9       | vue3.x 國際化插件                |
-| @vueuse/core | ^7.3.0  | vue3.x 的 composition Api 方法庫 |
-| animate.css  | ^4.1.1  | 動畫庫                           |
-| swiper       | ^7.3.2  | 走馬燈插件                       |
-| windi.css    | ^3.4.3  | css 原子化樣式庫                 |
-| naive-ui     | ^2.22.0 | UI 組件庫                        |
-| be-ui        | -       | 内部 UI 組件庫                   |
+| 名称                             | 版本    | 説明                             |
+| -------------------------------- | ------- | -------------------------------- |
+| Vue                              | ^3.2.3  | 前端開發框架                     |
+| axios                            | ^0.24.0 | Ajax 封裝庫                      |
+| vite                             | ^2.2.3  | 工程化開發打包框架               |
+| vue-router                       | 4       | vue3.x 路由                      |
+| vue-i18n                         | 9       | vue3.x 國際化插件                |
+| @vueuse/core                     | ^7.3.0  | vue3.x 的 composition Api 方法庫 |
+| animate.css                      | ^4.1.1  | 動畫庫                           |
+| swiper                           | ^7.3.2  | 走馬燈插件                       |
+| windi.css                        | ^3.4.3  | css 原子化樣式庫                 |
+| naive-ui                         | ^2.22.0 | UI 組件庫                        |
+| be-ui                            | -       | 内部 UI 組件庫                   |
+| vite-plugin-svg-transform-script | 1.1.0   | svg 圖標文件處理脚本             |
 
 ## package 指令
 
@@ -72,10 +73,7 @@
 `"prepare": "husky install",`  
 **husky 初始化**
 
-`"commit": "eslint --fix ./src --ext .vue,.js,.ts,.jsx,.tsx && prettier --write .&& stylelint --fix src/**/*.{html,vue,css}"`  
-**基于 husky 和 commitlint/cli 的 git commit 钩子指令，提交时会调用该指令进行**
-
-`"preview": "vite preview --port 8080 --host"`  
+`"formatDateiew": "vite preview --port 8080 --host"`  
 **打包预览，当年你打包后使用该指令 vite 会自动开启一个容器来运行 dist 打包结果**
 
 ## 目錄結構
@@ -117,10 +115,21 @@
 - npm install husky --save-dev
 - npm set-script prepare "husky install"
 - npm run prepare
-- npx husky add .husky/pre-commit "npm run commit"
+- npx husky add .husky/pre-commit "npm exec lint-staged"
 - git add .husky/pre-commit
 - npx husky add .husky/commit-msg "npx --no -- commitlint --edit $1"
-- 在 package.json 的 script 里面配置"commit": "这里面添加 eslint、单测、stylelint 等"
+- 在 package.json 配置
+
+```
+"lint-staged": {
+    "*.{vue,js,ts,jsx,tsx,md,json}": [
+      "pretty-quick --staged",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+```
+
 - 提交时执行命令例如 git commit -am "feat: 项目添加 commitlint 本地校验配置" 或 git commit -m "feat: 项目添加 commitlint 本地校验配置"
 
 ### 配置 eslint 校验
@@ -132,6 +141,7 @@
 - eslint-plugin-prettier": "^4.0.0",
 - eslint-plugin-vue": "^8.5.0",
 - prettier": "2.5.1",
+- pretty-quick: "v3.1.3 ",
 - @typescript-eslint/eslint-plugin": "^5.10.0",
 - @typescript-eslint/parser": "^5.10.0",
 - @vue/eslint-config-prettier": "^7.0.0",
@@ -142,16 +152,3 @@
 #### 3.在脚本中配置对应格式校验规则和格式化规则具体参考相应官方文档
 
 #### 4.编写脚本指令 lint:ts 与 lint:ts-fix
-
-### 火狐浏览器兼容汇总
-
-- 登录页需要兼容 √
-- 产品页与 about us 过长 （偶现）
-
-### Safari 浏览器兼容汇总
-
-- 登录页需要兼容 √
-- contact us 组件 1080p （下显示正常）√
-- home-swiper 1080p （下显示正常）√
-- product 模块 头部 1080p （下显示正常）√
-- about us 的三栏 1080p （下显示正常）√
