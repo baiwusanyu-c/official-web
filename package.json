@@ -1,6 +1,6 @@
 {
   "name": "hermit-front",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "scripts": {
     "serve:dev": "vite --host --mode development",
     "serve:stage": "vite --host --mode staging",
@@ -24,7 +24,7 @@
     "formatDateiew": "vite preview --port 8080 --host"
   },
   "lint-staged": {
-    "*.{vue,js,ts,jsx,tsx,md,json}": [
+    "*.{vue,js,ts,jsx,tsx}": [
       "pretty-quick --staged",
       "eslint --fix",
       "git add"
