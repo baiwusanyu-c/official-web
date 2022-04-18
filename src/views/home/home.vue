@@ -751,8 +751,9 @@
   @media screen and (min-width: 100px) and (max-width: 1278px) {
 
     .hermit-main .slogan-news {
+      padding: 0 30px 30px;
       height: 70vh;
-      padding: 0 30px;
+      min-height: 530px;
     }
 
     .science-dom p {

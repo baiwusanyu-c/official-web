@@ -47,6 +47,7 @@
   import { getReportByCode, IReportCode } from '../api/service'
   import { setSession } from '../utils/common'
   import composition from '../utils/mixin/common-func'
+  import config from '../enums/config'
   export default defineComponent({
     name: 'VerCodeDialog',
     components: { NInput },
@@ -81,7 +82,13 @@
             if (res.code === 200 && res.data) {
               message('success', t('lang.opSuccess'), 'hermit-msg')
               setSession('CETInfo', JSON.stringify(res.data))
-              window.open('#/report', 'view_window')
+              const prevUrl =
+                String(import.meta.env.VITE_PROJECT_ENV) === 'production' ? '/hermit/back' : ''
+              window.open(
+                `${config.baseURL}${prevUrl}/website/common/preview/single?fileUuid=${res.data.uuid}&reportNum=${res.data.reportNum}`,
+                `preview${res.data.num}`
+              )
+
               handleClose()
             } else {
               message('warning', t('lang.noResults'), 'hermit-msg')
