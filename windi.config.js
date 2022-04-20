@@ -8,6 +8,7 @@ export default defineConfig({
   darkMode: false, // or 'media' or 'class'
   theme: {
     screens: {
+      ph: { min: '320px', max: '768px' },
       sm: { min: '100px', max: '1278px' },
       pad: { min: '768px', max: '1278px' },
       md: { min: '1280px', max: '1326px' },

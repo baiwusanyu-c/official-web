@@ -144,7 +144,7 @@ export default {
       audited: 'Audited contracts',
       totalAudited: 'Total audited funds',
       inputTitle: 'Security Audit Report Search',
-      input: 'Please enter the report number',
+      input: 'Please enter the report number/name',
     },
     content: {
       title: 'Service Content',
@@ -178,7 +178,7 @@ export default {
       audited: 'Audited contracts',
       totalAudited: 'Total audited funds',
       inputTitle: 'Security Audit Report Search',
-      input: 'Please enter the report number',
+      input: 'Please enter the report number/name',
     },
     content: {
       title: 'Service Content',

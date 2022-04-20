@@ -25,3 +25,17 @@ export function getBlogNewsList(params: IBlogListParam) {
     params,
   })
 }
+
+type PageQuery = { pageSize: number; pageNum: number }
+// 报告分页查询
+export function getReportList(params: PageQuery) {
+  return request({
+    url: '/website/report/list',
+    method: 'get',
+    params: {
+      belongUserId: false,
+      queryTotalSize: 35,
+      ...params,
+    },
+  })
+}

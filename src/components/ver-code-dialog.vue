@@ -52,7 +52,7 @@
     name: 'VerCodeDialog',
     components: { NInput },
     props: {
-      num: {
+      keyword: {
         type: String,
         default: '',
       },
@@ -72,7 +72,7 @@
       })
       const submit = (): void => {
         const params: IReportCode = {
-          num: formData.value.num,
+          keyword: props.keyword,
           code: formData.value.code,
           uuid: uuid.value,
         }
@@ -82,12 +82,13 @@
             if (res.code === 200 && res.data) {
               message('success', t('lang.opSuccess'), 'hermit-msg')
               setSession('CETInfo', JSON.stringify(res.data))
-              const prevUrl =
-                String(import.meta.env.VITE_PROJECT_ENV) === 'production' ? '/hermit/back' : ''
-              window.open(
-                `${config.baseURL}${prevUrl}/website/common/preview/single?fileUuid=${res.data.uuid}&reportNum=${res.data.reportNum}`,
-                `preview${res.data.num}`
-              )
+              //https://beosin.com/audit/COMC_201808011445.pdf
+              // window.open(
+              //   `${config.baseURL}/audit?${res.data.reportName.match(/[^-—]+$/)[0].trim()}_${
+              //     res.data.reportNum
+              //   }.pdf`,
+              //   `preview${res.data.reportNum}`
+              // )
 
               handleClose()
             } else {
@@ -104,7 +105,6 @@
       const { codeUrl, getCode, uuid } = composition()
       watch(isShow, (nVal: boolean) => {
         if (nVal) {
-          formData.value.num = (props.num && parseInt(props.num)) || undefined
           formData.value.code = ''
           getCode()
         }
