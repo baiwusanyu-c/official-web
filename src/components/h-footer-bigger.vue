@@ -144,13 +144,16 @@
   margin-right: 10px;
 }
 .socials li{
-  margin-top: 12px;
-    display: flex;
+  margin-top: 12px !important;
+  display: flex;
   align-items: center;
+}
+.socials :deep(svg) {
+  width: 24px;
+  height: 24px;
 }
 .block li{
   cursor: pointer;
   margin-top: 20px;
-
 }
 </style>

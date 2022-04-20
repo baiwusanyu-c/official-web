@@ -52,7 +52,7 @@
   import composition from '../utils/mixin/common-func'
   import config from '../enums/config'
   import ReportResult from './report-result.vue'
-  type Row = { updateTime: string; reportNum: string; id: string; reportName: string }
+  type Row = { createTime: string; reportNum: string; id: string; reportName: string }
   export default defineComponent({
     name: 'VerCodeDialog',
     components: { NInput, ReportResult },

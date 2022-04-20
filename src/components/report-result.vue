@@ -10,7 +10,9 @@
           <img src="@/assets/img/file.png" class="w-24px" alt="" />
           <span class="ml-20px ell"> {{ getProjectName(it.reportName) }} </span>
         </span>
-        <span class="text-[#909294] flex-none">{{ dayjs(it.updateTime).format('MMM YYYY') }}</span>
+        <span class="text-[#909294] flex-none ml-10px">{{
+          dayjs(it.createTime).format('MMM YYYY')
+        }}</span>
       </li>
     </ul>
   </div>
@@ -20,7 +22,7 @@
   import { defineProps } from 'vue'
   import config from '../enums/config'
   import dayjs from 'dayjs'
-  type Row = { updateTime: string; reportNum: string; id: string; reportName: string }
+  type Row = { createTime: string; reportNum: string; id: string; reportName: string }
   const props = defineProps<{
     list: Row[]
   }>()

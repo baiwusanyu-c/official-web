@@ -19,8 +19,8 @@
                 {{ getProjectName(it.reportName) }}
               </span>
             </span>
-            <span class="text-[#909294] flex-none">{{
-              dayjs(it.updateTime).format('MMM YYYY')
+            <span class="text-[#909294] flex-none ml-10px">{{
+              dayjs(it.createTime).format('MMM YYYY')
             }}</span>
           </li>
         </ul>
@@ -41,7 +41,7 @@
   import { NPagination } from 'naive-ui'
   import config from '../../../enums/config'
   import dayjs from 'dayjs'
-  type Row = { updateTime: string; reportNum: string; id: string; reportName: string }
+  type Row = { createTime: string; reportNum: string; id: string; reportName: string }
   const page = ref(1)
   const rows = ref<Row[]>([])
   const total = ref(0)
@@ -52,7 +52,7 @@
   const query = v => {
     page.value = v
     getReportList({
-      pageSize: 7,
+      pageSize: 10,
       pageNum: page.value,
     }).then((res: any) => {
       rows.value = res.rows as Row[]
@@ -95,6 +95,6 @@
   .row {
   }
   .result-pagination {
-    margin: 80px auto 0;
+    margin: 54px auto 0;
   }
 </style>
