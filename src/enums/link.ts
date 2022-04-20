@@ -8,10 +8,12 @@ import { IOption } from '../utils/types'
 
 export enum linkConfig {
   facebook = 'https://www.facebook.com/profile.php?id=100026616589335',
-  discord = 'https://discord.gg/B4QJxhStV4 ',
+  discord = 'https://discord.com/invite/B4QJxhStV4',
   github = 'https://github.com/Beosin20180329',
   twitter = 'https://twitter.com/Beosin_com',
-  telegram = 'https://t.co/pCyqL6IKha',
+  alert = 'https://twitter.com/BeosinAlert',
+  telegram = 'https://t.me/beosin',
+  linkedin = 'https://www.linkedin.com/company/beosin',
   medium = 'https://medium.com/@Beosin',
 }
 

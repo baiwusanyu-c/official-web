@@ -44,7 +44,7 @@
       v-if="titleCardList.length > 0"
       class="blog-new w-full bg-mainBlueGary flex justify-center">
       <div
-        class="grid grid-cols-4 ph:grid-cols-2 w-62vw ph:w-90vw gap-10px title-card-container relative h-[100%]">
+        class="grid grid-cols-4 ph:grid-cols-2 w-62vw ph:w-90vw pad:w-90vw gap-10px title-card-container relative h-[100%]">
         <blog-new v-for="item in titleCardList" :key="item.id" class="mr-0" :data="item">
         </blog-new>
         <p

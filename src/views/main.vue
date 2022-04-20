@@ -4,7 +4,7 @@
       <!-- 头部   -->
       <be-header
         class="flex items-center justify-between fixed w-full z-30 text-default"
-        style="height: 4em; background: #141720; opacity: .9">
+        style="height: 4em; background: #141720; opacity: 0.9">
         <h-header @change-lang="changeLanguage"></h-header>
       </be-header>
       <!--  主体    -->
@@ -115,10 +115,6 @@
     height: 4.5em;
 
     @apply px-2;
-  }
-
-  .hermit-container-container .hermit-footer {
-    height: 20em;
   }
 
   .be-main.pb-0 {

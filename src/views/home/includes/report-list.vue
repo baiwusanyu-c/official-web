@@ -1,6 +1,7 @@
 <template>
   <div class="report-list bg-mainBlueGary pb-45px">
-    <div class="report-content flex relative bg-[#fff] w-62vw ph:w-90vw mx-auto mt-[-50px]">
+    <div
+      class="report-content flex relative bg-[#fff] w-62vw ph:w-90vw pad:w-90vw mx-auto mt-[-50px]">
       <div class="report-left relative max-w-400px top-[-70px] sm:hidden">
         <img src="@/assets/img/report-list-left.png" class="w-full" alt="" />
         <h3 class="h3 absolute top-5vw left-3vw">VERIFICATION REPORTS</h3>
@@ -12,9 +13,11 @@
             :key="it.id"
             class="row flex items-center ph:text-sm text-xl h-60px justify-between rounded-10px px-20px hover:cursor-pointer hover:bg-[#EFF2F7]"
             @click="toReport(it)">
-            <span class="row-left flex items-center">
+            <span class="row-left flex items-center overflow-hidden">
               <img src="@/assets/img/file.png" class="w-24px" alt="" />
-              <span class="ml-20px"> {{ getProjectName(it.reportName) }} </span>
+              <span class="ml-20px ell break-all">
+                {{ getProjectName(it.reportName) }}
+              </span>
             </span>
             <span class="text-[#909294] flex-none">{{
               dayjs(it.updateTime).format('MMM YYYY')
@@ -74,14 +77,13 @@
     border: none !important;
     background-color: transparent !important;
   }
-  .report-list {
-  }
   .report-right {
     padding: 3vw;
     flex: 1 1 auto;
+    overflow: hidden;
   }
   .report-left {
-    flex: 1 1 auto;
+    flex: 0 0 auto;
   }
 
   .items {
