@@ -8,7 +8,7 @@
         @click="toReport(it)">
         <span class="row-left flex overflow-hidden items-center">
           <img src="@/assets/img/file.png" class="w-24px" alt="" />
-          <span class="ml-20px ell"> {{ getProjectName(it.reportName) }} </span>
+          <span class="ml-20px ell"> {{ it.projectName }} </span>
         </span>
         <span class="text-[#909294] flex-none ml-10px">{{
           dayjs(it.createTime).format('MMM YYYY')
@@ -22,17 +22,14 @@
   import { defineProps } from 'vue'
   import config from '../enums/config'
   import dayjs from 'dayjs'
-  type Row = { createTime: string; reportNum: string; id: string; reportName: string }
+  type Row = { createTime: string; reportNum: string; id: string; projectName: string }
   const props = defineProps<{
     list: Row[]
   }>()
-  const getProjectName = (v: string) => {
-    return v.match(/[^-—]+$/)[0].trim()
-  }
 
   const toReport = (row: Row) => {
     window.open(
-      `${config.baseURL}/audit/${getProjectName(row.reportName)}_${row.reportNum}.pdf`,
+      `${config.baseURL}/audit/${row.projectName}_${row.reportNum}.pdf`,
       `preview${row.reportNum}`
     )
   }

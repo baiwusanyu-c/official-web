@@ -16,7 +16,7 @@
             <span class="row-left flex items-center overflow-hidden">
               <img src="@/assets/img/file.png" class="w-24px" alt="" />
               <span class="ml-20px ell break-all">
-                {{ getProjectName(it.reportName) }}
+                {{ it.projectName }}
               </span>
             </span>
             <span class="text-[#909294] flex-none ml-10px">{{
@@ -42,13 +42,10 @@
   import { NPagination } from 'naive-ui'
   import config from '../../../enums/config'
   import dayjs from 'dayjs'
-  type Row = { createTime: string; reportNum: string; id: string; reportName: string }
+  type Row = { createTime: string; reportNum: string; id: string; projectName: string }
   const page = ref(1)
   const rows = ref<Row[]>([])
   const total = ref(0)
-  const getProjectName = (v: string) => {
-    return v.match(/[^-—]+$/)[0].trim()
-  }
 
   const query = v => {
     page.value = v
@@ -62,7 +59,7 @@
   }
   const toReport = (row: Row) => {
     window.open(
-      `${config.baseURL}/audit/${getProjectName(row.reportName)}_${row.reportNum}.pdf`,
+      `${config.baseURL}/audit/${row.projectName}_${row.reportNum}.pdf`,
       `preview${row.reportNum}`
     )
   }

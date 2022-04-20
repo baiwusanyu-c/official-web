@@ -34,7 +34,7 @@ export function getReportList(params: PageQuery) {
     method: 'get',
     params: {
       belongUserId: false,
-      queryTotalSize: 35,
+      // queryTotalSize: 35,
       ...params,
     },
   })
