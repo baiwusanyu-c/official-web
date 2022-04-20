@@ -1,8 +1,8 @@
 <template>
   <div class="report-list bg-mainBlueGary pb-45px">
     <div
-      class="report-content flex relative bg-[#fff] w-62vw ph:w-90vw pad:w-90vw mx-auto mt-[-50px]">
-      <div class="report-left relative max-w-400px top-[-70px] sm:hidden">
+      class="report-content flex relative bg-[#fff] w-62vw ph:w-90vw pad:w-90vw mx-auto mt-[-70px]">
+      <div class="report-left relative max-w-400px top-[-50px] sm:hidden">
         <img src="@/assets/img/report-list-left.png" class="w-full" alt="" />
         <h3 class="h3 absolute top-5vw left-3vw">VERIFICATION REPORTS</h3>
       </div>
@@ -29,6 +29,7 @@
           class="result-pagination"
           :item-count="total"
           :page-slot="5"
+          :page-size="8"
           :on-update:page="query" />
       </div>
     </div>
@@ -52,7 +53,7 @@
   const query = v => {
     page.value = v
     getReportList({
-      pageSize: 10,
+      pageSize: 8,
       pageNum: page.value,
     }).then((res: any) => {
       rows.value = res.rows as Row[]
@@ -79,18 +80,18 @@
   }
   .report-right {
     padding: 3vw;
-    flex: 1 1 auto;
+    flex: 1 1 60%;
     overflow: hidden;
   }
   .report-left {
-    flex: 0 0 auto;
+    flex: 1 1 40%;
   }
 
   .items {
     min-height: calc(100% - 120px);
   }
   .h3 {
-    font-size: min(48px, 3vw);
+    font-size: 2.4vw;
   }
   .row {
   }
