@@ -195,6 +195,7 @@
         { label: t('lang.projectList.project2'), value: 2 },
         { label: t('lang.projectList.project3'), value: 3 },
         { label: t('lang.projectList.project4'), value: 4 },
+        { label: t('lang.projectList.project5'), value: 5 },
       ])
 
       return {

@@ -32,19 +32,22 @@ export default {
     project2: 'Blockchain platform audit',
     project3: 'VaaS',
     project4: 'EagleEye',
+    project5: 'Trace',
   },
   header: {
     nav: 'Navigation',
     home: 'Home',
     research: 'Research',
-    service: 'Service',
-    product: 'Product',
     aboutUs: 'About Us',
     requestUs: 'Request a Quote',
     login: 'Login',
     loginStr: {
       center: 'Personal Center',
       quit: 'Log Out',
+    },
+    solutions: {
+      title: 'Solutions',
+      track: 'Track',
     },
     serviceStr: {
       service1: 'Smart Contract Audit',
@@ -54,6 +57,7 @@ export default {
       product1: 'VaaS',
       product2: 'EagleEye',
     },
+    track: 'Track',
     language: {
       EN: 'EN',
       CH: '中文',
