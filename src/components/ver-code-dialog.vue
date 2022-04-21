@@ -87,19 +87,15 @@
         getReportByCode(params)
           .then((res: any) => {
             if (res.code === 200 && res.data) {
+              if (!res.data?.length) {
+                message('warning', t('lang.noResults'), 'hermit-msg')
+                handleClose()
+                return
+              }
               message('success', t('lang.opSuccess'), 'hermit-msg')
               setSession('CETInfo', JSON.stringify(res.data))
               isSuccess.value = true
               list.value = res.data
-              //https://beosin.com/audit/COMC_201808011445.pdf
-              // window.open(
-              //   `${config.baseURL}/audit?${res.data.reportName.match(/[^-—]+$/)[0].trim()}_${
-              //     res.data.reportNum
-              //   }.pdf`,
-              //   `preview${res.data.reportNum}`
-              // )
-
-              // handleClose()
             } else {
               message('warning', t('lang.noResults'), 'hermit-msg')
               getCode()

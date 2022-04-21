@@ -23,6 +23,9 @@ export function getReportByCode(params: IReportCode) {
   return request({
     url: '/website/report/search-by-keyword',
     method: 'get',
-    params,
+    params: {
+      langType: 1,
+      ...params,
+    },
   })
 }
