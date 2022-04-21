@@ -27,7 +27,7 @@
         </ul>
         <n-pagination
           v-model:page="page"
-          class="result-pagination"
+          class="report-pagination"
           :item-count="total"
           :page-slot="5"
           :page-size="8"
@@ -99,7 +99,10 @@
   }
   .row {
   }
-  .result-pagination {
+  .report-pagination {
     margin: 6vw auto 0;
+  }
+  .report-pagination :deep(.n-pagination-item:nth-last-child(2)) {
+    display: none;
   }
 </style>
