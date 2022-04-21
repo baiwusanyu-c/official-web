@@ -74,6 +74,7 @@
   import BlobReport from '../../components/blob-report.vue'
   import { getBlogNewsList, IBlogListParam } from '../../api/research'
   import composition from '../../utils/mixin/common-func'
+  import { useRoute } from 'vue-router'
   export declare interface IReport {
     title: string
     content: string
@@ -88,8 +89,9 @@
     components: { BlobReport },
     setup() {
       const { message } = composition()
+      const route = useRoute()
       // 處理tab點擊
-      const activeTab = ref<number>(1)
+      const activeTab = ref<number>(+route.query.tab || 1)
       const handleClickTab = (type: number): void => {
         activeTab.value = type
         pageParams.value.currentPage = 1

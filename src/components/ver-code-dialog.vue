@@ -1,10 +1,10 @@
 /* * @ver-code-dialog.vue * @deprecated * @author czh * @update (czh 2021/12/18) */
 <template>
-  <div id="ver_code_dialog">
+  <div id="ver_code_dialog" :class="{ big: isSuccess }">
     <be-dialog
       ref="moreNodeDialog"
       v-model:is-show="isShow"
-      :titles="$t('lang.login.verCode')"
+      :titles="isSuccess ? `${list.length} Results ` : $t('lang.login.verCode')"
       layout="right"
       custom-class="request-quote-dialog font-format"
       esc-exit
@@ -13,7 +13,9 @@
       <template #headerIcon>
         <be-icon icon="deleteIc" @click="isShow = false"></be-icon>
       </template>
-      <div class="plus-dialog-body flex flex-col justify-center items-center w-full">
+      <ReportResult v-if="isSuccess" :list="list"></ReportResult>
+
+      <div v-else class="plus-dialog-body flex flex-col justify-center items-center w-full">
         <div class="flex w-full mb-12">
           <div class="flex-1 mr-6">
             <n-input
@@ -31,6 +33,7 @@
           </div>
         </div>
       </div>
+
       <template #footer>
         <be-button custom-class="sure-btn" round="3" @click="submit">
           <span class="font-format">{{ $t('lang.sure') }}</span>
@@ -48,11 +51,13 @@
   import { setSession } from '../utils/common'
   import composition from '../utils/mixin/common-func'
   import config from '../enums/config'
+  import ReportResult from './report-result.vue'
+  type Row = { createTime: string; reportNum: string; id: string; projectName: string }
   export default defineComponent({
     name: 'VerCodeDialog',
-    components: { NInput },
+    components: { NInput, ReportResult },
     props: {
-      num: {
+      keyword: {
         type: String,
         default: '',
       },
@@ -68,11 +73,13 @@
       watch(isShow, nVal => {
         if (!nVal) {
           formData.value = {}
+          isSuccess.value = false
         }
       })
+      const list = ref<Row[]>()
       const submit = (): void => {
         const params: IReportCode = {
-          num: formData.value.num,
+          keyword: props.keyword,
           code: formData.value.code,
           uuid: uuid.value,
         }
@@ -80,16 +87,15 @@
         getReportByCode(params)
           .then((res: any) => {
             if (res.code === 200 && res.data) {
+              if (!res.data?.length) {
+                message('warning', t('lang.noResults'), 'hermit-msg')
+                handleClose()
+                return
+              }
               message('success', t('lang.opSuccess'), 'hermit-msg')
               setSession('CETInfo', JSON.stringify(res.data))
-              const prevUrl =
-                String(import.meta.env.VITE_PROJECT_ENV) === 'production' ? '/hermit/back' : ''
-              window.open(
-                `${config.baseURL}${prevUrl}/website/common/preview/single?fileUuid=${res.data.uuid}&reportNum=${res.data.reportNum}`,
-                `preview${res.data.num}`
-              )
-
-              handleClose()
+              isSuccess.value = true
+              list.value = res.data
             } else {
               message('warning', t('lang.noResults'), 'hermit-msg')
               getCode()
@@ -104,17 +110,19 @@
       const { codeUrl, getCode, uuid } = composition()
       watch(isShow, (nVal: boolean) => {
         if (nVal) {
-          formData.value.num = (props.num && parseInt(props.num)) || undefined
           formData.value.code = ''
           getCode()
         }
       })
+      const isSuccess = ref(false)
       return {
         getCode,
         formData,
         submit,
         isShow,
         codeUrl,
+        isSuccess,
+        list,
       }
     },
   })
@@ -152,6 +160,19 @@
 #ver_code_dialog .plus-dialog-body .label {
   @apply text-black text-lg mb-2 font-light;
 }
+#ver_code_dialog.big .be-dialog-container{
+  width: 100%;
+  max-width: 648px;
+  min-width: 320px;
+  background-color: #fff;
+}
+#ver_code_dialog.big .be-dialog-title {
+  background-color: #fff !important;
+}
+#ver_code_dialog.big .be-dialog-footer {
+  display:none !important;
+}
+
 
 /* .request-quote-dialog .be-dialog-footer,
 .request-quote-dialog .be-dialog-title{
