@@ -1,5 +1,5 @@
 <template>
-  <div class="report-list pb-45px">
+  <div class="report-list scrollDiy pb-45px">
     <ul class="flex-col flex items">
       <li
         v-for="it in props.list"

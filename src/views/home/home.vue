@@ -452,6 +452,7 @@
     padding: 0 200px;
     background-position-x: -2px;
     background-size: 101% 100%;
+    min-height: 800px;
   }
 
   .hermit-main .slogan-news .slogan-news-bg {

@@ -4,7 +4,7 @@
     <be-dialog
       ref="moreNodeDialog"
       v-model:is-show="isShow"
-      :titles="isSuccess ? '' : $t('lang.login.verCode')"
+      :titles="isSuccess ? `${list.length} Results ` : $t('lang.login.verCode')"
       layout="right"
       custom-class="request-quote-dialog font-format"
       esc-exit
