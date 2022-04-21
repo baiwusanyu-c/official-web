@@ -144,7 +144,7 @@ export default {
       audited: 'Audited contracts',
       totalAudited: 'Total audited funds',
       inputTitle: 'Security Audit Report Search',
-      input: 'Please enter the report number',
+      input: 'Please enter the report number/name',
     },
     content: {
       title: 'Service Content',
@@ -178,7 +178,7 @@ export default {
       audited: 'Audited contracts',
       totalAudited: 'Total audited funds',
       inputTitle: 'Security Audit Report Search',
-      input: 'Please enter the report number',
+      input: 'Please enter the report number/name',
     },
     content: {
       title: 'Service Content',
@@ -355,17 +355,44 @@ export default {
   },
   // djd h-footer-bigger
   HFooterBigger: {
-    contact: {
-      contactTitle: 'Contact Us',
-      locationRoad: '120 ROBINSON ROAD',
-      locationSingapore: '#13-01 SINGAPORE 068913',
+    search: {
+      title: 'Research',
+      analysis: 'Security Analysis',
+      report: 'Reports',
     },
-    group: 'COMMUNITY',
-    policy: {
-      policyTitle: 'POLICY',
-      terms: 'Terms and Conditions',
+    serve: {
+      title: 'Product&Service',
+      vaas: 'Vaas',
+      eye: 'EagleEye',
+      audit: 'Smart Contract Audit',
+      platform: 'Blockchain Platform Audit',
+    },
+    company: {
+      title: 'Company',
+      aboutUs: 'About Us',
+      team: 'Terms and Conditions',
       privacy: 'Privacy Policy',
     },
+    socials: {
+      title: 'Socials',
+      twitter: 'Beosin Twitter',
+      alert: 'Beosin Alert',
+      telegram: 'Telegram',
+      linkedin: 'Linkedin',
+      medium: 'Medium',
+      discord: 'Discord',
+    },
+    // contact: {
+    //   contactTitle: 'Contact Us',
+    //   locationRoad: '120 ROBINSON ROAD',
+    //   locationSingapore: '#13-01 SINGAPORE 068913',
+    // },
+    // group: 'COMMUNITY',
+    // policy: {
+    //   policyTitle: 'POLICY',
+    //   terms: 'Terms and Conditions',
+    //   privacy: 'Privacy Policy',
+    // },
   },
   product: {
     vass: {

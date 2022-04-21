@@ -74,8 +74,7 @@
           size="large"
           :theme-overrides="inputThemeOverrides"
           :placeholder="$t('lang.serviceContract.search.input')"
-          @keyup.enter="search"
-          @input="searchPrams = searchPrams.replace(/[^\d]/g, '')">
+          @keyup.enter="search">
           <template #suffix>
             <be-icon class="search-input-icon" icon="search" @click="search"></be-icon>
           </template>
@@ -238,7 +237,7 @@
     <contact-us></contact-us>
     <about-hermit></about-hermit>
   </div>
-  <ver-code-dialog ref="verCodeDialog" :num="searchPrams"></ver-code-dialog>
+  <ver-code-dialog ref="verCodeDialog" :keyword="searchPrams"></ver-code-dialog>
 </template>
 
 <script lang="ts">

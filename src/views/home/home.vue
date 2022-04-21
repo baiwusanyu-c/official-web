@@ -1,24 +1,9 @@
 /* * @home.vue * @deprecated * @author czh * @update (czh 2021/12/15) */
 <template>
-  <div class="hermit-main w-full bg-black-100">
+  <div class="hermit-main w-full">
     <!--   slogan & news     -->
     <div class="slogan-news w-full bg-mainBlueGary relative flex justify-center">
-      <div class="slogan-news-bg w-full absolute">
-        <video
-          v-if="!isM"
-          class="absolute left-0 bottom-0 top-0 right-0 sm:hidden"
-          style="z-index: 0; width: 100%; height: 100%; object-fit: fill"
-          src="../../assets/video/home.webm"
-          muted="muted"
-          autoplay="autoplay"
-          loop="loop"
-          width="1920"></video>
-        <img
-          src="../../assets/img/home-bg-m.jpg"
-          alt=""
-          style="width: 100%; height: 100%"
-          class="display-none sm:flex" />
-      </div>
+      <div class="slogan-news-bg w-full absolute"></div>
       <div class="absolute z-10 flex justify-center flex-col w-3/5 h-full md:w-11/12 sm:w-4/5">
         <h2
           class="text-mainG text-6xl text-center font-bold leading-normal font-format sm:text-2xl">
@@ -51,20 +36,24 @@
         </be-button>
       </div>
     </div>
+
+    <!--report-->
+    <report-list> </report-list>
     <!--   blog     -->
     <div
       v-if="titleCardList.length > 0"
-      class="blog-new relative w-full bg-mainBlueGary flex flex-col justify-center items-center">
-      <div class="display-flex title-card-container sm:hidden">
-        <blog-new v-for="item in titleCardList" :key="item.id" :data="item"> </blog-new>
+      class="blog-new w-full bg-mainBlueGary flex justify-center">
+      <div
+        class="grid grid-cols-4 ph:grid-cols-2 w-62vw ph:w-90vw pad:w-90vw gap-10px title-card-container relative h-[100%]">
+        <blog-new v-for="item in titleCardList" :key="item.id" class="mr-0" :data="item">
+        </blog-new>
+        <p
+          class="more cursor-pointer absolute hover:underline"
+          @click="routerPush('/index/research')">
+          {{ $t('lang.home.more') }}
+          <img alt="" src="../../assets/img/more.png" class="inline ml-2" style="height: 14px" />
+        </p>
       </div>
-      <div class="display-none title-card-container sm:flex sm:flex-wrap sm:justify-between">
-        <blog-new v-for="item in titleCardList" :key="item.id" :data="item"> </blog-new>
-      </div>
-      <p class="more cursor-pointer hover:underline" @click="routerPush('/index/research')">
-        {{ $t('lang.home.more') }}
-        <img alt="" src="../../assets/img/more.png" class="inline ml-2" style="height: 14px" />
-      </p>
     </div>
     <!--   service     -->
     <div class="slogan-service w-full bg-default flex flex-col">
@@ -250,7 +239,7 @@
   import HomeProductCircle from '../../components/home-product-circle.vue'
   import BlogNew from '../../components/blog-new.vue'
   import { getBlogNews } from '../../api/research'
-
+  import ReportList from './includes/report-list.vue'
   interface ISelect {
     label: string
     value: string
@@ -273,6 +262,7 @@
       AboutHermit,
       ContactUs,
       Hexagon,
+      ReportList,
     },
     setup() {
       const { t } = useI18n()
@@ -462,12 +452,15 @@
     padding: 0 200px;
     background-position-x: -2px;
     background-size: 101% 100%;
+    min-height: 800px;
   }
 
   .hermit-main .slogan-news .slogan-news-bg {
-
     /* height: 58%; */
     height: 100%;
+    background: url(/src/assets/img/home-bg.jpg) no-repeat;
+    background-position: center center;
+    background-size: cover;
   }
 
   .hermit-main .slogan-news .contact-btn {
@@ -478,72 +471,71 @@
 
   .hermit-main .blog-new{
     box-sizing: border-box;
-    height: 514px;
-    padding: 0 200px;
+    padding-bottom: 50px;
+    /* height: 518px; */
   }
 
-  .hermit-main .blog-new .more{
+  .hermit-main  .more{
     display: flex;
     align-items: flex-start;
     justify-content: end;
-    width: 78%;
-    padding: 0 10px;
     line-height: 16px;
     text-align: right;
+    right: -10px;
+    bottom: -30px;
+    position: absolute;
   }
 
-  .hermit-main .blog-new .title-card-container {
+  .hermit-main  .title-card-container {
     position: relative;
-    width: 80%;
-    height:66%;
   }
 
-  .hermit-main .blog-new .title-card-container .title-card {
+  .hermit-main  .title-card-container .title-card {
     position: relative;
-    top: -130px;
-    width: 280px;
+    /* width: 280px; */
     height: 400px;
     transition: all .3s;
+
   }
 
-  .blog-new .title-card-container h3 {
+   .title-card-container h3 {
     font-size: 24px;
     font-weight: 400;
     line-height: 35px;
   }
 
-  .blog-new .title-card-container p {
+   .title-card-container p {
     font-size: 16px;
     font-weight: 400;
     line-height: 28px;
   }
 
-  .hermit-main .blog-new .title-card-container .title-card:hover {
+  .hermit-main  .title-card-container .title-card:hover {
     height: 450px;
     background: linear-gradient(-32deg, #19bcfc, #00ffba);
   }
 
-  .hermit-main .blog-new .title-card-container .title-card .title-card-btn {
+  .hermit-main  .title-card-container .title-card .title-card-btn {
     width: 50px;
     height: 50px;
     transition: all .3s;
   }
 
-  .hermit-main .blog-new .title-card-container .title-card:hover .title-card-btn {
+  .hermit-main  .title-card-container .title-card:hover .title-card-btn {
     width: 64px;
     height: 64px;
   }
 
-  .hermit-main .blog-new .title-card-container .title-card .icon-up2 {
+  .hermit-main  .title-card-container .title-card .icon-up2 {
     display: none;
   }
 
-  .hermit-main .blog-new .title-card-container .title-card:hover .icon-up2 {
+  .hermit-main  .title-card-container .title-card:hover .icon-up2 {
     display: initial;
     transform: rotate(90deg);
   }
 
-  .hermit-main .blog-new .title-card-container .title-card:hover .icon-up2 .be-icon {
+  .hermit-main  .title-card-container .title-card:hover .icon-up2 .be-icon {
     width: 30px !important;
     height: 30px !important;
   }
@@ -661,12 +653,9 @@
   /* 100% - 110% 适配 */
   @media screen and (min-width: 1540px) and (max-width: 1750px) {
 
-    .hermit-main .blog-new .title-card-container {
-      width: 75%;
-    }
 
-    .hermit-main .blog-new .title-card-container .title-card{
-      width: 236px;
+    .hermit-main  .title-card-container .title-card{
+      /* width: 236px; */
     }
 
     .hexagon-container-body .hexagon-b1 {
@@ -678,13 +667,13 @@
     }
 
 
-    .blog-new .title-card-container h3 {
+     .title-card-container h3 {
       font-size: 22px;
       font-weight: 400;
       line-height: 35px;
     }
 
-    .blog-new .title-card-container p {
+     .title-card-container p {
       font-size: 14px;
       font-weight: 400;
       line-height: 28px;
@@ -706,17 +695,11 @@
       width: 106vw;
     }
 
-    .hermit-main .blog-new .title-card-container,
-    .hermit-main .blog-new .more{
-      width: 97%;
-
-    }
-
-    .blog-new .title-card-container h3 {
+     .title-card-container h3 {
       font-size: 20px;
     }
 
-    .blog-new .title-card-container p {
+     .title-card-container p {
       font-size: 14px;
     }
   }
@@ -741,8 +724,7 @@
       width: 40%;
     }
 
-    .hermit-main .blog-new .title-card-container,
-    .hermit-main .blog-new .more{
+    .hermit-main  .more{
       width: 126%;
 
     }
@@ -848,59 +830,49 @@
       text-align: left;
     }
 
-    .hermit-main .blog-new{
-      height: 580px;
-      padding: 0 30px;
-    }
-
-    .hermit-main .blog-new .title-card-container{
-      width: 100%;
-      height: 88%;
-    }
-
-    .hermit-main .blog-new .title-card-container .title-card {
+    .hermit-main  .title-card-container .title-card {
       position: relative;
-      top: -80px;
-      width: 48%;
+      /* top: -80px; */
+      /* width: 48%; */
       height: 270px;
       margin-bottom: 10px;
       transition: all .3s;
     }
 
-    .blog-new .title-card-container h3 {
+     .title-card-container h3 {
       font-size: 14px;
       font-weight: bold;
       line-height: 20px;
     }
 
-    .blog-new .title-card-container p {
+     .title-card-container p {
       font-size: 12px;
       font-weight: 400;
       line-height: 16px;
     }
 
-    .hermit-main .blog-new .title-card-container .title-card:hover {
+    .hermit-main  .title-card-container .title-card:hover {
       height: 270px;
       background: linear-gradient(-32deg, #19bcfc, #00ffba);
     }
 
-    .hermit-main .blog-new .title-card-container .title-card .title-card-btn {
+    .hermit-main  .title-card-container .title-card .title-card-btn {
       width: 30px;
       height: 30px;
       transition: all .3s;
     }
 
-    .hermit-main .blog-new .title-card-container .title-card:hover .title-card-btn {
+    .hermit-main  .title-card-container .title-card:hover .title-card-btn {
       width: 30px;
       height: 30px;
     }
 
-    .hermit-main .blog-new .title-card-container .title-card:hover .icon-up2 .be-icon {
+    .hermit-main  .title-card-container .title-card:hover .icon-up2 .be-icon {
       width: 20px !important;
       height: 20px !important;
     }
 
-    .hermit-main .blog-new .more{
+    .hermit-main  .more{
       justify-content: center;
       width: 100%;
     }

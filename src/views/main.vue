@@ -117,10 +117,6 @@
     @apply px-2;
   }
 
-  .hermit-container-container .hermit-footer {
-    height: 20em;
-  }
-
   .be-main.pb-0 {
     padding: 0;
   }

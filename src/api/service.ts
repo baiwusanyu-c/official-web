@@ -14,14 +14,18 @@ export function getBackCode() {
   })
 }
 export interface IReportCode {
-  num?: number | undefined
+  keyword?: string | undefined
   code?: number | ''
   uuid?: string
 }
+
 export function getReportByCode(params: IReportCode) {
   return request({
-    url: '/website/report/search',
+    url: '/website/report/search-by-keyword',
     method: 'get',
-    params,
+    params: {
+      langType: 1,
+      ...params,
+    },
   })
 }
