@@ -4,7 +4,8 @@
     <!--   slogan & news     -->
     <div class="slogan-news w-full bg-mainBlueGary relative flex justify-center">
       <div class="slogan-news-bg w-full absolute"></div>
-      <div class="absolute z-10 flex justify-center flex-col w-3/5 h-full md:w-11/12 sm:w-4/5">
+      <div
+        class="absolute z-10 flex justify-center flex-col w-3/5 header-content ph:top-5vh md:w-11/12 sm:w-4/5">
         <h2
           class="text-mainG text-6xl text-center font-bold leading-normal font-format sm:text-2xl">
           {{ $t('lang.home.title1') }}
@@ -434,6 +435,9 @@
   .science-dom {
     width:220px;
   }
+  .header-content{
+    top: 20vh;
+  }
 
   .hexagon-container-body {
     width: 68%;
@@ -734,8 +738,8 @@
 
     .hermit-main .slogan-news {
       padding: 0 30px 30px;
-      height: 70vh;
-      min-height: 530px;
+      height: 60vh;
+      min-height: 600px;
     }
 
     .science-dom p {
@@ -824,7 +828,9 @@
   }
 
   @media screen and (min-width: 100px) and (max-width: 768px) {
-
+    .header-content{
+      top: 5vh;
+    }
     .science-dom {
       width: 92%;
       text-align: left;
@@ -887,7 +893,9 @@
 
   /* pad */
   @media screen and (min-width: 768px) and (max-width: 1278px) {
-
+    .header-content{
+      top: 10vh;
+    }
     .science-dom {
       width: 46%;
     }
