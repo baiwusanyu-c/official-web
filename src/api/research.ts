@@ -26,7 +26,7 @@ export function getBlogNewsList(params: IBlogListParam) {
   })
 }
 
-type PageQuery = { pageSize: number; pageNum: number }
+type PageQuery = { pageSize: number; pageNum: number; langType: 1 } // 1-英文报告
 // 报告分页查询
 export function getReportList(params: PageQuery) {
   return request({

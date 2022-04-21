@@ -29,7 +29,7 @@
 
   const toReport = (row: Row) => {
     window.open(
-      `${config.baseURL}/audit/${row.projectName}_${row.reportNum}.pdf`,
+      `${config.baseURL}/audits/${row.projectName}_${row.reportNum}.pdf`,
       `preview${row.reportNum}`
     )
   }
