@@ -52,6 +52,7 @@
     getReportList({
       pageSize: 8,
       pageNum: page.value,
+      langType: 1, // 取英文报告
     }).then((res: any) => {
       rows.value = res.rows as Row[]
       total.value = res.total
