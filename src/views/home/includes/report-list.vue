@@ -7,6 +7,7 @@
         <h3 class="h3 absolute top-5vw left-3vw">VERIFICATION REPORTS</h3>
       </div>
       <div class="report-right ph:w-[100%] flex-1 flex flex-col">
+        <h2 class="text-5vw text-center my-5vw hidden ph-title">VERIFICATION REPORTS</h2>
         <ul class="flex-col flex items">
           <li
             v-for="it in rows"
@@ -26,7 +27,7 @@
         </ul>
         <n-pagination
           v-model:page="page"
-          class="result-pagination"
+          class="report-pagination"
           :item-count="total"
           :page-slot="5"
           :page-size="8"
@@ -91,9 +92,17 @@
   .h3 {
     font-size: 2.4vw;
   }
+  @media (min-width: 100px) and (max-width: 1278px) {
+    .ph-title {
+      display: block !important;
+    }
+  }
   .row {
   }
-  .result-pagination {
-    margin: 54px auto 0;
+  .report-pagination {
+    margin: 6vw auto 0;
+  }
+  .report-pagination :deep(.n-pagination-item:nth-last-child(2)) {
+    display: none;
   }
 </style>

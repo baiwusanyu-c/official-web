@@ -7251,10 +7251,10 @@ vite-plugin-style-import@^0.10.0:
     es-module-lexer "^0.4.1"
     magic-string "^0.25.7"
 
-vite-plugin-svg-transform-script@^0.0.7:
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/vite-plugin-svg-transform-script/-/vite-plugin-svg-transform-script-0.0.7.tgz#3cc94f8c5b45ad2e56f16ab47252d4bbb5c3004e"
-  integrity sha512-SrB2XL2BFNpIO5Y81SB1b0C1JF0c35Knb1GZZ56+KRK8KU5dnskqzOhyBzexp8PmYjYf0TiqSLIch0xKJRLieA==
+vite-plugin-svg-transform-script@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/vite-plugin-svg-transform-script/-/vite-plugin-svg-transform-script-1.1.0.tgz#b53e1c7ae9a5526d23a47ffccbf37a292d2b1e6d"
+  integrity sha512-/vnkTYRcowaZ6NdkJVLmh22ERKyqhuEsS3+udlB9PVIAcJQ7CqVf2gE3h7K1maQGkNRB5rkHBxySiVu36ngpFA==
 
 vite-plugin-windicss@^1.6.3:
   version "1.6.3"
