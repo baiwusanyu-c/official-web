@@ -478,7 +478,7 @@
     width: 220px;
   }
   .header-content {
-    padding: 40px;
+    padding: 40px 0;
   }
 
   .hexagon-container-body {

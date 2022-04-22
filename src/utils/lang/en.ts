@@ -376,6 +376,7 @@ export default {
       eye: 'EagleEye',
       audit: 'Smart Contract Audit',
       platform: 'Blockchain Platform Audit',
+      trace: 'Trace',
     },
     company: {
       title: 'Company',
@@ -392,6 +393,7 @@ export default {
       medium: 'Medium',
       discord: 'Discord',
     },
+
     // contact: {
     //   contactTitle: 'Contact Us',
     //   locationRoad: '120 ROBINSON ROAD',

@@ -34,6 +34,9 @@
         <li class="font-format" @click="$router.push('/index/service/security')">
           {{ $t('lang.HFooterBigger.serve.platform') }}
         </li>
+        <li class="font-format" @click="$router.push('/index/solutions/trace')">
+          {{ $t('lang.HFooterBigger.serve.trace') }}
+        </li>
       </ul>
     </div>
     <div class="block">

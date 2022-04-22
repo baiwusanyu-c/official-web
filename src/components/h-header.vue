@@ -39,9 +39,7 @@
               <template #trigger>
                 <div
                   class="font-format trigger-item y-full flex items-center text-base justify-start hover:text-mainG"
-                  :class="{
-                    'item-active': route.path.includes('service') || route.path.includes('product'),
-                  }">
+                  :class="{ 'item-active': isPathIncludes(['service', 'product', 'trace']) }">
                   {{ $t('lang.header.solutions.title') }}
                   <be-icon icon="under" class="ml-2"></be-icon>
                 </div>
@@ -131,9 +129,7 @@
           <template #trigger>
             <div
               class="font-format trigger-item y-full flex items-center text-base hover:text-mainG"
-              :class="{
-                'item-active': route.path.includes('service') || route.path.includes('product'),
-              }">
+              :class="{ 'item-active': isPathIncludes(['service', 'product', 'trace']) }">
               {{ $t('lang.header.solutions.title') }}
               <be-icon icon="under" class="ml-2"></be-icon>
             </div>
@@ -358,6 +354,8 @@
         isLogin.value = false
         initPage()
       })
+      const isPathIncludes = (arr: string[]) => arr.some(it => route.path.includes(it))
+
       return {
         openLoginDialog,
         active,
@@ -371,6 +369,7 @@
         route,
         closePoper,
         logout,
+        isPathIncludes,
       }
     },
   })
