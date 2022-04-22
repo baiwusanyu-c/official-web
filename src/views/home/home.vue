@@ -48,7 +48,7 @@
         <blog-new v-for="item in titleCardList" :key="item.id" class="mr-0" :data="item">
         </blog-new>
         <p
-          class="more cursor-pointer absolute hover:underline"
+          class="blog-more-btn cursor-pointer absolute hover:underline"
           @click="routerPush('/index/research')">
           {{ $t('lang.home.more') }}
           <img alt="" src="../../assets/img/more.png" class="inline ml-2" style="height: 14px" />
@@ -519,7 +519,7 @@
     /* height: 518px; */
   }
 
-  .hermit-main .more {
+  .hermit-main .blog-more-btn {
     display: flex;
     align-items: flex-start;
     justify-content: end;
@@ -761,10 +761,6 @@
     .slogan-service-item .hexagon-desc {
       width: 40%;
     }
-
-    .hermit-main .more {
-      width: 126%;
-    }
   }
 
   @media screen and (min-width: 100px) and (max-width: 1278px) {
@@ -910,7 +906,7 @@
       height: 20px !important;
     }
 
-    .hermit-main .more {
+    .hermit-main .blog-more-btn {
       justify-content: center;
       width: 100%;
     }
