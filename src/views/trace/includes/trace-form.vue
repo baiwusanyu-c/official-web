@@ -130,12 +130,24 @@
     height: 2.5vw;
     min-height: 32px;
   }
+
   .trace-btn {
     font-size: 18px;
     font-weight: bold;
   }
+  @media screen and (max-width: 900px) {
+    .trace-form-content h1 {
+      font-size: 18px !important;
+    }
+    .trace-form-content .n-form-item-label {
+      font-size: 14px !important;
+    }
+  }
   /* 手机 */
   @media screen and (max-width: 500px) {
+    .trace-form-content {
+      padding-top: 76px;
+    }
     .trace-btn {
       font-size: 14px;
     }
@@ -144,6 +156,12 @@
     }
     .trace-btn {
       margin: 0 auto;
+    }
+    .trace-form-content h1 {
+      font-size: 16px !important;
+    }
+    .trace-form-content .n-form-item-label {
+      font-size: 12px !important;
     }
   }
 </style>

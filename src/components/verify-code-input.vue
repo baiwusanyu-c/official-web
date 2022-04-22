@@ -1,7 +1,7 @@
 <template>
   <div class="verify-code-input flex">
     <n-input :value="data.code" class="verify-n-input" :on-input="change" />
-    <img :src="img" class="h-100% ml-10px cursor-pointer" @click="getCode" />
+    <img :src="img" class="ml-10px verify-code-img3 cursor-pointer" @click="getCode" />
   </div>
 </template>
 <script lang="ts" setup>
@@ -40,7 +40,15 @@
   .verify-code-input {
     width: 100%;
   }
-  .verify-code-input .n-input__input-el {
+  .verify-code-img3 {
+    height: 100% !important;
+    flex: 0 0 auto;
+  }
+
+  .verify-n-input {
+    flex: 1 1 auto;
+  }
+  .verify-code-input .verify-code-input .n-input__input-el {
     height: 100% !important;
   }
 </style>

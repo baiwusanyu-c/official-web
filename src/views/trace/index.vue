@@ -63,6 +63,9 @@
     .top-img {
       position: static !important;
     }
+    .main-img {
+      width: 120px !important;
+    }
 
     .trace-top {
       height: 55.6vw !important;
@@ -71,10 +74,10 @@
       width: 60vw !important;
     }
     .main-block-title {
-      font-size: 24px !important;
+      font-size: 18px !important;
     }
     .main-p {
-      font-size: 16px !important;
+      font-size: 14px !important;
     }
     .trace-top .top-left > p {
       font-size: 2.7vw;
@@ -88,17 +91,26 @@
       grid-template-columns: 1fr !important;
       row-gap: 11vw;
     }
+    .trace-top {
+      height: 66vw !important;
+    }
     .main-title {
-      font-size: 4.8vw;
+      font-size: 18px !important;
     }
     .main-img {
-      width: 22.4vw;
+      width: 84px !important;
     }
     .main-block-title {
       margin-top: 5vw !important;
     }
+    .main-p {
+      font-size: 14px;
+    }
     .right-img {
       display: none !important;
+    }
+    .top-left > p {
+      font-size: 14px;
     }
   }
   .top-left > p {

@@ -195,7 +195,7 @@
             style="position: absolute; right: 50%; bottom: 5%; transform: translateX(50%)">
             <be-button
               custom-class="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
-              @click="routerPush('/index/service/contracts')">
+              @click="routerPush('/index/solutions/trace')">
               <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
             </be-button>
           </div>
