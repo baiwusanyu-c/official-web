@@ -12,7 +12,7 @@ const home = () => import('../views/home/home.vue')
 const test = () => import('../views/test.vue')
 const page404 = () => import('../views/404/404.vue')
 const research = () => import('../views/research/research.vue')
-const track = () => import('../views/track/index.vue')
+const trace = () => import('../views/trace/index.vue')
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/index',
@@ -29,8 +29,8 @@ const routes: Array<RouteRecordRaw> = [
         name: 'research',
       },
       {
-        path: 'solutions/track',
-        component: track,
+        path: 'solutions/trace',
+        component: trace,
       },
       {
         path: '/index/service/contracts',

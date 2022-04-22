@@ -47,7 +47,7 @@ export default {
     },
     solutions: {
       title: 'Solutions',
-      track: 'Track',
+      trace: 'Trace',
     },
     serviceStr: {
       service1: 'Smart Contract Audit',
@@ -57,7 +57,7 @@ export default {
       product1: 'VaaS',
       product2: 'EagleEye',
     },
-    track: 'Track',
+    trace: 'Trace',
     language: {
       EN: 'EN',
       CH: '中文',
@@ -98,11 +98,17 @@ export default {
     serviceTitle2: 'Blockchain Platform Audit',
     serviceInfo2:
       'Through different security testing methods of black box, gray box and white box, we effectively verify the security of blockchain platforms through audits of core modules, node communication, storage, consensus and authority management, etc.',
+    serviceTitle3: 'Product Features of Beosin Trace',
+    serviceInfo3: `A visualization product that focuses on the security of users' wallet transactions, helping users visualize and trace the flow of funds, monitor suspicious addresses, and assist in recovering on-chain assets.`,
     serviceIc8: 'Language Coding Security Audit',
     serviceIc9: 'Block Production and Governance Audit',
     serviceIc10: 'Account System Security Audit',
     serviceIc11: 'Asset Security Audit',
     serviceIc12: 'Application-layer Security Audit',
+    serviceIc13: 'Stolen funds tracing',
+    serviceIc14: 'Suspicious address  monitoring',
+    serviceIc15: 'Malicious address \n database',
+    serviceIc16: 'Mixer Tracing',
 
     productName1: 'VaaS',
     productDesc1:
@@ -466,6 +472,34 @@ export default {
       supportTitle: 'Supported blockchain platforms',
       supportDesc: 'Customized features to meet your specific requirements',
     },
+  },
+  tracePage: {
+    pageIntro: `A visualization product that focuses on the security of users' wallet transactions,
+    helping users visualize and trace the flow of funds, monitor suspicious addresses, and
+    assist in recovering on-chain assets.`,
+    feture: 'Features',
+    bTitle1: 'Stolen funds tracing',
+    bTitle2: 'Suspicious address monitoring',
+    bTitle3: 'Malicious address database',
+    bTitle4: 'Mixer Tracing',
+    bInfo1: `Visualize and trace the movement of funds from the hacker's address to the money
+    laundering addresses or to the exchanges.`,
+    bInfo2: `Monitor the transaction movement of the addresses. For example, once the profitable
+    funds on the hacker's address are transferred to other addresses, the system will
+    immediately send an alert notification to users.`,
+    bInfo3: `We have hundreds of millions of address labels that contain a library of tens of
+    thousands of darknet, ransom, hacker and other malicious addresses.`,
+    bInfo4: `We can help you analyze the flow of funds after depositing into the mixers. For example,
+    trace the whereabouts of the funds into Tornado Cash and finally help users recover
+    them.`,
+    formTitle: 'For on-chain tracing needs, do not hesitate to contact us.',
+    message1: 'Stolen address (multiple fields are allowed):',
+    message2: 'Stolen transaction hash (multiple fields are allowed):',
+    message3: 'Detailed description:',
+    itemName: 'Your name:',
+    itemEmail: 'Your email address:',
+    verify: 'Verification code:',
+    submit: 'Submit',
   },
   aboutUsPage: {
     title: 'ABOUT US',

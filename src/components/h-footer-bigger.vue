@@ -1,6 +1,7 @@
 /* * @h-footer-bigger.vue * @deprecated * @author czh * @update (czh 2021/12/15) */
 <template>
-  <div class="bg-footer grid px-20vw py-20px sm:px-5vw grid-cols-4 sm:grid-cols-2 gap-x-3 gap-y-12">
+  <div
+    class="bg-footer page-footer grid px-20vw py-20px sm:px-5vw grid-cols-4 sm:grid-cols-2 gap-x-3 gap-y-12">
     <div class="block">
       <p class="footer-title text-lg font-format">
         {{ $t('lang.HFooterBigger.search.title') }}
@@ -88,15 +89,10 @@
 <script lang="ts">
   import { defineComponent } from 'vue'
 
-  import { NIcon, NPopover } from 'naive-ui'
   import { linkConfig, linkConfigPolicy } from '../enums/link'
   import composition from '../utils/mixin/common-func'
   export default defineComponent({
     name: 'HFooterBigger',
-    components: {
-      NIcon,
-      NPopover,
-    },
     setup() {
       const { openWin } = composition()
       return {
@@ -121,6 +117,9 @@
 </style>
 <!-- prettier-ignore -->
 <style scoped>
+.page-footer li{
+  width: fit-content;
+}
 
 .block{
   color: #888888;
@@ -147,6 +146,7 @@
   margin-top: 12px !important;
   display: flex;
   align-items: center;
+
 }
 .socials :deep(svg) {
   width: 24px;

@@ -2,10 +2,9 @@
 <template>
   <div class="hermit-main w-full">
     <!--   slogan & news     -->
-    <div class="slogan-news w-full bg-mainBlueGary relative flex justify-center">
+    <div class="slogan-news w-full bg-mainBlueGary relative flex justify-center items-center">
       <div class="slogan-news-bg w-full absolute"></div>
-      <div
-        class="absolute z-10 flex justify-center flex-col w-3/5 header-content ph:top-5vh md:w-11/12 sm:w-4/5">
+      <div class="z-10 flex justify-center flex-col w-3/5 header-content md:w-11/12 sm:w-4/5">
         <h2
           class="text-mainG text-6xl text-center font-bold leading-normal font-format sm:text-2xl">
           {{ $t('lang.home.title1') }}
@@ -153,6 +152,50 @@
             <be-button
               custom-class="float-right learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
               @click="routerPush('/index/service/security')">
+              <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
+            </be-button>
+          </div>
+        </div>
+      </div>
+
+      <div class="slogan-service-item flex justify-end items-center w-full mt-10 sm:flex-col">
+        <div
+          style="box-sizing: border-box"
+          class="mr-24 hexagon-desc lg125:mb-0 md:mb-0 sm:mb-0 sm:mr-0">
+          <h3 class="font-bold text-3xl mb-8 font-format sm:text-lg sm:mb-4">
+            {{ $t('lang.home.serviceTitle3') }}
+          </h3>
+          <p class="mb-16 font-format text-justify leading-normal text-lg sm:text-xs sm:mb-6">
+            {{ $t('lang.home.serviceInfo3') }}
+          </p>
+
+          <!--        pc 显示按钮            -->
+          <div class="sm:hidden">
+            <be-button
+              custom-class="display-flex learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
+              @click="routerPush('/index/service/contracts')">
+              <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
+            </be-button>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap flex-col relative hexagon-container-body justify-center">
+          <div class="flex justify-center trace-trans">
+            <hexagon class="font-format" :index="12"></hexagon>
+            <hexagon class="font-format" :index="13"></hexagon>
+          </div>
+          <div class="flex justify-center trace-trans relative hexagon-b1">
+            <hexagon class="font-format" :index="14"></hexagon>
+            <hexagon class="font-format" :index="15"></hexagon>
+            <hexagon class="font-format" :index="-1"></hexagon>
+          </div>
+          <!--        mobile 显示按钮            -->
+          <div
+            class="display-none sm:flex"
+            style="position: absolute; right: 50%; bottom: 5%; transform: translateX(50%)">
+            <be-button
+              custom-class="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
+              @click="routerPush('/index/service/contracts')">
               <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
             </be-button>
           </div>
@@ -430,13 +473,12 @@
   })
 </script>
 
-<!-- prettier-ignore -->
 <style>
   .science-dom {
-    width:220px;
+    width: 220px;
   }
-  .header-content{
-    top: 20vh;
+  .header-content {
+    padding: 40px;
   }
 
   .hexagon-container-body {
@@ -452,11 +494,10 @@
   }
 
   .hermit-main .slogan-news {
-    height: 100vh;
-    padding: 0 200px;
+    min-height: 100vh;
+    padding: 0 200px 150px;
     background-position-x: -2px;
     background-size: 101% 100%;
-    min-height: 800px;
   }
 
   .hermit-main .slogan-news .slogan-news-bg {
@@ -468,18 +509,17 @@
   }
 
   .hermit-main .slogan-news .contact-btn {
-
     /* margin-bottom: 20em; */
     @apply h-12 w-80 font-bold sm:w-60 sm:h-9;
   }
 
-  .hermit-main .blog-new{
+  .hermit-main .blog-new {
     box-sizing: border-box;
     padding-bottom: 50px;
     /* height: 518px; */
   }
 
-  .hermit-main  .more{
+  .hermit-main .more {
     display: flex;
     align-items: flex-start;
     justify-content: end;
@@ -490,56 +530,55 @@
     position: absolute;
   }
 
-  .hermit-main  .title-card-container {
+  .hermit-main .title-card-container {
     position: relative;
   }
 
-  .hermit-main  .title-card-container .title-card {
+  .hermit-main .title-card-container .title-card {
     position: relative;
     /* width: 280px; */
     height: 400px;
-    transition: all .3s;
-
+    transition: all 0.3s;
   }
 
-   .title-card-container h3 {
+  .title-card-container h3 {
     font-size: 24px;
     font-weight: 400;
     line-height: 35px;
   }
 
-   .title-card-container p {
+  .title-card-container p {
     font-size: 16px;
     font-weight: 400;
     line-height: 28px;
   }
 
-  .hermit-main  .title-card-container .title-card:hover {
+  .hermit-main .title-card-container .title-card:hover {
     height: 450px;
     background: linear-gradient(-32deg, #19bcfc, #00ffba);
   }
 
-  .hermit-main  .title-card-container .title-card .title-card-btn {
+  .hermit-main .title-card-container .title-card .title-card-btn {
     width: 50px;
     height: 50px;
-    transition: all .3s;
+    transition: all 0.3s;
   }
 
-  .hermit-main  .title-card-container .title-card:hover .title-card-btn {
+  .hermit-main .title-card-container .title-card:hover .title-card-btn {
     width: 64px;
     height: 64px;
   }
 
-  .hermit-main  .title-card-container .title-card .icon-up2 {
+  .hermit-main .title-card-container .title-card .icon-up2 {
     display: none;
   }
 
-  .hermit-main  .title-card-container .title-card:hover .icon-up2 {
+  .hermit-main .title-card-container .title-card:hover .icon-up2 {
     display: initial;
     transform: rotate(90deg);
   }
 
-  .hermit-main  .title-card-container .title-card:hover .icon-up2 .be-icon {
+  .hermit-main .title-card-container .title-card:hover .icon-up2 .be-icon {
     width: 30px !important;
     height: 30px !important;
   }
@@ -656,9 +695,7 @@
 
   /* 100% - 110% 适配 */
   @media screen and (min-width: 1540px) and (max-width: 1750px) {
-
-
-    .hermit-main  .title-card-container .title-card{
+    .hermit-main .title-card-container .title-card {
       /* width: 236px; */
     }
 
@@ -670,14 +707,13 @@
       height: 190px;
     }
 
-
-     .title-card-container h3 {
+    .title-card-container h3 {
       font-size: 22px;
       font-weight: 400;
       line-height: 35px;
     }
 
-     .title-card-container p {
+    .title-card-container p {
       font-size: 14px;
       font-weight: 400;
       line-height: 28px;
@@ -686,7 +722,6 @@
 
   /* 110% - 125% 适配 */
   @media screen and (min-width: 1328px) and (max-width: 1538px) {
-
     .hermit-main .slogan-service {
       padding: 10px 116px;
     }
@@ -699,18 +734,17 @@
       width: 106vw;
     }
 
-     .title-card-container h3 {
+    .title-card-container h3 {
       font-size: 20px;
     }
 
-     .title-card-container p {
+    .title-card-container p {
       font-size: 14px;
     }
   }
 
   /* 150% 适配 */
   @media screen and (min-width: 1280px) and (max-width: 1326px) {
-
     .home-swiper {
       width: 126vw;
     }
@@ -728,18 +762,19 @@
       width: 40%;
     }
 
-    .hermit-main  .more{
+    .hermit-main .more {
       width: 126%;
-
     }
   }
 
   @media screen and (min-width: 100px) and (max-width: 1278px) {
-
     .hermit-main .slogan-news {
       padding: 0 30px 30px;
       height: 60vh;
       min-height: 600px;
+    }
+    .trace-trans {
+      transform: translateX(40px);
     }
 
     .science-dom p {
@@ -828,64 +863,60 @@
   }
 
   @media screen and (min-width: 100px) and (max-width: 768px) {
-    .header-content{
-      top: 5vh;
-    }
     .science-dom {
       width: 92%;
       text-align: left;
     }
 
-    .hermit-main  .title-card-container .title-card {
+    .hermit-main .title-card-container .title-card {
       position: relative;
       /* top: -80px; */
       /* width: 48%; */
       height: 270px;
       margin-bottom: 10px;
-      transition: all .3s;
+      transition: all 0.3s;
     }
 
-     .title-card-container h3 {
+    .title-card-container h3 {
       font-size: 14px;
       font-weight: bold;
       line-height: 20px;
     }
 
-     .title-card-container p {
+    .title-card-container p {
       font-size: 12px;
       font-weight: 400;
       line-height: 16px;
     }
 
-    .hermit-main  .title-card-container .title-card:hover {
+    .hermit-main .title-card-container .title-card:hover {
       height: 270px;
       background: linear-gradient(-32deg, #19bcfc, #00ffba);
     }
 
-    .hermit-main  .title-card-container .title-card .title-card-btn {
+    .hermit-main .title-card-container .title-card .title-card-btn {
       width: 30px;
       height: 30px;
-      transition: all .3s;
+      transition: all 0.3s;
     }
 
-    .hermit-main  .title-card-container .title-card:hover .title-card-btn {
+    .hermit-main .title-card-container .title-card:hover .title-card-btn {
       width: 30px;
       height: 30px;
     }
 
-    .hermit-main  .title-card-container .title-card:hover .icon-up2 .be-icon {
+    .hermit-main .title-card-container .title-card:hover .icon-up2 .be-icon {
       width: 20px !important;
       height: 20px !important;
     }
 
-    .hermit-main  .more{
+    .hermit-main .more {
       justify-content: center;
       width: 100%;
     }
   }
 
   @media screen and (min-width: 100px) and (max-width: 340px) {
-
     .science-dom {
       margin-bottom: 10px !important;
     }
@@ -893,9 +924,6 @@
 
   /* pad */
   @media screen and (min-width: 768px) and (max-width: 1278px) {
-    .header-content{
-      top: 10vh;
-    }
     .science-dom {
       width: 46%;
     }

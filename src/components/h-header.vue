@@ -294,8 +294,8 @@
           value: '/index/product/productEagle',
         },
         {
-          label: t('lang.header.solutions.track'),
-          value: '/index/solutions/track',
+          label: t('lang.header.solutions.trace'),
+          value: '/index/solutions/trace',
         },
       ])
       const loginList = ref<Array<ISelect>>([
