@@ -173,7 +173,7 @@
           <div class="sm:hidden">
             <be-button
               custom-class="display-flex learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
-              @click="routerPush('/index/service/contracts')">
+              @click="routerPush('/index/solutions/trace')">
               <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
             </be-button>
           </div>

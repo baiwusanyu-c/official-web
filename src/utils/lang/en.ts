@@ -98,8 +98,8 @@ export default {
     serviceTitle2: 'Blockchain Platform Audit',
     serviceInfo2:
       'Through different security testing methods of black box, gray box and white box, we effectively verify the security of blockchain platforms through audits of core modules, node communication, storage, consensus and authority management, etc.',
-    serviceTitle3: 'Product Features of Beosin Trace',
-    serviceInfo3: `A visualization product that focuses on the security of users' wallet transactions, helping users visualize and trace the flow of funds, monitor suspicious addresses, and assist in recovering on-chain assets.`,
+    serviceTitle3: 'On-chain Trace',
+    serviceInfo3: `assist in recovering on-chain assets, applicable to various scenarios such as virtual currency regulation, abnormal transaction warning, transaction following-up and source-tracing, and forensics investigation.`,
     serviceIc8: 'Language Coding Security Audit',
     serviceIc9: 'Block Production and Governance Audit',
     serviceIc10: 'Account System Security Audit',

@@ -87,7 +87,9 @@
       </ul>
     </div>
   </div>
-  <!--    <div class="h-6 flex justify-center items-center font-format">©2021 by Hermit. All Rights Reserved.</div>-->
+  <div class="h-47px ph:text-12px flex justify-center items-center font-format">
+    ©2021 by Beosin. All Rights Reserved. Contact@beosin.com
+  </div>
 </template>
 <script lang="ts">
   import { defineComponent } from 'vue'

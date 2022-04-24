@@ -92,7 +92,9 @@
   import { createQuote, IQuote } from '../api/quote'
   import { verEmail } from '../utils/common'
   import composition from '../utils/mixin/common-func'
+  import { getStore } from '../utils/common'
 
+  const userInfo = getStore('userInfo') && JSON.parse(getStore('userInfo'))
   export default defineComponent({
     name: 'RequestQuoteDialog',
     components: {
@@ -110,7 +112,7 @@
         if (!nVal) {
           formData.value = {
             name: '',
-            email: '',
+            email: userInfo?.username || '',
             type: 1,
             code: '',
             mobile: '',
@@ -183,7 +185,7 @@
       }
       const formData = ref<IQuote>({
         name: '',
-        email: '',
+        email: userInfo?.username || '',
         type: 1,
         code: '',
         mobile: '',

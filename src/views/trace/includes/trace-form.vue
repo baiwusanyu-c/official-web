@@ -1,6 +1,6 @@
 <template>
   <div class="trace-form bg-[#EEF6F9]">
-    <div class="trace-form-content w-77.6vw mx-auto pt-3.2vw">
+    <div class="trace-form-content w-66.7vw mx-auto pt-3.2vw">
       <h1 class="text-1.7vw font-bold">
         {{ $t('lang.tracePage.formTitle') }}
       </h1>
@@ -55,15 +55,17 @@
   import { useI18n } from 'vue-i18n'
   import VerifyCodeInput from '../../../components/verify-code-input.vue'
   import composition from '../../../utils/mixin/common-func'
+  import { getStore } from '../../../utils/common'
+
   const { message } = composition()
   const { t } = useI18n()
-
+  const userInfo = getStore('userInfo') && JSON.parse(getStore('userInfo'))
   const rules = {
-    message2: { required: true, message: 'please enter Stolen transaction hash' },
+    message2: { required: true, message: 'Please enter Stolen transaction hash' },
     email: [
       {
         required: true,
-        message: 'please enter your email address',
+        message: 'Please enter your email address',
       },
       {
         pattern: /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/,
@@ -77,7 +79,7 @@
   }
   const form = reactive({
     name: '',
-    email: '',
+    email: userInfo?.username || '',
     message1: '',
     message2: '',
     message3: '',
@@ -142,6 +144,9 @@
     .trace-form-content .n-form-item-label {
       font-size: 14px !important;
     }
+    .right-img {
+      display: none !important;
+    }
   }
   /* 手机 */
   @media screen and (max-width: 500px) {
@@ -151,9 +156,7 @@
     .trace-btn {
       font-size: 14px;
     }
-    .right-img {
-      display: none !important;
-    }
+
     .trace-btn {
       margin: 0 auto;
     }
