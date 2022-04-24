@@ -262,6 +262,7 @@
         isLogin.value = false
         message('success', t('lang.opSuccess'), 'hermit-msg')
         if (/personal/.test(route.path)) routerPush('/index/home')
+        window.location.reload()
       }
       /**
        * 变换语言

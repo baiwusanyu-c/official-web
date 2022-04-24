@@ -94,7 +94,6 @@
   import composition from '../utils/mixin/common-func'
   import { getStore } from '../utils/common'
 
-  const userInfo = getStore('userInfo') && JSON.parse(getStore('userInfo'))
   export default defineComponent({
     name: 'RequestQuoteDialog',
     components: {
@@ -109,7 +108,8 @@
         isShow.value = false
       }
       watch(isShow, nVal => {
-        if (!nVal) {
+        const userInfo = getStore('userInfo') && JSON.parse(getStore('userInfo'))
+        if (nVal) {
           formData.value = {
             name: '',
             email: userInfo?.username || '',
@@ -118,9 +118,8 @@
             mobile: '',
             message: '',
           }
-        } else {
-          getCode()
         }
+        getCode()
       })
       /**
        * 校验提示
@@ -183,6 +182,8 @@
             console.error(err)
           })
       }
+      const userInfo = getStore('userInfo') && JSON.parse(getStore('userInfo'))
+
       const formData = ref<IQuote>({
         name: '',
         email: userInfo?.username || '',
