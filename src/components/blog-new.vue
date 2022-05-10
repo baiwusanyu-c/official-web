@@ -13,14 +13,15 @@
       alt=""
       src="../../src/assets/img/blob0.png"
       class="title-card-btn" />
-    <h3 class="w-full text-2xl my-6 break-words font-format text-left sm:my-4">
-      <be-ellipsis
+    <h3 class="w-full text-data text-2xl my-6 break-words font-format text-left sm:my-4">
+      {{ data.title }}
+      <!-- <be-ellipsis
         disabled
         style="font-weight: bold"
         :elp-num="data.title.length > 80 ? data.title.length - 80 : 0"
         :text="data.title"
         :content="data.title">
-      </be-ellipsis>
+      </be-ellipsis> -->
     </h3>
     <!--    <p class="w-full break-words font-format text-justify" style="height: 300px">
       <be-ellipsis
@@ -60,3 +61,12 @@
     },
   })
 </script>
+<style scoped>
+  .text-data {
+    overflow: hidden;
+    /* text-overflow: ellipsis; */
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+  }
+</style>

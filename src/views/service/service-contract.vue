@@ -273,6 +273,7 @@
       const curInst = getCurrentInstance()
       const searchPrams = ref<string>('')
       const search = (): void => {
+        searchPrams.value = searchPrams.value.trim()
         if (!searchPrams.value) {
           message('warning', t('lang.serviceSecurity.search.input'), 'hermit-msg')
           return

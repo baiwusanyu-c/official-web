@@ -32,19 +32,22 @@ export default {
     project2: 'Blockchain platform audit',
     project3: 'VaaS',
     project4: 'EagleEye',
+    project5: 'Trace',
   },
   header: {
     nav: 'Navigation',
     home: 'Home',
     research: 'Research',
-    service: 'Service',
-    product: 'Product',
     aboutUs: 'About Us',
     requestUs: 'Request a Quote',
     login: 'Login',
     loginStr: {
       center: 'Personal Center',
       quit: 'Log Out',
+    },
+    solutions: {
+      title: 'Solutions',
+      trace: 'Trace',
     },
     serviceStr: {
       service1: 'Smart Contract Audit',
@@ -54,6 +57,7 @@ export default {
       product1: 'VaaS',
       product2: 'EagleEye',
     },
+    trace: 'Trace',
     language: {
       EN: 'EN',
       CH: '中文',
@@ -84,7 +88,7 @@ export default {
     more: 'Learn More',
     serviceTitle1: 'Smart Contract Audit',
     serviceInfo1:
-      'Based on formal verification tools, we identify and eliminate errors and vulnerabilities of the code, ensure the consistency of smart contracts’ code and business logic, and provide authoritative security audit reports.',
+      'Beosin Smart Contract audits identify code errors and code vulnerabilities, including rigorous audit of business logic and interaction between different contracts. Beosin use formal verification for all Smart Contract audits, the same methodology used in highly sensitive systems such as the Mars probe lander and metro control systems. All audit reports include recommendations on how to resolve the issues identified.',
     serviceIc1: 'DeFi contracts',
     serviceIc2: 'Tokens contracts',
     serviceIc3: 'Other Customized Smart Contracts',
@@ -92,15 +96,20 @@ export default {
     serviceIc5: 'DApp Contract',
 
     serviceTitle2: 'Blockchain Platform Audit',
-    serviceInfo2:
-      'Through different security testing methods of black box, gray box and white box, we effectively verify the security of blockchain platforms through audits of core modules, node communication, storage, consensus and authority management, etc.',
+    serviceInfo2: `Beosin offer complete audits of layer 1 and layer 2 blockchain platforms, structured into black box, grey box, and white box audit. The audit covers all aspects of blockchain architecture, including block production, node communication, consensus algorithm, and governance logic. All audit reports include recommendations on how to resolve the issues identified.`,
+    serviceTitle3: 'On-chain Asset Tracing',
+    serviceInfo3: `Trace digital assets, visualize transactions and wallet relationships, find source of funds and destination wallet. Beosin can also help you recover stolen assets`,
     serviceIc8: 'Language Coding Security Audit',
     serviceIc9: 'Block Production and Governance Audit',
     serviceIc10: 'Account System Security Audit',
     serviceIc11: 'Asset Security Audit',
     serviceIc12: 'Application-layer Security Audit',
+    serviceIc13: 'Stolen funds tracing',
+    serviceIc14: 'Suspicious address  monitoring',
+    serviceIc15: 'Malicious address \n database',
+    serviceIc16: 'Mixer Tracing',
 
-    productName1: 'VaaS',
+    productName1: 'VaaS (Verification-as-a-Service)',
     productDesc1:
       'The industry-leading security analysis platform for smart contracts with multi-dimensional detection capabilities such as static scanning, fuzzy testing, and formal verification, which can automatically discover known and unknown vulnerabilities and business logic issues in smart contracts and provide professional comments or revisions.',
     productFeature1: 'Known Vulnerabilities',
@@ -366,6 +375,7 @@ export default {
       eye: 'EagleEye',
       audit: 'Smart Contract Audit',
       platform: 'Blockchain Platform Audit',
+      trace: 'Trace',
     },
     company: {
       title: 'Company',
@@ -382,6 +392,7 @@ export default {
       medium: 'Medium',
       discord: 'Discord',
     },
+
     // contact: {
     //   contactTitle: 'Contact Us',
     //   locationRoad: '120 ROBINSON ROAD',
@@ -462,6 +473,34 @@ export default {
       supportTitle: 'Supported blockchain platforms',
       supportDesc: 'Customized features to meet your specific requirements',
     },
+  },
+  tracePage: {
+    pageIntro: `A visualization product that focuses on the security of users' wallet transactions,
+    helping users visualize and trace the flow of funds, monitor suspicious addresses, and
+    assist in recovering on-chain assets.`,
+    feture: 'Features',
+    bTitle1: 'Stolen funds tracing',
+    bTitle2: 'Suspicious address monitoring',
+    bTitle3: 'Malicious address database',
+    bTitle4: 'Mixer Tracing',
+    bInfo1: `Visualize and trace the movement of funds from the hacker's address to the money
+    laundering addresses or to the exchanges.`,
+    bInfo2: `Monitor the transaction movement of the addresses. For example, once the profitable
+    funds on the hacker's address are transferred to other addresses, the system will
+    immediately send an alert notification to users.`,
+    bInfo3: `We have hundreds of millions of address labels that contain a library of tens of
+    thousands of darknet, ransom, hacker and other malicious addresses.`,
+    bInfo4: `We can help you analyze the flow of funds after depositing into the mixers. For example,
+    trace the whereabouts of the funds into Tornado Cash and finally help users recover
+    them.`,
+    formTitle: 'For on-chain tracing needs, do not hesitate to contact us.',
+    message1: 'Stolen address (multiple fields are allowed):',
+    message2: 'Stolen transaction hash (multiple fields are allowed):',
+    message3: 'Detailed description:',
+    itemName: 'Your name:',
+    itemEmail: 'Your email address:',
+    verify: 'Verification code:',
+    submit: 'Submit',
   },
   aboutUsPage: {
     title: 'ABOUT US',

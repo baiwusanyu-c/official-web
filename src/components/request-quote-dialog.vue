@@ -92,6 +92,7 @@
   import { createQuote, IQuote } from '../api/quote'
   import { verEmail } from '../utils/common'
   import composition from '../utils/mixin/common-func'
+  import { getStore } from '../utils/common'
 
   export default defineComponent({
     name: 'RequestQuoteDialog',
@@ -107,18 +108,18 @@
         isShow.value = false
       }
       watch(isShow, nVal => {
-        if (!nVal) {
+        const userInfo = getStore('userInfo') && JSON.parse(getStore('userInfo'))
+        if (nVal) {
           formData.value = {
             name: '',
-            email: '',
+            email: userInfo?.username || '',
             type: 1,
             code: '',
             mobile: '',
             message: '',
           }
-        } else {
-          getCode()
         }
+        getCode()
       })
       /**
        * 校验提示
@@ -181,9 +182,11 @@
             console.error(err)
           })
       }
+      const userInfo = getStore('userInfo') && JSON.parse(getStore('userInfo'))
+
       const formData = ref<IQuote>({
         name: '',
-        email: '',
+        email: userInfo?.username || '',
         type: 1,
         code: '',
         mobile: '',
@@ -195,6 +198,7 @@
         { label: t('lang.projectList.project2'), value: 2 },
         { label: t('lang.projectList.project3'), value: 3 },
         { label: t('lang.projectList.project4'), value: 4 },
+        { label: t('lang.projectList.project5'), value: 5 },
       ])
 
       return {

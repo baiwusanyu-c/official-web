@@ -29,7 +29,7 @@
             @click="routerPush('/index/research')">
             {{ $t('lang.header.research') }}
           </div>
-          <!--   服务    -->
+          <!--   解决方案    -->
           <div class="mb-4 w-full cursor-pointer">
             <be-popover
               ref="popoverService"
@@ -39,43 +39,42 @@
               <template #trigger>
                 <div
                   class="font-format trigger-item y-full flex items-center text-base justify-start hover:text-mainG"
-                  :class="route.path.indexOf('service') > 0 ? 'item-active' : ''">
-                  {{ $t('lang.header.service') }}
+                  :class="{ 'item-active': isPathIncludes(['service']) }">
+                  Services
                   <be-icon icon="under" class="ml-2"></be-icon>
                 </div>
               </template>
               <div
-                v-for="(item, index) in serviceList"
+                v-for="item in service"
                 :key="item.value"
-                class="linear-l-r-s popover-list bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
-                :class="item.active ? 'linear-l-r active-popover' : ''"
-                @click="routerPush(item.value, index)">
-                <p class="ml-2 text-xs font-format">{{ item.label }}</p>
+                class="linear-l-r-s bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
+                :class="{ 'linear-l-r active-popover': item.value === route.path }"
+                @click="routerPush(item.value), closePoper($refs.popoverService)">
+                <p class="mx-2 text-base font-format">{{ item.label }}</p>
               </div>
             </be-popover>
           </div>
-          <!--   产品    -->
           <div class="mb-4 w-full cursor-pointer">
             <be-popover
-              ref="popoverProduct"
+              ref="popoverService"
               trigger="click"
               custom-class="header-popover"
               placement="right">
               <template #trigger>
                 <div
-                  class="trigger-item y-full flex items-center font-format text-base justify-start hover:text-mainG"
-                  :class="route.path.indexOf('product') > 0 ? 'item-active' : ''">
-                  {{ $t('lang.header.product') }}
+                  class="font-format trigger-item y-full flex items-center text-base justify-start hover:text-mainG"
+                  :class="{ 'item-active': isPathIncludes(['product', 'trace']) }">
+                  Products
                   <be-icon icon="under" class="ml-2"></be-icon>
                 </div>
               </template>
               <div
-                v-for="(item, index) in productList"
+                v-for="item in product"
                 :key="item.value"
-                class="linear-l-r-s popover-list bg-footer h-10 text-default flex items-center cursor-pointer hover:text-black"
-                :class="item.active ? 'linear-l-r active-popover' : ''"
-                @click="routerPush(item.value, index)">
-                <p class="ml-2 text-xs font-format">{{ item.label }}</p>
+                class="linear-l-r-s bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
+                :class="{ 'linear-l-r active-popover': item.value === route.path }"
+                @click="routerPush(item.value), closePoper($refs.popoverService)">
+                <p class="mx-2 text-base font-format">{{ item.label }}</p>
               </div>
             </be-popover>
           </div>
@@ -112,12 +111,15 @@
               </div>
             </template>
             <div
-              v-for="(item, index) in loginList"
-              :key="item.value"
-              class="linear-l-r-s popover-list bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
-              :class="item.active ? 'linear-l-r active-popover' : ''"
-              @click="routerPush(item.value, index)">
-              <p class="mx-2 text-base font-format">{{ item.label }}</p>
+              class="linear-l-r-s bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
+              :class="{ 'linear-l-r active-popover': '/index/user/personal' === route.path }"
+              @click="routerPush('/index/user/personal'), closePoper($refs.popoverLogin)">
+              <p class="mx-2 text-base font-format">{{ $t('lang.header.loginStr.center') }}</p>
+            </div>
+            <div
+              class="linear-l-r-s bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
+              @click="logout(), closePoper($refs.popoverLogin)">
+              <p class="mx-2 text-base font-format">{{ $t('lang.header.loginStr.quit') }}</p>
             </div>
           </be-popover>
         </n-drawer-content>
@@ -151,42 +153,42 @@
           <template #trigger>
             <div
               class="font-format trigger-item y-full flex items-center text-base hover:text-mainG"
-              :class="route.path.indexOf('service') > 0 ? 'item-active' : ''">
-              {{ $t('lang.header.service') }}
+              :class="{ 'item-active': isPathIncludes(['service']) }">
+              Services
               <be-icon icon="under" class="ml-2"></be-icon>
             </div>
           </template>
           <div
-            v-for="(item, index) in serviceList"
+            v-for="item in service"
             :key="item.value"
             class="linear-l-r-s bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
-            :class="item.active ? 'linear-l-r active-popover' : ''"
-            @click="routerPush(item.value, index)">
+            :class="{ 'linear-l-r active-popover': item.value === route.path }"
+            @click="routerPush(item.value), closePoper($refs.popoverService)">
             <p class="mx-2 text-base font-format">{{ item.label }}</p>
           </div>
         </be-popover>
       </div>
-      <!--   产品    -->
+      <!--产品-->
       <div class="w-28 cursor-pointer">
         <be-popover
-          ref="popoverProduct"
+          ref="popoverService"
           trigger="hover"
           custom-class="header-popover"
           placement="bottom">
           <template #trigger>
             <div
-              class="trigger-item y-full flex items-center font-format text-base hover:text-mainG"
-              :class="route.path.indexOf('product') > 0 ? 'item-active' : ''">
-              {{ $t('lang.header.product') }}
+              class="font-format trigger-item y-full flex items-center text-base hover:text-mainG"
+              :class="{ 'item-active': isPathIncludes(['product', 'trace']) }">
+              Products
               <be-icon icon="under" class="ml-2"></be-icon>
             </div>
           </template>
           <div
-            v-for="(item, index) in productList"
+            v-for="item in product"
             :key="item.value"
-            class="linear-l-r-s bg-footer h-10 text-default flex items-center cursor-pointer hover:text-black"
-            :class="item.active ? 'linear-l-r active-popover' : ''"
-            @click="routerPush(item.value, index)">
+            class="linear-l-r-s bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
+            :class="{ 'linear-l-r active-popover': item.value === route.path }"
+            @click="routerPush(item.value), closePoper($refs.popoverService)">
             <p class="mx-2 text-base font-format">{{ item.label }}</p>
           </div>
         </be-popover>
@@ -232,54 +234,18 @@
         </div>
       </template>
       <div
-        v-for="(item, index) in loginList"
-        :key="item.value"
         class="linear-l-r-s bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
-        :class="item.active ? 'linear-l-r active-popover' : ''"
-        @click="routerPush(item.value, index)">
-        <p class="mx-2 text-base font-format">{{ item.label }}</p>
+        :class="{ 'linear-l-r active-popover': '/index/user/personal' === route.path }"
+        @click="routerPush('/index/user/personal'), closePoper($refs.popoverLogin)">
+        <p class="mx-2 text-base font-format">{{ $t('lang.header.loginStr.center') }}</p>
+      </div>
+      <div
+        class="linear-l-r-s bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
+        @click="logout(), closePoper($refs.popoverLogin)">
+        <p class="mx-2 text-base font-format">{{ $t('lang.header.loginStr.quit') }}</p>
       </div>
     </be-popover>
-
-    <!--    语言    -->
-    <!--        <be-popover  trigger="hover"
-                    ref="popoverLang"
-                    customClass="header-popover" placement="bottom">
-            <template #trigger>
-                <div class="trigger-item y-full flex items-center cursor-pointer text-base hover:text-mainG">
-                    {{ $t('lang.header.language.EN') }}
-                    <be-icon icon="under" ></be-icon>
-                </div>
-            </template>
-            <div
-                class="linear-l-r-s popover-list bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
-                :class="item.active ? 'linear-l-r active-popover' : ''"
-                @click="changeLanguage(item.value,index)"
-                v-for="(item,index) in langList">
-                <p class="ml-2 text-base">{{item.label}}</p>
-            </div>
-        </be-popover>-->
   </div>
-  <!--  mobile 右侧  -->
-  <!-- <div class="display-none sm:flex">
-           <be-popover trigger="click"
-                    ref="popoverLang"
-                    customClass="header-popover" placement="bottom">
-            <template #trigger>
-                <div class="trigger-item y-full flex items-center cursor-pointer text-base hover:text-mainG">
-                    {{ $t('lang.header.language.EN') }}
-                    <be-icon icon="under" customClass="ml-2"></be-icon>
-                </div>
-            </template>
-            <div
-                class="linear-l-r-s popover-list bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
-                :class="item.active ? 'linear-l-r active-popover' : ''"
-                @click="changeLanguage(item.value,index)"
-                v-for="(item,index) in langList">
-                <p class="ml-2 text-base">{{item.label}}</p>
-            </div>
-        </be-popover>
-  </div>-->
   <!-- 登录弹窗 -->
   <login-dialog ref="loginDialog"></login-dialog>
 </template>
@@ -296,7 +262,7 @@
   } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { useEventBus } from '@vueuse/core'
-  import { getStore, removeStore, setSession, getSession, removeSession } from '../utils/common'
+  import { getStore, removeStore, removeSession } from '../utils/common'
   import composition from '../utils/mixin/common-func'
   import LoginDialog from '../views/login/login-dialog.vue'
   interface ISelect {
@@ -304,10 +270,7 @@
     value: string
     active?: boolean
   }
-  interface IPopover extends ComponentInternalInstance {
-    uid: number
-    close: Function
-  }
+
   interface ILoginDialog extends ComponentInternalInstance {
     uid: number
     show: boolean
@@ -331,97 +294,58 @@
        */
       const router: Router = useRouter()
       const route: RouteLocationNormalizedLoaded = useRoute()
-      const routerPush = (path: string, index?: number): void => {
+      const routerPush = (path: string): void => {
         active.value = false
-        ;(index || index === 0) && closePopover(path, index)
-        if (/quit/.test(path)) return
-        // 主頁
-        if (/home/.test(path)) {
-          clearActive()
-          removeSession('activeItem')
-        }
         router.push(path)
       }
-      const clearActive = (): void => {
-        serviceList.value.map((val: ISelect) => (val.active = false))
-        productList.value.map((val: ISelect) => (val.active = false))
-        loginList.value.map((val: ISelect) => (val.active = false))
-      }
+
       /**
        * 关闭popover
        * @param path 路由地址
        * @param index 索引
        */
-      const closePopover = (path: string, index: number): void => {
-        clearActive()
-        // 服务介绍
-        if (/service/.test(path)) {
-          serviceList.value[index].active = true
-          ;(internalInstance?.refs?.popoverService as IPopover).close()
-          setSession('activeItem', JSON.stringify({ value: index, key: 'service' }))
-        }
-        // 产品介绍
-        if (/product/.test(path)) {
-          productList.value[index].active = true
-          ;(internalInstance?.refs?.popoverProduct as IPopover).close()
-          setSession('activeItem', JSON.stringify({ value: index, key: 'product' }))
-        }
-        //用户中心
-        if (/user/.test(path)) {
-          loginList.value.map((val: ISelect) => (val.active = false))
-          loginList.value[index].active = true
-          ;(internalInstance?.refs?.popoverLogin as IPopover).close()
-          setSession('activeItem', JSON.stringify({ value: index, key: 'user' }))
-        }
+      const logout = (): void => {
         // 退出登录
-        if (/quit/.test(path)) {
-          loginList.value.map((val: ISelect) => (val.active = false))
-          ;(internalInstance?.refs?.popoverLogin as IPopover).close()
-          removeStore('token')
-          removeStore('userInfo')
-          isLogin.value = false
-          message('success', t('lang.opSuccess'), 'hermit-msg')
-          if (/personal/.test(path)) routerPush('index/home')
-        }
-        if (/lang/.test(path)) {
-          langList.value.map((val: ISelect) => (val.active = false))
-          langList.value[index].active = true
-          ;(internalInstance?.refs?.popoverLang as IPopover).close()
-        }
+        removeStore('token')
+        removeStore('userInfo')
+        isLogin.value = false
+        message('success', t('lang.opSuccess'), 'hermit-msg')
+        if (/personal/.test(route.path)) routerPush('/index/home')
+        window.location.reload()
       }
       /**
        * 变换语言
        * @param lang 语言
        * @param index 索引
        */
-      const changeLanguage = (lang: string, index: number): void => {
-        closePopover('lang', index)
+      const changeLanguage = (lang: string): void => {
         ctx.emit('changeLang', lang)
       }
       const { t } = useI18n()
-      const serviceList = ref<Array<ISelect>>([
+
+      const service = ref<ISelect[]>([
         {
           label: t('lang.header.serviceStr.service1'),
           value: '/index/service/contracts',
-          active: false,
         },
         {
           label: t('lang.header.serviceStr.service2'),
           value: '/index/service/security',
-          active: false,
         },
       ])
-      const productList = ref<Array<ISelect>>([
+      const product = ref<ISelect[]>([
         {
           label: t('lang.header.productStr.product1'),
           value: '/index/product/productVaaS',
-          active: false,
         },
         {
           label: t('lang.header.productStr.product2'),
           value: '/index/product/productEagle',
-          active: false,
         },
+        // {
+        //   label: t('lang.header.solutions.trace'),
+        //   value: '/index/solutions/trace',
+        // },
       ])
       const loginList = ref<Array<ISelect>>([
         {
@@ -451,23 +375,14 @@
       const openDialog = (): void => {
         bus.emit('true')
       }
+      const closePoper = popover => {
+        popover.show = false
+      }
       // 移動端彈出抽屜菜單
       const active = ref<boolean>(false)
       const initPage = (): void => {
         if (getStore('token')) {
           isLogin.value = true
-        }
-        const activeItem: string = getSession('activeItem') as string
-        if (!activeItem) return
-        const activeIndex: number = parseInt(JSON.parse(activeItem).value)
-        if (JSON.parse(activeItem).key === 'user') {
-          loginList.value[activeIndex].active = true
-        }
-        if (JSON.parse(activeItem).key === 'product') {
-          productList.value[activeIndex].active = true
-        }
-        if (JSON.parse(activeItem).key === 'service') {
-          serviceList.value[activeIndex].active = true
         }
       }
       onMounted(() => {
@@ -492,6 +407,8 @@
         isLogin.value = false
         initPage()
       })
+      const isPathIncludes = (arr: string[]) => arr.some(it => route.path.includes(it))
+
       return {
         openLoginDialog,
         active,
@@ -499,11 +416,14 @@
         openDialog,
         loginList,
         langList,
-        serviceList,
-        productList,
         changeLanguage,
         routerPush,
         route,
+        closePoper,
+        logout,
+        isPathIncludes,
+        service,
+        product,
       }
     },
   })
