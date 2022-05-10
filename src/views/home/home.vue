@@ -1,67 +1,21 @@
 /* * @home.vue * @deprecated * @author czh * @update (czh 2021/12/15) */
 <template>
   <div class="hermit-main w-full">
-    <!--   slogan & news     -->
-    <div class="slogan-news w-full bg-mainBlueGary relative flex justify-center items-center">
-      <div class="slogan-news-bg w-full absolute"></div>
-      <div class="z-10 flex justify-center flex-col w-3/5 header-content md:w-11/12 sm:w-4/5">
-        <h2
-          class="text-mainG text-6xl text-center font-bold leading-normal font-format sm:text-2xl">
-          {{ $t('lang.home.title1') }}
-        </h2>
-        <h2
-          class="text-mainG text-6xl text-center font-bold leading-normal mb-20 slogan font-format sm:text-2xl sm:mb-8">
-          {{ $t('lang.home.title2') }}
-        </h2>
-        <div
-          class="flex justify-around self-center mb-16 slogan w-full lg125:w-full120 sm:flex-col sm:mb-0 sm:items-center">
-          <div
-            v-for="(item, index) in scienceInfoList"
-            :key="item.label"
-            style="line-height: 1rem; cursor: pointer"
-            class="science-dom text-default text-center mb-4 display-flex-col leading-6 flex items-center mogu-text sm:flex-row sm:mb-6"
-            @mouseleave="item.isHover = false"
-            @mouseenter="item.isHover = true"
-            @click="headerRouterPush(item.value)">
-            <img alt="" :src="scienceImg(index)" class="ml-4 mr-4 sm:w-6" />
-            <p :class="`mt-4 font-format ${item.isHover ? 'text-mainG' : ''} sm:mt-0 sm:text-xs`">
-              <span class="font-format text-lg">{{ item.label }}</span>
-            </p>
-          </div>
-        </div>
-        <be-button
-          custom-class="contact-btn h-btn-txt-black linear-l-r text-black mr-auto ml-auto text-2xl sm:text-base"
-          @click="openDialog">
-          <span class="font-format">{{ $t('lang.contactBtn') }}</span>
-        </be-button>
-      </div>
-    </div>
-
+    <home-header></home-header>
+    <banner-card></banner-card>
+    <about-beosin></about-beosin>
+    <dynamic-info></dynamic-info>
     <!--report-->
-    <report-list> </report-list>
+    <!-- <report-list> </report-list> -->
     <!--   blog     -->
-    <div
-      v-if="titleCardList.length > 0"
-      class="blog-new w-full bg-mainBlueGary flex justify-center">
-      <div
-        class="grid grid-cols-4 ph:grid-cols-2 w-62vw ph:w-90vw pad:w-90vw gap-10px title-card-container relative h-[100%]">
-        <blog-new v-for="item in titleCardList" :key="item.id" class="mr-0" :data="item">
-        </blog-new>
-        <p
-          class="blog-more-btn cursor-pointer absolute hover:underline"
-          @click="routerPush('/index/research')">
-          {{ $t('lang.home.more') }}
-          <img alt="" src="../../assets/img/more.png" class="inline ml-2" style="height: 14px" />
-        </p>
-      </div>
-    </div>
+
     <!--   service     -->
     <div class="slogan-service w-full bg-default flex flex-col">
       <div class="slogan-service-item flex justify-end items-center w-full sm:flex-col">
         <div
           style="box-sizing: border-box"
           class="mr-24 hexagon-desc lg125:mb-0 md:mb-0 sm:mb-0 sm:mr-0">
-          <h3 class="font-bold text-3xl mb-8 font-format sm:text-lg sm:mb-4">
+          <h3 class="font-bold border-top text-3xl mb-8 font-format sm:text-[20px] sm:mb-4">
             {{ $t('lang.home.serviceTitle1') }}
           </h3>
           <p class="mb-16 font-format text-justify leading-normal text-lg sm:text-xs sm:mb-6">
@@ -118,7 +72,7 @@
 
         <div class="hexagon-desc mb-48 ml-24 lg125:mb-0 md:mb-0 sm:mb-0 sm:mr-0 sm:ml-0">
           <h3
-            class="font-bold text-3xl mb-8 font-format text-right float-right sm:text-lg sm:float-none sm:mb-4 sm:text-left">
+            class="font-bold text-3xl border-top mb-8 font-format text-right float-right sm:text-[20px] sm:float-none sm:mb-4 sm:text-left">
             {{ $t('lang.home.serviceTitle2') }}
           </h3>
           <p
@@ -158,18 +112,16 @@
         </div>
       </div>
 
-      <div class="slogan-service-item flex justify-end items-center w-full mt-10 sm:flex-col">
+      <!-- <div class="slogan-service-item flex justify-end items-center w-full mt-10 sm:flex-col">
         <div
           style="box-sizing: border-box"
           class="mr-24 hexagon-desc lg125:mb-0 md:mb-0 sm:mb-0 sm:mr-0">
-          <h3 class="font-bold text-3xl mb-8 font-format sm:text-lg sm:mb-4">
+          <h3 class="font-bold border-top text-3xl mb-8 font-format sm:text-[20px] sm:mb-4">
             {{ $t('lang.home.serviceTitle3') }}
           </h3>
           <p class="mb-16 font-format text-justify leading-normal text-lg sm:text-xs sm:mb-6">
             {{ $t('lang.home.serviceInfo3') }}
           </p>
-
-          <!--        pc 显示按钮            -->
           <div class="sm:hidden">
             <be-button
               custom-class="display-flex learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
@@ -189,7 +141,6 @@
             <hexagon class="font-format" :index="15"></hexagon>
             <hexagon class="font-format" :index="-1"></hexagon>
           </div>
-          <!--        mobile 显示按钮            -->
           <div
             class="display-none sm:flex"
             style="position: absolute; right: 50%; bottom: 5%; transform: translateX(50%)">
@@ -200,13 +151,13 @@
             </be-button>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
     <!--   product     -->
     <div class="slogan-product bg-mainBlueGary flex flex-col justify-center items-center w-full">
       <div class="flex-1 flex-col flex justify-center items-center w-full mb-36 sm:mb-6">
         <div class="bar mb-8 sm:mb-2"></div>
-        <h3 class="text-2xl font-bold mb-8 font-format text-center sm:text-lg sm:w-4/5 sm:mb-4">
+        <h3 class="text-2xl font-bold mb-8 font-format text-center sm:text-[20px] sm:w-4/5 sm:mb-4">
           {{ $t('lang.home.productName1') }}
         </h3>
         <p
@@ -220,14 +171,14 @@
           <home-product-circle :index="4"></home-product-circle>
         </div>
         <be-button
-          custom-class="try-out-btn h-btn-txt-black linear-l-r text-black text-xl sm:text-base"
+          custom-class="try-out-btn h-btn-txt-black linear-l-r text-black text-xl sm:mb-10 sm:text-base"
           @click="routerPush('/index/product/productVaaS')">
           <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
         </be-button>
       </div>
       <div class="flex-1 flex-col flex justify-center items-center w-full">
         <div class="bar mb-8 sm:mb-2"></div>
-        <h3 class="text-2xl font-bold mb-8 font-format text-center sm:text-lg sm:w-4/5 sm:mb-4">
+        <h3 class="text-2xl font-bold mb-8 font-format text-center sm:text-[20px] sm:w-4/5 sm:mb-4">
           {{ $t('lang.home.productName2') }}
         </h3>
         <p
@@ -250,7 +201,7 @@
     <!--   serving global customer     -->
     <div class="slogan-customer bg-default flex flex-col justify-center items-center w-full">
       <div class="bar mb-8 mt-20 sm:mb-2"></div>
-      <h3 class="text-2xl font-bold mb-8 font-format sm:text-lg">
+      <h3 class="text-2xl font-bold mb-8 font-format sm:text-[20px]">
         {{ $t('lang.home.GlobalTitle') }}
       </h3>
       <div
@@ -266,15 +217,28 @@
         <h-home-swiper :list="swiperList"></h-home-swiper>
       </div>
     </div>
-    <contact-us></contact-us>
-    <about-hermit></about-hermit>
+
+    <div
+      v-if="titleCardList.length > 0"
+      class="blog-new w-full bg-mainBlueGary flex items-center flex-col">
+      <h2 class="security-research text-center !ph:text-[20px] !ph:pt-[16px]">Security Research</h2>
+      <div
+        class="grid grid-cols-4 mt-18 ph:grid-cols-2 w-62vw ph:w-90vw pad:w-90vw gap-10px title-card-container relative h-[100%]">
+        <blog-new v-for="item in titleCardList" :key="item.id" class="mr-0" :data="item">
+        </blog-new>
+        <p
+          class="blog-more-btn cursor-pointer absolute hover:underline"
+          @click="routerPush('/index/research')">
+          {{ $t('lang.home.more') }}
+          <img alt="" src="../../assets/img/more.png" class="inline ml-2" style="height: 14px" />
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
   import { defineComponent, ref, reactive, onMounted, computed } from 'vue'
-  import ContactUs from '../../components/contact-us.vue'
-  import AboutHermit from '../../components/about-hermit.vue'
   import { useI18n } from 'vue-i18n'
   import Hexagon from '../../components/hexagon.vue'
   import HHomeSwiper from '../../components/h-home-swiper.vue'
@@ -283,7 +247,10 @@
   import HomeProductCircle from '../../components/home-product-circle.vue'
   import BlogNew from '../../components/blog-new.vue'
   import { getBlogNews } from '../../api/research'
-  import ReportList from './includes/report-list.vue'
+  import HomeHeader from './includes/home-header.vue'
+  import BannerCard from './includes/banner-card.vue'
+  import AboutBeosin from './includes/about-beosin.vue'
+  import DynamicInfo from './includes/dynamic-info.vue'
   interface ISelect {
     label: string
     value: string
@@ -303,10 +270,11 @@
       BlogNew,
       HomeProductCircle,
       HHomeSwiper,
-      AboutHermit,
-      ContactUs,
       Hexagon,
-      ReportList,
+      HomeHeader,
+      BannerCard,
+      AboutBeosin,
+      DynamicInfo,
     },
     setup() {
       const { t } = useI18n()
@@ -474,6 +442,20 @@
 </script>
 
 <style>
+  .security-research {
+    font-size: 30px;
+    font-weight: bold;
+    color: #1d263b;
+    line-height: 60px;
+    padding-top: 36px;
+    border-top: 6px solid #44d7b6;
+    width: fit-content;
+  }
+  .border-top {
+    padding-top: 10px;
+    border-top: 6px solid rgb(2, 251, 187);
+    width: fit-content;
+  }
   .science-dom {
     width: 220px;
   }
@@ -493,29 +475,9 @@
     bottom: 60px;
   }
 
-  .hermit-main .slogan-news {
-    min-height: 100vh;
-    padding: 0 200px 150px;
-    background-position-x: -2px;
-    background-size: 101% 100%;
-  }
-
-  .hermit-main .slogan-news .slogan-news-bg {
-    /* height: 58%; */
-    height: 100%;
-    background: url(/src/assets/img/home-bg.jpg) no-repeat;
-    background-position: center center;
-    background-size: cover;
-  }
-
-  .hermit-main .slogan-news .contact-btn {
-    /* margin-bottom: 20em; */
-    @apply h-12 w-80 font-bold sm:w-60 sm:h-9;
-  }
-
   .hermit-main .blog-new {
     box-sizing: border-box;
-    padding-bottom: 50px;
+    padding: 80px 0 50px;
     /* height: 518px; */
   }
 
@@ -754,21 +716,12 @@
       padding: 30px 80px;
     }
 
-    .slogan-news .slogan {
-      @apply mb-4;
-    }
-
     .slogan-service-item .hexagon-desc {
       width: 40%;
     }
   }
 
   @media screen and (min-width: 100px) and (max-width: 1278px) {
-    .hermit-main .slogan-news {
-      padding: 0 30px 30px;
-      height: 60vh;
-      min-height: 600px;
-    }
     .trace-trans {
       transform: translateX(40px);
     }

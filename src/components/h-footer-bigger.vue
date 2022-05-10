@@ -1,7 +1,15 @@
 /* * @h-footer-bigger.vue * @deprecated * @author czh * @update (czh 2021/12/15) */
 <template>
-  <div
-    class="bg-footer page-footer grid px-20vw py-20px sm:px-5vw grid-cols-4 sm:grid-cols-2 gap-x-3 gap-y-12">
+  <div class="bg-footer page-footer">
+    <div class="block">
+      <img src="@/assets/img/LOGO.png" class="w-39 ph:w-25" alt="" />
+      <p style="font-size: 18px; line-height: 24px; margin-top: 28px">
+        Stay up-to-date on our latest offerings, tools, and the world of blockchain security.
+      </p>
+      <div class="mt-10">
+        <a href="mailto:Contact@beosin.com" class="email">Contact@beosin.com</a>
+      </div>
+    </div>
     <div class="block">
       <p class="footer-title text-lg font-format">
         {{ $t('lang.HFooterBigger.search.title') }}
@@ -14,6 +22,20 @@
           class="font-format"
           @click="$router.push({ path: '/index/research', query: { tab: 2 } })">
           {{ $t('lang.HFooterBigger.search.report') }}
+        </li>
+      </ul>
+      <p class="footer-title mt-12 text-lg font-format">
+        {{ $t('lang.HFooterBigger.company.title') }}
+      </p>
+      <ul class="mt-12">
+        <li class="font-format" @click="$router.push('/index/aboutUs')">
+          {{ $t('lang.HFooterBigger.company.aboutUs') }}
+        </li>
+        <li class="font-format" @click="openWin(linkConfigPolicy.conditions)">
+          {{ $t('lang.HFooterBigger.company.team') }}
+        </li>
+        <li class="font-format" @click="openWin(linkConfigPolicy.privacy)">
+          {{ $t('lang.HFooterBigger.company.privacy') }}
         </li>
       </ul>
     </div>
@@ -34,27 +56,12 @@
         <li class="font-format" @click="$router.push('/index/service/security')">
           {{ $t('lang.HFooterBigger.serve.platform') }}
         </li>
-        <li class="font-format" @click="$router.push('/index/solutions/trace')">
+        <!-- <li class="font-format" @click="$router.push('/index/solutions/trace')">
           {{ $t('lang.HFooterBigger.serve.trace') }}
-        </li>
+        </li> -->
       </ul>
     </div>
-    <div class="block">
-      <p class="footer-title text-lg font-format">
-        {{ $t('lang.HFooterBigger.company.title') }}
-      </p>
-      <ul>
-        <li class="font-format" @click="$router.push('/index/aboutUs')">
-          {{ $t('lang.HFooterBigger.company.aboutUs') }}
-        </li>
-        <li class="font-format" @click="openWin(linkConfigPolicy.conditions)">
-          {{ $t('lang.HFooterBigger.company.team') }}
-        </li>
-        <li class="font-format" @click="openWin(linkConfigPolicy.privacy)">
-          {{ $t('lang.HFooterBigger.company.privacy') }}
-        </li>
-      </ul>
-    </div>
+
     <div class="block socials">
       <p class="footer-title text-lg font-format">
         {{ $t('lang.HFooterBigger.socials.title') }}
@@ -87,8 +94,9 @@
       </ul>
     </div>
   </div>
-  <div class="h-47px ph:text-12px flex justify-center items-center font-format">
-    ©2021 by Beosin. All Rights Reserved. Contact@beosin.com
+  <div
+    class="h-60px ph:text-12px ph:h-30px text-18px bg-[#1D263B] text-[#717786] flex justify-center items-center font-format">
+    ©2021 by Beosin. All Rights Reserved.
   </div>
 </template>
 <script lang="ts">
@@ -109,7 +117,7 @@
   })
 </script>
 <!-- prettier-ignore -->
-<style>
+<style> 
   .footer-class .discord .be-icon {
     width: 30px;
     height: 30px;
@@ -119,11 +127,28 @@
   .footer-class .discord .be-icon:hover {
     fill: #02fbbb;
   }
+  
 </style>
 <!-- prettier-ignore -->
 <style scoped>
+.email{
+  font-size: 20px;
+}
+.page-footer{
+  display: grid;
+  grid-template-columns: 344px 1fr 1fr 1fr;
+  column-gap: 20px;
+  background-color: #121928;
+}
 .page-footer li{
   width: fit-content;
+  margin-top: 24px !important;
+  line-height: 20px;
+  font-size: 18px;
+  cursor: pointer;
+}
+.bg-footer{
+  padding: 60px max(30px,calc((100% - 1230px) / 2)) 30px;
 }
 
 .block{
@@ -148,17 +173,31 @@
   margin-right: 10px;
 }
 .socials li{
-  margin-top: 12px !important;
   display: flex;
   align-items: center;
-
+   margin-top: 30px !important;
 }
 .socials :deep(svg) {
   width: 24px;
   height: 24px;
 }
-.block li{
-  cursor: pointer;
-  margin-top: 20px;
+
+@media screen and (max-width: 1278px) {
+  .page-footer{
+    grid-template-columns: 1fr 1fr;
+    row-gap: 60px;
+    padding: 30px 20px;
+  }
+  .email{
+    word-break: break-all;
+    font-size: 18px;
+  }
+  .block * {
+    font-size: 12px !important;
+  }
+  .block li{
+    margin-top: 12px !important;
+  }
+  
 }
 </style>

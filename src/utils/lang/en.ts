@@ -88,7 +88,7 @@ export default {
     more: 'Learn More',
     serviceTitle1: 'Smart Contract Audit',
     serviceInfo1:
-      'Based on formal verification tools, we identify and eliminate errors and vulnerabilities of the code, ensure the consistency of smart contracts’ code and business logic, and provide authoritative security audit reports.',
+      'Beosin Smart Contract audits identify code errors and code vulnerabilities, including rigorous audit of business logic and interaction between different contracts. Beosin use formal verification for all Smart Contract audits, the same methodology used in highly sensitive systems such as the Mars probe lander and metro control systems. All audit reports include recommendations on how to resolve the issues identified.',
     serviceIc1: 'DeFi contracts',
     serviceIc2: 'Tokens contracts',
     serviceIc3: 'Other Customized Smart Contracts',
@@ -96,10 +96,9 @@ export default {
     serviceIc5: 'DApp Contract',
 
     serviceTitle2: 'Blockchain Platform Audit',
-    serviceInfo2:
-      'Through different security testing methods of black box, gray box and white box, we effectively verify the security of blockchain platforms through audits of core modules, node communication, storage, consensus and authority management, etc.',
-    serviceTitle3: 'On-chain Trace',
-    serviceInfo3: `assist in recovering on-chain assets, applicable to various scenarios such as virtual currency regulation, abnormal transaction warning, transaction following-up and source-tracing, and forensics investigation.`,
+    serviceInfo2: `Beosin offer complete audits of layer 1 and layer 2 blockchain platforms, structured into black box, grey box, and white box audit. The audit covers all aspects of blockchain architecture, including block production, node communication, consensus algorithm, and governance logic. All audit reports include recommendations on how to resolve the issues identified.`,
+    serviceTitle3: 'On-chain Asset Tracing',
+    serviceInfo3: `Trace digital assets, visualize transactions and wallet relationships, find source of funds and destination wallet. Beosin can also help you recover stolen assets`,
     serviceIc8: 'Language Coding Security Audit',
     serviceIc9: 'Block Production and Governance Audit',
     serviceIc10: 'Account System Security Audit',
@@ -110,7 +109,7 @@ export default {
     serviceIc15: 'Malicious address \n database',
     serviceIc16: 'Mixer Tracing',
 
-    productName1: 'VaaS',
+    productName1: 'VaaS (Verification-as-a-Service)',
     productDesc1:
       'The industry-leading security analysis platform for smart contracts with multi-dimensional detection capabilities such as static scanning, fuzzy testing, and formal verification, which can automatically discover known and unknown vulnerabilities and business logic issues in smart contracts and provide professional comments or revisions.',
     productFeature1: 'Known Vulnerabilities',

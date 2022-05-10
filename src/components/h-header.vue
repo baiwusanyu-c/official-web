@@ -39,17 +39,41 @@
               <template #trigger>
                 <div
                   class="font-format trigger-item y-full flex items-center text-base justify-start hover:text-mainG"
-                  :class="{ 'item-active': isPathIncludes(['service', 'product', 'trace']) }">
-                  {{ $t('lang.header.solutions.title') }}
+                  :class="{ 'item-active': isPathIncludes(['service']) }">
+                  Services
                   <be-icon icon="under" class="ml-2"></be-icon>
                 </div>
               </template>
               <div
-                v-for="(item, index) in solutions"
+                v-for="item in service"
                 :key="item.value"
                 class="linear-l-r-s bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
                 :class="{ 'linear-l-r active-popover': item.value === route.path }"
-                @click="routerPush(item.value, index), closePoper($refs.popoverService)">
+                @click="routerPush(item.value), closePoper($refs.popoverService)">
+                <p class="mx-2 text-base font-format">{{ item.label }}</p>
+              </div>
+            </be-popover>
+          </div>
+          <div class="mb-4 w-full cursor-pointer">
+            <be-popover
+              ref="popoverService"
+              trigger="click"
+              custom-class="header-popover"
+              placement="right">
+              <template #trigger>
+                <div
+                  class="font-format trigger-item y-full flex items-center text-base justify-start hover:text-mainG"
+                  :class="{ 'item-active': isPathIncludes(['product', 'trace']) }">
+                  Products
+                  <be-icon icon="under" class="ml-2"></be-icon>
+                </div>
+              </template>
+              <div
+                v-for="item in product"
+                :key="item.value"
+                class="linear-l-r-s bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
+                :class="{ 'linear-l-r active-popover': item.value === route.path }"
+                @click="routerPush(item.value), closePoper($refs.popoverService)">
                 <p class="mx-2 text-base font-format">{{ item.label }}</p>
               </div>
             </be-popover>
@@ -119,7 +143,7 @@
         @click="routerPush('/index/research')">
         {{ $t('lang.header.research') }}
       </div>
-      <!--    解决方案    -->
+      <!--    服务    -->
       <div class="w-28 cursor-pointer">
         <be-popover
           ref="popoverService"
@@ -129,17 +153,42 @@
           <template #trigger>
             <div
               class="font-format trigger-item y-full flex items-center text-base hover:text-mainG"
-              :class="{ 'item-active': isPathIncludes(['service', 'product', 'trace']) }">
-              {{ $t('lang.header.solutions.title') }}
+              :class="{ 'item-active': isPathIncludes(['service']) }">
+              Services
               <be-icon icon="under" class="ml-2"></be-icon>
             </div>
           </template>
           <div
-            v-for="(item, index) in solutions"
+            v-for="item in service"
             :key="item.value"
             class="linear-l-r-s bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
             :class="{ 'linear-l-r active-popover': item.value === route.path }"
-            @click="routerPush(item.value, index), closePoper($refs.popoverService)">
+            @click="routerPush(item.value), closePoper($refs.popoverService)">
+            <p class="mx-2 text-base font-format">{{ item.label }}</p>
+          </div>
+        </be-popover>
+      </div>
+      <!--产品-->
+      <div class="w-28 cursor-pointer">
+        <be-popover
+          ref="popoverService"
+          trigger="hover"
+          custom-class="header-popover"
+          placement="bottom">
+          <template #trigger>
+            <div
+              class="font-format trigger-item y-full flex items-center text-base hover:text-mainG"
+              :class="{ 'item-active': isPathIncludes(['product', 'trace']) }">
+              Products
+              <be-icon icon="under" class="ml-2"></be-icon>
+            </div>
+          </template>
+          <div
+            v-for="item in product"
+            :key="item.value"
+            class="linear-l-r-s bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
+            :class="{ 'linear-l-r active-popover': item.value === route.path }"
+            @click="routerPush(item.value), closePoper($refs.popoverService)">
             <p class="mx-2 text-base font-format">{{ item.label }}</p>
           </div>
         </be-popover>
@@ -273,7 +322,8 @@
         ctx.emit('changeLang', lang)
       }
       const { t } = useI18n()
-      const solutions = ref<Array<ISelect>>([
+
+      const service = ref<ISelect[]>([
         {
           label: t('lang.header.serviceStr.service1'),
           value: '/index/service/contracts',
@@ -282,6 +332,8 @@
           label: t('lang.header.serviceStr.service2'),
           value: '/index/service/security',
         },
+      ])
+      const product = ref<ISelect[]>([
         {
           label: t('lang.header.productStr.product1'),
           value: '/index/product/productVaaS',
@@ -290,10 +342,10 @@
           label: t('lang.header.productStr.product2'),
           value: '/index/product/productEagle',
         },
-        {
-          label: t('lang.header.solutions.trace'),
-          value: '/index/solutions/trace',
-        },
+        // {
+        //   label: t('lang.header.solutions.trace'),
+        //   value: '/index/solutions/trace',
+        // },
       ])
       const loginList = ref<Array<ISelect>>([
         {
@@ -364,13 +416,14 @@
         openDialog,
         loginList,
         langList,
-        solutions,
         changeLanguage,
         routerPush,
         route,
         closePoper,
         logout,
         isPathIncludes,
+        service,
+        product,
       }
     },
   })
