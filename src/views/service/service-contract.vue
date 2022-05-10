@@ -224,9 +224,6 @@
           <div class="reports-middle-title font-format">
             {{ $t('lang.serviceContract.reports.middleTitle') }}
           </div>
-          <div class="reports-middle-text font-format">
-            {{ $t('lang.serviceContract.reports.middleText') }}
-          </div>
         </div>
       </div>
 

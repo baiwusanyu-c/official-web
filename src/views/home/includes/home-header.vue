@@ -31,13 +31,13 @@
     },
   ]
   const getImageUrl = i => {
-    return new URL(`../../../assets/img/home/00${i + 1}.png`, import.meta.url).href
+    return new URL(`../../../assets/img/home/00${i + 1}.svg`, import.meta.url).href
   }
 </script>
 
 <style scoped>
   .home-header {
-    height: 683px;
+    height: 600px;
     background: url('@/assets/img/home/header-bg.png') no-repeat;
     background-size: contain;
     background-position: center -64px;
