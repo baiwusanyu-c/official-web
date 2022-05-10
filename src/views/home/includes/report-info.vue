@@ -1,5 +1,5 @@
 <template>
-  <h3 class="d-project h-20 w-full relative pl-5.5">
+  <h3 class="d-project h-12 w-full relative pl-5.5">
     Audited projects
     <input
       v-model="keyword"
