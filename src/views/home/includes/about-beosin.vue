@@ -88,7 +88,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 100px;
+    padding-top: 80px;
     padding-bottom: 42px;
     position: relative;
     z-index: 1;

@@ -64,7 +64,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 94px 40px;
+    padding: 40px 40px;
     background: url('@/assets/img/home/dynamic/dynamic-info-bg.png') no-repeat center / cover #fff;
   }
 
