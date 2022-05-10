@@ -7,7 +7,7 @@
     }"
     @mouseenter="isHover = true"
     @mouseleave="isHover = false">
-    <p class="mt-4 font-format sm:text-xs">{{ list[index] }}</p>
+    <p class="mt-4 font-format sm:text-xs px-5px">{{ list[index] }}</p>
   </div>
 </template>
 
@@ -42,6 +42,10 @@
         t('lang.home.serviceIc10'),
         t('lang.home.serviceIc11'),
         t('lang.home.serviceIc12'),
+        t('lang.home.serviceIc13'),
+        t('lang.home.serviceIc14'),
+        t('lang.home.serviceIc15'),
+        t('lang.home.serviceIc16'),
       ])
       const imgList = reactive<object[]>([])
       const imgListHover = reactive<object[]>([])

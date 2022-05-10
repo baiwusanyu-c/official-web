@@ -12,6 +12,7 @@ const home = () => import('../views/home/home.vue')
 const test = () => import('../views/test.vue')
 const page404 = () => import('../views/404/404.vue')
 const research = () => import('../views/research/research.vue')
+const trace = () => import('../views/trace/index.vue')
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/index',
@@ -26,6 +27,10 @@ const routes: Array<RouteRecordRaw> = [
         path: '/index/research',
         component: research,
         name: 'research',
+      },
+      {
+        path: 'solutions/trace',
+        component: trace,
       },
       {
         path: '/index/service/contracts',

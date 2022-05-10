@@ -29,3 +29,9 @@ export function getReportByCode(params: IReportCode) {
     },
   })
 }
+export function getBeosinAlert() {
+  return request({
+    url: '/website/news?pageSize=5',
+    method: 'get',
+  })
+}

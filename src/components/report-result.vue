@@ -19,7 +19,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { defineProps } from 'vue'
   import config from '../enums/config'
   import dayjs from 'dayjs'
   type Row = { createTime: string; reportNum: string; id: string; projectName: string }
