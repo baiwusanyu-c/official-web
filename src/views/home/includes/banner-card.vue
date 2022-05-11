@@ -87,7 +87,7 @@
     color: #fff;
   }
   .text2 {
-    color: #ccc;
+    color: #ffffffcc;
     font-size: 14px;
     margin-top: 10px;
   }
@@ -209,5 +209,6 @@
     padding-top: 6px;
     padding-left: 0px;
     color: #aaa;
+    flex: 0 0 auto;
   }
 </style>
