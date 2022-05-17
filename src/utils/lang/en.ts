@@ -89,8 +89,8 @@ export default {
     serviceTitle1: 'Smart Contract Audit',
     serviceInfo1:
       'Beosin Smart Contract audits identify code errors and code vulnerabilities, including rigorous audit of business logic and interaction between different contracts. Beosin use formal verification for all Smart Contract audits, the same methodology used in highly sensitive systems such as the Mars probe lander and metro control systems. All audit reports include recommendations on how to resolve the issues identified.',
-    serviceIc1: 'DeFi contracts',
-    serviceIc2: 'Tokens contracts',
+    serviceIc1: 'DeFi Contracts',
+    serviceIc2: 'Tokens Contracts',
     serviceIc3: 'Other Customized Smart Contracts',
     serviceIc4: 'Gamefi Contract',
     serviceIc5: 'DApp Contract',
@@ -115,7 +115,7 @@ export default {
     productFeature1: 'Known Vulnerabilities',
     productFeature2: 'Unknown Vulnerabilities',
     productFeature3: 'Logical Correctness',
-    productFeature4: 'Support for multiple blockchain platforms',
+    productFeature4: 'Support for Multiple Blockchain Platforms',
 
     productName2: 'EagleEye',
     productDesc2:
@@ -408,7 +408,7 @@ export default {
   product: {
     vass: {
       title: 'VaaS',
-      subTitle: 'Improving the security of smart contracts for developers',
+      subTitle: 'Improve the security of smart contracts for developers',
 
       desc: 'The Smart Contract Formal Verification Platform provides static scanning, fuzzy testing and formal verification capabilities for smart contract codes. The platform supports 100+ testing items including traditional vulnerabilities and business logic correctness on multiple public blockchains such as ETH, BSC, MATIC, AAVE, ONT, EOS, etc., with an accuracy rate of above 97%. It can precisely locate the risky codes while giving recommendations to help developers improve the security of smart contracts.',
 
