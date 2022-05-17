@@ -14,7 +14,7 @@ export enum linkConfig {
   alert = 'https://twitter.com/BeosinAlert',
   telegram = 'https://t.me/beosin',
   linkedin = 'https://www.linkedin.com/company/beosin',
-  medium = 'https://medium.com/@Beosin',
+  medium = 'https://medium.com/@Beosin_com',
 }
 
 export enum linkConfigPolicy {

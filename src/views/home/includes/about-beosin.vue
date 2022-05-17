@@ -21,7 +21,7 @@
       </div>
       <div class="auto-card">
         <img src="@/assets/img/home/about-3.png" alt="" />
-        <h4>Formal verification technology</h4>
+        <h4>Formal Verification Technology</h4>
         <p>On-chain AI data-tracing analysis</p>
       </div>
       <div class="auto-card">
