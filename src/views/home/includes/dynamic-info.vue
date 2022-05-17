@@ -7,7 +7,7 @@
             <img src="@/assets/img/home/dynamic/dynamic-info.png" alt="" />Beosin Alert
           </span>
           <span class="d-more" @click="open('https://twitter.com/BeosinAlert', 'alert')"
-            >+More</span
+            >See more</span
           >
         </h3>
         <ul class="twitter-list">
@@ -34,9 +34,9 @@
   const getTime = (time: string) => {
     if (!time) return ''
     const diff = Date.now() / 1000 - +time
-    if (diff > 24 * 3600) return `1Day+`
-    if (diff > 3600) return `${Math.floor(diff / 3600)}Hour`
-    return Math.floor(diff / 60) + 'Min'
+    if (diff > 24 * 3600) return `1 Day Ago`
+    if (diff > 3600) return `${Math.floor(diff / 3600)} Hours Ago`
+    return Math.floor(diff / 60) + ' Mins Ago'
   }
 
   const list = ref<Item[]>()
@@ -100,6 +100,7 @@
     color: #838fa2;
     line-height: 20px;
     margin-left: 20px;
+    flex: 0 0 auto;
   }
   .twitter-text {
     overflow: hidden;
@@ -107,6 +108,7 @@
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+    flex: 1 1 auto;
   }
 
   .d-more {

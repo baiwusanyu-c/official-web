@@ -5,7 +5,7 @@
       v-model="keyword"
       type="text"
       class="home-search-input"
-      placeholder="Search"
+      placeholder="Enter the report number/name"
       @keypress.enter="showDialog" />
     <img
       src="@/assets/img/home/search.png"

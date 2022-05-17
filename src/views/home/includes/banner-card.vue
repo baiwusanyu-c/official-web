@@ -21,7 +21,7 @@
       <SwiperSlide>
         <div class="card-2 card" @click="$router.push('/index/product/productVaaS')">
           <h2 class="title2">Beosin VaaS</h2>
-          <p class="text2">Improving the security of smart contracts for developers</p>
+          <p class="text2">Improve the security of smart contracts for developers</p>
         </div>
       </SwiperSlide>
       <SwiperSlide>
@@ -52,7 +52,7 @@
       </div>
       <div class="card-2 card" @click="$router.push('/index/product/productVaaS')">
         <h2 class="title2">Beosin VaaS</h2>
-        <p class="text2">Improving the security of smart contracts for developers</p>
+        <p class="text2">Improve the security of smart contracts for developers</p>
       </div>
       <div class="card-3 card" @click="$router.push('/index/product/productEagle')">
         <h2 class="title2">Beosin Eagle Eye</h2>
