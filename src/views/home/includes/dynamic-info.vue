@@ -35,8 +35,10 @@
     if (!time) return ''
     const diff = Date.now() / 1000 - +time
     if (diff > 24 * 3600) return `1 Day Ago`
-    if (diff > 3600) return `${Math.floor(diff / 3600)} Hours Ago`
-    return Math.floor(diff / 60) + ' Mins Ago'
+    const h = Math.floor(diff / 3600)
+    if (diff > 3600) return `${h} Hour${h > 1 ? 's' : ''} Ago`
+    const m = Math.floor(diff / 60)
+    return `${m} Min${m > 1 ? 's' : ''} Ago`
   }
 
   const list = ref<Item[]>()
