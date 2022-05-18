@@ -314,7 +314,7 @@ export const dateToMDY = (params: string): string => {
     'Feb',
     'Mar',
     'Apr',
-    'Ay',
+    'May',
     'Jun',
     'Jul',
     'Aug',

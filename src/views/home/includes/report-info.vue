@@ -5,7 +5,9 @@
       v-model="keyword"
       type="text"
       class="home-search-input"
-      placeholder="Search"
+      :placeholder="placeholder"
+      @focus="changePlaceholder(`Enter the report number/name`)"
+      @blur="changePlaceholder('Search')"
       @keypress.enter="showDialog" />
     <img
       src="@/assets/img/home/search.png"
@@ -36,6 +38,10 @@
   type Row = { name: string; time: string; url: string }
   function getImageUrl(name) {
     return new URL(`../../../assets/img/home/dynamic/${name}.png`, import.meta.url).href
+  }
+  const placeholder = ref('Search')
+  const changePlaceholder = v => {
+    placeholder.value = v
   }
   const list = ref([
     {
