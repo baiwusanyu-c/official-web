@@ -295,9 +295,10 @@
       /*************************************** 一些动态、批量的img加载读取 ******************************/
       const customerList = [
         'eth',
-        'tron',
         'polygon',
         'solrnr',
+        'binance',
+        'tron',
         'polkadot',
         'uniswap',
         'ZRX',
@@ -311,7 +312,6 @@
         'GEMINI',
         'OKEX',
         'huobi',
-        'binance',
       ]
       const scienceDict = [
         'science01',
