@@ -19,15 +19,15 @@
   const list = [
     {
       text: 'Smart Contracts Audited',
-      title: '2,000+',
+      title: '2329',
     },
     {
       text: 'Ecosystem Users',
-      title: '1,000,000+',
+      title: '1,000,330',
     },
     {
       text: 'Protected Assets',
-      title: '$500B+',
+      title: '$501B',
     },
   ]
   const getImageUrl = i => {
