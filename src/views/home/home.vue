@@ -294,24 +294,24 @@
       }
       /*************************************** 一些动态、批量的img加载读取 ******************************/
       const customerList = [
+        'eth',
         'polygon',
         'solrnr',
-        'bitcoin',
-        'eth',
-        'dog',
-        'BSV',
+        'binance',
+        'tron',
+        'polkadot',
+        'uniswap',
         'ZRX',
         'crust',
-        'tron',
         'oneswap',
         'ankr',
         'ENJ',
-        'huobi',
+        'binnace',
         'kucoin',
         'bitmart',
-        'binnace',
         'GEMINI',
         'OKEX',
+        'huobi',
       ]
       const scienceDict = [
         'science01',
