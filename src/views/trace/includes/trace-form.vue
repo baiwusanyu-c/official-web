@@ -1,61 +1,64 @@
 <template>
-  <div class="trace-form bg-[#EEF6F9]">
-    <div class="trace-form-content w-66.7vw mx-auto pt-3.2vw">
-      <h1 class="text-1.7vw font-bold">
-        {{ $t('lang.tracePage.formTitle') }}
-      </h1>
-      <div class="flex items-center">
-        <n-form
-          ref="formRef"
-          class="mt-4.3vw n-form"
-          :label-width="80"
-          :model="form"
-          :rules="rules"
-          size="medium">
-          <n-form-item :label="$t('lang.tracePage.message1')">
-            <n-input v-model:value="form.message1" type="textarea" placeholder="" />
-          </n-form-item>
-          <n-form-item :label="$t('lang.tracePage.message2')" path="message2">
-            <n-input v-model:value="form.message2" type="textarea" placeholder="" />
-          </n-form-item>
-          <n-form-item :label="$t('lang.tracePage.message3')">
-            <n-input v-model:value="form.message3" placeholder="" />
-          </n-form-item>
-          <n-form-item :label="$t('lang.tracePage.itemName')">
-            <n-input v-model:value="form.name" placeholder="" />
-          </n-form-item>
-          <n-form-item :label="$t('lang.tracePage.itemEmail')" path="email">
-            <n-input v-model:value="form.email" placeholder="" />
-          </n-form-item>
-          <n-form-item :label="$t('lang.tracePage.verify')" path="code">
-            <verify-code-input
-              ref="codeRef"
-              v-model:code="form.code"
-              v-model:uuid="form.uuid"
-              class="verify-code-input"></verify-code-input>
-          </n-form-item>
-          <n-form-item>
-            <n-button
-              attr-type="button"
-              class="bg-mainG trace-btn text-black w-15.3vw h-3vw min-w-230px min-h-32px hover:bg-mainGHover;"
-              @click="submit">
-              {{ $t('lang.tracePage.submit') }}
-            </n-button>
-          </n-form-item>
-        </n-form>
-        <img src="@/assets/img/trace/trace-form-right.png" class="right-img ml-2.8vw" alt="" />
-      </div>
+  <div class="trace-form">
+    <div class="trace-form-content mx-auto">
+      <h2 class="trace-form-title">Contact Us</h2>
+      <n-form
+        ref="formRef"
+        class="t-form"
+        :label-width="80"
+        :model="form"
+        :rules="rules"
+        size="medium">
+        <n-form-item label="Stolen address">
+          <n-input
+            v-model:value="form.message1"
+            type="textarea"
+            placeholder="Multiple items are allowed" />
+        </n-form-item>
+        <n-form-item label="Stolen transaction hash" path="message2">
+          <n-input
+            v-model:value="form.message2"
+            type="textarea"
+            placeholder="Multiple items are allowed" />
+        </n-form-item>
+        <n-form-item label="Description">
+          <n-input
+            v-model:value="form.message3"
+            placeholder="To guide the discussion, please give us specific details" />
+        </n-form-item>
+        <n-form-item label="Name">
+          <n-input v-model:value="form.name" placeholder="Your name" />
+        </n-form-item>
+        <n-form-item label="Email" path="email">
+          <n-input v-model:value="form.email" placeholder="Your email address" />
+        </n-form-item>
+        <n-form-item label="Verification Code" path="code">
+          <verify-code-input
+            ref="codeRef"
+            v-model:code="form.code"
+            v-model:uuid="form.uuid"
+            class="verify-code-input"></verify-code-input>
+        </n-form-item>
+      </n-form>
+
+      <n-button
+        attr-type="button"
+        class="bg-mainG trace-btn text-black hover:bg-mainGHover;"
+        @click="submit">
+        Submit
+      </n-button>
+      <img src="@/assets/img/trace/trace-form-right.png" class="right-img" alt="" />
     </div>
   </div>
 </template>
 <script lang="ts" setup>
   import { NForm, NFormItem, NInput, NButton } from 'naive-ui'
   import { reactive, ref } from 'vue'
-  import { createQuote } from '../../../api/quote'
+  import { createQuote } from '@/api/quote'
   import { useI18n } from 'vue-i18n'
-  import VerifyCodeInput from '../../../components/verify-code-input.vue'
-  import composition from '../../../utils/mixin/common-func'
-  import { getStore } from '../../../utils/common'
+  import VerifyCodeInput from '@/components/verify-code-input.vue'
+  import composition from '@/utils/mixin/common-func'
+  import { getStore } from '@/utils/common'
 
   const { message } = composition()
   const { t } = useI18n()
@@ -113,58 +116,82 @@
 </script>
 
 <style>
+  .trace-form-title {
+    border-top: 5px solid #01e4b7;
+    width: fit-content;
+    font-size: 36px;
+    font-weight: bold;
+    color: #1b1b1b;
+    line-height: 44px;
+    padding: 0 5px;
+    margin: 0 auto;
+    padding-top: 21px;
+  }
   .trace-form .n-form-item-label {
-    color: #666;
-    font-size: 1.3vw;
+    font-size: 24px;
+    font-weight: 500;
+    color: #333333;
+    line-height: 32px;
   }
-  .trace-form .right-img {
-    width: 30%;
-    height: auto;
-  }
-  .trace-form .n-form {
-    flex: 1 1 60%;
+  .trace-form .t-form {
+    width: 100%;
+    margin-top: 76px;
   }
   .trace-form .n-form-item {
-    margin-top: 1vw;
+    margin-top: 20px;
   }
-  .trace-form .n-input__input-el,
-  .trace-form .verify-code-input {
-    height: 2.5vw;
-    min-height: 32px;
+  .trace-form .n-form-item:nth-last-child(1),
+  .trace-form .n-form-item:nth-last-child(2) {
+    width: 60%;
+  }
+  .trace-form textarea,
+  .trace-form input {
+    font-size: 20px;
+    min-height: 60px;
+  }
+  .trace-form {
+    background: url(@/assets/img/trace/form-bg.png) no-repeat center bottom #fff;
+    padding: 110px 0 80px;
+  }
+  .trace-form-content {
+    width: 1230px;
+    padding: 76px 175px 56px;
+    background: url(@/assets/img/trace/form-img.png) no-repeat #efefefd6;
+    background-position: calc(100% - 64px) calc(100% - 32px);
   }
 
   .trace-btn {
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #0f1627;
+    line-height: 28px;
+    width: 220px;
+    height: 52px;
+    margin-top: 30px;
     font-weight: bold;
   }
-  @media screen and (max-width: 900px) {
-    .trace-form-content h1 {
-      font-size: 18px !important;
-    }
-    .trace-form-content .n-form-item-label {
-      font-size: 14px !important;
-    }
-    .right-img {
-      display: none !important;
-    }
-  }
-  /* 手机 */
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 750px) {
     .trace-form-content {
-      padding-top: 76px;
+      width: 750px;
+      padding: 44px;
     }
-    .trace-btn {
-      font-size: 14px;
+    .trace-form-content {
+      background: url(@/assets/img/trace/form-img.png) no-repeat #efefefd6;
+      background-position: calc(100% - 32px) calc(100% - 60px);
+      background-size: 255px 263px;
+      padding-bottom: 80px;
+    }
+    .trace-form textarea,
+    .trace-form input,
+    .trace-form .n-input__placeholder {
+      font-size: 24px !important;
+    }
+    .trace-form {
+      padding: 80px 0 0;
     }
 
     .trace-btn {
-      margin: 0 auto;
-    }
-    .trace-form-content h1 {
-      font-size: 16px !important;
-    }
-    .trace-form-content .n-form-item-label {
-      font-size: 12px !important;
+      font-size: 24px;
     }
   }
 </style>

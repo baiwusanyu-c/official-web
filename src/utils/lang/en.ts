@@ -474,34 +474,7 @@ export default {
       supportDesc: 'Customized features to meet your specific requirements',
     },
   },
-  tracePage: {
-    pageIntro: `A visualization product that focuses on the security of users' wallet transactions,
-    helping users visualize and trace the flow of funds, monitor suspicious addresses, and
-    assist in recovering on-chain assets.`,
-    feture: 'Features',
-    bTitle1: 'Stolen funds tracing',
-    bTitle2: 'Suspicious address monitoring',
-    bTitle3: 'Malicious address database',
-    bTitle4: 'Mixer Tracing',
-    bInfo1: `Visualize and trace the movement of funds from the hacker's address to the money
-    laundering addresses or to the exchanges.`,
-    bInfo2: `Monitor the transaction movement of the addresses. For example, once the profitable
-    funds on the hacker's address are transferred to other addresses, the system will
-    immediately send an alert notification to users.`,
-    bInfo3: `We have hundreds of millions of address labels that contain a library of tens of
-    thousands of darknet, ransom, hacker and other malicious addresses.`,
-    bInfo4: `We can help you analyze the flow of funds after depositing into the mixers. For example,
-    trace the whereabouts of the funds into Tornado Cash and finally help users recover
-    them.`,
-    formTitle: 'For on-chain tracing needs, do not hesitate to contact us.',
-    message1: 'Stolen address (multiple fields are allowed):',
-    message2: 'Stolen transaction hash (multiple fields are allowed):',
-    message3: 'Detailed description:',
-    itemName: 'Your name:',
-    itemEmail: 'Your email address:',
-    verify: 'Verification code:',
-    submit: 'Submit',
-  },
+
   aboutUsPage: {
     title: 'ABOUT US',
     titleDesc: 'Securing the blockchain ecosystem is our only mission',

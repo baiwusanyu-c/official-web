@@ -342,10 +342,10 @@
           label: t('lang.header.productStr.product2'),
           value: '/index/product/productEagle',
         },
-        // {
-        //   label: t('lang.header.solutions.trace'),
-        //   value: '/index/solutions/trace',
-        // },
+        {
+          label: t('lang.header.solutions.trace'),
+          value: '/index/solutions/trace',
+        },
       ])
       const loginList = ref<Array<ISelect>>([
         {
