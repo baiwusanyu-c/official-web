@@ -104,9 +104,9 @@
           <div class="store-info">
             <img class="store-img" src="@/assets/img/trace/stories.png" alt="" />
             <p class="store-p">
-              In a “rug pull” scan on an Ethereum project, Beosin’s team used the Tracing tool to
-              help the client analyze fund flows, lock the target address, assist the client to
-              report to the law enforcement and issue a forensic report.
+              In a “rug pull” scan on an Ethereum project, Beosin’s team help the client analyze
+              fund flows, lock the target address, assist the client to report to the law
+              enforcement and issue a forensic report.
             </p>
           </div>
         </li>
