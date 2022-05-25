@@ -19,14 +19,14 @@
   </div>
   <main class="trace-main">
     <div class="trace-content auto-content">
-      <h2 class="main-title">Service</h2>
+      <h2 class="main-title">Beosin Tracing</h2>
       <div class="service-desc">
         <img src="@/assets/img/trace/service.png" class="sv-img" alt="" />
         <div class="sv-right">
           <p class="sv-text">
-            Beosin Cryptocurrency Tracing helps clients prevent from cryptocurrency threat such as
-            scam, ransom, assets been transferred into Tornado Cash and other security incidents and
-            investigate the theft case.
+            Beosin Tracing helps clients prevent from cryptocurrency threat such as scam, ransom,
+            assets been transferred into Tornado Cash and other security incidents and investigate
+            the theft case.
           </p>
           <p class="sv-text">
             With a full range of capabilities the Tracing service can be used to assist the clients
@@ -95,8 +95,7 @@
             <p class="store-p">
               A FIL coin staking node was exploited. The hacker modified the node address and
               transferred unfrozen cryptocurrencies via Tornado Cash. Beosin security team was able
-              to use the Tracing tool to track the stolen cryptocurrency transactions and their
-              final destinations.
+              to track the stolen cryptocurrency transactions and their final destinations.
             </p>
           </div>
         </li>
@@ -237,7 +236,7 @@
     font-size: 18px;
     font-weight: 400;
     color: #cccccc;
-    line-height: 1.1;
+    line-height: 1.2;
     margin-left: 20px;
   }
   .store-img {
