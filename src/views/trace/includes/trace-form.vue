@@ -27,10 +27,10 @@
             placeholder="To guide the discussion, please give us specific details" />
         </n-form-item>
         <n-form-item label="Name">
-          <n-input v-model:value="form.name" placeholder="Your name" />
+          <n-input v-model:value="form.name" maxlength="200" placeholder="Your name" />
         </n-form-item>
         <n-form-item label="Email" path="email">
-          <n-input v-model:value="form.email" placeholder="Your email address" />
+          <n-input v-model:value="form.email" maxlength="200" placeholder="Your email address" />
         </n-form-item>
         <n-form-item label="Verification Code" path="code">
           <verify-code-input
@@ -47,7 +47,6 @@
         @click="submit">
         Submit
       </n-button>
-      <img src="@/assets/img/trace/trace-form-right.png" class="right-img" alt="" />
     </div>
   </div>
 </template>
@@ -111,6 +110,7 @@
         codeRef.value.refreshCode()
         console.error(err)
       })
+      .finally(codeRef.value.refreshCode)
   }
   //  type?: number
 </script>

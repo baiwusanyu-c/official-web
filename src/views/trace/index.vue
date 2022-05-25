@@ -10,7 +10,7 @@
         <span class="text-[36px] ml-[20px]">$10B+</span>
         <span class="text-[24px] ml-[20px]">Recovered for 1,000+ clients</span>
       </div>
-      <be-button custom-class="contact-btn h-btn-txt-black " size="large" @click="openDialog">
+      <be-button custom-class="contact-btn h-btn-txt-black " size="large" @click="toForm">
         <span class="font-format text-2xl leading-loose">
           {{ $t('lang.contactBtn') }}
         </span>
@@ -148,12 +148,10 @@
 
 <script setup lang="ts">
   import TraceForm from './includes/trace-form.vue'
-  import { useEventBus } from '@vueuse/core'
   import { scale } from './scale'
   import { onMounted, onUnmounted } from 'vue'
-  const bus = useEventBus<string>('openQuote')
-  const openDialog = (): void => {
-    bus.emit('true')
+  const toForm = (): void => {
+    document.querySelector('.trace-form').scrollIntoView({ behavior: 'smooth', block: 'center' })
   }
   onMounted(() => {
     const unbind = scale(
