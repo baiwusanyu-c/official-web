@@ -47,7 +47,7 @@ export default {
     },
     serviceStr: {
       service1: 'Smart Contract Audit',
-      service2: 'Blockchian Platform Audit',
+      service2: 'Blockchain Platform Audit',
     },
     productStr: {
       product1: 'VaaS',
@@ -140,7 +140,7 @@ export default {
   // djd service-security
   serviceSecurity: {
     pageHead: {
-      textBig: 'Blockchian Platform Audit',
+      textBig: 'Blockchain Platform Audit',
       textSmall: 'Multi-dimensional, multi-round and multi-way detection of blockchain security',
     },
     search: {
