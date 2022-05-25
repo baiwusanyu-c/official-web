@@ -5698,7 +5698,6 @@ input:focus-visible {
 }
 .be-footer {
   box-sizing: border-box;
-  height: 3.5rem;
   flex-shrink: 0;
   padding: 0 1.25rem;
 }

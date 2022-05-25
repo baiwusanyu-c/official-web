@@ -42,10 +42,11 @@
         t('lang.home.serviceIc10'),
         t('lang.home.serviceIc11'),
         t('lang.home.serviceIc12'),
-        t('lang.home.serviceIc13'),
-        t('lang.home.serviceIc14'),
-        t('lang.home.serviceIc15'),
-        t('lang.home.serviceIc16'),
+        'AML Risk Assessment',
+        'Real-time Intelligence Notification',
+        'Transaction Analysis',
+        'Crypto Address Monitoring',
+        'Forensics Analysis Report',
       ])
       const imgList = reactive<object[]>([])
       const imgListHover = reactive<object[]>([])
@@ -54,7 +55,6 @@
         list.value.map((val: string, index: number) => {
           const obj: IImge = { img: '' }
           obj.img = imgImport['../assets/img/hexagon' + (index + 1) + '.png'].default
-          //  obj.img = imgImport['../assets/img/hexagon' + (index + 1) + '-hover.png'].default
           imgList.push(obj)
           const objHover: IImge = { img: '' }
           objHover.img = imgImport['../assets/img/hexagon' + (index + 1) + '-hover.png'].default

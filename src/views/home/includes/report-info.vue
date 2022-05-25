@@ -66,13 +66,13 @@
       name: 'SpaceRunners',
       time: '2022',
       url: 'https://beosin.com/audits/Space%20Runners_202205091054.pdf',
-      img: getImageUrl('r-5'),
+      img: getImageUrl('r-6'),
     },
     {
       name: 'Froyo',
       time: '2022',
       url: 'https://beosin.com/audits/Froyo_202204252037.pdf',
-      img: getImageUrl('r-6'),
+      img: getImageUrl('r-5'),
     },
     {
       name: 'Hotcross',
