@@ -5,11 +5,10 @@
       :space-between="0"
       :loop="true"
       :slides-per-view="3"
+      :autoplay="{ delay: 5000, disableOnInteraction: false }"
       navigation
       :initial-slide="0">
       <SwiperSlide>
-        <!-- :autoplay="{ delay: 5000, disableOnInteraction: false }" -->
-
         <div class="card-1 card" @click="$router.push('/index/service/contracts')">
           <h2 class="title2">Blockchain Security Audit</h2>
           <p class="text2">
@@ -33,7 +32,7 @@
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div class="card-4 card">
+        <div class="card-4 card" @click="$router.push('/index/service/trace')">
           <h2 class="title2">Cryptocurrency Tracing</h2>
           <p class="text2">
             Help users track the flow of Crypto Assets, monitor suspicious addresses, and assist in
@@ -60,7 +59,7 @@
           Provide Dapp operators with project intelligence and real-time risk alerts
         </p>
       </div>
-      <div class="card-4 card">
+      <div class="card-4 card" @click="$router.push('/index/service/trace')">
         <h2 class="title2">Cryptocurrency Tracing</h2>
         <p class="text2">
           Help users track the flow of Crypto Assets, monitor suspicious addresses, and assist in
@@ -113,7 +112,7 @@
     display: flex;
     flex-direction: column;
   }
-  .card:not(.card-4) {
+  .card {
     cursor: pointer;
   }
   .card:hover {

@@ -121,22 +121,22 @@
           <div class="order">01</div>
         </li>
         <li class="process">
-          <img class="process-img" src="@/assets/img/trace/p-1.svg" alt="" />
+          <img class="process-img" src="@/assets/img/trace/p-2.svg" alt="" />
           <h3 class="process-title">Analyzing fund flow</h3>
           <div class="order">02</div>
         </li>
         <li class="process">
-          <img class="process-img" src="@/assets/img/trace/p-1.svg" alt="" />
+          <img class="process-img" src="@/assets/img/trace/p-3.svg" alt="" />
           <h3 class="process-title">Targeting the suspects</h3>
           <div class="order">03</div>
         </li>
         <li class="process">
-          <img class="process-img" src="@/assets/img/trace/p-1.svg" alt="" />
+          <img class="process-img" src="@/assets/img/trace/p-4.svg" alt="" />
           <h3 class="process-title">Targeting the money</h3>
           <div class="order">04</div>
         </li>
         <li class="process">
-          <img class="process-img" src="@/assets/img/trace/p-1.svg" alt="" />
+          <img class="process-img" src="@/assets/img/trace/p-5.svg" alt="" />
           <h3 class="process-title">Issuing forensic reports</h3>
           <div class="order">05</div>
         </li>
@@ -151,7 +151,7 @@
   import { scale } from './scale'
   import { onMounted, onUnmounted } from 'vue'
   const toForm = (): void => {
-    document.querySelector('.trace-form').scrollIntoView({ behavior: 'smooth', block: 'center' })
+    document.querySelector('.trace-form').scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
   onMounted(() => {
     const unbind = scale(
@@ -183,6 +183,8 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    border-radius: 8px;
+    border: 1px solid #d7d7d7;
   }
   .process-content .process:hover {
     background: url('@/assets/img/trace/p-bg.png') no-repeat center 28px #fff;

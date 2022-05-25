@@ -29,7 +29,7 @@ const routes: Array<RouteRecordRaw> = [
         name: 'research',
       },
       {
-        path: 'solutions/trace',
+        path: '/index/service/trace',
         component: trace,
       },
       {
@@ -80,17 +80,12 @@ const routes: Array<RouteRecordRaw> = [
     name: 'test',
   },
   {
-    path: '/404',
-    component: page404,
-    name: '404',
-  },
-  {
     path: '/',
     redirect: '/index/home',
   },
   {
     path: '/:w+',
-    redirect: '/404',
+    component: page404,
   },
 ]
 

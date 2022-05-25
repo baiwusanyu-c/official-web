@@ -32,7 +32,7 @@ export default {
     project2: 'Blockchain platform audit',
     project3: 'VaaS',
     project4: 'EagleEye',
-    project5: 'Trace',
+    project5: 'Cryptocurrency Tracing',
   },
   header: {
     nav: 'Navigation',
@@ -45,10 +45,6 @@ export default {
       center: 'Personal Center',
       quit: 'Log Out',
     },
-    solutions: {
-      title: 'Solutions',
-      trace: 'Trace',
-    },
     serviceStr: {
       service1: 'Smart Contract Audit',
       service2: 'Blockchian Platform Audit',
@@ -57,7 +53,7 @@ export default {
       product1: 'VaaS',
       product2: 'EagleEye',
     },
-    trace: 'Trace',
+    Tracing: 'Cryptocurrency Tracing',
     language: {
       EN: 'EN',
       CH: '中文',
@@ -98,7 +94,7 @@ export default {
     serviceTitle2: 'Blockchain Platform Audit',
     serviceInfo2: `Beosin offer complete audits of layer 1 and layer 2 blockchain platforms, structured into black box, grey box, and white box audit. The audit covers all aspects of blockchain architecture, including block production, node communication, consensus algorithm, and governance logic. All audit reports include recommendations on how to resolve the issues identified.`,
     serviceTitle3: 'On-chain Asset Tracing',
-    serviceInfo3: `Trace digital assets, visualize transactions and wallet relationships, find source of funds and destination wallet. Beosin can also help you recover stolen assets`,
+    serviceInfo3: `Beosin Cryptocurrency Tracing helps clients prevent from cryptocurrency threat such as scam, ransom, assets been transferred into Tornado Cash and other security incidents and investigate the theft case.`,
     serviceIc8: 'Language Coding Security Audit',
     serviceIc9: 'Block Production and Governance Audit',
     serviceIc10: 'Account System Security Audit',
@@ -375,7 +371,7 @@ export default {
       eye: 'EagleEye',
       audit: 'Smart Contract Audit',
       platform: 'Blockchain Platform Audit',
-      trace: 'Trace',
+      Tracing: 'Tracing',
     },
     company: {
       title: 'Company',
@@ -452,7 +448,7 @@ export default {
         'Assess the overall project security level through multiple dimensions and provide a security score for each dimension.',
       funcSubTitle3: 'CONTRACT PROFILE',
       funcDesc3:
-        'Evaluate the contract code security, transaction security, and transaction volatility to trace the security of contract lifecycle.',
+        'Evaluate the contract code security, transaction security, and transaction volatility to Tracing the security of contract lifecycle.',
       funcSubTitle4: 'RISK WARNING',
       funcDesc4: 'Real-time security risk identification, assessment and alert.',
 

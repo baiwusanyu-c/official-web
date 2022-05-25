@@ -63,7 +63,7 @@
               <template #trigger>
                 <div
                   class="font-format trigger-item y-full flex items-center text-base justify-start hover:text-mainG"
-                  :class="{ 'item-active': isPathIncludes(['product', 'trace']) }">
+                  :class="{ 'item-active': isPathIncludes(['product']) }">
                   Products
                   <be-icon icon="under" class="ml-2"></be-icon>
                 </div>
@@ -178,7 +178,7 @@
           <template #trigger>
             <div
               class="font-format trigger-item y-full flex items-center text-base hover:text-mainG"
-              :class="{ 'item-active': isPathIncludes(['product', 'trace']) }">
+              :class="{ 'item-active': isPathIncludes(['product']) }">
               Products
               <be-icon icon="under" class="ml-2"></be-icon>
             </div>
@@ -332,6 +332,10 @@
           label: t('lang.header.serviceStr.service2'),
           value: '/index/service/security',
         },
+        {
+          label: 'Cryptocurrency Tracing',
+          value: '/index/service/trace',
+        },
       ])
       const product = ref<ISelect[]>([
         {
@@ -341,10 +345,6 @@
         {
           label: t('lang.header.productStr.product2'),
           value: '/index/product/productEagle',
-        },
-        {
-          label: t('lang.header.solutions.trace'),
-          value: '/index/solutions/trace',
         },
       ])
       const loginList = ref<Array<ISelect>>([

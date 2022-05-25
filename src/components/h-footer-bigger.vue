@@ -56,9 +56,9 @@
         <li class="font-format" @click="$router.push('/index/service/security')">
           {{ $t('lang.HFooterBigger.serve.platform') }}
         </li>
-        <!-- <li class="font-format" @click="$router.push('/index/solutions/trace')">
-          {{ $t('lang.HFooterBigger.serve.trace') }}
-        </li> -->
+        <li class="font-format" @click="$router.push('/index/service/trace')">
+          Cryptocurrency Tracing
+        </li>
       </ul>
     </div>
 

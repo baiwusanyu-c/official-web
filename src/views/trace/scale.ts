@@ -14,8 +14,7 @@ const scale = (
     const height = el.clientHeight // 不会根据transform的scale而变化
     const width = document.body.clientWidth // 对比屏幕宽度
     let scale = 1
-
-    const range = widths.find(it => it[1] > width && it[0] < width)
+    const range = widths.find(it => it[1] >= width && it[0] < width)
     if (!range) {
       el.style.cssText = orignStyle
       return
