@@ -22,7 +22,7 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "prepare": "husky install",
-    "formatDateiew": "vite preview --port 8080 --host"
+    "formatDateiew": "vite preview --port 8081 --host"
   },
   "lint-staged": {
     "*.{vue,js,ts,jsx,tsx}": [

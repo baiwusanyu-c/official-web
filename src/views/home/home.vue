@@ -112,12 +112,12 @@
         </div>
       </div>
 
-      <!-- <div class="slogan-service-item flex justify-end items-center w-full mt-10 sm:flex-col">
+      <div class="slogan-service-item flex justify-end items-center w-full mt-10 sm:flex-col">
         <div
           style="box-sizing: border-box"
           class="mr-24 hexagon-desc lg125:mb-0 md:mb-0 sm:mb-0 sm:mr-0">
           <h3 class="font-bold border-top text-3xl mb-8 font-format sm:text-[20px] sm:mb-4">
-            {{ $t('lang.home.serviceTitle3') }}
+            Cryptocurrency Tracing
           </h3>
           <p class="mb-16 font-format text-justify leading-normal text-lg sm:text-xs sm:mb-6">
             {{ $t('lang.home.serviceInfo3') }}
@@ -125,7 +125,7 @@
           <div class="sm:hidden">
             <be-button
               custom-class="display-flex learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
-              @click="routerPush('/index/solutions/trace')">
+              @click="routerPush('/index/service/trace')">
               <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
             </be-button>
           </div>
@@ -139,19 +139,19 @@
           <div class="flex justify-center trace-trans relative hexagon-b1">
             <hexagon class="font-format" :index="14"></hexagon>
             <hexagon class="font-format" :index="15"></hexagon>
-            <hexagon class="font-format" :index="-1"></hexagon>
+            <hexagon class="font-format" :index="16"></hexagon>
           </div>
           <div
             class="display-none sm:flex"
             style="position: absolute; right: 50%; bottom: 5%; transform: translateX(50%)">
             <be-button
               custom-class="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
-              @click="routerPush('/index/solutions/trace')">
+              @click="routerPush('/index/service/trace')">
               <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
             </be-button>
           </div>
         </div>
-      </div> -->
+      </div>
     </div>
     <!--   product     -->
     <div class="slogan-product bg-mainBlueGary flex flex-col justify-center items-center w-full">
@@ -722,10 +722,6 @@
   }
 
   @media screen and (min-width: 100px) and (max-width: 1278px) {
-    .trace-trans {
-      transform: translateX(40px);
-    }
-
     .science-dom p {
       text-align: left;
     }

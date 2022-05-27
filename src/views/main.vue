@@ -113,7 +113,6 @@
 
   .hermit-container-container .be-header {
     height: 4.5em;
-
     @apply px-2;
   }
 

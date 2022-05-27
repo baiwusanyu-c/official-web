@@ -28,7 +28,7 @@
             <p class="label font-format">
               {{ $t('lang.quoteDialog.yourName') }}
             </p>
-            <n-input v-model:value="formData.name" size="large" />
+            <n-input v-model:value="formData.name" maxlength="200" size="large" />
           </div>
         </div>
         <div class="flex flex-col w-full mb-8 md:mb-4 sm:mb-4">
@@ -36,7 +36,7 @@
             {{ $t('lang.quoteDialog.email') }}
             <span style="color: red">*</span>
           </p>
-          <n-input v-model:value="formData.email" size="large" />
+          <n-input v-model:value="formData.email" maxlength="200" size="large" />
         </div>
         <!--<div class="flex flex-col w-full mb-8 md:mb-4 sm:mb-4">
             <p class="label font-format">{{ $t('lang.quoteDialog.phone') }}</p>

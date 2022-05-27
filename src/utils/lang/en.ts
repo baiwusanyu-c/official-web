@@ -32,7 +32,7 @@ export default {
     project2: 'Blockchain platform audit',
     project3: 'VaaS',
     project4: 'EagleEye',
-    project5: 'Trace',
+    project5: 'Cryptocurrency Tracing',
   },
   header: {
     nav: 'Navigation',
@@ -45,19 +45,15 @@ export default {
       center: 'Personal Center',
       quit: 'Log Out',
     },
-    solutions: {
-      title: 'Solutions',
-      trace: 'Trace',
-    },
     serviceStr: {
       service1: 'Smart Contract Audit',
-      service2: 'Blockchian Platform Audit',
+      service2: 'Blockchain Platform Audit',
     },
     productStr: {
       product1: 'VaaS',
       product2: 'EagleEye',
     },
-    trace: 'Trace',
+    Tracing: 'Cryptocurrency Tracing',
     language: {
       EN: 'EN',
       CH: '中文',
@@ -98,7 +94,7 @@ export default {
     serviceTitle2: 'Blockchain Platform Audit',
     serviceInfo2: `Beosin offer complete audits of layer 1 and layer 2 blockchain platforms, structured into black box, grey box, and white box audit. The audit covers all aspects of blockchain architecture, including block production, node communication, consensus algorithm, and governance logic. All audit reports include recommendations on how to resolve the issues identified.`,
     serviceTitle3: 'On-chain Asset Tracing',
-    serviceInfo3: `Trace digital assets, visualize transactions and wallet relationships, find source of funds and destination wallet. Beosin can also help you recover stolen assets`,
+    serviceInfo3: `Beosin Cryptocurrency Tracing helps clients prevent from cryptocurrency threat such as scam, ransom, assets been transferred into Tornado Cash and other security incidents and investigate the theft case.`,
     serviceIc8: 'Language Coding Security Audit',
     serviceIc9: 'Block Production and Governance Audit',
     serviceIc10: 'Account System Security Audit',
@@ -144,7 +140,7 @@ export default {
   // djd service-security
   serviceSecurity: {
     pageHead: {
-      textBig: 'Blockchian Platform Audit',
+      textBig: 'Blockchain Platform Audit',
       textSmall: 'Multi-dimensional, multi-round and multi-way detection of blockchain security',
     },
     search: {
@@ -375,7 +371,7 @@ export default {
       eye: 'EagleEye',
       audit: 'Smart Contract Audit',
       platform: 'Blockchain Platform Audit',
-      trace: 'Trace',
+      Tracing: 'Tracing',
     },
     company: {
       title: 'Company',
@@ -452,7 +448,7 @@ export default {
         'Assess the overall project security level through multiple dimensions and provide a security score for each dimension.',
       funcSubTitle3: 'CONTRACT PROFILE',
       funcDesc3:
-        'Evaluate the contract code security, transaction security, and transaction volatility to trace the security of contract lifecycle.',
+        'Evaluate the contract code security, transaction security, and transaction volatility to Tracing the security of contract lifecycle.',
       funcSubTitle4: 'RISK WARNING',
       funcDesc4: 'Real-time security risk identification, assessment and alert.',
 
@@ -474,34 +470,7 @@ export default {
       supportDesc: 'Customized features to meet your specific requirements',
     },
   },
-  tracePage: {
-    pageIntro: `A visualization product that focuses on the security of users' wallet transactions,
-    helping users visualize and trace the flow of funds, monitor suspicious addresses, and
-    assist in recovering on-chain assets.`,
-    feture: 'Features',
-    bTitle1: 'Stolen funds tracing',
-    bTitle2: 'Suspicious address monitoring',
-    bTitle3: 'Malicious address database',
-    bTitle4: 'Mixer Tracing',
-    bInfo1: `Visualize and trace the movement of funds from the hacker's address to the money
-    laundering addresses or to the exchanges.`,
-    bInfo2: `Monitor the transaction movement of the addresses. For example, once the profitable
-    funds on the hacker's address are transferred to other addresses, the system will
-    immediately send an alert notification to users.`,
-    bInfo3: `We have hundreds of millions of address labels that contain a library of tens of
-    thousands of darknet, ransom, hacker and other malicious addresses.`,
-    bInfo4: `We can help you analyze the flow of funds after depositing into the mixers. For example,
-    trace the whereabouts of the funds into Tornado Cash and finally help users recover
-    them.`,
-    formTitle: 'For on-chain tracing needs, do not hesitate to contact us.',
-    message1: 'Stolen address (multiple fields are allowed):',
-    message2: 'Stolen transaction hash (multiple fields are allowed):',
-    message3: 'Detailed description:',
-    itemName: 'Your name:',
-    itemEmail: 'Your email address:',
-    verify: 'Verification code:',
-    submit: 'Submit',
-  },
+
   aboutUsPage: {
     title: 'ABOUT US',
     titleDesc: 'Securing the blockchain ecosystem is our only mission',
