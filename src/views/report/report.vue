@@ -53,7 +53,7 @@
     preset="dialog"
     :title="$t('lang.header.requestUs')"
     to="#request_quote_dialog">
-    <ReportResult :list="rows"></ReportResult>
+    <ReportResult :list="resultList"></ReportResult>
   </n-modal>
   <VerifyCodeDialog ref="verifyRef" @submit="toGetReport"></VerifyCodeDialog>
 </template>
@@ -83,24 +83,29 @@
     }
     verifyRef.value.show()
   }
-  let verifyData: { uuid: string; code: string }
-  const toGetReport = (v: typeof verifyData) => {
-    verifyRef.value.hidden()
-    showReport.value = true
-    verifyData = v
-    query(1)
+  type VerifyData = { uuid: string; code: string }
+  const resultList = ref<Row[]>([])
+  const toGetReport = (v: VerifyData) => {
+    return getReportForOtherCompany({
+      pageNum: page.value,
+      langType: 1, // 取英文报告
+      ...v,
+      keyword: keyword.value,
+    }).then((res: any) => {
+      verifyRef.value.hidden()
+      showReport.value = true
+      resultList.value = res.data.rows as Row[]
+    })
   }
   const query = (v = 1) => {
     page.value = v
-    getReportForOtherCompany({
+    return getReportForOtherCompany({
       pageNum: page.value,
       langType: 1, // 取英文报告
       pageSize: 8,
-      ...verifyData,
     }).then((res: any) => {
       rows.value = res.data.rows as Row[]
       total.value = res.data.total
-      console.log(res)
     })
   }
   const toReport = (row: Row) => {
