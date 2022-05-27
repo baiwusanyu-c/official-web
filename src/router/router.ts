@@ -1,4 +1,9 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+import {
+  createRouter as _createRouter,
+  createWebHashHistory,
+  createMemoryHistory,
+  RouteRecordRaw,
+} from 'vue-router'
 const main = () => import('../views/main.vue')
 const security = () => import('../views/service/service-security.vue')
 const contracts = () => import('../views/service/service-contract.vue')
@@ -93,13 +98,14 @@ const routes: Array<RouteRecordRaw> = [
 // 3. 创建路由实例并传递 `routes` 配置
 // 你可以在这里输入更多的配置，但我们在这里
 // 暂时保持简单
-export const router = createRouter({
-  history: createWebHashHistory(),
-  routes,
-})
-router.beforeEach((from, to, next) => {
-  next()
-})
-router.afterEach(() => {
-  window.scrollTo(0, 0)
-})
+export const createRouter = () => {
+  const router = _createRouter({
+    history: import.meta.env.SSR ? createMemoryHistory() : createWebHashHistory(),
+    routes,
+  })
+
+  router.afterEach(() => {
+    window.scrollTo(0, 0)
+  })
+  return router
+}

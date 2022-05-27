@@ -9,7 +9,6 @@ import { ref } from 'vue'
 import { getCodeImg } from '../../api/login'
 
 // @ts-ignore
-import { BeMessage } from '../../../public/be-ui/be-ui.es'
 import { Ref } from '@vue/reactivity'
 export default () => {
   /**
@@ -42,14 +41,16 @@ export default () => {
     })
   }
   const message = (type: string, info: string, className: string): void => {
-    BeMessage.service({
-      customClass: className,
-      titles: info,
-      msgType: type,
-      duration: 2500,
-      offsetTop: 80,
-      close: false,
-    })
+    import('../../../public/be-ui/be-ui.es').then(res =>
+      res.BeMessage.service({
+        customClass: className,
+        titles: info,
+        msgType: type,
+        duration: 2500,
+        offsetTop: 80,
+        close: false,
+      })
+    )
   }
   /**
    * 開啓定時器，進行數字滾動
