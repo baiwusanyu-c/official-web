@@ -23,7 +23,7 @@
     <div class="r-content">
       <h1 class="r-h1">View Public Reports</h1>
       <ul class="items">
-        <li class="grid grid-cols-3 row1">
+        <li class="grid grid-cols-3 gap-x-20px row1">
           <span>Project Name</span>
           <span>Date</span>
         </li>
@@ -43,7 +43,7 @@
           class="report-pagination"
           :item-count="total"
           :page-slot="5"
-          :page-size="8"
+          :page-size="pageSize"
           :on-update:page="query" />
       </div>
     </div>
@@ -77,6 +77,7 @@
   const page = ref(1)
   const rows = ref<Row[]>([])
   const total = ref(0)
+  const pageSize = 30
   const submit = () => {
     if (!keyword.value) {
       message('warning', 'Please enter keyword', 'hermit-msg')
@@ -109,7 +110,7 @@
     return getReportForOtherCompany({
       pageNum: page.value,
       langType: 1, // 取英文报告
-      pageSize: 8,
+      pageSize,
     }).then((res: any) => {
       rows.value = res.data.rows as Row[]
       total.value = res.data.total
@@ -142,6 +143,7 @@
     background: #1cd2a9;
     border-radius: 4px;
   }
+
   .report {
     background: #f5f8fb;
     min-height: 750px;
@@ -184,12 +186,17 @@
     line-height: 36px;
     cursor: pointer;
   }
+  .review:hover {
+    color: #fff;
+    background-color: #1cd2a9 !important;
+  }
   .r-content {
     max-width: 1230px;
     margin: 0 auto;
     padding-top: 40px;
     border-radius: 1px;
     min-height: 576px;
+    padding-bottom: 80px;
   }
   .search-text {
     font-size: 24px;
@@ -233,10 +240,6 @@
     background: #ffffff;
     padding: 20px 24px;
   }
-
-  .report-pagination :deep(.n-pagination-item:nth-last-child(2):not(.n-pagination-item--active)) {
-    display: none;
-  }
   .search-content :deep(input) {
     height: 48px;
   }
@@ -244,6 +247,9 @@
     width: 180px;
   }
   @media screen and (max-width: 750px) {
+    .r-content {
+      padding-bottom: 30px;
+    }
     .r-h1 {
       font-size: 16px;
     }
