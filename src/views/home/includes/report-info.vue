@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-  import VerifyCodeDialog from '../../../components/ver-code-dialog.vue'
+  import VerifyCodeDialog from '@/components/ver-code-dialog.vue'
   import { ref } from 'vue'
   import composition from '@/utils/mixin/common-func'
   const { message } = composition()

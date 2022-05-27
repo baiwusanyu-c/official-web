@@ -147,7 +147,7 @@
 
 <script setup lang="ts">
   import TraceForm from './includes/trace-form.vue'
-  import { scale } from './scale'
+  import { scale } from '@/utils/scale'
   import { onMounted, onUnmounted } from 'vue'
   const toForm = (): void => {
     document.querySelector('.trace-form').scrollIntoView({ behavior: 'smooth', block: 'start' })
