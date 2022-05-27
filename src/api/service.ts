@@ -29,6 +29,16 @@ export function getReportByCode(params: IReportCode) {
     },
   })
 }
+export function getReportForOtherCompany(params: IReportCode) {
+  return request({
+    url: 'website/report/search/cmc',
+    method: 'get',
+    params: {
+      langType: 1,
+      ...params,
+    },
+  })
+}
 export function getBeosinAlert() {
   return request({
     url: '/website/news?pageSize=5',
