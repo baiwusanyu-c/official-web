@@ -104,8 +104,9 @@ export const createRouter = () => {
     routes,
   })
 
-  router.afterEach(() => {
-    window.scrollTo(0, 0)
-  })
+  !import.meta.env.SSR &&
+    router.afterEach(() => {
+      window.scrollTo(0, 0)
+    })
   return router
 }

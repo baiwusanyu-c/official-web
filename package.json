@@ -49,7 +49,7 @@
     "swiper": "^7.3.2",
     "vfonts": "^0.1.0",
     "vite-plugin-svg-transform-script": "^1.1.0",
-    "vue": "^3.2.23",
+    "vue": "^3.2.36",
     "vue-i18n": "9",
     "vue-router": "4"
   },

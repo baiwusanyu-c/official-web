@@ -72,9 +72,9 @@
 
 <script setup lang="ts">
   import { Swiper, SwiperSlide } from 'swiper/vue'
-  import 'swiper/swiper.min.css'
-  import 'swiper/swiper.min.css/pagination'
-  import 'swiper/swiper.min.css/navigation'
+  // import 'swiper/css'
+  // import 'swiper/css/pagination'
+  // import 'swiper/css/navigation'
   import SwiperCore, { Autoplay, Navigation } from 'swiper'
   SwiperCore.use([Autoplay, Navigation])
 </script>

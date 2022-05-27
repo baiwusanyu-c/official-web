@@ -29,9 +29,6 @@
 <script lang="ts">
   import { defineComponent, ref } from 'vue'
   import { Swiper, SwiperSlide } from 'swiper/vue'
-  import 'swiper/swiper.min.css'
-  import 'swiper/swiper.min.css/pagination'
-  import 'swiper/swiper.min.css/navigation'
   import SwiperCore, { Pagination, Autoplay } from 'swiper'
 
   SwiperCore.use([Pagination, Autoplay])

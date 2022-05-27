@@ -1,9 +1,11 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
-import path from 'path'
+import path, { resolve } from 'path'
 import { transformScript } from 'vite-plugin-svg-transform-script'
 import WindiCSS from 'vite-plugin-windicss'
+import fs from 'fs'
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
