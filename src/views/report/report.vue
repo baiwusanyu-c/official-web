@@ -96,14 +96,19 @@
       langType: 1, // 取英文报告
       ...v,
       keyword: keyword.value,
-    }).then((res: any) => {
-      if (!res.data.rows?.length) {
-        message('warning', t('lang.noResults'), 'hermit-msg')
-        return
-      }
-      showReport.value = true
-      resultList.value = res.data.rows as Row[]
     })
+      .then((res: any) => {
+        if (!res.data.rows?.length) {
+          message('warning', t('lang.noResults'), 'hermit-msg')
+          return
+        }
+
+        showReport.value = true
+        resultList.value = res.data.rows as Row[]
+      })
+      .catch(err => {
+        message('warning', err.message, 'hermit-msg')
+      })
   }
   const query = (v = 1) => {
     page.value = v
