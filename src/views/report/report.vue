@@ -116,10 +116,14 @@
       pageNum: page.value,
       langType: 1, // 取英文报告
       pageSize,
-    }).then((res: any) => {
-      rows.value = res.data.rows as Row[]
-      total.value = res.data.total
     })
+      .then((res: any) => {
+        rows.value = res.data.rows as Row[]
+        total.value = res.data.total
+      })
+      .catch(err => {
+        message('warning', err.message, 'hermit-msg')
+      })
   }
   const toReport = (row: Row) => {
     window.open(
