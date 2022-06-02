@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-  import VerifyCodeDialog from '../../../components/ver-code-dialog.vue'
+  import VerifyCodeDialog from '@/components/ver-code-dialog.vue'
   import { ref } from 'vue'
   import composition from '@/utils/mixin/common-func'
   const { message } = composition()
@@ -62,17 +62,18 @@
       url: 'https://beosin.com/audits/JGN_202111161121.pdf',
       img: getImageUrl('r-4'),
     },
+
     {
-      name: 'SpaceRunners',
+      name: 'UnoRe',
       time: '2022',
-      url: 'https://beosin.com/audits/Space%20Runners_202205091054.pdf',
-      img: getImageUrl('r-6'),
+      url: 'https://beosin.com/audits/UnoRe_202201251340.pdf',
+      img: getImageUrl('r-5'),
     },
     {
-      name: 'Froyo',
+      name: 'SeasonSwap',
       time: '2022',
-      url: 'https://beosin.com/audits/Froyo_202204252037.pdf',
-      img: getImageUrl('r-5'),
+      url: 'https://beosin.com/audits/SeasonSwap_202204221127.pdf',
+      img: getImageUrl('r-6'),
     },
     {
       name: 'Hotcross',

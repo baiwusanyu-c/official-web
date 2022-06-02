@@ -19,6 +19,11 @@ const routes: Array<RouteRecordRaw> = [
     component: main,
     children: [
       {
+        path: 'report',
+        component: report,
+        name: 'report',
+      },
+      {
         path: '/index/home',
         component: home,
         name: 'home',
@@ -69,11 +74,7 @@ const routes: Array<RouteRecordRaw> = [
     component: login,
     name: 'login',
   },
-  {
-    path: '/report',
-    component: report,
-    name: 'report',
-  },
+
   {
     path: '/test',
     component: test,
@@ -95,6 +96,9 @@ const routes: Array<RouteRecordRaw> = [
 export const router = createRouter({
   history: createWebHashHistory(),
   routes,
+})
+router.beforeEach((from, to, next) => {
+  next()
 })
 router.afterEach(() => {
   window.scrollTo(0, 0)

@@ -1,335 +1,275 @@
-/* * @report.vue * @deprecated * @author czh * @update (czh 2021/12/20) */
 <template>
-  <div class="report-detail-container p-6">
-    <div class="flex justify-end">
-      <be-button
-        :round="3"
-        bordered
-        class="mr-6 downloadReport"
-        size="large"
-        @click="previewReport">
-        <span class="font-format">{{ $t('lang.report.cet.viewReport') }}</span></be-button
-      >
-      <be-button
-        :round="3"
-        type="primary"
-        bordered
-        class="downloadCET"
-        size="large"
-        @click="downloadCET">
-        <span class="font-format"> {{ $t('lang.report.cet.downloadCET') }}</span>
-      </be-button>
-    </div>
-    <div ref="CET" class="report-body" :class="locale === 'en_US' ? 'CET-area-en' : 'CET-area-ch'">
-      <div class="CET-header">
-        <img alt="" class="logo" src="../../assets/img/logo-black.png" />
-        <div class="name font-format">{{ CETInfo.projectName }}</div>
-        <!--<div class="desc font-format">{{ $t("lang.report.cet.resultTitle") }}:</div>
-                <img alt="" v-if="locale === 'en_US'" class="result" src="../../assets/img/pass_en.png"/>
-                <img alt=""  v-else class="result" src="../../assets/img/pass.png"/>-->
-      </div>
-      <div class="CET-content">
-        <div class="content-item">
-          <span class="label font-format" :class="locale === 'en_US' ? 'en' : ''"
-            >{{ $t('lang.report.cet.reportNum') }}：</span
-          >
-          <span class="num font-format">{{ CETInfo.num }}</span>
-        </div>
-        <div class="content-item">
-          <span class="label font-format" :class="locale === 'en_US' ? 'en' : ''"
-            >{{ $t('lang.report.cet.addr') }}：</span
-          >
-          <span class="font-format">{{ CETInfo.addr }}</span>
-        </div>
-        <div class="content-item">
-          <span class="label font-format" :class="locale === 'en_US' ? 'en' : ''"
-            >{{ $t('lang.report.cet.linkAddr') }}：</span
-          >
-          <span class="font-format">{{ CETInfo.link }}</span>
-        </div>
-        <div class="content-item">
-          <span class="label font-format" :class="locale === 'en_US' ? 'en' : ''"
-            >{{ $t('lang.report.cet.items') }}：</span
-          >
-          <div class="audit-item">
-            <ul class="item-list">
-              <li v-for="(item, index) in CETInfo.items" :key="index" class="font-format">
-                {{ item }}
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="CET-other" :style="{ bottom: '700px' }">
-        <!--                <img class="code" src="../../../assets/image/code.png"/>-->
-        <div class="other-company">
-          <!--                    <div class="font-format">{{ $t("lang.report.cet.company") }}</div>-->
-          <div class="font-format">{{ CETInfo.time }}</div>
-        </div>
-      </div>
-      <div class="CET-footer" :style="{ bottom: '320px' }">
-        <div class="footer-title font-format">
-          {{ $t('lang.report.cet.agreementName') }}
-        </div>
-        <div class="footer-content font-format">
-          {{ $t('lang.report.cet.agreement') }}
+  <div class="header">
+    <div class="auto-content header-content">
+      <img src="@/assets/img/report/ss.png" class="header-img" alt="" />
+      <div class="header-right">
+        <div class="search-text">Find a Audit Report</div>
+        <div class="search-content">
+          <n-input
+            v-model:value="keyword"
+            class="n-input"
+            maxlength="200"
+            placeholder="Search for a project" />
+          <n-button
+            class="bg-mainG r-btn cursor-pointer text-black hover:bg-mainGHover;"
+            @click="submit">
+            Search
+          </n-button>
         </div>
       </div>
     </div>
   </div>
+  <div class="report">
+    <div class="r-content">
+      <h1 class="r-h1">View Public Reports</h1>
+      <ul class="items">
+        <li class="grid grid-cols-3 gap-x-20px row1">
+          <span>Project Name</span>
+          <span>Date</span>
+        </li>
+        <li v-for="it in rows" :key="it.id" class="row grid gap-x-20px grid-cols-3">
+          <span class="row-left flex items-center overflow-hidden">
+            <span class="ell break-all">
+              {{ it.projectName }}
+            </span>
+          </span>
+          <span class="flex-none">{{ dayjs(it.createTime).format('MMM DD, YYYY') }}</span>
+          <span class="review" @click="toReport(it)">View</span>
+        </li>
+      </ul>
+      <div class="pagi">
+        <n-pagination
+          v-model:page="page"
+          class="report-pagination"
+          :item-count="total"
+          :page-slot="5"
+          :page-size="pageSize"
+          :on-update:page="query" />
+      </div>
+    </div>
+  </div>
+  <n-modal
+    v-model:show="showReport"
+    preset="dialog"
+    :title="$t('lang.header.requestUs')"
+    to="#request_quote_dialog">
+    <ReportResult :list="resultList"></ReportResult>
+  </n-modal>
+  <VerifyCodeDialog ref="verifyRef" @submit="toGetReport"></VerifyCodeDialog>
 </template>
 
-<script lang="ts">
-  import { defineComponent, getCurrentInstance, onMounted, ref } from 'vue'
-  import { formatDate, getSession } from '../../utils/common'
+<script lang="ts" setup>
+  import { ref } from 'vue'
+  import { getReportForOtherCompany } from '@/api/service'
+  import { NPagination } from 'naive-ui'
+  import config from '@/enums/config'
+  import dayjs from 'dayjs'
+  import composition from '@/utils/mixin/common-func'
+  import VerifyCodeDialog from '@/components/verify-code-dialog-only.vue'
+  import ReportResult from '@/components/report-result.vue'
+  import { NInput, NModal } from 'naive-ui'
   import { useI18n } from 'vue-i18n'
-  import { downLoadZip } from '../../utils/zipdownload'
-  import html2canvas from 'html2canvas'
-  import composition from '../../utils/mixin/common-func'
-  import config from '../../enums/config'
-  interface ICETInfo {
-    projectName?: string
-    num?: string
-    addr?: string
-    link?: string
-    items?: string
-    time?: string
-    fileId?: string
-    openFlag?: string
+  const { message } = composition()
+  const keyword = ref('')
+  const verifyRef = ref()
+  const showReport = ref<boolean>(false)
+  type Row = { createTime: string; reportNum: string; id: string; projectName: string }
+  const page = ref(1)
+  const rows = ref<Row[]>([])
+  const total = ref(0)
+  const pageSize = 30
+  const submit = () => {
+    if (!keyword.value) {
+      message('warning', 'Please enter keyword', 'hermit-msg')
+      return
+    }
+    verifyRef.value.show()
   }
-  export default defineComponent({
-    name: 'ReportPage',
-    setup() {
-      const CETInfoSession = ref(JSON.parse(getSession('CETInfo') as string))
-      const CETInfo = ref<ICETInfo>({})
-      const { locale } = useI18n()
-      const curInst = getCurrentInstance()
-      const initData = () => {
-        const safeAuditItem =
-          locale.value === 'en_US' && CETInfoSession.value.safeAuditItemEn
-            ? CETInfoSession.value.safeAuditItemEn.split(',')
-            : CETInfoSession.value.safeAuditItem.split(',')
-        CETInfo.value = {
-          projectName: CETInfoSession.value.projectName,
-          num: CETInfoSession.value.reportNum,
-          addr: CETInfoSession.value.contractAddress,
-          link: CETInfoSession.value.linkAddress,
-          items: safeAuditItem,
-          time: formatDate(new Date(CETInfoSession.value.createTime.replace(/-/g, '/')), 'Y/m/d'),
-          fileId: CETInfoSession.value.uuid,
-          openFlag: CETInfoSession.value.openFlag,
+  const { t } = useI18n()
+  type VerifyData = { uuid: string; code: string }
+  const resultList = ref<Row[]>([])
+  const toGetReport = (v: VerifyData) => {
+    verifyRef.value.hidden()
+    return getReportForOtherCompany({
+      pageNum: 1,
+      pageSize: 100000,
+      langType: 1, // 取英文报告
+      ...v,
+      keyword: keyword.value,
+    })
+      .then((res: any) => {
+        if (!res.data.rows?.length) {
+          message('warning', t('lang.noResults'), 'hermit-msg')
+          return
         }
-      }
-      const downloadReport = async () => {
-        const prevUrl =
-          String(import.meta.env.VITE_PROJECT_ENV) === 'production' ? '/hermit/back' : ''
-        await downLoadZip(
-          `${prevUrl}/website/common/download/single?fileUuid=${CETInfo.value.fileId}&reportNum=${CETInfo.value.num}`,
-          CETInfo.value.num + '.pdf'
-        )
-      }
-      const { openWin } = composition()
-      const previewReport = () => {
-        const prevUrl =
-          String(import.meta.env.VITE_PROJECT_ENV) === 'production' ? '/hermit/back' : ''
-        let baseURL = config.baseURL
-        openWin(
-          `${baseURL}${prevUrl}/website/common/preview/single?fileUuid=${CETInfo.value.fileId}&reportNum=${CETInfo.value.num}`,
-          `preview${CETInfo.value.num}`
-        )
-      }
-      const downloadCET = (): void => {
-        html2canvas(curInst?.refs.CET as HTMLElement).then(function (canvas) {
-          if (navigator.msSaveBlob) {
-            // IE10+
-            let blob = canvas.msToBlob()
-            return navigator.msSaveBlob(blob, CETInfo.value.num + '.jpg')
-          } else {
-            let imgUrl: string = canvas
-              .toDataURL('image/png')
-              .replace('image/png', 'image/octet-stream') // 获取生成的图片的url
-            let eleLink: HTMLAnchorElement = document.createElement('a')
-            eleLink.href = imgUrl // 转换后的图片地址
-            eleLink.download = CETInfo.value.num + '.jpg'
-            document.body.appendChild(eleLink)
-            // 触发点击
-            eleLink.click()
-            // 然后移除
-            document.body.removeChild(eleLink)
-          }
-        })
-      }
-      onMounted(() => {
-        initData()
+
+        showReport.value = true
+        resultList.value = res.data.rows as Row[]
       })
-      return {
-        CETInfo,
-        locale,
-        previewReport,
-        downloadReport,
-        downloadCET,
-      }
-    },
-  })
+      .catch(err => {
+        message('warning', err.message, 'hermit-msg')
+      })
+  }
+  const query = (v = 1) => {
+    page.value = v
+    return getReportForOtherCompany({
+      pageNum: page.value,
+      langType: 1, // 取英文报告
+      pageSize,
+    })
+      .then((res: any) => {
+        rows.value = res.data.rows as Row[]
+        total.value = res.data.total
+      })
+      .catch(err => {
+        message('warning', err.message, 'hermit-msg')
+      })
+  }
+  const toReport = (row: Row) => {
+    window.open(
+      `${config.baseURL}/audits/${row.projectName}_${row.reportNum}.pdf`,
+      `preview${row.reportNum}`
+    )
+  }
+  query(1)
 </script>
-<!-- prettier-ignore -->
 <style scoped>
-  .report-detail-container .report-body {
-    position: relative;
-    box-sizing: border-box;
-    width: 1382px;
-    height: 1958px;
-    padding: 336px 150px 290px;
-    margin: 0 auto;
-    margin-bottom: 80px;
-    font-family: SourceHanSansNormal, sans-serif;
-    background: url(../../assets/img/cet.jpg) no-repeat center;
+  .header {
+    height: 232px;
+    background: #15263a;
   }
-
-  .report-detail-container .report-body .CET-header {
-    position: relative;
-    font-size: 28px;
-    font-weight: bold;
-    line-height: 36px;
-    text-align: center;
-  }
-
-  .report-detail-container .report-body .CET-header .logo {
-    width: 200px;
-    height: 70px;
-    margin: 0 auto;
-  }
-
-  .report-detail-container .report-body .CET-header .name {
-    color: #2563bc;
-    word-break: break-all;
-  }
-
-  .report-detail-container .report-body .CET-header .desc {
-    margin-top: 10px;
-    color: #43425b;
-  }
-
-  .report-detail-container .report-body .CET-header .result {
-    position: absolute;
-    right: 130px;
-    bottom: -100px;
-  }
-
-  .report-detail-container .report-body .CET-content {
-    margin-top: 50px;
-    color: #5a5a5a;
-  }
-
-  .report-detail-container .report-body .CET-content .content-item {
+  .pagi {
     display: flex;
-    margin-bottom: 40px;
-    font-size: 16px;
-    line-height: 30px;
+    justify-content: flex-end;
   }
-
-  .report-detail-container .report-body .CET-content .content-item .label {
-    display: block;
-    width: 180px;
-    min-width: 180px;
-    max-width: 180px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #43425b;
-    text-align: right;
-  }
-
-  .report-detail-container .report-body .CET-content .content-item .label.en {
-    width: 300px;
-    min-width: 300px;
-    max-width: 300px;
-  }
-
-  .report-detail-container .report-body .CET-content .content-item span {
-    word-break: break-all;
-  }
-
-  .report-detail-container .report-body .CET-content .content-item .num {
-    color: #2563bc;
-  }
-
-  .report-detail-container .report-body .CET-content .content-item .audit-item {
-    width: calc(100% - 200px);
-  }
-
-  .report-detail-container .report-body .CET-content .content-item .item-list {
+  .r-btn {
+    width: 120px;
     display: flex;
-    flex-wrap: wrap;
-  }
-
-  .report-detail-container .report-body .CET-content .content-item .item-list li {
-    padding: 2px 15px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
+    align-items: center;
+    margin-left: 10px;
+    justify-content: center;
+    height: 48px;
+    background: #1cd2a9;
     border-radius: 4px;
   }
 
-  .report-detail-container .report-body .CET-other {
-    position: absolute;
-    bottom: 510px;
-    width: calc(100% - 300px);
-    font-size: 20px;
-    line-height: 36px;
-    text-align: right;
+  .report {
+    background: #f5f8fb;
+    min-height: 750px;
   }
-
-  .report-detail-container .report-body .CET-other .code {
-    width: 110px;
-    height: 110px;
+  .row,
+  .row1 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #15263a;
+    height: 60px;
+    align-items: center;
+    padding: 0 24px;
+    border: 4px;
   }
-
-  .report-detail-container .report-body .CET-other .other-desc {
-    width: 610px;
-    margin: 10px auto 40px;
+  .row1 {
+    color: #15263a;
+    font-weight: normal;
   }
-
-  .report-detail-container .report-body .CET-other .other-desc a {
-    color: #2563bc;
+  li:nth-child(2n + 1) {
+    background: #f5f8fb;
   }
-
-  .report-detail-container .report-body .CET-other .other-company {
-    float: none;
-  }
-
-  .report-detail-container .report-body .CET-footer {
-    position: absolute;
-    bottom: 290px;
-    width: calc(100% - 300px);
-  }
-
-  .report-detail-container .report-body .CET-footer .footer-title {
-    margin-bottom: 15px;
+  .r-h1 {
     font-size: 24px;
     font-weight: bold;
-    color: #808080;
+    color: #15263a;
+    padding: 0 20px;
   }
-
-  .report-detail-container .report-body .CET-footer .footer-content {
-    font-size: 16px;
-    line-height: 22px;
-    color: #b5b5b5;
+  .n-pagination {
+    margin-top: 20px;
   }
-
-  .report-detail-container .report-body .CET-area-ch .CET-content .content-item .label {
-    -moz-text-align-last: justify;
-    -webkit-text-align-last: justify;
-    text-align-last: justify;
-    text-justify: inter-ideograph; /* ie中必须有这个 */
+  .review {
+    max-width: 263px;
+    min-width: 80px;
+    width: 100%;
+    height: 36px;
+    border-radius: 1px;
+    border: 1px solid #1cd2a9;
+    color: #1cd2a9;
+    text-align: center;
+    line-height: 36px;
+    cursor: pointer;
   }
-
-  .downloadCET {
+  .review:hover {
     color: #fff;
-    background: #2563bc;
+    background-color: #1cd2a9 !important;
+  }
+  .r-content {
+    max-width: 1230px;
+    margin: 0 auto;
+    padding-top: 40px;
+    border-radius: 1px;
+    min-height: 576px;
+    padding-bottom: 80px;
+  }
+  .search-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1cd2a9;
+  }
+  .header-right {
+    width: 100%;
+    margin-left: 5%;
+  }
+  .search-content {
+    display: flex;
+    margin-top: 10px;
+  }
+  .auto-content {
+    max-width: 1230px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .header-content {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 20px;
+  }
+  .header-img {
+    align-self: flex-end;
+  }
+  .ell {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .report :deep(.n-pagination-item--button) {
+    border: none !important;
+    background-color: transparent !important;
   }
 
-  .downloadReport {
-    color: #2563bc;
-    border: 1px solid #2563bc;
+  .items {
+    margin-top: 20px;
+    background: #ffffff;
+    padding: 20px 24px;
+  }
+  .search-content :deep(input) {
+    height: 48px;
+  }
+  .search-content .bg-mainG {
+    width: 180px;
+  }
+  @media screen and (max-width: 750px) {
+    .r-content {
+      padding-bottom: 30px;
+    }
+    .r-h1 {
+      font-size: 16px;
+    }
+    .items {
+      padding: 0;
+    }
+    .header-right {
+      margin-left: 0;
+    }
+    .header-img {
+      display: none !important;
+    }
   }
 </style>
