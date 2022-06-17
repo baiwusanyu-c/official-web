@@ -3,7 +3,7 @@
     <header class="auto-content flex text-[#fff]">
       <h1 class="trace-top-h1">Cryptocurrency Tracing</h1>
       <p class="top-text">
-        For cryptocurrency been stolen, blackmailed, transferred into Tonado Cash
+        For cryptocurrency been stolen, blackmailed, transferred into Tornado Cash
       </p>
       <div class="top-data">
         <img src="@/assets/img/trace/top-1.svg" alt="" />
