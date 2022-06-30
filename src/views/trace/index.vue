@@ -3,7 +3,8 @@
     <header class="auto-content flex text-[#fff]">
       <h1 class="trace-top-h1">Cryptocurrency Tracing</h1>
       <p class="top-text">
-        For cryptocurrency been stolen, blackmailed, transferred into Tornado Cash
+        Personalized investigation service for stolen cryptocurrency, blackmailed, or transferred
+        into Tornado Cash.
       </p>
       <div class="top-data">
         <img src="@/assets/img/trace/top-1.svg" alt="" />
@@ -24,15 +25,15 @@
         <img src="@/assets/img/trace/service.png" class="sv-img" alt="" />
         <div class="sv-right">
           <p class="sv-text">
-            Beosin Tracing helps clients prevent from cryptocurrency threat such as scam, ransom,
-            assets been transferred into Tornado Cash and other security incidents and investigate
-            the theft case.
+            Beosin Tracing helps clients prevent cryptocurrency threats such as scams, ransom,
+            assets being transferred into Tornado Cash, and other security threats; and investigate
+            cryptocurrency theft cases.
           </p>
           <p class="sv-text">
-            With a full range of capabilities the Tracing service can be used to assist the clients
-            to recover their lost cryptocurrencies. It covers AML Risk Assessment, Transaction
-            Analysis, Crypto Address Monitoring, Real-time Intelligence Notification, and
-            Cryptocurrency Forensics Report that can be used by law enforcement.
+            With a full range of capabilities, the Tracing service can assist clients in recovering
+            their lost cryptocurrencies. It supports AML Risk Assessment, Transaction Analysis,
+            Crypto Address Monitoring, Real-time Intelligence Notification, and Cryptocurrency
+            Forensics Report that law enforcement agencies can use.
           </p>
         </div>
       </div>
@@ -59,10 +60,10 @@
           <img class="main-img" src="@/assets/img/trace/sv-3.png" alt="" />
           <h3 class="main-block-title">Transaction Analysis</h3>
           <p class="main-p">
-            Transaction Analysis feature can help find the final destination of stolen crypto funds,
-            regardless of the complexity of transactions. With a library containing 300+ millions
-            tagged addresses, we can track and analyze mixers like Tornado Cash to discover the
-            destination through Big Data analysis and Artificial Intelligence algorithms.
+            The Transaction Analysis feature can help find the final destination of stolen crypto
+            funds, regardless of the complexity of transactions. With a library containing 300+
+            million tagged addresses, we can track and analyze mixers like Tornado Cash to discover
+            the destination through Big Data analysis and Artificial Intelligence algorithms.
           </p>
         </li>
         <li class="block block-4">
@@ -77,11 +78,11 @@
           <img class="main-img" src="@/assets/img/trace/sv-5.png" alt="" />
           <h3 class="main-block-title">Forensics Analysis Report</h3>
           <p class="main-p">
-            The Tracing service can generate a report containing all forensic information of an
-            investigated crypto transaction. It includes specific crypto addresses, transactions
-            involved, wallets, entities and links between them to explore transactional relationship
-            and uncover suspicious activities. This type of report findings can be used to assist
-            law enforcement organizations for their relevant investigation and actions.
+            The Tracing service can generate a report containing forensic information about an
+            investigated crypto transaction. It includes specific crypto addresses, transactions,
+            wallets, entities, and links between them to explore the transactional relationship and
+            uncover suspicious activities. This type of report findings can be used to assist law
+            enforcement organizations in their relevant investigation and actions.
           </p>
         </li>
       </ul>

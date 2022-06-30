@@ -67,9 +67,9 @@ export default {
   aboutHerMit: {
     title: 'ABOUT BEOSIN',
     info1:
-      'Beosin is a leading global Web 3.0 blockchain security brand co-founded by several professors from world-renowned universities. The team consists of 100+ security experts, including 40+ PhDs and postdocs. ',
+      'Beosin is a leading global Web 3.0 blockchain security brand co-founded by several professors from world-renowned universities. The team consists of 100+ security experts with 40+ PhDs and postdocs.',
     info2:
-      'With the mission of "Securing Web3.0 blockchain ecosystem”, Beosin provides integrated blockchain security services and products to serve 1 million+ users in the global blockchain ecosystem.',
+      'With the “Securing Web3.0 Blockchain Ecosystem” mission, Beosin provides integrated blockchain security services and products to serve one million+ user in the global blockchain ecosystem.',
   },
   home: {
     title1: 'SECURING THE',
@@ -84,19 +84,19 @@ export default {
     more: 'Learn More',
     serviceTitle1: 'Smart Contract Audit',
     serviceInfo1:
-      'Beosin Smart Contract audits identify code errors and code vulnerabilities, including rigorous audit of business logic and interaction between different contracts. Beosin use formal verification for all Smart Contract audits, the same methodology used in highly sensitive systems such as the Mars probe lander and metro control systems. All audit reports include recommendations on how to resolve the issues identified.',
-    serviceIc1: 'DeFi Contracts',
-    serviceIc2: 'Tokens Contracts',
-    serviceIc3: 'Other Customized Smart Contracts',
-    serviceIc4: 'Gamefi Contract',
-    serviceIc5: 'DApp Contract',
+      'Beosin has audited more than 2,000 smart contract projects and assisted project parties in discovering and fixing more than 1,000 medium to high-risk security vulnerabilities. These projects come from Ethereum, EVM-compatible chains, Solana, Near, EOS, aelf, and other blockchain platforms.  Beosin audits the smart contract in 3 categories: Coding Conventions, General Vulnerability, and Business Security. Combining the results from automated formal verification and manual code review by security experts, Beosin can precisely identify the security problems in smart contracts and assist the project party in fixing them to avoid crypto loss.',
+    serviceIc1: 'NFT Contract',
+    serviceIc2: 'DeFi Contracts',
+    serviceIc3: 'GameFi Contract',
+    serviceIc4: 'Tokens Contracts',
+    serviceIc5: 'Other Customized Smart Contracts',
 
     serviceTitle2: 'Blockchain Platform Audit',
-    serviceInfo2: `Beosin offer complete audits of layer 1 and layer 2 blockchain platforms, structured into black box, grey box, and white box audit. The audit covers all aspects of blockchain architecture, including block production, node communication, consensus algorithm, and governance logic. All audit reports include recommendations on how to resolve the issues identified.`,
+    serviceInfo2: `Beosin offers a comprehensive audit service of Layer 1 and Layer 2 blockchain platforms with three options.  They are Black Box, Grey Box, and White Box audits. The audit covers all aspects of platform architecture and functionalities, including block production, node communication, consensus algorithm, and governance logic. The audit report includes recommendations on fixing identified issues.`,
     serviceTitle3: 'On-chain Asset Tracing',
-    serviceInfo3: `Beosin Cryptocurrency Tracing helps clients prevent from cryptocurrency threat such as scam, ransom, assets been transferred into Tornado Cash and other security incidents and investigate the theft case.`,
-    serviceIc8: 'Language Coding Security Audit',
-    serviceIc9: 'Block Production and Governance Audit',
+    serviceInfo3: `Beosin Cryptocurrency Tracing service helps clients prevent cryptocurrency threats such as scams, ransom, assets transferred into Tornado Cash, and other security incidents and theft cases.`,
+    serviceIc8: 'Coding Security Audit',
+    serviceIc9: 'Consensus Security Audit',
     serviceIc10: 'Account System Security Audit',
     serviceIc11: 'Asset Security Audit',
     serviceIc12: 'Application-layer Security Audit',
@@ -107,7 +107,7 @@ export default {
 
     productName1: 'VaaS (Verification-as-a-Service)',
     productDesc1:
-      'The industry-leading security analysis platform for smart contracts with multi-dimensional detection capabilities such as static scanning, fuzzy testing, and formal verification, which can automatically discover known and unknown vulnerabilities and business logic issues in smart contracts and provide professional comments or revisions.',
+      'The industry-leading security smart contract verification platform can automatically discover known and unknown vulnerabilities and business logic issues in smart contracts and provide professional recommendations for fixing problems. It applies multi-dimensional detection capabilities, including static scanning, fuzzy testing, and formal verification technologies.',
     productFeature1: 'Known Vulnerabilities',
     productFeature2: 'Unknown Vulnerabilities',
     productFeature3: 'Logical Correctness',
@@ -115,7 +115,7 @@ export default {
 
     productName2: 'EagleEye',
     productDesc2:
-      'Through real-time monitoring of on-chain transactions, identification of transaction behaviors, and analysis of contract codes, it can discover and alert hacking incidents and contract vulnerabilities, supporting project owner on safe operation and asset protection.',
+      'EagleEye provides 24by7 blockchain security monitoring and notification services. It sends customers real-time security alerts and warnings when it detects risks like hacker attacks, frauds, flash loans, rug pulls through on-chain and off-chain data analysis, and multi-dimensional security assessments.',
     productFeature5: 'Transaction Risk Detection',
     productFeature6: 'Contract Risk Identification',
     productFeature7: 'Threat Intelligence Collection',
@@ -141,10 +141,10 @@ export default {
   serviceSecurity: {
     pageHead: {
       textBig: 'Blockchain Platform Audit',
-      textSmall: 'Multi-dimensional, multi-round and multi-way detection of blockchain security',
+      textSmall: 'Multi-dimensional, Multi-round, and Multi-way audit to secure blockchains',
     },
     search: {
-      text: 'We provide multi-dimensional security audit for codes of blockchain platforms, and effectively guarantee the overall security of blockchain platform in aspects of node communication, storage, consensus and authority management through different auditing methods, such as black box, gray box and white box testing.',
+      text: 'Beosin provides multi-dimensional security audits on blockchains and ensures the overall security in node communication, storage, consensus, and authority management through three Audit options. They are Black Box, Gray Box, and White Box testing.',
       totalCustomers: 'Total customers served',
       audited: 'Audited contracts',
       totalAudited: 'Total audited funds',
@@ -174,7 +174,7 @@ export default {
   serviceContract: {
     pageHead: {
       textBig: 'Smart Contract Audit',
-      textSmall: 'Co-audited by more than 20 top blockchain security engineers worldwide',
+      textSmall: 'Over 2000 smart contract projects audited worldwide',
       button: 'Reservation Now',
     },
     search: {
@@ -199,27 +199,27 @@ export default {
     process: {
       title: 'Service Process',
       textEvaluation: 'Project Evaluation',
-      textImplementation: 'Project Implementation',
+      textImplementation: 'Smart Contract Audit',
     },
     reports: {
       title: 'What’s in the audit report?',
-      text: 'The audit report summarizes the results from the formal verification tool and manual review including detailed information about the identified vulnerabilities with severity (critical, high, medium, low and informational) and fix recommendations. With Charts and graphs, the report presents you with a visual insight into project.',
+      text: 'The audit report summarizes the formal verification analysis and manual code review results. It includes detailed information on each identified vulnerability with severity level (Critical, High, Medium, Low, and Informational) and fix recommendations.  The report comes with charts and graphs to present visual insights into an audited project.',
       middleTitle: 'Security Audit Reports',
       answer:
         'Our audit reports adopt several methods to offer you a comprehensive and customized service, including formal verification, static analysis, case testing and manual review. The report will list detailed information about the identified vulnerabilities and categorize them by severity (critical, high, medium, low and informational). Charts and graphs are included to provide a visual insight into your project, and fix recommendations will also be given.',
       middleText: 'Listed are some of the Blockchain and DeFi audit reports we published',
     },
     table: {
-      titleBig: 'Smart contract security audit items',
-      titleWhite: 'White box testing solutions',
-      titleGrey: 'Grey box testing solutions',
-      titleBlack: 'Black box testing solutions',
+      titleBig: 'Blockchain Platform Security Audit Options',
+      titleWhite: 'White Box Testing',
+      titleGrey: 'Grey Box Testing',
+      titleBlack: 'Black Box Testing',
       textWhite:
-        'White box testing is also known as structural testing, glass box testing, logic-driven testing or code-based testing. It is a test case design method where the box refers to the software being tested, and the white box refers to the box being visible, that is, it is clear what is inside the box and how it works. Note: offensive and defensive testing + full code audit.',
+        'White box testing is also known as open box testing, glass box testing, transparent box testing, or code-based testing. It is a software testing technique in which software’s internal structure, design, and coding are tested to verify the input-output flow and improve design, usability, and security. Its scope includes offensive and defensive testing and a complete code audit.',
       textGrey:
-        'Gray box testing is a test between white box testing and black box testing. It focuses not only on the correctness of output and input, but also the internal situation of the program. Note: offensive and defensive testing + core code audit.',
+        'Gray box testing is a technique to test a software product or application with partial knowledge of the internal structure. The purpose of grey box testing is to search and identify the defects due to improper code structure or improper use of applications.',
       textBlack:
-        'Black box testing, also called functional testing, is a test to check whether each function works properly. During the test, the program is regarded as a black box that cannot be opened, and the program interface is tested without considering the internal structure and characteristics of the program. It only examines whether the program functions normally according to the specifications and whether the program can properly receive the input data and output the correct information. Note: offensive and defensive testing.',
+        'Black Box Testing is a software testing method in which the functionalities of software applications are tested without knowing the internal code structure, implementation details, and internal paths. It mainly focuses on the input and output of software applications and it is entirely based on software requirements and specifications. It is also known as Behavioral Testing.',
       white: {
         categories01: 'Language Coding Security',
         categories02: 'RPC security',
@@ -406,13 +406,14 @@ export default {
       title: 'VaaS',
       subTitle: 'Improve the security of smart contracts for developers',
 
-      desc: 'The Smart Contract Formal Verification Platform provides static scanning, fuzzy testing and formal verification capabilities for smart contract codes. The platform supports 100+ testing items including traditional vulnerabilities and business logic correctness on multiple public blockchains such as ETH, BSC, MATIC, AAVE, ONT, EOS, etc., with an accuracy rate of above 97%. It can precisely locate the risky codes while giving recommendations to help developers improve the security of smart contracts.',
+      desc: 'The VaaS product provides static scanning, fuzzy testing, and formal verification capabilities for smart contract codes. The platform supports 140+ defined testing cases, including traditional vulnerabilities and business logic correctness on multiple public blockchains such as ETH, BSC, MATIC, AAVE, ONT, EOS, etc.  It can precisely locate the risky codes with an above 97% accuracy rate and give recommendations to help developers improve their smart contracts’ security.',
 
       funcTitle: 'Functions',
       funcSubTitle1: 'ONE-CLICK AUTOMATIC DETECTION',
-      funcDesc1: 'Just upload the contract and the platform will automatically detect.',
+      funcDesc1:
+        'Just upload the contract, and the platform will automatically detect security risks.',
       funcSubTitle2: 'CUSTOMIZED CONFIGURATION',
-      funcDesc2: 'Customized configuration for different blockchain platform parameters.',
+      funcDesc2: 'Customized configuration for different blockchains.',
       funcSubTitle3: 'CONTRACT-TO-CONTRACT VERIFICATION',
       funcDesc3:
         'Support inter-call between multiple contracts, able to verify the properties between contracts.',
@@ -436,8 +437,8 @@ export default {
     eagle: {
       title: 'EagleEye',
       subTitle: 'Provide Dapp operators with project intelligence and real-time risk alerts',
-      funcDisplay: 'Function Display',
-      desc: 'An integrated monitoring platform designed for blockchain project owners. By automatically assessing security situation of contracts, monitoring on-chain operations and real-time transactions, it can identify suspicious transactions, comprehensively assess the operation status, help user to find out risks and get disposal suggestions, and finally setup security shield for project operation and asset protection.',
+      funcDisplay: 'EagleEye Project Dashboard',
+      desc: 'EagleEye provides 24by7 blockchain security monitoring and notification services. It sends customers real-time security alerts and warnings when it detects risks like hacker attacks, frauds, flash loans, rug pulls through on-chain and off-chain data analysis, and multi-dimensional security assessments.',
 
       funcTitle: 'Main Functions Of Product',
       funcSubTitle1: 'CHAIN PROFILE',
@@ -475,8 +476,7 @@ export default {
     title: 'ABOUT US',
     titleDesc: 'Securing the blockchain ecosystem is our only mission',
     descInfo1:
-      'Beosin is a leading global Web 3.0 blockchain security brand co-founded by several professors from world-renowned universities. The team consists of 100+ security experts, including 40+ PhDs and postdocs. \n' +
-      'With the mission of "Securing Web3.0 blockchain ecosystem”, Beosin provides integrated blockchain security services and products to serve 1 million+ users in the global blockchain ecosystem.',
+      'Beosin is a leading global Web 3.0 blockchain security brand co-founded by several professors from world-renowned universities. The team consists of 100+ security experts with 40+ PhDs and postdocs. With the “Securing Web3.0 Blockchain Ecosystem” mission, Beosin provides integrated blockchain security products and services to serve one million+ users in the global blockchain ecosystem.',
     descInfo2: '',
     descIcon1: '20+',
     descIconInfo1: 'Years of scientific research',
@@ -491,12 +491,12 @@ export default {
   researchPage: {
     title: 'Research',
     titleDesc:
-      'Our team have analyzed the latest exploits and vulnerabilities related to blockchain security. Technical details including hacking techniques, flow of funds, mitigation recommendations can be found in our research.',
+      'Our team has analyzed blockchain security incidents’ latest exploits and vulnerabilities. In our research reports, you can find detailed analyses, including hacking techniques, the flow of funds, and mitigation recommendations.',
     tabSecurityAnalysis: 'Security Analysis',
     tabOtherReport: 'Other Reports',
   },
   quoteDialog: {
-    projectName: 'PROJECT NAME',
+    projectName: 'PROJECT TYPE',
     yourName: 'YOUR NAME',
     email: 'YOUR EMAIL ADDRESS',
     phone: 'YOU CONTACT',

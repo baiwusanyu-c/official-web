@@ -27,7 +27,7 @@
       <div class="auto-card">
         <img src="@/assets/img/home/about-4.png" alt="" />
         <h4>1Billion+</h4>
-        <p>Crypto addresses labeleds</p>
+        <p>Labeled crypto addresses</p>
       </div>
       <div class="auto-card">
         <img src="@/assets/img/home/about-5.png" alt="" />
