@@ -19,11 +19,11 @@
   const list = [
     {
       text: 'Smart Contracts Audited',
-      title: '2415',
+      title: '2426',
     },
     {
       text: 'Ecosystem Users',
-      title: '1,000,480',
+      title: '1,000,575',
     },
     {
       text: 'Protected Assets',

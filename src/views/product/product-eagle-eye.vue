@@ -6,7 +6,8 @@
     <div class="page-head relative">
       <div class="header-text">
         <div class="header-text-big font-format">
-          {{ $t('lang.companyName') }} <span>{{ $t('lang.product.eagle.title') }}</span>
+          <!-- {{ $t('lang.companyName') }} <span>{{ $t('lang.product.eagle.title') }}</span> -->
+          {{ $t('lang.product.eagle.title') }}
         </div>
         <div class="header-text-small font-format leading-normal">
           {{ $t('lang.product.eagle.subTitle') }}
@@ -261,7 +262,7 @@
           title: 'Address Monitor',
           contents: [
             'Add any crypto addresses to be monitored.',
-            'Real-time notification about fund outflow from a monitored address',
+            'Real-time notification about fund outflow from a monitored address.',
           ],
         },
         {
@@ -279,7 +280,7 @@
           contents: [
             'Identify the security vulnerabilities of Web3 websites.',
             'Detect phishing, fraud, fake or other types of malicious websites risks.',
-            'Alert users to avoid private key and asset loss',
+            'Alert users to avoid private key and asset loss.',
           ]
         },
       ]
