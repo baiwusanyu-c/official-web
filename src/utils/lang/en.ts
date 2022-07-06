@@ -407,6 +407,7 @@ export default {
     vass: {
       title: 'VaaS',
       subTitle: 'Improve the security of smart contracts for developers',
+      funcDisplay: 'VaaS Project Dashboard',
 
       desc: 'The VaaS product provides static scanning, fuzzy testing, and formal verification capabilities for smart contract codes. The platform supports 140+ defined testing cases, including traditional vulnerabilities and business logic correctness on multiple public blockchains such as ETH, BSC, MATIC, AAVE, ONT, EOS, etc.  It can precisely locate the risky codes with an above 97% accuracy rate and give recommendations to help developers improve their smart contracts’ security.',
 
@@ -499,12 +500,13 @@ export default {
     tabOtherReport: 'Other Reports',
   },
   quoteDialog: {
-    projectName: 'PROJECT TYPE',
-    yourName: 'YOUR NAME',
-    companyName: 'COMPANY NAME',
-    email: 'YOUR EMAIL ADDRESS',
-    phone: 'YOU CONTACT',
-    message: 'MESSAGE',
+    projectName: 'Project Type',
+    yourName: 'Your Name',
+    companyName: 'Company Name',
+    email: 'Your Email Address',
+    phone: 'Your Contact',
+    message: 'Message',
+    code: 'Verification Code',
     messageP:
       'Please input the content you wish to consult, e.g. cooperation process, cooperation price, others...',
   },

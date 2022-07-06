@@ -1,6 +1,7 @@
 <template>
   <div
     class="func-item-card bg-default flex items-center justify-start p-8 box-border rounded sm:p-8">
+    <img class="func-img-bg" src="@/assets/img/func-card-bg.png" />
     <div class="img-logo">
       <img :src="imgUrl" />
     </div>
@@ -49,6 +50,15 @@
     width: 49%;
     margin-bottom: 30px;
     height: 320px;
+    position: relative;
+  }
+  .func-item-card .func-img-bg{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    max-height: 80%;
+    display: none;
   }
   .func-item-card:nth-child(2n + 2) {
     margin-right: 0;
@@ -57,6 +67,9 @@
     width: 100%;
     margin-right: 0;
     margin-bottom: 0;
+  }
+  .func-item-card:last-child .func-img-bg{
+    display: block;
   }
 
   .func-item-card .img-logo {
@@ -70,6 +83,7 @@
   .func-item-card .content .content-item li {
     padding-left: 20px;
     position: relative;
+    color: #444444
   }
   .func-item-card .content .content-item li::before {
     content: '';

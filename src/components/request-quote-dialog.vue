@@ -59,7 +59,7 @@
         <div class="flex w-full mb-8 md:mb-4 sm:mb-4">
           <div class="flex-1 mr-6">
             <p class="label font-format">
-              {{ $t('lang.login.verCode').toUpperCase() }}
+              {{ $t('lang.quoteDialog.code') }}
               <span style="color: red">*</span>
             </p>
             <n-input

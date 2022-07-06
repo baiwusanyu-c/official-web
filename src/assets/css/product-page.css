@@ -26,11 +26,21 @@
 .product-page .title-box{
   padding-top: 20px;
   width: 372px;
-  border-top: 6px solid #44D7B6;
-  text-align: center;
-  white-space: nowrap;
   display: flex;
   justify-content: center;
+  position: relative;
+  line-height: 2.5rem;
+}
+
+.product-page .title-box::before{
+  content: '';
+  width: 372px;
+  height: 6px;
+  background-color: #44D7B6;
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .product-page .header-text-small {
@@ -94,6 +104,9 @@
 
   .product-page .title-box{
     width: 350px
+  }
+  .product-page .title-box::before{
+    width: 350px;
   }
 
   #product_eagle.product-page .eagle-header-logo {
@@ -208,9 +221,12 @@
   }
 
   .product-page .title-box{
-    width: 200px;
+    width: 300px;
     padding-top: 10px;
-    border-top-width: 4px;
+    font-size: 1.8rem;
+  }
+  .product-page .title-box::before{
+    width: 300px;
   }
 
   .product-page .try-out-btn {

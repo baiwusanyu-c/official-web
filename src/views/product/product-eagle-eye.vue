@@ -11,10 +11,11 @@
         <div class="header-text-small font-format leading-normal">
           {{ $t('lang.product.eagle.subTitle') }}
         </div>
-        <!--        <be-button
+        <be-button
           custom-class="try-out-btn h-btn-txt-black linear-l-r text-black text-xl sm:absolute sm:bottom-8 sm:inset-x-0"
-        >{{ $t('lang.tryoutBtn') }}
-        </be-button>-->
+          @click="toEaglePage">
+          <span class="font-format sm:text-base">{{ $t('lang.tryoutBtn') }}</span>
+        </be-button>
       </div>
       <div class="eagle-header-logo sm:hidden"></div>
     </div>
@@ -32,7 +33,7 @@
         </h2>
         <!--     走馬燈      -->
         <div
-          class="mt-10 product-swiper w-full h-full md:mt-8 sm:mt-4 sm:bg-default sm:p-2 sm:rounded">
+          class="mt-10 product-swiper w-full h-full md:mt-8 sm:mt-4 sm:bg-default sm:p-2 sm:rounded swiper-no-swiping">
           <h-product-swiper></h-product-swiper>
         </div>
         <p
@@ -136,33 +137,18 @@
       <ul class="support-container w-full flex flex-wrap">
         <li class="item-bsc">
           <img src="@/assets/img/support-bg-etc.png" />
-          <div class="flex items-center justify-center">
-            <img src="@/assets/img/support-icon-etc.png" />ETC
-          </div>
         </li>
         <li class="item-bsc">
           <img src="@/assets/img/support-bg-bsc.png" />
-          <div class="flex items-center justify-center">
-            <img src="@/assets/img/support-icon-bsc.png" />BSC
-          </div>
         </li>
         <li class="item-polygon">
           <img src="@/assets/img/support-bg-polygon.png" />
-          <div class="flex items-center justify-center">
-            <img src="@/assets/img/support-icon-polygon.png" />POLYGON
-          </div>
         </li>
         <li class="item-tron">
           <img src="@/assets/img/support-bg-tron.png" />
-          <div class="flex items-center justify-center">
-            <img src="@/assets/img/support-icon-tron.png" />TRON
-          </div>
         </li>
         <li class="item-heco">
           <img src="@/assets/img/support-bg-heco.png" />
-          <div class="flex items-center justify-center">
-            <img src="@/assets/img/support-icon-heco.png" />HECO
-          </div>
         </li>
       </ul>
     </board-item>
@@ -221,7 +207,7 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent } from 'vue'
+  import { defineComponent, ref } from 'vue'
   import ContactUs from '../../components/contact-us.vue'
   import AboutHermit from '../../components/about-hermit.vue'
   import HProductSwiper from '../../components/h-product-swiper.vue'
@@ -229,12 +215,17 @@
   import BoardItem from './product-eagle-eye-components/board-item/index.vue'
   import FunctionCard from './product-eagle-eye-components/function-card/index.vue'
   // import { useI18n } from 'vue-i18n'
+  import { productLinkList } from '@/enums/link'
+  import { getStore } from '@/utils/common'
+  import composition from '@/utils/mixin/common-func'
+  
 
   import imgAssessmentUrl from '../../assets/img/func-logo-assessment.png'
   import imgSecurityUrl from '../../assets/img/func-logo-security.png'
   import imgMonitorUrl from '../../assets/img/func-logo-monitor.png'
   import imgNewsUrl from '../../assets/img/func-logo-news.png'
   import imgIdentificationUrl from '../../assets/img/func-logo-identification.png'
+  
   export default defineComponent({
     name: 'ProductEagleEye',
     components: {
@@ -289,11 +280,20 @@
             'Identify the security vulnerabilities of Web3 websites.',
             'Detect phishing, fraud, fake or other types of malicious websites risks.',
             'Alert users to avoid private key and asset loss',
-          ],
+          ]
         },
       ]
+
+      const base = ref<string>(productLinkList.eagleEye)
+      const { openWin } = composition()
+
+      const toEaglePage = (): void => {
+        let url = `${base.value}?token=Bearer ${getStore('token')}&lang=${getStore('lang')}`
+        openWin(url, 'vaas')
+      }
       return {
         functionOptions,
+        toEaglePage
       }
     },
   })
@@ -314,20 +314,6 @@
   .support-container li > img{
     width: 100%
   }
-  .support-container li > div{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    color: #fff;
-    font-size: 32px;
-  }
-  .support-container li > div img{
-    display: block;
-    height: 48px;
-    margin-right: 30px
-  }
 
   @media screen and (max-width: 1000px) {
 
@@ -345,14 +331,6 @@
       margin-right: auto;
 
     }
-
-    .support-container li > div{
-      font-size: 28px;
-    }
-    .support-container li > div img{
-      height: 40px;
-      margin-right: 15px
-    }
   }
 
   @media screen and (min-width: 0) and (max-width: 520px) {
@@ -360,14 +338,6 @@
     .support-container li{
       width: 49%;
       margin-right: 2%;
-    }
-
-    .support-container li > div{
-      font-size: 16px;
-    }
-    .support-container li > div img{
-      height: 30px;
-      margin-right: 8px
     }
   }
 </style>
@@ -406,6 +376,13 @@
 
   .support-mobile-title {
     display: none;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .support-pc-title{
+    display: block;
+    text-align: center;
+    white-space: nowrap;
   }
 
   @media screen and (min-width: 1280px) and (max-width: 1326px) {
@@ -416,9 +393,9 @@
     }
   }
 
-  @media screen and (max-width: 1278px) {
+  @media screen and (min-width: 0px) and (max-width: 1278px) {
     .support-mobile-title {
-      display: inline;
+      display: block;
     }
     .support-pc-title {
       display: none;
