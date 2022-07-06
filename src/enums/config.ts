@@ -1,12 +1,13 @@
 // 生产环境
-import { IOption } from '../utils/types'
+// import { IOption } from '../utils/types'
 
 enum productionUrl {
   baseURL = 'https://beosin.com',
 }
 // 开发环境
 enum developmentUrl {
-  baseURL = 'http://192.168.0.216:9527',
+  // baseURL = 'http://192.168.0.216:9527',
+  baseURL = 'http://192.168.0.2:9527',
 }
 // 测试环境
 enum stagingnUrl {

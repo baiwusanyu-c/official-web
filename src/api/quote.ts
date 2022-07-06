@@ -9,6 +9,7 @@ import request from '../utils/request'
 // 新建咨詢
 export interface IQuote {
   name?: string
+  company?: string
   email?: string
   type?: number
   mobile?: string

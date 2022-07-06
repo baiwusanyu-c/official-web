@@ -5,6 +5,7 @@
  * @update (czh 2021/12/15)
  */
 export default {
+  companyName: 'Beosin',
   noResults: 'Query no results',
   app: 'app',
   public: 'public',
@@ -33,6 +34,7 @@ export default {
     project3: 'VaaS',
     project4: 'EagleEye',
     project5: 'Cryptocurrency Tracing',
+    project6: 'Other',
   },
   header: {
     nav: 'Navigation',
@@ -435,12 +437,12 @@ export default {
         'Formal specifications are written directly in contract language. No additional efforts in learning specification language.',
     },
     eagle: {
-      title: 'EagleEye',
+      title: 'Eagle Eye',
       subTitle: 'Provide Dapp operators with project intelligence and real-time risk alerts',
       funcDisplay: 'EagleEye Project Dashboard',
       desc: 'EagleEye provides 24by7 blockchain security monitoring and notification services. It sends customers real-time security alerts and warnings when it detects risks like hacker attacks, frauds, flash loans, rug pulls through on-chain and off-chain data analysis, and multi-dimensional security assessments.',
 
-      funcTitle: 'Main Functions Of Product',
+      funcTitle: 'EagleEye Function',
       funcSubTitle1: 'CHAIN PROFILE',
       funcDesc1:
         'Real-time monitoring transaction trends, security intelligence, suspicious transactions on the blockchain, presenting insight into specific chain.',
@@ -467,7 +469,8 @@ export default {
       advantDesc4:
         'Covering ETH, BSC, HECO, Polygon, Tron and other mainstream blockchain platforms, and supporting all kinds of Dapps.',
 
-      supportTitle: 'Supported blockchain platforms',
+      supportTitle: 'Supported blockchains',
+      supportMobileTitle: 'Support Token',
       supportDesc: 'Customized features to meet your specific requirements',
     },
   },
@@ -498,6 +501,7 @@ export default {
   quoteDialog: {
     projectName: 'PROJECT TYPE',
     yourName: 'YOUR NAME',
+    companyName: 'COMPANY NAME',
     email: 'YOUR EMAIL ADDRESS',
     phone: 'YOU CONTACT',
     message: 'MESSAGE',

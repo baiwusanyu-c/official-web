@@ -12,7 +12,11 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "lib": ["esnext", "dom"],
-    "types": ["node", "vite/client", "@types/qs", "jest", "/public/**/*.d.ts"]
+    "types": ["node", "vite/client", "@types/qs", "jest", "/public/**/*.d.ts"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "include": [
     "/src/**/*.ts",
