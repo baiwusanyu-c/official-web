@@ -1,4 +1,5 @@
 import { isArray, isObject, toRawType } from '@vue/shared'
+const SSR = import.meta.env.SSR as boolean
 /**
  * id生成方法
  * @return {string}
@@ -95,7 +96,7 @@ export const checkNumber = (str: string): boolean => {
  * 存储
  */
 export const setStore = (name: string, content: string) => {
-  if (!name) return
+  if (!name || SSR) return
   window.localStorage.setItem(name, content)
 }
 
@@ -103,18 +104,18 @@ export const setStore = (name: string, content: string) => {
  * 获取localStorage
  */
 export const getStore = (name: string) => {
-  if (!name) return
+  if (!name || SSR) return
   return window.localStorage.getItem(name)
 }
 export const removeStore = (name: string) => {
-  if (!name) return
+  if (!name || SSR) return
   window.localStorage.removeItem(name)
 }
 /**
  * 存储
  */
 export const setSession = (name: string, content: string) => {
-  if (!name) return
+  if (!name || SSR) return
   window.sessionStorage.setItem(name, content)
 }
 
@@ -122,11 +123,11 @@ export const setSession = (name: string, content: string) => {
  * 获取SessionStorage
  */
 export const getSession = (name: string) => {
-  if (!name) return
+  if (!name || SSR) return
   return window.sessionStorage.getItem(name)
 }
 export const removeSession = (name: string) => {
-  if (!name) return
+  if (!name || SSR) return
   window.sessionStorage.removeItem(name)
 }
 // 简单克隆

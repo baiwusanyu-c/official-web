@@ -1,13 +1,14 @@
 import { createApp } from './main'
 import { renderToString, SSRContext } from 'vue/server-renderer'
+import BeUi from '@/components/be-ui'
 type Manifest = {
   [p: string]: string[]
 }
 const render = async (url: string, manifest: Manifest) => {
   const { app, router } = createApp()
+  app.use(BeUi)
   router.push(url)
   await router.isReady()
-
   const ctx = {} as SSRContext
   const html = await renderToString(app, ctx)
   const links = renderPreloadLinks(ctx.modules, manifest)
@@ -20,7 +21,6 @@ function renderPreloadLinks(modules: string[], manifest: Manifest) {
 
   modules.forEach(id => {
     const files = manifest[id]
-    console.log(modules, manifest)
     if (files) {
       files.forEach(file => {
         if (!seen.has(file)) {

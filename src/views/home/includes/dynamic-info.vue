@@ -53,9 +53,12 @@
     title: string
     url: string
   }
-  getBeosinAlert().then(res => {
-    list.value = res.data
-  })
+
+  await getBeosinAlert()
+    .then(res => {
+      list.value = res.data
+    })
+    .catch(err => console.error(err))
   const open = (url: string, tab = 'twitter') => {
     window.open(url, tab)
   }

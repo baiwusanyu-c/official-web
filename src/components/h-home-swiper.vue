@@ -79,7 +79,7 @@
       const slidesPerView = ref<number>(5)
       const spaceBetween = ref<number>(30)
       const centeredSlides = ref<boolean>(true)
-      const screenWidth = window.screen.width
+      const screenWidth = !import.meta.env.SSR && window.screen.width
       if (100 < screenWidth && screenWidth < 1278) {
         slidesPerView.value = 2
         spaceBetween.value = 10

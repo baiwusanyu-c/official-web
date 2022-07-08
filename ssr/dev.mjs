@@ -6,6 +6,7 @@ const server = express()
 const viteServer = await vite.createServer({
   root: resolve('./'),
   logLevel: 'error',
+  mode: 'staging',
   server: {
     middlewareMode: 'ssr',
     watch: {
@@ -19,15 +20,20 @@ const viteServer = await vite.createServer({
 // use vite's connect instance as middleware
 server.use(viteServer.middlewares)
 server.use('*', async (req, res) => {
-  const url = req.originalUrl
-  // always read fresh template in dev
-  let template = fs.readFileSync(resolve('index.html'), 'utf-8')
-  template = await viteServer.transformIndexHtml(url, template)
+  try {
+    const url = req.originalUrl
+    console.log('req', req.url)
+    // always read fresh template in dev
+    let template = fs.readFileSync(resolve('index.html'), 'utf-8')
+    template = await viteServer.transformIndexHtml(url, template)
 
-  const render = (await viteServer.ssrLoadModule('./src/entry-server.ts')).render
-  const [appHtml] = await render(url, {})
-  const html = template.replace('<!--app-html-->', appHtml)
-  res.set({ 'Content-Type': 'text/html' }).end(html)
+    const render = (await viteServer.ssrLoadModule('./src/entry-server.ts')).render
+    const [appHtml] = await render(url, {})
+    const html = template.replace('<!--app-html-->', appHtml)
+    res.set({ 'Content-Type': 'text/html' }).end(html)
+  } catch (e) {
+    console.log(e)
+  }
 })
 
 server.listen(9010)

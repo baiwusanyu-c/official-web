@@ -30,8 +30,13 @@
       title: '$502B',
     },
   ]
+  const imgs = import.meta.globEager('../../../assets/img/home/00*.svg') as {
+    [p: string]: {
+      default: string
+    }
+  }
   const getImageUrl = i => {
-    return new URL(`../../../assets/img/home/00${i + 1}.svg`, import.meta.url).href
+    return Object.values(imgs).find(it => it.default.endsWith(i + 1 + '.svg'))?.default
   }
 </script>
 

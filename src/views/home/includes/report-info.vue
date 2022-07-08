@@ -36,8 +36,13 @@
   import composition from '@/utils/mixin/common-func'
   const { message } = composition()
   type Row = { name: string; time: string; url: string }
+  const imgs = import.meta.globEager('../../../assets/img/home/dynamic/*.png') as {
+    [p: string]: {
+      default: string
+    }
+  }
   function getImageUrl(name) {
-    return new URL(`../../../assets/img/home/dynamic/${name}.png`, import.meta.url).href
+    return Object.values(imgs).find(it => it.default.endsWith(name + '.png'))?.default
   }
   const placeholder = ref('Search')
   const changePlaceholder = v => {

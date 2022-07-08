@@ -21,11 +21,12 @@ const service = axios.create({
 // request interceptor
 service.interceptors.request.use(
   (requestCfg: any) => {
-    const tokenCache = getStore('token')
+    const SSR = import.meta.env.SSR
+    const tokenCache = !SSR && getStore('token')
     if (tokenCache && requestCfg.url !== '/website/quote/create') {
       requestCfg.headers['Authorization'] = 'Bearer ' + getStore('token')
     }
-    requestCfg.headers['Accept-Language'] = getStore('lang') ? getStore('lang') : 'en_US'
+    requestCfg.headers['Accept-Language'] = !SSR && getStore('lang') ? getStore('lang') : 'en_US'
     if (requestCfg.method === 'post' && requestCfg.url !== '/auth/oauth/login') {
       requestCfg.data = requestCfg.params
       requestCfg.headers['Content-Type'] = 'application/json;charset=UTF-8'

@@ -413,7 +413,7 @@
           name: t('lang.home.swiperUser5'),
         },
       ])
-      const screenWidth = window.screen.width
+      const screenWidth = !import.meta.env.SSR && window.screen.width
       let isM = ref<boolean>(false)
       const getScreenWidth = (): void => {
         if (100 < screenWidth && screenWidth < 1278) {
