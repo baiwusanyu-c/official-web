@@ -1,0 +1,121 @@
+
+  @media screen and (max-width: 1200px) {
+    .research-v2-page{
+      .tab-pane-container{
+        display: block;
+        .article{
+          width: 100%;
+          margin-right: 0;
+        }
+        .resource{
+          flex: none;
+          ul.list{
+            display: flex;
+            justify-content: space-between;
+            li{
+              width: 30%;
+              margin-right: 0;
+              .banner{
+                background-image: none
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    .research-v2-page{
+      background: #fff;
+      .board-top{
+        height: auto !important;
+        display: flex;
+        .safe-area{
+          display: flex;
+          flex-direction: column-reverse;
+          .left{
+            margin-right: 0 !important;
+            flex: none !important;
+            display: block !important
+          }
+          .right{
+            width: 100% !important;
+            margin-bottom: 24px;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    .research-v2-page{
+      background: #fff;
+      .board-top{
+        .safe-area{
+          padding: 0 24px !important;
+        }
+      }
+      .board-main{
+        padding: 64px 24px !important;
+        .tab-pane-container{
+          .article{
+            ul.list{
+              li{
+                display: block;
+                .img-banner{
+                  width: 100%;
+                  margin-right: 0;
+                }
+                .information{
+                  flex: none;
+                  border: 1px solid #F2F2F4;
+                  border-top: none;
+                  padding: 16px 24px 0 24px;
+                  border-bottom-right-radius: 12px;
+                  border-bottom-left-radius: 12px;
+                  h4{
+                    margin-bottom: 16px;
+                  }
+                  i{
+                    margin-bottom: 24px;
+                  }
+                }
+              }
+            }
+          }
+          .resource{
+            ul.list{
+              display: block;
+              li{
+                width: 100%;
+                .banner{
+                  background-image: url('@/assets/img/resource-bg.png');
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 375px) {
+    .research-v2-page{
+      .board-main{
+        .tab-pane-container{
+          .article{
+            ul.list{
+              li{
+                .information{
+                  h4{
+                    font-size: 16px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

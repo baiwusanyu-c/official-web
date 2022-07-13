@@ -11,8 +11,12 @@
       <be-main class="relative left-0 top-14 pb-0 overflow-hidden hermit-main">
         <router-view></router-view>
       </be-main>
-      <be-footer
+      <!-- <be-footer
         v-if="!/research/.test(route.path)"
+        class="hermit-footer px-0 box-border top-14 relative left-0">
+        <h-footer-bigger></h-footer-bigger>
+      </be-footer> -->
+      <be-footer
         class="hermit-footer px-0 box-border top-14 relative left-0">
         <h-footer-bigger></h-footer-bigger>
       </be-footer>

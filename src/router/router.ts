@@ -12,6 +12,8 @@ const home = () => import('../views/home/home.vue')
 const test = () => import('../views/test.vue')
 const page404 = () => import('../views/404/404.vue')
 const research = () => import('../views/research/research.vue')
+const researchV2 = () => import('../views/research-v2/index.vue')
+const articleView = () => import('../views/research-v2/ArticleView/index.vue')
 const trace = () => import('../views/trace/index.vue')
 const routes: Array<RouteRecordRaw> = [
   {
@@ -28,9 +30,15 @@ const routes: Array<RouteRecordRaw> = [
         component: home,
         name: 'home',
       },
+      // {
+      //   path: '/index/research',
+      //   component: research,
+      //   name: 'research',
+      // },
       {
         path: '/index/research',
-        component: research,
+        // component: researchV2,
+        component: articleView,
         name: 'research',
       },
       {
