@@ -2,7 +2,7 @@
   <div class="tab-pane-container">
     <div class="article">
       <ul class="list">
-        <li v-for="(article, index) in articles" :key="index">
+        <li v-for="(article, index) in articles" :key="index" @click="goDetail">
           <div class="img-banner">
             <img :src="article.banner" />
           </div>
@@ -33,6 +33,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { useRouter } from 'vue-router'
 import mockBanner from '@/assets/img/mock-banner.png'
 import mockResourceBanner from '@/assets/img/mock-resource-banner.png'
 import CustomButton from '@/components/custom-button/index.vue'
@@ -100,9 +101,16 @@ export default defineComponent({
       }
     ]
 
+    const router = useRouter()
+
+    const goDetail = () => {
+      router.push('/index/article-preview')
+    }
+
     return {
       articles,
-      resources
+      resources,
+      goDetail
     }
   },
 })

@@ -37,9 +37,13 @@ const routes: Array<RouteRecordRaw> = [
       // },
       {
         path: '/index/research',
-        // component: researchV2,
-        component: articleView,
+        component: researchV2,
         name: 'research',
+      },
+      {
+        path: '/index/article-preview',
+        component: articleView,
+        name: 'articleView',
       },
       {
         path: '/index/service/trace',
