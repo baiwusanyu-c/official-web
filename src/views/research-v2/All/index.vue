@@ -4,15 +4,18 @@
       <ul class="list">
         <li v-for="(article, index) in articles" :key="index" @click="goDetail">
           <div class="img-banner">
-            <img :src="article.banner" />
+            <img :src="article.coverImg" />
           </div>
           <div class="information">
             <h4>{{ article.title }}</h4>
-            <p>{{ article.description }}</p>
-            <i>{{ article.date }}</i>
+            <p>{{ article.desc }}</p>
+            <i>{{ article.updateTime }}</i>
           </div>
         </li>
       </ul>
+      <div class="pagination">
+        <n-pagination :page="params.pageNum" :on-update:page="onPageUpdate" :page-count="pages" />
+      </div>
     </div>
     <div class="resource">
       <ul class="list">
@@ -34,12 +37,14 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { useRouter } from 'vue-router'
+import { NPagination } from 'naive-ui'
 import mockBanner from '@/assets/img/mock-banner.png'
 import mockResourceBanner from '@/assets/img/mock-resource-banner.png'
 import CustomButton from '@/components/custom-button/index.vue'
+import useGetArticle from '../bisiness-hooks/useGetArticle'
 
 export default defineComponent({
-  components: { CustomButton },
+  components: { CustomButton, NPagination },
   setup() {
     const articles = [
       {
@@ -100,6 +105,17 @@ export default defineComponent({
         url: ''
       }
     ]
+    const { params, pages, setParams } = useGetArticle({
+      pageNum: 1,
+      pageSize: 6,
+      type: null,
+      total: 0, //這個參數沒用只是爲了接口不暴紅 })
+    })
+
+    const onPageUpdate = (page:number) => {
+      console.log(page)
+      setParams({ pageNum: page })
+    }
 
     const router = useRouter()
 
@@ -109,8 +125,11 @@ export default defineComponent({
 
     return {
       articles,
+      params,
       resources,
-      goDetail
+      goDetail,
+      onPageUpdate,
+      pages
     }
   },
 })
@@ -123,6 +142,7 @@ export default defineComponent({
     .article{
       width: 65%;
       margin-right: 8%;
+      margin-bottom: 32px;
       ul.list{
         li{
           display: flex;
