@@ -3,24 +3,33 @@
     <div class="safe-area">
       <div class="article-area">
         <div class="top-action">
-          <p>On June 24, 2022</p>
-          <n-button>
+          <p>{{ information.updateTime }}</p>
+          <n-button @click="handleShare">
             <template #icon>
               <be-icon :size="20" icon="iconLink" />
             </template>
             Share
           </n-button>
         </div>
-        <div class="article-render-area" v-html="content" style="height: 900px"></div>
+        <div class="ql-snow">
+          <h1 class="blog-title">{{ information.title }}</h1>
+          <div class="article-render-area ql-editor" v-html="information.content" style="min-height: 700px"></div>
+        </div>
       </div>
       <div class="article-recommend">
         <h4>Related Project</h4>
-        <div class="score-area">
+        <div v-if="score" class="score-area">
           <p class="ve-chain-logo"><img src="@/assets/img/ve-chain-logo.png" /></p>
           <div class="score-progress">
-            <ScoreGaugeChart style="width: 100%; height: 300px" />
+            <ScoreGaugeChart :value="score" style="width: 100%; height: 300px" />
           </div>
           <n-button type="primary">Learn More</n-button>
+        </div>
+        <div v-else class="no-score">
+          <div class="no-score-content">
+            <h4>Related Project Secure Score</h4>
+            <custom-button>Learn More</custom-button>
+          </div>
         </div>
         <div class="guess-you-like">
           <div class="title-row">
@@ -33,32 +42,11 @@
             </div>
           </div>
           <ul class="list">
-            <li>
-              <img src="@/assets/img/mock-resource-banner.png" />
+            <li v-for="item in likeList" :key="item.id">
+              <img :src="item.coverImg" />
               <div class="list-item-right">
-                <h5>How to Add Text and Fonts in Photoshop</h5>
-                <p>13th August, 2019</p>
-              </div>
-            </li>
-            <li>
-              <img src="@/assets/img/mock-resource-banner.png" />
-              <div class="list-item-right">
-                <h5>How to Add Text and Fonts in Photoshop</h5>
-                <p>13th August, 2019</p>
-              </div>
-            </li>
-            <li>
-              <img src="@/assets/img/mock-resource-banner.png" />
-              <div class="list-item-right">
-                <h5>How to Add Text and Fonts in Photoshop</h5>
-                <p>13th August, 2019</p>
-              </div>
-            </li>
-            <li>
-              <img src="@/assets/img/mock-resource-banner.png" />
-              <div class="list-item-right">
-                <h5>How to Add Text and Fonts in Photoshop</h5>
-                <p>13th August, 2019</p>
+                <h5>{{ item.title }}</h5>
+                <p>{{ item.updateTime }}</p>
               </div>
             </li>
           </ul>
@@ -78,17 +66,50 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, onMounted, ref } from 'vue'
+import { useRoute } from 'vue-router'
 import { NButton, NIcon, NProgress } from 'naive-ui'
 import { ChevronForward } from '@vicons/ionicons5'
 import ScoreGaugeChart from './ScoreGaugeChart/index.vue'
+import { hermitGetArticle, guessYouLikeList, getProjectDetail } from '@/api/research'
+import composition from '@/utils/mixin/common-func'
+import copy from '@/utils/copy'
+import CustomButton from '@/components/custom-button/index.vue'
+
+const { message } = composition()
 
 export default defineComponent({
-  components: { NButton, NIcon, NProgress, ScoreGaugeChart, ChevronForward },
+  components: { NButton, NIcon, NProgress, ScoreGaugeChart, ChevronForward, CustomButton },
   setup() {
-    const content = ''
+    
+    const route = useRoute()
+    const information = ref({})
+    const likeList = ref([])
+    const score = ref(null)
+    onMounted(() => {
+      hermitGetArticle({ id: route.query.id }).then(res => {
+        information.value = res.data;
+        guessYouLikeList({ id: route.query.id, type: res.data.type }).then(res => {
+          likeList.value = res.data
+        })
+        const relationProjectId = res.data.relationProjectId
+        relationProjectId && getProjectDetail(relationProjectId).then(res => {
+          score.value = res.data.score
+        })
+      })
+    })
+    
+    const handleShare = () => {
+      const link = window.location.href
+      copy(link, () => {
+        message('success', 'Copied to pasteboard', 'hermit-msg')
+      })
+    }
     return {
-      content
+      information,
+      handleShare,
+      likeList,
+      score
     }
   },
 })
@@ -115,6 +136,12 @@ export default defineComponent({
         }
         .article-render-area{
           padding-bottom: 40px;
+        }
+        .blog-title{
+          font-size: 32px;
+          font-weight: bold;
+          color: #050B37;
+          line-height: 40px;
         }
       }
       .article-recommend{
@@ -153,6 +180,41 @@ export default defineComponent({
             margin-top: -44px;
             height: 150px
           }
+        }
+        .no-score{
+          background: linear-gradient(135deg, #D6E7EE, #EFF6FA);
+          height: 200px;
+          margin-bottom: 24px;
+          position: relative;
+          border-radius: 6px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          &::before{
+            position: absolute;
+            content: '';
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: url('@/assets/img/illustration-ad.png') no-repeat;
+            background-size: contain;
+            background-position: right bottom;
+            z-index: 0;
+          }
+          .no-score-content{
+            position: absolute;
+            left: 32px;
+            top: 49px;
+            h4{
+              font-size: 20px;
+              font-weight: bold;
+              color: #050B37;
+              line-height: 28px;
+              margin-bottom: 15px;
+            }
+          }
+          
         }
         .guess-you-like{
           .title-row{

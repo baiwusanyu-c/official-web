@@ -1,14 +1,17 @@
 <template>
   <div class="resource-list-page">
     <ul class="list">
-      <li v-for="(resource, index) in resources" :key="index">
+      <li v-for="(resource, index) in articles" :key="index">
         <div class="banner">
-          <img :src="resource.banner" />
+          <img :src="resource.coverImg" />
         </div>
         <div class="content">
           <h4>{{ resource.title }}</h4>
-          <p>{{ resource.description }}</p>
-          <custom-button>Download</custom-button>
+          <p>{{ resource.desc }}</p>
+          <custom-button @click="onDownload(resource)">
+            <be-icon :size="20" icon="iconDownload" style="margin-right: 5px" />
+            <span class="download-text">Download</span>
+          </custom-button>
         </div>
       </li>
     </ul>
@@ -17,37 +20,65 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import mockResourceBanner from '@/assets/img/mock-resource-banner.png'
+// import { useRouter } from 'vue-router'
+// import mockResourceBanner from '@/assets/img/mock-resource-banner.png'
 import CustomButton from '@/components/custom-button/index.vue'
+import useGetArticle from '../bisiness-hooks/useGetArticle'
+import downloadFile, { previewFile } from '@/utils/download-file'
 
 export default defineComponent({
-  components: { CustomButton }, 
-  setup() {
-    const resources = [
-      {
-        banner: mockResourceBanner,
-        title: 'Company Profile',
-        description: 'Beosin is a leading global Web 3.0 blockchain security company co-founded by several professors from world-renowned universities. ',
-        url: ''
-      },
-      {
-        banner: mockResourceBanner,
-        title: 'Company Profile',
-        description: 'Beosin is a leading global Web 3.0 blockchain security company co-founded by several professors from world-renowned universities. ',
-        url: ''
-      },
-      {
-        banner: mockResourceBanner,
-        title: 'Company Profile',
-        description: 'Beosin is a leading global Web 3.0 blockchain security company co-founded by several professors from world-renowned universities. ',
-        url: ''
-      }
-    ]
-
-    return {
-      resources
+  components: { CustomButton },
+  props: {
+    type: {
+      type: Number
     }
   },
+  setup(props) {
+
+    // const articles = [
+    //   {
+    //     banner: mockResourceBanner,
+    //     title: 'Company Profile',
+    //     description: 'Beosin is a leading global Web 3.0 blockchain security company co-founded by several professors from world-renowned universities. ',
+    //     url: ''
+    //   },
+    //   {
+    //     banner: mockResourceBanner,
+    //     title: 'Company Profile',
+    //     description: 'Beosin is a leading global Web 3.0 blockchain security company co-founded by several professors from world-renowned universities. ',
+    //     url: ''
+    //   },
+    //   {
+    //     banner: mockResourceBanner,
+    //     title: 'Company Profile',
+    //     description: 'Beosin is a leading global Web 3.0 blockchain security company co-founded by several professors from world-renowned universities. ',
+    //     url: ''
+    //   }
+    // ]
+
+    const { data: articles } = useGetArticle({
+      pageNum: 1,
+      pageSize: 6,
+      type: props.type
+    })
+
+    const onDownload = (resource:any) => {
+      previewFile(resource.url)
+    }
+
+    // const onUpdatePage = (page:number) => {
+    //   setParams({ pageNum: page })
+    // }
+
+    return {
+      articles,
+      onDownload
+      // params,
+      // onUpdatePage,
+      // pages,
+      // resources
+    }
+  }
 })
 </script>
 
@@ -91,6 +122,12 @@ export default defineComponent({
         }
       }
     }
+  }
+
+  .download-text{
+    font-size: 14px;
+    font-weight: bold;
+    color: #18304E;
   }
 
   @media screen and (max-width: 750px) {

@@ -15,7 +15,7 @@ export default defineComponent({
       type: Number
     }
   },
-  setup() {
+  setup(props) {
     onMounted(() => {
       const chartDom:HTMLElement | null = document.getElementById('score-chart');
       const myChart = echarts.init(chartDom as any);
@@ -70,7 +70,7 @@ export default defineComponent({
             endAngle: 0,
             data: [
               {
-                value: 70,
+                value: props.value,
                 name: 'Security Score'
               }
             ]

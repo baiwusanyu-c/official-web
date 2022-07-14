@@ -2,7 +2,7 @@
   <div class="tab-pane-container">
     <div class="article">
       <ul class="list">
-        <li v-for="(article, index) in articles" :key="index" @click="goDetail">
+        <li v-for="article in articles" :key="article.id" @click="goDetail(article)">
           <div class="img-banner">
             <img :src="article.coverImg" />
           </div>
@@ -14,19 +14,22 @@
         </li>
       </ul>
       <div class="pagination">
-        <n-pagination :page="params.pageNum" :on-update:page="onPageUpdate" :page-count="pages" />
+        <custom-pagination :page="params.pageNum" :onUpdatePage="onUpdatePage" :pages="pages" />
       </div>
     </div>
     <div class="resource">
       <ul class="list">
-        <li v-for="(resource, index) in resources" :key="index">
+        <li v-for="resource in resources" :key="resource.id">
           <div class="banner">
-            <img :src="resource.banner" />
+            <img :src="resource.coverImg" />
           </div>
           <div class="content">
             <h4>{{ resource.title }}</h4>
-            <p>{{ resource.description }}</p>
-            <custom-button>Download</custom-button>
+            <p>{{ resource.desc }}</p>
+            <custom-button @click="onDownload(resource)">
+              <be-icon :size="20" icon="iconDownload" style="margin-right: 5px" />
+              <span class="download-text">Download</span>
+            </custom-button>
           </div>
         </li>
       </ul>
@@ -37,90 +40,100 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { useRouter } from 'vue-router'
-import { NPagination } from 'naive-ui'
-import mockBanner from '@/assets/img/mock-banner.png'
-import mockResourceBanner from '@/assets/img/mock-resource-banner.png'
+// import mockBanner from '@/assets/img/mock-banner.png'
+// import mockResourceBanner from '@/assets/img/mock-resource-banner.png'
 import CustomButton from '@/components/custom-button/index.vue'
+import CustomPagination from '../components/custom-pagination/index.vue'
 import useGetArticle from '../bisiness-hooks/useGetArticle'
+import downloadFile, { previewFile } from '@/utils/download-file'
 
 export default defineComponent({
-  components: { CustomButton, NPagination },
+  components: { CustomButton, CustomPagination },
   setup() {
-    const articles = [
-      {
-        coverImg: mockBanner,
-        title: 'H4-How to Steal User’s Signature in NFT Phishing Attacks',
-        desc: 'On February 21, 2022, Opensea suffered a phishing attack, and some users have had their NFTs stolen due to the approval they signed to the',
-        updateTime: 'March 25, 2019'
-      },
-      {
-        coverImg: mockBanner,
-        title: 'H4-How to Steal User’s Signature in NFT Phishing Attacks',
-        desc: 'On February 21, 2022, Opensea suffered a phishing attack, and some users have had their NFTs stolen due to the approval they signed to the',
-        updateTime: 'March 25, 2019'
-      },
-      {
-        coverImg: mockBanner,
-        title: 'H4-How to Steal User’s Signature in NFT Phishing Attacks',
-        desc: 'On February 21, 2022, Opensea suffered a phishing attack, and some users have had their NFTs stolen due to the approval they signed to the',
-        updateTime: 'March 25, 2019'
-      },
-      {
-        coverImg: mockBanner,
-        title: 'H4-How to Steal User’s Signature in NFT Phishing Attacks',
-        desc: 'On February 21, 2022, Opensea suffered a phishing attack, and some users have had their NFTs stolen due to the approval they signed to the',
-        updateTime: 'March 25, 2019'
-      },
-      {
-        coverImg: mockBanner,
-        title: 'H4-How to Steal User’s Signature in NFT Phishing Attacks',
-        desc: 'On February 21, 2022, Opensea suffered a phishing attack, and some users have had their NFTs stolen due to the approval they signed to the',
-        updateTime: 'March 25, 2019'
-      },
-      {
-        coverImg: mockBanner,
-        title: 'H4-How to Steal User’s Signature in NFT Phishing Attacks',
-        desc: 'On February 21, 2022, Opensea suffered a phishing attack, and some users have had their NFTs stolen due to the approval they signed to the',
-        updateTime: 'March 25, 2019'
-      }
-    ]
+    // const articles = [
+    //   {
+    //     coverImg: mockBanner,
+    //     title: 'H4-How to Steal User’s Signature in NFT Phishing Attacks',
+    //     desc: 'On February 21, 2022, Opensea suffered a phishing attack, and some users have had their NFTs stolen due to the approval they signed to the',
+    //     updateTime: 'March 25, 2019'
+    //   },
+    //   {
+    //     coverImg: mockBanner,
+    //     title: 'H4-How to Steal User’s Signature in NFT Phishing Attacks',
+    //     desc: 'On February 21, 2022, Opensea suffered a phishing attack, and some users have had their NFTs stolen due to the approval they signed to the',
+    //     updateTime: 'March 25, 2019'
+    //   },
+    //   {
+    //     coverImg: mockBanner,
+    //     title: 'H4-How to Steal User’s Signature in NFT Phishing Attacks',
+    //     desc: 'On February 21, 2022, Opensea suffered a phishing attack, and some users have had their NFTs stolen due to the approval they signed to the',
+    //     updateTime: 'March 25, 2019'
+    //   },
+    //   {
+    //     coverImg: mockBanner,
+    //     title: 'H4-How to Steal User’s Signature in NFT Phishing Attacks',
+    //     desc: 'On February 21, 2022, Opensea suffered a phishing attack, and some users have had their NFTs stolen due to the approval they signed to the',
+    //     updateTime: 'March 25, 2019'
+    //   },
+    //   {
+    //     coverImg: mockBanner,
+    //     title: 'H4-How to Steal User’s Signature in NFT Phishing Attacks',
+    //     desc: 'On February 21, 2022, Opensea suffered a phishing attack, and some users have had their NFTs stolen due to the approval they signed to the',
+    //     updateTime: 'March 25, 2019'
+    //   },
+    //   {
+    //     coverImg: mockBanner,
+    //     title: 'H4-How to Steal User’s Signature in NFT Phishing Attacks',
+    //     desc: 'On February 21, 2022, Opensea suffered a phishing attack, and some users have had their NFTs stolen due to the approval they signed to the',
+    //     updateTime: 'March 25, 2019'
+    //   }
+    // ]
 
-    const resources = [
-      {
-        banner: mockResourceBanner,
-        title: 'Company Profile',
-        description: 'Beosin is a leading global Web 3.0 blockchain security company co-founded by several professors from world-renowned universities. ',
-        url: ''
-      },
-      {
-        banner: mockResourceBanner,
-        title: 'Company Profile',
-        description: 'Beosin is a leading global Web 3.0 blockchain security company co-founded by several professors from world-renowned universities. ',
-        url: ''
-      },
-      {
-        banner: mockResourceBanner,
-        title: 'Company Profile',
-        description: 'Beosin is a leading global Web 3.0 blockchain security company co-founded by several professors from world-renowned universities. ',
-        url: ''
-      }
-    ]
-    const { params, pages, setParams } = useGetArticle({
+    // const resources = [
+    //   {
+    //     coverImg: mockResourceBanner,
+    //     title: 'Company Profile',
+    //     desc: 'Beosin is a leading global Web 3.0 blockchain security company co-founded by several professors from world-renowned universities. ',
+    //     url: ''
+    //   },
+    //   {
+    //     coverImg: mockResourceBanner,
+    //     title: 'Company Profile',
+    //     desc: 'Beosin is a leading global Web 3.0 blockchain security company co-founded by several professors from world-renowned universities. ',
+    //     url: ''
+    //   },
+    //   {
+    //     coverImg: mockResourceBanner,
+    //     title: 'Company Profile',
+    //     desc: 'Beosin is a leading global Web 3.0 blockchain security company co-founded by several professors from world-renowned universities. ',
+    //     url: ''
+    //   }
+    // ]
+    const { data: articles, params, pages, setParams } = useGetArticle({
       pageNum: 1,
       pageSize: 6,
-      type: null,
-      total: 0, //這個參數沒用只是爲了接口不暴紅 })
+      type: null
+    })
+    
+    const { data: resources } = useGetArticle({
+      pageNum: 1,
+      pageSize: 3,
+      type: 7
     })
 
-    const onPageUpdate = (page:number) => {
+    const onUpdatePage = (page:number) => {
       console.log(page)
       setParams({ pageNum: page })
     }
 
     const router = useRouter()
 
-    const goDetail = () => {
-      router.push('/index/article-preview')
+    const goDetail = (article:any) => {
+      router.push({ path: '/index/article-preview', query: { id: article.id } })
+    }
+
+    const onDownload = (resource:any) => {
+      previewFile(resource.url)
     }
 
     return {
@@ -128,8 +141,9 @@ export default defineComponent({
       params,
       resources,
       goDetail,
-      onPageUpdate,
-      pages
+      onUpdatePage,
+      pages,
+      onDownload
     }
   },
 })
@@ -193,6 +207,10 @@ export default defineComponent({
           }
         }
       }
+      .pagination{
+        display: flex;
+        justify-content: center;
+      }
     }
     .resource{
       flex: 1;
@@ -230,5 +248,11 @@ export default defineComponent({
         }
       }
     }
+  }
+
+  .download-text{
+    font-size: 14px;
+    font-weight: bold;
+    color: #18304E;
   }
 </style>

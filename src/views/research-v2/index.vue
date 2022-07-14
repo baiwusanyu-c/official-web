@@ -24,25 +24,31 @@
         animated
       >
         <n-tab-pane name="All" tab="All">
-           <All />
+          <All />
         </n-tab-pane>
-        <n-tab-pane name="Incident Analysis" tab="Incident Analysis">
-           <IncidentAnalysis />
+        <!-- 突发安全事件分析 -->
+        <n-tab-pane name="SecurityIncident" tab="Security Incident">
+          <NormalArticleList :type="3" />
         </n-tab-pane>
-        <n-tab-pane name="Security Report" tab="Security Report">
-           tt
+        <!-- 深度研究 -->
+        <n-tab-pane name="ResearchReport" tab="Research Report">
+           <NormalArticleList :type="1" />
         </n-tab-pane>
-        <n-tab-pane name="Company News" tab="Company News">
-           tt
+        <!-- AMA回顾&活动 -->
+        <n-tab-pane name="EventUpdate" tab="Event Update">
+           <NormalArticleList :type="6" />
         </n-tab-pane>
-        <n-tab-pane name="Popular Science Articles" tab="Popular Science Articles">
-           tt
+        <!-- 审计PR长文 -->
+        <n-tab-pane name="Partnership Announcement" tab="PartnershipAnnouncement">
+           <NormalArticleList :type="4" />
         </n-tab-pane>
-        <n-tab-pane name="Hot News" tab="Hot News">
-           tt
+        <!-- Web3科普知识 -->
+        <n-tab-pane name="Web3.0Classroom" tab="Web3.0 Classroom">
+           <NormalArticleList :type="5" />
         </n-tab-pane>
-        <n-tab-pane name="Company Resources" tab="Company Resources">
-           <CompanyResources />
+        <!-- 公司资源 -->
+        <n-tab-pane name="Resource" tab="Resource">
+           <CompanyResources :type="7" />
         </n-tab-pane>
       </n-tabs>
     </div>
@@ -53,7 +59,7 @@
 import { NTabs, NTabPane } from 'naive-ui'
 import CustomButton from '@/components/custom-button/index.vue'
 import All from './All/index.vue'
-import IncidentAnalysis from './IncidentAnalysis/index.vue'
+import NormalArticleList from './NormalArticleList/index.vue'
 import CompanyResources from './CompanyResources/index.vue'
 import './media-screen-style/research.less'
 export default {
@@ -62,7 +68,7 @@ export default {
     NTabPane,
     CustomButton,
     All,
-    IncidentAnalysis,
+    NormalArticleList,
     CompanyResources
   },
   data() {
