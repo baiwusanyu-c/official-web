@@ -15,13 +15,29 @@
         {{ $t('lang.HFooterBigger.search.title') }}
       </p>
       <ul>
-        <li class="font-format" @click="$router.push('/index/research')">
-          {{ $t('lang.HFooterBigger.search.analysis') }}
+        <li class="font-format" @click="$router.push({ path: '/index/research', query: { type: 3 } })">
+          Security Incident
         </li>
         <li
           class="font-format"
-          @click="$router.push({ path: '/index/research', query: { tab: 2 } })">
-          {{ $t('lang.HFooterBigger.search.report') }}
+          @click="$router.push({ path: '/index/research', query: { type: 1 } })">
+          Research Report
+        </li>
+        <li class="font-format" @click="$router.push({ path: '/index/research', query: { type: 6 } })">
+          Event Update
+        </li>
+        <li
+          class="font-format"
+          @click="$router.push({ path: '/index/research', query: { type: 4 } })">
+          Partnership Announcement
+        </li>
+        <li class="font-format" @click="$router.push({ path: '/index/research', query: { type: 5 } })">
+          Web3.0 Classroom
+        </li>
+        <li
+          class="font-format"
+          @click="$router.push({ path: '/index/research', query: { type: 7 } })">
+          Resources
         </li>
       </ul>
       <p class="footer-title mt-12 text-lg font-format">

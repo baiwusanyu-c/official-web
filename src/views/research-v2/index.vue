@@ -50,7 +50,7 @@
            <NormalArticleList :type="5" />
         </n-tab-pane>
         <!-- 公司资源 -->
-        <n-tab-pane :name="7" tab="Resource">
+        <n-tab-pane :name="7" tab="Resources">
            <CompanyResources :type="7" />
         </n-tab-pane>
       </n-tabs>
