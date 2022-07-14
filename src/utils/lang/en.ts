@@ -363,7 +363,7 @@ export default {
   // djd h-footer-bigger
   HFooterBigger: {
     search: {
-      title: 'Research',
+      title: 'Resources',
       analysis: 'Security Analysis',
       report: 'Reports',
     },

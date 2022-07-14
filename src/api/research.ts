@@ -52,6 +52,19 @@ export function getProjectDetail(relationProjectId) {
   })
 }
 
+// 获取置顶文章
+export function getArticleList() {
+  return request({
+    url: '/website//article/overseas/admin/list',
+    method: 'get',
+    params: {
+      upFlag: true,
+      pageNum: 1,
+      pageSize: 10
+    }
+  })
+}
+
 type PageQuery = { pageSize: number; pageNum: number; langType: number } // 1-英文报告
 // 报告分页查询
 export function getReportList(params: PageQuery) {

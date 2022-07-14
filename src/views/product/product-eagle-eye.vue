@@ -32,9 +32,9 @@
         <h2 class="text-4xl font-bold font-format sm:hidden">
           {{ $t('lang.product.eagle.funcDisplay') }}
         </h2>
-        <!--     走馬燈      -->
+        <!--     走馬燈   swiper-no-swiping    -->
         <div
-          class="mt-10 product-swiper w-full h-full md:mt-8 sm:mt-4 sm:bg-default sm:p-2 sm:rounded swiper-no-swiping">
+          class="mt-10 product-swiper w-full h-full md:mt-8 sm:mt-4 sm:bg-default sm:p-2 sm:rounded">
           <h-product-swiper></h-product-swiper>
         </div>
         <p

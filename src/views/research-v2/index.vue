@@ -3,16 +3,17 @@
     <div class="board-top">
       <div class="safe-area">
         <div class="left">
-          <div class="title">Beosin’s Analysis of the Wiener Doge Flash Loan Attack</div>
+          <div class="title">{{ currentArticle.title }}</div>
           <div class="description">
-            Our team have analyzed the latest exploits and vulnerabilities related to blockchain security. Technical details including hacking techniques, flow of funds, mitigation recommendations can be found in our research.
+            {{ currentArticle.desc }}
           </div>
           <div class="action">
-            <custom-button>Learn More</custom-button>
+            <custom-button @click.stop="() => goLearnMore()">Learn More</custom-button>
           </div>
         </div>
         <div class="right">
-          <img src="@/assets/img/research-top-banner.png" />
+          <!-- <img src="@/assets/img/research-top-banner.png" /> -->
+          <ArticleSwipper :items="articles" @onSlideChange="onSlideChange" />
         </div>
       </div>
     </div>
@@ -20,34 +21,36 @@
     <div class="board-main">
       <n-tabs
         class="card-tabs"
-        default-value="All"
+        default-value=""
         animated
+        :value="currType"
+        :on-update:value="handleChange"
       >
-        <n-tab-pane name="All" tab="All">
+        <n-tab-pane name="" tab="All">
           <All />
         </n-tab-pane>
         <!-- 突发安全事件分析 -->
-        <n-tab-pane name="SecurityIncident" tab="Security Incident">
+        <n-tab-pane :name="3" tab="Security Incident">
           <NormalArticleList :type="3" />
         </n-tab-pane>
         <!-- 深度研究 -->
-        <n-tab-pane name="ResearchReport" tab="Research Report">
+        <n-tab-pane :name="1" tab="Research Report">
            <NormalArticleList :type="1" />
         </n-tab-pane>
         <!-- AMA回顾&活动 -->
-        <n-tab-pane name="EventUpdate" tab="Event Update">
+        <n-tab-pane :name="6" tab="Event Update">
            <NormalArticleList :type="6" />
         </n-tab-pane>
         <!-- 审计PR长文 -->
-        <n-tab-pane name="Partnership Announcement" tab="PartnershipAnnouncement">
+        <n-tab-pane :name="4" tab="Partnership Announcement">
            <NormalArticleList :type="4" />
         </n-tab-pane>
         <!-- Web3科普知识 -->
-        <n-tab-pane name="Web3.0Classroom" tab="Web3.0 Classroom">
+        <n-tab-pane :name="5" tab="Web3.0 Classroom">
            <NormalArticleList :type="5" />
         </n-tab-pane>
         <!-- 公司资源 -->
-        <n-tab-pane name="Resource" tab="Resource">
+        <n-tab-pane :name="7" tab="Resource">
            <CompanyResources :type="7" />
         </n-tab-pane>
       </n-tabs>
@@ -56,12 +59,19 @@
 </template>
 
 <script>
+import { onMounted, ref } from 'vue'
+import { useRoute } from 'vue-router'
 import { NTabs, NTabPane } from 'naive-ui'
 import CustomButton from '@/components/custom-button/index.vue'
 import All from './All/index.vue'
 import NormalArticleList from './NormalArticleList/index.vue'
 import CompanyResources from './CompanyResources/index.vue'
 import './media-screen-style/research.less'
+import ArticleSwipper from './ArticleSwiper/index.vue'
+import useGetArticle from './bisiness-hooks/useGetArticle'
+import { openUrl } from './util'
+
+
 export default {
   components:  {
     NTabs,
@@ -69,11 +79,51 @@ export default {
     CustomButton,
     All,
     NormalArticleList,
-    CompanyResources
+    CompanyResources,
+    ArticleSwipper
   },
   data() {
     return {
       
+    }
+  },
+  setup() {
+    const route = useRoute()
+    const { data: articles } = useGetArticle({
+      pageNum: 1,
+      pageSize: 9999,
+      upFlag: true,
+      type: null
+    })
+
+    const currentArticle = ref({})
+    const onSlideChange = (article) => {
+      // console.log(article)
+      currentArticle.value = article
+    }
+
+    const currType = ref('')
+    onMounted(() => {
+      currType.value = route.query ? route.query.type : ''
+    })
+
+    const handleChange = (value) => {
+      currType.value = value
+    }
+
+    const goLearnMore = () => {
+      const host = '/#/index/article-preview?id=' + currentArticle.id
+      openUrl(host, { target: '_blank' })
+    }
+    
+
+    return {
+      articles,
+      currentArticle,
+      onSlideChange,
+      currType,
+      handleChange,
+      goLearnMore
     }
   }
 }
@@ -92,14 +142,14 @@ export default {
       color: #ffffff;
       display: flex;
       .safe-area{
-        max-width: 1358px;
+        width: 1358px;
         padding: 0 64px;
         margin: 0 auto;
         display: flex;
         align-items: center;
         .left{
-          margin-right: 80px;
-          flex: 1;
+          margin-right: 6%;
+          width: 46%;
           display: flex;
           flex-direction: column;
           justify-content: center;

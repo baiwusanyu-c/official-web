@@ -23,18 +23,20 @@
           <div class="score-progress">
             <ScoreGaugeChart :value="score" style="width: 100%; height: 300px" />
           </div>
-          <n-button type="primary">Learn More</n-button>
+          <n-button type="primary">
+            <a href="http://eagleeye.beosin.com" target="_blank">Learn More</a>
+          </n-button>
         </div>
         <div v-else class="no-score">
           <div class="no-score-content">
             <h4>Related Project Secure Score</h4>
-            <custom-button>Learn More</custom-button>
+            <custom-button><a href="http://eagleeye.beosin.com" target="_blank">Learn More</a></custom-button>
           </div>
         </div>
         <div class="guess-you-like">
           <div class="title-row">
             <h5>Guess you like</h5>
-            <div class="learn-more-right">
+            <div class="learn-more-right" @click="goMoreList(information.type)">
               Learn More
               <n-icon size="10">
                 <ChevronForward />
@@ -42,7 +44,7 @@
             </div>
           </div>
           <ul class="list">
-            <li v-for="item in likeList" :key="item.id">
+            <li v-for="item in likeList" :key="item.id" @click="goPriview(item)">
               <img :src="item.coverImg" />
               <div class="list-item-right">
                 <h5>{{ item.title }}</h5>
@@ -55,8 +57,8 @@
         <div class="join-us">
           <h4>Join the community to discuss.</h4>
           <ul>
-            <li><be-icon icon="iconWhiteTelegram" color="#fff" /></li>
-            <li><be-icon icon="iconWhiteDiscord" color="#fff" /></li>
+            <li><a href="http://t.me/beosin" target="_blank"><be-icon icon="iconWhiteTelegram" color="#fff" /></a></li>
+            <li><a href="https://discord.com/invite/B4QJxhStV4" target="_blank"><be-icon icon="iconWhiteDiscord" color="#fff" /></a></li>
           </ul>
           <img src="@/assets/img/illustration-join.png" />
         </div>
@@ -75,6 +77,7 @@ import { hermitGetArticle, guessYouLikeList, getProjectDetail } from '@/api/rese
 import composition from '@/utils/mixin/common-func'
 import copy from '@/utils/copy'
 import CustomButton from '@/components/custom-button/index.vue'
+import { openUrl } from '../util'
 
 const { message } = composition()
 
@@ -105,11 +108,22 @@ export default defineComponent({
         message('success', 'Copied to pasteboard', 'hermit-msg')
       })
     }
+
+    const goPriview = (item:any) => {
+      const host = '/#/index/article-preview?id=' + item.id
+      openUrl(host, { target: '_blank' })
+    }
+    const goMoreList = (type:number) => {
+      const host = '/#/index/research?type=' + type
+      openUrl(host, { target: '_blank' })
+    }
     return {
       information,
       handleShare,
       likeList,
-      score
+      score,
+      goPriview,
+      goMoreList
     }
   },
 })
@@ -236,6 +250,7 @@ export default defineComponent({
               color: #18304E;
               display: flex;
               align-items: center;
+              cursor: pointer;
             }
           }
           ul.list{
@@ -274,6 +289,7 @@ export default defineComponent({
           background: linear-gradient(90deg, #D6E7EE, #EFF6FA);
           border-radius: 6px;
           position: relative;
+          
           h4{
             font-size: 20px;
             font-family: Roboto-Bold, Roboto;
@@ -285,15 +301,19 @@ export default defineComponent({
           ul{
             display: flex;
             li{
-              display: flex;
-              align-items: center;
-              justify-content: center;
               width: 32px;
               height: 32px;
               background: #050B37;
               border-radius: 4px;
               margin-right: 24px;
               cursor: pointer;
+              a{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                width: 100%;
+              }
             }
           }
           img{

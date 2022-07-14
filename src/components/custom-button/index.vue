@@ -1,5 +1,5 @@
 <template>
-  <be-button :custom-class="'custom-button ' + customClass" @click="onClick">
+  <be-button :custom-class="'custom-button ' + customClass">
     <span class="font-format span-container"><slot></slot></span>
   </be-button>
 </template>
@@ -12,13 +12,7 @@ export default defineComponent({
     customClass: {
       type: String
     }
-  },
-  setup(props, context) {
-    const onClick = (e:any) => context.emit('click', e)
-    return {
-      onClick
-    }
-  },
+  }
 })
 </script>
 

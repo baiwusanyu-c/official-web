@@ -19,14 +19,14 @@
     </div>
     <div class="resource">
       <ul class="list">
-        <li v-for="resource in resources" :key="resource.id">
+        <li v-for="resource in resources" :key="resource.id" @click="handlePreview(resource)">
           <div class="banner">
             <img :src="resource.coverImg" />
           </div>
           <div class="content">
             <h4>{{ resource.title }}</h4>
             <p>{{ resource.desc }}</p>
-            <custom-button @click="onDownload(resource)">
+            <custom-button @click.stop="handleDownload(resource)">
               <be-icon :size="20" icon="iconDownload" style="margin-right: 5px" />
               <span class="download-text">Download</span>
             </custom-button>
@@ -46,6 +46,7 @@ import CustomButton from '@/components/custom-button/index.vue'
 import CustomPagination from '../components/custom-pagination/index.vue'
 import useGetArticle from '../bisiness-hooks/useGetArticle'
 import downloadFile, { previewFile } from '@/utils/download-file'
+import { combineLink } from '../util'
 
 export default defineComponent({
   components: { CustomButton, CustomPagination },
@@ -122,7 +123,6 @@ export default defineComponent({
     })
 
     const onUpdatePage = (page:number) => {
-      console.log(page)
       setParams({ pageNum: page })
     }
 
@@ -132,8 +132,13 @@ export default defineComponent({
       router.push({ path: '/index/article-preview', query: { id: article.id } })
     }
 
-    const onDownload = (resource:any) => {
-      previewFile(resource.url)
+    const handleDownload = (resource:any) => {
+      downloadFile(combineLink(resource.url))
+    }
+
+    const handlePreview = (resource:any) => {
+      previewFile(combineLink(resource.url))
+      // previewFile('http://192.168.0.2:8527/' + resource.url)
     }
 
     return {
@@ -143,7 +148,8 @@ export default defineComponent({
       goDetail,
       onUpdatePage,
       pages,
-      onDownload
+      handlePreview,
+      handleDownload
     }
   },
 })
