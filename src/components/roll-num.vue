@@ -90,18 +90,19 @@
       onBeforeUnmount(() => {
         clearInterval(timer)
       })
+      const osInfo = ref()
       onMounted(() => {
         toOrderNum(props.value) // 这里输入数字即可调用
         increaseNumber(props.time)
+        osInfo.value = detectOS()
       })
       // 获取系统信息
-      const osInfo = detectOS()
       // 浏览器信息
       const browserInfo = uaMatch(navigator.userAgent.toLowerCase())
       // 设置样式
       const setMarkItem = computed(() => {
         return function (item) {
-          if (!isNaN(item) && osInfo === 'Linux' && browserInfo.browser === 'chrome') {
+          if (!isNaN(item) && osInfo.value === 'Linux' && browserInfo.browser === 'chrome') {
             return 'number-item number-item-webkit-linux'
           }
           if (!isNaN(item)) {
@@ -109,11 +110,11 @@
           }
 
           // linux 火狐
-          if (isNaN(item) && osInfo === 'Linux' && browserInfo.browser === 'firefox') {
+          if (isNaN(item) && osInfo.value === 'Linux' && browserInfo.browser === 'firefox') {
             return 'mark-item mark-item-moz-linux'
           }
           // linux 谷歌
-          if (isNaN(item) && osInfo === 'Linux' && browserInfo.browser === 'chrome') {
+          if (isNaN(item) && osInfo.value === 'Linux' && browserInfo.browser === 'chrome') {
             return 'mark-item mark-item-webkit-linux'
           }
 

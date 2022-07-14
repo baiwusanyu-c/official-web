@@ -23,7 +23,7 @@
     <div class="r-content">
       <h1 class="r-h1">View Public Reports</h1>
       <ul class="items">
-        <li class="grid grid-cols-3 row1">
+        <li class="grid grid-cols-3 gap-x-20px row1">
           <span>Project Name</span>
           <span>Date</span>
         </li>
@@ -43,7 +43,7 @@
           class="report-pagination"
           :item-count="total"
           :page-slot="5"
-          :page-size="8"
+          :page-size="pageSize"
           :on-update:page="query" />
       </div>
     </div>
@@ -68,6 +68,7 @@
   import VerifyCodeDialog from '@/components/verify-code-dialog-only.vue'
   import ReportResult from '@/components/report-result.vue'
   import { NInput, NModal } from 'naive-ui'
+  import { useI18n } from 'vue-i18n'
   const { message } = composition()
   const keyword = ref('')
   const verifyRef = ref()
@@ -76,6 +77,7 @@
   const page = ref(1)
   const rows = ref<Row[]>([])
   const total = ref(0)
+  const pageSize = 30
   const submit = () => {
     if (!keyword.value) {
       message('warning', 'Please enter keyword', 'hermit-msg')
@@ -83,30 +85,45 @@
     }
     verifyRef.value.show()
   }
+  const { t } = useI18n()
   type VerifyData = { uuid: string; code: string }
   const resultList = ref<Row[]>([])
   const toGetReport = (v: VerifyData) => {
+    verifyRef.value.hidden()
     return getReportForOtherCompany({
-      pageNum: page.value,
+      pageNum: 1,
+      pageSize: 100000,
       langType: 1, // 取英文报告
       ...v,
       keyword: keyword.value,
-    }).then((res: any) => {
-      verifyRef.value.hidden()
-      showReport.value = true
-      resultList.value = res.data.rows as Row[]
     })
+      .then((res: any) => {
+        if (!res.data.rows?.length) {
+          message('warning', t('lang.noResults'), 'hermit-msg')
+          return
+        }
+
+        showReport.value = true
+        resultList.value = res.data.rows as Row[]
+      })
+      .catch(err => {
+        message('warning', err.message, 'hermit-msg')
+      })
   }
   const query = (v = 1) => {
     page.value = v
     return getReportForOtherCompany({
       pageNum: page.value,
       langType: 1, // 取英文报告
-      pageSize: 8,
-    }).then((res: any) => {
-      rows.value = res.data.rows as Row[]
-      total.value = res.data.total
+      pageSize,
     })
+      .then((res: any) => {
+        rows.value = res.data.rows as Row[]
+        total.value = res.data.total
+      })
+      .catch(err => {
+        message('warning', err.message, 'hermit-msg')
+      })
   }
   const toReport = (row: Row) => {
     window.open(
@@ -177,12 +194,17 @@
     line-height: 36px;
     cursor: pointer;
   }
+  .review:hover {
+    color: #fff;
+    background-color: #1cd2a9 !important;
+  }
   .r-content {
     max-width: 1230px;
     margin: 0 auto;
     padding-top: 40px;
     border-radius: 1px;
     min-height: 576px;
+    padding-bottom: 80px;
   }
   .search-text {
     font-size: 24px;
@@ -226,10 +248,6 @@
     background: #ffffff;
     padding: 20px 24px;
   }
-
-  .report-pagination :deep(.n-pagination-item:nth-last-child(2):not(.n-pagination-item--active)) {
-    display: none;
-  }
   .search-content :deep(input) {
     height: 48px;
   }
@@ -237,6 +255,9 @@
     width: 180px;
   }
   @media screen and (max-width: 750px) {
+    .r-content {
+      padding-bottom: 30px;
+    }
     .r-h1 {
       font-size: 16px;
     }

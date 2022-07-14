@@ -23,12 +23,36 @@
   color: #fff;
 }
 
+.product-page .title-box{
+  padding-top: 20px;
+  width: 372px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  line-height: 2.5rem;
+}
+
+.product-page .title-box::before{
+  content: '';
+  width: 372px;
+  height: 6px;
+  background-color: #44D7B6;
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .product-page .header-text-small {
   padding-top: 39px;
   font-family: SourceHanSansRegular, sans-serif;
   font-size: 24px;
   line-height: 1.5;
   color: #fff;
+}
+
+.product-page .header-text-big span{
+  color: #02fbbb
 }
 
 .product-page .try-out-btn {
@@ -76,6 +100,13 @@
 
   .product-page .try-out-btn {
     margin-top: 4rem;
+  }
+
+  .product-page .title-box{
+    width: 350px
+  }
+  .product-page .title-box::before{
+    width: 350px;
   }
 
   #product_eagle.product-page .eagle-header-logo {
@@ -142,6 +173,7 @@
     margin-top: 60px;
   }
 
+
   .product-page .try-out-btn {
     margin-top: 3rem;
   }
@@ -186,6 +218,15 @@
     width: initial;
     padding-top: 10px;
     font-size: 20px;
+  }
+
+  .product-page .title-box{
+    width: 300px;
+    padding-top: 10px;
+    font-size: 1.8rem;
+  }
+  .product-page .title-box::before{
+    width: 300px;
   }
 
   .product-page .try-out-btn {

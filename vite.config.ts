@@ -4,7 +4,6 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import path, { resolve } from 'path'
 import { transformScript } from 'vite-plugin-svg-transform-script'
 import WindiCSS from 'vite-plugin-windicss'
-import fs from 'fs'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -52,7 +51,7 @@ export default defineConfig({
   },
   // 定义环境变量
   define: {
-    __DEV__: process.env.NODE_ENV == 'production',
+    __DEV__: `true`,
     __TEST_PROD__: process.env.NODE_ENV === 'staging',
     __PROD__: process.env.NODE_ENV === 'development',
     __PRE_PROD__: process.env.NODE_ENV === 'pretest',

@@ -30,9 +30,7 @@
 <script lang="ts">
   import { defineComponent, ref } from 'vue'
   import { Swiper, SwiperSlide } from 'swiper/vue'
-  // import 'swiper/css'
-  // import 'swiper/css/pagination'
-  // import 'swiper/css/navigation'
+
   import SwiperCore, { Pagination, Autoplay, Navigation } from 'swiper'
   import composition from '../utils/mixin/common-func'
   SwiperCore.use([Pagination, Autoplay, Navigation])

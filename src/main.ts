@@ -1,8 +1,9 @@
 import { createSSRApp } from 'vue'
-
+import BeUi from './components/be-ui'
 import { createRouter } from './router/router'
 import App from './App.vue'
 import 'virtual:windi.css'
+// import '../public/be-ui/style.css'
 // @ts-ignore
 import { i18n } from './utils/i18n'
 /**
@@ -14,5 +15,7 @@ export const createApp = () => {
   const router = createRouter()
   app.use(router)
   app.use(i18n)
+  app.use(BeUi)
+
   return { app, router }
 }

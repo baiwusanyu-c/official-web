@@ -1,5 +1,5 @@
 import config from './vite.config'
-
+import path from 'path'
 export default Object.assign({}, config, {
   ssr: {
     noExternal: /./,
@@ -7,6 +7,10 @@ export default Object.assign({}, config, {
   resolve: {
     // necessary because vue.ssrUtils is only exported on cjs modules
     alias: [
+      {
+        find: '@',
+        replacement: path.resolve(__dirname, 'src'),
+      },
       {
         find: '@vue/runtime-dom',
         replacement: '@vue/runtime-dom/dist/runtime-dom.cjs.js',

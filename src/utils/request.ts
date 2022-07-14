@@ -59,7 +59,9 @@ service.interceptors.response.use(
         removeStore('token')
         removeStore('userInfo')
         bus.emit('true')
-        window.location.href = '#/index/home'
+        import('@/router/router').then(({ default: router }) => {
+          router.push('/index/home')
+        })
         const err = getStore('lang') === 'en_US' ? 'Login Expired' : '登录过期'
         return Promise.reject(new Error(err))
       }

@@ -24,11 +24,11 @@
       class="relative flex items-center justify-center text-center box-border product-desc-body bg-mainBlueGary w-full flex-col">
       <!--   mobile   -->
       <h2 class="display-none text-4xl font-bold font-format sm:text-lg sm:mb-4 sm:flex">
-        {{ $t('lang.product.eagle.funcDisplay') }}
+        {{ $t('lang.product.vass.funcDisplay') }}
       </h2>
       <div class="p-8 w-2/3 rounded-md product-desc sm:w-full sm:relative">
         <h2 class="text-4xl font-bold font-format sm:hidden">
-          {{ $t('lang.product.eagle.funcDisplay') }}
+          {{ $t('lang.product.vass.funcDisplay') }}
         </h2>
         <!--     走馬燈      -->
         <div
@@ -130,7 +130,7 @@
     name: 'ProductVass',
     components: { CoreAdvantages, HProductSwiper, AboutHermit, ContactUs },
     setup() {
-      const { openWin, message } = composition()
+      const { openWin } = composition()
       const base = ref<string>(productLinkList.vaas)
       const toVaaSPage = (): void => {
         // const screenWidth = window.screen.width

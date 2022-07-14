@@ -33,6 +33,12 @@
         </div>
         <div class="flex flex-col w-full mb-8 md:mb-4 sm:mb-4">
           <p class="label font-format">
+            {{ $t('lang.quoteDialog.companyName') }}
+          </p>
+          <n-input v-model:value="formData.company" maxlength="30" size="large" />
+        </div>
+        <div class="flex flex-col w-full mb-8 md:mb-4 sm:mb-4">
+          <p class="label font-format">
             {{ $t('lang.quoteDialog.email') }}
             <span style="color: red">*</span>
           </p>
@@ -53,7 +59,7 @@
         <div class="flex w-full mb-8 md:mb-4 sm:mb-4">
           <div class="flex-1 mr-6">
             <p class="label font-format">
-              {{ $t('lang.login.verCode').toUpperCase() }}
+              {{ $t('lang.quoteDialog.code') }}
               <span style="color: red">*</span>
             </p>
             <n-input
@@ -117,6 +123,7 @@
             code: '',
             mobile: '',
             message: '',
+            company: '',
           }
         }
         getCode()
@@ -161,6 +168,7 @@
         }
         const params: IQuote = {
           name: formData.value.name,
+          company: formData.value.company,
           email: formData.value.email,
           type: formData.value.type,
           mobile: formData.value.mobile,
@@ -191,6 +199,7 @@
         code: '',
         mobile: '',
         message: '',
+        company: '',
       })
       const { t } = useI18n()
       let selectList: IOption = ref([
@@ -199,6 +208,7 @@
         { label: t('lang.projectList.project3'), value: 3 },
         { label: t('lang.projectList.project4'), value: 4 },
         { label: t('lang.projectList.project5'), value: 5 },
+        { label: t('lang.projectList.project6'), value: 6 },
       ])
 
       return {

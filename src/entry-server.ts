@@ -1,16 +1,17 @@
 import { createApp } from './main'
 import { renderToString, SSRContext } from 'vue/server-renderer'
-import BeUi from '@/components/be-ui'
 type Manifest = {
   [p: string]: string[]
 }
+
 const render = async (url: string, manifest: Manifest) => {
   const { app, router } = createApp()
-  app.use(BeUi)
   router.push(url)
   await router.isReady()
+
   const ctx = {} as SSRContext
   const html = await renderToString(app, ctx)
+  console.log('url', url, html.length)
   const links = renderPreloadLinks(ctx.modules, manifest)
   return [html, links]
 }

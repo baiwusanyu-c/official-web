@@ -41,16 +41,16 @@ export default () => {
     })
   }
   const message = (type: string, info: string, className: string): void => {
-    import('../../../public/be-ui/be-ui.es').then(res =>
-      res.BeMessage.service({
-        customClass: className,
-        titles: info,
-        msgType: type,
-        duration: 2500,
-        offsetTop: 80,
-        close: false,
-      })
-    )
+    // import('../../../public/be-ui/be-ui.es').then(res =>
+    //   res.BeMessage.service({
+    //     customClass: className,
+    //     titles: info,
+    //     msgType: type,
+    //     duration: 2500,
+    //     offsetTop: 80,
+    //     close: false,
+    //   })
+    // )
   }
   /**
    * 開啓定時器，進行數字滾動

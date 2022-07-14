@@ -239,7 +239,7 @@
 
 <script lang="ts">
   import hServiceSwiper from '../../components/h-service-swiper.vue'
-  import { defineComponent, getCurrentInstance, ref } from 'vue'
+  import { defineComponent, getCurrentInstance, ref, onMounted } from 'vue'
   import { NInput, InputProps } from 'naive-ui'
   import { useI18n } from 'vue-i18n'
   import VerCodeDialog from '../../components/ver-code-dialog.vue'
@@ -308,7 +308,9 @@
           isM.value = true
         }
       }
-      getScreenWidth()
+      onMounted(() => {
+        getScreenWidth()
+      })
 
       return {
         isM,

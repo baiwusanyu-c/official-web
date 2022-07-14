@@ -1,6 +1,6 @@
 import {
   createRouter as _createRouter,
-  createWebHashHistory,
+  createWebHistory,
   createMemoryHistory,
   RouteRecordRaw,
 } from 'vue-router'
@@ -100,7 +100,7 @@ const routes: Array<RouteRecordRaw> = [
 // 暂时保持简单
 export const createRouter = () => {
   const router = _createRouter({
-    history: import.meta.env.SSR ? createMemoryHistory() : createWebHashHistory(),
+    history: import.meta.env.SSR ? createMemoryHistory() : createWebHistory(),
     routes,
   })
 

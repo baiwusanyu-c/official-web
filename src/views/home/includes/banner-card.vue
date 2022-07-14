@@ -12,8 +12,8 @@
         <div class="card-1 card" @click="$router.push('/index/service/contracts')">
           <h2 class="title2">Blockchain Security Audit</h2>
           <p class="text2">
-            Provide blockchain security auditing services in blockchains, smart contracts, and Web3
-            apps using the formal verification and thorough cybersecurity techniques.
+            Provide security auditing services in blockchains, smart contracts, and Web3 apps with
+            Formal Verification and comprehensive Cybersecurity techniques.
           </p>
         </div>
       </SwiperSlide>
@@ -27,7 +27,7 @@
         <div class="card-3 card" @click="$router.push('/index/product/productEagle')">
           <h2 class="title2">Beosin Eagle Eye</h2>
           <p class="text2">
-            Provide Dapp operators with project intelligence and real-time risk alerts
+            Provide DApp operators with real-time project intelligence and risk alerts
           </p>
         </div>
       </SwiperSlide>
@@ -45,8 +45,8 @@
       <div class="card-1 card" @click="$router.push('/index/service/contracts')">
         <h2 class="title2">Blockchain Security Audit</h2>
         <p class="text2">
-          Provide blockchain security auditing services in blockchains, smart contracts, and Web3
-          apps using the formal verification and thorough cybersecurity techniques.
+          Provide security auditing services in blockchains, smart contracts, and Web3 apps with
+          Formal Verification and comprehensive Cybersecurity techniques.
         </p>
       </div>
       <div class="card-2 card" @click="$router.push('/index/product/productVaaS')">
@@ -56,7 +56,7 @@
       <div class="card-3 card" @click="$router.push('/index/product/productEagle')">
         <h2 class="title2">Beosin Eagle Eye</h2>
         <p class="text2">
-          Provide Dapp operators with project intelligence and real-time risk alerts
+          Provide DApp operators with real-time project intelligence and risk alerts
         </p>
       </div>
       <div class="card-4 card" @click="$router.push('/index/service/trace')">
@@ -72,9 +72,10 @@
 
 <script setup lang="ts">
   import { Swiper, SwiperSlide } from 'swiper/vue'
-  // import 'swiper/css'
-  // import 'swiper/css/pagination'
-  // import 'swiper/css/navigation'
+
+  //   import 'swiper/swiper.min.css'
+  // import 'swiper/modules/pagination/pagination.min.css'
+  // import 'swiper/modules/navigation/navigation.min.css'
   import SwiperCore, { Autoplay, Navigation } from 'swiper'
   SwiperCore.use([Autoplay, Navigation])
 </script>

@@ -6,7 +6,6 @@ const server = express()
 const viteServer = await vite.createServer({
   root: resolve('./'),
   logLevel: 'error',
-  mode: 'staging',
   server: {
     middlewareMode: 'ssr',
     watch: {
@@ -22,7 +21,7 @@ server.use(viteServer.middlewares)
 server.use('*', async (req, res) => {
   try {
     const url = req.originalUrl
-    console.log('req', req.url)
+    if (url === '/undefined') return
     // always read fresh template in dev
     let template = fs.readFileSync(resolve('index.html'), 'utf-8')
     template = await viteServer.transformIndexHtml(url, template)
@@ -36,4 +35,6 @@ server.use('*', async (req, res) => {
   }
 })
 
-server.listen(9010)
+server.listen(9010, () => {
+  console.log('look at http://localhost:9010')
+})

@@ -19,11 +19,11 @@
   const list = [
     {
       text: 'Smart Contracts Audited',
-      title: '2415',
+      title: '2426',
     },
     {
       text: 'Ecosystem Users',
-      title: '1,000,480',
+      title: '1,000,575',
     },
     {
       text: 'Protected Assets',
@@ -36,7 +36,7 @@
     }
   }
   const getImageUrl = i => {
-    return Object.values(imgs).find(it => it.default.endsWith(i + 1 + '.svg'))?.default
+    return Object.entries(imgs).find(it => it[0].endsWith(i + 1 + '.svg'))?.[1]?.default
   }
 </script>
 

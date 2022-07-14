@@ -193,8 +193,9 @@
 }
 
 .service-page .table-title-big {
-  width: 680px;
+  width: 800px;
   height: 37px;
+  text-align: center;
   margin-top: 95px;
   font-size: 36px;
   font-weight: bold;

@@ -16,9 +16,6 @@
 <script lang="ts">
   import { defineComponent, onMounted, reactive, ref } from 'vue'
   import { Swiper, SwiperSlide } from 'swiper/vue'
-  // import 'swiper/css'
-  // import 'swiper/css/pagination'
-  // import 'swiper/css/navigation'
   import SwiperCore, { Pagination, Autoplay } from 'swiper'
   SwiperCore.use([Pagination, Autoplay])
   import { RouteLocationNormalizedLoaded, useRoute } from 'vue-router'
