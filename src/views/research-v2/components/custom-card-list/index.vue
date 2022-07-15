@@ -5,8 +5,8 @@
         <div class="card-item">
           <div class="card-img-banner"><img :src="item.coverImg" /></div>
           <div class="card-information">
-            <h4 class=" line-clamp line-clamp-3">{{ item.title }}</h4>
-            <p class=" line-clamp line-clamp-3">{{ item.desc }}</p>
+            <h4 class="line-clamp line-clamp-3">{{ item.title }}</h4>
+            <p class="line-clamp line-clamp-3">{{ item.desc }}</p>
             <i>{{ item.updateTime }}</i>
           </div>
         </div>
@@ -19,9 +19,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-// import mockBanner from '@/assets/img/mock-banner.png'
-import CustomPagination from '../../components/custom-pagination/index.vue'
+  import { defineComponent } from 'vue'
+  // import mockBanner from '@/assets/img/mock-banner.png'
+  import CustomPagination from '../../components/custom-pagination/index.vue'
 
   export default defineComponent({
     name: 'CardList',
@@ -97,11 +97,10 @@ import CustomPagination from '../../components/custom-pagination/index.vue'
         border-radius: 16px;
         overflow: hidden;
         margin-bottom: 32px;
-        cursor: pointer;
+        transition: all 0.3s;
         &:hover {
-          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
-          transform: translateY(-8px);
-          transition: transform 0.3s;
+          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+          transform: translateY(-3px);
         }
         .card-item {
           .card-img-banner {

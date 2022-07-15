@@ -6,10 +6,9 @@
     :centered-slides="true"
     :initial-slide="3"
     :loop="true"
-    @slideChange="onSlideChange"
     autoplay
     :pagination="{ clickable: true }"
-  >
+    @slideChange="onSlideChange">
     <swiper-slide v-for="item in items" :key="item.id" :item="item">
       <div class="swiper-item">
         <img :src="item.coverImg" alt="" />
@@ -38,21 +37,41 @@
         type: Array,
         default: () => {
           return [
-            {coverImg: 'https://swiperjs.com/demos/images/nature-1.jpg', info: 'wqdddddddddddedddddddddddddddddddddddddd', name: 'chen chen chen'},
-            {coverImg: 'https://swiperjs.com/demos/images/nature-3.jpg', info: 'wqddddddddddddwddsddddddddddddddddddddddd', name: 'chen chen chen'},
-            {coverImg: 'https://swiperjs.com/demos/images/nature-2.jpg', info: 'wqddddddddddddddddd12dddddddddddddddddddd', name: 'chen chen chen'},
-            {coverImg: 'https://swiperjs.com/demos/images/nature-1.jpg', info: 'wqdddddddddsddddddddddddddddddddddddddddd', name: 'chen chen chen'},
-            {coverImg: 'https://swiperjs.com/demos/images/nature-3.jpg', info: 'wqdddddddddcsdddddddddddddddddddddddddddd', name: 'chen chen chen'},
+            {
+              coverImg: 'https://swiperjs.com/demos/images/nature-1.jpg',
+              info: 'wqdddddddddddedddddddddddddddddddddddddd',
+              name: 'chen chen chen',
+            },
+            {
+              coverImg: 'https://swiperjs.com/demos/images/nature-3.jpg',
+              info: 'wqddddddddddddwddsddddddddddddddddddddddd',
+              name: 'chen chen chen',
+            },
+            {
+              coverImg: 'https://swiperjs.com/demos/images/nature-2.jpg',
+              info: 'wqddddddddddddddddd12dddddddddddddddddddd',
+              name: 'chen chen chen',
+            },
+            {
+              coverImg: 'https://swiperjs.com/demos/images/nature-1.jpg',
+              info: 'wqdddddddddsddddddddddddddddddddddddddddd',
+              name: 'chen chen chen',
+            },
+            {
+              coverImg: 'https://swiperjs.com/demos/images/nature-3.jpg',
+              info: 'wqdddddddddcsdddddddddddddddddddddddddddd',
+              name: 'chen chen chen',
+            },
           ]
-        }
-      }
+        },
+      },
     },
     setup(props, context) {
-      const onSlideChange = (swiper:any) => {
+      const onSlideChange = (swiper: any) => {
         context.emit('onSlideChange', props.items[swiper.activeIndex] || {})
       }
       return {
-        onSlideChange
+        onSlideChange,
       }
     },
   })
@@ -68,6 +87,8 @@
       left: 0;
       width: 100%;
       height: 100%;
+      border-radius: 12px;
+      
     }
     &::before{
       display: block;
@@ -76,4 +97,5 @@
       padding-top: 64.2%;
     }
   }
-</style>>
+</style>
+>

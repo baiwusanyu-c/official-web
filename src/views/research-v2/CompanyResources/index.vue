@@ -19,13 +19,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-// import { useRouter } from 'vue-router'
-// import mockResourceBanner from '@/assets/img/mock-resource-banner.png'
-import CustomButton from '@/components/custom-button/index.vue'
-import useGetArticle from '../bisiness-hooks/useGetArticle'
-import downloadFile, { previewFile } from '@/utils/download-file'
-import { combineLink } from '../util'
+  import { defineComponent } from 'vue'
+  // import { useRouter } from 'vue-router'
+  // import mockResourceBanner from '@/assets/img/mock-resource-banner.png'
+  import CustomButton from '@/components/custom-button/index.vue'
+  import useGetArticle from '../bisiness-hooks/useGetArticle'
+  import downloadFile, { previewFile } from '@/utils/download-file'
+  import { combineLink } from '../util'
 
   export default defineComponent({
     name: 'CompanyResources',
@@ -36,59 +36,52 @@ import { combineLink } from '../util'
       },
     },
     setup(props) {
+      // const articles = [
+      //   {
+      //     coverImg: mockResourceBanner,
+      //     title: 'Company Profile',
+      //     desc: 'Beosin is a leading global Web 3.0 blockchain security company co-founded by several professors from world-renowned universities. ',
+      //     url: ''
+      //   },
+      //   {
+      //     coverImg: mockResourceBanner,
+      //     title: 'Company Profile',
+      //     desc: 'Beosin is a leading global Web 3.0 blockchain security company co-founded by several professors from world-renowned universities. ',
+      //     url: ''
+      //   },
+      //   {
+      //     coverImg: mockResourceBanner,
+      //     title: 'Company Profile',
+      //     desc: 'Beosin is a leading global Web 3.0 blockchain security company co-founded by several professors from world-renowned universities. ',
+      //     url: ''
+      //   }
+      // ]
 
-    // const articles = [
-    //   {
-    //     coverImg: mockResourceBanner,
-    //     title: 'Company Profile',
-    //     desc: 'Beosin is a leading global Web 3.0 blockchain security company co-founded by several professors from world-renowned universities. ',
-    //     url: ''
-    //   },
-    //   {
-    //     coverImg: mockResourceBanner,
-    //     title: 'Company Profile',
-    //     desc: 'Beosin is a leading global Web 3.0 blockchain security company co-founded by several professors from world-renowned universities. ',
-    //     url: ''
-    //   },
-    //   {
-    //     coverImg: mockResourceBanner,
-    //     title: 'Company Profile',
-    //     desc: 'Beosin is a leading global Web 3.0 blockchain security company co-founded by several professors from world-renowned universities. ',
-    //     url: ''
-    //   }
-    // ]
+      const onDownload = (resource: any) => {
+        downloadFile(combineLink(resource.url))
+      }
 
-    const onDownload = (resource:any) => {
-      downloadFile(combineLink(resource.url))
-    }
+      const onPreview = (resource:any) => {
+        previewFile((combineLink(resource.url)))
+      }
 
-    const onPreview = (resource:any) => {
-      previewFile((combineLink(resource.url)))
-    }
+      const { data: articles } = useGetArticle({
+        pageNum: 1,
+        pageSize: 6,
+        type: props.type,
+      })
 
-    // const onUpdatePage = (page:number) => {
-    //   setParams({ pageNum: page })
-    // }
-
-    const {
-      data: articles
-    } = useGetArticle({
-      pageNum: 1,
-      pageSize: 6,
-      type: props.type,
-    })
-
-    return {
-      articles,
-      onDownload,
-      onPreview,
-      // params,
-      // onUpdatePage,
-      // pages,
-      // resources
-    }
-  }
-})
+      return {
+        articles,
+        onDownload,
+        onPreview,
+        // params,
+        // onUpdatePage,
+        // pages,
+        // resources
+      }
+    },
+  })
 </script>
 
 <style lang="less" scoped>
@@ -96,7 +89,7 @@ import { combineLink } from '../util'
     ul.list {
       display: flex;
       flex-wrap: wrap;
-      li{
+      li {
         width: 30%;
         margin-right: 4.9%;
         border-radius: 8px;
@@ -107,11 +100,10 @@ import { combineLink } from '../util'
         background-size: contain;
         background-position: center 0;
         cursor: pointer;
-
+        transition: all 0.3s;
         &:hover {
-          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
-          transform: translateY(-8px);
-          transition: transform 0.3s;
+          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+          transform: translateY(-3px);
         }
 
         .banner {
