@@ -169,19 +169,32 @@
 <style lang="less" scoped>
   .tab-pane-container {
     display: flex;
+
     .article {
       width: 65%;
       margin-right: 8%;
       margin-bottom: 32px;
+
       ul.list {
         li {
           display: flex;
           align-items: center;
           margin-bottom: 32px;
+          cursor: pointer;
+
+          &:hover {
+            .information {
+              h4 {
+                text-decoration: underline;
+              }
+            }
+          }
+
           .img-banner {
             width: 284px;
             margin-right: 3%;
             position: relative;
+
             img {
               position: absolute;
               top: 0;
@@ -189,6 +202,7 @@
               width: 100%;
               height: 100%;
             }
+
             &::before {
               display: block;
               width: 100%;
@@ -196,8 +210,10 @@
               padding-top: 64%;
             }
           }
+
           .information {
             flex: 1;
+
             h4 {
               font-size: 20px;
               font-weight: bold;
@@ -205,6 +221,7 @@
               line-height: 28px;
               margin-bottom: 8px;
             }
+
             p {
               font-size: 14px;
               font-weight: 400;
@@ -212,6 +229,7 @@
               line-height: 22px;
               margin-bottom: 16px;
             }
+
             i {
               display: block;
               font-size: 14px;
@@ -223,18 +241,28 @@
           }
         }
       }
+
       .pagination {
         display: flex;
         justify-content: center;
       }
     }
+
     .resource {
       flex: 1;
+
       ul.list {
         li {
           border-radius: 8px;
           border: 1px solid #f2f2f4;
           margin-bottom: 33px;
+          cursor: pointer;
+          &:hover {
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px);
+            transition: transform 0.3s;
+          }
+
           .banner {
             background-image: url('@/assets/img/resource-bg.png');
             background-repeat: no-repeat;
@@ -243,12 +271,15 @@
             height: 127px;
             padding-top: 32px;
             padding-left: 23px;
+
             img {
               width: 118px;
             }
           }
+
           .content {
             padding: 0 24px 32px 24px;
+
             h4 {
               font-size: 16px;
               font-family: Roboto-Bold, Roboto;
@@ -257,6 +288,7 @@
               line-height: 24px;
               margin-bottom: 16px;
             }
+
             p {
               margin-bottom: 16px;
             }

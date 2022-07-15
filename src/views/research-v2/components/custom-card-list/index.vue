@@ -97,6 +97,12 @@
         border-radius: 16px;
         overflow: hidden;
         margin-bottom: 32px;
+        cursor: pointer;
+        &:hover {
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
+          transform: translateY(-8px);
+          transition: transform 0.3s;
+        }
         .card-item {
           .card-img-banner {
             width: 100%;
