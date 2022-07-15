@@ -240,7 +240,6 @@
         }
 
         .score-area {
-          height: 268px;
           margin-bottom: 24px;
           background: linear-gradient(135deg, #e7f2f7, #ffffff);
           border-radius: 6px;
