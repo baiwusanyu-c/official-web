@@ -20,6 +20,10 @@ export default defineComponent({
   .custom-button{
     background-color: rgba(2, 251, 187, var(--tw-bg-opacity));
     color: rgba(0, 0, 0, var(--tw-text-opacity));
+    font-size: 16px;
+    font-family: Roboto-Bold, Roboto;
+    font-weight: bold;
+    color: #050B37;
   }
   .span-container{
     display: flex;

@@ -13,7 +13,7 @@
         </div>
         <div class="ql-snow">
           <h1 class="blog-title">{{ information.title }}</h1>
-          <div class="article-render-area ql-editor" v-html="information.content" style="min-height: 700px"></div>
+          <div class="article-preview-area ql-editor" v-html="information.content" style="min-height: 700px"></div>
         </div>
       </div>
       <div class="article-recommend">
@@ -78,6 +78,7 @@ import composition from '@/utils/mixin/common-func'
 import copy from '@/utils/copy'
 import CustomButton from '@/components/custom-button/index.vue'
 import { openUrl } from '../util'
+import './cover-quill-text-style.css'
 
 const { message } = composition()
 
@@ -148,14 +149,16 @@ export default defineComponent({
           align-items: center;
           margin-bottom: 26px;
         }
-        .article-render-area{
+        .article-preview-area{
           padding-bottom: 40px;
+          padding: 0;
         }
         .blog-title{
           font-size: 32px;
           font-weight: bold;
           color: #050B37;
           line-height: 40px;
+          margin-bottom: 30px;
         }
       }
       .article-recommend{

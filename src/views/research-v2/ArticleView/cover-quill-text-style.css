@@ -1,0 +1,29 @@
+
+.ql-snow{
+  font-size: 16px;
+}
+.ql-snow h1, .ql-snow h2,.ql-snow h3, .ql-snow h4, .ql-snow h5{
+  color: #050B37;
+  margin-bottom: 24px;
+}
+.ql-snow h1:first-child{
+  margin-top: 0;
+}
+.ql-snow h1, .ql-snow h2{
+  margin-top: 48px;
+}
+.ql-snow p{
+  color: #050B37
+}
+.ql-snow .ql-editor h1{
+  font-size: 32px;
+}
+
+.ql-snow .ql-editor h2{
+  font-size: 24px;
+}
+
+.ql-snow .ql-editor h3{
+  font-size: 20px;
+  font-weight: 500;
+}

@@ -133,12 +133,13 @@ export default defineComponent({
     }
 
     const handleDownload = (resource:any) => {
-      downloadFile(combineLink(resource.url))
+      // downloadFile(combineLink(resource.url))
+      downloadFile('http://192.168.0.2:8527/' + resource.url)
     }
 
     const handlePreview = (resource:any) => {
-      previewFile(combineLink(resource.url))
-      // previewFile('http://192.168.0.2:8527/' + resource.url)
+      // previewFile(combineLink(resource.url))
+      previewFile('http://192.168.0.2:8527/' + resource.url)
     }
 
     return {

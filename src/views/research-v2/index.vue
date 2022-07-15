@@ -8,7 +8,7 @@
             {{ currentArticle.desc }}
           </div>
           <div class="action">
-            <custom-button @click.stop="() => goLearnMore()">Learn More</custom-button>
+            <custom-button style="width: 148px; height: 48px; border-radius: 4px" @click.stop="() => goLearnMore()">Learn More</custom-button>
           </div>
         </div>
         <div class="right">
