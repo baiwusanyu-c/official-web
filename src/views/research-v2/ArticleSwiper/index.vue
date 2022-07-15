@@ -8,7 +8,7 @@
     autoplay
     :pagination="{ clickable: true }"
     @slideChange="onSlideChange">
-    <swiper-slide v-for="item in mockList" :key="item.id" :item="item">
+    <swiper-slide v-for="item in items" :key="item.id" :item="item">
       <div class="swiper-item">
         <img :src="item.coverImg" alt="" />
       </div>
