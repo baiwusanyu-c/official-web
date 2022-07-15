@@ -85,6 +85,7 @@
       }
       const handlePreview = (resource: any) => {
         previewFile(combineLink(resource.url))
+        window.open(resource.url)
         // previewFile('http://192.168.0.2:8527/' + resource.url)
       }
 
