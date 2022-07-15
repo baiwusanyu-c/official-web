@@ -1,6 +1,7 @@
-// import config from "../../enums/config"
+// import config from '../../enums/config'
 export const combineLink = (uri: string) => {
-  const href = window.location.host
+  // const href = window.location.host
+  const href = 'https://beosin.com' // 此处由于测试环境没有配置，所以默认为生产环境
   const url = href + '/' + uri
   return url
 }

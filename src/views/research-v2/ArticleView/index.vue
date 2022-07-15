@@ -13,13 +13,24 @@
         </div>
         <div class="ql-snow">
           <h1 class="blog-title">{{ information.title }}</h1>
-          <n-button
+
+          <iframe
             v-if="information.type === 1 && information.url"
+            class="iframe-content"
+            :src="pdfUrl"
+            frameborder="0"></iframe>
+          <!-- <iframe
+            v-if="information.type === 1 && information.url"
+            class="iframe-content"
+            src="1.pdf"
+            frameborder="0"></iframe> -->
+          <!-- <n-button
+            
             color="#1CD2A9"
             text-color="#18304E"
             @click="look"
             >查看资源</n-button
-          >
+          > -->
           <div
             v-else
             class="article-preview-area ql-editor"
@@ -116,6 +127,7 @@
       onMounted(() => {
         hermitGetArticle({ id: route.query.id }).then(res => {
           information.value = res.data
+          getPdfUrl(res.data.url)
           guessYouLikeList({ id: route.query.id, type: res.data.type }).then(res => {
             likeList.value = res.data
           })
@@ -145,6 +157,17 @@
       const look = () => {
         previewFile(combineLink(information.value.url))
       }
+      const pdfUrl = ref('')
+      const getPdfUrl = url => {
+        url = combineLink(url)
+        pdfUrl.value = url
+        // fetch(url)
+        //   .then(res => res.blob())
+        //   .then(res => {
+        //     pdfUrl.value = URL.createObjectURL(res)
+        //   })
+      }
+
       return {
         information,
         handleShare,
@@ -154,6 +177,7 @@
         goMoreList,
         preToText,
         look,
+        pdfUrl,
       }
     },
   })
@@ -163,6 +187,10 @@
   .article-view {
     background: #fff;
     padding-bottom: 64px;
+    .iframe-content {
+      width: 100%;
+      height: 700px;
+    }
 
     .safe-area {
       max-width: 1358px;
