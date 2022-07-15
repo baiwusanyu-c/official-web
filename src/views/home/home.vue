@@ -218,7 +218,7 @@
       </div>
     </div>
 
-    <div
+    <!-- <div
       v-if="titleCardList.length > 0"
       class="blog-new w-full bg-mainBlueGary flex items-center flex-col">
       <h2 class="security-research text-center !ph:text-[20px] !ph:pt-[16px]">Resources</h2>
@@ -233,7 +233,7 @@
           <img alt="" src="../../assets/img/more.png" class="inline ml-2" style="height: 14px" />
         </p>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 

@@ -11,10 +11,10 @@
       </div>
     </div>
     <div class="block">
-      <p class="footer-title text-lg font-format">
+      <!-- <p class="footer-title text-lg font-format">
         {{ $t('lang.HFooterBigger.search.title') }}
-      </p>
-      <ul>
+      </p> -->
+      <!-- <ul>
         <li class="font-format" @click="$router.push({ path: '/index/research', query: { type: 3 } })">
           Security Incident
         </li>
@@ -39,8 +39,8 @@
           @click="$router.push({ path: '/index/research', query: { type: 7 } })">
           Resources
         </li>
-      </ul>
-      <p class="footer-title mt-12 text-lg font-format">
+      </ul> -->
+      <p class="footer-title text-lg font-format">
         {{ $t('lang.HFooterBigger.company.title') }}
       </p>
       <ul class="mt-6">
