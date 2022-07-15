@@ -4,11 +4,11 @@
       <div class="safe-area">
         <div class="left">
           <div class="title">{{ currentArticle.title }}</div>
-          <div class="description">
+          <div class="description line-clamp line-clamp-2">
             {{ currentArticle.desc }}
           </div>
           <div class="action">
-            <custom-button style="width: 148px; height: 48px; border-radius: 4px" @click.stop="() => goLearnMore()">Learn More</custom-button>
+            <n-button color="#1CD2A9" text-color="#050B37" style="width: 148px; height: 48px; font-size:16px; border-radius: 4px" @click.stop="() => goLearnMore()">Learn More</n-button>
           </div>
         </div>
         <div class="right">
@@ -21,8 +21,6 @@
     <div class="board-main">
       <n-tabs
         class="card-tabs"
-        default-value=""
-        animated
         :value="currType"
         :on-update:value="handleChange"
       >
@@ -59,9 +57,9 @@
 </template>
 
 <script>
-import { onMounted, ref } from 'vue'
+import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import { NTabs, NTabPane } from 'naive-ui'
+import { NTabs, NTabPane, NButton } from 'naive-ui'
 import CustomButton from '@/components/custom-button/index.vue'
 import All from './All/index.vue'
 import NormalArticleList from './NormalArticleList/index.vue'
@@ -70,6 +68,7 @@ import './media-screen-style/research.less'
 import ArticleSwipper from './ArticleSwiper/index.vue'
 import useGetArticle from './bisiness-hooks/useGetArticle'
 import { openUrl } from './util'
+import './common.less'
 
 
 export default {
@@ -80,7 +79,8 @@ export default {
     All,
     NormalArticleList,
     CompanyResources,
-    ArticleSwipper
+    ArticleSwipper,
+    NButton
   },
   data() {
     return {
@@ -102,14 +102,15 @@ export default {
       currentArticle.value = article
     }
 
-    const currType = ref('')
-    onMounted(() => {
-      currType.value = route.query ? route.query.type : ''
-    })
+    const currType = ref(route.query && route.query.type ? Number(route.query.type) : '')
 
     const handleChange = (value) => {
       currType.value = value
     }
+
+    watch(() => route.query, () => {
+      currType.value = route.query && route.query.type ? Number(route.query.type) : ''
+    })
 
     const goLearnMore = () => {
       const host = '/#/index/article-preview?id=' + currentArticle.value.id
@@ -121,7 +122,7 @@ export default {
       articles,
       currentArticle,
       onSlideChange,
-      currType,
+      currType: currType,
       handleChange,
       goLearnMore
     }

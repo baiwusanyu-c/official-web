@@ -43,7 +43,7 @@
       <p class="footer-title mt-12 text-lg font-format">
         {{ $t('lang.HFooterBigger.company.title') }}
       </p>
-      <ul class="mt-12">
+      <ul class="mt-6">
         <li class="font-format" @click="$router.push('/index/aboutUs')">
           {{ $t('lang.HFooterBigger.company.aboutUs') }}
         </li>

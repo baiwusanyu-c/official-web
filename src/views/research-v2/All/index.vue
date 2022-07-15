@@ -7,8 +7,8 @@
             <img :src="article.coverImg" />
           </div>
           <div class="information">
-            <h4>{{ article.title }}</h4>
-            <p>{{ article.desc }}</p>
+            <h4 class="line-clamp line-clamp-2">{{ article.title }}</h4>
+            <p class=" line-clamp line-clamp-3">{{ article.desc }}</p>
             <i>{{ article.updateTime }}</i>
           </div>
         </li>
@@ -24,8 +24,8 @@
             <img :src="resource.coverImg" />
           </div>
           <div class="content">
-            <h4>{{ resource.title }}</h4>
-            <p>{{ resource.desc }}</p>
+            <h4 class="line-clamp line-clamp-2">{{ resource.title }}</h4>
+            <p class=" line-clamp line-clamp-4">{{ resource.desc }}</p>
             <custom-button @click.stop="handleDownload(resource)">
               <be-icon :size="20" icon="iconDownload" style="margin-right: 5px" />
               <span class="download-text">Download</span>
@@ -139,6 +139,7 @@ export default defineComponent({
 
     const handlePreview = (resource:any) => {
       // previewFile(combineLink(resource.url))
+      console.log('http://192.168.0.2:8527/' + resource.url)
       previewFile('http://192.168.0.2:8527/' + resource.url)
     }
 

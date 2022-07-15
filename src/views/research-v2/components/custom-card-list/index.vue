@@ -1,12 +1,12 @@
 <template>
   <div class="card-list">
     <ul class="list-page">
-      <li v-for="(item, index) in data" :key="index" @click="onItemClick(item)">
+      <li v-for="item in data" :key="item.id" @click="onItemClick(item)">
         <div class="card-item">
           <div class="card-img-banner"><img :src="item.coverImg" /></div>
           <div class="card-information">
-            <h4>{{ item.title }}</h4>
-            <p>{{ item.desc }}</p>
+            <h4 class=" line-clamp line-clamp-3">{{ item.title }}</h4>
+            <p class=" line-clamp line-clamp-3">{{ item.desc }}</p>
             <i>{{ item.updateTime }}</i>
           </div>
         </div>
@@ -20,7 +20,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import mockBanner from '@/assets/img/mock-banner.png'
+// import mockBanner from '@/assets/img/mock-banner.png'
 import CustomPagination from '../../components/custom-pagination/index.vue'
 
 export default defineComponent({

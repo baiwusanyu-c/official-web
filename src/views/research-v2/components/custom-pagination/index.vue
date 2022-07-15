@@ -22,10 +22,6 @@ export default defineComponent({
       type: Number,
       default: 0
     }
-  },
-  setup(props) {
-    console.log('props', props)
-    return {}
   }
 })
 </script>

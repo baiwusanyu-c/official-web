@@ -1,6 +1,6 @@
 <template>
   <div class="tab-pane-container">
-    <custom-card-list :data="articles" @onItemClick="onItemClick" :pagination="{ page: params.pageNum, pages: params.pages, onUpdatePage: onUpdatePage }" />
+    <custom-card-list :data="data" @onItemClick="onItemClick" :pagination="{ page: params.pageNum, pages: params.pages, onUpdatePage: onUpdatePage }" />
   </div>
 </template>
 
@@ -18,7 +18,7 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const { data: articles, params, total, pages, setParams } = useGetArticle({
+    const { data, params, total, pages, setParams } = useGetArticle({
       pageNum: 1,
       pageSize: 6,
       type: props.type
@@ -34,7 +34,7 @@ export default defineComponent({
     }
 
     return {
-      articles,
+      data,
       params,
       onUpdatePage,
       pages,

@@ -3,7 +3,7 @@
     <div class="safe-area">
       <div class="article-area">
         <div class="top-action">
-          <p>{{ information.updateTime }}</p>
+          <p>{{ transferDateToText(information.updateTime) }}</p>
           <n-button text-color="#050B37" ghost @click="handleShare">
             <template #icon>
               <be-icon :size="20" icon="iconLink" />
@@ -82,6 +82,27 @@ import './cover-quill-text-style.css'
 
 const { message } = composition()
 
+const transferDateToText = (date:any) => {
+  if (!date) return ''
+  const codes = date.split(' ')[0].split('-')
+  const monthMap:any = {
+    '01': 'January',
+    '02': 'February',
+    '03': 'March',
+    '04': 'April',
+    '05': 'May',
+    '06': 'June',
+    '07': 'July',
+    '08': 'August',
+    '09': 'September',
+    '10': 'October',
+    '11': 'November',
+    '12': 'December'
+  }
+  return `On ${monthMap[codes[1]]} ${codes[2]}, ${codes[0]}`
+
+}
+
 export default defineComponent({
   components: { NButton, NIcon, NProgress, ScoreGaugeChart, ChevronForward, CustomButton },
   setup() {
@@ -124,7 +145,8 @@ export default defineComponent({
       likeList,
       score,
       goPriview,
-      goMoreList
+      goMoreList,
+      transferDateToText
     }
   },
 })
@@ -148,6 +170,13 @@ export default defineComponent({
           justify-content: space-between;
           align-items: center;
           margin-bottom: 26px;
+          p{
+            font-size: 14px;
+            font-family: Roboto-Regular, Roboto;
+            font-weight: 400;
+            color: #050B37;
+            line-height: 16px;
+          }
         }
         .article-preview-area{
           padding-bottom: 40px;
