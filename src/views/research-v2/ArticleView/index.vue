@@ -13,7 +13,10 @@
         </div>
         <div class="ql-snow">
           <h1 class="blog-title">{{ information.title }}</h1>
-          <div class="article-preview-area ql-editor" v-html="information.content" style="min-height: 700px"></div>
+          <div
+            class="article-preview-area ql-editor"
+            style="min-height: 700px"
+            v-html="information.content"></div>
         </div>
       </div>
       <div class="article-recommend">
@@ -30,7 +33,9 @@
         <div v-else class="no-score">
           <div class="no-score-content">
             <h4>Related Project Secure Score</h4>
-            <n-button color="#1CD2A9" text-color="#18304E" style="font-weight: 500"><a href="http://eagleeye.beosin.com" target="_blank">Learn More</a></n-button>
+            <n-button color="#1CD2A9" text-color="#18304E" style="font-weight: 500"
+              ><a href="http://eagleeye.beosin.com" target="_blank">Learn More</a></n-button
+            >
           </div>
         </div>
         <div class="guess-you-like">
@@ -45,7 +50,7 @@
           </div>
           <ul class="list">
             <li v-for="item in likeList" :key="item.id" @click="goPriview(item)">
-              <img :src="item.coverImg" />
+              <div class="list-image"><img :src="item.coverImg" /></div>
               <div class="list-item-right">
                 <h5>{{ item.title }}</h5>
                 <p>{{ item.updateTime }}</p>
@@ -57,8 +62,16 @@
         <div class="join-us">
           <h4>Join the community to discuss.</h4>
           <ul>
-            <li><a href="http://t.me/beosin" target="_blank"><be-icon icon="iconWhiteTelegram" color="#fff" /></a></li>
-            <li><a href="https://discord.com/invite/B4QJxhStV4" target="_blank"><be-icon icon="iconWhiteDiscord" color="#fff" /></a></li>
+            <li>
+              <a href="http://t.me/beosin" target="_blank">
+                <be-icon icon="iconWhiteTelegram" color="#fff" />
+              </a>
+            </li>
+            <li>
+              <a href="https://discord.com/invite/B4QJxhStV4" target="_blank">
+                <be-icon icon="iconWhiteDiscord" color="#fff" />
+              </a>
+            </li>
           </ul>
           <img src="@/assets/img/illustration-join.png" />
         </div>
@@ -68,138 +81,149 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref } from 'vue'
-import { useRoute } from 'vue-router'
-import { NButton, NIcon, NProgress } from 'naive-ui'
-import { ChevronForward } from '@vicons/ionicons5'
-import ScoreGaugeChart from './ScoreGaugeChart/index.vue'
-import { hermitGetArticle, guessYouLikeList, getProjectDetail } from '@/api/research'
-import composition from '@/utils/mixin/common-func'
-import copy from '@/utils/copy'
-import CustomButton from '@/components/custom-button/index.vue'
-import { openUrl } from '../util'
-import './cover-quill-text-style.css'
+  import { defineComponent, onMounted, ref } from 'vue'
+  import { useRoute } from 'vue-router'
+  import { NButton, NIcon, NProgress } from 'naive-ui'
+  import { ChevronForward } from '@vicons/ionicons5'
+  import ScoreGaugeChart from './ScoreGaugeChart/index.vue'
+  import { hermitGetArticle, guessYouLikeList, getProjectDetail } from '@/api/research'
+  import composition from '@/utils/mixin/common-func'
+  import copy from '@/utils/copy'
+  import CustomButton from '@/components/custom-button/index.vue'
+  import { openUrl } from '../util'
+  import './cover-quill-text-style.css'
 
-const { message } = composition()
+  const { message } = composition()
 
-export default defineComponent({
-  components: { NButton, NIcon, NProgress, ScoreGaugeChart, ChevronForward, CustomButton },
-  setup() {
-    
-    const route = useRoute()
-    const information = ref({})
-    const likeList = ref([])
-    const score = ref(null)
-    onMounted(() => {
-      hermitGetArticle({ id: route.query.id }).then(res => {
-        information.value = res.data;
-        guessYouLikeList({ id: route.query.id, type: res.data.type }).then(res => {
-          likeList.value = res.data
-        })
-        const relationProjectId = res.data.relationProjectId
-        relationProjectId && getProjectDetail(relationProjectId).then(res => {
-          score.value = res.data.score
+  export default defineComponent({
+    components: { NButton, NIcon, NProgress, ScoreGaugeChart, ChevronForward, CustomButton },
+    setup() {
+      const route = useRoute()
+      const information = ref({})
+      const likeList = ref([])
+      const score = ref(null)
+      onMounted(() => {
+        hermitGetArticle({ id: route.query.id }).then(res => {
+          information.value = res.data
+          guessYouLikeList({ id: route.query.id, type: res.data.type }).then(res => {
+            likeList.value = res.data
+          })
+          const relationProjectId = res.data.relationProjectId
+          relationProjectId &&
+            getProjectDetail(relationProjectId).then(res => {
+              score.value = res.data.score
+            })
         })
       })
-    })
-    
-    const handleShare = () => {
-      const link = window.location.href
-      copy(link, () => {
-        message('success', 'Copied to pasteboard', 'hermit-msg')
-      })
-    }
 
-    const goPriview = (item:any) => {
-      const host = '/#/index/article-preview?id=' + item.id
-      openUrl(host, { target: '_blank' })
-    }
-    const goMoreList = (type:number) => {
-      const host = '/#/index/research?type=' + type
-      openUrl(host, { target: '_blank' })
-    }
-    return {
-      information,
-      handleShare,
-      likeList,
-      score,
-      goPriview,
-      goMoreList
-    }
-  },
-})
+      const handleShare = () => {
+        const link = window.location.href
+        copy(link, () => {
+          message('success', 'Copied to pasteboard', 'hermit-msg')
+        })
+      }
+
+      const goPriview = (item: any) => {
+        const host = '/#/index/article-preview?id=' + item.id
+        openUrl(host, { target: '_blank' })
+      }
+      const goMoreList = (type: number) => {
+        const host = '/#/index/research?type=' + type
+        openUrl(host, { target: '_blank' })
+      }
+      return {
+        information,
+        handleShare,
+        likeList,
+        score,
+        goPriview,
+        goMoreList,
+      }
+    },
+  })
 </script>
 
-
 <style lang="less" scoped>
-  .article-view{
+  .article-view {
     background: #fff;
     padding-bottom: 64px;
-    .safe-area{
+
+    .safe-area {
       max-width: 1358px;
       padding: 0 64px;
       margin: 0 auto;
       display: flex;
-      .article-area{
+
+      .article-area {
         flex: 1;
         padding-top: 48px;
-        .top-action{
+
+        .top-action {
           display: flex;
           justify-content: space-between;
           align-items: center;
           margin-bottom: 26px;
         }
-        .article-preview-area{
+
+        .article-preview-area {
           padding-bottom: 40px;
           padding: 0;
         }
-        .blog-title{
+
+        .blog-title {
           font-size: 32px;
           font-weight: bold;
-          color: #050B37;
+          color: #050b37;
           line-height: 40px;
           margin-bottom: 30px;
         }
       }
-      .article-recommend{
+
+      .article-recommend {
         padding-top: 48px;
         width: 316px;
         padding-left: 32px;
         margin-left: 113px;
-        border-left: 1px solid #ECF3F9;
-        h4{
+        border-left: 1px solid #ecf3f9;
+
+        h4 {
           font-size: 20px;
           font-family: HelveticaNeue-Bold, HelveticaNeue;
           font-weight: bold;
-          color: #050B37;
+          color: #050b37;
           line-height: 28px;
           margin-bottom: 16px;
         }
-        .score-area{
+
+        .score-area {
           height: 268px;
           margin-bottom: 13px;
-          background: linear-gradient(135deg, #E7F2F7, #FFFFFF);
+          background: linear-gradient(135deg, #e7f2f7, #ffffff);
           border-radius: 6px;
           display: flex;
           flex-direction: column;
           align-items: center;
           padding: 24px 33px;
-          .ve-chain-logo{
+
+          .ve-chain-logo {
             width: 106px;
             margin-bottom: 24px;
-            img{
-              width: 100%
+
+            img {
+              width: 100%;
             }
           }
-          .score-progress{
+
+          .score-progress {
             width: 283px;
             margin-bottom: 22px;
             margin-top: -44px;
-            height: 150px
+            height: 150px;
           }
         }
-        .no-score{
-          background: linear-gradient(135deg, #D6E7EE, #EFF6FA);
+
+        .no-score {
+          background: linear-gradient(135deg, #d6e7ee, #eff6fa);
           height: 200px;
           margin-bottom: 24px;
           position: relative;
@@ -207,7 +231,8 @@ export default defineComponent({
           display: flex;
           flex-direction: column;
           align-items: center;
-          &::before{
+
+          &::before {
             position: absolute;
             content: '';
             width: 100%;
@@ -219,67 +244,89 @@ export default defineComponent({
             background-position: right bottom;
             z-index: 0;
           }
-          .no-score-content{
+
+          .no-score-content {
             position: absolute;
             left: 32px;
             top: 49px;
-            h4{
+
+            h4 {
               font-size: 20px;
               font-weight: bold;
-              color: #050B37;
+              color: #050b37;
               line-height: 28px;
               margin-bottom: 15px;
             }
           }
-          
         }
-        .guess-you-like{
-          .title-row{
+
+        .guess-you-like {
+          .title-row {
             display: flex;
             align-items: center;
             justify-content: space-between;
             margin-bottom: 16px;
-            h5{
+
+            h5 {
               font-size: 20px;
               font-family: HelveticaNeue-Bold, HelveticaNeue;
               font-weight: bold;
-              color: #050B37;
+              color: #050b37;
               line-height: 28px;
             }
-            .learn-more-right{
+
+            .learn-more-right {
               font-size: 13px;
               font-family: HelveticaNeue-Medium, HelveticaNeue;
               font-weight: 500;
-              color: #18304E;
+              color: #18304e;
               display: flex;
               align-items: center;
               cursor: pointer;
             }
           }
-          ul.list{
-            li{
+
+          ul.list {
+            li {
               display: flex;
               align-items: center;
               margin-bottom: 16px;
-              img{
+
+              .list-image {
                 display: block;
                 width: 80px;
                 height: 80px;
                 margin-right: 16px;
+                position: relative;
+                overflow: hidden;
+
+                img {
+                  //width: auto;
+                  max-height: 80px;
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translateX(-50%) translateY(-50%);
+                  max-width: initial;
+                  height: initial;
+                }
               }
-              .list-item-right{
+
+              .list-item-right {
                 flex: 1;
-                h5{
+
+                h5 {
                   font-size: 14px;
                   font-weight: bold;
-                  color: #050B37;
+                  color: #050b37;
                   line-height: 20px;
                   margin-bottom: 8px;
                 }
-                p{
+
+                p {
                   font-size: 12px;
                   font-weight: 400;
-                  color: #9B9DAF;
+                  color: #9b9daf;
                   line-height: 16px;
                 }
               }
@@ -287,30 +334,33 @@ export default defineComponent({
           }
         }
 
-        .join-us{
+        .join-us {
           padding: 18px 32px;
-          background: linear-gradient(90deg, #D6E7EE, #EFF6FA);
+          background: linear-gradient(90deg, #d6e7ee, #eff6fa);
           border-radius: 6px;
           position: relative;
-          
-          h4{
+
+          h4 {
             font-size: 20px;
             font-family: Roboto-Bold, Roboto;
             font-weight: bold;
-            color: #050B37;
+            color: #050b37;
             line-height: 24px;
             margin-bottom: 24px;
           }
-          ul{
+
+          ul {
             display: flex;
-            li{
+
+            li {
               width: 32px;
               height: 32px;
-              background: #050B37;
+              background: #050b37;
               border-radius: 4px;
               margin-right: 24px;
               cursor: pointer;
-              a{
+
+              a {
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -319,7 +369,8 @@ export default defineComponent({
               }
             }
           }
-          img{
+
+          img {
             height: 80px;
             position: absolute;
             right: 20px;
@@ -331,10 +382,11 @@ export default defineComponent({
   }
 
   @media screen and (max-width: 1200px) {
-    .article-view{
-      .safe-area{
+    .article-view {
+      .safe-area {
         display: block;
-        .article-recommend{
+
+        .article-recommend {
           width: 100%;
           padding-left: 0;
           margin-left: 0;
@@ -345,8 +397,8 @@ export default defineComponent({
   }
 
   @media screen and (max-width: 750px) {
-    .article-view{
-      .safe-area{
+    .article-view {
+      .safe-area {
         padding: 0 24px;
       }
     }
