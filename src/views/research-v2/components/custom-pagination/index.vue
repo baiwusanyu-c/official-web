@@ -9,6 +9,7 @@
   import { NPagination } from 'naive-ui'
 
   export default defineComponent({
+    name: 'CustomPagination',
     components: { NPagination },
     props: {
       page: {
