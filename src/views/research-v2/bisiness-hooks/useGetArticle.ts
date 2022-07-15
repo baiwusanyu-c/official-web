@@ -1,12 +1,12 @@
 import { computed, onMounted, ref, watch } from 'vue'
 import { getBlogNewsList } from '../../../api/research'
 
-const useGetArticle = (initParams) => {
+const useGetArticle = initParams => {
   const data = ref([])
   const total = ref(0)
   const params = ref(initParams)
   const loading = ref(false)
-  const refresh = (params) => {
+  const refresh = params => {
     loading.value = true
     getBlogNewsList(params).then((res: any) => {
       if (res.code === 200 && res.rows) {
@@ -25,7 +25,7 @@ const useGetArticle = (initParams) => {
     return Math.ceil(total.value / params.value.pageSize)
   })
 
-  const setParams = (param) => {
+  const setParams = param => {
     params.value = { ...params.value, ...param }
   }
 
@@ -39,7 +39,7 @@ const useGetArticle = (initParams) => {
     pages,
     params,
     loading,
-    setParams
+    setParams,
   }
 }
 

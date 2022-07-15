@@ -2,7 +2,7 @@
 <template>
   <div
     class="title-card text-black bg-default z-10 mr-6 flex flex-col p-6 box-border cursor-pointer sm:mr-0 sm:p-4"
-    @click="openWin(data.url)">
+    @click="openWin(data)">
     <img
       v-if="data.type === 1"
       alt=""
@@ -45,6 +45,13 @@
   import composition from '../utils/mixin/common-func'
   import { IBlobList } from '../views/home/home.vue'
   import { dateToMDY } from '../utils/common'
+  import { useRouter } from 'vue-router'
+  export const openUrl = (url: string, { target }:any) => {
+    const aEl = document.createElement('a')
+    aEl.href = url
+    aEl.target = target
+    aEl.click()
+  }
   export default defineComponent({
     name: 'BlogNew',
     props: {
@@ -53,7 +60,13 @@
       },
     },
     setup() {
-      const { openWin } = composition()
+      // const { openWin } = composition()
+      const router = useRouter()
+      const openWin = (item:any) => {
+        // const host = window.location.host
+        // openUrl(host + '/#/index/article-preview?id=' + item.id, { target: '_blank' })
+        router.push({ path: '/index/article-preview', query: { id: item.id } })
+      }
       return {
         dateToMDY,
         openWin,

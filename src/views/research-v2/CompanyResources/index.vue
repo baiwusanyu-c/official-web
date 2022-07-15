@@ -61,8 +61,8 @@
         downloadFile(combineLink(resource.url))
       }
 
-      const onPreview = (resource:any) => {
-        previewFile((combineLink(resource.url)))
+      const onPreview = (resource: any) => {
+        previewFile(combineLink(resource.url))
       }
 
       const { data: articles } = useGetArticle({

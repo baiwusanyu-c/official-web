@@ -3,12 +3,18 @@
     <div class="board-top">
       <div class="safe-area">
         <div class="left">
-          <div class="title">{{ currentArticle.title }}</div>
+          <div class="title line-clamp line-clamp-3">{{ currentArticle.title }}</div>
           <div class="description line-clamp line-clamp-2">
             {{ currentArticle.desc }}
           </div>
           <div class="action">
-            <n-button color="#1CD2A9" text-color="#050B37" style="width: 148px; height: 48px; font-size:16px; border-radius: 4px" @click.stop="() => goLearnMore()">Learn More</n-button>
+            <n-button
+              color="#1CD2A9"
+              text-color="#050B37"
+              style="width: 148px; height: 48px; font-size: 16px; border-radius: 4px"
+              @click.stop="() => goLearnMore()"
+              >Learn More</n-button
+            >
           </div>
         </div>
         <div class="right">
@@ -19,10 +25,7 @@
     </div>
 
     <div class="board-main">
-      <n-tabs
-        class="card-tabs"
-        :value="currType"
-        :on-update:value="handleChange">
+      <n-tabs class="card-tabs" :value="currType" :on-update:value="handleChange">
         <n-tab-pane name="" tab="All">
           <All />
         </n-tab-pane>
@@ -56,69 +59,77 @@
 </template>
 
 <script>
-import { ref, watch } from 'vue'
-import { useRoute } from 'vue-router'
-import { NTabs, NTabPane, NButton } from 'naive-ui'
-import CustomButton from '@/components/custom-button/index.vue'
-import All from './All/index.vue'
-import NormalArticleList from './NormalArticleList/index.vue'
-import CompanyResources from './CompanyResources/index.vue'
-import './media-screen-style/research.less'
-import ArticleSwipper from './ArticleSwiper/index.vue'
-import useGetArticle from './bisiness-hooks/useGetArticle'
-import { openUrl } from './util'
-import './common.less'
-export default {
-  components:  {
-    NTabs,
-    NTabPane,
-    CustomButton,
-    All,
-    NormalArticleList,
-    CompanyResources,
-    ArticleSwipper,
-    NButton
-  },
-  setup() {
-    const route = useRoute()
-    const { data: articles } = useGetArticle({
-      pageNum: 1,
-      pageSize: 9999,
-      upFlag: true
-    })
+  import { ref, watch } from 'vue'
+  import { useRoute } from 'vue-router'
+  import { NTabs, NTabPane, NButton } from 'naive-ui'
+  import CustomButton from '@/components/custom-button/index.vue'
+  import All from './All/index.vue'
+  import NormalArticleList from './NormalArticleList/index.vue'
+  import CompanyResources from './CompanyResources/index.vue'
+  import './media-screen-style/research.less'
+  import ArticleSwipper from './ArticleSwiper/index.vue'
+  import useGetArticle from './bisiness-hooks/useGetArticle'
+  import { openUrl } from './util'
+  import './common.less'
+  export default {
+    components: {
+      NTabs,
+      NTabPane,
+      CustomButton,
+      All,
+      NormalArticleList,
+      CompanyResources,
+      ArticleSwipper,
+      NButton,
+    },
+    setup() {
+      const route = useRoute()
+      const { data: articles } = useGetArticle({
+        pageNum: 1,
+        pageSize: 9999,
+        upFlag: true,
+      })
 
-    const currentArticle = ref({})
+      const currentArticle = ref({})
 
-    const currType = ref(route.query && route.query.type ? Number(route.query.type) : '')
+      const currType = ref(route.query && route.query.type ? Number(route.query.type) : '')
 
-    const goLearnMore = () => {
-      const host = '/#/index/article-preview?id=' + currentArticle.value.id
-      openUrl(host, { target: '_blank' })
-    }
+      const goLearnMore = () => {
+        const host = '/#/index/article-preview?id=' + currentArticle.value.id
+        openUrl(host, { target: '_blank' })
+      }
 
-    watch(() => route.query, () => {
-      currType.value = route.query && route.query.type ? Number(route.query.type) : ''
-    })
+      watch(
+        () => route.query,
+        () => {
+          currType.value = route.query && route.query.type ? Number(route.query.type) : ''
+        }
+      )
+      watch(
+        () => articles.value.length,
+        () => {
+          currentArticle.value = articles.value[0]
+        }
+      )
 
-    const onSlideChange = (item) => {
-      currentArticle.value = item
-    }
+      const onSlideChange = item => {
+        currentArticle.value = item
+      }
 
-    const handleChange = (type) => {
-      currType.value = type
-    }
-    
+      const handleChange = type => {
+        currType.value = type
+      }
 
-    return {
-      articles,
-      currentArticle,
-      onSlideChange,
-      currType: currType,
-      handleChange,
-      goLearnMore
-    }
+      return {
+        articles,
+        currentArticle,
+        onSlideChange,
+        currType: currType,
+        handleChange,
+        goLearnMore,
+      }
+    },
   }
-}
 </script>
 
 <style lang="less" scoped>

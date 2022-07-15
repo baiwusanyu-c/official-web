@@ -81,7 +81,7 @@
       return {
         // articles
         onItemClick,
-        preToText
+        preToText,
       }
     },
   })

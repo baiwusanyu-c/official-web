@@ -13,7 +13,13 @@
         </div>
         <div class="ql-snow">
           <h1 class="blog-title">{{ information.title }}</h1>
-          <n-button v-if="information.type === 1 && information.url" color="#1CD2A9" text-color="#18304E" @click="look">查看资源</n-button>
+          <n-button
+            v-if="information.type === 1 && information.url"
+            color="#1CD2A9"
+            text-color="#18304E"
+            @click="look"
+            >查看资源</n-button
+          >
           <div
             v-else
             class="article-preview-area ql-editor"
@@ -95,6 +101,7 @@
   import { openUrl, preToText, combineLink } from '../util'
   import { previewFile } from '@/utils/download-file'
   import './cover-quill-text-style.css'
+  import '../common.less'
 
   const { message } = composition()
 
@@ -146,7 +153,7 @@
         goPriview,
         goMoreList,
         preToText,
-        look
+        look,
       }
     },
   })
@@ -308,7 +315,7 @@
               display: flex;
               align-items: center;
               margin-bottom: 16px;
-
+              cursor: pointer;
               .list-image {
                 display: block;
                 width: 80px;

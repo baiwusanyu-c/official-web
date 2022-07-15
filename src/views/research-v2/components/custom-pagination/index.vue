@@ -5,46 +5,46 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import { NPagination } from 'naive-ui'
+  import { defineComponent } from 'vue'
+  import { NPagination } from 'naive-ui'
 
-export default defineComponent({
-  components: { NPagination },
-  props: {
-    page: {
-      type: Number,
-      default: 1
+  export default defineComponent({
+    components: { NPagination },
+    props: {
+      page: {
+        type: Number,
+        default: 1,
+      },
+      onUpdatePage: {
+        type: Function,
+      },
+      pages: {
+        type: Number,
+        default: 0,
+      },
     },
-    onUpdatePage: {
-      type: Function
-    },
-    pages: {
-      type: Number,
-      default: 0
-    }
-  }
-})
+  })
 </script>
 
 <style lang="less" scoped>
   .pagination {
-    /deep/ .n-pagination{
-      .n-pagination-item{
-        color: #050B37;
-        &.n-pagination-item--button{
+    /deep/ .n-pagination {
+      .n-pagination-item {
+        color: #050b37;
+        &.n-pagination-item--button {
           border: none;
         }
-        &:not(.n-pagination-item--disabled).n-pagination-item--active{
-          background: #1CD2A9;
+        &:not(.n-pagination-item--disabled).n-pagination-item--active {
+          background: #1cd2a9;
           border: none;
-          color: #050B37;
-          &:hover{
-            background: #1CD2A9;
+          color: #050b37;
+          &:hover {
+            background: #1cd2a9;
           }
         }
-        &.n-pagination-item--clickable{
-          &:hover{
-            background: #EDFDF9;
+        &.n-pagination-item--clickable {
+          &:hover {
+            background: #edfdf9;
           }
         }
       }

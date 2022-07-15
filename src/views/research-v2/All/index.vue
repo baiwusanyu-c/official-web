@@ -160,7 +160,7 @@
         pages,
         handlePreview,
         handleDownload,
-        preToText
+        preToText,
       }
     },
   })
