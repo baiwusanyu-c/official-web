@@ -8,7 +8,7 @@
           </div>
           <div class="information">
             <h4 class="line-clamp line-clamp-2">{{ article.title }}</h4>
-            <p class=" line-clamp line-clamp-3">{{ article.desc }}</p>
+            <p class="line-clamp line-clamp-3">{{ article.desc }}</p>
             <i>{{ article.updateTime }}</i>
           </div>
         </li>
@@ -29,7 +29,7 @@
           </div>
           <div class="content">
             <h4 class="line-clamp line-clamp-2">{{ resource.title }}</h4>
-            <p class=" line-clamp line-clamp-4">{{ resource.desc }}</p>
+            <p class="line-clamp line-clamp-4">{{ resource.desc }}</p>
             <custom-button @click.stop="handleDownload(resource)">
               <be-icon :size="20" icon="iconDownload" style="margin-right: 5px" />
               <span class="download-text">Download</span>
@@ -256,10 +256,10 @@
           border: 1px solid #f2f2f4;
           margin-bottom: 33px;
           cursor: pointer;
+          transition: all 0.3s;
           &:hover {
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
-            transform: translateY(-8px);
-            transition: transform 0.3s;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-3px);
           }
 
           .banner {
