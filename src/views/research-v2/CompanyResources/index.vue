@@ -27,14 +27,15 @@ import useGetArticle from '../bisiness-hooks/useGetArticle'
 import downloadFile, { previewFile } from '@/utils/download-file'
 import { combineLink } from '../util'
 
-export default defineComponent({
-  components: { CustomButton },
-  props: {
-    type: {
-      type: Number
-    }
-  },
-  setup(props) {
+  export default defineComponent({
+    name: 'CompanyResources',
+    components: { CustomButton },
+    props: {
+      type: {
+        type: Number,
+      },
+    },
+    setup(props) {
 
     // const articles = [
     //   {
@@ -57,12 +58,6 @@ export default defineComponent({
     //   }
     // ]
 
-    const { data: articles } = useGetArticle({
-      pageNum: 1,
-      pageSize: 6,
-      type: props.type
-    })
-
     const onDownload = (resource:any) => {
       downloadFile(combineLink(resource.url))
     }
@@ -74,6 +69,14 @@ export default defineComponent({
     // const onUpdatePage = (page:number) => {
     //   setParams({ pageNum: page })
     // }
+
+    const {
+      data: articles
+    } = useGetArticle({
+      pageNum: 1,
+      pageSize: 6,
+      type: props.type,
+    })
 
     return {
       articles,
@@ -89,40 +92,51 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
-  .resource-list-page{
-    ul.list{
+  .resource-list-page {
+    ul.list {
       display: flex;
       flex-wrap: wrap;
       li{
         width: 30%;
         margin-right: 4.9%;
         border-radius: 8px;
-        border: 1px solid #F2F2F4;
+        border: 1px solid #f2f2f4;
         margin-bottom: 33px;
         background-image: url('@/assets/img/resource-bg.png');
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center 0;
-        .banner{
-          
+        cursor: pointer;
+
+        &:hover {
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
+          transform: translateY(-8px);
+          transition: transform 0.3s;
+        }
+
+        .banner {
           height: 127px;
           padding-top: 32px;
           padding-left: 23px;
-          img{
+
+          img {
             width: 118px;
           }
         }
-        .content{
+
+        .content {
           padding: 0 24px 32px 24px;
-          h4{
+
+          h4 {
             font-size: 16px;
             font-family: Roboto-Bold, Roboto;
             font-weight: bold;
-            color: #18304E;
+            color: #18304e;
             line-height: 24px;
             margin-bottom: 16px;
           }
-          p{
+
+          p {
             margin-bottom: 16px;
           }
         }
@@ -133,20 +147,21 @@ export default defineComponent({
     }
   }
 
-  .download-text{
+  .download-text {
     font-size: 14px;
     font-weight: bold;
-    color: #18304E;
+    color: #18304e;
   }
 
   @media screen and (max-width: 750px) {
-    .resource-list-page{
-      ul.list{
-      display: block;
-      li{
-        width: 100%;
+    .resource-list-page {
+      ul.list {
+        display: block;
+
+        li {
+          width: 100%;
+        }
       }
-    }
     }
   }
 </style>

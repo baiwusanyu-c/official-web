@@ -22,8 +22,7 @@
       <n-tabs
         class="card-tabs"
         :value="currType"
-        :on-update:value="handleChange"
-      >
+        :on-update:value="handleChange">
         <n-tab-pane name="" tab="All">
           <All />
         </n-tab-pane>
@@ -33,23 +32,23 @@
         </n-tab-pane>
         <!-- 深度研究 -->
         <n-tab-pane :name="1" tab="Research Report">
-           <NormalArticleList :type="1" />
+          <NormalArticleList :type="1" />
         </n-tab-pane>
         <!-- AMA回顾&活动 -->
         <n-tab-pane :name="6" tab="Event Update">
-           <NormalArticleList :type="6" />
+          <NormalArticleList :type="6" />
         </n-tab-pane>
         <!-- 审计PR长文 -->
         <n-tab-pane :name="4" tab="Partnership Announcement">
-           <NormalArticleList :type="4" />
+          <NormalArticleList :type="4" />
         </n-tab-pane>
         <!-- Web3科普知识 -->
         <n-tab-pane :name="5" tab="Web3.0 Classroom">
-           <NormalArticleList :type="5" />
+          <NormalArticleList :type="5" />
         </n-tab-pane>
         <!-- 公司资源 -->
         <n-tab-pane :name="7" tab="Resources">
-           <CompanyResources :type="7" />
+          <CompanyResources :type="7" />
         </n-tab-pane>
       </n-tabs>
     </div>
@@ -69,8 +68,6 @@ import ArticleSwipper from './ArticleSwiper/index.vue'
 import useGetArticle from './bisiness-hooks/useGetArticle'
 import { openUrl } from './util'
 import './common.less'
-
-
 export default {
   components:  {
     NTabs,
@@ -97,24 +94,24 @@ export default {
     })
 
     const currentArticle = ref({})
-    const onSlideChange = (article) => {
-      // console.log(article)
-      currentArticle.value = article
-    }
 
     const currType = ref(route.query && route.query.type ? Number(route.query.type) : '')
 
-    const handleChange = (value) => {
-      currType.value = value
+    const goLearnMore = () => {
+      const host = '/#/index/article-preview?id=' + currentArticle.value.id
+      openUrl(host, { target: '_blank' })
     }
 
     watch(() => route.query, () => {
       currType.value = route.query && route.query.type ? Number(route.query.type) : ''
     })
 
-    const goLearnMore = () => {
-      const host = '/#/index/article-preview?id=' + currentArticle.value.id
-      openUrl(host, { target: '_blank' })
+    const onSlideChange = (item) => {
+      currentArticle.value = item
+    }
+
+    const handleChange = (type) => {
+      currType.value = type
     }
     
 
@@ -131,10 +128,10 @@ export default {
 </script>
 
 <style lang="less" scoped>
-  
-  .research-v2-page{
+  .research-v2-page {
     background: #fff;
-    .board-top{
+
+    .board-top {
       height: 566px;
       background-image: url('@/assets/img/blog-banner.jpg');
       background-repeat: no-repeat;
@@ -142,55 +139,102 @@ export default {
       background-size: cover;
       color: #ffffff;
       display: flex;
-      .safe-area{
+
+      .safe-area {
         width: 1358px;
         padding: 0 64px;
         margin: 0 auto;
         display: flex;
         align-items: center;
-        .left{
+
+        .left {
           margin-right: 6%;
           width: 46%;
           display: flex;
           flex-direction: column;
           justify-content: center;
-          .title{
+
+          .title {
             font-size: 48px;
             font-weight: bold;
-            color: #FFFFFF;
+            color: #ffffff;
             margin-bottom: 24px;
           }
-          .description{
+
+          .description {
             font-size: 16px;
-            color: #FFFFFF;
+            color: #ffffff;
             margin-bottom: 24px;
           }
-          .action{
+
+          .action {
             margin-bottom: 64px;
           }
         }
-        .right{
+
+        .right {
           width: 48%;
-          img{
+
+          img {
             width: 100%;
           }
         }
       }
     }
 
-    .board-main{
+    .board-main {
       max-width: 1358px;
       padding: 64px;
       padding-bottom: 240px;
       margin: 0 auto;
-      /deep/ .n-tabs{
-        .n-tabs-nav{
-          border-bottom: 1px solid #F2F2F4;
+
+      /deep/ .n-tabs {
+        .n-tabs-nav {
+          border-bottom: 1px solid #f2f2f4;
           margin-bottom: 25px;
         }
-        .n-tabs-tab .n-tabs-tab__label{
+
+        .n-tabs-tab .n-tabs-tab__label {
           font-size: 14px;
         }
+      }
+    }
+  }
+</style>
+<style lang="less">
+  .research-v2-page {
+    .n-tabs-pane-wrapper {
+      overflow: visible;
+    }
+
+    .card-tabs {
+      .n-tabs-tab {
+        font-size: 14px;
+        font-family: Roboto-Bold, Roboto;
+        font-weight: bold;
+        color: #373b5f;
+
+        &:hover {
+          color: #050b37;
+        }
+
+        &.n-tabs-tab--active {
+          font-family: Roboto-Bold, Roboto;
+          font-weight: bold;
+          color: #050b37;
+        }
+      }
+    }
+
+    .n-tabs {
+      .n-tabs-bar {
+        height: 3px;
+        background: #1cd2a9;
+        border-radius: 2px;
+      }
+
+      .n-tabs-nav-scroll-content {
+        height: 48px;
       }
     }
   }
