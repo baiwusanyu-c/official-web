@@ -96,8 +96,12 @@
       const currType = ref(route.query && route.query.type ? Number(route.query.type) : '')
 
       const goLearnMore = () => {
-        const host = '/#/index/article-preview?id=' + currentArticle.value.id
-        openUrl(host, { target: '_blank' })
+        if (currentArticle.value.type === 1 && currentArticle.value.url) {
+          window.open(currentArticle.value.url)
+        } else {
+          const host = '/#/index/article-preview?id=' + currentArticle.value.id
+          openUrl(host, { target: '_blank' })
+        }
       }
 
       watch(

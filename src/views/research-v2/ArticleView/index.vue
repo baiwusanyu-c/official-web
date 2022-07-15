@@ -145,8 +145,12 @@
       }
 
       const goPriview = (item: any) => {
-        const host = '/#/index/article-preview?id=' + item.id
-        openUrl(host, { target: '_blank' })
+        if (item.type === 1 && item.url) {
+          window.open(item.url)
+        } else {
+          const host = '/#/index/article-preview?id=' + item.id
+          openUrl(host, { target: '_blank' })
+        }
       }
       const goMoreList = (type: number) => {
         const host = '/#/index/research?type=' + type
@@ -240,7 +244,6 @@
         }
 
         .score-area {
-          height: 268px;
           margin-bottom: 24px;
           background: linear-gradient(135deg, #e7f2f7, #ffffff);
           border-radius: 6px;
@@ -267,7 +270,7 @@
             width: 283px;
             margin-bottom: 22px;
             margin-top: -44px;
-            height: 150px;
+            height: 160px;
             overflow: hidden;
           }
         }
