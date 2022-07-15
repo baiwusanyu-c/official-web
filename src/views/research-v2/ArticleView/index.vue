@@ -157,13 +157,7 @@
       }
       const pdfUrl = ref('')
       const getPdfUrl = url => {
-        url = combineLink(url)
-
-        fetch(url)
-          .then(res => res.blob())
-          .then(res => {
-            pdfUrl.value = URL.createObjectURL(res)
-          })
+        pdfUrl.value = combineLink(url)
       }
 
       return {
