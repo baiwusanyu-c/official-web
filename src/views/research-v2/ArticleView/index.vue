@@ -3,7 +3,7 @@
     <div class="safe-area">
       <div class="article-area">
         <div class="top-action">
-          <p>{{ preToText(information.updateTime) }}</p>
+          <p>{{ preToText(information.pubTime) }}</p>
           <n-button text-color="#050B37" ghost @click="handleShare">
             <template #icon>
               <be-icon :size="20" icon="iconLink" />
@@ -41,7 +41,8 @@
       <div class="article-recommend">
         <h4>Related Project</h4>
         <div v-if="score" class="score-area">
-          <p class="ve-chain-logo"><img src="@/assets/img/ve-chain-logo.png" /></p>
+          <!-- <p class="ve-chain-logo"><img src="@/assets/img/ve-chain-logo.png" /></p> -->
+          <p class="ve-chain-logo">{{ name }}</p>
           <div class="score-progress">
             <ScoreGaugeChart :value="score" style="width: 100%; height: 300px" />
           </div>
@@ -102,13 +103,12 @@
 <script lang="ts">
   import { defineComponent, onMounted, ref } from 'vue'
   import { useRoute } from 'vue-router'
-  import { NButton, NIcon, NProgress } from 'naive-ui'
+  import { NButton, NIcon } from 'naive-ui'
   import { ChevronForward } from '@vicons/ionicons5'
   import ScoreGaugeChart from './ScoreGaugeChart/index.vue'
   import { hermitGetArticle, guessYouLikeList, getProjectDetail } from '@/api/research'
   import composition from '@/utils/mixin/common-func'
   import copy from '@/utils/copy'
-  import CustomButton from '@/components/custom-button/index.vue'
   import { openUrl, preToText, combineLink } from '../util'
   import { previewFile } from '@/utils/download-file'
   import './cover-quill-text-style.css'
@@ -118,12 +118,13 @@
 
   export default defineComponent({
     name: 'ArticleView',
-    components: { NButton, NIcon, NProgress, ScoreGaugeChart, ChevronForward, CustomButton },
+    components: { NButton, NIcon, ScoreGaugeChart, ChevronForward },
     setup() {
       const route = useRoute()
       const information = ref<any>({})
       const likeList = ref([])
-      const score = ref<any>(null)
+      const score = ref<any>(0)
+      const name = ref('')
       onMounted(() => {
         hermitGetArticle({ id: route.query.id }).then(res => {
           information.value = res.data
@@ -135,6 +136,7 @@
           relationProjectId &&
             getProjectDetail(relationProjectId).then(res => {
               score.value = res.data.score
+              name.value = res.data.name
             })
         })
       })
@@ -160,19 +162,20 @@
       const pdfUrl = ref('')
       const getPdfUrl = url => {
         url = combineLink(url)
-        pdfUrl.value = url
-        // fetch(url)
-        //   .then(res => res.blob())
-        //   .then(res => {
-        //     pdfUrl.value = URL.createObjectURL(res)
-        //   })
+
+        fetch(url)
+          .then(res => res.blob())
+          .then(res => {
+            pdfUrl.value = URL.createObjectURL(res)
+          })
       }
 
       return {
         information,
+        name,
+        score,
         handleShare,
         likeList,
-        score,
         goPriview,
         goMoreList,
         preToText,
