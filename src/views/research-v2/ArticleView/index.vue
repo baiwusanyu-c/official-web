@@ -95,74 +95,74 @@
 
   const { message } = composition()
 
-const transferDateToText = (date:any) => {
-  if (!date) return ''
-  const codes = date.split(' ')[0].split('-')
-  const monthMap:any = {
-    '01': 'January',
-    '02': 'February',
-    '03': 'March',
-    '04': 'April',
-    '05': 'May',
-    '06': 'June',
-    '07': 'July',
-    '08': 'August',
-    '09': 'September',
-    '10': 'October',
-    '11': 'November',
-    '12': 'December'
+  const transferDateToText = (date: any) => {
+    if (!date) return ''
+    const codes = date.split(' ')[0].split('-')
+    const monthMap: any = {
+      '01': 'January',
+      '02': 'February',
+      '03': 'March',
+      '04': 'April',
+      '05': 'May',
+      '06': 'June',
+      '07': 'July',
+      '08': 'August',
+      '09': 'September',
+      '10': 'October',
+      '11': 'November',
+      '12': 'December',
+    }
+    return `On ${monthMap[codes[1]]} ${codes[2]}, ${codes[0]}`
   }
-  return `On ${monthMap[codes[1]]} ${codes[2]}, ${codes[0]}`
 
-}
-
-export default defineComponent({
-  components: { NButton, NIcon, NProgress, ScoreGaugeChart, ChevronForward, CustomButton },
-  setup() {
-    
-    const route = useRoute()
-    const information = ref({})
-    const likeList = ref([])
-    const score = ref(null)
-    onMounted(() => {
-      hermitGetArticle({ id: route.query.id }).then(res => {
-        information.value = res.data;
-        guessYouLikeList({ id: route.query.id, type: res.data.type }).then(res => {
-          likeList.value = res.data
-        })
-        const relationProjectId = res.data.relationProjectId
-        relationProjectId && getProjectDetail(relationProjectId).then(res => {
-          score.value = res.data.score
+  export default defineComponent({
+    name: 'ArticleView',
+    components: { NButton, NIcon, NProgress, ScoreGaugeChart, ChevronForward, CustomButton },
+    setup() {
+      const route = useRoute()
+      const information = ref({})
+      const likeList = ref([])
+      const score = ref(null)
+      onMounted(() => {
+        hermitGetArticle({ id: route.query.id }).then(res => {
+          information.value = res.data
+          guessYouLikeList({ id: route.query.id, type: res.data.type }).then(res => {
+            likeList.value = res.data
+          })
+          const relationProjectId = res.data.relationProjectId
+          relationProjectId &&
+            getProjectDetail(relationProjectId).then(res => {
+              score.value = res.data.score
+            })
         })
       })
-    })
 
-    const handleShare = () => {
-      const link = window.location.href
-      copy(link, () => {
-        message('success', 'Copied to pasteboard', 'hermit-msg')
-      })
-    }
+      const handleShare = () => {
+        const link = window.location.href
+        copy(link, () => {
+          message('success', 'Copied to pasteboard', 'hermit-msg')
+        })
+      }
 
-    const goPriview = (item:any) => {
-      const host = '/#/index/article-preview?id=' + item.id
-      openUrl(host, { target: '_blank' })
-    }
-    const goMoreList = (type:number) => {
-      const host = '/#/index/research?type=' + type
-      openUrl(host, { target: '_blank' })
-    }
-    return {
-      information,
-      handleShare,
-      likeList,
-      score,
-      goPriview,
-      goMoreList,
-      transferDateToText
-    }
-  },
-})
+      const goPriview = (item: any) => {
+        const host = '/#/index/article-preview?id=' + item.id
+        openUrl(host, { target: '_blank' })
+      }
+      const goMoreList = (type: number) => {
+        const host = '/#/index/research?type=' + type
+        openUrl(host, { target: '_blank' })
+      }
+      return {
+        information,
+        handleShare,
+        likeList,
+        score,
+        goPriview,
+        goMoreList,
+        transferDateToText,
+      }
+    },
+  })
 </script>
 
 <style lang="less" scoped>
@@ -185,11 +185,11 @@ export default defineComponent({
           justify-content: space-between;
           align-items: center;
           margin-bottom: 26px;
-          p{
+          p {
             font-size: 14px;
             font-family: Roboto-Regular, Roboto;
             font-weight: 400;
-            color: #050B37;
+            color: #050b37;
             line-height: 16px;
           }
         }
@@ -329,7 +329,7 @@ export default defineComponent({
                 margin-right: 16px;
                 position: relative;
                 overflow: hidden;
-
+                border-radius: 4px;
                 img {
                   //width: auto;
                   max-height: 80px;
