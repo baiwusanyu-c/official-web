@@ -33,7 +33,11 @@
 
       const router = useRouter()
       const onItemClick = (item: any) => {
-        router.push({ path: '/index/article-preview', query: { id: item.id } })
+        if (item.type === 1 && item.url) {
+          window.open(item.url)
+        } else {
+          router.push({ path: '/index/article-preview', query: { id: item.id } })
+        }
       }
 
       return {
