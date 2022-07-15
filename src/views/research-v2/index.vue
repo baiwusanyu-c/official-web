@@ -13,7 +13,7 @@
         </div>
         <div class="right">
           <!-- <img src="@/assets/img/research-top-banner.png" /> -->
-          <ArticleSwipper :items="articles" @onSlideChange="onSlideChange" />
+          <ArticleSwipper :items="articles" @onSlideChange="onSlideChange" @click="goLearnMore()" />
         </div>
       </div>
     </div>

@@ -63,7 +63,7 @@ import { combineLink } from '../util'
     }
 
     const onPreview = (resource:any) => {
-      previewFile((resource.url))
+      previewFile((combineLink(resource.url)))
     }
 
     // const onUpdatePage = (page:number) => {

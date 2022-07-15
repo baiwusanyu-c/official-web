@@ -1,3 +1,4 @@
+import config from "../../enums/config"
 export const combineLink = (uri:string) => {
   const href = window.location.host
   const url = href + '/' + uri
