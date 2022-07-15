@@ -112,7 +112,7 @@ export default {
     }
 
     const goLearnMore = () => {
-      const host = '/#/index/article-preview?id=' + currentArticle.id
+      const host = '/#/index/article-preview?id=' + currentArticle.value.id
       openUrl(host, { target: '_blank' })
     }
     
@@ -154,7 +154,7 @@ export default {
           flex-direction: column;
           justify-content: center;
           .title{
-            font-size: 40px;
+            font-size: 48px;
             font-weight: bold;
             color: #FFFFFF;
             margin-bottom: 24px;
@@ -180,6 +180,7 @@ export default {
     .board-main{
       max-width: 1358px;
       padding: 64px;
+      padding-bottom: 240px;
       margin: 0 auto;
       /deep/ .n-tabs{
         .n-tabs-nav{

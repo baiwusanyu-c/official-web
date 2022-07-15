@@ -1,5 +1,5 @@
 <template>
-  <be-button :custom-class="'custom-button ' + customClass">
+  <be-button :custom-class="'custom-button ' + customClass" @click="onClick">
     <span class="font-format span-container"><slot></slot></span>
   </be-button>
 </template>

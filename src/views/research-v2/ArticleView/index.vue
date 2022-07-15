@@ -4,7 +4,7 @@
       <div class="article-area">
         <div class="top-action">
           <p>{{ information.updateTime }}</p>
-          <n-button @click="handleShare">
+          <n-button text-color="#050B37" ghost @click="handleShare">
             <template #icon>
               <be-icon :size="20" icon="iconLink" />
             </template>
@@ -23,14 +23,14 @@
           <div class="score-progress">
             <ScoreGaugeChart :value="score" style="width: 100%; height: 300px" />
           </div>
-          <n-button type="primary">
+          <n-button color="#1CD2A9" text-color="#18304E" style="font-weight: 500">
             <a href="http://eagleeye.beosin.com" target="_blank">Learn More</a>
           </n-button>
         </div>
         <div v-else class="no-score">
           <div class="no-score-content">
             <h4>Related Project Secure Score</h4>
-            <custom-button><a href="http://eagleeye.beosin.com" target="_blank">Learn More</a></custom-button>
+            <n-button color="#1CD2A9" text-color="#18304E" style="font-weight: 500"><a href="http://eagleeye.beosin.com" target="_blank">Learn More</a></n-button>
           </div>
         </div>
         <div class="guess-you-like">
@@ -175,7 +175,7 @@ export default defineComponent({
         .score-area{
           height: 268px;
           margin-bottom: 13px;
-          background: linear-gradient(135deg, #D6E7EE, #EFF6FA);
+          background: linear-gradient(135deg, #E7F2F7, #FFFFFF);
           border-radius: 6px;
           display: flex;
           flex-direction: column;

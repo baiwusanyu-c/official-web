@@ -64,6 +64,7 @@ export default defineComponent({
             detail: {
               valueAnimation: true,
               fontSize: 40,
+              color: '#050B37',
               offsetCenter: [0, '-40%']
             },
             startAngle: 180,

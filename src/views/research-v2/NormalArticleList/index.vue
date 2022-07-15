@@ -1,6 +1,6 @@
 <template>
   <div class="tab-pane-container">
-    <custom-card-list :data="articles" :pagination="{ page: params.pageNum, pages: params.pages, onUpdatePage: onUpdatePage }" />
+    <custom-card-list :data="articles" @onItemClick="onItemClick" :pagination="{ page: params.pageNum, pages: params.pages, onUpdatePage: onUpdatePage }" />
   </div>
 </template>
 
@@ -29,18 +29,16 @@ export default defineComponent({
     }
 
     const router = useRouter()
-
-    const goDetail = () => {
-      router.push('/index/article-preview')
+    const onItemClick = (item: any) => {
+      router.push({ path: '/index/article-preview', query: { id: item.id } })
     }
-    console.log(total)
 
     return {
       articles,
       params,
-      goDetail,
       onUpdatePage,
-      pages
+      pages,
+      onItemClick
     }
   }
 })

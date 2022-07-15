@@ -1,7 +1,7 @@
 <template>
   <div class="card-list">
     <ul class="list-page">
-      <li v-for="(item, index) in data" :key="index">
+      <li v-for="(item, index) in data" :key="index" @click="onItemClick(item)">
         <div class="card-item">
           <div class="card-img-banner"><img :src="item.coverImg" /></div>
           <div class="card-information">
@@ -35,7 +35,7 @@ export default defineComponent({
     }
   },
   components: { CustomPagination },
-  setup() {
+  setup(props, context) {
     // const articles = [
     //   {
     //     banner: mockBanner,
@@ -74,8 +74,12 @@ export default defineComponent({
     //     date: 'March 25, 2019'
     //   }
     // ]
+    const onItemClick = (item:any) => {
+      context.emit('onItemClick', item)
+    }
     return {
       // articles
+      onItemClick
     }
   },
 })
