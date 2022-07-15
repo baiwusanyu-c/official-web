@@ -96,6 +96,7 @@
   const { message } = composition()
 
   export default defineComponent({
+    name: 'ArticleView',
     components: { NButton, NIcon, NProgress, ScoreGaugeChart, ChevronForward, CustomButton },
     setup() {
       const route = useRoute()
@@ -197,7 +198,7 @@
 
         .score-area {
           height: 268px;
-          margin-bottom: 13px;
+          margin-bottom: 24px;
           background: linear-gradient(135deg, #e7f2f7, #ffffff);
           border-radius: 6px;
           display: flex;
@@ -261,6 +262,7 @@
         }
 
         .guess-you-like {
+          margin-bottom: 34px;
           .title-row {
             display: flex;
             align-items: center;
