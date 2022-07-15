@@ -90,8 +90,8 @@
       display: flex;
       flex-wrap: wrap;
       li {
-        width: 30%;
-        margin-right: 4.9%;
+        width: 31%;
+        margin-right: 3.48%;
         border-radius: 8px;
         border: 1px solid #f2f2f4;
         margin-bottom: 33px;

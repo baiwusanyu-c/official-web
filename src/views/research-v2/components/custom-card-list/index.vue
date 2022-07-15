@@ -7,7 +7,7 @@
           <div class="card-information">
             <h4 class="line-clamp line-clamp-3">{{ item.title }}</h4>
             <p class="line-clamp line-clamp-3">{{ item.desc }}</p>
-            <i>{{ item.updateTime }}</i>
+            <i>{{ preToText(item.pubTime) }}</i>
           </div>
         </div>
       </li>
@@ -22,6 +22,7 @@
   import { defineComponent } from 'vue'
   // import mockBanner from '@/assets/img/mock-banner.png'
   import CustomPagination from '../../components/custom-pagination/index.vue'
+  import { preToText } from '../../util'
 
   export default defineComponent({
     name: 'CardList',
@@ -80,6 +81,7 @@
       return {
         // articles
         onItemClick,
+        preToText
       }
     },
   })

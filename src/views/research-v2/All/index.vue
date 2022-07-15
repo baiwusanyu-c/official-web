@@ -9,7 +9,7 @@
           <div class="information">
             <h4 class="line-clamp line-clamp-2">{{ article.title }}</h4>
             <p class="line-clamp line-clamp-3">{{ article.desc }}</p>
-            <i>{{ article.updateTime }}</i>
+            <i>{{ preToText(article.pubTime) }}</i>
           </div>
         </li>
       </ul>
@@ -50,7 +50,7 @@
   import CustomPagination from '../components/custom-pagination/index.vue'
   import useGetArticle from '../bisiness-hooks/useGetArticle'
   import downloadFile, { previewFile } from '@/utils/download-file'
-  import { combineLink } from '../util'
+  import { combineLink, preToText } from '../util'
 
   export default defineComponent({
     name: 'SearchAll',
@@ -160,6 +160,7 @@
         pages,
         handlePreview,
         handleDownload,
+        preToText
       }
     },
   })

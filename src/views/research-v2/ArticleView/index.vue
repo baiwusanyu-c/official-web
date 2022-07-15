@@ -3,7 +3,7 @@
     <div class="safe-area">
       <div class="article-area">
         <div class="top-action">
-          <p>{{ transferDateToText(information.updateTime) }}</p>
+          <p>{{ preToText(information.updateTime) }}</p>
           <n-button text-color="#050B37" ghost @click="handleShare">
             <template #icon>
               <be-icon :size="20" icon="iconLink" />
@@ -13,7 +13,9 @@
         </div>
         <div class="ql-snow">
           <h1 class="blog-title">{{ information.title }}</h1>
+          <n-button v-if="information.type === 1 && information.url" color="#1CD2A9" text-color="#18304E" @click="look">查看资源</n-button>
           <div
+            v-else
             class="article-preview-area ql-editor"
             style="min-height: 700px"
             v-html="information.content"></div>
@@ -52,8 +54,8 @@
             <li v-for="item in likeList" :key="item.id" @click="goPriview(item)">
               <div class="list-image"><img :src="item.coverImg" /></div>
               <div class="list-item-right">
-                <h5>{{ item.title }}</h5>
-                <p>{{ item.updateTime }}</p>
+                <h5 class="line-clamp line-clamp-2">{{ item.title }}</h5>
+                <p>{{ preToText(item.pubTime) }}</p>
               </div>
             </li>
           </ul>
@@ -90,39 +92,20 @@
   import composition from '@/utils/mixin/common-func'
   import copy from '@/utils/copy'
   import CustomButton from '@/components/custom-button/index.vue'
-  import { openUrl } from '../util'
+  import { openUrl, preToText, combineLink } from '../util'
+  import { previewFile } from '@/utils/download-file'
   import './cover-quill-text-style.css'
 
   const { message } = composition()
-
-  const transferDateToText = (date: any) => {
-    if (!date) return ''
-    const codes = date.split(' ')[0].split('-')
-    const monthMap: any = {
-      '01': 'January',
-      '02': 'February',
-      '03': 'March',
-      '04': 'April',
-      '05': 'May',
-      '06': 'June',
-      '07': 'July',
-      '08': 'August',
-      '09': 'September',
-      '10': 'October',
-      '11': 'November',
-      '12': 'December',
-    }
-    return `On ${monthMap[codes[1]]} ${codes[2]}, ${codes[0]}`
-  }
 
   export default defineComponent({
     name: 'ArticleView',
     components: { NButton, NIcon, NProgress, ScoreGaugeChart, ChevronForward, CustomButton },
     setup() {
       const route = useRoute()
-      const information = ref({})
+      const information = ref<any>({})
       const likeList = ref([])
-      const score = ref(null)
+      const score = ref<any>(null)
       onMounted(() => {
         hermitGetArticle({ id: route.query.id }).then(res => {
           information.value = res.data
@@ -152,6 +135,9 @@
         const host = '/#/index/research?type=' + type
         openUrl(host, { target: '_blank' })
       }
+      const look = () => {
+        previewFile(combineLink(information.value.url))
+      }
       return {
         information,
         handleShare,
@@ -159,7 +145,8 @@
         score,
         goPriview,
         goMoreList,
-        transferDateToText,
+        preToText,
+        look
       }
     },
   })

@@ -20,7 +20,7 @@ export default defineComponent({
   setup(props) {
     const { data, params, total, pages, setParams } = useGetArticle({
       pageNum: 1,
-      pageSize: 6,
+      pageSize: 12,
       type: props.type
     })
 

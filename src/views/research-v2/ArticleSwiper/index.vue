@@ -4,12 +4,11 @@
   <swiper
     class="article-swiper"
     :centered-slides="true"
-    :initial-slide="3"
     :loop="true"
     autoplay
     :pagination="{ clickable: true }"
     @slideChange="onSlideChange">
-    <swiper-slide v-for="item in items" :key="item.id" :item="item">
+    <swiper-slide v-for="item in mockList" :key="item.id" :item="item">
       <div class="swiper-item">
         <img :src="item.coverImg" alt="" />
       </div>
@@ -25,6 +24,38 @@
   import 'swiper/css/navigation'
   import SwiperCore, { Pagination, Autoplay } from 'swiper'
   SwiperCore.use([Pagination, Autoplay])
+  // const mockList = [
+  //   {
+  //     id: 1,
+  //     coverImg: 'https://swiperjs.com/demos/images/nature-1.jpg',
+  //     info: 'wqdddddddddddedddddddddddddddddddddddddd',
+  //     name: 'chen chen chen',
+  //   },
+  //   {
+  //     id: 2,
+  //     coverImg: 'https://swiperjs.com/demos/images/nature-3.jpg',
+  //     info: 'wqddddddddddddwddsddddddddddddddddddddddd',
+  //     name: 'chen chen chen',
+  //   },
+  //   {
+  //     id: 3,
+  //     coverImg: 'https://swiperjs.com/demos/images/nature-2.jpg',
+  //     info: 'wqddddddddddddddddd12dddddddddddddddddddd',
+  //     name: 'chen chen chen',
+  //   },
+  //   {
+  //     id: 4,
+  //     coverImg: 'https://swiperjs.com/demos/images/nature-1.jpg',
+  //     info: 'wqdddddddddsddddddddddddddddddddddddddddd',
+  //     name: 'chen chen chen',
+  //   },
+  //   {
+  //     id: 5,
+  //     coverImg: 'https://swiperjs.com/demos/images/nature-3.jpg',
+  //     info: 'wqdddddddddcsdddddddddddddddddddddddddddd',
+  //     name: 'chen chen chen',
+  //   },
+  // ]
 
   export default defineComponent({
     name: 'HProductSwiper',
@@ -36,42 +67,18 @@
       items: {
         type: Array,
         default: () => {
-          return [
-            {
-              coverImg: 'https://swiperjs.com/demos/images/nature-1.jpg',
-              info: 'wqdddddddddddedddddddddddddddddddddddddd',
-              name: 'chen chen chen',
-            },
-            {
-              coverImg: 'https://swiperjs.com/demos/images/nature-3.jpg',
-              info: 'wqddddddddddddwddsddddddddddddddddddddddd',
-              name: 'chen chen chen',
-            },
-            {
-              coverImg: 'https://swiperjs.com/demos/images/nature-2.jpg',
-              info: 'wqddddddddddddddddd12dddddddddddddddddddd',
-              name: 'chen chen chen',
-            },
-            {
-              coverImg: 'https://swiperjs.com/demos/images/nature-1.jpg',
-              info: 'wqdddddddddsddddddddddddddddddddddddddddd',
-              name: 'chen chen chen',
-            },
-            {
-              coverImg: 'https://swiperjs.com/demos/images/nature-3.jpg',
-              info: 'wqdddddddddcsdddddddddddddddddddddddddddd',
-              name: 'chen chen chen',
-            },
-          ]
+          return []
         },
       },
     },
     setup(props, context) {
       const onSlideChange = (swiper: any) => {
+        // console.log(mockList[swiper.activeIndex], swiper.activeIndex)
         context.emit('onSlideChange', props.items[swiper.activeIndex] || {})
       }
       return {
         onSlideChange,
+        // mockList
       }
     },
   })

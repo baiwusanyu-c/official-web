@@ -79,18 +79,12 @@ export default {
     ArticleSwipper,
     NButton
   },
-  data() {
-    return {
-      
-    }
-  },
   setup() {
     const route = useRoute()
     const { data: articles } = useGetArticle({
       pageNum: 1,
       pageSize: 9999,
-      upFlag: true,
-      type: null
+      upFlag: true
     })
 
     const currentArticle = ref({})
