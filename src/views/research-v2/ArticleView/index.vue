@@ -145,8 +145,12 @@
       }
 
       const goPriview = (item: any) => {
-        const host = '/#/index/article-preview?id=' + item.id
-        openUrl(host, { target: '_blank' })
+        if (item.type === 1 && item.url) {
+          window.open(item.url)
+        } else {
+          const host = '/#/index/article-preview?id=' + item.id
+          openUrl(host, { target: '_blank' })
+        }
       }
       const goMoreList = (type: number) => {
         const host = '/#/index/research?type=' + type
