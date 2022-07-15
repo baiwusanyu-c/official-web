@@ -13,7 +13,7 @@
       </li>
     </ul>
     <div class="pagination">
-      <CustomPagination v-bind="pagination" />
+      <CustomPagination v-if="pagination.pages > 1" v-bind="pagination" />
     </div>
   </div>
 </template>
