@@ -24,38 +24,6 @@
   import 'swiper/css/navigation'
   import SwiperCore, { Pagination, Autoplay } from 'swiper'
   SwiperCore.use([Pagination, Autoplay])
-  // const mockList = [
-  //   {
-  //     id: 1,
-  //     coverImg: 'https://swiperjs.com/demos/images/nature-1.jpg',
-  //     info: 'wqdddddddddddedddddddddddddddddddddddddd',
-  //     name: 'chen chen chen',
-  //   },
-  //   {
-  //     id: 2,
-  //     coverImg: 'https://swiperjs.com/demos/images/nature-3.jpg',
-  //     info: 'wqddddddddddddwddsddddddddddddddddddddddd',
-  //     name: 'chen chen chen',
-  //   },
-  //   {
-  //     id: 3,
-  //     coverImg: 'https://swiperjs.com/demos/images/nature-2.jpg',
-  //     info: 'wqddddddddddddddddd12dddddddddddddddddddd',
-  //     name: 'chen chen chen',
-  //   },
-  //   {
-  //     id: 4,
-  //     coverImg: 'https://swiperjs.com/demos/images/nature-1.jpg',
-  //     info: 'wqdddddddddsddddddddddddddddddddddddddddd',
-  //     name: 'chen chen chen',
-  //   },
-  //   {
-  //     id: 5,
-  //     coverImg: 'https://swiperjs.com/demos/images/nature-3.jpg',
-  //     info: 'wqdddddddddcsdddddddddddddddddddddddddddd',
-  //     name: 'chen chen chen',
-  //   },
-  // ]
 
   export default defineComponent({
     name: 'HProductSwiper',
