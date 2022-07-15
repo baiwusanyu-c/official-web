@@ -6,12 +6,15 @@ const useGetArticle = initParams => {
   const total = ref(0)
   const params = ref(initParams)
   const loading = ref(false)
+  // const pages = ref(0)
   const refresh = params => {
     loading.value = true
     getBlogNewsList(params).then((res: any) => {
       if (res.code === 200 && res.rows) {
         data.value = res.rows
         total.value = res.total
+        // pages.value = Math.ceil(total.value / initParams.pageSize)
+        // console.log(pages.value)
       }
       loading.value = false
     })
@@ -22,8 +25,14 @@ const useGetArticle = initParams => {
   })
 
   const pages = computed(() => {
+    // console.log(total.value, initParams.pageSize, total.value / params.value.pageSize)
     return Math.ceil(total.value / params.value.pageSize)
   })
+  console.log(pages)
+
+  // watch(total, () => {
+  //   console.log(total)
+  // })
 
   const setParams = param => {
     params.value = { ...params.value, ...param }

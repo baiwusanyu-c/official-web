@@ -13,7 +13,7 @@
       </li>
     </ul>
     <div class="pagination">
-      <CustomPagination v-if="pagination.pages > 1" v-bind="pagination" />
+      <CustomPagination v-bind="pagination" />
     </div>
   </div>
 </template>
@@ -100,6 +100,7 @@
         overflow: hidden;
         margin-bottom: 32px;
         transition: all 0.3s;
+        cursor: pointer;
         &:hover {
           box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
           transform: translateY(-3px);

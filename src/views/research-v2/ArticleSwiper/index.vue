@@ -56,6 +56,9 @@
 
 <!-- prettier-ignore -->
 <style lang="less" scoped>
+  .article-swiper{
+    cursor: pointer;
+  }
   .swiper-item{
     position: relative;
     img{

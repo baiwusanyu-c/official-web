@@ -2,7 +2,7 @@
   <div class="tab-pane-container">
     <custom-card-list
       :data="data"
-      :pagination="{ page: params.pageNum, pages: params.pages, onUpdatePage: onUpdatePage }"
+      :pagination="{ page: params.pageNum, pages: pages, onUpdatePage: onUpdatePage }"
       @onItemClick="onItemClick" />
   </div>
 </template>
@@ -21,7 +21,7 @@
       },
     },
     setup(props) {
-      const { data, params, total, pages, setParams } = useGetArticle({
+      const { data, params, pages, setParams } = useGetArticle({
         pageNum: 1,
         pageSize: 12,
         type: props.type,

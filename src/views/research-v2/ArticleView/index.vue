@@ -20,18 +20,14 @@
             @click="look"
             >查看资源</n-button
           >
-          <div
-            v-else
-            class="article-preview-area ql-editor"
-            style="min-height: 700px"
-            v-html="information.content"></div>
+          <div v-else class="article-preview-area ql-editor" v-html="information.content"></div>
         </div>
       </div>
       <div class="article-recommend">
         <h4>Related Project</h4>
         <div v-if="score" class="score-area">
           <!-- <p class="ve-chain-logo"><img src="@/assets/img/ve-chain-logo.png" /></p> -->
-          <p class="ve-chain-logo">{{ name }}</p>
+          <p class="ve-chain-logo score-title">{{ name }}</p>
           <div class="score-progress">
             <ScoreGaugeChart :value="score" style="width: 100%; height: 300px" />
           </div>
@@ -241,11 +237,17 @@
             }
           }
 
+          .score-title {
+            width: auto !important;
+            text-align: center;
+          }
+
           .score-progress {
             width: 283px;
             margin-bottom: 22px;
             margin-top: -44px;
             height: 150px;
+            overflow: hidden;
           }
         }
 
