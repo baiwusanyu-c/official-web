@@ -273,7 +273,7 @@
             width: 283px;
             margin-bottom: 22px;
             margin-top: -44px;
-            height: 150px;
+            height: 160px;
             overflow: hidden;
           }
         }
