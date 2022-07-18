@@ -5,27 +5,27 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+  import { defineComponent } from 'vue'
 
-export default defineComponent({
-  props: {
-    customClass: {
-      type: String
-    }
-  }
-})
+  export default defineComponent({
+    props: {
+      customClass: {
+        type: String,
+      },
+    },
+  })
 </script>
 
 <style lang="less" scoped>
-  .custom-button{
+  .custom-button {
     background-color: rgba(2, 251, 187, var(--tw-bg-opacity));
     color: rgba(0, 0, 0, var(--tw-text-opacity));
     font-size: 16px;
     font-family: Roboto-Bold, Roboto;
     font-weight: bold;
-    color: #050B37;
+    color: #050b37;
   }
-  .span-container{
+  .span-container {
     display: flex;
     align-items: center;
   }
