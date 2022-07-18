@@ -14,8 +14,8 @@ export function getBlogNews() {
     method: 'get',
     params: {
       pageNum: 1,
-      pageSize: 4
-    }
+      pageSize: 4,
+    },
   })
 }
 export declare interface IBlogListParam extends IPageParam {
@@ -35,7 +35,7 @@ export function hermitGetArticle(query) {
   return request({
     url: '/website/article/overseas/admin/info',
     method: 'get',
-    params: query
+    params: query,
   })
 }
 
@@ -44,7 +44,7 @@ export function guessYouLikeList(query) {
   return request({
     url: '/website/article/overseas/home/guess-list',
     method: 'get',
-    params: query
+    params: query,
   })
 }
 
@@ -52,7 +52,7 @@ export function guessYouLikeList(query) {
 export function getProjectDetail(relationProjectId) {
   return request({
     url: `/ussa/project/website/info/${relationProjectId}`,
-    method: 'get'
+    method: 'get',
   })
 }
 
@@ -64,8 +64,8 @@ export function getArticleList() {
     params: {
       upFlag: true,
       pageNum: 1,
-      pageSize: 10
-    }
+      pageSize: 10,
+    },
   })
 }
 

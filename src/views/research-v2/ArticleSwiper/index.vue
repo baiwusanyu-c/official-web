@@ -6,6 +6,7 @@
     :centered-slides="true"
     :loop="true"
     autoplay
+    :initial-slide="1"
     :pagination="{ clickable: true }"
     @slide-change="onSlideChange">
     <swiper-slide v-for="(item, i) in items" :id="item.id" :key="item.id" :item="item">

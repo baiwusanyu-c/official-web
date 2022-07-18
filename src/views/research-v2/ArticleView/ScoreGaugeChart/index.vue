@@ -16,7 +16,7 @@
         type: Number,
       },
     },
-    setup(props) {
+    setup(props: any) {
       onMounted(() => {
         const chartDom: HTMLElement | null = document.getElementById('score-chart')
         const myChart = echarts.init(chartDom as any)

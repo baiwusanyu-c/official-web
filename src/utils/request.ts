@@ -48,7 +48,8 @@ service.interceptors.response.use(
   response => {
     const res = response.data
     const bus = useEventBus<string>('loginExpired')
-    if (res && res.data && res.data.score) { // 调用态势感知接口格式不一致做的兼容（近兼容一个接口：/ussa/project/website/info/5）
+    if (res && res.data && res.data.score) {
+      // 调用态势感知接口格式不一致做的兼容（近兼容一个接口：/ussa/project/website/info/5）
       return res
     }
     if (res.code !== 200) {

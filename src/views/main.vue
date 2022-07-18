@@ -16,8 +16,7 @@
         class="hermit-footer px-0 box-border top-14 relative left-0">
         <h-footer-bigger></h-footer-bigger>
       </be-footer> -->
-      <be-footer
-        class="hermit-footer px-0 box-border top-14 relative left-0">
+      <be-footer class="hermit-footer px-0 box-border top-14 relative left-0">
         <h-footer-bigger></h-footer-bigger>
       </be-footer>
     </be-container>

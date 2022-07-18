@@ -46,7 +46,7 @@
   import { IBlobList } from '../views/home/home.vue'
   import { dateToMDY } from '../utils/common'
   import { useRouter } from 'vue-router'
-  export const openUrl = (url: string, { target }:any) => {
+  export const openUrl = (url: string, { target }: any) => {
     const aEl = document.createElement('a')
     aEl.href = url
     aEl.target = target
@@ -62,7 +62,7 @@
     setup() {
       // const { openWin } = composition()
       const router = useRouter()
-      const openWin = (item:any) => {
+      const openWin = (item: any) => {
         // const host = window.location.host
         // openUrl(host + '/#/index/article-preview?id=' + item.id, { target: '_blank' })
         router.push({ path: '/index/article-preview', query: { id: item.id } })

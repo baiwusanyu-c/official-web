@@ -52,7 +52,7 @@
     height: 320px;
     position: relative;
   }
-  .func-item-card .func-img-bg{
+  .func-item-card .func-img-bg {
     position: absolute;
     right: 0;
     bottom: 0;
@@ -68,7 +68,7 @@
     margin-right: 0;
     margin-bottom: 0;
   }
-  .func-item-card:last-child .func-img-bg{
+  .func-item-card:last-child .func-img-bg {
     display: block;
   }
 
@@ -83,7 +83,7 @@
   .func-item-card .content .content-item li {
     padding-left: 20px;
     position: relative;
-    color: #444444
+    color: #444444;
   }
   .func-item-card .content .content-item li::before {
     content: '';
