@@ -36,6 +36,7 @@
         type: Object,
       },
     },
+    emits: ['onItemClick'],
     setup(props, context) {
       // const articles = [
       //   {

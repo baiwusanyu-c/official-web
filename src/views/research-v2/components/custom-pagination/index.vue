@@ -29,7 +29,7 @@
 
 <style lang="less" scoped>
   .pagination {
-    /deep/ .n-pagination {
+    :deep(.n-pagination) {
       .n-pagination-item {
         color: #050b37;
         &.n-pagination-item--button {

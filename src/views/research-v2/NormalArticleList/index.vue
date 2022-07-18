@@ -3,7 +3,7 @@
     <custom-card-list
       :data="data"
       :pagination="{ page: params.pageNum, pages: pages, onUpdatePage: onUpdatePage }"
-      @onItemClick="onItemClick" />
+      @on-item-click="onItemClick" />
   </div>
 </template>
 
@@ -14,6 +14,7 @@
   import useGetArticle from '../bisiness-hooks/useGetArticle'
 
   export default defineComponent({
+    name: 'NormalArticleList',
     components: { CustomCardList },
     props: {
       type: {

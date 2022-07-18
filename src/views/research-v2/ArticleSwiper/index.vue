@@ -7,7 +7,7 @@
     :loop="true"
     autoplay
     :pagination="{ clickable: true }"
-    @slideChange="onSlideChange">
+    @slide-change="onSlideChange">
     <swiper-slide v-for="(item, i) in items" :id="item.id" :key="item.id" :item="item">
       <div class="swiper-item" :data-idx="i">
         <img :src="item.coverImg" alt="" />
@@ -39,8 +39,9 @@
         },
       },
     },
+    emits: ['onSlideChange'],
     setup(props, context) {
-      const onSlideChange = async (swiper: any) => {
+      const onSlideChange = async () => {
         await ''
         const idx = document.querySelector('.swiper-slide-active .swiper-item')?.dataset?.idx
         context.emit('onSlideChange', props.items[idx] || {})

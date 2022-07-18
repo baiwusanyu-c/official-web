@@ -31,6 +31,7 @@
             @click="look"
             >查看资源</n-button
           > -->
+          <!-- eslint-disable-next-line vue/no-v-html -->
           <div v-else class="article-preview-area ql-editor" v-html="information.content"></div>
         </div>
       </div>
@@ -160,7 +161,7 @@
         previewFile(combineLink(information.value.url))
       }
       const pdfUrl = ref('')
-      const getPdfUrl = url => {
+      const getPdfUrl = (url: string) => {
         pdfUrl.value = combineLink(url)
       }
 

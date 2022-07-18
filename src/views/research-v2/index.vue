@@ -19,7 +19,10 @@
         </div>
         <div class="right">
           <!-- <img src="@/assets/img/research-top-banner.png" /> -->
-          <ArticleSwipper :items="articles" @onSlideChange="onSlideChange" @click="goLearnMore()" />
+          <ArticleSwipper
+            :items="articles"
+            @on-slide-change="onSlideChange"
+            @click="goLearnMore()" />
         </div>
       </div>
     </div>
@@ -60,7 +63,7 @@
 </template>
 
 <script>
-  import { ref, watch } from 'vue'
+  import { defineComponent, ref, watch } from 'vue'
   import { useRoute } from 'vue-router'
   import { NTabs, NTabPane, NButton } from 'naive-ui'
   import CustomButton from '@/components/custom-button/index.vue'
@@ -72,7 +75,8 @@
   import useGetArticle from './bisiness-hooks/useGetArticle'
   import { openUrl } from './util'
   import './common.less'
-  export default {
+  export default defineComponent({
+    name: 'SearchV2',
     components: {
       NTabs,
       NTabPane,
@@ -134,7 +138,7 @@
         goLearnMore,
       }
     },
-  }
+  })
 </script>
 
 <style lang="less" scoped>
@@ -198,7 +202,7 @@
       padding-bottom: 240px;
       margin: 0 auto;
 
-      /deep/ .n-tabs {
+      :deep(.n-tabs) {
         .n-tabs-nav {
           border-bottom: 1px solid #f2f2f4;
           margin-bottom: 25px;
