@@ -125,6 +125,7 @@
       const logo = ref('')
       onMounted(() => {
         hermitGetArticle({ id: route.query.id }).then(res => {
+          console.log(res)
           information.value = res.data
           getPdfUrl(res.data.url)
           guessYouLikeList({ id: route.query.id, type: res.data.type }).then(res => {
