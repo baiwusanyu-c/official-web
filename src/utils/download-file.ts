@@ -1,7 +1,6 @@
 const getFileName = url => {
   const as = url.split('/')
-  const fullName = as[as.length - 1]
-  const name = fullName.split('_')[1]
+  const name = as[as.length - 1]
   return name
 }
 

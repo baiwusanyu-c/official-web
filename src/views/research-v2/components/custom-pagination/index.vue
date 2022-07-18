@@ -1,6 +1,6 @@
 <template>
   <div class="pagination">
-    <n-pagination :page="page" :on-update:page="onUpdatePage" :page-count="pages" />
+    <n-pagination :page="page" :on-update:page="updatePage" :page-count="pages" />
   </div>
 </template>
 
@@ -23,6 +23,15 @@
         type: Number,
         default: 0,
       },
+    },
+    setup(props) {
+      const updatePage = (value: any) => {
+        props.onUpdatePage && props.onUpdatePage(value)
+        window.scrollTo(0, 0)
+      }
+      return {
+        updatePage,
+      }
     },
   })
 </script>
