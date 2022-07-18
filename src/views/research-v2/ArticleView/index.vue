@@ -39,7 +39,7 @@
         <h4>Related Project</h4>
         <div v-if="score" class="score-area">
           <!-- <p class="ve-chain-logo"><img src="@/assets/img/ve-chain-logo.png" /></p> -->
-          <p class="ve-chain-logo score-title">{{ name }}</p>
+          <p class="ve-chain-logo score-title"><img :src="logo" />{{ name }}</p>
           <div class="score-progress">
             <ScoreGaugeChart :value="score" style="width: 100%; height: 300px" />
           </div>
@@ -122,6 +122,7 @@
       const likeList = ref([])
       const score = ref<any>(0)
       const name = ref('')
+      const logo = ref('')
       onMounted(() => {
         hermitGetArticle({ id: route.query.id }).then(res => {
           information.value = res.data
@@ -134,6 +135,7 @@
             getProjectDetail(relationProjectId).then(res => {
               score.value = res.data.score
               name.value = res.data.name
+              logo.value = res.data.logo_url
             })
         })
       })
@@ -169,6 +171,7 @@
         information,
         name,
         score,
+        logo,
         handleShare,
         likeList,
         goPriview,
@@ -256,9 +259,10 @@
           .ve-chain-logo {
             width: 106px;
             margin-bottom: 24px;
-
             img {
-              width: 100%;
+              display: inline;
+              height: 30px;
+              margin-right: 5px;
             }
           }
 

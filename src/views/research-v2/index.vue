@@ -28,36 +28,36 @@
     </div>
 
     <div class="board-main">
-      <NormalArticleList />
-      <!-- <n-tabs class="card-tabs" :value="currType" :on-update:value="handleChange"> -->
-      <!-- <n-tab-pane name="" tab="All">
-          <NormalArticleList />
-        </n-tab-pane> -->
-      <!-- 突发安全事件分析 -->
-      <!-- <n-tab-pane :name="3" tab="Security Incident">
+      <!-- <All /> -->
+      <n-tabs class="card-tabs" :value="currType" :on-update:value="handleChange">
+        <n-tab-pane name="" tab="All">
+          <All />
+        </n-tab-pane>
+        <!-- 突发安全事件分析 -->
+        <n-tab-pane v-if="tabTypes.indexOf(3) > -1" :name="3" tab="Security Incident">
           <NormalArticleList :type="3" />
-        </n-tab-pane> -->
-      <!-- 深度研究 -->
-      <!-- <n-tab-pane :name="1" tab="Research Report">
+        </n-tab-pane>
+        <!-- 深度研究 -->
+        <n-tab-pane v-if="tabTypes.indexOf(1) > -1" :name="1" tab="Research Report">
           <NormalArticleList :type="1" />
-        </n-tab-pane> -->
-      <!-- AMA回顾&活动 -->
-      <!-- <n-tab-pane :name="6" tab="Event Update">
+        </n-tab-pane>
+        <!-- AMA回顾&活动 -->
+        <n-tab-pane v-if="tabTypes.indexOf(6) > -1" :name="6" tab="Event Update">
           <NormalArticleList :type="6" />
-        </n-tab-pane> -->
-      <!-- 审计PR长文 -->
-      <!-- <n-tab-pane :name="4" tab="Partnership Announcement">
+        </n-tab-pane>
+        <!-- 审计PR长文 -->
+        <n-tab-pane v-if="tabTypes.indexOf(4) > -1" :name="4" tab="Partnership Announcement">
           <NormalArticleList :type="4" />
-        </n-tab-pane> -->
-      <!-- Web3科普知识 -->
-      <!-- <n-tab-pane :name="5" tab="Web3.0 Classroom">
+        </n-tab-pane>
+        <!-- Web3科普知识 -->
+        <n-tab-pane v-if="tabTypes.indexOf(5) > -1" :name="5" tab="Web3.0 Classroom">
           <NormalArticleList :type="5" />
-        </n-tab-pane> -->
-      <!-- 公司资源 -->
-      <!-- <n-tab-pane :name="7" tab="Resources">
+        </n-tab-pane>
+        <!-- 公司资源 -->
+        <n-tab-pane v-if="tabTypes.indexOf(7) > -1" :name="7" tab="Resources">
           <CompanyResources :type="7" />
-        </n-tab-pane> -->
-      <!-- </n-tabs> -->
+        </n-tab-pane>
+      </n-tabs>
     </div>
   </div>
 </template>
@@ -66,7 +66,6 @@
   import { defineComponent, ref, watch } from 'vue'
   import { useRoute } from 'vue-router'
   import { NTabs, NTabPane, NButton } from 'naive-ui'
-  import CustomButton from '@/components/custom-button/index.vue'
   import All from './All/index.vue'
   import NormalArticleList from './NormalArticleList/index.vue'
   import CompanyResources from './CompanyResources/index.vue'
@@ -74,13 +73,13 @@
   import ArticleSwipper from './ArticleSwiper/index.vue'
   import useGetArticle from './bisiness-hooks/useGetArticle'
   import { openUrl } from './util'
+  import { getArticleTabTypes } from '@/api/research'
   import './common.less'
   export default defineComponent({
     name: 'SearchV2',
     components: {
       NTabs,
       NTabPane,
-      CustomButton,
       All,
       NormalArticleList,
       CompanyResources,
@@ -107,6 +106,11 @@
           openUrl(host, { target: '_blank' })
         }
       }
+
+      const tabTypes = ref([])
+      getArticleTabTypes().then(res => {
+        tabTypes.value = res.data
+      })
 
       watch(
         () => route.query,
@@ -136,6 +140,7 @@
         currType: currType,
         handleChange,
         goLearnMore,
+        tabTypes,
       }
     },
   })

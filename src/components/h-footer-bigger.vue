@@ -11,35 +11,47 @@
       </div>
     </div>
     <div class="block">
-      <!-- <p class="footer-title text-lg font-format">
+      <p class="footer-title text-lg font-format">
         {{ $t('lang.HFooterBigger.search.title') }}
-      </p> -->
-      <!-- <ul>
-        <li class="font-format" @click="$router.push({ path: '/index/research', query: { type: 3 } })">
+      </p>
+      <ul style="margin-bottom: 20px">
+        <li
+          v-show="tabTypes.indexOf(3) > -1"
+          class="font-format"
+          @click="$router.push({ path: '/index/research', query: { type: 3 } })">
           Security Incident
         </li>
         <li
+          v-show="tabTypes.indexOf(1) > -1"
           class="font-format"
           @click="$router.push({ path: '/index/research', query: { type: 1 } })">
           Research Report
         </li>
-        <li class="font-format" @click="$router.push({ path: '/index/research', query: { type: 6 } })">
+        <li
+          v-show="tabTypes.indexOf(6) > -1"
+          class="font-format"
+          @click="$router.push({ path: '/index/research', query: { type: 6 } })">
           Event Update
         </li>
         <li
+          v-show="tabTypes.indexOf(4) > -1"
           class="font-format"
           @click="$router.push({ path: '/index/research', query: { type: 4 } })">
           Partnership Announcement
         </li>
-        <li class="font-format" @click="$router.push({ path: '/index/research', query: { type: 5 } })">
+        <li
+          v-show="tabTypes.indexOf(5) > -1"
+          class="font-format"
+          @click="$router.push({ path: '/index/research', query: { type: 5 } })">
           Web3.0 Classroom
         </li>
         <li
+          v-show="tabTypes.indexOf(7) > -1"
           class="font-format"
           @click="$router.push({ path: '/index/research', query: { type: 7 } })">
           Resources
         </li>
-      </ul> -->
+      </ul>
       <p class="footer-title text-lg font-format">
         {{ $t('lang.HFooterBigger.company.title') }}
       </p>
@@ -116,7 +128,8 @@
   </div>
 </template>
 <script lang="ts">
-  import { defineComponent } from 'vue'
+  import { defineComponent, ref } from 'vue'
+  import { getArticleTabTypes } from '@/api/research'
 
   import { linkConfig, linkConfigPolicy } from '../enums/link'
   import composition from '../utils/mixin/common-func'
@@ -124,9 +137,16 @@
     name: 'HFooterBigger',
     setup() {
       const { openWin } = composition()
+
+      const tabTypes = ref([])
+      getArticleTabTypes().then(res => {
+        tabTypes.value = res.data
+      })
+
       return {
         linkConfig,
         linkConfigPolicy,
+        tabTypes,
         openWin,
       }
     },

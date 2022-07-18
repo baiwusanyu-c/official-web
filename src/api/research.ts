@@ -69,6 +69,14 @@ export function getArticleList() {
   })
 }
 
+// 获取文章tabs
+export function getArticleTabTypes() {
+  return request({
+    url: '/website/article/overseas/home/types',
+    method: 'get',
+  })
+}
+
 type PageQuery = { pageSize: number; pageNum: number; langType: number } // 1-英文报告
 // 报告分页查询
 export function getReportList(params: PageQuery) {

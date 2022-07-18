@@ -1,7 +1,7 @@
 <template>
   <div class="tab-pane-container">
     <div class="article">
-      <!-- <ul class="list">
+      <ul class="list">
         <li v-for="article in articles" :key="article.id" @click="goDetail(article)">
           <div class="img-banner">
             <img :src="article.coverImg" />
@@ -12,7 +12,7 @@
             <i>{{ preToText(article.pubTime) }}</i>
           </div>
         </li>
-      </ul> -->
+      </ul>
       <div class="pagination">
         <custom-pagination :page="params.pageNum" :on-update-page="onUpdatePage" :pages="pages" />
       </div>
@@ -198,16 +198,16 @@
           cursor: pointer;
           transition: all 0.3s;
           cursor: pointer;
+          background-image: url('@/assets/img/resource-bg.png');
+          background-repeat: no-repeat;
+          background-size: 100% auto;
+          background-position: center 0;
           &:hover {
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
             transform: translateY(-3px);
           }
 
           .banner {
-            background-image: url('@/assets/img/resource-bg.png');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center 0;
             height: 127px;
             padding-top: 32px;
             padding-left: 23px;
