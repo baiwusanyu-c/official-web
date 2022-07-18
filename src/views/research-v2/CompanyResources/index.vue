@@ -1,7 +1,7 @@
 <template>
   <div class="resource-list-page">
     <ul class="list">
-      <li v-for="resource in articles" :key="resource.id" @click="onPreview(resource)">
+      <li v-for="resource in resources" :key="resource.id" @click="onPreview(resource)">
         <div class="banner">
           <img :src="resource.coverImg" />
         </div>
@@ -15,6 +15,9 @@
         </div>
       </li>
     </ul>
+    <div class="pagination">
+      <custom-pagination :page="params.pageNum" :on-update-page="onUpdatePage" :pages="pages" />
+    </div>
   </div>
 </template>
 
@@ -26,10 +29,11 @@
   import useGetArticle from '../bisiness-hooks/useGetArticle'
   import downloadFile, { previewFile } from '@/utils/download-file'
   import { combineLink } from '../util'
+  import CustomPagination from '../components/custom-pagination/index.vue'
 
   export default defineComponent({
     name: 'CompanyResources',
-    components: { CustomButton },
+    components: { CustomButton, CustomPagination },
     props: {
       type: {
         type: Number,
@@ -65,20 +69,28 @@
         previewFile(combineLink(resource.url))
       }
 
-      const { data: articles } = useGetArticle({
+      const {
+        data: resources,
+        params,
+        setParams,
+        pages,
+      } = useGetArticle({
         pageNum: 1,
-        pageSize: 6,
+        pageSize: 12,
         type: props.type,
       })
 
+      const onUpdatePage = (page: number) => {
+        setParams({ pageNum: page })
+      }
+
       return {
-        articles,
         onDownload,
         onPreview,
-        // params,
-        // onUpdatePage,
-        // pages,
-        // resources
+        params,
+        onUpdatePage,
+        pages,
+        resources,
       }
     },
   })
@@ -136,6 +148,10 @@
       li:nth-child(3n + 3) {
         margin-right: 0;
       }
+    }
+    .pagination {
+      display: flex;
+      justify-content: center;
     }
   }
 
