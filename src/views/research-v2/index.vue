@@ -22,7 +22,7 @@
           <ArticleSwipper
             :items="articles"
             @on-slide-change="onSlideChange"
-            @click="goLearnMore()" />
+            @go-learn-more="goLearnMore()" />
         </div>
       </div>
     </div>

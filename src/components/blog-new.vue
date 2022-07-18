@@ -60,9 +60,11 @@
       // const { openWin } = composition()
       const router = useRouter()
       const openWin = (item: any) => {
-        // const host = window.location.host
-        // openUrl(host + '/#/index/article-preview?id=' + item.id, { target: '_blank' })
-        router.push({ path: '/index/article-preview', query: { id: item.id } })
+        if (item.type === 1 && item.url) {
+          window.open(item.url)
+        } else {
+          router.push({ path: '/index/article-preview', query: { id: item.id } })
+        }
       }
       const icons = {
         1: artiTypeResearchReportIcon,

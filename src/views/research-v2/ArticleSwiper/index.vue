@@ -9,7 +9,8 @@
       :autoplay="{ disableOnInteraction: false }"
       :initial-slide="1"
       :pagination="{ clickable: true, el: '#article-pagination' }"
-      @slide-change="onSlideChange">
+      @slide-change="onSlideChange"
+      @click="clickHandle">
       <swiper-slide v-for="(item, i) in items" :id="item.id" :key="item.id" :item="item">
         <div class="swiper-item" :data-idx="i">
           <img :src="item.coverImg" alt="" />
@@ -43,16 +44,20 @@
         },
       },
     },
-    emits: ['onSlideChange'],
+    emits: ['onSlideChange', 'goLearnMore'],
     setup(props, context) {
       const onSlideChange = async () => {
         await ''
         const idx = document.querySelector('.swiper-slide-active .swiper-item')?.dataset?.idx
         context.emit('onSlideChange', props.items[idx] || {})
       }
+      const clickHandle = () => {
+        context.emit('goLearnMore')
+      }
 
       return {
         onSlideChange,
+        clickHandle,
         // mockList
       }
     },
