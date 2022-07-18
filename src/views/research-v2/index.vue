@@ -192,7 +192,7 @@
         }
 
         .right {
-          width: 48%;
+          width: 47%;
 
           img {
             width: 100%;
