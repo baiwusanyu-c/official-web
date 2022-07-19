@@ -202,7 +202,6 @@
           margin-bottom: 33px;
           cursor: pointer;
           transition: all 0.3s;
-          cursor: pointer;
           background-image: url('@/assets/img/resource-bg.png');
           background-repeat: no-repeat;
           background-size: 100% auto;
