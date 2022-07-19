@@ -13,7 +13,7 @@
           </div>
         </li>
       </ul>
-      <div class="pagination">
+      <div v-if="pages > 1" class="pagination">
         <custom-pagination :page="params.pageNum" :on-update-page="onUpdatePage" :pages="pages" />
       </div>
     </div>
