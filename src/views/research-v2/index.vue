@@ -3,20 +3,18 @@
     <div class="board-top">
       <div class="safe-area">
         <div class="left">
-          <div class="absoulte">
-            <div class="title line-clamp line-clamp-3">{{ currentArticle.title }}</div>
-            <div class="description line-clamp line-clamp-2">
-              {{ currentArticle.desc }}
-            </div>
-            <div class="action">
-              <n-button
-                color="#1CD2A9"
-                text-color="#050B37"
-                style="width: 148px; height: 48px; font-size: 16px; border-radius: 4px"
-                @click.stop="() => goLearnMore()"
-                >Learn More</n-button
-              >
-            </div>
+          <div class="title line-clamp line-clamp-3">{{ currentArticle.title }}</div>
+          <div class="description line-clamp line-clamp-2">
+            {{ currentArticle.desc }}
+          </div>
+          <div class="action">
+            <n-button
+              color="#1CD2A9"
+              text-color="#050B37"
+              style="width: 148px; height: 48px; font-size: 16px; border-radius: 4px"
+              @click.stop="() => goLearnMore()"
+              >Learn More</n-button
+            >
           </div>
         </div>
         <div class="right">
@@ -175,16 +173,9 @@
         .left {
           margin-right: 6%;
           width: 46%;
-          // display: flex;
-          // flex-direction: column;
-          // justify-content: center;
-          position: relative;
-          .absoulte {
-            // 包裹absoulte定位：为了解决顶部banner切换时滚动条位置变化的bug，原因暂不明
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-          }
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
 
           .title {
             font-size: 48px;
