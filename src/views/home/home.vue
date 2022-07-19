@@ -221,7 +221,7 @@
     <div
       v-if="titleCardList.length > 0"
       class="blog-new w-full bg-mainBlueGary flex items-center flex-col">
-      <h2 class="security-research text-center !ph:text-[20px] !ph:pt-[16px]">Security Research</h2>
+      <h2 class="security-research text-center !ph:text-[20px] !ph:pt-[16px]">Resources</h2>
       <div
         class="grid grid-cols-4 mt-18 ph:grid-cols-2 w-62vw ph:w-90vw pad:w-90vw gap-10px title-card-container relative h-[100%]">
         <blog-new v-for="item in titleCardList" :key="item.id" class="mr-0" :data="item">
@@ -283,8 +283,8 @@
       const getBlogNewsData = (): void => {
         getBlogNews()
           .then((res: any) => {
-            if (res.code === 200 && res.data) {
-              titleCardList.value = res.data
+            if (res.code === 200 && res.rows) {
+              titleCardList.value = res.rows
             }
           })
           .catch(err => {

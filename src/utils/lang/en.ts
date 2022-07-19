@@ -39,7 +39,7 @@ export default {
   header: {
     nav: 'Navigation',
     home: 'Home',
-    research: 'Research',
+    research: 'Resources',
     aboutUs: 'About Us',
     requestUs: 'Request a Quote',
     login: 'Login',
@@ -363,7 +363,7 @@ export default {
   // djd h-footer-bigger
   HFooterBigger: {
     search: {
-      title: 'Research',
+      title: 'Resources',
       analysis: 'Security Analysis',
       report: 'Reports',
     },

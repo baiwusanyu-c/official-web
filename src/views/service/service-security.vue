@@ -497,11 +497,11 @@
 <style>
   @import '../../assets/css/service-page.css';
 
-  #service_security /deep/ .n-data-table-th {
+  #service_security :deep(.n-data-table-th) {
     background-color: #f1f1f1 !important;
   }
 
-  #service_security /deep/ .change-color .categories {
+  #service_security :deep(.change-color) .categories {
     background-color: #f8f8f8 !important;
   }
 

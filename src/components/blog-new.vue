@@ -2,17 +2,8 @@
 <template>
   <div
     class="title-card text-black bg-default z-10 mr-6 flex flex-col p-6 box-border cursor-pointer sm:mr-0 sm:p-4"
-    @click="openWin(data.url)">
-    <img
-      v-if="data.type === 1"
-      alt=""
-      src="../../src/assets/img/blob1.png"
-      class="title-card-btn" />
-    <img
-      v-if="data.type === 2"
-      alt=""
-      src="../../src/assets/img/blob0.png"
-      class="title-card-btn" />
+    @click="openWin(data)">
+    <img alt="" :src="icons[data.type]" class="title-card-btn" />
     <h3 class="w-full text-data text-2xl my-6 break-words font-format text-left sm:my-4">
       {{ data.title }}
       <!-- <be-ellipsis
@@ -42,9 +33,22 @@
 
 <script lang="ts">
   import { defineComponent, PropType } from 'vue'
-  import composition from '../utils/mixin/common-func'
+  // import composition from '../utils/mixin/common-func'
   import { IBlobList } from '../views/home/home.vue'
   import { dateToMDY } from '../utils/common'
+  import { useRouter } from 'vue-router'
+  import artiTypeEventUpdateIcon from '@/assets/img/arti-type-event-update.png'
+  import artiTypePartnershipIcon from '@/assets/img/arti-type-partnership.png'
+  import artiTypeResearchReportIcon from '@/assets/img/arti-type-research-report.png'
+  import artiTypeResourceIcon from '@/assets/img/arti-type-resource.png'
+  import artiTypeSecurityIncidentIcon from '@/assets/img/arti-type-security-incident.png'
+  import artiTypeWeb3Icon from '@/assets/img/arti-type-web3.0.png'
+  export const openUrl = (url: string, { target }: any) => {
+    const aEl = document.createElement('a')
+    aEl.href = url
+    aEl.target = target
+    aEl.click()
+  }
   export default defineComponent({
     name: 'BlogNew',
     props: {
@@ -53,10 +57,27 @@
       },
     },
     setup() {
-      const { openWin } = composition()
+      // const { openWin } = composition()
+      const router = useRouter()
+      const openWin = (item: any) => {
+        if (item.type === 1 && item.url) {
+          window.open(item.url)
+        } else {
+          router.push({ path: '/index/article-preview', query: { id: item.id } })
+        }
+      }
+      const icons = {
+        1: artiTypeResearchReportIcon,
+        3: artiTypeSecurityIncidentIcon,
+        4: artiTypePartnershipIcon,
+        5: artiTypeWeb3Icon,
+        6: artiTypeEventUpdateIcon,
+        7: artiTypeResourceIcon,
+      }
       return {
         dateToMDY,
         openWin,
+        icons,
       }
     },
   })

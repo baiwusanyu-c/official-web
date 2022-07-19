@@ -14,20 +14,48 @@
       <p class="footer-title text-lg font-format">
         {{ $t('lang.HFooterBigger.search.title') }}
       </p>
-      <ul>
-        <li class="font-format" @click="$router.push('/index/research')">
-          {{ $t('lang.HFooterBigger.search.analysis') }}
+      <ul style="margin-bottom: 20px">
+        <li
+          v-show="tabTypes.indexOf(3) > -1"
+          class="font-format"
+          @click="$router.push({ path: '/index/research', query: { type: 3 } })">
+          Security Incident
         </li>
         <li
+          v-show="tabTypes.indexOf(1) > -1"
           class="font-format"
-          @click="$router.push({ path: '/index/research', query: { tab: 2 } })">
-          {{ $t('lang.HFooterBigger.search.report') }}
+          @click="$router.push({ path: '/index/research', query: { type: 1 } })">
+          Research Report
+        </li>
+        <li
+          v-show="tabTypes.indexOf(6) > -1"
+          class="font-format"
+          @click="$router.push({ path: '/index/research', query: { type: 6 } })">
+          Event Update
+        </li>
+        <li
+          v-show="tabTypes.indexOf(4) > -1"
+          class="font-format"
+          @click="$router.push({ path: '/index/research', query: { type: 4 } })">
+          Partnership Announcement
+        </li>
+        <li
+          v-show="tabTypes.indexOf(5) > -1"
+          class="font-format"
+          @click="$router.push({ path: '/index/research', query: { type: 5 } })">
+          Web3.0 Classroom
+        </li>
+        <li
+          v-show="tabTypes.indexOf(7) > -1"
+          class="font-format"
+          @click="$router.push({ path: '/index/research', query: { type: 7 } })">
+          Resources
         </li>
       </ul>
-      <p class="footer-title mt-12 text-lg font-format">
+      <p class="footer-title text-lg font-format">
         {{ $t('lang.HFooterBigger.company.title') }}
       </p>
-      <ul class="mt-12">
+      <ul class="mt-6">
         <li class="font-format" @click="$router.push('/index/aboutUs')">
           {{ $t('lang.HFooterBigger.company.aboutUs') }}
         </li>
@@ -100,7 +128,8 @@
   </div>
 </template>
 <script lang="ts">
-  import { defineComponent } from 'vue'
+  import { defineComponent, ref } from 'vue'
+  import { getArticleTabTypes } from '@/api/research'
 
   import { linkConfig, linkConfigPolicy } from '../enums/link'
   import composition from '../utils/mixin/common-func'
@@ -108,9 +137,16 @@
     name: 'HFooterBigger',
     setup() {
       const { openWin } = composition()
+
+      const tabTypes = ref([])
+      getArticleTabTypes().then(res => {
+        tabTypes.value = res.data
+      })
+
       return {
         linkConfig,
         linkConfigPolicy,
+        tabTypes,
         openWin,
       }
     },

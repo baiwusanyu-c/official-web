@@ -1,0 +1,55 @@
+<template>
+  <div class="tab-pane-container">
+    <custom-card-list
+      :data="data"
+      :pagination="{ page: params.pageNum, pages: pages, onUpdatePage: onUpdatePage }"
+      @on-item-click="onItemClick" />
+  </div>
+</template>
+
+<script lang="ts">
+  import { defineComponent } from 'vue'
+  import { useRouter } from 'vue-router'
+  import CustomCardList from '../components/custom-card-list/index.vue'
+  import useGetArticle from '../bisiness-hooks/useGetArticle'
+
+  export default defineComponent({
+    name: 'NormalArticleList',
+    components: { CustomCardList },
+    props: {
+      type: {
+        type: Number,
+      },
+    },
+    setup(props) {
+      const { data, params, pages, setParams } = useGetArticle({
+        pageNum: 1,
+        pageSize: 12,
+        type: props.type,
+      })
+
+      const onUpdatePage = (page: number) => {
+        setParams({ pageNum: page })
+      }
+
+      const router = useRouter()
+      const onItemClick = (item: any) => {
+        if (item.type === 1 && item.url) {
+          window.open(item.url)
+        } else {
+          router.push({ path: '/index/article-preview', query: { id: item.id } })
+        }
+      }
+
+      return {
+        data,
+        params,
+        onUpdatePage,
+        pages,
+        onItemClick,
+      }
+    },
+  })
+</script>
+
+<style lang="less" scoped></style>

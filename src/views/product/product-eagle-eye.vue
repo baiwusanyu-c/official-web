@@ -32,9 +32,9 @@
         <h2 class="text-4xl font-bold font-format sm:hidden">
           {{ $t('lang.product.eagle.funcDisplay') }}
         </h2>
-        <!--     走馬燈      -->
+        <!--     走馬燈   swiper-no-swiping    -->
         <div
-          class="mt-10 product-swiper w-full h-full md:mt-8 sm:mt-4 sm:bg-default sm:p-2 sm:rounded swiper-no-swiping">
+          class="mt-10 product-swiper w-full h-full md:mt-8 sm:mt-4 sm:bg-default sm:p-2 sm:rounded">
           <h-product-swiper></h-product-swiper>
         </div>
         <p
@@ -219,14 +219,13 @@
   import { productLinkList } from '@/enums/link'
   import { getStore } from '@/utils/common'
   import composition from '@/utils/mixin/common-func'
-  
 
   import imgAssessmentUrl from '../../assets/img/func-logo-assessment.png'
   import imgSecurityUrl from '../../assets/img/func-logo-security.png'
   import imgMonitorUrl from '../../assets/img/func-logo-monitor.png'
   import imgNewsUrl from '../../assets/img/func-logo-news.png'
   import imgIdentificationUrl from '../../assets/img/func-logo-identification.png'
-  
+
   export default defineComponent({
     name: 'ProductEagleEye',
     components: {
@@ -281,7 +280,7 @@
             'Identify the security vulnerabilities of Web3 websites.',
             'Detect phishing, fraud, fake or other types of malicious websites risks.',
             'Alert users to avoid private key and asset loss.',
-          ]
+          ],
         },
       ]
 
@@ -294,7 +293,7 @@
       }
       return {
         functionOptions,
-        toEaglePage
+        toEaglePage,
       }
     },
   })
@@ -380,7 +379,7 @@
     text-align: center;
     white-space: nowrap;
   }
-  .support-pc-title{
+  .support-pc-title {
     display: block;
     text-align: center;
     white-space: nowrap;
