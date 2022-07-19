@@ -29,32 +29,36 @@
 
     <div class="board-main">
       <!-- <All /> -->
-      <n-tabs class="card-tabs" :value="currType" :on-update:value="handleChange">
+      <n-tabs
+        v-if="tabTypes.length"
+        class="card-tabs"
+        :value="currType"
+        :on-update:value="handleChange">
         <n-tab-pane name="" tab="All">
           <All />
         </n-tab-pane>
         <!-- 突发安全事件分析 -->
-        <n-tab-pane v-show="tabTypes.indexOf(3) > -1" :name="3" tab="Security Incident">
+        <n-tab-pane v-if="tabTypes.indexOf(3) > -1" :name="3" tab="Security Incident">
           <NormalArticleList :type="3" />
         </n-tab-pane>
         <!-- 深度研究 -->
-        <n-tab-pane v-show="tabTypes.indexOf(1) > -1" :name="1" tab="Research Report">
+        <n-tab-pane v-if="tabTypes.indexOf(1) > -1" :name="1" tab="Research Report">
           <NormalArticleList :type="1" />
         </n-tab-pane>
         <!-- AMA回顾&活动 -->
-        <n-tab-pane v-show="tabTypes.indexOf(6) > -1" :name="6" tab="Event Update">
+        <n-tab-pane v-if="tabTypes.indexOf(6) > -1" :name="6" tab="Event Update">
           <NormalArticleList :type="6" />
         </n-tab-pane>
         <!-- 审计PR长文 -->
-        <n-tab-pane v-show="tabTypes.indexOf(4) > -1" :name="4" tab="Partnership Announcement">
+        <n-tab-pane v-if="tabTypes.indexOf(4) > -1" :name="4" tab="Partnership Announcement">
           <NormalArticleList :type="4" />
         </n-tab-pane>
         <!-- Web3科普知识 -->
-        <n-tab-pane v-show="tabTypes.indexOf(5) > -1" :name="5" tab="Web3.0 Classroom">
+        <n-tab-pane v-if="tabTypes.indexOf(5) > -1" :name="5" tab="Web3.0 Classroom">
           <NormalArticleList :type="5" />
         </n-tab-pane>
         <!-- 公司资源 -->
-        <n-tab-pane v-show="tabTypes.indexOf(7) > -1" :name="7" tab="Resources">
+        <n-tab-pane v-if="tabTypes.indexOf(7) > -1" :name="7" tab="Resources">
           <CompanyResources :type="7" />
         </n-tab-pane>
       </n-tabs>
