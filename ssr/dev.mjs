@@ -27,8 +27,10 @@ server.use('*', async (req, res) => {
     template = await viteServer.transformIndexHtml(url, template)
 
     const render = (await viteServer.ssrLoadModule('./src/entry-server.ts')).render
-    const [appHtml] = await render(url, {})
+    const ctx = {}
+    const [appHtml] = await render(url, {}, ctx)
     const html = template.replace('<!--app-html-->', appHtml)
+    template.replace(`<title>${ctx.title}</title>`)
     res.set({ 'Content-Type': 'text/html' }).end(html)
   } catch (e) {
     console.log(e)

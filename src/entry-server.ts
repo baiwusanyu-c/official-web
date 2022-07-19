@@ -4,12 +4,11 @@ type Manifest = {
   [p: string]: string[]
 }
 
-const render = async (url: string, manifest: Manifest) => {
+const render = async (url: string, manifest: Manifest, ctx: SSRContext) => {
   const { app, router } = createApp()
   router.push(url)
   await router.isReady()
 
-  const ctx = {} as SSRContext
   const html = await renderToString(app, ctx)
   console.log('url', url, html.length)
   const links = renderPreloadLinks(ctx.modules, manifest)
