@@ -75,8 +75,13 @@
 
       const router = useRouter()
 
-      const goDetail = (article: any) => {
-        router.push({ path: '/index/article-preview', query: { id: article.id } })
+      const goDetail = (item: any) => {
+        if (item.type === 1 && item.url) {
+          window.open(item.url)
+        } else {
+          router.push({ path: '/index/article-preview', query: { id: item.id } })
+        }
+        // router.push({ path: '/index/article-preview', query: { id: article.id } })
       }
 
       const handleDownload = (resource: any) => {
