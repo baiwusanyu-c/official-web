@@ -8,7 +8,7 @@
         <div class="content">
           <h4 class="line-clamp line-clamp-2">{{ resource.title }}</h4>
           <p class="line-clamp line-clamp-4">{{ resource.desc }}</p>
-          <custom-button @click="onDownload(resource)">
+          <custom-button @click.stop="onDownload(resource)">
             <be-icon :size="20" icon="iconDownload" style="margin-right: 5px" />
             <span class="download-text">Download</span>
           </custom-button>
