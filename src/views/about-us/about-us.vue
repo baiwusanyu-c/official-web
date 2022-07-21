@@ -81,10 +81,6 @@
         {{ $t('lang.connect') }}
       </p>
       <div class="flex items-center">
-        <!--                <div class="flex items-center justify-center text-xl mr-36">
-                                    <img class="mr-4" src="../../assets/img/phone.png" alt="" />
-                                    {{$t('lang.phone')}}:86-028-8326-2585
-                                </div>-->
         <div class="flex items-center justify-center text-xl font-format sm:text-base">
           <img class="mr-4 sm:w-12" src="../../assets/img/mail.png" alt="" />
           {{ $t('lang.mail') }}:contact@beosin.com

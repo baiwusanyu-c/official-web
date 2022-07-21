@@ -145,11 +145,25 @@
       </div>
       <!--    服务    -->
       <div class="w-28 cursor-pointer">
-        <be-popover
-          ref="popoverService"
-          trigger="hover"
-          custom-class="header-popover"
-          placement="bottom">
+        <menu-popover>
+          <div
+            class="font-format trigger-item y-full flex items-center text-base justify-start hover:text-mainG"
+            :class="{ 'item-active': isPathIncludes(['service']) }">
+            Services
+            <be-icon icon="under" class="ml-2"></be-icon>
+          </div>
+          <template #trigger>
+            <div
+              v-for="item in service"
+              :key="item.value"
+              class="linear-l-r-s bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
+              :class="{ 'linear-l-r active-popover': item.value === route.path }"
+              @click="routerPush(item.value), closePoper($refs.popoverService)">
+              <p class="mx-2 text-base font-format">{{ item.label }}</p>
+            </div>
+          </template>
+        </menu-popover>
+        <!-- <be-popover ref="popoverService" trigger="hover" class="header-popover" placement="bottom">
           <template #trigger>
             <div
               class="font-format trigger-item y-full flex items-center text-base hover:text-mainG"
@@ -166,7 +180,7 @@
             @click="routerPush(item.value), closePoper($refs.popoverService)">
             <p class="mx-2 text-base font-format">{{ item.label }}</p>
           </div>
-        </be-popover>
+        </be-popover> -->
       </div>
       <!--产品-->
       <div class="w-28 cursor-pointer">
@@ -205,9 +219,9 @@
   <!--  pc 右侧  -->
   <div class="hermit-header-l display-flex justify-end items-center flex-1 text-right sm:hidden">
     <!--    联系    -->
-    <be-button custom-class="request-btn text-bold" @click="openDialog">
+    <n-button color="#1CD2A9" class="request-btn text-bold" @click="openDialog">
       <span class="font-format">{{ $t('lang.header.requestUs') }}</span>
-    </be-button>
+    </n-button>
     <!--    登录前    -->
     <div
       v-if="!isLogin"
@@ -252,7 +266,7 @@
 
 <script lang="ts">
   import { Router, useRouter, useRoute, RouteLocationNormalizedLoaded } from 'vue-router'
-  import { NDrawer, NDrawerContent } from 'naive-ui'
+  import { NDrawer, NDrawerContent, NButton, NPopover } from 'naive-ui'
   import {
     defineComponent,
     ref,
@@ -265,6 +279,7 @@
   import { getStore, removeStore, removeSession } from '../utils/common'
   import composition from '../utils/mixin/common-func'
   import LoginDialog from '../views/login/login-dialog.vue'
+  import MenuPopover from '@/components/menu-popover/index.vue'
   interface ISelect {
     label: string
     value: string
@@ -281,6 +296,9 @@
       LoginDialog,
       NDrawer,
       NDrawerContent,
+      NButton,
+      NPopover,
+      MenuPopover,
     },
     emits: ['changeLang'],
     setup(props, ctx) {
@@ -472,7 +490,7 @@
     width: 145px;
     height: 34px;
 
-    @apply bg-mainG text-black mr-12;
+    @apply text-black mr-12;
   }
 
   .hermit-header-l .request-btn:hover {

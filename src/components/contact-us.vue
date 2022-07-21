@@ -11,14 +11,15 @@
         </h2>
       </div>
       <div class="flex justify-end sm:mt-8 sm:justify-center">
-        <be-button
-          custom-class="contact-btn h-btn-txt-black text-black font-bold w-40 ml-20 sm:ml-0"
+        <n-button
+          color="#fff"
+          class="contact-btn h-btn-txt-black text-black font-bold w-40 ml-20 sm:ml-0"
           size="large"
           @click="openDialog">
           <span class="font-format text-2xl leading-loose sm:text-xl">
             {{ $t('lang.contactBtn') }}
           </span>
-        </be-button>
+        </n-button>
       </div>
     </div>
   </div>
@@ -27,8 +28,10 @@
 <script lang="ts">
   import { defineComponent } from 'vue'
   import { useEventBus } from '@vueuse/core'
+  import { NButton } from 'naive-ui'
   export default defineComponent({
     name: 'ContactUs',
+    components: { NButton },
     setup() {
       const bus = useEventBus<string>('openQuote')
       const openDialog = (): void => {
@@ -57,6 +60,9 @@
   .contact-us .contact-btn {
     width: 293px;
     height: 60px;
+    font-weight: 700 !important;
+    --n-text-color-hover: #000 !important;
+    --n-color-hover: rgba(236,245,255,var(--tw-bg-opacity)) !important
   }
 
   .contact-us-line {

@@ -8,10 +8,14 @@
         <div class="content">
           <h4 class="line-clamp line-clamp-2">{{ resource.title }}</h4>
           <p class="line-clamp line-clamp-4">{{ resource.desc }}</p>
-          <custom-button @click.stop="onDownload(resource)">
+          <n-button
+            class="btn-hover-transtion"
+            :bordered="false"
+            color="#1CD2A9"
+            @click.stop="onDownload(resource)">
             <be-icon :size="20" icon="iconDownload" style="margin-right: 5px" />
             <span class="download-text">Download</span>
-          </custom-button>
+          </n-button>
         </div>
       </li>
     </ul>
@@ -25,15 +29,15 @@
   import { defineComponent } from 'vue'
   // import { useRouter } from 'vue-router'
   // import mockResourceBanner from '@/assets/img/mock-resource-banner.png'
-  import CustomButton from '@/components/custom-button/index.vue'
   import useGetArticle from '../bisiness-hooks/useGetArticle'
   import downloadFile, { previewFile } from '@/utils/download-file'
   import { combineLink } from '../util'
   import CustomPagination from '../components/custom-pagination/index.vue'
+  import { NButton } from 'naive-ui'
 
   export default defineComponent({
     name: 'CompanyResources',
-    components: { CustomButton, CustomPagination },
+    components: { NButton, CustomPagination },
     props: {
       type: {
         type: Number,
@@ -142,6 +146,14 @@
 
           p {
             margin-bottom: 16px;
+          }
+
+          .btn-hover-transtion {
+            transition: all 0.3s;
+            &:hover {
+              box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+              transform: translateY(-2px);
+            }
           }
         }
       }

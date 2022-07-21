@@ -24,11 +24,12 @@
 
           <!--        pc 显示按钮            -->
           <div class="sm:hidden">
-            <be-button
-              custom-class="display-flex learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
+            <n-button
+              :bordered="false"
+              class="display-flex learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
               @click="routerPush('/index/service/contracts')">
               <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
-            </be-button>
+            </n-button>
           </div>
         </div>
 
@@ -46,11 +47,12 @@
           <div
             class="display-none sm:flex"
             style="position: absolute; right: 50%; bottom: 5%; transform: translateX(50%)">
-            <be-button
-              custom-class="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
+            <n-button
+              :bordered="false"
+              class="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
               @click="routerPush('/index/service/contracts')">
               <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
-            </be-button>
+            </n-button>
           </div>
         </div>
       </div>
@@ -80,11 +82,12 @@
             {{ $t('lang.home.serviceInfo2') }}
           </p>
           <div class="sm:hidden">
-            <be-button
-              custom-class="float-right learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
+            <n-button
+              :bordered="false"
+              class="float-right learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
               @click="routerPush('/index/service/security')">
               <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
-            </be-button>
+            </n-button>
           </div>
         </div>
         <!--        mobile 显示六边形         -->
@@ -103,11 +106,12 @@
           <div
             class="display-none sm:flex"
             style="position: absolute; right: 50%; bottom: 5%; transform: translateX(50%)">
-            <be-button
-              custom-class="float-right learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
+            <n-button
+              :bordered="false"
+              class="float-right learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
               @click="routerPush('/index/service/security')">
               <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
-            </be-button>
+            </n-button>
           </div>
         </div>
       </div>
@@ -123,11 +127,12 @@
             {{ $t('lang.home.serviceInfo3') }}
           </p>
           <div class="sm:hidden">
-            <be-button
-              custom-class="display-flex learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
+            <n-button
+              :bordered="false"
+              class="display-flex learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
               @click="routerPush('/index/service/trace')">
               <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
-            </be-button>
+            </n-button>
           </div>
         </div>
 
@@ -144,11 +149,12 @@
           <div
             class="display-none sm:flex"
             style="position: absolute; right: 50%; bottom: 5%; transform: translateX(50%)">
-            <be-button
-              custom-class="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
+            <n-button
+              :bordered="false"
+              class="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
               @click="routerPush('/index/service/trace')">
               <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
-            </be-button>
+            </n-button>
           </div>
         </div>
       </div>
@@ -170,11 +176,12 @@
           <home-product-circle :index="3"></home-product-circle>
           <home-product-circle :index="4"></home-product-circle>
         </div>
-        <be-button
-          custom-class="try-out-btn h-btn-txt-black linear-l-r text-black text-xl sm:mb-10 sm:text-base"
+        <n-button
+          :bordered="false"
+          class="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl sm:mb-10 sm:text-base"
           @click="routerPush('/index/product/productVaaS')">
           <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
-        </be-button>
+        </n-button>
       </div>
       <div class="flex-1 flex-col flex justify-center items-center w-full">
         <div class="bar mb-8 sm:mb-2"></div>
@@ -191,11 +198,12 @@
           <home-product-circle :index="7"></home-product-circle>
           <home-product-circle :index="8"></home-product-circle>
         </div>
-        <be-button
-          custom-class="try-out-btn h-btn-txt-black linear-l-r text-black text-xl sm:text-base"
+        <n-button
+          :bordered="false"
+          class="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl sm:text-base"
           @click="routerPush('/index/product/productEagle')">
           <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
-        </be-button>
+        </n-button>
       </div>
     </div>
     <!--   serving global customer     -->
@@ -251,6 +259,7 @@
   import BannerCard from './includes/banner-card.vue'
   import AboutBeosin from './includes/about-beosin.vue'
   import DynamicInfo from './includes/dynamic-info.vue'
+  import { NButton } from 'naive-ui'
   interface ISelect {
     label: string
     value: string
@@ -275,6 +284,7 @@
       BannerCard,
       AboutBeosin,
       DynamicInfo,
+      NButton,
     },
     setup() {
       const { t } = useI18n()
@@ -441,7 +451,7 @@
   })
 </script>
 
-<style>
+<style lang="less">
   .security-research {
     font-size: 30px;
     font-weight: bold;
@@ -568,19 +578,24 @@
     @apply bg-mainG rounded;
   }
 
-  .hermit-main .slogan-service .learn-more-btn {
-    @apply h-10 w-80 font-bold sm:w-60 sm:h-9;
+  .hermit-main {
+    .learn-more-btn {
+      @apply h-10 w-80 sm:w-60 sm:h-9;
+      font-weight: 700 !important;
+      --n-text-color-hover: #000 !important;
+    }
   }
 
   .hermit-main .slogan-product {
     padding: 86px 0;
   }
 
-  .hermit-main .slogan-product .try-out-btn {
-    width: 320px;
-
-    @apply h-10 font-bold sm:w-60 sm:h-9;
-  }
+  // .hermit-main .slogan-product .try-out-btn {
+  //   width: 320px;
+  //   font-weight: 700 !important;
+  //   --n-text-color-hover: #000 !important;
+  //   @apply h-10 font-bold sm:w-60 sm:h-9;
+  // }
 
   .slogan-product-circle1 {
     height: 200px;

@@ -26,10 +26,16 @@
           <div class="content">
             <h4 class="line-clamp line-clamp-2">{{ resource.title }}</h4>
             <p class="line-clamp line-clamp-4">{{ resource.desc }}</p>
-            <custom-button @click.stop="handleDownload(resource)">
-              <be-icon :size="20" icon="iconDownload" style="margin-right: 5px" />
+            <n-button
+              class="btn-hover-transtion"
+              :bordered="false"
+              color="#1CD2A9"
+              @click.stop="handleDownload(resource)">
+              <template #icon>
+                <be-icon :size="20" icon="iconDownload" />
+              </template>
               <span class="download-text">Download</span>
-            </custom-button>
+            </n-button>
           </div>
         </li>
       </ul>
@@ -42,15 +48,15 @@
   import { useRouter } from 'vue-router'
   // import mockBanner from '@/assets/img/mock-banner.png'
   // import mockResourceBanner from '@/assets/img/mock-resource-banner.png'
-  import CustomButton from '@/components/custom-button/index.vue'
   import CustomPagination from '../components/custom-pagination/index.vue'
   import useGetArticle from '../bisiness-hooks/useGetArticle'
   import downloadFile, { previewFile } from '@/utils/download-file'
   import { combineLink, preToText } from '../util'
+  import { NButton } from 'naive-ui'
 
   export default defineComponent({
     name: 'SearchAll',
-    components: { CustomButton, CustomPagination },
+    components: { NButton, CustomPagination },
     setup() {
       const {
         data: articles,
@@ -235,6 +241,13 @@
 
             p {
               margin-bottom: 16px;
+            }
+            .btn-hover-transtion {
+              transition: all 0.3s;
+              &:hover {
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+                transform: translateY(-2px);
+              }
             }
           }
         }

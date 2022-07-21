@@ -9,6 +9,7 @@
           </div>
           <div class="action">
             <n-button
+              class="btn-hover-transition"
               color="#1CD2A9"
               text-color="#050B37"
               style="width: 148px; height: 48px; font-size: 16px; border-radius: 4px"
@@ -192,6 +193,13 @@
 
           .action {
             margin-bottom: 64px;
+            .btn-hover-transition {
+              transition: all 0.3s;
+              &:hover {
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+                transform: translateY(-2px);
+              }
+            }
           }
         }
 
