@@ -27,7 +27,7 @@
         <div class="card-3 card" @click="$router.push('/index/product/productEagle')">
           <h2 class="title2">Beosin Eagle Eye</h2>
           <p class="text2">
-            Provide DApp operators with real-time project intelligence and risk alerts
+            Security Assessment, Risk Transactions Identification, and Security Sentiment.
           </p>
         </div>
       </SwiperSlide>
@@ -56,7 +56,7 @@
       <div class="card-3 card" @click="$router.push('/index/product/productEagle')">
         <h2 class="title2">Beosin Eagle Eye</h2>
         <p class="text2">
-          Provide DApp operators with real-time project intelligence and risk alerts
+          Security Assessment, Risk Transactions Identification, and Security Sentiment.
         </p>
       </div>
       <div class="card-4 card" @click="$router.push('/index/service/trace')">

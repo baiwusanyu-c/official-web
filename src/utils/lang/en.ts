@@ -439,7 +439,7 @@ export default {
     },
     eagle: {
       title: 'EagleEye',
-      subTitle: 'Provide Dapp operators with project intelligence and real-time risk alerts',
+      subTitle: 'Security Assessment, Risk Transactions Identification, and Security Sentiment',
       funcDisplay: 'EagleEye Project Dashboard',
       desc: 'EagleEye provides 24by7 blockchain security monitoring and notification services. It sends customers real-time security alerts and warnings when it detects risks like hacker attacks, frauds, flash loans, rug pulls through on-chain and off-chain data analysis, and multi-dimensional security assessments.',
 
