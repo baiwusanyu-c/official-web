@@ -1,5 +1,6 @@
 import { createApp } from './main'
 import { renderToString, SSRContext } from 'vue/server-renderer'
+import {useSSRContext} from 'vue'
 type Manifest = {
   [p: string]: string[]
 }
@@ -12,6 +13,8 @@ const render = async (url: string, manifest: Manifest, ctx: SSRContext) => {
   const html = await renderToString(app, ctx)
   console.log('url', url, html.length)
   const links = renderPreloadLinks(ctx.modules, manifest)
+  const ctx2 = useSSRContext()
+  console.log('ctx2',ctx2)
   return [html, links]
 }
 
