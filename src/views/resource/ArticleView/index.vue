@@ -157,7 +157,7 @@
         }
       }
       const goMoreList = (type: number) => {
-        const host = '/#/index/research?type=' + type
+        const host = '/#/index/resource?type=' + type
         openUrl(host, { target: '_blank' })
       }
       const look = () => {

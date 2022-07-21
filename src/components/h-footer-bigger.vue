@@ -18,37 +18,37 @@
         <li
           v-show="tabTypes.indexOf(3) > -1"
           class="font-format"
-          @click="$router.push({ path: '/index/research', query: { type: 3 } })">
+          @click="$router.push({ path: '/index/resource', query: { type: 3 } })">
           Security Incident
         </li>
         <li
           v-show="tabTypes.indexOf(1) > -1"
           class="font-format"
-          @click="$router.push({ path: '/index/research', query: { type: 1 } })">
+          @click="$router.push({ path: '/index/resource', query: { type: 1 } })">
           Research Report
         </li>
         <li
           v-show="tabTypes.indexOf(6) > -1"
           class="font-format"
-          @click="$router.push({ path: '/index/research', query: { type: 6 } })">
+          @click="$router.push({ path: '/index/resource', query: { type: 6 } })">
           Event Update
         </li>
         <li
           v-show="tabTypes.indexOf(4) > -1"
           class="font-format"
-          @click="$router.push({ path: '/index/research', query: { type: 4 } })">
+          @click="$router.push({ path: '/index/resource', query: { type: 4 } })">
           Partnership Announcement
         </li>
         <li
           v-show="tabTypes.indexOf(5) > -1"
           class="font-format"
-          @click="$router.push({ path: '/index/research', query: { type: 5 } })">
+          @click="$router.push({ path: '/index/resource', query: { type: 5 } })">
           Web3.0 Classroom
         </li>
         <li
           v-show="tabTypes.indexOf(7) > -1"
           class="font-format"
-          @click="$router.push({ path: '/index/research', query: { type: 7 } })">
+          @click="$router.push({ path: '/index/resource', query: { type: 7 } })">
           Resources
         </li>
       </ul>

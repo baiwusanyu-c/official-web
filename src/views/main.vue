@@ -1,25 +1,21 @@
 <template>
   <n-config-provider :locale="uiLang" :date-locale="dateLang">
-    <be-container class="hermit-container-container h-full overscroll-auto pb-0">
+    <section
+      class="be-container be-container__vertical hermit-container-container h-full overscroll-auto pb-0">
       <!-- 头部   -->
-      <be-header
+      <header
         class="flex items-center justify-between fixed w-full z-30 text-default"
         style="height: 4em; background: #141720; opacity: 0.9">
         <h-header @change-lang="changeLanguage"></h-header>
-      </be-header>
+      </header>
       <!--  主体    -->
-      <be-main class="relative left-0 top-14 pb-0 overflow-hidden hermit-main">
+      <main class="be-main relative left-0 top-14 pb-0 overflow-hidden hermit-main">
         <router-view></router-view>
-      </be-main>
-      <!-- <be-footer
-        v-if="!/research/.test(route.path)"
-        class="hermit-footer px-0 box-border top-14 relative left-0">
+      </main>
+      <footer class="be-footer hermit-footer px-0 box-border top-14 relative left-0">
         <h-footer-bigger></h-footer-bigger>
-      </be-footer> -->
-      <be-footer class="hermit-footer px-0 box-border top-14 relative left-0">
-        <h-footer-bigger></h-footer-bigger>
-      </be-footer>
-    </be-container>
+      </footer>
+    </section>
   </n-config-provider>
 
   <request-quote-dialog ref="requestQuoteDialog"></request-quote-dialog>

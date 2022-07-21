@@ -6,7 +6,7 @@
         <component :is="Component"></component>
 
         <!-- 加载中状态 -->
-        <template #fallback> 正在加载... </template>
+        <template #fallback>正在加载...</template>
       </Suspense>
     </router-view>
   </div>

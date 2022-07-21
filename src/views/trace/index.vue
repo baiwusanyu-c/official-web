@@ -11,11 +11,17 @@
         <span class="text-[36px] ml-[20px]">$10B+</span>
         <span class="text-[24px] ml-[20px]">Recovered for 1,000+ clients</span>
       </div>
-      <be-button custom-class="contact-btn h-btn-txt-black " size="large" @click="toForm">
+      <n-button
+        color="#1CD2A9"
+        :bordered="false"
+        class="contact-btn h-btn-txt-black"
+        style="border-radius: 2px; font-weight: 700; --n-text-color-hover: #0f1627"
+        size="large"
+        @click="toForm">
         <span class="font-format text-2xl leading-loose">
           {{ $t('lang.contactBtn') }}
         </span>
-      </be-button>
+      </n-button>
     </header>
   </div>
   <main class="trace-main">
@@ -149,6 +155,7 @@
 <script setup lang="ts">
   import { scale } from '@/utils/scale'
   import { onMounted, onUnmounted } from 'vue'
+  import { NButton } from 'naive-ui'
   onMounted(() => {
     const unbind = scale(
       [

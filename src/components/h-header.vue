@@ -25,58 +25,59 @@
           <!--    博客研究    -->
           <div
             class="mb-4 w-full font-format cursor-pointer text-left text-base hover:text-mainG"
-            :class="route.path.indexOf('research') > 0 ? 'item-active' : ''"
-            @click="routerPush('/index/research')">
-            {{ $t('lang.header.research') }}
+            :class="route.path.indexOf('resource') > 0 ? 'item-active' : ''"
+            @click="routerPush('/index/resource')">
+            {{ $t('lang.header.resource') }}
           </div>
           <!--   解决方案    -->
           <div class="mb-4 w-full cursor-pointer">
-            <be-popover
-              ref="popoverService"
+            <menu-popover
+              ref="serviceMenuRef"
+              popover-style="left: 120px"
               trigger="click"
-              custom-class="header-popover"
-              placement="right">
+              placement="right"
+              @click="productMenuRef.closePopover()">
+              <div
+                class="font-format trigger-item y-full flex items-center text-base justify-start hover:text-mainG"
+                :class="{ 'item-active': isPathIncludes(['service']) }">
+                Services
+                <!-- <be-icon icon="under" class="ml-2"></be-icon> -->
+              </div>
               <template #trigger>
                 <div
-                  class="font-format trigger-item y-full flex items-center text-base justify-start hover:text-mainG"
-                  :class="{ 'item-active': isPathIncludes(['service']) }">
-                  Services
-                  <be-icon icon="under" class="ml-2"></be-icon>
+                  v-for="item in service"
+                  :key="item.value"
+                  class="linear-l-r-s bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
+                  :class="{ 'linear-l-r active-popover': item.value === route.path }"
+                  @click="routerPush(item.value), closePoper($refs.popoverService)">
+                  <p class="mx-2 text-base font-format">{{ item.label }}</p>
                 </div>
               </template>
-              <div
-                v-for="item in service"
-                :key="item.value"
-                class="linear-l-r-s bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
-                :class="{ 'linear-l-r active-popover': item.value === route.path }"
-                @click="routerPush(item.value), closePoper($refs.popoverService)">
-                <p class="mx-2 text-base font-format">{{ item.label }}</p>
-              </div>
-            </be-popover>
+            </menu-popover>
           </div>
           <div class="mb-4 w-full cursor-pointer">
-            <be-popover
-              ref="popoverService"
+            <menu-popover
+              ref="productMenuRef"
+              popover-style="left: 120px"
               trigger="click"
-              custom-class="header-popover"
-              placement="right">
+              placement="right"
+              @click="serviceMenuRef.closePopover()">
+              <div
+                class="font-format trigger-item y-full flex items-center text-base justify-start hover:text-mainG"
+                :class="{ 'item-active': isPathIncludes(['product']) }">
+                Products
+              </div>
               <template #trigger>
                 <div
-                  class="font-format trigger-item y-full flex items-center text-base justify-start hover:text-mainG"
-                  :class="{ 'item-active': isPathIncludes(['product']) }">
-                  Products
-                  <be-icon icon="under" class="ml-2"></be-icon>
+                  v-for="item in product"
+                  :key="item.value"
+                  class="linear-l-r-s bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
+                  :class="{ 'linear-l-r active-popover': item.value === route.path }"
+                  @click="routerPush(item.value), closePoper($refs.popoverService)">
+                  <p class="mx-2 text-base font-format">{{ item.label }}</p>
                 </div>
               </template>
-              <div
-                v-for="item in product"
-                :key="item.value"
-                class="linear-l-r-s bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
-                :class="{ 'linear-l-r active-popover': item.value === route.path }"
-                @click="routerPush(item.value), closePoper($refs.popoverService)">
-                <p class="mx-2 text-base font-format">{{ item.label }}</p>
-              </div>
-            </be-popover>
+            </menu-popover>
           </div>
           <!--   關於我們    -->
           <div
@@ -139,9 +140,9 @@
       <!--    博客研究    -->
       <div
         class="w-28 cursor-pointer text-base hover:text-mainG md:flex sm:hidden"
-        :class="route.path.indexOf('research') > 0 ? 'item-active' : ''"
-        @click="routerPush('/index/research')">
-        {{ $t('lang.header.research') }}
+        :class="route.path.indexOf('resource') > 0 ? 'item-active' : ''"
+        @click="routerPush('/index/resource')">
+        {{ $t('lang.header.resource') }}
       </div>
       <!--    服务    -->
       <div class="w-28 cursor-pointer">
@@ -150,13 +151,12 @@
             class="font-format trigger-item y-full flex items-center text-base justify-start hover:text-mainG"
             :class="{ 'item-active': isPathIncludes(['service']) }">
             Services
-            <be-icon icon="under" class="ml-2"></be-icon>
           </div>
           <template #trigger>
             <div
               v-for="item in service"
               :key="item.value"
-              class="linear-l-r-s bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
+              class="linear-l-r-s h-10 text-default flex cursor-pointer items-center hover:text-black"
               :class="{ 'linear-l-r active-popover': item.value === route.path }"
               @click="routerPush(item.value), closePoper($refs.popoverService)">
               <p class="mx-2 text-base font-format">{{ item.label }}</p>
@@ -184,28 +184,23 @@
       </div>
       <!--产品-->
       <div class="w-28 cursor-pointer">
-        <be-popover
-          ref="popoverService"
-          trigger="hover"
-          custom-class="header-popover"
-          placement="bottom">
+        <menu-popover>
+          <div
+            class="font-format trigger-item y-full flex items-center text-base hover:text-mainG"
+            :class="{ 'item-active': isPathIncludes(['product']) }">
+            Products
+          </div>
           <template #trigger>
             <div
-              class="font-format trigger-item y-full flex items-center text-base hover:text-mainG"
-              :class="{ 'item-active': isPathIncludes(['product']) }">
-              Products
-              <be-icon icon="under" class="ml-2"></be-icon>
+              v-for="item in product"
+              :key="item.value"
+              class="linear-l-r-s bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
+              :class="{ 'linear-l-r active-popover': item.value === route.path }"
+              @click="routerPush(item.value), closePoper($refs.popoverService)">
+              <p class="mx-2 text-base font-format">{{ item.label }}</p>
             </div>
           </template>
-          <div
-            v-for="item in product"
-            :key="item.value"
-            class="linear-l-r-s bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
-            :class="{ 'linear-l-r active-popover': item.value === route.path }"
-            @click="routerPush(item.value), closePoper($refs.popoverService)">
-            <p class="mx-2 text-base font-format">{{ item.label }}</p>
-          </div>
-        </be-popover>
+        </menu-popover>
       </div>
       <!--   關於我們    -->
       <div
@@ -266,7 +261,7 @@
 
 <script lang="ts">
   import { Router, useRouter, useRoute, RouteLocationNormalizedLoaded } from 'vue-router'
-  import { NDrawer, NDrawerContent, NButton, NPopover } from 'naive-ui'
+  import { NDrawer, NDrawerContent, NButton } from 'naive-ui'
   import {
     defineComponent,
     ref,
@@ -297,7 +292,6 @@
       NDrawer,
       NDrawerContent,
       NButton,
-      NPopover,
       MenuPopover,
     },
     emits: ['changeLang'],
@@ -316,6 +310,8 @@
         active.value = false
         router.push(path)
       }
+      const serviceMenuRef = ref(null)
+      const productMenuRef = ref(null)
 
       /**
        * 关闭popover
@@ -442,6 +438,8 @@
         isPathIncludes,
         service,
         product,
+        productMenuRef,
+        serviceMenuRef,
       }
     },
   })

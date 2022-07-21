@@ -10,11 +10,13 @@
         <div class="header-text-small font-format leading-normal">
           {{ $t('lang.product.vass.subTitle') }}
         </div>
-        <be-button
-          custom-class="try-out-btn h-btn-txt-black linear-l-r text-black text-xl sm:absolute sm:bottom-8 sm:inset-x-0"
+        <n-button
+          :bordered="false"
+          style="font-weight: 700; --n-text-color-hover: #000"
+          class="try-out-btn h-btn-txt-black linear-l-r text-black text-xl sm:absolute sm:bottom-8 sm:inset-x-0"
           @click="toVaaSPage">
           <span class="font-format sm:text-base">{{ $t('lang.tryoutBtn') }}</span>
-        </be-button>
+        </n-button>
       </div>
       <div class="vass-header-logo sm:hidden"></div>
     </div>
@@ -126,9 +128,10 @@
   import { getStore } from '../../utils/common'
   import CoreAdvantages from '../../components/core-advantages.vue'
   import { productLinkList } from '../../enums/link'
+  import { NButton } from 'naive-ui'
   export default defineComponent({
     name: 'ProductVass',
-    components: { CoreAdvantages, HProductSwiper, AboutHermit, ContactUs },
+    components: { CoreAdvantages, HProductSwiper, AboutHermit, ContactUs, NButton },
     setup() {
       const { openWin } = composition()
       const base = ref<string>(productLinkList.vaas)

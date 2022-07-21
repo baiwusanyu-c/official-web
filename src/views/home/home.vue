@@ -236,7 +236,7 @@
         </blog-new>
         <p
           class="blog-more-btn cursor-pointer absolute hover:underline"
-          @click="routerPush('/index/research')">
+          @click="routerPush('/index/resource')">
           {{ $t('lang.home.more') }}
           <img alt="" src="../../assets/img/more.png" class="inline ml-2" style="height: 14px" />
         </p>

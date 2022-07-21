@@ -74,7 +74,7 @@
   import All from './All/index.vue'
   import NormalArticleList from './NormalArticleList/index.vue'
   import CompanyResources from './CompanyResources/index.vue'
-  import './media-screen-style/research.less'
+  import './media-screen-style/resource.less'
   import ArticleSwipper from './ArticleSwiper/index.vue'
   import useGetArticle from './bisiness-hooks/useGetArticle'
   import { openUrl } from './util'

@@ -41,12 +41,14 @@
         </div>
       </div>
     </div>
-    <be-button
+    <n-button
       size="large"
-      custom-class="login-btn linear-l-r font-bold text-lg w-full mb-8 mx-auto sm:my-4"
+      :bordered="false"
+      style="font-weight: 700"
+      class="login-btn linear-l-r font-bold text-lg w-full mb-8 mx-auto sm:my-4"
       @click="login">
       <span class="font-format text-black">{{ $t('lang.login.login') }}</span>
-    </be-button>
+    </n-button>
     <div class="flex items-center justify-between w-full">
       <p
         class="text-gray-500 cursor-pointer font-format"
@@ -74,8 +76,10 @@
   import { Base64 } from 'js-base64'
   import composition from '../../utils/mixin/common-func'
   import { useEventBus } from '@vueuse/core'
+  import { NButton } from 'naive-ui'
   export default defineComponent({
     name: 'LoginPassword',
+    components: { NButton },
     emits: ['showChange'],
     setup(props, ctx) {
       const { message } = composition()
@@ -104,6 +108,7 @@
       const verifyCodeForm = (): boolean => {
         let tipStr = ''
         if (!form.value.username) {
+          console.log(form.value)
           tipStr = t('lang.login.tipAccount')
           verMsg(tipStr)
           return false

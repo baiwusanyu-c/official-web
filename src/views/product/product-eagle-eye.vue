@@ -12,11 +12,13 @@
         <div class="header-text-small font-format leading-normal">
           {{ $t('lang.product.eagle.subTitle') }}
         </div>
-        <be-button
-          custom-class="try-out-btn h-btn-txt-black linear-l-r text-black text-xl sm:absolute sm:bottom-8 sm:inset-x-0"
+        <n-button
+          :bordered="false"
+          style="font-weight: 700; --n-text-color-hover: #000"
+          class="try-out-btn h-btn-txt-black linear-l-r text-black text-xl sm:absolute sm:bottom-8 sm:inset-x-0"
           @click="toEaglePage">
           <span class="font-format sm:text-base">{{ $t('lang.tryoutBtn') }}</span>
-        </be-button>
+        </n-button>
       </div>
       <div class="eagle-header-logo sm:hidden"></div>
     </div>
@@ -52,82 +54,6 @@
         :title="option.title"
         :contents="option.contents" />
     </board-item>
-    <!-- <div
-      class="func-container flex flex-col pb-16 items-center justify-center bg-mainBlueGary box-border sm:pt-0 sm:pb-8">
-      <h2 class="text-4xl font-bold m-16 font-format sm:text-lg sm:m-6 title-box">
-        {{ $t('lang.product.eagle.funcTitle') }}
-      </h2>
-      <div class="flex w-full items-center justify-center sm:flex-wrap">
-        <function-card
-          v-for="option in functionOptions"
-          :key="option.title"
-          :imgUrl="option.imgUrl"
-          :title="option.title"
-          :contents="[]"
-        />
-        <div
-          class="func-card bg-default flex flex-col items-center justify-start shadow-2xl mx-6 p-8 box-border rounded sm:m-2 sm:p-2">
-          <h3 class="text-lg font-bold mb-8 text-center h-12 font-format sm:text-xs sm:mb-4">
-            {{ $t('lang.product.eagle.funcSubTitle1') }}
-          </h3>
-          <img class="mb-8 sm:mb-4" src="../../assets/img/eagle-func1.png" alt="" />
-          <p class="font-format text-center leading-normal sm:text-xs">
-            {{ $t('lang.product.eagle.funcDesc1') }}
-          </p>
-        </div>
-        <div
-          class="func-card bg-default flex flex-col items-center justify-start shadow-2xl mx-6 p-8 box-border rounded sm:m-2 sm:p-2">
-          <h3 class="text-lg font-bold mb-8 text-center h-12 font-format sm:text-xs sm:mb-2">
-            {{ $t('lang.product.eagle.funcSubTitle2') }}
-          </h3>
-          <img class="mb-8 sm:mb-4" src="../../assets/img/eagle-func2.png" alt="" />
-          <p class="font-format text-center leading-normal sm:text-xs">
-            {{ $t('lang.product.eagle.funcDesc2') }}
-          </p>
-        </div>
-        <div
-          class="func-card bg-default flex flex-col items-center justify-start shadow-2xl mx-6 p-8 box-border rounded sm:mx-2 sm:p-2">
-          <h3 class="text-lg font-bold mb-8 text-center h-12 font-format sm:text-xs sm:mb-4">
-            {{ $t('lang.product.eagle.funcSubTitle3') }}
-          </h3>
-          <img class="mb-8 sm:mb-4" src="../../assets/img/eagle-func3.png" alt="" />
-          <p class="font-format text-center leading-normal sm:text-xs">
-            {{ $t('lang.product.eagle.funcDesc3') }}
-          </p>
-        </div>
-        <div
-          class="func-card bg-default flex flex-col items-center justify-start shadow-2xl mx-6 p-8 box-border rounded sm:mx-2 sm:p-2">
-          <h3 class="text-lg font-bold mb-8 text-center h-12 font-format sm:text-xs sm:mb-4">
-            {{ $t('lang.product.eagle.funcSubTitle4') }}
-          </h3>
-          <img class="mb-8 sm:mb-4" src="../../assets/img/eagle-func4.png" alt="" />
-          <p class="font-format text-center leading-normal sm:text-xs">
-            {{ $t('lang.product.eagle.funcDesc4') }}
-          </p>
-        </div>
-      </div>
-    </div> -->
-    <!--    核心特色    -->
-    <!-- <div
-      class="advant-container flex w-full py-16 flex-col justify-center relative px-20b sm:px-4 sm:py-10">
-      <video
-        key="product-vass-video1"
-        class="absolute left-0 top-0 bottom-0 top-0"
-        style="z-index: 0; width: 100%; height: 100%; object-fit: fill"
-        src="../../assets/video/wave.webm"
-        muted="muted"
-        autoplay="autoplay"
-        loop="loop"></video>
-      <h2
-        class="text-4xl font-bold mb-16 text-default text-center font-format sm:text-lg sm:mb-2"
-        style="z-index: 1">
-        {{ $t('lang.product.eagle.advantTitle') }}
-      </h2>
-      <core-advantages :index="1" type="eagle"></core-advantages>
-      <core-advantages :index="2" type="eagle"></core-advantages>
-      <core-advantages :index="3" type="eagle"></core-advantages>
-      <core-advantages :index="4" type="eagle"></core-advantages>
-    </div> -->
     <!--    支持币种    -->
 
     <board-item :title="$t('lang.product.eagle.supportTitle')">
@@ -153,55 +79,6 @@
         </li>
       </ul>
     </board-item>
-    <!-- <div
-      class="support-c-container flex bg-mainBlueGary w-full py-32 px-80 flex-col justify-center items-center sm:py-10 sm:px-10">
-      <h2
-        class="text-4xl font-bold mb-16 text-black text-center font-format sm:text-lg sm:mx-2 sm:mb-8">
-        {{ $t('lang.product.eagle.supportTitle') }}
-      </h2>
-      <div class="flex justify-center sm:flex-wrap">
-        <div
-          class="rounded flex flex-col justify-center items-center bg-default w-52 pt-6 pb-4 mx-6 border-b md:mx-4 hover:shadow-shadowG sm:w-20 sm:mx-2 sm:pt-0 sm:pb-0 sm:mb-8">
-          <div
-            class="flex justify-center items-center mb-4 border-b w-full pb-6 sm:mb-0 sm:pb-2 sm:pt-2">
-            <img src="../../assets/img/eth-logo.png" alt="" class="sm:w-12 sm:h-12" />
-          </div>
-          <span class="font-format">ETH</span>
-        </div>
-        <div
-          class="rounded flex flex-col justify-center items-center bg-default w-52 pt-6 pb-4 mx-6 border-b md:mx-4 hover:shadow-shadowG sm:w-20 sm:mx-2 sm:pt-0 sm:pb-0 sm:mb-8">
-          <div
-            class="flex justify-center items-center mb-4 border-b w-full pb-6 sm:mb-0 sm:pb-2 sm:pt-2">
-            <img src="../../assets/img/polygon-logo.png" alt="" class="sm:w-12 sm:h-12" />
-          </div>
-          <span class="font-format">POLYGON</span>
-        </div>
-        <div
-          class="rounded flex flex-col justify-center items-center bg-default w-52 pt-6 pb-4 mx-6 border-b md:mx-4 hover:shadow-shadowG sm:w-20 sm:mx-2 sm:pt-0 sm:pb-0 sm:mb-8">
-          <div
-            class="flex justify-center items-center mb-4 border-b w-full pb-6 sm:mb-0 sm:pb-2 sm:pt-2">
-            <img src="../../assets/img/bsc-logo.png" alt="" class="sm:w-12 sm:h-12" />
-          </div>
-          <span class="font-format">BSC</span>
-        </div>
-        <div
-          class="rounded flex flex-col justify-center items-center bg-default w-52 pt-6 pb-4 mx-6 border-b md:mx-4 hover:shadow-shadowG sm:w-20 sm:mx-2 sm:pt-0 sm:pb-0 sm:mb-8">
-          <div
-            class="flex justify-center items-center mb-4 border-b w-full pb-6 sm:mb-0 sm:pb-2 sm:pt-2">
-            <img src="../../assets/img/tron-logo.png" alt="" class="sm:w-12 sm:h-12" />
-          </div>
-          <span class="font-format">TRON</span>
-        </div>
-        <div
-          class="rounded flex flex-col justify-center items-center bg-default w-52 pt-6 pb-4 mx-6 border-b md:mx-4 hover:shadow-shadowG sm:w-20 sm:mx-2 sm:pt-0 sm:pb-0 sm:mb-8">
-          <div
-            class="flex justify-center items-center mb-4 border-b w-full pb-6 sm:mb-0 sm:pb-2 sm:pt-2">
-            <img src="../../assets/img/huobi-logo.png" alt="" class="sm:w-12 sm:h-12" />
-          </div>
-          <span class="font-format">HECO</span>
-        </div>
-      </div>
-    </div> -->
     <contact-us></contact-us>
     <about-hermit></about-hermit>
   </div>
@@ -225,6 +102,7 @@
   import imgMonitorUrl from '../../assets/img/func-logo-monitor.png'
   import imgNewsUrl from '../../assets/img/func-logo-news.png'
   import imgIdentificationUrl from '../../assets/img/func-logo-identification.png'
+  import { NButton } from 'naive-ui'
 
   export default defineComponent({
     name: 'ProductEagleEye',
@@ -235,6 +113,7 @@
       ContactUs,
       BoardItem,
       FunctionCard,
+      NButton,
     },
     setup() {
       // const { t } = useI18n()

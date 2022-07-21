@@ -7,7 +7,7 @@
 export default {
   app: '官网',
   header: {
-    research: 'Resources',
+    resource: 'Resources',
     service: 'Service',
     product: 'Product',
     aboutUs: 'About Us',

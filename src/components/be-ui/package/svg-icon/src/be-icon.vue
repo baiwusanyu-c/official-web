@@ -63,8 +63,8 @@
 </script>
 
 <template>
-  <div class="be-icon" :class="spinClass" v-on="$attrs">
-    <svg class="be-icon--container" :width="width" :height="height" aria-hidden="true">
+  <div class="be-icon-container" :class="spinClass" v-on="$attrs">
+    <svg class="be-icon" :width="width" :height="height" aria-hidden="true">
       <use :xlink:href="`#${iconName}`" :fill="color" />
     </svg>
   </div>

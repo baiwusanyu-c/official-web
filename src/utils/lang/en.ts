@@ -39,7 +39,7 @@ export default {
   header: {
     nav: 'Navigation',
     home: 'Home',
-    research: 'Resources',
+    resource: 'Resources',
     aboutUs: 'About Us',
     requestUs: 'Request a Quote',
     login: 'Login',
