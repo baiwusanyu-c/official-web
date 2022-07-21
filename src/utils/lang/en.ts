@@ -30,7 +30,7 @@ export default {
   page: 'Pages',
   projectList: {
     project1: 'Smart contract audit',
-    project2: 'Blockchain platform audit',
+    project2: 'Blockchain security audit',
     project3: 'VaaS',
     project4: 'EagleEye',
     project5: 'Cryptocurrency Tracing',
@@ -49,7 +49,7 @@ export default {
     },
     serviceStr: {
       service1: 'Smart Contract Audit',
-      service2: 'Blockchain Platform Audit',
+      service2: 'Blockchain Security Audit',
     },
     productStr: {
       product1: 'VaaS',
@@ -77,7 +77,7 @@ export default {
     title1: 'SECURING THE',
     title2: 'BLOCKCHAIN ECOSYSTEM',
     mgtitle1: 'Smart contract audit',
-    mgtitle2: 'Blockchain platform audit',
+    mgtitle2: 'Blockchain security audit',
     mgtitle3: 'VaaS',
     mgtitle4: 'EagleEye',
     titleCard1: 'A Full Analysis of the MonoX Attack',
@@ -93,7 +93,7 @@ export default {
     serviceIc4: 'Tokens Contracts',
     serviceIc5: 'Other Customized Smart Contracts',
 
-    serviceTitle2: 'Blockchain Platform Audit',
+    serviceTitle2: 'Blockchain Security Audit',
     serviceInfo2: `Beosin offers a comprehensive audit service of Layer 1 and Layer 2 blockchain platforms with three options.  They are Black Box, Grey Box, and White Box audits. The audit covers all aspects of platform architecture and functionalities, including block production, node communication, consensus algorithm, and governance logic. The audit report includes recommendations on fixing identified issues.`,
     serviceTitle3: 'On-chain Asset Tracing',
     serviceInfo3: `Beosin Cryptocurrency Tracing service helps clients prevent cryptocurrency threats such as scams, ransom, assets transferred into Tornado Cash, and other security incidents and theft cases.`,
@@ -142,7 +142,7 @@ export default {
   // djd service-security
   serviceSecurity: {
     pageHead: {
-      textBig: 'Blockchain Platform Audit',
+      textBig: 'Blockchain Security Audit',
       textSmall: 'Multi-dimensional, Multi-round, and Multi-way audit to secure blockchains',
     },
     search: {
@@ -372,7 +372,7 @@ export default {
       vaas: 'Vaas',
       eye: 'EagleEye',
       audit: 'Smart Contract Audit',
-      platform: 'Blockchain Platform Audit',
+      platform: 'Blockchain Security Audit',
       Tracing: 'Tracing',
     },
     company: {
@@ -439,7 +439,7 @@ export default {
     },
     eagle: {
       title: 'EagleEye',
-      subTitle: 'Provide Dapp operators with project intelligence and real-time risk alerts',
+      subTitle: 'Security Assessment, Risk Transactions Identification, and Security Sentiment',
       funcDisplay: 'EagleEye Project Dashboard',
       desc: 'EagleEye provides 24by7 blockchain security monitoring and notification services. It sends customers real-time security alerts and warnings when it detects risks like hacker attacks, frauds, flash loans, rug pulls through on-chain and off-chain data analysis, and multi-dimensional security assessments.',
 
