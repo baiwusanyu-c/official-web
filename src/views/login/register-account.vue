@@ -49,12 +49,14 @@
         <span v-show="emailSent && !sending" style="color: #606266">{{ sendSeconds }}s</span>
       </div>
     </div>
-    <be-button
+    <n-button
       size="large"
-      custom-class="login-btn linear-l-r font-bold text-lg w-full mb-8 mx-auto md:mb-4 lg125:mb-4"
+      :bordered="false"
+      style="font-weight: 700"
+      class="login-btn linear-l-r font-bold text-lg w-full mb-8 mx-auto md:mb-4 lg125:mb-4"
       @click="register">
       <span class="font-format text-black">{{ $t('lang.login.register') }}</span>
-    </be-button>
+    </n-button>
     <span
       class="text-gray-500 cursor-pointer font-format"
       style="text-decoration: underline"
@@ -71,8 +73,10 @@
   import { verEmail } from '../../utils/common'
   import composition from '../../utils/mixin/common-func'
   import { Base64 } from 'js-base64'
+  import { NButton } from 'naive-ui'
   export default defineComponent({
     name: 'RegisterAccount',
+    components: { NButton },
     emits: ['showChange'],
     setup(props, ctx) {
       const { message } = composition()

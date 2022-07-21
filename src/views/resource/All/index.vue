@@ -44,7 +44,7 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent } from 'vue'
+  import { defineComponent, ref } from 'vue'
   import { useRouter } from 'vue-router'
   // import mockBanner from '@/assets/img/mock-banner.png'
   // import mockResourceBanner from '@/assets/img/mock-resource-banner.png'
@@ -53,30 +53,45 @@
   import downloadFile, { previewFile } from '@/utils/download-file'
   import { combineLink, preToText } from '../util'
   import { NButton } from 'naive-ui'
+  import { getBlogNewsList } from '../../../api/research'
 
   export default defineComponent({
     name: 'SearchAll',
     components: { NButton, CustomPagination },
-    setup() {
-      const {
-        data: articles,
-        params,
-        pages,
-        setParams,
-      } = useGetArticle({
+    async setup() {
+      // const {
+      //   data: articles,
+      //   params,
+      //   pages,
+      //   setParams,
+      // } = useGetArticle({
+      //   pageNum: 1,
+      //   pageSize: 6,
+      //   type: null,
+      // })
+      const params = ref({
         pageNum: 1,
         pageSize: 6,
         type: null,
       })
 
-      const { data: resources } = useGetArticle({
-        pageNum: 1,
-        pageSize: 3,
-        type: 7,
-      })
+      const articles = ref([])
+      const total = ref(false)
+      const res: any = await getBlogNewsList(params.value as any)
+      if (res.code === 200 && res.rows) {
+        articles.value = res.rows
+        total.value = res.total
+      }
+      console.log(articles.value)
+
+      // const { data: resources } = useGetArticle({
+      //   pageNum: 1,
+      //   pageSize: 3,
+      //   type: 7,
+      // })
 
       const onUpdatePage = (page: number) => {
-        setParams({ pageNum: page })
+        // setParams({ pageNum: page })
       }
 
       const router = useRouter()
@@ -103,10 +118,10 @@
       return {
         articles,
         params,
-        resources,
+        resources: [],
         goDetail,
         onUpdatePage,
-        pages,
+        pages: 3,
         handlePreview,
         handleDownload,
         preToText,

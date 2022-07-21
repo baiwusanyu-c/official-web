@@ -6,15 +6,14 @@ const useGetArticle = initParams => {
   const total = ref(0)
   const params = ref(initParams)
   const loading = ref(false)
-  const refresh = params => {
+  const refresh = async params => {
     loading.value = true
-    getBlogNewsList(params).then((res: any) => {
-      if (res.code === 200 && res.rows) {
-        data.value = res.rows
-        total.value = res.total
-      }
-      loading.value = false
-    })
+    const res: any = await getBlogNewsList(params)
+    if (res.code === 200 && res.rows) {
+      data.value = res.rows
+      total.value = res.total
+    }
+    loading.value = false
   }
 
   watch(params, () => {
@@ -29,9 +28,14 @@ const useGetArticle = initParams => {
     params.value = { ...params.value, ...param }
   }
 
-  onMounted(() => {
-    setParams(params.value)
-  })
+  // const res: any = await getBlogNewsList(params.value)
+  // if (res.code === 200 && res.rows) {
+  //   data.value = res.rows
+  //   total.value = res.total
+  // }
+
+  // setParams(params.value)
+  refresh(initParams)
 
   return {
     data,

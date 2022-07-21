@@ -30,11 +30,7 @@
 
     <div class="board-main">
       <!-- <All /> -->
-      <n-tabs
-        v-if="tabTypes.length"
-        class="card-tabs"
-        :value="currType"
-        :on-update:value="handleChange">
+      <n-tabs class="card-tabs" :value="currType" :on-update:value="handleChange">
         <n-tab-pane name="" tab="All">
           <All />
         </n-tab-pane>

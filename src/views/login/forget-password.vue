@@ -64,12 +64,14 @@
         <span v-show="emailSent && !sending" style="color: #606266">{{ sendSeconds }}s</span>
       </div>
     </div>
-    <be-button
+    <n-button
       size="large"
-      custom-class="login-btn linear-l-r font-bold text-lg w-full mb-4 mx-auto "
+      :bordered="false"
+      style="font-weight: 700"
+      class="login-btn linear-l-r font-bold text-lg w-full mb-4 mx-auto"
       @click="updatePassword">
       <span class="font-format text-black">{{ $t('lang.login.confirm') }}</span>
-    </be-button>
+    </n-button>
     <span
       class="text-gray-500 cursor-pointer font-format"
       style="text-decoration: underline"
@@ -85,9 +87,11 @@
   import { useI18n } from 'vue-i18n'
   import { verEmail } from '../../utils/common'
   import composition from '../../utils/mixin/common-func'
+  import { NButton } from 'naive-ui'
   import { Base64 } from 'js-base64'
   export default defineComponent({
     name: 'ForgetPassword',
+    components: { NButton },
     emits: ['showChange'],
     setup(props, ctx) {
       const { message } = composition()
