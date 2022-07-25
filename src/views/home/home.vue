@@ -246,7 +246,7 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, ref, reactive, onMounted, computed } from 'vue'
+  import { defineComponent, ref, reactive } from 'vue'
   import { useI18n } from 'vue-i18n'
   import Hexagon from '../../components/hexagon.vue'
   import HHomeSwiper from '../../components/h-home-swiper.vue'
@@ -273,6 +273,38 @@
     url?: string
     id: string
   }
+
+  const customerList = [
+    'eth',
+    'polygon',
+    'solrnr',
+    'binance',
+    'tron',
+    'polkadot',
+    'uniswap',
+    'ZRX',
+    'crust',
+    'oneswap',
+    'ankr',
+    'ENJ',
+    'binnace',
+    'kucoin',
+    'bitmart',
+    'GEMINI',
+    'OKEX',
+    'huobi',
+  ]
+  const scienceDict = [
+    'science01',
+    'science02',
+    'science03',
+    'science04',
+    'science01-hover',
+    'science02-hover',
+    'science03-hover',
+    'science04-hover',
+  ]
+
   export default defineComponent({
     name: 'HomePage',
     components: {
@@ -286,53 +318,16 @@
       DynamicInfo,
       NButton,
     },
-    setup() {
+    async setup() {
       const { t } = useI18n()
-      const { message } = composition()
       const titleCardList = ref<Array<IBlobList>>([])
-      const getBlogNewsData = (): void => {
-        getBlogNews()
-          .then((res: any) => {
-            if (res.code === 200 && res.rows) {
-              titleCardList.value = res.rows
-            }
-          })
-          .catch(err => {
-            message('warning', err.message, 'hermit-msg')
-            console.error(err)
-          })
+      const res: any = await getBlogNews()
+      if (res.code === 200 && res.rows) {
+        titleCardList.value = res.rows
       }
+
       /*************************************** 一些动态、批量的img加载读取 ******************************/
-      const customerList = [
-        'eth',
-        'polygon',
-        'solrnr',
-        'binance',
-        'tron',
-        'polkadot',
-        'uniswap',
-        'ZRX',
-        'crust',
-        'oneswap',
-        'ankr',
-        'ENJ',
-        'binnace',
-        'kucoin',
-        'bitmart',
-        'GEMINI',
-        'OKEX',
-        'huobi',
-      ]
-      const scienceDict = [
-        'science01',
-        'science02',
-        'science03',
-        'science04',
-        'science01-hover',
-        'science02-hover',
-        'science03-hover',
-        'science04-hover',
-      ]
+
       const customerImgList = reactive<object[]>([])
       const scienceList = reactive<object[]>([])
       const getImage = (): void => {
@@ -352,16 +347,6 @@
           })
         })
       }
-      const isScienceHover = ref<boolean>(false)
-      const scienceImg = computed(() => {
-        return function (index: number) {
-          if (scienceInfoList.value[index].isHover) {
-            return (scienceList[index + 4] as { img: string })?.img
-          } else {
-            return (scienceList[index] as { img: string })?.img
-          }
-        }
-      })
       const scienceInfoList = ref<Array<ISelect>>([
         {
           isHover: false,
@@ -423,22 +408,9 @@
           name: t('lang.home.swiperUser5'),
         },
       ])
-      const screenWidth = !import.meta.env.SSR && window.screen.width
-      let isM = ref<boolean>(false)
-      const getScreenWidth = (): void => {
-        if (100 < screenWidth && screenWidth < 1278) {
-          isM.value = true
-        }
-      }
-      onMounted(() => {
-        getBlogNewsData()
-        getImage()
-        getScreenWidth()
-      })
+
+      getImage()
       return {
-        isM,
-        isScienceHover,
-        scienceImg,
         swiperList,
         routerPush,
         openDialog,

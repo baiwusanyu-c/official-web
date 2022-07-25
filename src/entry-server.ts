@@ -10,12 +10,11 @@ const render = async (url: string, manifest: Manifest, ctx: SSRContext) => {
   router.push(url)
   await router.isReady()
 
+  const route = router.currentRoute.value
   const html = await renderToString(app, ctx)
-  console.log('url', url, html.length)
   const links = renderPreloadLinks(ctx.modules, manifest)
-  const ctx2 = useSSRContext()
-  console.log('ctx2', ctx2)
-  return [html, links]
+  useSSRContext()
+  return [html, route, links]
 }
 
 function renderPreloadLinks(modules: string[], manifest: Manifest) {

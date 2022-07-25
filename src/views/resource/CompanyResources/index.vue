@@ -30,8 +30,8 @@
   // import { useRouter } from 'vue-router'
   // import mockResourceBanner from '@/assets/img/mock-resource-banner.png'
   import useGetArticle from '../bisiness-hooks/useGetArticle'
-  import downloadFile, { previewFile } from '@/utils/download-file'
-  import { combineLink } from '../util'
+  import downloadFile from '@/utils/download-file'
+  import { combineLink, goPreviewPage } from '../util'
   import CustomPagination from '../components/custom-pagination/index.vue'
   import { NButton } from 'naive-ui'
 
@@ -42,8 +42,12 @@
       type: {
         type: Number,
       },
+      pageSize: {
+        type: Number,
+        default: 12,
+      },
     },
-    setup(props) {
+    async setup(props) {
       // const articles = [
       //   {
       //     coverImg: mockResourceBanner,
@@ -70,7 +74,8 @@
       }
 
       const onPreview = (resource: any) => {
-        previewFile(combineLink(resource.url))
+        // previewFile(combineLink(resource.url))
+        goPreviewPage(resource)
       }
 
       const {
@@ -78,9 +83,9 @@
         params,
         setParams,
         pages,
-      } = useGetArticle({
+      } = await useGetArticle({
         pageNum: 1,
-        pageSize: 12,
+        pageSize: props.pageSize,
         type: props.type,
       })
 

@@ -82,9 +82,9 @@
         </div>
       </div>
       <template #action>
-        <be-button custom-class="sure-btn" round="3" @click="submit">
+        <n-button color="#02fbbb" text-color="#000" class="sure-btn" @click="submit">
           {{ $t('lang.sure') }}
-        </be-button>
+        </n-button>
       </template>
     </n-modal>
   </div>
@@ -92,7 +92,7 @@
 
 <script lang="ts">
   import { defineComponent, ref, watch } from 'vue'
-  import { NInput, NSelect, NModal } from 'naive-ui'
+  import { NInput, NSelect, NModal, NButton } from 'naive-ui'
   import { IOption } from '../utils/types'
   import { useI18n } from 'vue-i18n'
   import { createQuote, IQuote } from '../api/quote'
@@ -106,6 +106,7 @@
       NSelect,
       NModal,
       NInput,
+      NButton,
     },
     setup() {
       const { message, codeUrl, getCode, uuid } = composition()
@@ -237,6 +238,7 @@
 
   #request_quote_dialog .sure-btn {
     font-family: SourceHanSansNormal, sans-serif !important;
+    border-radius: 3px;
 
     @apply bg-mainG text-black w-28 hover:bg-mainGHover;
   }

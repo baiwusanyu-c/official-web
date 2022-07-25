@@ -148,21 +148,26 @@
         </li>
       </ul>
     </div>
-    <trace-form> </trace-form>
+    <trace-form v-if="!ssr"></trace-form>
   </main>
 </template>
 
 <script setup lang="ts">
+  import TraceForm from './includes/trace-form.vue'
   import { scale } from '@/utils/scale'
   import { onMounted, onUnmounted } from 'vue'
   import { NButton } from 'naive-ui'
+  const toForm = (): void => {
+    document.querySelector('.trace-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+  const ssr = import.meta.env.SSR
   onMounted(() => {
     const unbind = scale(
       [
         [0, 750],
         [750, 1260],
       ],
-      document.querySelector('.be-main')
+      document.querySelector('.be-main') as any
     )
     onUnmounted(unbind)
   })

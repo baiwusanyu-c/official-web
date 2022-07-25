@@ -65,7 +65,7 @@
 
   const { message } = composition()
   const { t } = useI18n()
-  const userInfo = getStore('userInfo') && JSON.parse(getStore('userInfo'))
+  const userInfo = getStore('userInfo') && JSON.parse(getStore('userInfo') as any)
   const rules = {
     message2: { required: true, message: 'Please enter Stolen transaction hash' },
     email: [
@@ -83,7 +83,7 @@
       message: t('lang.login.tipVerCode'),
     },
   }
-  const form = reactive({
+  const form: any = reactive({
     name: '',
     email: userInfo?.username || '',
     message1: '',

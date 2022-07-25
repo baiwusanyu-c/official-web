@@ -20,7 +20,6 @@
 
 <script lang="ts">
   import { defineComponent } from 'vue'
-  // import mockBanner from '@/assets/img/mock-banner.png'
   import CustomPagination from '../../components/custom-pagination/index.vue'
   import { preToText } from '../../util'
 
@@ -38,49 +37,10 @@
     },
     emits: ['onItemClick'],
     setup(props, context) {
-      // const articles = [
-      //   {
-      //     banner: mockBanner,
-      //     title: 'H4-How to Steal User’s Signature in NFT Phishing Attacks',
-      //     description: 'On February 21, 2022, Opensea suffered a phishing attack, and some users have had their NFTs stolen due to the approval they signed to the',
-      //     date: 'March 25, 2019'
-      //   },
-      //   {
-      //     banner: mockBanner,
-      //     title: 'H4-How to Steal User’s Signature in NFT Phishing Attacks',
-      //     description: 'On February 21, 2022, Opensea suffered a phishing attack, and some users have had their NFTs stolen due to the approval they signed to the',
-      //     date: 'March 25, 2019'
-      //   },
-      //   {
-      //     banner: mockBanner,
-      //     title: 'H4-How to Steal User’s Signature in NFT Phishing Attacks',
-      //     description: 'On February 21, 2022, Opensea suffered a phishing attack, and some users have had their NFTs stolen due to the approval they signed to the',
-      //     date: 'March 25, 2019'
-      //   },
-      //   {
-      //     banner: mockBanner,
-      //     title: 'H4-How to Steal User’s Signature in NFT Phishing Attacks',
-      //     description: 'On February 21, 2022, Opensea suffered a phishing attack, and some users have had their NFTs stolen due to the approval they signed to the',
-      //     date: 'March 25, 2019'
-      //   },
-      //   {
-      //     banner: mockBanner,
-      //     title: 'H4-How to Steal User’s Signature in NFT Phishing Attacks',
-      //     description: 'On February 21, 2022, Opensea suffered a phishing attack, and some users have had their NFTs stolen due to the approval they signed to the',
-      //     date: 'March 25, 2019'
-      //   },
-      //   {
-      //     banner: mockBanner,
-      //     title: 'H4-How to Steal User’s Signature in NFT Phishing Attacks',
-      //     description: 'On February 21, 2022, Opensea suffered a phishing attack, and some users have had their NFTs stolen due to the approval they signed to the',
-      //     date: 'March 25, 2019'
-      //   }
-      // ]
       const onItemClick = (item: any) => {
         context.emit('onItemClick', item)
       }
       return {
-        // articles
         onItemClick,
         preToText,
       }

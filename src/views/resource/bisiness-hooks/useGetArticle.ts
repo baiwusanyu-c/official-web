@@ -1,7 +1,7 @@
-import { computed, onMounted, ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { getBlogNewsList } from '../../../api/research'
 
-const useGetArticle = initParams => {
+const useGetArticle = async initParams => {
   const data = ref([])
   const total = ref(0)
   const params = ref(initParams)
@@ -28,14 +28,7 @@ const useGetArticle = initParams => {
     params.value = { ...params.value, ...param }
   }
 
-  // const res: any = await getBlogNewsList(params.value)
-  // if (res.code === 200 && res.rows) {
-  //   data.value = res.rows
-  //   total.value = res.total
-  // }
-
-  // setParams(params.value)
-  refresh(initParams)
+  await refresh(initParams)
 
   return {
     data,

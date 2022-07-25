@@ -1,5 +1,5 @@
 <template>
-  <div class="pagination">
+  <div v-if="!ssr" class="pagination">
     <n-pagination :page="page" :on-update:page="updatePage" :page-count="pages" />
   </div>
 </template>
@@ -30,6 +30,7 @@
         window.scrollTo(0, 0)
       }
       return {
+        ssr: import.meta.env.SSR,
         updatePage,
       }
     },

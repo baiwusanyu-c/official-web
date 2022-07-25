@@ -135,13 +135,12 @@
   import composition from '../utils/mixin/common-func'
   export default defineComponent({
     name: 'HFooterBigger',
-    setup() {
+    async setup() {
       const { openWin } = composition()
 
       const tabTypes = ref([])
-      getArticleTabTypes().then(res => {
-        tabTypes.value = res.data
-      })
+      const res = await getArticleTabTypes()
+      tabTypes.value = res.data
 
       return {
         linkConfig,

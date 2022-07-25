@@ -6,9 +6,10 @@
   import { defineComponent, onMounted } from 'vue'
   import * as echarts from 'echarts/core'
   import { GaugeChart } from 'echarts/charts'
+  import { GridComponent } from 'echarts/components'
   import { CanvasRenderer } from 'echarts/renderers'
 
-  echarts.use([GaugeChart, CanvasRenderer])
+  echarts.use([GaugeChart, CanvasRenderer, GridComponent])
   export default defineComponent({
     name: 'ScoreGaugeChart',
     props: {

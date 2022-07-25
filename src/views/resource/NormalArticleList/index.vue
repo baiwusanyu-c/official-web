@@ -9,9 +9,9 @@
 
 <script lang="ts">
   import { defineComponent } from 'vue'
-  import { useRouter } from 'vue-router'
   import CustomCardList from '../components/custom-card-list/index.vue'
   import useGetArticle from '../bisiness-hooks/useGetArticle'
+  import { goPreviewPage } from '../util'
 
   export default defineComponent({
     name: 'NormalArticleList',
@@ -20,11 +20,15 @@
       type: {
         type: Number,
       },
+      pageSize: {
+        type: Number,
+        default: 12,
+      },
     },
-    setup(props) {
-      const { data, params, pages, setParams } = useGetArticle({
+    async setup(props) {
+      const { data, params, pages, setParams } = await useGetArticle({
         pageNum: 1,
-        pageSize: 12,
+        pageSize: props.pageSize,
         type: props.type,
       })
 
@@ -32,13 +36,8 @@
         setParams({ pageNum: page })
       }
 
-      const router = useRouter()
       const onItemClick = (item: any) => {
-        if (item.type === 1 && item.url) {
-          window.open(item.url)
-        } else {
-          router.push({ path: '/index/article-preview', query: { id: item.id } })
-        }
+        goPreviewPage(item)
       }
 
       return {

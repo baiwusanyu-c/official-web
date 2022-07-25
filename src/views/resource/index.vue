@@ -29,8 +29,17 @@
     </div>
 
     <div class="board-main">
-      <!-- <All /> -->
-      <n-tabs class="card-tabs" :value="currType" :on-update:value="handleChange">
+      <!-- 由于在服务端n-tabs组件渲染（document is not defined）有异常，故此处（v-if="ssr"）单独绕开该组件 -->
+      <div v-if="ssr">
+        <!-- 获取所有纯文章 -->
+        <All :page-size="9999" />
+        <!-- 深度报告内除了文章可能有pdf，故单独请求 -->
+        <NormalArticleList :type="1" :page-size="999" />
+        <!-- 获取公司资源（纯pdf） -->
+        <CompanyResources :type="7" :page-size="999" />
+      </div>
+
+      <n-tabs v-if="!ssr" class="card-tabs" :value="currType" :on-update:value="handleChange">
         <n-tab-pane name="" tab="All">
           <All />
         </n-tab-pane>
@@ -87,17 +96,32 @@
       ArticleSwipper,
       NButton,
     },
-    setup() {
+    async setup() {
       const route = useRoute()
-      const { data: articles } = useGetArticle({
+
+      const currType = ref(route.query && route.query.type ? Number(route.query.type) : '')
+      watch(
+        () => route.query,
+        () => {
+          currType.value = route.query && route.query.type ? Number(route.query.type) : ''
+        }
+      )
+
+      const { data: articles } = await useGetArticle({
         pageNum: 1,
         pageSize: 9999,
         upFlag: true,
       })
 
-      const currentArticle = ref({})
+      // eslint-disable-next-line vue/no-watch-after-await
+      watch(
+        () => articles.value.length,
+        () => {
+          currentArticle.value = articles.value[0]
+        }
+      )
 
-      const currType = ref(route.query && route.query.type ? Number(route.query.type) : '')
+      const currentArticle = ref({})
 
       const goLearnMore = () => {
         if (currentArticle.value.type === 1 && currentArticle.value.url) {
@@ -109,22 +133,8 @@
       }
 
       const tabTypes = ref([])
-      getArticleTabTypes().then(res => {
-        tabTypes.value = res.data
-      })
-
-      watch(
-        () => route.query,
-        () => {
-          currType.value = route.query && route.query.type ? Number(route.query.type) : ''
-        }
-      )
-      watch(
-        () => articles.value.length,
-        () => {
-          currentArticle.value = articles.value[0]
-        }
-      )
+      const res = await getArticleTabTypes()
+      tabTypes.value = res.data
 
       const onSlideChange = item => {
         currentArticle.value = item
@@ -142,6 +152,7 @@
         handleChange,
         goLearnMore,
         tabTypes,
+        ssr: import.meta.env.SSR,
       }
     },
   })

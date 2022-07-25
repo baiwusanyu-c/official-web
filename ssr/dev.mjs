@@ -21,16 +21,25 @@ server.use(viteServer.middlewares)
 server.use('*', async (req, res) => {
   try {
     const url = req.originalUrl
-    if (url === '/undefined') return
+    if (url === '/index/undefined' || url === '/undefined') return
     // always read fresh template in dev
     let template = fs.readFileSync(resolve('index.html'), 'utf-8')
     template = await viteServer.transformIndexHtml(url, template)
 
     const render = (await viteServer.ssrLoadModule('./src/entry-server.ts')).render
     const ctx = {}
-    const [appHtml] = await render(url, {}, ctx)
-    const html = template.replace('<!--app-html-->', appHtml)
-    template.replace(`<title>${ctx.title}</title>`)
+    const [appHtml, route] = await render(url, {}, ctx)
+    const html = template
+      .replace('<!--app-html-->', appHtml)
+      .replace(`<title></title>`, `<title>${route.meta.title || ''}</title>`)
+      .replace(
+        `<meta name="keywords" content="" />`,
+        `<meta name="keywords" content="${route.meta.keywords || ''}" />`
+      )
+      .replace(
+        `<meta name="description" content="" />`,
+        `<meta name="description" content="${route.meta.description || ''}" />`
+      )
     res.set({ 'Content-Type': 'text/html' }).end(html)
   } catch (e) {
     console.log(e)

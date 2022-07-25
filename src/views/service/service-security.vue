@@ -220,7 +220,7 @@
 
 <script lang="ts">
   // import hServiceSwiper from '../../components/h-service-swiper.vue'
-  import { computed, defineComponent, getCurrentInstance, ref, watch } from 'vue'
+  import { computed, defineComponent, getCurrentInstance, onMounted, ref, watch } from 'vue'
   import { InputProps, NInput, NDataTable } from 'naive-ui'
   import { useI18n } from 'vue-i18n'
   import AboutHermit from '../../components/about-hermit.vue'
@@ -261,7 +261,7 @@
         }
         ;(curInst?.refs.verCodeDialog as IDialog).isShow = true
       }
-      const screenWidth = window.screen.width
+      const screenWidth = !import.meta.env.SSR && window.screen.width
       const createColumns = () => {
         let noW = 86
         if (100 < screenWidth && screenWidth < 1278) {
@@ -473,7 +473,9 @@
           isM.value = true
         }
       }
-      getScreenWidth()
+      onMounted(() => {
+        getScreenWidth()
+      })
       return {
         isM,
         customersNum,

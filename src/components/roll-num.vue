@@ -98,7 +98,7 @@
       })
       // 获取系统信息
       // 浏览器信息
-      const browserInfo = uaMatch(navigator.userAgent.toLowerCase())
+      const browserInfo = !import.meta.env.SSR && uaMatch(navigator.userAgent.toLowerCase())
       // 设置样式
       const setMarkItem = computed(() => {
         return function (item) {

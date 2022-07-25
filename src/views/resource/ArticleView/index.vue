@@ -13,35 +13,16 @@
         </div>
         <div class="ql-snow">
           <h1 class="blog-title">{{ information.title }}</h1>
-
-          <iframe
-            v-if="information.type === 1 && information.url"
-            class="iframe-content"
-            :src="pdfUrl"
-            frameborder="0"></iframe>
-          <!-- <iframe
-            v-if="information.type === 1 && information.url"
-            class="iframe-content"
-            src="1.pdf"
-            frameborder="0"></iframe> -->
-          <!-- <n-button
-            
-            color="#1CD2A9"
-            text-color="#18304E"
-            @click="look"
-            >查看资源</n-button
-          > -->
-          <!-- eslint-disable-next-line vue/no-v-html -->
-          <div v-else class="article-preview-area ql-editor" v-html="information.content"></div>
+          <div class="article-preview-area ql-editor" v-html="information.content"></div>
         </div>
       </div>
       <div class="article-recommend">
         <h4>Related Project</h4>
-        <div v-if="score" class="score-area">
+        <div v-if="project.score" class="score-area">
           <!-- <p class="ve-chain-logo"><img src="@/assets/img/ve-chain-logo.png" /></p> -->
-          <p class="ve-chain-logo score-title"><img :src="logo" />{{ name }}</p>
+          <p class="ve-chain-logo score-title"><img :src="project.logo_url" />{{ project.name }}</p>
           <div class="score-progress">
-            <ScoreGaugeChart :value="score" style="width: 100%; height: 300px" />
+            <ScoreGaugeChart :value="project.score" style="width: 100%; height: 300px" />
           </div>
           <n-button color="#1CD2A9" text-color="#18304E" style="font-weight: 500">
             <a href="http://eagleeye.beosin.com" target="_blank">Learn More</a>
@@ -66,7 +47,7 @@
             </div>
           </div>
           <ul class="list">
-            <li v-for="item in likeList" :key="item.id" @click="goPriview(item)">
+            <li v-for="item in likeList" :key="item.id" @click="goPreviewPage(item)">
               <div class="list-image"><img :src="item.coverImg" /></div>
               <div class="list-item-right">
                 <h5 class="line-clamp line-clamp-2">{{ item.title }}</h5>
@@ -98,88 +79,73 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, onMounted, ref } from 'vue'
+  import { defineComponent, ref, defineAsyncComponent } from 'vue'
   import { useRoute } from 'vue-router'
   import { NButton, NIcon } from 'naive-ui'
   import { ChevronForward } from '@vicons/ionicons5'
-  import ScoreGaugeChart from './ScoreGaugeChart/index.vue'
-  import { hermitGetArticle, guessYouLikeList, getProjectDetail } from '@/api/research'
+  import { hermitGetArticle, guessYouLikeList, getProjectDetail } from '@/api/research.ts'
   import composition from '@/utils/mixin/common-func'
   import copy from '@/utils/copy'
-  import { openUrl, preToText, combineLink } from '../util'
-  import { previewFile } from '@/utils/download-file'
+  import { openUrl, preToText, goPreviewPage } from '../util'
   import './cover-quill-text-style.css'
   import '../common.less'
 
   const { message } = composition()
+  const setDocumentInformation = (route: any, information: any) => {
+    if (!import.meta.env.SSR) {
+      document.title = information.value.title
+      document
+        .querySelector('meta[name="description"]')
+        ?.setAttribute('content', information.value.desc)
+    }
+    route.meta.title = information.value.title
+    route.meta.description = information.value.desc
+  }
 
   export default defineComponent({
     name: 'ArticleView',
-    components: { NButton, NIcon, ScoreGaugeChart, ChevronForward },
-    setup() {
+    components: {
+      NButton,
+      NIcon,
+      ChevronForward,
+      ScoreGaugeChart: defineAsyncComponent(() => import('./ScoreGaugeChart/index.vue')), // 直接引入ssr会报错
+    },
+    async setup() {
       const route = useRoute()
       const information = ref<any>({})
       const likeList = ref([])
-      const score = ref<any>(0)
-      const name = ref('')
-      const logo = ref('')
-      onMounted(() => {
-        hermitGetArticle({ id: route.query.id }).then(res => {
-          console.log(res)
-          information.value = res.data
-          getPdfUrl(res.data.url)
-          guessYouLikeList({ id: route.query.id, type: res.data.type }).then(res => {
-            likeList.value = res.data
-          })
-          const relationProjectId = res.data.relationProjectId
-          relationProjectId &&
-            getProjectDetail(relationProjectId).then(res => {
-              score.value = res.data.score
-              name.value = res.data.name
-              logo.value = res.data.logo_url
-            })
-        })
-      })
+      const project = ref({})
 
+      const res = await hermitGetArticle({ id: route.query.id })
+      information.value = res.data
+      setDocumentInformation(route, information)
+      const likes = await guessYouLikeList({ id: route.query.id, type: res.data.type })
+      likeList.value = likes.data
+      const relationProjectId = res.data.relationProjectId
+      if (relationProjectId) {
+        const projectDetail = await getProjectDetail(relationProjectId)
+        project.value = projectDetail.data
+      }
       const handleShare = () => {
         const link = window.location.href
         copy(link, () => {
           message('success', 'Copied to pasteboard', 'hermit-msg')
         })
       }
-
-      const goPriview = (item: any) => {
-        if (item.type === 1 && item.url) {
-          window.open(item.url)
-        } else {
-          const host = '/#/index/article-preview?id=' + item.id
-          openUrl(host, { target: '_blank' })
-        }
-      }
       const goMoreList = (type: number) => {
-        const host = '/#/index/resource?type=' + type
+        const host = '/index/resource?type=' + type
         openUrl(host, { target: '_blank' })
-      }
-      const look = () => {
-        previewFile(combineLink(information.value.url))
-      }
-      const pdfUrl = ref('')
-      const getPdfUrl = (url: string) => {
-        pdfUrl.value = combineLink(url)
       }
 
       return {
         information,
-        name,
-        score,
-        logo,
         handleShare,
         likeList,
-        goPriview,
+        goPreviewPage,
         goMoreList,
         preToText,
-        look,
-        pdfUrl,
+        project,
+        ssr: import.meta.env.SSR,
       }
     },
   })

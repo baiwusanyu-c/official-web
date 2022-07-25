@@ -1,3 +1,5 @@
+import { Router } from 'vue-router'
+
 // import config from '../../enums/config'
 export const combineLink = (uri: string) => {
   // const href = window.location.host
@@ -11,6 +13,19 @@ export const openUrl = (url, { target }) => {
   aEl.href = url
   aEl.target = target
   aEl.click()
+}
+
+export const goPreviewPage = (item: any, router?: Router) => {
+  if (item.type === 1 && item.url) {
+    window.open(item.url)
+  } else {
+    if (router) {
+      router.push({ path: '/index/article-preview', query: { id: item.id } })
+    } else {
+      const host = '/index/article-preview?id=' + item.id
+      openUrl(host, { target: '_blank' })
+    }
+  }
 }
 
 export const preToText = (date: any) => {

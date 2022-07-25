@@ -14,6 +14,7 @@
         <n-button
           color="#fff"
           class="contact-btn h-btn-txt-black text-black font-bold w-40 ml-20 sm:ml-0"
+          text-color="#000"
           size="large"
           @click="openDialog">
           <span class="font-format text-2xl leading-loose sm:text-xl">

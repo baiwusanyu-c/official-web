@@ -2,7 +2,7 @@
   <div class="tab-pane-container">
     <div class="article">
       <ul class="list">
-        <li v-for="article in articles" :key="article.id" @click="goDetail(article)">
+        <li v-for="article in articles" :key="article.id" @click="goPreviewPage(article)">
           <div class="img-banner">
             <img :src="article.coverImg" />
           </div>
@@ -44,65 +44,44 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, ref } from 'vue'
-  import { useRouter } from 'vue-router'
+  import { defineComponent } from 'vue'
   // import mockBanner from '@/assets/img/mock-banner.png'
   // import mockResourceBanner from '@/assets/img/mock-resource-banner.png'
   import CustomPagination from '../components/custom-pagination/index.vue'
   import useGetArticle from '../bisiness-hooks/useGetArticle'
   import downloadFile, { previewFile } from '@/utils/download-file'
-  import { combineLink, preToText } from '../util'
+  import { combineLink, preToText, goPreviewPage } from '../util'
   import { NButton } from 'naive-ui'
-  import { getBlogNewsList } from '../../../api/research'
 
   export default defineComponent({
     name: 'SearchAll',
     components: { NButton, CustomPagination },
-    async setup() {
-      // const {
-      //   data: articles,
-      //   params,
-      //   pages,
-      //   setParams,
-      // } = useGetArticle({
-      //   pageNum: 1,
-      //   pageSize: 6,
-      //   type: null,
-      // })
-      const params = ref({
+    props: {
+      pageSize: {
+        type: Number,
+        default: 6,
+      },
+    },
+    async setup(props) {
+      const {
+        data: articles,
+        params,
+        pages,
+        setParams,
+      } = await useGetArticle({
         pageNum: 1,
-        pageSize: 6,
+        pageSize: props.pageSize,
         type: null,
       })
 
-      const articles = ref([])
-      const total = ref(false)
-      const res: any = await getBlogNewsList(params.value as any)
-      if (res.code === 200 && res.rows) {
-        articles.value = res.rows
-        total.value = res.total
-      }
-      console.log(articles.value)
-
-      // const { data: resources } = useGetArticle({
-      //   pageNum: 1,
-      //   pageSize: 3,
-      //   type: 7,
-      // })
+      const { data: resources } = await useGetArticle({
+        pageNum: 1,
+        pageSize: 3,
+        type: 7,
+      })
 
       const onUpdatePage = (page: number) => {
-        // setParams({ pageNum: page })
-      }
-
-      const router = useRouter()
-
-      const goDetail = (item: any) => {
-        if (item.type === 1 && item.url) {
-          window.open(item.url)
-        } else {
-          router.push({ path: '/index/article-preview', query: { id: item.id } })
-        }
-        // router.push({ path: '/index/article-preview', query: { id: article.id } })
+        setParams({ pageNum: page })
       }
 
       const handleDownload = (resource: any) => {
@@ -118,10 +97,10 @@
       return {
         articles,
         params,
-        resources: [],
-        goDetail,
+        resources,
+        goPreviewPage,
         onUpdatePage,
-        pages: 3,
+        pages,
         handlePreview,
         handleDownload,
         preToText,

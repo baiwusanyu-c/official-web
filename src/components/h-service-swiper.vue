@@ -50,7 +50,7 @@
       const { openWin } = composition()
       const slidesPerView = ref<number>(3)
       const spaceBetween = ref<number>(10)
-      const screenWidth = window.screen.width
+      const screenWidth = !import.meta.env.SSR && window.screen.width
       if (screenWidth > 100 && screenWidth < 1278) {
         slidesPerView.value = 3
         spaceBetween.value = 10
