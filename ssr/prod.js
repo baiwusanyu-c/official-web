@@ -4,7 +4,7 @@ const serverStatic = require('serve-static')
 const { resolve } = require('path')
 const server = express()
 const dir = resolve('./')
-const client = resolve(dir, '../client')
+const client = resolve(dir, '../dist/client')
 // use vite's connect instance as middleware
 server.use('*', (req, res, next) => {
   console.log(req.originalUrl)

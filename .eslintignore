@@ -3,3 +3,4 @@ node_modules
 /src/components/be-ui/*/__test__/
 svg-dict.ts
 package.json
+dist
