@@ -1,7 +1,7 @@
 import { createApp } from './main'
 const { app, router } = createApp()
 import { loadSvg } from 'vite-plugin-svg-transform-script'
-import { renderToString } from 'vue/server-renderer'
+// import { renderToString } from 'vue/server-renderer'
 // import '@/components/be-ui/style/index.scss'
 import 'swiper/css'
 import 'swiper/css/pagination'

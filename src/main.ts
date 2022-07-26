@@ -4,7 +4,7 @@ import BeUi from './components/be-ui'
 import { createRouter } from './router/router'
 import App from './App.vue'
 import 'virtual:windi.css'
-// import '../public/be-ui/style.css'
+import '../public/be-ui/style.css'
 // @ts-ignore
 import { i18n } from './utils/i18n'
 /**

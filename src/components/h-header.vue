@@ -10,7 +10,7 @@
       <n-drawer
         v-model:show="active"
         :width="140"
-        z-index="2000"
+        :z-index="2000"
         placement="left"
         style="top: 4em"
         class="bg-footer text-white">
@@ -310,8 +310,8 @@
         active.value = false
         router.push(path)
       }
-      const serviceMenuRef = ref(null)
-      const productMenuRef = ref(null)
+      const serviceMenuRef: any = ref(null)
+      const productMenuRef: any = ref(null)
 
       /**
        * 关闭popover
@@ -389,7 +389,7 @@
       const openDialog = (): void => {
         bus.emit('true')
       }
-      const closePoper = popover => {
+      const closePoper = (popover: any) => {
         popover.show = false
       }
       // 移動端彈出抽屜菜單

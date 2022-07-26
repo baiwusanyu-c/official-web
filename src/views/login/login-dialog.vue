@@ -1,28 +1,19 @@
 /* * @login-dialog.vue * @deprecated 移动端登录弹窗 * @author czh * @update (czh 2022/3/10) */
 <template>
-  <teleport to="body">
-    <div id="login_dialog">
-      <be-dialog
-        ref="moreNodeDialog"
-        v-model:is-show="show"
-        :titles="''"
-        layout="right"
-        custom-class="font-format"
-        esc-exit
-        :is-drag="false"
-        :is-open-modal="true">
-        <template #headerIcon>
-          <be-icon icon="deleteIc" @click="show = false"></be-icon>
-        </template>
+  <n-modal ref="moreNodeDialog" v-model:show="show" class="font-format" close-on-esc esc-exit>
+    <div class="modal-container">
+      <h4 class="modal-header">
+        <n-icon size="30" @click="close"><CloseOutline /></n-icon>
+      </h4>
+      <div class="modal-body">
         <register-account
           v-if="showType === 'register'"
           @show-change="changeType"></register-account>
         <login-password v-if="showType === 'login'" @show-change="changeType"></login-password>
         <forget-password v-if="showType === 'forget'" @show-change="changeType"></forget-password>
-        <template #footer><span></span></template>
-      </be-dialog>
+      </div>
     </div>
-  </teleport>
+  </n-modal>
 </template>
 
 <script lang="ts">
@@ -31,9 +22,11 @@
   import LoginPassword from './login-password.vue'
   import ForgetPassword from './forget-password.vue'
   import { useEventBus } from '@vueuse/core'
+  import { NModal, NIcon } from 'naive-ui'
+  import { CloseOutline } from '@vicons/ionicons5'
   export default defineComponent({
     name: 'LoginDialog',
-    components: { ForgetPassword, LoginPassword, RegisterAccount },
+    components: { ForgetPassword, LoginPassword, RegisterAccount, NModal, NIcon, CloseOutline },
     setup() {
       const show = ref<boolean>(false)
       const showType = ref<string>('login')
@@ -50,40 +43,33 @@
           show.value = false
         }
       })
+      const close = () => {
+        show.value = false
+      }
       return {
         changeType,
         showType,
         show,
+        close,
       }
     },
   })
 </script>
 
 <!-- prettier-ignore -->
-<style>
-  #login_dialog .be-dialog .be-dialog-container,
-  #login_dialog .be-dialog .be-dialog-container .be-dialog-title {
-    border-radius: 2px;
-  }
-
-  #login_dialog .be-dialog .be-dialog-container {
+<style lang="less">
+  .modal-container{
+    background-color: #fff;
     width: 90%;
-    min-width: 14rem;
-  }
-
-  #login_dialog .be-dialog-body {
-    padding-top: 0;
-  }
-
-  #login_dialog .be-dialog-container-head {
-    cursor: initial;
-  }
-
-  #login_dialog .request-quote-dialog {
-    border-top: 5px solid #02fbbb;
-  }
-
-  #login_dialog .be-dialog-footer {
-    display: none;
+    h4 {
+      padding: 10px 1.25rem;
+      text-align: right;
+      .n-icon{
+        cursor: pointer;
+      }
+    }
+    .modal-body{
+      padding: 0 1rem 1.25rem 1rem
+    }
   }
 </style>

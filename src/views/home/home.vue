@@ -10,151 +10,153 @@
     <!--   blog     -->
 
     <!--   service     -->
-    <div class="slogan-service w-full bg-default flex flex-col">
-      <div class="slogan-service-item flex justify-end items-center w-full sm:flex-col">
-        <div
-          style="box-sizing: border-box"
-          class="mr-24 hexagon-desc lg125:mb-0 md:mb-0 sm:mb-0 sm:mr-0">
-          <h3 class="font-bold border-top text-3xl mb-8 font-format sm:text-[20px] sm:mb-4">
-            {{ $t('lang.home.serviceTitle1') }}
-          </h3>
-          <p class="mb-16 font-format text-justify leading-normal text-lg sm:text-xs sm:mb-6">
-            {{ $t('lang.home.serviceInfo1') }}
-          </p>
-
-          <!--        pc 显示按钮            -->
-          <div class="sm:hidden">
-            <n-button
-              :bordered="false"
-              class="display-flex learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
-              @click="routerPush('/index/service/contracts')">
-              <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
-            </n-button>
-          </div>
-        </div>
-
-        <div class="flex flex-wrap flex-col relative hexagon-container-body justify-center">
-          <div class="flex justify-center">
-            <hexagon class="font-format" :index="0"></hexagon>
-            <hexagon class="font-format" :index="1"></hexagon>
-            <hexagon class="font-format" :index="2"></hexagon>
-          </div>
-          <div class="flex justify-center relative hexagon-b1">
-            <hexagon class="font-format" :index="3"></hexagon>
-            <hexagon class="font-format" :index="4"></hexagon>
-          </div>
-          <!--        mobile 显示按钮            -->
+    <div class="service-safe-area">
+      <div class="slogan-service w-full bg-default flex flex-col">
+        <div class="slogan-service-item flex justify-end items-center w-full sm:flex-col">
           <div
-            class="display-none sm:flex"
-            style="position: absolute; right: 50%; bottom: 5%; transform: translateX(50%)">
-            <n-button
-              :bordered="false"
-              class="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
-              @click="routerPush('/index/service/contracts')">
-              <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
-            </n-button>
-          </div>
-        </div>
-      </div>
+            style="box-sizing: border-box"
+            class="mr-24 hexagon-desc lg125:mb-0 md:mb-0 sm:mb-0 sm:mr-0">
+            <h3 class="font-bold border-top text-3xl mb-8 font-format sm:text-[20px] sm:mb-4">
+              {{ $t('lang.home.serviceTitle1') }}
+            </h3>
+            <p class="mb-16 font-format text-justify leading-normal text-lg sm:text-xs sm:mb-6">
+              {{ $t('lang.home.serviceInfo1') }}
+            </p>
 
-      <div
-        class="slogan-service-item flex mt-10 w-full justify-start items-center sm:flex-col sm:mt-10">
-        <!--        pc 显示六边形         -->
-        <div class="display-flex flex-wrap flex-col relative hexagon-container-body sm:hidden">
-          <div class="flex justify-center">
-            <hexagon class="font-format" :index="7"></hexagon>
-            <hexagon class="font-format" :index="8"></hexagon>
+            <!--        pc 显示按钮            -->
+            <div class="sm:hidden">
+              <n-button
+                :bordered="false"
+                class="display-flex learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
+                @click="routerPush('/index/service/contracts')">
+                <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
+              </n-button>
+            </div>
           </div>
-          <div class="flex justify-center relative hexagon-b1">
-            <hexagon class="font-format" :index="9"></hexagon>
-            <hexagon class="font-format" :index="10"></hexagon>
-            <hexagon class="font-format" :index="11"></hexagon>
+
+          <div class="flex flex-wrap flex-col relative hexagon-container-body justify-center">
+            <div class="flex justify-center">
+              <hexagon class="font-format" :index="0"></hexagon>
+              <hexagon class="font-format" :index="1"></hexagon>
+              <hexagon class="font-format" :index="2"></hexagon>
+            </div>
+            <div class="flex justify-center relative hexagon-b1">
+              <hexagon class="font-format" :index="3"></hexagon>
+              <hexagon class="font-format" :index="4"></hexagon>
+            </div>
+            <!--        mobile 显示按钮            -->
+            <div
+              class="display-none sm:flex"
+              style="position: absolute; right: 50%; bottom: 5%; transform: translateX(50%)">
+              <n-button
+                :bordered="false"
+                class="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
+                @click="routerPush('/index/service/contracts')">
+                <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
+              </n-button>
+            </div>
           </div>
         </div>
 
-        <div class="hexagon-desc mb-48 ml-24 lg125:mb-0 md:mb-0 sm:mb-0 sm:mr-0 sm:ml-0">
-          <h3
-            class="font-bold text-3xl border-top mb-8 font-format text-right float-right sm:text-[20px] sm:float-none sm:mb-4 sm:text-left">
-            {{ $t('lang.home.serviceTitle2') }}
-          </h3>
-          <p
-            class="mb-16 font-format text-justify leading-normal float-right text-lg sm:text-xs sm:float-none sm:mb-6">
-            {{ $t('lang.home.serviceInfo2') }}
-          </p>
-          <div class="sm:hidden">
-            <n-button
-              :bordered="false"
-              class="float-right learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
-              @click="routerPush('/index/service/security')">
-              <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
-            </n-button>
-          </div>
-        </div>
-        <!--        mobile 显示六边形         -->
         <div
-          class="display-none flex-wrap relative hexagon-container-body mr-12 justify-center sm:flex sm:mr-0">
-          <div class="flex justify-center">
-            <hexagon class="font-format" :index="7"></hexagon>
-            <hexagon class="font-format" :index="8"></hexagon>
+          class="slogan-service-item flex mt-10 w-full justify-start items-center sm:flex-col sm:mt-10">
+          <!--        pc 显示六边形         -->
+          <div class="display-flex flex-wrap flex-col relative hexagon-container-body sm:hidden">
+            <div class="flex justify-center">
+              <hexagon class="font-format" :index="7"></hexagon>
+              <hexagon class="font-format" :index="8"></hexagon>
+            </div>
+            <div class="flex justify-center relative hexagon-b1">
+              <hexagon class="font-format" :index="9"></hexagon>
+              <hexagon class="font-format" :index="10"></hexagon>
+              <hexagon class="font-format" :index="11"></hexagon>
+            </div>
           </div>
-          <div class="flex justify-center relative hexagon-b1">
-            <hexagon class="font-format" :index="9"></hexagon>
-            <hexagon class="font-format" :index="10"></hexagon>
-            <hexagon class="font-format" :index="11"></hexagon>
+
+          <div class="hexagon-desc mb-48 ml-24 lg125:mb-0 md:mb-0 sm:mb-0 sm:mr-0 sm:ml-0">
+            <h3
+              class="font-bold text-3xl border-top mb-8 font-format text-right float-right sm:text-[20px] sm:float-none sm:mb-4 sm:text-left">
+              {{ $t('lang.home.serviceTitle2') }}
+            </h3>
+            <p
+              class="mb-16 font-format text-justify leading-normal float-right text-lg sm:text-xs sm:float-none sm:mb-6">
+              {{ $t('lang.home.serviceInfo2') }}
+            </p>
+            <div class="sm:hidden">
+              <n-button
+                :bordered="false"
+                class="float-right learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
+                @click="routerPush('/index/service/security')">
+                <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
+              </n-button>
+            </div>
           </div>
-          <!--        mobile 显示按钮            -->
+          <!--        mobile 显示六边形         -->
           <div
-            class="display-none sm:flex"
-            style="position: absolute; right: 50%; bottom: 5%; transform: translateX(50%)">
-            <n-button
-              :bordered="false"
-              class="float-right learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
-              @click="routerPush('/index/service/security')">
-              <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
-            </n-button>
+            class="display-none flex-wrap relative hexagon-container-body mr-12 justify-center sm:flex sm:mr-0">
+            <div class="flex justify-center">
+              <hexagon class="font-format" :index="7"></hexagon>
+              <hexagon class="font-format" :index="8"></hexagon>
+            </div>
+            <div class="flex justify-center relative hexagon-b1">
+              <hexagon class="font-format" :index="9"></hexagon>
+              <hexagon class="font-format" :index="10"></hexagon>
+              <hexagon class="font-format" :index="11"></hexagon>
+            </div>
+            <!--        mobile 显示按钮            -->
+            <div
+              class="display-none sm:flex"
+              style="position: absolute; right: 50%; bottom: 5%; transform: translateX(50%)">
+              <n-button
+                :bordered="false"
+                class="float-right learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
+                @click="routerPush('/index/service/security')">
+                <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
+              </n-button>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="slogan-service-item flex justify-end items-center w-full mt-10 sm:flex-col">
-        <div
-          style="box-sizing: border-box"
-          class="mr-24 hexagon-desc lg125:mb-0 md:mb-0 sm:mb-0 sm:mr-0">
-          <h3 class="font-bold border-top text-3xl mb-8 font-format sm:text-[20px] sm:mb-4">
-            Cryptocurrency Tracing
-          </h3>
-          <p class="mb-16 font-format text-justify leading-normal text-lg sm:text-xs sm:mb-6">
-            {{ $t('lang.home.serviceInfo3') }}
-          </p>
-          <div class="sm:hidden">
-            <n-button
-              :bordered="false"
-              class="display-flex learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
-              @click="routerPush('/index/service/trace')">
-              <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
-            </n-button>
-          </div>
-        </div>
-
-        <div class="flex flex-wrap flex-col relative hexagon-container-body justify-center">
-          <div class="flex justify-center trace-trans">
-            <hexagon class="font-format" :index="12"></hexagon>
-            <hexagon class="font-format" :index="13"></hexagon>
-          </div>
-          <div class="flex justify-center trace-trans relative hexagon-b1">
-            <hexagon class="font-format" :index="14"></hexagon>
-            <hexagon class="font-format" :index="15"></hexagon>
-            <hexagon class="font-format" :index="16"></hexagon>
-          </div>
+        <div class="slogan-service-item flex justify-end items-center w-full mt-10 sm:flex-col">
           <div
-            class="display-none sm:flex"
-            style="position: absolute; right: 50%; bottom: 5%; transform: translateX(50%)">
-            <n-button
-              :bordered="false"
-              class="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
-              @click="routerPush('/index/service/trace')">
-              <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
-            </n-button>
+            style="box-sizing: border-box"
+            class="mr-24 hexagon-desc lg125:mb-0 md:mb-0 sm:mb-0 sm:mr-0">
+            <h3 class="font-bold border-top text-3xl mb-8 font-format sm:text-[20px] sm:mb-4">
+              Cryptocurrency Tracing
+            </h3>
+            <p class="mb-16 font-format text-justify leading-normal text-lg sm:text-xs sm:mb-6">
+              {{ $t('lang.home.serviceInfo3') }}
+            </p>
+            <div class="sm:hidden">
+              <n-button
+                :bordered="false"
+                class="display-flex learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
+                @click="routerPush('/index/service/trace')">
+                <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
+              </n-button>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap flex-col relative hexagon-container-body justify-center">
+            <div class="flex justify-center trace-trans">
+              <hexagon class="font-format" :index="12"></hexagon>
+              <hexagon class="font-format" :index="13"></hexagon>
+            </div>
+            <div class="flex justify-center trace-trans relative hexagon-b1">
+              <hexagon class="font-format" :index="14"></hexagon>
+              <hexagon class="font-format" :index="15"></hexagon>
+              <hexagon class="font-format" :index="16"></hexagon>
+            </div>
+            <div
+              class="display-none sm:flex"
+              style="position: absolute; right: 50%; bottom: 5%; transform: translateX(50%)">
+              <n-button
+                :bordered="false"
+                class="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
+                @click="routerPush('/index/service/trace')">
+                <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
+              </n-button>
+            </div>
           </div>
         </div>
       </div>
@@ -328,8 +330,8 @@
 
       /*************************************** 一些动态、批量的img加载读取 ******************************/
 
-      const customerImgList = reactive<object[]>([])
-      const scienceList = reactive<object[]>([])
+      const customerImgList = reactive<any[]>([])
+      const scienceList = reactive<any[]>([])
       const getImage = (): void => {
         customerList.map((val: string) => {
           const obj: { img: string } = { img: '' }
@@ -457,10 +459,6 @@
     bottom: 60px;
   }
 
-  .hermit-main {
-    background-color: #fff;
-  }
-
   .hermit-main .blog-new {
     box-sizing: border-box;
     padding: 80px 0 50px;
@@ -529,6 +527,11 @@
   .hermit-main .title-card-container .title-card:hover .icon-up2 .be-icon {
     width: 30px !important;
     height: 30px !important;
+  }
+
+  .service-safe-area {
+    width: 100%;
+    background-color: #fff;
   }
 
   .hermit-main .slogan-service {
