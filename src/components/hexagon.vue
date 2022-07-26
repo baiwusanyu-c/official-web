@@ -7,16 +7,32 @@
     }"
     @mouseenter="isHover = true"
     @mouseleave="isHover = false">
-    <p class="mt-4 font-format sm:text-xs px-5px">{{ list[index] }}</p>
+    <p class="mt-4 font-format sm:text-xs px-5px">{{ text }}</p>
   </div>
 </template>
 
 <script lang="ts">
-  import { defineComponent, onMounted, reactive, ref, computed } from 'vue'
-  import { useI18n } from 'vue-i18n'
-  interface IImge {
-    img: string
-  }
+  import { defineComponent, ref, computed } from 'vue'
+  const imgImport = import.meta.globEager('../assets/img/hexagon*.png')
+  const list = ref<Array<string>>([
+    'NFT Contract',
+    'DeFi Contracts',
+    'GameFi Contract',
+    'Tokens Contracts',
+    'Other Customized Smart Contracts',
+    '6',
+    '7',
+    'Coding Security Audit',
+    'Consensus Security Audit',
+    'Account System Security Audit',
+    'Asset Security Audit',
+    'Application-layer Security Audit',
+    'AML Risk Assessment',
+    'Real-time Intelligence Notification',
+    'Transaction Analysis',
+    'Crypto Address Monitoring',
+    'Forensics Analysis Report',
+  ])
   export default defineComponent({
     name: 'HexagonComp',
     props: {
@@ -27,57 +43,18 @@
       },
     },
     setup(props) {
-      const { t } = useI18n()
       const isHover = ref<boolean>(false)
-      const list = ref<Array<string>>([
-        t('lang.home.serviceIc1'),
-        t('lang.home.serviceIc2'),
-        t('lang.home.serviceIc3'),
-        t('lang.home.serviceIc4'),
-        t('lang.home.serviceIc5'),
-        t('lang.home.serviceIc6'),
-        t('lang.home.serviceIc7'),
-        t('lang.home.serviceIc8'),
-        t('lang.home.serviceIc9'),
-        t('lang.home.serviceIc10'),
-        t('lang.home.serviceIc11'),
-        t('lang.home.serviceIc12'),
-        'AML Risk Assessment',
-        'Real-time Intelligence Notification',
-        'Transaction Analysis',
-        'Crypto Address Monitoring',
-        'Forensics Analysis Report',
-      ])
-      const imgList = reactive<object[]>([])
-      const imgListHover = reactive<object[]>([])
-      const imgImport = import.meta.globEager('../assets/img/hexagon*.png')
-      const getImage = (): void => {
-        list.value.map((val: string, index: number) => {
-          const obj: IImge = { img: '' }
-          obj.img = imgImport['../assets/img/hexagon' + (index + 1) + '.png'].default
-          imgList.push(obj)
-          const objHover: IImge = { img: '' }
-          objHover.img = imgImport['../assets/img/hexagon' + (index + 1) + '-hover.png'].default
-          imgListHover.push(objHover)
-        })
-      }
       const img = computed(() => {
         if (isHover.value) {
-          return (imgListHover[props.index] as IImge)?.img
-        } else {
-          return (imgList[props.index] as IImge)?.img
+          return imgImport['../assets/img/hexagon' + (props.index + 1) + '-hover.png'].default
         }
+        return imgImport['../assets/img/hexagon' + (props.index + 1) + '.png'].default
       })
 
-      onMounted(() => {
-        getImage()
-      })
       return {
         img,
         isHover,
-        list,
-        imgList,
-        imgListHover,
+        text: list.value[props.index as keyof typeof list.value],
       }
     },
   })

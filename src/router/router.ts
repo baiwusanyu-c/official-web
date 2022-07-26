@@ -19,6 +19,14 @@ const page404 = () => import('../views/404/404.vue')
 const resource = () => import('../views/resource/index.vue')
 const articleView = () => import('../views/resource/ArticleView/index.vue')
 const trace = () => import('../views/trace/index.vue')
+declare module 'vue-router' {
+  interface RouteMeta {
+    title?: string
+    keywords?: string
+    description?: string
+  }
+}
+
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/index',
@@ -164,17 +172,14 @@ const routes: Array<RouteRecordRaw> = [
     component: page404,
   },
 ]
-
 const setDocumentInformation = (to: RouteRecordRaw) => {
   if (!Object.keys(to.meta || {}).length) return
 
-  document.title = to.meta?.title || ('' as any)
-  document
-    .querySelector('meta[name="keywords"]')
-    ?.setAttribute('content', to.meta?.keywords || ('' as any))
+  document.title = to.meta?.title || ''
+  document.querySelector('meta[name="keywords"]')?.setAttribute('content', to.meta?.keywords || '')
   document
     .querySelector('meta[name="description"]')
-    ?.setAttribute('content', to.meta?.description || ('' as any))
+    ?.setAttribute('content', to.meta?.description || '')
 }
 
 // 3. 创建路由实例并传递 `routes` 配置

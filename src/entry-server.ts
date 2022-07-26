@@ -1,6 +1,6 @@
 import { createApp } from './main'
 import { renderToString, SSRContext } from 'vue/server-renderer'
-import { useSSRContext } from 'vue'
+
 type Manifest = {
   [p: string]: string[]
 }
@@ -13,7 +13,6 @@ const render = async (url: string, manifest: Manifest, ctx: SSRContext) => {
   const route = router.currentRoute.value
   const html = await renderToString(app, ctx)
   const links = renderPreloadLinks(ctx.modules, manifest)
-  useSSRContext()
   return [html, route, links]
 }
 

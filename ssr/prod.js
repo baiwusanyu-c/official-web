@@ -20,7 +20,6 @@ server.use('*', async (req, res) => {
     console.log('req', req)
     return res.end('ok')
   }
-  console.log('url22222', url, resolve(client, 'index.html'))
   const template = fs.readFileSync(resolve(client, 'index.html'), 'utf-8')
   const { render } = require('../server/entry-server.js')
   const manifest = require('../client/ssr-manifest.json')
