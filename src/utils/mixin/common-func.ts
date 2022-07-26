@@ -41,8 +41,8 @@ export default () => {
     })
   }
   const message = (type: string, info: string, className: string): void => {
-    !import.meta.env.ssr &&
-      import('../../../public/be-ui/be-ui.es').then(res => {
+    !import.meta.env.SSR &&
+      import('../../../public/be-ui/be-ui.es.js').then(res => {
         res.BeMessage.service({
           customClass: className,
           titles: info,
