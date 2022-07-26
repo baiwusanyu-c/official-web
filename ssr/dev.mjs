@@ -17,6 +17,21 @@ const viteServer = await vite.createServer({
   },
 })
 
+const htmlRender = (template, appHtml, route) => {
+  const html = template
+    .replace(`<title></title>`, `<title>${route.meta.title || ''}</title>`)
+    .replace(
+      `<meta name="keywords" content="" />`,
+      `<meta name="keywords" content="${route.meta.keywords || ''}" />`
+    )
+    .replace(
+      `<meta name="description" content="" />`,
+      `<meta name="description" content="${route.meta.description || ''}" />`
+    )
+    .replace('<!--app-html-->', appHtml)
+  return html
+}
+
 // use vite's connect instance as middleware
 server.use(viteServer.middlewares)
 server.use('*', async (req, res) => {
@@ -30,17 +45,7 @@ server.use('*', async (req, res) => {
     const render = (await viteServer.ssrLoadModule('./src/entry-server.ts')).render
     const ctx = {}
     const [appHtml, route] = await render(url, {}, ctx)
-    const html = template
-      .replace('<!--app-html-->', appHtml)
-      .replace(`<title></title>`, `<title>${route.meta.title || ''}</title>`)
-      .replace(
-        `<meta name="keywords" content="" />`,
-        `<meta name="keywords" content="${route.meta.keywords || ''}" />`
-      )
-      .replace(
-        `<meta name="description" content="" />`,
-        `<meta name="description" content="${route.meta.description || ''}" />`
-      )
+    const html = htmlRender(template, appHtml, route)
     res.set({ 'Content-Type': 'text/html' }).end(html)
   } catch (e) {
     console.log(e)

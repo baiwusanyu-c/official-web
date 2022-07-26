@@ -18,37 +18,37 @@
         <li
           v-show="tabTypes.indexOf(3) > -1"
           class="font-format"
-          @click="$router.push({ path: '/index/resource', query: { type: 3 } })">
+          @click="$router.push({ path: '/resources', query: { type: 3 } })">
           Security Incident
         </li>
         <li
           v-show="tabTypes.indexOf(1) > -1"
           class="font-format"
-          @click="$router.push({ path: '/index/resource', query: { type: 1 } })">
+          @click="$router.push({ path: '/resources', query: { type: 1 } })">
           Research Report
         </li>
         <li
           v-show="tabTypes.indexOf(6) > -1"
           class="font-format"
-          @click="$router.push({ path: '/index/resource', query: { type: 6 } })">
+          @click="$router.push({ path: '/resources', query: { type: 6 } })">
           Event Update
         </li>
         <li
           v-show="tabTypes.indexOf(4) > -1"
           class="font-format"
-          @click="$router.push({ path: '/index/resource', query: { type: 4 } })">
+          @click="$router.push({ path: '/resources', query: { type: 4 } })">
           Partnership Announcement
         </li>
         <li
           v-show="tabTypes.indexOf(5) > -1"
           class="font-format"
-          @click="$router.push({ path: '/index/resource', query: { type: 5 } })">
+          @click="$router.push({ path: '/resources', query: { type: 5 } })">
           Web3.0 Classroom
         </li>
         <li
           v-show="tabTypes.indexOf(7) > -1"
           class="font-format"
-          @click="$router.push({ path: '/index/resource', query: { type: 7 } })">
+          @click="$router.push({ path: '/resources', query: { type: 7 } })">
           Resources
         </li>
       </ul>
@@ -56,7 +56,7 @@
         {{ $t('lang.HFooterBigger.company.title') }}
       </p>
       <ul class="mt-6">
-        <li class="font-format" @click="$router.push('/index/aboutUs')">
+        <li class="font-format" @click="$router.push('/aboutus')">
           {{ $t('lang.HFooterBigger.company.aboutUs') }}
         </li>
         <li class="font-format" @click="openWin(linkConfigPolicy.conditions)">
@@ -72,19 +72,19 @@
         {{ $t('lang.HFooterBigger.serve.title') }}
       </p>
       <ul>
-        <li class="font-format" @click="$router.push('/index/product/productVaaS')">
+        <li class="font-format" @click="$router.push('/product/vass')">
           {{ $t('lang.HFooterBigger.serve.vaas') }}
         </li>
-        <li class="font-format" @click="$router.push('/index/product/productEagle')">
+        <li class="font-format" @click="$router.push('/product/eagleeye')">
           {{ $t('lang.HFooterBigger.serve.eye') }}
         </li>
-        <li class="font-format" @click="$router.push('/index/service/contracts')">
+        <li class="font-format" @click="$router.push('/service/audit')">
           {{ $t('lang.HFooterBigger.serve.audit') }}
         </li>
-        <li class="font-format" @click="$router.push('/index/service/security')">
+        <li class="font-format" @click="$router.push('/service/chainsaudit')">
           {{ $t('lang.HFooterBigger.serve.platform') }}
         </li>
-        <li class="font-format" @click="$router.push('/index/service/trace')">
+        <li class="font-format" @click="$router.push('/service/tracing')">
           Cryptocurrency Tracing
         </li>
       </ul>

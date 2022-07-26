@@ -159,7 +159,7 @@
             setStore('userInfo', JSON.stringify(res))
             bus.emit('true')
             if (route.path.indexOf('login') > 0) {
-              router.push('/index/home')
+              router.push('/')
             }
           })
           .catch(err => {

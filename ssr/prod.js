@@ -6,20 +6,11 @@ const server = express()
 const dir = resolve('./')
 const client = resolve(dir, '../dist/client')
 // use vite's connect instance as middleware
-server.use('*', (req, res, next) => {
-  console.log(req.originalUrl)
-  next()
-})
-console.log(client)
 
 server.use(serverStatic(client, { index: false }))
 
 server.use('*', async (req, res) => {
   const url = req.originalUrl
-  if (url === '/undefined') {
-    console.log('req', req)
-    return res.end('ok')
-  }
   const template = fs.readFileSync(resolve(client, 'index.html'), 'utf-8')
   const { render } = require('../server/entry-server.js')
   const manifest = require('../client/ssr-manifest.json')

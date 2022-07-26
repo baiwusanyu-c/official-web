@@ -133,7 +133,7 @@
         })
       }
       const goMoreList = (type: number) => {
-        const host = '/index/resource?type=' + type
+        const host = '/resources?type=' + type
         openUrl(host, { target: '_blank' })
       }
 
