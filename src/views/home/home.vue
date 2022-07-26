@@ -457,6 +457,10 @@
     bottom: 60px;
   }
 
+  .hermit-main {
+    background-color: #fff;
+  }
+
   .hermit-main .blog-new {
     box-sizing: border-box;
     padding: 80px 0 50px;
@@ -532,6 +536,8 @@
     align-items: center;
     justify-content: center;
     padding: 10px 200px;
+    max-width: 1920px;
+    margin: auto;
   }
 
   .slogan-service-item {
@@ -631,6 +637,9 @@
 
   .slogan-customer-logo div {
     border: 1px solid transparent;
+    img {
+      width: 220px;
+    }
   }
 
   .slogan-customer-logo div:hover {
@@ -709,6 +718,11 @@
   }
 
   @media screen and (min-width: 100px) and (max-width: 1278px) {
+    .slogan-customer-logo div {
+      img {
+        width: auto;
+      }
+    }
     .science-dom p {
       text-align: left;
     }

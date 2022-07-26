@@ -92,16 +92,16 @@
     margin-top: 10px;
   }
   .card-1 {
-    background: url('@/assets/img/home/card/1.png') no-repeat center / cover;
+    background: url('@/assets/img/home/card/1.jpg') no-repeat center / cover;
   }
   .card-2 {
-    background: url('@/assets/img/home/card/2.png') no-repeat center / cover;
+    background: url('@/assets/img/home/card/2.jpg') no-repeat center / cover;
   }
   .card-3 {
-    background: url('@/assets/img/home/card/3.png') no-repeat center / cover;
+    background: url('@/assets/img/home/card/3.jpg') no-repeat center / cover;
   }
   .card-4 {
-    background: url('@/assets/img/home/card/4.png') no-repeat center / cover;
+    background: url('@/assets/img/home/card/4.jpg') no-repeat center / cover;
   }
   .card-1 {
     background-color: #fff;
@@ -163,16 +163,16 @@
   }
   @media screen and (max-width: 600px) {
     .card-1 {
-      background: url('@/assets/img/home/card/s1.png') no-repeat center / cover;
+      background: url('@/assets/img/home/card/s1.jpg') no-repeat center / cover;
     }
     .card-2 {
-      background: url('@/assets/img/home/card/s2.png') no-repeat center / cover;
+      background: url('@/assets/img/home/card/s2.jpg') no-repeat center / cover;
     }
     .card-3 {
-      background: url('@/assets/img/home/card/s3.png') no-repeat center / cover;
+      background: url('@/assets/img/home/card/s3.jpg') no-repeat center / cover;
     }
     .card-4 {
-      background: url('@/assets/img/home/card/s4.png') no-repeat center / cover;
+      background: url('@/assets/img/home/card/s4.jpg') no-repeat center / cover;
     }
     .card-content-min {
       margin: 0 20px;

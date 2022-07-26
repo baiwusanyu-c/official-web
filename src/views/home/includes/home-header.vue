@@ -35,7 +35,7 @@
       default: string
     }
   }
-  const getImageUrl = i => {
+  const getImageUrl = (i: any) => {
     return Object.entries(imgs).find(it => it[0].endsWith(i + 1 + '.svg'))?.[1]?.default
   }
 </script>
@@ -43,7 +43,7 @@
 <style scoped>
   .home-header {
     height: 600px;
-    background: url('@/assets/img/home/header-bg.png') no-repeat;
+    background: url('@/assets/img/home/header-bg.jpg') no-repeat;
     background-size: contain;
     background-position: center -64px;
     background-color: #0f1627;

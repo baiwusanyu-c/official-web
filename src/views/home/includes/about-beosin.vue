@@ -10,27 +10,27 @@
         </p>
       </header>
       <div class="auto-card">
-        <img src="@/assets/img/home/about-1.png" alt="" />
+        <img src="@/assets/svg/home_security-expert.svg" alt="" />
         <h4>100+</h4>
         <p>Security experts 40+ PhDs</p>
       </div>
       <div class="auto-card">
-        <img src="@/assets/img/home/about-2.png" alt="" />
+        <img src="@/assets/svg/home_safety-experience.svg" alt="" />
         <h4>20+</h4>
         <p>Years of cybersecurity experience</p>
       </div>
       <div class="auto-card">
-        <img src="@/assets/img/home/about-3.png" alt="" />
+        <img src="@/assets/svg/home_technology.svg" alt="" />
         <h4>Formal Verification Technology</h4>
         <p>On-chain AI data-tracing analysis</p>
       </div>
       <div class="auto-card">
-        <img src="@/assets/img/home/about-4.png" alt="" />
+        <img src="@/assets/svg/home_encrypted.svg" alt="" />
         <h4>1Billion+</h4>
         <p>Labeled crypto addresses</p>
       </div>
       <div class="auto-card">
-        <img src="@/assets/img/home/about-5.png" alt="" />
+        <img src="@/assets/svg/home_vulnerability.svg" alt="" />
         <h4>85,000+</h4>
         <p>Identified code vulnerabilities</p>
       </div>

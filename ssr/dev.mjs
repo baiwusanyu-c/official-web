@@ -16,6 +16,21 @@ const viteServer = await vite.createServer({
     },
   },
 })
+
+/* relevant snippet from server.js */
+// const cssUrls = new Set(),
+const collectCssUrls = (mod, urls = new Set()) => {
+  if (!mod) return
+  if (!mod.url) return
+  if (mod.url.endsWith('.css') || (mod.id && /\?vue&type=style/.test(mod.id))) {
+    urls.add(mod.url)
+  }
+  mod.importedModules.forEach(dep => {
+    collectCssUrls(dep)
+  })
+  return urls
+}
+
 // use vite's connect instance as middleware
 server.use(viteServer.middlewares)
 server.use('*', async (req, res) => {
@@ -27,8 +42,20 @@ server.use('*', async (req, res) => {
     template = await viteServer.transformIndexHtml(url, template)
 
     const render = (await viteServer.ssrLoadModule('./src/entry-server.ts')).render
+    // const mod = await viteServer.moduleGraph.getModuleByUrl(
+    //   '/src/main.ts'
+    // ) /* TODO replace with your entry */
+    // const cssUrls = mod.ssrTransformResult.deps.filter(d => d.endsWith('.css'))
+    // const cssUrls = collectCssUrls(mod)
+    // console.log('cssUrls', cssUrls)
     const ctx = {}
-    const [appHtml, route] = await render(url, {}, ctx)
+    const [appHtml, route, links] = await render(url, {}, ctx)
+    // console.log('88888', links)
+    const devCss = []
+      .map(url => {
+        return `<link rel="stylesheet" type="text/css" href="${url}">`
+      })
+      .join('')
     const html = template
       .replace('<!--app-html-->', appHtml)
       .replace(`<title></title>`, `<title>${route.meta.title || ''}</title>`)
@@ -40,6 +67,7 @@ server.use('*', async (req, res) => {
         `<meta name="description" content="" />`,
         `<meta name="description" content="${route.meta.description || ''}" />`
       )
+      .replace('<!--dev-css-->', devCss)
     res.set({ 'Content-Type': 'text/html' }).end(html)
   } catch (e) {
     console.log(e)

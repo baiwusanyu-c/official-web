@@ -4,7 +4,7 @@
       <div class="left">
         <h3 class="d-alert">
           <span class="flex items-center">
-            <img src="@/assets/img/home/dynamic/dynamic-info.png" alt="" />Beosin Alert
+            <img src="@/assets/img/home/dynamic/dynamic-info.svg" alt="" />Beosin Alert
           </span>
           <span class="d-more" @click="open('https://twitter.com/BeosinAlert', 'alert')"
             >See more</span
@@ -70,7 +70,7 @@
     align-items: center;
     justify-content: center;
     padding: 40px 40px;
-    background: url('@/assets/img/home/dynamic/dynamic-info-bg.png') no-repeat center / cover #fff;
+    background: url('@/assets/img/home/dynamic/dynamic-info-bg.jpg') no-repeat center / cover #fff;
   }
 
   .twitter {
@@ -166,7 +166,7 @@
       row-gap: 20px;
     }
     .dynamic-info {
-      background: url('@/assets/img/home/dynamic/dynamic-info-bg2.png') no-repeat center / cover
+      background: url('@/assets/img/home/dynamic/dynamic-info-bg2.jpg') no-repeat center / cover
         #fff;
       padding: 0 20px;
     }
