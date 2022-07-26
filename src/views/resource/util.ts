@@ -20,9 +20,9 @@ export const goPreviewPage = (item: any, router?: Router) => {
     window.open(item.url)
   } else {
     if (router) {
-      router.push({ path: '/index/article-preview', query: { id: item.id } })
+      router.push({ path: '/resources/' + item.title, query: { id: item.id } })
     } else {
-      const host = '/index/article-preview?id=' + item.id
+      const host = '/resources/' + item.title + '?id=' + item.id
       openUrl(host, { target: '_blank' })
     }
   }

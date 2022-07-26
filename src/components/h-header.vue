@@ -19,14 +19,14 @@
           <div
             class="mb-4 w-full cursor-pointer"
             :class="route.path.indexOf('home') > 0 ? 'item-active' : ''"
-            @click="routerPush('/index/home')">
+            @click="routerPush('/')">
             {{ $t('lang.header.home') }}
           </div>
           <!--    博客研究    -->
           <div
             class="mb-4 w-full font-format cursor-pointer text-left text-base hover:text-mainG"
             :class="route.path.indexOf('resource') > 0 ? 'item-active' : ''"
-            @click="routerPush('/index/resource')">
+            @click="routerPush('/resources')">
             {{ $t('lang.header.resource') }}
           </div>
           <!--   解决方案    -->
@@ -49,7 +49,7 @@
                   :key="item.value"
                   class="linear-l-r-s bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
                   :class="{ 'linear-l-r active-popover': item.value === route.path }"
-                  @click="routerPush(item.value), closePoper($refs.popoverService)">
+                  @click="routerPush(item.value)">
                   <p class="mx-2 text-base font-format">{{ item.label }}</p>
                 </div>
               </template>
@@ -73,7 +73,7 @@
                   :key="item.value"
                   class="linear-l-r-s bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
                   :class="{ 'linear-l-r active-popover': item.value === route.path }"
-                  @click="routerPush(item.value), closePoper($refs.popoverService)">
+                  @click="routerPush(item.value)">
                   <p class="mx-2 text-base font-format">{{ item.label }}</p>
                 </div>
               </template>
@@ -83,7 +83,7 @@
           <div
             class="mb-4 w-full font-format cursor-pointer text-left text-base hover:text-mainG"
             :class="route.path.indexOf('aboutUs') > 0 ? 'item-active' : ''"
-            @click="routerPush('/index/aboutUs')">
+            @click="routerPush('/aboutus')">
             {{ $t('lang.header.aboutUs') }}
           </div>
           <!--    登录前    -->
@@ -113,8 +113,8 @@
             </template>
             <div
               class="linear-l-r-s bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
-              :class="{ 'linear-l-r active-popover': '/index/user/personal' === route.path }"
-              @click="routerPush('/index/user/personal'), closePoper($refs.popoverLogin)">
+              :class="{ 'linear-l-r active-popover': '/user/personal' === route.path }"
+              @click="routerPush('/user/personal'), closePoper($refs.popoverLogin)">
               <p class="mx-2 text-base font-format">{{ $t('lang.header.loginStr.center') }}</p>
             </div>
             <div
@@ -133,7 +133,7 @@
         src="../assets/img/LOGO.png"
         alt=""
         style="height: 46px"
-        @click="routerPush('/index/home')" />
+        @click="routerPush('/')" />
     </div>
     <!--    pc 導航    -->
     <div class="display-flex h-10 items-center justify-between ml-10 sm:hidden">
@@ -141,7 +141,7 @@
       <div
         class="w-28 cursor-pointer text-base hover:text-mainG md:flex sm:hidden"
         :class="route.path.indexOf('resource') > 0 ? 'item-active' : ''"
-        @click="routerPush('/index/resource')">
+        @click="routerPush('/resources')">
         {{ $t('lang.header.resource') }}
       </div>
       <!--    服务    -->
@@ -158,7 +158,7 @@
               :key="item.value"
               class="linear-l-r-s h-10 text-default flex cursor-pointer items-center hover:text-black"
               :class="{ 'linear-l-r active-popover': item.value === route.path }"
-              @click="routerPush(item.value), closePoper($refs.popoverService)">
+              @click="routerPush(item.value)">
               <p class="mx-2 text-base font-format">{{ item.label }}</p>
             </div>
           </template>
@@ -196,7 +196,7 @@
               :key="item.value"
               class="linear-l-r-s bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
               :class="{ 'linear-l-r active-popover': item.value === route.path }"
-              @click="routerPush(item.value), closePoper($refs.popoverService)">
+              @click="routerPush(item.value)">
               <p class="mx-2 text-base font-format">{{ item.label }}</p>
             </div>
           </template>
@@ -206,7 +206,7 @@
       <div
         class="font-format w-28 cursor-pointer text-base hover:text-mainG"
         :class="route.path.indexOf('aboutUs') > 0 ? 'item-active' : ''"
-        @click="routerPush('/index/aboutUs')">
+        @click="routerPush('/aboutus')">
         {{ $t('lang.header.aboutUs') }}
       </div>
     </div>
@@ -244,8 +244,8 @@
       </template>
       <div
         class="linear-l-r-s bg-footer h-10 text-default flex cursor-pointer items-center hover:text-black"
-        :class="{ 'linear-l-r active-popover': '/index/user/personal' === route.path }"
-        @click="routerPush('/index/user/personal'), closePoper($refs.popoverLogin)">
+        :class="{ 'linear-l-r active-popover': '/user/personal' === route.path }"
+        @click="routerPush('/user/personal'), closePoper($refs.popoverLogin)">
         <p class="mx-2 text-base font-format">{{ $t('lang.header.loginStr.center') }}</p>
       </div>
       <div
@@ -324,7 +324,7 @@
         removeStore('userInfo')
         isLogin.value = false
         message('success', t('lang.opSuccess'), 'hermit-msg')
-        if (/personal/.test(route.path)) routerPush('/index/home')
+        if (/personal/.test(route.path)) routerPush('/')
         window.location.reload()
       }
       /**
@@ -340,31 +340,31 @@
       const service = ref<ISelect[]>([
         {
           label: t('lang.header.serviceStr.service1'),
-          value: '/index/service/contracts',
+          value: '/service/audit',
         },
         {
           label: t('lang.header.serviceStr.service2'),
-          value: '/index/service/security',
+          value: '/service/chainsaudit',
         },
         {
           label: 'Cryptocurrency Tracing',
-          value: '/index/service/trace',
+          value: '/service/tracing',
         },
       ])
       const product = ref<ISelect[]>([
         {
           label: t('lang.header.productStr.product1'),
-          value: '/index/product/productVaaS',
+          value: '/product/vass',
         },
         {
           label: t('lang.header.productStr.product2'),
-          value: '/index/product/productEagle',
+          value: '/product/eagleeye',
         },
       ])
       const loginList = ref<Array<ISelect>>([
         {
           label: t('lang.header.loginStr.center'),
-          value: '/index/user/personal',
+          value: '/user/personal',
           active: false,
         },
         {

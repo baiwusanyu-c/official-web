@@ -48,10 +48,10 @@
       const getImage = (): void => {
         list.value.map((val: string, index: number) => {
           const objImg = { img: '' }
-          if (route.path === '/index/product/productVaaS') {
+          if (route.path === '/product/vass') {
             objImg.img = imgImport['../assets/img/beosin-vaas' + (index + 1) + '.png'].default
             imgList.push(objImg)
-          } else if (route.path === '/index/product/productEagle') {
+          } else if (route.path === '/product/eagleeye') {
             objImg.img = imgImport['../assets/img/eagle-eye' + (index + 1) + '.png'].default
             imgList.push(objImg)
           }

@@ -64,7 +64,7 @@ service.interceptors.response.use(
         removeStore('userInfo')
         bus.emit('true')
         import('@/router/router').then(({ default: router }) => {
-          router.push('/index/home')
+          router.push('/')
         })
         const err = getStore('lang') === 'en_US' ? 'Login Expired' : '登录过期'
         return Promise.reject(new Error(err))

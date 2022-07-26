@@ -35,8 +35,8 @@
         t('lang.home.serviceIc3'),
         t('lang.home.serviceIc4'),
         t('lang.home.serviceIc5'),
-        t('lang.home.serviceIc6'),
-        t('lang.home.serviceIc7'),
+        // t('lang.home.serviceIc6'), // 未用到（也不存在）
+        // t('lang.home.serviceIc7'),
         t('lang.home.serviceIc8'),
         t('lang.home.serviceIc9'),
         t('lang.home.serviceIc10'),

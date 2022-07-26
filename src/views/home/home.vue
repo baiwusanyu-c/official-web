@@ -28,7 +28,7 @@
               <n-button
                 :bordered="false"
                 class="display-flex learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
-                @click="routerPush('/index/service/contracts')">
+                @click="routerPush('/service/audit')">
                 <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
               </n-button>
             </div>
@@ -51,7 +51,7 @@
               <n-button
                 :bordered="false"
                 class="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
-                @click="routerPush('/index/service/contracts')">
+                @click="routerPush('/service/audit')">
                 <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
               </n-button>
             </div>
@@ -86,7 +86,7 @@
               <n-button
                 :bordered="false"
                 class="float-right learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
-                @click="routerPush('/index/service/security')">
+                @click="routerPush('/service/chainsaudit')">
                 <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
               </n-button>
             </div>
@@ -110,7 +110,7 @@
               <n-button
                 :bordered="false"
                 class="float-right learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
-                @click="routerPush('/index/service/security')">
+                @click="routerPush('/service/chainsaudit')">
                 <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
               </n-button>
             </div>
@@ -131,7 +131,7 @@
               <n-button
                 :bordered="false"
                 class="display-flex learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
-                @click="routerPush('/index/service/trace')">
+                @click="routerPush('/service/tracing')">
                 <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
               </n-button>
             </div>
@@ -153,7 +153,7 @@
               <n-button
                 :bordered="false"
                 class="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl"
-                @click="routerPush('/index/service/trace')">
+                @click="routerPush('/service/tracing')">
                 <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
               </n-button>
             </div>
@@ -181,7 +181,7 @@
         <n-button
           :bordered="false"
           class="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl sm:mb-10 sm:text-base"
-          @click="routerPush('/index/product/productVaaS')">
+          @click="routerPush('/product/vass')">
           <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
         </n-button>
       </div>
@@ -203,7 +203,7 @@
         <n-button
           :bordered="false"
           class="learn-more-btn h-btn-txt-black linear-l-r text-black text-xl sm:text-base"
-          @click="routerPush('/index/product/productEagle')">
+          @click="routerPush('/product/eagleeye')">
           <span class="font-format">{{ $t('lang.LearnMoreBtn') }}</span>
         </n-button>
       </div>
@@ -238,7 +238,7 @@
         </blog-new>
         <p
           class="blog-more-btn cursor-pointer absolute hover:underline"
-          @click="routerPush('/index/resource')">
+          @click="routerPush('/resources')">
           {{ $t('lang.home.more') }}
           <img alt="" src="../../assets/img/more.png" class="inline ml-2" style="height: 14px" />
         </p>
@@ -353,22 +353,22 @@
         {
           isHover: false,
           label: t('lang.home.mgtitle1'),
-          value: '/index/service/contracts',
+          value: '/service/audit',
         },
         {
           isHover: false,
           label: t('lang.home.mgtitle2'),
-          value: '/index/service/security',
+          value: '/service/chainsaudit',
         },
         {
           isHover: false,
           label: t('lang.home.mgtitle3'),
-          value: '/index/product/productVaaS',
+          value: '/product/vass',
         },
         {
           isHover: false,
           label: t('lang.home.mgtitle4'),
-          value: '/index/product/productEagle',
+          value: '/product/eagleeye',
         },
       ])
 

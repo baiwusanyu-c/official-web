@@ -21,11 +21,16 @@ const articleView = () => import('../views/resource/ArticleView/index.vue')
 const trace = () => import('../views/trace/index.vue')
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/',
+    path: '/index',
     component: main,
     children: [
       {
-        path: '/',
+        path: 'report',
+        component: report,
+        name: 'report',
+      },
+      {
+        path: '/index/home',
         component: home,
         name: 'home',
         meta: {
@@ -37,9 +42,9 @@ const routes: Array<RouteRecordRaw> = [
         },
       },
       {
-        path: '/resources',
+        path: '/index/resource',
         component: resource,
-        name: 'resources',
+        name: 'research',
         meta: {
           title: 'Blog - Beosin Smart Contract Security Audit Service | Code Review and Report',
           keywords:
@@ -49,41 +54,12 @@ const routes: Array<RouteRecordRaw> = [
         },
       },
       {
-        path: '/resources/:name',
+        path: '/index/article-preview',
         component: articleView,
         name: 'articleView',
       },
-      // 合约审计服务
       {
-        path: '/service/audit',
-        component: contracts,
-        name: 'audit',
-        meta: {
-          title:
-            'Security Audit - Beosin Smart Contract Security Audit Service | Code Review and Report',
-          keywords:
-            'Smart Contract Audit, Formal Verification,  Audit Report，NFT Contract，DeFi Contracts，GameFi Contract',
-          description:
-            "Beosin's auditing service supports multiple blockchains. With the help of formal verification tools and manual code audit by security experts, Beosin security audit can identify security vulnerabilities in the source code and ensure consistency between the smart contract code and the business logic it has implemented.",
-        },
-      },
-      // 链平台审计服务
-      {
-        path: '/service/chainsaudit',
-        component: security,
-        name: 'chainsaudit',
-        meta: {
-          title:
-            'Blockchain Audit - Beosin Smart Contract Security Audit Service | Code Review and Report',
-          keywords:
-            'Blockchain Platform Security Audit，Code Review，White Box Testing，Grey Box Testing，Black Box Testing',
-          description:
-            'Beosin Blockchain Platform Audit Service ensures the safe operation of the chain platform by conducting code security audits on the modules of chain platform node communication, storage, consensus and authority management through different security audits such as black box, gray box and white box. This includes language coding security audit, block production and governance audit, account system security audit, asset security audit, application layer security audit, etc.',
-        },
-      },
-      // 加密货币追踪服务
-      {
-        path: '/service/tracing',
+        path: '/index/service/trace',
         component: trace,
         meta: {
           title: 'Crypto Trace - Beosin Cryptocurrency Tracing Service',
@@ -93,23 +69,36 @@ const routes: Array<RouteRecordRaw> = [
             'Beosin Cryptocurrency Tracing Service provides one-stop on-chain transaction and asset flow analysis with detailed investigation covering transaction behavior analysis, asset flow tracing, address monitoring, forensics reports etc, and provides capabilities to trace stolen assets and mixed coins; assess wallet addresses and transactions security; and monitor suspicious wallet addresses. The product can be used for performing KYT and AML compliance assessments.',
         },
       },
-      // 关于我们
       {
-        path: '/aboutus',
-        component: aboutUs,
-        name: 'aboutus',
+        path: '/index/service/contracts',
+        component: contracts,
+        name: 'contracts',
         meta: {
-          title: 'About Beosin - Smart Contract Security Audit Service | Code Review and Report',
-          keywords: 'About Us，Contact Us，Social Media，Web3.0 Blockchain Ecosystem',
+          title:
+            'Security Audit - Beosin Smart Contract Security Audit Service | Code Review and Report',
+          keywords:
+            'Smart Contract Audit, Formal Verification,  Audit Report，NFT Contract，DeFi Contracts，GameFi Contract',
           description:
-            'Beosin is a Web3 security company headquartered in Singapore, with 100+ team members and 85% of technical staff. It has over 40 engineers, security researchers, and analysts with Ph.D. and postdoc degrees. Beosin offers a comprehensive suite of security products and services covering smart contract and blockchain security auditing, blockchain transaction monitoring and risk alert, cryptocurrency tracing, and KYT and AML. It has audited over 2,000 smart contracts and over 100 blockchain platforms globally. Its Tracing service has helped investors recover hundreds of millions of stolen cryptos, including those laundered through Tornado Cash.',
+            "Beosin's auditing service supports multiple blockchains. With the help of formal verification tools and manual code audit by security experts, Beosin security audit can identify security vulnerabilities in the source code and ensure consistency between the smart contract code and the business logic it has implemented.",
         },
       },
-      // vass产品介绍
       {
-        path: '/product/vass',
+        path: '/index/service/security',
+        component: security,
+        name: 'security',
+        meta: {
+          title:
+            'Blockchain Audit - Beosin Smart Contract Security Audit Service | Code Review and Report',
+          keywords:
+            'Blockchain Platform Security Audit，Code Review，White Box Testing，Grey Box Testing，Black Box Testing',
+          description:
+            'Beosin Blockchain Platform Audit Service ensures the safe operation of the chain platform by conducting code security audits on the modules of chain platform node communication, storage, consensus and authority management through different security audits such as black box, gray box and white box. This includes language coding security audit, block production and governance audit, account system security audit, asset security audit, application layer security audit, etc.',
+        },
+      },
+      {
+        path: '/index/product/productVaaS',
         component: productVass,
-        name: 'vass',
+        name: 'productVass',
         meta: {
           title:
             'About Vaas - Beosin Smart Contract Security Audit Service | Code Review and Report',
@@ -119,11 +108,10 @@ const routes: Array<RouteRecordRaw> = [
             'Beosin VaaS is a SaaS-based smart contract verification tool based on formal verification technology. It can automatically identify known and unknown vulnerabilities and business logic issues in smart contracts and recommend solutions to fix any existing problems.',
         },
       },
-      // eagleeye产品介绍
       {
-        path: '/product/eagleeye',
+        path: '/index/product/productEagle',
         component: productEagle,
-        name: 'eagleeye',
+        name: 'productEagle',
         meta: {
           title:
             'About Beosin EagleEye - Web3 Security Monitor. Security Assessment, Risk Transactions Identification, and Security Sentiment',
@@ -133,21 +121,25 @@ const routes: Array<RouteRecordRaw> = [
             'Beosin EagleEye is a Web 3.0 security service that protects crypto assets 24by7 through multi-dimensional project security assessment, continuous smart contract scanning and assessment, real-time risk transaction identification with behavior analysis, and crypto address monitoring with early warning capabilities.',
         },
       },
-      // 报告（登陆后页面）
       {
-        path: 'report',
-        component: report,
-        name: 'report',
-      },
-      // 个人中心（登陆后页面）
-      {
-        path: '/user/personal',
+        path: '/index/user/personal',
         component: personal,
         name: 'personal',
         meta: {
           title: '',
           keywords: '',
           description: '',
+        },
+      },
+      {
+        path: '/index/aboutUs',
+        component: aboutUs,
+        name: 'aboutUs',
+        meta: {
+          title: 'About Beosin - Smart Contract Security Audit Service | Code Review and Report',
+          keywords: 'About Us，Contact Us，Social Media，Web3.0 Blockchain Ecosystem',
+          description:
+            'Beosin is a Web3 security company headquartered in Singapore, with 100+ team members and 85% of technical staff. It has over 40 engineers, security researchers, and analysts with Ph.D. and postdoc degrees. Beosin offers a comprehensive suite of security products and services covering smart contract and blockchain security auditing, blockchain transaction monitoring and risk alert, cryptocurrency tracing, and KYT and AML. It has audited over 2,000 smart contracts and over 100 blockchain platforms globally. Its Tracing service has helped investors recover hundreds of millions of stolen cryptos, including those laundered through Tornado Cash.',
         },
       },
     ],
@@ -162,6 +154,10 @@ const routes: Array<RouteRecordRaw> = [
     path: '/test',
     component: test,
     name: 'test',
+  },
+  {
+    path: '/',
+    redirect: '/index/home',
   },
   {
     path: '/:w+',

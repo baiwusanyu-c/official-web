@@ -9,7 +9,7 @@
       navigation
       :initial-slide="0">
       <SwiperSlide>
-        <div class="card-1 card" @click="$router.push('/index/service/contracts')">
+        <div class="card-1 card" @click="$router.push('/service/audit')">
           <h2 class="title2">Blockchain Security Audit</h2>
           <p class="text2">
             Provide security auditing services in blockchains, smart contracts, and Web3 apps with
@@ -18,13 +18,13 @@
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div class="card-2 card" @click="$router.push('/index/product/productVaaS')">
+        <div class="card-2 card" @click="$router.push('/product/vass')">
           <h2 class="title2">Beosin VaaS</h2>
           <p class="text2">Improve the security of smart contracts for developers</p>
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div class="card-3 card" @click="$router.push('/index/product/productEagle')">
+        <div class="card-3 card" @click="$router.push('/product/eagleeye')">
           <h2 class="title2">Beosin Eagle Eye</h2>
           <p class="text2">
             Security Assessment, Risk Transactions Identification, and Security Sentiment.
@@ -32,7 +32,7 @@
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div class="card-4 card" @click="$router.push('/index/service/trace')">
+        <div class="card-4 card" @click="$router.push('/service/tracing')">
           <h2 class="title2">Cryptocurrency Tracing</h2>
           <p class="text2">
             Help users track the flow of Crypto Assets, monitor suspicious addresses, and assist in
@@ -42,24 +42,24 @@
       </SwiperSlide>
     </Swiper>
     <div class="card-content card-content-min">
-      <div class="card-1 card" @click="$router.push('/index/service/contracts')">
+      <div class="card-1 card" @click="$router.push('/service/audit')">
         <h2 class="title2">Blockchain Security Audit</h2>
         <p class="text2">
           Provide security auditing services in blockchains, smart contracts, and Web3 apps with
           Formal Verification and comprehensive Cybersecurity techniques.
         </p>
       </div>
-      <div class="card-2 card" @click="$router.push('/index/product/productVaaS')">
+      <div class="card-2 card" @click="$router.push('/product/vass')">
         <h2 class="title2">Beosin VaaS</h2>
         <p class="text2">Improve the security of smart contracts for developers</p>
       </div>
-      <div class="card-3 card" @click="$router.push('/index/product/productEagle')">
+      <div class="card-3 card" @click="$router.push('/product/eagleeye')">
         <h2 class="title2">Beosin Eagle Eye</h2>
         <p class="text2">
           Security Assessment, Risk Transactions Identification, and Security Sentiment.
         </p>
       </div>
-      <div class="card-4 card" @click="$router.push('/index/service/trace')">
+      <div class="card-4 card" @click="$router.push('/service/tracing')">
         <h2 class="title2">Cryptocurrency Tracing</h2>
         <p class="text2">
           Help users track the flow of Crypto Assets, monitor suspicious addresses, and assist in

@@ -127,7 +127,7 @@
         if (currentArticle.value.type === 1 && currentArticle.value.url) {
           window.open(currentArticle.value.url)
         } else {
-          const host = '/#/index/article-preview?id=' + currentArticle.value.id
+          const host = '/resources/' + currentArticle.value.title + '?id=' + currentArticle.value.id
           openUrl(host, { target: '_blank' })
         }
       }

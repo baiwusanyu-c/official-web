@@ -5,10 +5,7 @@
       <register-account v-if="showType === 'register'" @show-change="changeType"></register-account>
       <login-password v-if="showType === 'login'" @show-change="changeType"></login-password>
       <forget-password v-if="showType === 'forget'" @show-change="changeType"></forget-password>
-      <be-icon
-        icon="deleteIc"
-        custom-class="back absolute"
-        @click="routerPush('/index/home')"></be-icon>
+      <be-icon icon="deleteIc" custom-class="back absolute" @click="routerPush('/')"></be-icon>
     </div>
   </div>
 </template>
