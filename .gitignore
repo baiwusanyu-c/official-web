@@ -5,3 +5,5 @@ dist
 .vscode
 /.idea/.gitignore
 .idea
+err.log
+out.log

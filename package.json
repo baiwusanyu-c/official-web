@@ -2,20 +2,24 @@
   "name": "hermit-front",
   "version": "1.0.4",
   "scripts": {
-    "dev:ssr": "node ssr/dev.mjs --mode development",
-    "dev:staging": "vite --host --mode staging",
-    "build:client:stage": "vite  build --mode staging  --ssrManifest  --outDir dist/client",
-    "build:server:stage": "vite build --mode staging --config vite.config.noexternal.ts --ssr src/entry-server.ts --outDir dist/server",
-    "copy:ssrdir": "rm -rf dist && mkdir dist && cp -r ssr dist/ && cd dist/ssr && npm install",
-    "build:stage": "run-p copy:ssrdir build:client:stage build:server:stage ",
-    "build": "run-p copy:ssrdir build:client:stage build:server:stage",
+    "dev": "node ssr/dev.mjs --mode development",
+    "dev:client": "vite --host --mode development",
+    "dev:test": "vite --host --mode staging",
+    "build:client:test": "vite  build --mode staging  --ssrManifest  --outDir dist/client",
+    "build:server:test": "vite build --mode staging --config vite.config.noexternal.ts --ssr src/entry-server.ts --outDir dist/server",
+    "build:client:prod": "vite  build --mode production  --ssrManifest  --outDir dist/client",
+    "build:server:prod": "vite build --mode production --config vite.config.noexternal.ts --ssr src/entry-server.ts --outDir dist/server",
+    "copy:ssrdir": "rm -rf dist && mkdir dist && cp -r ssr/prod dist/ssr && cd dist/ssr && npm install",
+    "build:test02": "run-p copy:ssrdir build:client:test build:server:test",
+    "build:test": "npm run build:test02",
+    "build:prod": "run-p copy:ssrdir build:client:prod build:server:prod",
     "lint:style": "stylelint src/**/*.{html,vue,css}",
     "lint:style-fix": "stylelint --fix src/**/*.{html,vue,css}",
     "lint:ts": "eslint ./src --ext .vue,.js,.ts,.jsx,.tsx",
     "lint:ts-fix": "eslint --fix ./src --ext .vue,.js,.ts,.jsx,.tsx ",
     "prettier:fix": "prettier --write .",
     "prepare": "husky install",
-    "formatDateiew": "vite preview --port 8081 --host"
+    "preview": "cd ssr && node preview.js"
   },
   "lint-staged": {
     "*.{vue,js,ts,jsx,tsx}": [
@@ -25,6 +29,7 @@
     ]
   },
   "dependencies": {
+    "@css-render/vue3-ssr": "^0.15.10",
     "@popperjs/core": "^2.10.1",
     "@types/qs": "^6.9.7",
     "@vicons/ionicons5": "^0.11.0",
@@ -37,7 +42,6 @@
     "naive-ui": "^2.31.0",
     "npm-run-all": "^4.1.5",
     "qs": "^6.10.2",
-    "serve-static": "^1.15.0",
     "swiper": "^7.3.2",
     "vite-plugin-svg-transform-script": "^1.1.0",
     "vue": "^3.2.36",

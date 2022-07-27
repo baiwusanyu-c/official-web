@@ -1,0 +1,10 @@
+{
+  "apps": [
+    {
+      "name": "beosin-ssr",
+      "script": "./prod.js",
+      "err_file": "err.log",
+      "out_file": "out.log"
+    }
+  ]
+}

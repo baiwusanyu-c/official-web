@@ -30,7 +30,7 @@
 
     <div class="board-main">
       <!-- 由于在服务端n-tabs组件渲染（document is not defined）有异常，故此处（v-if="ssr"）单独绕开该组件 -->
-      <div v-if="ssr">
+      <div>
         <!-- 获取所有纯文章 -->
         <All :page-size="9999" />
         <!-- 深度报告内除了文章可能有pdf，故单独请求 -->
@@ -39,7 +39,7 @@
         <CompanyResources :type="7" :page-size="999" />
       </div>
 
-      <n-tabs v-if="!ssr" class="card-tabs" :value="currType" :on-update:value="handleChange">
+      <n-tabs class="card-tabs" :value="currType" :on-update:value="handleChange">
         <n-tab-pane name="" tab="All">
           <All />
         </n-tab-pane>

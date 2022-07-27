@@ -148,7 +148,7 @@
         </li>
       </ul>
     </div>
-    <trace-form v-if="!ssr"></trace-form>
+    <trace-form></trace-form>
   </main>
 </template>
 

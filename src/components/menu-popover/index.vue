@@ -144,12 +144,12 @@
 <style lang="less">
   // 防止popover框在移动端时被部分截取隐藏
   .n-drawer .n-drawer-content .n-drawer-body {
-    overflow: unset;
+    overflow: unset !important;
   }
   .n-drawer.n-drawer--native-scrollbar .n-drawer-content-wrapper {
-    overflow: unset;
+    overflow: unset !important;
   }
   .n-drawer .n-drawer-content.n-drawer-content--native-scrollbar .n-drawer-body-content-wrapper {
-    overflow: unset;
+    overflow: unset !important;
   }
 </style>
