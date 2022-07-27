@@ -11,7 +11,7 @@ enum developmentUrl {
 }
 // 测试环境
 enum stagingnUrl {
-  baseURL = 'http://124.71.132.90:9527',
+  baseURL = 'http://192.168.1.231:9527',
 }
 // 预发布环境
 enum pretestnUrl {
@@ -23,7 +23,7 @@ enum developmentUrl02 {
 }
 
 enum stagingnUrl02 {
-  baseURL = 'http://124.71.132.90:9527',
+  baseURL = 'http://192.168.1.231:9527',
 }
 
 enum production02 {
