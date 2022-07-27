@@ -9,7 +9,7 @@
     "build:server:test": "vite build --mode staging --config vite.config.noexternal.ts --ssr src/entry-server.ts --outDir dist/server",
     "build:client:prod": "vite  build --mode production  --ssrManifest  --outDir dist/client",
     "build:server:prod": "vite build --mode production --config vite.config.noexternal.ts --ssr src/entry-server.ts --outDir dist/server",
-    "copy:ssrdir": "rm -rf dist && mkdir dist && cp -r ssr/prod dist/ssr && cd dist/ssr && npm install",
+    "copy:ssrdir": "rm -rf dist && mkdir dist && cp -r ssr/prod dist/ssr && cd dist/ssr",
     "build:test02": "run-p copy:ssrdir build:client:test build:server:test",
     "build:test": "npm run build:test02",
     "build:prod": "run-p copy:ssrdir build:client:prod build:server:prod",
