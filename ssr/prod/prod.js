@@ -7,7 +7,7 @@ const express = require('express')
 const app = express()
 
 app
-  .use(express.static(client, { index: false }))
+  .use(express.static(client, { index: false, maxAge: '1y' }))
   .use(async (req, res) => {
     try {
       const url = req.originalUrl
@@ -18,7 +18,7 @@ app
       const ctx = {}
       const html = await render(url, manifest, ctx, template)
 
-      res.set({ 'Content-Type': 'text/html' })
+      res.set({ 'Content-Type': 'text/html', 'Cache-Control': 'no-store' })
       res.end(html)
     } catch (e) {
       console.error(e)
