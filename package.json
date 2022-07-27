@@ -2,8 +2,8 @@
   "name": "hermit-front",
   "version": "1.0.4",
   "scripts": {
-    "dev": "node ssr/dev.mjs --mode development",
-    "dev:client": "vite --host --mode development",
+    "dev": "node ssr/dev.mjs --mode staging",
+    "dev:client": "vite --host --mode staging",
     "dev:test": "vite --host --mode staging",
     "build:client:test": "vite  build --mode staging  --ssrManifest  --outDir dist/client",
     "build:server:test": "vite build --mode staging --config vite.config.noexternal.ts --ssr src/entry-server.ts --outDir dist/server",

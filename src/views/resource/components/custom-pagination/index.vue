@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!ssr" class="pagination">
+  <div class="pagination">
     <n-pagination :page="page" :on-update:page="updatePage" :page-count="pages" />
   </div>
 </template>

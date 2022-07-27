@@ -100,7 +100,7 @@
         <community-circle :index="3" @click="openWin(linkConfig['github'])"></community-circle>
         <community-circle :index="4" @click="openWin(linkConfig['facebook'])"></community-circle>
         <community-circle :index="5" @click="openWin(linkConfig['medium'])"></community-circle>
-        <n-popover v-if="!ssr" trigger="hover" color="#00FFBA" raw placement="bottom">
+        <n-popover trigger="hover" color="#00FFBA" raw placement="bottom">
           <template #trigger>
             <community-circle :index="6"></community-circle>
           </template>
