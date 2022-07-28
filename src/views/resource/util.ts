@@ -16,7 +16,7 @@ export const openUrl = (url, { target }) => {
 }
 
 export const goPreviewPage = (item: any, router?: Router) => {
-  if (item.type === 1 && item.url) {
+  if ((item.type === 1 && item.url) || item.type === 7) {
     window.open(item.url)
   } else {
     if (router) {

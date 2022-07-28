@@ -11,6 +11,9 @@
             maxlength="200"
             placeholder="Search for a project" />
           <n-button
+            color="#1cd2a9"
+            :bordered="false"
+            text-color="#000"
             class="bg-mainG r-btn cursor-pointer text-black hover:bg-mainGHover;"
             @click="submit">
             Search
@@ -67,7 +70,7 @@
   import composition from '@/utils/mixin/common-func'
   import VerifyCodeDialog from '@/components/verify-code-dialog-only.vue'
   import ReportResult from '@/components/report-result.vue'
-  import { NInput, NModal } from 'naive-ui'
+  import { NInput, NModal, NButton } from 'naive-ui'
   import { useI18n } from 'vue-i18n'
   const { message } = composition()
   const keyword = ref('')

@@ -14,6 +14,10 @@ const viteServer = await vite.createServer({
       usePolling: true,
       interval: 100,
     },
+    // hmr: {
+    //   protocol: 'ws',
+    //   host: 'localhost',
+    // },
   },
 })
 

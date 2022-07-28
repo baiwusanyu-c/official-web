@@ -1,6 +1,6 @@
 /* * @login-dialog.vue * @deprecated 移动端登录弹窗 * @author czh * @update (czh 2022/3/10) */
 <template>
-  <n-modal ref="moreNodeDialog" v-model:show="show" class="font-format" close-on-esc esc-exit>
+  <n-modal v-model:show="show" class="font-format" close-on-esc esc-exit>
     <div class="modal-container">
       <h4 class="modal-header">
         <n-icon size="30" @click="close"><CloseOutline /></n-icon>
@@ -57,7 +57,7 @@
 </script>
 
 <!-- prettier-ignore -->
-<style lang="less">
+<style lang="less" scoped>
   .modal-container{
     background-color: #fff;
     width: 90%;
