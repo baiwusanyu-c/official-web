@@ -4,24 +4,6 @@
     <h-header></h-header>
     <h-footer-bigger></h-footer-bigger>
   </div>
-
-  <!--    <be-popover trigger="manual" width="300" customClass="asdwq" placement="bottom">
-      <template #trigger>
-        <be-icon icon="deleteIc" style="position: absolute;left: 20%;top: 300px;"></be-icon>
-      </template>
-      <be-button type='success'>test</be-button>
-    </be-popover>
-    <be-dialog
-      ref="moreNodeDialog"
-      v-model:is-show="asdwqd"
-      :titles="''"
-      layout="right"
-      custom-class="font-format"
-      esc-exit
-      :is-drag="false"
-      :is-open-modal="true">
-       asdwqdwqdwqd
-    </be-dialog>-->
 </template>
 
 <script lang="ts">

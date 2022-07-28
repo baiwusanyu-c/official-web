@@ -1,45 +1,39 @@
 <template>
-  <div id="ver_code_dialog">
-    <be-dialog
-      ref="moreNodeDialog"
-      v-model:is-show="isShow"
-      titles="verification code"
-      layout="right"
-      custom-class="request-quote-dialog font-format"
-      esc-exit
-      :is-drag="false"
-      :is-open-modal="true">
-      <template #headerIcon>
-        <be-icon icon="deleteIc" @click="isShow = false"></be-icon>
-      </template>
-
-      <div class="plus-dialog-body flex flex-col justify-center items-center w-full">
-        <div class="flex w-full mb-12">
-          <div class="flex-1 mr-6">
-            <n-input
-              :value="code"
-              size="large"
-              @input="v => (code = v.replace(/\D/g, ''))"
-              @keyup.enter="submit" />
-          </div>
-          <div class="flex-1" @click="getCode()">
-            <img :src="codeUrl" alt="" style="height: 40px" />
+  <n-modal v-model:show="isShow" class="font-format" close-on-esc>
+    <div class="modal-container">
+      <h4 class="modal-header">
+        <span>{{ $t('lang.login.verCode') }}</span
+        ><n-icon size="30" @click="isShow = false"><CloseOutline /></n-icon>
+      </h4>
+      <div class="modal-body">
+        <div class="plus-dialog-body flex flex-col justify-center items-center w-full">
+          <div class="flex w-full mb-12">
+            <div class="flex-1 mr-6">
+              <n-input
+                :value="code"
+                size="large"
+                @input="v => (code = v.replace(/\D/g, ''))"
+                @keyup.enter="submit" />
+            </div>
+            <div class="flex-1" @click="getCode()">
+              <img :src="codeUrl" alt="" style="height: 40px" />
+            </div>
           </div>
         </div>
       </div>
-
-      <template #footer>
+      <div class="modal-footer">
         <be-button custom-class="sure-btn" round="3" @click="submit">
           <span class="font-format">{{ $t('lang.sure') }}</span>
         </be-button>
-      </template>
-    </be-dialog>
-  </div>
+      </div>
+    </div>
+  </n-modal>
 </template>
 
 <script lang="ts" setup>
   import { ref } from 'vue'
-  import { NInput } from 'naive-ui'
+  import { NInput, NModal, NIcon } from 'naive-ui'
+  import { CloseOutline } from '@vicons/ionicons5'
   import { getCodeImg } from '../api/login'
   import composition from '../utils/mixin/common-func'
   const emit = defineEmits<{
@@ -80,54 +74,60 @@
   })
 </script>
 
-<!-- prettier-ignore -->
-<style>
-#ver_code_dialog .be-dialog .be-dialog-container,
-#ver_code_dialog .be-dialog .be-dialog-container .be-dialog-title {
-  border-radius: 2px;
-
-  @apply bg-mainBlueGary;
-}
-
-#ver_code_dialog .be-dialog .be-dialog-container {
-  @apply w-1/3;
-}
-
-#ver_code_dialog .be-dialog-container-head {
-  cursor: initial;
-}
-
-#ver_code_dialog .request-quote-dialog {
-  border-top: 5px solid #02fbbb;
-}
-
-#ver_code_dialog .sure-btn {
-  @apply bg-mainG text-black w-28 hover:bg-mainGHover;
-}
-
-#ver_code_dialog .plus-dialog-body {
-  @apply bg-mainBlueGary;
-}
-
-#ver_code_dialog .plus-dialog-body .label {
-  @apply text-black text-lg mb-2 font-light;
-}
-#ver_code_dialog.big .be-dialog-container{
-  width: 100%;
-  max-width: 648px;
-  min-width: 320px;
-  background-color: #fff;
-}
-#ver_code_dialog.big .be-dialog-title {
-  background-color: #fff !important;
-}
-#ver_code_dialog.big .be-dialog-footer {
-  display:none !important;
-}
-
-
-/* .request-quote-dialog .be-dialog-footer,
-.request-quote-dialog .be-dialog-title{
-     border-radius: 2px;
- } */
+<style lang="less" scoped>
+  .modal-container {
+    background-color: #eff2f7;
+    width: 33.33333%;
+    min-width: 24rem;
+    border-radius: 2px;
+    border-top: 5px solid #02fbbb;
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.25rem;
+      span {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono,
+          Courier New, monospace;
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+        font-weight: 700;
+        --tw-text-opacity: 1;
+        color: #333333;
+      }
+      .n-icon {
+        cursor: pointer;
+      }
+    }
+    .modal-body {
+      padding: 1rem 1.25rem;
+    }
+    .modal-footer {
+      padding: 1rem 1.25rem;
+      display: flex;
+      justify-content: flex-end;
+      .sure-btn {
+        --tw-bg-opacity: 1;
+        background-color: #02fbbb;
+        --tw-text-opacity: 1;
+        color: #000000;
+        width: 7rem;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        &:hover {
+          background-color: #01e099;
+        }
+      }
+    }
+  }
+  .results-container {
+    background-color: #fff;
+    width: 100%;
+    max-width: 648px;
+    min-width: 320px;
+    .modal-footer {
+      display: none;
+    }
+  }
 </style>

@@ -25,7 +25,7 @@
           <!--    博客研究    -->
           <div
             class="mb-4 w-full font-format cursor-pointer text-left text-base hover:text-mainG"
-            :class="route.path.indexOf('resource') > 0 ? 'item-active' : ''"
+            :class="route.path.indexOf('resources') > 0 ? 'item-active' : ''"
             @click="routerPush('/resources')">
             {{ $t('lang.header.resource') }}
           </div>
@@ -82,7 +82,7 @@
           <!--   關於我們    -->
           <div
             class="mb-4 w-full font-format cursor-pointer text-left text-base hover:text-mainG"
-            :class="route.path.indexOf('aboutUs') > 0 ? 'item-active' : ''"
+            :class="route.path.indexOf('aboutus') > 0 ? 'item-active' : ''"
             @click="routerPush('/aboutus')">
             {{ $t('lang.header.aboutUs') }}
           </div>
@@ -205,7 +205,7 @@
       <!--   關於我們    -->
       <div
         class="font-format w-28 cursor-pointer text-base hover:text-mainG"
-        :class="route.path.indexOf('aboutUs') > 0 ? 'item-active' : ''"
+        :class="route.path.indexOf('aboutus') > 0 ? 'item-active' : ''"
         @click="routerPush('/aboutus')">
         {{ $t('lang.header.aboutUs') }}
       </div>

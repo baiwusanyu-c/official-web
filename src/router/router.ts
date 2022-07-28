@@ -143,7 +143,7 @@ const routes: Array<RouteRecordRaw> = [
       },
       // 报告（登陆后页面）
       {
-        path: 'report',
+        path: '/report',
         component: report,
         name: 'report',
       },

@@ -249,6 +249,7 @@
 
 <script lang="ts">
   import { defineComponent, ref, reactive } from 'vue'
+  import { useRouter } from 'vue-router'
   import { useI18n } from 'vue-i18n'
   import Hexagon from '../../components/hexagon.vue'
   import HHomeSwiper from '../../components/h-home-swiper.vue'
@@ -321,6 +322,7 @@
       NButton,
     },
     async setup() {
+      const router = useRouter()
       const { t } = useI18n()
       const titleCardList = ref<Array<IBlobList>>([])
       const res: any = await getBlogNews()
@@ -378,9 +380,8 @@
         bus.emit('true')
       }
       // 路由跳转
-      const { routerPush } = composition()
-      const headerRouterPush = (value: string): void => {
-        routerPush(value)
+      const routerPush = (value: string) => {
+        router.push(value)
       }
       // swiperList 的文字、头像变量
       const swiperList = ref([
@@ -419,7 +420,6 @@
         scienceInfoList,
         titleCardList,
         customerImgList,
-        headerRouterPush,
       }
     },
   })
