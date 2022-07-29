@@ -121,6 +121,7 @@
   }
   :deep(.swiper-slide) {
     height: auto !important;
+    width: 33.333%;
   }
   .banner-card {
     position: relative;
