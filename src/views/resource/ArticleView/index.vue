@@ -83,7 +83,12 @@
   import { useRoute } from 'vue-router'
   import { NButton, NIcon } from 'naive-ui'
   import { ChevronForward } from '@vicons/ionicons5'
-  import { hermitGetArticle, guessYouLikeList, getProjectDetail } from '@/api/research.ts'
+  import {
+    hermitGetArticle,
+    guessYouLikeList,
+    getProjectDetail,
+    getArticleByEnUrl,
+  } from '@/api/research'
   import composition from '@/utils/mixin/common-func'
   import copy from '@/utils/copy'
   import { openUrl, preToText, goPreviewPage } from '../util'
@@ -113,13 +118,20 @@
     async setup() {
       const route = useRoute()
       const information = ref<any>({})
-      const likeList = ref([])
-      const project = ref({})
+      const likeList: any = ref([])
+      const project: any = ref({})
 
-      const res = await hermitGetArticle({ id: route.query.id })
+      const enUrl = route.params.name
+      const id = route.query.id
+      const res: any = await (id
+        ? hermitGetArticle({ id: route.query.id })
+        : getArticleByEnUrl({ enUrl }))
       information.value = res.data
       setDocumentInformation(route, information)
-      const likes = await guessYouLikeList({ id: route.query.id, type: res.data.type })
+      const likes = await guessYouLikeList({
+        id: information.value.id,
+        type: information.value.type,
+      })
       likeList.value = likes.data
       const relationProjectId = res.data.relationProjectId
       if (relationProjectId) {

@@ -77,6 +77,15 @@ export function getArticleTabTypes() {
   })
 }
 
+// 更具enUrl获取文章详情
+export function getArticleByEnUrl(data: any) {
+  return request({
+    url: '/website/article/overseas/home/getByEnUrl',
+    method: 'get',
+    params: data,
+  })
+}
+
 type PageQuery = { pageSize: number; pageNum: number; langType: number } // 1-英文报告
 // 报告分页查询
 export function getReportList(params: PageQuery) {

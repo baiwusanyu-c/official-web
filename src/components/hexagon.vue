@@ -87,36 +87,10 @@
   /* 100% - 110% 适配 */
   @media screen and (min-width: 1540px) and (max-width: 1750px) {
 
-    .hexagon-container {
+    /* .hexagon-container {
       height: 200px;
       font-size: 12px;
-    }
-
-    .hexagon-container:hover p {
-      font-size: 12px;
-    }
-  }
-
-  @media screen and (min-width: 1536px) and (max-width: 1750px) {
-
-    .hexagon-container {
-      height: 204px;
-      font-size: 12px;
-    }
-
-    .hexagon-container:hover p {
-      font-size: 12px;
-    }
-  }
-
-  @media screen and (min-width: 1280px) and (max-width: 1326px) {
-
-    .hexagon-container {
-      width: 32%;
-      height: 228px;
-      padding: 0 14px;
-      font-size: 12px;
-    }
+    } */
 
     .hexagon-container:hover p {
       font-size: 12px;
@@ -127,7 +101,7 @@
 
     .hexagon-container {
       width: 26%;
-      height: 128px;
+      height: 140px;
       font-size: 12px;
     }
 
