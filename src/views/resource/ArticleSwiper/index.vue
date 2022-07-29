@@ -7,7 +7,7 @@
       :centered-slides="true"
       :loop="true"
       :autoplay="{ disableOnInteraction: false }"
-      :initial-slide="0"
+      :initial-slide="1"
       :pagination="{ clickable: true, el: '#article-pagination' }"
       @slide-change="onSlideChange"
       @click="clickHandle">
