@@ -93,7 +93,7 @@
           </div>
           <!--        mobile 显示六边形         -->
           <div
-            class="display-none flex-wrap relative hexagon-container-body mr-12 justify-center sm:flex sm:mr-0">
+            class="display-none flex-wrap flex-col relative hexagon-container-body mr-12 justify-center sm:flex sm:mr-0">
             <div class="flex justify-center">
               <hexagon class="font-format" :index="7"></hexagon>
               <hexagon class="font-format" :index="8"></hexagon>
@@ -535,21 +535,19 @@
   }
 
   .hermit-main .slogan-service {
-    box-sizing: border-box;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 200px;
-    max-width: 1920px;
     margin: auto;
+    box-sizing: border-box;
+    padding: 10px 0;
+    max-width: 1230px;
   }
 
-  .slogan-service-item {
-    width: 78%;
-    min-width: 1050px;
-  }
+  // .slogan-service-item {
+  //   min-width: 1050px;
+  // }
 
   .slogan-service-item .hexagon-desc {
-    width: 40%;
+    width: 42%;
+    min-width: 330px;
   }
 
   .bar {
@@ -660,10 +658,6 @@
       /* width: 236px; */
     }
 
-    .hexagon-container-body .hexagon-b1 {
-      bottom: 50px;
-    }
-
     .hexagon-container {
       height: 190px;
     }
@@ -684,11 +678,7 @@
   /* 110% - 125% 适配 */
   @media screen and (min-width: 1328px) and (max-width: 1538px) {
     .hermit-main .slogan-service {
-      padding: 10px 116px;
-    }
-
-    .hexagon-container-body .hexagon-b1 {
-      bottom: 40px;
+      padding: 10px 0;
     }
 
     .home-swiper {
@@ -712,7 +702,7 @@
 
     .hermit-main .slogan-service {
       box-sizing: border-box;
-      padding: 30px 80px;
+      padding: 30px 0;
     }
 
     .slogan-service-item .hexagon-desc {
@@ -797,8 +787,14 @@
       width: 28%;
     }
 
+    .slogan-service-item {
+      width: 78%;
+      min-width: 1050px;
+    }
+
     .hexagon-container-body {
       width: 42%;
+      min-width: 345px;
       padding: 3em 0;
     }
 
@@ -807,6 +803,9 @@
     }
 
     .hermit-main .slogan-service {
+      box-sizing: border-box;
+      align-items: center;
+      justify-content: center;
       padding: 30px;
     }
   }

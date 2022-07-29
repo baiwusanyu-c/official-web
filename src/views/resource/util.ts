@@ -8,21 +8,27 @@ export const combineLink = (uri: string) => {
   return url
 }
 
-export const openUrl = (url, { target }) => {
+export const openUrl = (url: string, { target }: any) => {
   const aEl = document.createElement('a')
   aEl.href = url
   aEl.target = target
   aEl.click()
 }
 
+// 文章详情（包括pdf预览）跳转逻辑统一封装
 export const goPreviewPage = (item: any, router?: Router) => {
   if ((item.type === 1 && item.url) || item.type === 7) {
     window.open(item.url)
   } else {
+    const routeConfig = item.enUrl
+      ? { path: '/resources/' + item.enUrl }
+      : { path: '/resources/' + item.title, query: { id: item.id } }
+    const host = item.enUrl
+      ? '/resources/' + item.enUrl
+      : '/resources/' + item.title + '?id=' + item.id
     if (router) {
-      router.push({ path: '/resources/' + item.title, query: { id: item.id } })
+      router.push(routeConfig)
     } else {
-      const host = '/resources/' + item.title + '?id=' + item.id
       openUrl(host, { target: '_blank' })
     }
   }

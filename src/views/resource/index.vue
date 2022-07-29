@@ -76,7 +76,7 @@
   import './media-screen-style/resource.less'
   import ArticleSwipper from './ArticleSwiper/index.vue'
   import useGetArticle from './bisiness-hooks/useGetArticle'
-  import { openUrl } from './util'
+  import { goPreviewPage } from './util'
   import { getArticleTabTypes } from '@/api/research'
   import './common.less'
   export default defineComponent({
@@ -108,33 +108,31 @@
       })
 
       // eslint-disable-next-line vue/no-watch-after-await
-      watch(
-        () => articles.value.length,
-        () => {
-          currentArticle.value = articles.value[0]
-        }
-      )
+      // watch(
+      //   () => articles.value.length,
+      //   () => {
+      //     console.log(777)
+      //     currentArticle.value = articles.value[0]
+      //   }
+      // )
+      // console.log(articles.value)
 
-      const currentArticle = ref({})
+      const currentArticle: any = ref(articles.value[0])
 
       const goLearnMore = () => {
-        if (currentArticle.value.type === 1 && currentArticle.value.url) {
-          window.open(currentArticle.value.url)
-        } else {
-          const host = '/resources/' + currentArticle.value.title + '?id=' + currentArticle.value.id
-          openUrl(host, { target: '_blank' })
-        }
+        goPreviewPage(currentArticle.value)
       }
 
-      const tabTypes = ref([])
+      const tabTypes: any = ref([])
       const res = await getArticleTabTypes()
       tabTypes.value = res.data
 
-      const onSlideChange = item => {
+      const onSlideChange = (item: any) => {
+        // console.log('-----', item)
         currentArticle.value = item
       }
 
-      const handleChange = type => {
+      const handleChange = (type: any) => {
         currType.value = type
       }
 
