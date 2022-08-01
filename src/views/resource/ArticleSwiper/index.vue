@@ -46,11 +46,6 @@
     },
     emits: ['onSlideChange', 'goLearnMore'],
     setup(props, context) {
-      !import.meta.env.SSR &&
-        setTimeout(() => {
-          document.getElementsByClassName('swiper-wrapper')[0].style.transform =
-            'translate3d(0px, 0px, 0px)'
-        }, 0)
       const onSlideChange = async () => {
         await ''
         const idx = document.querySelector('.swiper-slide-active .swiper-item')?.dataset?.idx
