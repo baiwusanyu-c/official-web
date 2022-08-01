@@ -117,7 +117,7 @@
       // )
       // console.log(articles.value)
 
-      const currentArticle: any = ref(articles.value[0])
+      const currentArticle: any = ref(articles.value[1])
 
       const goLearnMore = () => {
         goPreviewPage(currentArticle.value)
