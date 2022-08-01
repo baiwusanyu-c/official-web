@@ -3,6 +3,7 @@
 <template>
   <div class="article-swiper-box">
     <swiper
+      v-if="items.length"
       class="article-swiper"
       :centered-slides="true"
       :loop="true"
@@ -11,9 +12,9 @@
       :pagination="{ clickable: true, el: '#article-pagination' }"
       @slide-change="onSlideChange"
       @click="clickHandle">
-      <swiper-slide v-for="(item, i) in items" :id="item.id" :key="item.id" :item="item">
+      <swiper-slide v-for="(item, i) in (items as any[])" :id="item.id" :key="item.id" :item="item">
         <div class="swiper-item" :data-idx="i">
-          <img :src="item.coverImg" alt="" />
+          <img :src="item.coverImg" :alt="item.title" />
         </div>
       </swiper-slide>
     </swiper>
@@ -45,7 +46,7 @@
       },
     },
     emits: ['onSlideChange', 'goLearnMore'],
-    setup(props, context) {
+    async setup(props, context) {
       const onSlideChange = async () => {
         await ''
         const idx = document.querySelector('.swiper-slide-active .swiper-item')?.dataset?.idx
