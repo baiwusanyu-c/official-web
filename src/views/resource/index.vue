@@ -79,6 +79,7 @@
   import { goPreviewPage } from './util'
   import { getArticleTabTypes } from '@/api/research'
   import './common.less'
+  // import NewSwiper from './NewSwiper/index.vue'
   export default defineComponent({
     name: 'SearchV2',
     components: {
@@ -89,6 +90,7 @@
       CompanyResources,
       ArticleSwipper,
       NButton,
+      // NewSwiper
     },
     async setup() {
       const route = useRoute()
