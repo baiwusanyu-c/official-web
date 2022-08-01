@@ -3,7 +3,6 @@
 <template>
   <div class="article-swiper-box">
     <swiper
-      v-if="items.length"
       class="article-swiper"
       :centered-slides="true"
       :loop="true"
@@ -46,7 +45,12 @@
       },
     },
     emits: ['onSlideChange', 'goLearnMore'],
-    async setup(props, context) {
+    setup(props, context) {
+      !import.meta.env.SSR &&
+        setTimeout(() => {
+          document.getElementsByClassName('swiper-wrapper')[0].style.transform =
+            'translate3d(0px, 0px, 0px)'
+        }, 0)
       const onSlideChange = async () => {
         await ''
         const idx = document.querySelector('.swiper-slide-active .swiper-item')?.dataset?.idx
