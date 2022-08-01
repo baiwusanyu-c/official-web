@@ -19,7 +19,7 @@
     </div>
     <div class="resource">
       <ul class="list">
-        <li v-for="resource in resources" :key="resource.id" @click="handlePreview(resource)">
+        <li v-for="resource in resources" :key="resource.id" @click="goPreviewPage(resource)">
           <div class="banner">
             <img :src="resource.coverImg" />
           </div>
@@ -88,11 +88,6 @@
         downloadFile(combineLink(resource.url))
         // downloadFile('http://192.168.0.2:8527/' + resource.url)
       }
-      const handlePreview = (resource: any) => {
-        previewFile(combineLink(resource.url))
-        // window.open(resource.url)
-        // previewFile('http://192.168.0.2:8527/' + resource.url)
-      }
 
       return {
         articles,
@@ -101,7 +96,6 @@
         goPreviewPage,
         onUpdatePage,
         pages,
-        handlePreview,
         handleDownload,
         preToText,
       }

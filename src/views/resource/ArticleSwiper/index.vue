@@ -3,7 +3,6 @@
 <template>
   <div class="article-swiper-box">
     <swiper
-      v-if="items.length"
       class="article-swiper"
       :centered-slides="true"
       :loop="true"
